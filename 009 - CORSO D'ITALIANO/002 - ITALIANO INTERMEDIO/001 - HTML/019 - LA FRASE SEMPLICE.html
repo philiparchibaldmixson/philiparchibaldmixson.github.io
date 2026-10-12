@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Frase Semplice - Grammatica Italiana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #fff;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            animation: fadeInUp 0.8s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #f093fb;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+        }
+
+        .definition {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            animation: slideInLeft 1s ease;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            color: white;
+            font-size: 1.1em;
+            box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
+            animation: slideInRight 1s ease;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .type-box {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .type-box:hover {
+            transform: scale(1.05);
+        }
+
+        .type-title {
+            color: #fff;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .type-description {
+            color: #fff;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .type-example {
+            background: rgba(255,255,255,0.3);
+            padding: 15px;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.1em;
+            border-left: 5px solid #fff;
+        }
+
+        .sintagma-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .sintagma-box {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(250, 112, 154, 0.4);
+            transition: all 0.3s ease;
+            animation: bounceIn 1s ease;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .sintagma-box:hover {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .sintagma-title {
+            color: #fff;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .sintagma-example {
+            background: rgba(255,255,255,0.3);
+            padding: 10px;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .frase-minima {
+            background: linear-gradient(135deg, #ff6a00, #ee0979);
+            padding: 30px;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(238, 9, 121, 0.5);
+            animation: zoomIn 1s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .frase-minima h3 {
+            color: #fff;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .frase-components {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .component {
+            background: rgba(255,255,255,0.3);
+            padding: 20px 30px;
+            border-radius: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            border: 3px solid #fff;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .plus-sign {
+            font-size: 2em;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 6px solid #ff6a00;
+            animation: slideInLeft 1s ease;
+        }
+
+        .note {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            border-left: 6px solid #764ba2;
+            animation: slideInRight 1s ease;
+        }
+
+        ul {
+            margin-left: 30px;
+            line-height: 1.8;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 1.2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.5em; }
+            .sintagma-container {
+                grid-template-columns: 1fr;
+            }
+            .frase-components {
+                flex-direction: column;
+            }
+        }
+
+        .sparkle {
+            display: inline-block;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="sparkle">✨</span> LA FRASE SEMPLICE <span class="sparkle">✨</span></h1>
+            <p class="subtitle">Grammatica Italiana - Sintassi</p>
+        </header>
+
+        <!-- Sezione: Cos'è la Frase Semplice -->
+        <div class="card">
+            <h2><span class="emoji">📝</span> Cos'è la Frase Semplice?</h2>
+            <div class="definition">
+                <strong>La frase semplice (o proposizione)</strong> è una frase costituita da un solo predicato, cioè da un solo verbo, accompagnato dai suoi complementi e dalle sue espansioni.
+            </div>
+            <div class="example-box">
+                <strong>Esempio:</strong> "Il gatto dorme sul divano."
+                <br>→ Un solo verbo (dorme) = frase semplice
+            </div>
+            <div class="highlight">
+                <span class="emoji">💡</span> <strong>Importante:</strong> La frase semplice si oppone alla frase complessa (o periodo), che contiene più predicati collegati tra loro.
+            </div>
+        </div>
+
+        <!-- Sezione: La Frase Minima -->
+        <div class="card">
+            <h2><span class="emoji">⚡</span> La Frase Minima</h2>
+            <div class="frase-minima">
+                <h3>La struttura più semplice!</h3>
+                <p style="font-size: 1.3em; margin: 20px 0;">
+                    La frase minima è composta solo dagli elementi essenziali:
+                </p>
+                <div class="frase-components">
+                    <div class="component">SOGGETTO</div>
+                    <div class="plus-sign">+</div>
+                    <div class="component">PREDICATO</div>
+                </div>
+            </div>
+            <div class="example-box">
+                <span class="emoji">🌟</span> <strong>Esempi di Frase Minima:</strong><br><br>
+                • Maria studia.<br>
+                • Il cane abbaia.<br>
+                • Luca corre.<br>
+                • Gli uccelli cantano.<br>
+                • Il sole splende.
+            </div>
+            <div class="note">
+                <span class="emoji">📌</span> <strong>Nota:</strong> Nella frase minima non ci sono complementi, avverbi o altre espansioni. È ridotta all'osso!
+            </div>
+        </div>
+
+        <!-- Sezione: Tipi di Frase Semplice -->
+        <div class="card">
+            <h2><span class="emoji">🎯</span> Tipi di Frase Semplice</h2>
+            <p style="font-size: 1.2em; margin-bottom: 20px;">Le frasi semplici possono essere classificate in base alla loro funzione comunicativa:</p>
+
+            <div class="type-box" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                <div class="type-title">1. FRASE ENUNCIATIVA (o Dichiarativa)</div>
+                <div class="type-description">Comunica un'informazione, dichiara un fatto.</div>
+                <div class="type-example">
+                    <span class="emoji">💬</span> Es: "Il treno parte alle otto."<br>
+                    <span class="emoji">💬</span> Es: "Oggi fa freddo."
+                </div>
+            </div>
+
+            <div class="type-box" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                <div class="type-title">2. FRASE INTERROGATIVA</div>
+                <div class="type-description">Pone una domanda, richiede un'informazione.</div>
+                <div class="type-example">
+                    <span class="emoji">❓</span> Es: "Che ore sono?"<br>
+                    <span class="emoji">❓</span> Es: "Vieni al cinema?"
+                </div>
+            </div>
+
+            <div class="type-box" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                <div class="type-title">3. FRASE ESCLAMATIVA</div>
+                <div class="type-description">Esprime un'emozione forte: gioia, rabbia, sorpresa, dolore.</div>
+                <div class="type-example">
+                    <span class="emoji">😮</span> Es: "Che bella giornata!"<br>
+                    <span class="emoji">😮</span> Es: "Quanto sei cresciuto!"
+                </div>
+            </div>
+
+            <div class="type-box" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+                <div class="type-title">4. FRASE IMPERATIVA</div>
+                <div class="type-description">Esprime un comando, un ordine, un invito o una preghiera.</div>
+                <div class="type-example">
+                    <span class="emoji">👉</span> Es: "Chiudi la porta!"<br>
+                    <span class="emoji">👉</span> Es: "Per favore, ascoltami."
+                </div>
+            </div>
+
+            <div class="type-box" style="background: linear-gradient(135deg, #ff6a00, #ee0979);">
+                <div class="type-title">5. FRASE DESIDERATIVA (o Ottativa)</div>
+                <div class="type-description">Esprime un desiderio, un'aspirazione.</div>
+                <div class="type-example">
+                    <span class="emoji">🌟</span> Es: "Magari vincessi la lotteria!"<br>
+                    <span class="emoji">🌟</span> Es: "Che tu possa essere felice!"
+                </div>
+            </div>
+
+            <div class="type-box" style="background: linear-gradient(135deg, #a8edea, #fed6e3);">
+                <div class="type-title">6. FRASE DUBITATIVA</div>
+                <div class="type-description">Esprime un dubbio, un'incertezza.</div>
+                <div class="type-example">
+                    <span class="emoji">🤔</span> Es: "Forse domani pioverà."<br>
+                    <span class="emoji">🤔</span> Es: "Chissà se verrà alla festa."
+                </div>
+            </div>
+        </div>
+
+        <!-- Sezione: Il Sintagma -->
+        <div class="card">
+            <h2><span class="emoji">🧩</span> Il Sintagma</h2>
+            <div class="definition">
+                <strong>Il sintagma</strong> è un gruppo di parole che funziona come un'unica unità all'interno della frase. È composto da una parola principale (testa) e dalle parole che la accompagnano.
+            </div>
+
+            <h3 style="color: #667eea; margin-top: 30px;">Tipi di Sintagma:</h3>
+
+            <div class="sintagma-container">
+                <div class="sintagma-box" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    <div class="sintagma-title">📌 SINTAGMA NOMINALE</div>
+                    <p style="color: white; margin: 10px 0;">Testa: NOME</p>
+                    <div class="sintagma-example">
+                        "Il gatto nero"<br>
+                        "La mia casa nuova"
+                    </div>
+                </div>
+
+                <div class="sintagma-box" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                    <div class="sintagma-title">🎬 SINTAGMA VERBALE</div>
+                    <p style="color: white; margin: 10px 0;">Testa: VERBO</p>
+                    <div class="sintagma-example">
+                        "corre velocemente"<br>
+                        "ha mangiato la pizza"
+                    </div>
+                </div>
+
+                <div class="sintagma-box" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                    <div class="sintagma-title">✨ SINTAGMA AGGETTIVALE</div>
+                    <p style="color: white; margin: 10px 0;">Testa: AGGETTIVO</p>
+                    <div class="sintagma-example">
+                        "molto bello"<br>
+                        "estremamente intelligente"
+                    </div>
+                </div>
+
+                <div class="sintagma-box" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+                    <div class="sintagma-title">⚡ SINTAGMA AVVERBIALE</div>
+                    <p style="color: white; margin: 10px 0;">Testa: AVVERBIO</p>
+                    <div class="sintagma-example">
+                        "molto velocemente"<br>
+                        "proprio qui"
+                    </div>
+                </div>
+
+                <div class="sintagma-box" style="background: linear-gradient(135deg, #ff6a00, #ee0979);">
+                    <div class="sintagma-title">🔗 SINTAGMA PREPOSIZIONALE</div>
+                    <p style="color: white; margin: 10px 0;">Testa: PREPOSIZIONE</p>
+                    <div class="sintagma-example">
+                        "nel giardino"<br>
+                        "con mio fratello"
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 30px;">
+                <span class="emoji">💡</span> <strong>Esempio di analisi in sintagmi:</strong><br><br>
+                "Il mio gatto nero dorme tranquillamente sul divano morbido."<br><br>
+                • <strong>Sintagma Nominale (Soggetto):</strong> "Il mio gatto nero"<br>
+                • <strong>Sintagma Verbale:</strong> "dorme"<br>
+                • <strong>Sintagma Avverbiale:</strong> "tranquillamente"<br>
+                • <strong>Sintagma Preposizionale:</strong> "sul divano morbido"
+            </div>
+
+            <div class="note">
+                <span class="emoji">📚</span> <strong>Importante:</strong> I sintagmi sono fondamentali per capire la struttura della frase. Ogni sintagma svolge una funzione specifica all'interno della frase semplice.
+            </div>
+        </div>
+
+        <!-- Sezione Riassuntiva -->
+        <div class="card">
+            <h2><span class="emoji">📋</span> Riassunto Generale</h2>
+            <div class="highlight">
+                <h3 style="color: #ff6a00;">🎯 Punti Chiave da Ricordare:</h3>
+                <ul>
+                    <li><strong>Frase Semplice:</strong> Una frase con un solo predicato (verbo)</li>
+                    <li><strong>Frase Minima:</strong> Soggetto + Predicato (forma più semplice)</li>
+                    <li><strong>Tipi di Frase:</strong> Enunciativa, Interrogativa, Esclamativa, Imperativa, Desiderativa, Dubitativa</li>
+                    <li><strong>Sintagma:</strong> Gruppo di parole che funziona come unità</li>
+                    <li><strong>Tipi di Sintagma:</strong> Nominale, Verbale, Aggettivale, Avverbiale, Preposizionale</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>✨ Continua a studiare e migliorerai sempre di più! ✨</p>
+            <p>📚 Grammatica Italiana - La Frase Semplice 📚</p>
+        </footer>
+    </div>
+</body>
+</html>

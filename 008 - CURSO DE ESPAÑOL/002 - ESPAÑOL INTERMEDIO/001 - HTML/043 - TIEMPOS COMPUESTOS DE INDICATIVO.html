@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiempos Compuestos del Indicativo</title>
+  <style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        color: #333;
+        background: white;
+    }
+
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 0 auto;
+        background: white;
+        page-break-after: always;
+    }
+
+    .header {
+        text-align: center;
+        padding: 30px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+
+    .header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .header p {
+        font-size: 18px;
+        opacity: 0.95;
+    }
+
+    .section {
+        margin: 30px 0;
+        padding: 25px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .section.orange {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+
+    .section.green {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        color: black;
+    }
+
+    .section.blue {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .section.pink {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+    
+    .section.teal {
+        background: linear-gradient(135deg, #00c6fb 0%, #005bea 100%);
+        color: white;
+    }
+
+    .section.purple {
+        background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+    }
+
+    h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+
+    .section.green h2, .section.green h3, .section.teal h2, .section.teal h3 {
+        color: white;
+    }
+
+    h3 {
+        font-size: 22px;
+        margin: 20px 0 10px 0;
+        color: #34495e;
+    }
+
+    p {
+        margin-bottom: 15px;
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    .tip-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #667eea;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .tip-box h4 {
+        color: #667eea;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+
+    ul {
+        margin-left: 30px;
+        margin-bottom: 15px;
+    }
+
+    li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .vocab-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .vocab-item {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    .vocab-word {
+        font-weight: bold;
+        color: #667eea;
+        font-size: 18px;
+    }
+
+    .vocab-def {
+        color: #555;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+
+    .conjugation-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .conjugation-table th, .conjugation-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .conjugation-table th {
+        background-color: #eef;
+        color: #333;
+        font-weight: bold;
+    }
+    
+    .conjugation-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    @media print {
+        body {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>📚 Tiempos Compuestos del Indicativo 📚</h1>
+      <p>La combinación de HABER y el Participio</p>
+    </div>
+
+    <div class="section orange">
+      <h2>✨ La Estructura Clave</h2>
+      <p>Los <strong>tiempos compuestos</strong> en español se forman siempre con el verbo auxiliar <strong>HABER</strong> conjugado, más el <strong>Participio</strong> del verbo principal (el que indica la acción).</p>
+      <div class="tip-box">
+        <h4>Fórmula:</h4>
+        <p><strong>HABER (conjugado) + Participio (invariable: -ado, -ido, etc.)</strong></p>
+      </div>
+      <p><strong>Importante:</strong> El participio en los tiempos compuestos es **invariable**; no concuerda en género ni número con el sujeto u objeto, a diferencia de cuando se usa como adjetivo.</p>
+    </div>
+    
+    <div class="section blue">
+      <h2>📌 Los 4 Tiempos Compuestos Principales</h2>
+      <p>Estos tiempos combinan los tiempos simples de HABER con el participio (ejemplo con **hablar** → **hablado**):</p>
+      
+      <div class="conjugation-table">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Tiempo Compuesto</th>
+                      <th>Verbo HABER (Auxiliar)</th>
+                      <th>Ejemplo (1ª persona singular)</th>
+                      <th>Uso Principal</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>**Pretérito Perfecto**</td>
+                      <td>Presente de Haber (he, has, ha...)</td>
+                      <td>**He hablado**</td>
+                      <td>Acciones pasadas vinculadas al presente.</td>
+                  </tr>
+                  <tr>
+                      <td>**Pretérito Pluscuamperfecto**</td>
+                      <td>Cofretérito de Haber (había, habías, había...)</td>
+                      <td>**Había hablado**</td>
+                      <td>Acciones pasadas anteriores a otra acción pasada.</td>
+                  </tr>
+                  <tr>
+                      <td>**Futuro Perfecto**</td>
+                      <td>Futuro Simple de Haber (habré, habrás, habrá...)</td>
+                      <td>**Habré hablado**</td>
+                      <td>Acciones futuras terminadas antes de otro momento futuro.</td>
+                  </tr>
+                  <tr>
+                      <td>**Condicional Perfecto (Potencial Compuesto)**</td>
+                      <td>Condicional Simple de Haber (habría, habrías, habría...)</td>
+                      <td>**Habría hablado**</td>
+                      <td>Acciones posibles o deseadas en el pasado que no se cumplieron.</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+    </div>
+
+    <div class="section green">
+      <h2>🧠 Usos Detallados</h2>
+      
+      <h3>1. Pretérito Perfecto: HE HABLADO</h3>
+      <ul>
+        <li style="color: white;">Para acciones que ocurrieron en un periodo de tiempo **no terminado** (<em>hoy</em>, <em>esta semana</em>, <em>este año</em>): <em>**Hemos comido** mucho esta tarde.</em></li>
+        <li style="color: white;">Para acciones pasadas con relevancia en el presente: <em>**He perdido** las llaves.</em> (Aún estoy sin ellas).</li>
+      </ul>
+
+      <h3>2. Pretérito Pluscuamperfecto: HABÍA HABLADO</h3>
+      <ul>
+        <li style="color: white;">Para una acción que sucedió **antes** de otra acción pasada: <em>Cuando llegaste, yo ya **había terminado** el trabajo.</em></li>
+      </ul>
+      
+      <h3>3. Futuro Perfecto: HABRÉ HABLADO</h3>
+      <ul>
+        <li style="color: white;">Para expresar que una acción **se habrá completado** antes de un momento futuro: <em>Para el lunes, **habré leído** todo el libro.</em></li>
+        <li style="color: white;">Para expresar una suposición o probabilidad en el pasado: <em>¿Dónde está Pedro? **Habrá ido** al cine.</em></li>
+      </ul>
+      
+      <h3>4. Condicional Perfecto: HABRÍA HABLADO</h3>
+      <ul>
+        <li style="color: white;">Para acciones que **no se realizaron** en el pasado (a menudo con 'si'): <em>Si me hubieras llamado, yo te **habría ayudado**.</em></li>
+        <li style="color: white;">Para expresar suposiciones o rumores pasados: <em>Según el informe, el ladrón **habría huido** por la ventana.</em></li>
+      </ul>
+    </div>
+
+    <div class="section purple">
+      <h2>🎯 Consejos para Dominar</h2>
+      <ul>
+        <li>**El participio es el mismo** en todos los tiempos compuestos (hablado, comido, escrito, etc.). Solo cambia la forma de HABER.</li>
+        <li>**Nunca** se separa HABER del participio por otra palabra (<em>Incorrecto: he ya comido</em>).</li>
+        <li>Practica la conjugación de **HABER** en los cuatro tiempos clave: <em>presente, copretérito (imperfecto), futuro simple, condicional simple.</em></li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <p><strong>¡Domina HABER para dominar los Tiempos Compuestos!</strong></p>
+      <p>Esta estructura es fundamental para expresar secuencias temporales complejas y probabilidades.</p>
+    </div>
+  </div>
+</body>
+</html>

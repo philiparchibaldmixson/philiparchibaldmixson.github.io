@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Temps de l'Infinitif | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-red: #ff3333;
+            --color-blue: #0066ff;
+            --color-yellow: #ffcc00;
+            --color-black: #1a1a1a;
+            --color-white: #ffffff;
+            --color-gray: #f5f5f5;
+            --color-dark-gray: #666666;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Grid Background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image: 
+                linear-gradient(var(--color-gray) 1px, transparent 1px),
+                linear-gradient(90deg, var(--color-gray) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .header-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .header-visual {
+            position: relative;
+            height: 400px;
+        }
+
+        .shape {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            background: var(--color-red);
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--color-blue);
+            bottom: 50px;
+            right: 50px;
+            transform: rotate(45deg);
+        }
+
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            background: var(--color-yellow);
+            top: 150px;
+            right: 0;
+        }
+
+        .header-content h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 6em;
+            line-height: 0.9;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            color: var(--color-black);
+        }
+
+        .highlight-red {
+            color: var(--color-red);
+        }
+
+        .highlight-blue {
+            color: var(--color-blue);
+        }
+
+        .header-subtitle {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: var(--color-dark-gray);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+        }
+
+        .header-description {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: var(--color-dark-gray);
+            max-width: 600px;
+        }
+
+        /* Intro Banner */
+        .intro-banner {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 60px;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .intro-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 100%;
+            background: var(--color-red);
+        }
+
+        .intro-banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 10px;
+            background: var(--color-blue);
+        }
+
+        .intro-banner p {
+            font-size: 1.3em;
+            line-height: 1.9;
+            max-width: 1100px;
+            font-weight: 300;
+        }
+
+        /* Section Title */
+        .section-header {
+            margin-bottom: 60px;
+            position: relative;
+            padding-left: 30px;
+            border-left: 8px solid var(--section-color);
+        }
+
+        .section-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.2em;
+            color: var(--section-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .section-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 4em;
+            line-height: 1;
+            text-transform: uppercase;
+            color: var(--color-black);
+        }
+
+        /* Temps Cards */
+        .temps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 100px;
+        }
+
+        .temps-card {
+            background: var(--color-white);
+            border: 3px solid var(--color-black);
+            padding: 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .temps-card:hover {
+            transform: translate(-8px, -8px);
+            box-shadow: 8px 8px 0 var(--card-shadow);
+        }
+
+        .temps-card.present {
+            --card-shadow: var(--color-red);
+        }
+
+        .temps-card.passe {
+            --card-shadow: var(--color-blue);
+        }
+
+        .card-header-bar {
+            background: var(--card-shadow);
+            padding: 25px 35px;
+            border-bottom: 3px solid var(--color-black);
+        }
+
+        .card-header-bar h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2.5em;
+            color: var(--color-white);
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .card-label {
+            color: var(--color-white);
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 8px;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        .card-content {
+            padding: 40px 35px;
+        }
+
+        .definition-section {
+            margin-bottom: 35px;
+        }
+
+        .definition-section h4 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: var(--card-shadow);
+            letter-spacing: 1px;
+        }
+
+        .definition-section p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: var(--color-dark-gray);
+        }
+
+        .formation-box {
+            background: var(--color-gray);
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--card-shadow);
+        }
+
+        .formation-formula {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.3em;
+            color: var(--color-black);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .formation-detail {
+            font-size: 1em;
+            color: var(--color-dark-gray);
+            line-height: 1.7;
+        }
+
+        /* Examples */
+        .exemples-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .exemple-item {
+            background: var(--color-white);
+            border: 2px solid var(--color-black);
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .exemple-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: var(--card-shadow);
+        }
+
+        .exemple-item:hover {
+            transform: translateX(10px);
+            box-shadow: 5px 5px 0 var(--color-gray);
+        }
+
+        .exemple-text {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: var(--color-black);
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .exemple-note {
+            font-size: 0.95em;
+            color: var(--color-dark-gray);
+            line-height: 1.6;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 80px 60px;
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .comparison-section::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 3px solid var(--color-yellow);
+            pointer-events: none;
+        }
+
+        .comparison-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            color: var(--color-yellow);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 50px;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .comparison-column {
+            background: rgba(255, 255, 255, 0.05);
+            border: 3px solid;
+            padding: 40px;
+        }
+
+        .comparison-column.left {
+            border-color: var(--color-red);
+        }
+
+        .comparison-column.right {
+            border-color: var(--color-blue);
+        }
+
+        .comparison-column h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2em;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .comparison-column.left h3 {
+            color: var(--color-red);
+        }
+
+        .comparison-column.right h3 {
+            color: var(--color-blue);
+        }
+
+        .comparison-point {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-point:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .comparison-point h4 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.1em;
+            color: var(--color-yellow);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .comparison-point p {
+            font-size: 1em;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .vs-divider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .vs-text {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3em;
+            color: var(--color-yellow);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            letter-spacing: 5px;
+        }
+
+        .vs-line {
+            width: 3px;
+            height: 150px;
+            background: var(--color-yellow);
+        }
+
+        /* Usage Grid */
+        .usage-section {
+            margin-bottom: 100px;
+        }
+
+        .usage-section .section-header {
+            --section-color: var(--color-yellow);
+        }
+
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .usage-card {
+            background: var(--color-gray);
+            padding: 40px;
+            position: relative;
+            border-top: 8px solid var(--usage-color);
+            transition: all 0.3s ease;
+        }
+
+        .usage-card:hover {
+            background: var(--color-white);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .usage-card.u1 { --usage-color: var(--color-red); }
+        .usage-card.u2 { --usage-color: var(--color-blue); }
+        .usage-card.u3 { --usage-color: var(--color-yellow); }
+
+        .usage-card h4 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.8em;
+            color: var(--color-black);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .usage-card p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: var(--color-dark-gray);
+            margin-bottom: 20px;
+        }
+
+        .usage-exemple {
+            background: var(--color-white);
+            border: 2px solid var(--usage-color);
+            padding: 18px 22px;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--color-black);
+            margin-top: 12px;
+        }
+
+        /* Conjugation Tables */
+        .conjugation-section {
+            margin-bottom: 100px;
+        }
+
+        .conjugation-section .section-header {
+            --section-color: var(--color-blue);
+        }
+
+        .conjugation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+        }
+
+        .conjugation-card {
+            background: var(--color-white);
+            border: 3px solid var(--color-black);
+            overflow: hidden;
+        }
+
+        .conjugation-header {
+            background: var(--conj-color);
+            padding: 25px;
+            border-bottom: 3px solid var(--color-black);
+        }
+
+        .conjugation-header h4 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.8em;
+            color: var(--color-white);
+            text-transform: uppercase;
+        }
+
+        .conjugation-card.c1 { --conj-color: var(--color-red); }
+        .conjugation-card.c2 { --conj-color: var(--color-blue); }
+
+        .conjugation-body {
+            padding: 30px;
+        }
+
+        .verb-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .verb-table tr {
+            border-bottom: 2px solid var(--color-gray);
+        }
+
+        .verb-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .verb-table td {
+            padding: 15px 10px;
+            font-size: 1.1em;
+        }
+
+        .verb-table td:first-child {
+            font-weight: 600;
+            color: var(--color-dark-gray);
+            width: 40%;
+        }
+
+        .verb-table td:last-child {
+            font-weight: 700;
+            color: var(--color-black);
+        }
+
+        /* Notes Section */
+        .notes-section {
+            background: var(--color-red);
+            color: var(--color-white);
+            padding: 80px 60px;
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .notes-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+        }
+
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 35px;
+        }
+
+        .note-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--color-white);
+            padding: 35px;
+            transition: all 0.3s ease;
+        }
+
+        .note-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.02);
+        }
+
+        .note-card h4 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            color: var(--color-yellow);
+        }
+
+        .note-card p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .note-exemple {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-left: 4px solid var(--color-yellow);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-shapes {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-shape {
+            width: 40px;
+            height: 40px;
+        }
+
+        .footer-shape.s1 {
+            background: var(--color-red);
+            border-radius: 50%;
+        }
+
+        .footer-shape.s2 {
+            background: var(--color-blue);
+        }
+
+        .footer-shape.s3 {
+            background: var(--color-yellow);
+            transform: rotate(45deg);
+        }
+
+        .footer-logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3em;
+            color: var(--color-white);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .footer-text {
+            font-size: 1em;
+            color: var(--color-dark-gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 1200px) {
+            .header-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-visual {
+                height: 300px;
+            }
+
+            .temps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .vs-divider {
+                flex-direction: row;
+            }
+
+            .vs-text {
+                writing-mode: horizontal-tb;
+            }
+
+            .vs-line {
+                width: 150px;
+                height: 3px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+
+            .header-content h1 {
+                font-size: 3.5em;
+            }
+
+            .section-title {
+                font-size: 2.5em;
+            }
+
+            .comparison-title,
+            .notes-title {
+                font-size: 2.5em;
+            }
+
+            .usage-grid,
+            .conjugation-grid,
+            .notes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .temps-card,
+        .usage-card,
+        .note-card {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+
+    <div class="container">
+        <header>
+            <div class="header-grid">
+                <div class="header-visual">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                </div>
+                <div class="header-content">
+                    <h1>
+                        LES TEMPS<br>
+                        DE L'<span class="highlight-red">INFI</span><span class="highlight-blue">NITIF</span>
+                    </h1>
+                    <div class="header-subtitle">Mode Infinitif • Grammaire Française</div>
+                    <p class="header-description">
+                        L'infinitif possède deux temps qui permettent d'exprimer la simultanéité ou l'antériorité d'une action par rapport au verbe principal. Maîtriser ces deux formes est essentiel pour une expression française précise et élégante.
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <div class="intro-banner">
+            <p>
+                Le mode infinitif est la forme nominale du verbe, celle qui le désigne sans préciser ni personne ni nombre. Contrairement aux idées reçues, l'infinitif n'est pas intemporel : il possède deux temps qui expriment des rapports temporels précis avec le verbe de la phrase principale. L'<strong>infinitif présent</strong> marque la simultanéité ou la postériorité, tandis que l'<strong>infinitif passé</strong> indique l'antériorité. Cette distinction temporelle, bien que subtile, enrichit considérablement les possibilités d'expression et permet d'éviter toute ambiguïté temporelle.
+            </p>
+        </div>
+
+        <!-- INFINITIF PRÉSENT -->
+        <div class="section-header" style="--section-color: var(--color-red);">
+            <div class="section-number">01 • Infinitif Présent</div>
+            <h2 class="section-title">Infinitif<br>Présent</h2>
+        </div>
+
+        <div class="temps-grid">
+            <div class="temps-card present">
+                <div class="card-header-bar">
+                    <h3>Infinitif Présent</h3>
+                    <div class="card-label">Forme Simple • Temps Non-Composé</div>
+                </div>
+                <div class="card-content">
+                    <div class="definition-section">
+                        <h4>Définition</h4>
+                        <p>
+                            L'infinitif présent est la <strong>forme de base du verbe</strong>, celle qui apparaît dans le dictionnaire. Il exprime une action <strong>simultanée ou postérieure</strong> par rapport au verbe principal de la phrase.
+                        </p>
+                    </div>
+
+                    <div class="formation-box">
+                        <div class="formation-formula">Forme Simple</div>
+                        <div class="formation-detail">
+                            L'infinitif présent est la forme brute du verbe, sans conjugaison : PARLER, FINIR, PRENDRE, ÊTRE, AVOIR, etc. C'est la forme la plus élémentaire, celle qu'on apprend en premier.
+                        </div>
+                    </div>
+
+                    <div class="definition-section">
+                        <h4>Valeur Temporelle</h4>
+                        <p>
+                            L'infinitif présent exprime une action qui se déroule <strong>en même temps</strong> que l'action principale, ou qui lui est <strong>postérieure</strong>. Il n'indique jamais l'antériorité.
+                        </p>
+                    </div>
+
+                    <h4 style="font-family: 'Archivo Black', sans-serif; font-size: 1.2em; text-transform: uppercase; margin: 25px 0 15px; color: var(--color-red);">Exemples</h4>
+
+                    <ul class="exemples-list">
+                        <li class="exemple-item">
+                            <div class="exemple-text">« Je veux partir maintenant. »</div>
+                            <div class="exemple-note">Simultanéité — Le désir et le départ sont concomitants. L'action de partir se situe au même moment que le verbe principal « veux ».</div>
+                        </li>
+
+                        <li class="exemple-item">
+                            <div class="exemple-text">« Il espère réussir son examen. »</div>
+                            <div class="exemple-note">Postériorité — L'espoir est présent, mais la réussite est future. L'infinitif « réussir » est postérieur à « espère ».</div>
+                        </li>
+
+                        <li class="exemple-item">
+                            <div class="exemple-text">« Elle aime lire le soir. »</div>
+                            <div class="exemple-note">Action générale — L'infinitif exprime une action habituelle, non située temporellement de façon précise.</div>
+                        </li>
+
+                        <li class="exemple-item">
+                            <div class="exemple-text">« Il faut travailler pour réussir. »</div>
+                            <div class="exemple-note">Nécessité générale — Les deux infinitifs expriment des actions de portée générale, sans ancrage temporel spécifique.</div>
+                        </li>
+
+                        <li class="exemple-item">
+                            <div class="exemple-text">« Je l'ai vu courir dans la rue. »</div>
+                            <div class="exemple-note">Simultanéité au passé — L'action de courir se déroule en même temps que l'action de voir (au passé).</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="temps-card passe">
+                <div class="card-header-bar">
+                    <h3>Infinitif Passé</h3>
+                    <div class="card-label">Forme Composée • Temps Antérieur</div>
+                </div>
+                <div class="card-content">
+                    <div class="definition-section">
+                        <h4>Définition</h4>
+                        <p>
+                            L'infinitif passé est une <strong>forme composée</strong> qui exprime une action <strong>antérieure</strong> (accomplie avant) l'action du verbe principal. Il marque explicitement la chronologie des événements.
+                        </p>
+                    </div>
+
+                    <div class="formation-box">
+                        <div class="formation-formula">Auxiliaire + Participe Passé</div>
+                        <div class="formation-detail">
+                            <strong>AVOIR ou ÊTRE à l'infinitif + PARTICIPE PASSÉ</strong><br>
+                            Exemples : avoir parlé, être parti(e), s'être levé(e), avoir fini, être venu(e)
+                        </div>
+                    </div>
+
+                    <div class="definition-section">
+                        <h4>Valeur Temporelle</h4>
+                        <p>
+                            L'infinitif passé exprime <strong>exclusivement l'antériorité</strong>. L'action qu'il désigne est nécessairement accomplie <strong>avant</strong> l'action du verbe principal.
+                        </p>
+                    </div>
+
+                    <h4 style="font-family: 'Archivo Black', sans-serif; font-size: 1.2em; text-transform: uppercase; margin: 25px 0 15px; color: var(--color-blue);">Exemples</h4>
+
+                    <ul class="exemples-list">
+                        <li class="exemple-item">
+                            <div class="exemple-text">« Après avoir mangé, il est sorti. »</div>
+                            <div class="exemple-note">Antériorité claire — L'action de manger est complètement terminée avant la sortie. La chronologie est explicite.</div>
+                        </li>
+
+                        <li class="exemple-item">
+                            <div class="exemple-text">« Elle regrette d'avoir dit cela. »</div>
+                            <div class="exemple-note">Action passée regrettée — Le regret est présent, mais les paroles sont antérieures. L'infinitif passé marque cette antériorité.</div>
+                        </li>
+
+                        <li class="exemple-item">
+                            <div class="exemple-text">« Il est content d'être arrivé à temps. »</div>
+                            <div class="exemple-note">Satisfaction actuelle, action accomplie — L'arrivée précède la satisfaction. L'infinitif passé souligne que c'est fait.</div>
+                        </li>
+
+                        <li class="exemple-item">
+                            <div class="exemple-text">« Après s'être reposée, elle a repris le travail. »</div>
+                            <div class="exemple-note">Succession chronologique — Le repos est achevé avant la reprise du travail. L'infinitif passé pronominal marque cette séquence.</div>
+                        </li>
+
+                        <li class="exemple-item">
+                            <div class="exemple-text">« Je te remercie d'avoir accepté mon invitation. »</div>
+                            <div class="exemple-note">Remerciement pour action antérieure — L'acceptation a eu lieu avant le remerciement actuel.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPARISON -->
+        <div class="comparison-section">
+            <h2 class="comparison-title">Comparaison</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-column left">
+                    <h3>Infinitif<br>Présent</h3>
+                    
+                    <div class="comparison-point">
+                        <h4>Structure</h4>
+                        <p>Forme simple : le verbe seul à l'infinitif</p>
+                    </div>
+
+                    <div class="comparison-point">
+                        <h4>Valeur Temporelle</h4>
+                        <p>Simultanéité ou postériorité par rapport au verbe principal</p>
+                    </div>
+
+                    <div class="comparison-point">
+                        <h4>Aspect</h4>
+                        <p>Action non accomplie, en cours ou à venir</p>
+                    </div>
+
+                    <div class="comparison-point">
+                        <h4>Usage</h4>
+                        <p>Très fréquent, forme la plus courante de l'infinitif</p>
+                    </div>
+
+                    <div class="comparison-point">
+                        <h4>Exemple Type</h4>
+                        <p>« Je veux partir » — le départ est simultané ou futur par rapport au désir</p>
+                    </div>
+                </div>
+
+                <div class="vs-divider">
+                    <div class="vs-text">VS</div>
+                    <div class="vs-line"></div>
+                </div>
+
+                <div class="comparison-column right">
+                    <h3>Infinitif<br>Passé</h3>
+                    
+                    <div class="comparison-point">
+                        <h4>Structure</h4>
+                        <p>Forme composée : auxiliaire à l'infinitif + participe passé</p>
+                    </div>
+
+                    <div class="comparison-point">
+                        <h4>Valeur Temporelle</h4>
+                        <p>Antériorité stricte par rapport au verbe principal</p>
+                    </div>
+
+                    <div class="comparison-point">
+                        <h4>Aspect</h4>
+                        <p>Action accomplie, terminée avant une autre</p>
+                    </div>
+
+                    <div class="comparison-point">
+                        <h4>Usage</h4>
+                        <p>Moins fréquent, marque explicitement la chronologie</p>
+                    </div>
+
+                    <div class="comparison-point">
+                        <h4>Exemple Type</h4>
+                        <p>« Après avoir mangé, il est sorti » — manger est antérieur à sortir</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- USAGES SPÉCIFIQUES -->
+        <div class="usage-section">
+            <div class="section-header">
+                <div class="section-number">02 • Usages</div>
+                <h2 class="section-title">Quand Utiliser<br>Quel Temps</h2>
+            </div>
+
+            <div class="usage-grid">
+                <div class="usage-card u1">
+                    <h4>Avec Prépositions Temporelles</h4>
+                    <p>
+                        Certaines prépositions imposent ou favorisent l'infinitif passé pour marquer l'antériorité : <strong>après, une fois</strong>. D'autres utilisent le présent : <strong>avant de, pour, sans, au lieu de</strong>.
+                    </p>
+                    <div class="usage-exemple">
+                        « Après avoir terminé, il est parti. » (passé)<br>
+                        « Avant de partir, il a téléphoné. » (présent)
+                    </div>
+                </div>
+
+                <div class="usage-card u2">
+                    <h4>Verbes de Sentiment et Opinion</h4>
+                    <p>
+                        Avec les verbes exprimant un sentiment ou une opinion (regretter, être content, se réjouir, etc.), le choix du temps dépend de la chronologie : l'infinitif passé si l'action est antérieure au sentiment.
+                    </p>
+                    <div class="usage-exemple">
+                        « Je regrette d'avoir oublié. » (passé - l'oubli précède le regret)<br>
+                        « Je veux réussir. » (présent - désir et réussite simultanés)
+                    </div>
+                </div>
+
+                <div class="usage-card u3">
+                    <h4>Narration et Chronologie</h4>
+                    <p>
+                        Dans un récit, l'infinitif passé permet de clarifier la séquence des événements en marquant explicitement qu'une action précède une autre. C'est un outil précieux pour éviter toute ambiguïté temporelle.
+                    </p>
+                    <div class="usage-exemple">
+                        « Après s'être préparé, il prit la route. »<br>
+                        (La préparation est achevée avant le départ)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONJUGATION TABLES -->
+        <div class="conjugation-section">
+            <div class="section-header">
+                <div class="section-number">03 • Formation</div>
+                <h2 class="section-title">Formation<br>Détaillée</h2>
+            </div>
+
+            <div class="conjugation-grid">
+                <div class="conjugation-card c1">
+                    <div class="conjugation-header">
+                        <h4>Infinitif Présent</h4>
+                    </div>
+                    <div class="conjugation-body">
+                        <table class="verb-table">
+                            <tr>
+                                <td>1er groupe (-er)</td>
+                                <td>PARLER, AIMER, CHANTER</td>
+                            </tr>
+                            <tr>
+                                <td>2e groupe (-ir)</td>
+                                <td>FINIR, CHOISIR, RÉUSSIR</td>
+                            </tr>
+                            <tr>
+                                <td>3e groupe (variés)</td>
+                                <td>PRENDRE, VOIR, FAIRE</td>
+                            </tr>
+                            <tr>
+                                <td>ÊTRE</td>
+                                <td>ÊTRE</td>
+                            </tr>
+                            <tr>
+                                <td>AVOIR</td>
+                                <td>AVOIR</td>
+                            </tr>
+                            <tr>
+                                <td>Forme pronominale</td>
+                                <td>SE LEVER, S'AMUSER</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="conjugation-card c2">
+                    <div class="conjugation-header">
+                        <h4>Infinitif Passé</h4>
+                    </div>
+                    <div class="conjugation-body">
+                        <table class="verb-table">
+                            <tr>
+                                <td>Avec AVOIR</td>
+                                <td>AVOIR PARLÉ, AVOIR FINI</td>
+                            </tr>
+                            <tr>
+                                <td>Avec ÊTRE (mouvement)</td>
+                                <td>ÊTRE PARTI(E)(S), ÊTRE VENU(E)(S)</td>
+                            </tr>
+                            <tr>
+                                <td>ÊTRE (lui-même)</td>
+                                <td>AVOIR ÉTÉ</td>
+                            </tr>
+                            <tr>
+                                <td>AVOIR (lui-même)</td>
+                                <td>AVOIR EU</td>
+                            </tr>
+                            <tr>
+                                <td>Forme pronominale</td>
+                                <td>S'ÊTRE LEVÉ(E)(S)</td>
+                            </tr>
+                            <tr>
+                                <td>Accord participe</td>
+                                <td>ÊTRE : accord sujet<br>AVOIR : accord COD avant</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOTES -->
+        <div class="notes-section">
+            <h2 class="notes-title">Notes Importantes</h2>
+            
+            <div class="notes-grid">
+                <div class="note-card">
+                    <h4>Choix de l'Auxiliaire</h4>
+                    <p>
+                        Pour former l'infinitif passé, on utilise les mêmes règles qu'au passé composé : ÊTRE pour les verbes pronominaux et les 15 verbes de mouvement (aller, venir, partir, arriver, etc.), AVOIR pour tous les autres.
+                    </p>
+                    <div class="note-exemple">
+                        « Après être arrivé » / « Après avoir mangé »
+                    </div>
+                </div>
+
+                <div class="note-card">
+                    <h4>Accord du Participe Passé</h4>
+                    <p>
+                        Avec l'auxiliaire ÊTRE, le participe s'accorde toujours avec le sujet. Avec AVOIR, il s'accorde avec le COD seulement si celui-ci est placé avant. Ces règles s'appliquent aussi à l'infinitif passé.
+                    </p>
+                    <div class="note-exemple">
+                        « Après s'être levée » (fém.) / « Les livres qu'il croit avoir lus »
+                    </div>
+                </div>
+
+                <div class="note-card">
+                    <h4>« Après » + Infinitif</h4>
+                    <p>
+                        La préposition « après » est presque toujours suivie de l'infinitif passé car elle marque explicitement l'antériorité. C'est une construction très courante en français.
+                    </p>
+                    <div class="note-exemple">
+                        « Après avoir dîné, nous sommes sortis. »
+                    </div>
+                </div>
+
+                <div class="note-card">
+                    <h4>Ambiguïté Possible</h4>
+                    <p>
+                        Parfois, l'infinitif présent peut créer une ambiguïté temporelle. L'infinitif passé permet de lever cette ambiguïté en marquant clairement qu'une action précède l'autre.
+                    </p>
+                    <div class="note-exemple">
+                        Ambigu : « Il affirme voir Paul »<br>
+                        Clair : « Il affirme avoir vu Paul » (antérieur)
+                    </div>
+                </div>
+
+                <div class="note-card">
+                    <h4>Fréquence d'Usage</h4>
+                    <p>
+                        L'infinitif présent est beaucoup plus fréquent que l'infinitif passé dans la langue courante. L'infinitif passé est surtout utilisé quand la clarté chronologique est nécessaire.
+                    </p>
+                    <div class="note-exemple">
+                        Courant : « Je veux partir »<br>
+                        Spécifique : « Je regrette d'être parti »
+                    </div>
+                </div>
+
+                <div class="note-card">
+                    <h4>Infinitif et Impératif</h4>
+                    <p>
+                        Ne confondez pas l'infinitif avec l'impératif. L'infinitif est impersonnel (pas de sujet), l'impératif s'adresse à quelqu'un. On peut cependant utiliser l'infinitif à valeur d'impératif.
+                    </p>
+                    <div class="note-exemple">
+                        Infinitif à valeur impérative : « Ne pas fumer » (panneau)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-shapes">
+                <div class="footer-shape s1"></div>
+                <div class="footer-shape s2"></div>
+                <div class="footer-shape s3"></div>
+            </div>
+            <div class="footer-logo">Língua Academy</div>
+            <div class="footer-text">Excellence • Grammaire • Précision</div>
+        </footer>
+    </div>
+</body>
+</html>

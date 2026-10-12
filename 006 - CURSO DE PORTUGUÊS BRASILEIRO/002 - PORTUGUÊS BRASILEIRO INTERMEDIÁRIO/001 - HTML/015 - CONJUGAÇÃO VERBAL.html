@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conjugação Verbal em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #E67E22;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #E67E22;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #F39C12;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores Adaptadas/Reutilizadas do 008 - CLASSES DE PALAVRAS */
+        .tipo-card.radical {
+            background: linear-gradient(135deg, #E74C3C, #C0392B); /* Elementos Verbo */
+        }
+
+        .tipo-card.vogal {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD); /* Elementos Verbo */
+        }
+
+        .tipo-card.desinencia {
+            background: linear-gradient(135deg, #3498DB, #2980B9); /* Elementos Verbo */
+        }
+
+        .tipo-card.regular {
+            background: linear-gradient(135deg, #2ECC71, #16A085); /* Classificação Verbo */
+        }
+        
+        .tipo-card.irregular {
+            background: linear-gradient(135deg, #F1C40F, #F39C12); /* Classificação Verbo */
+            color: #333;
+        }
+        
+        .tipo-card.anomalo {
+            background: linear-gradient(135deg, #1ABC9C, #16A085); /* Classificação Verbo */
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .exemplo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #E67E22;
+        }
+
+        .exemplo-card .titulo-exemplo {
+            font-size: 2em;
+            color: #E67E22;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .conteudo-exemplo {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
+        .tabela-substantivos {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tabela-substantivos thead {
+            background: linear-gradient(135deg, #E67E22, #F39C12);
+            color: white;
+        }
+
+        .tabela-substantivos th {
+            padding: 20px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        .tabela-substantivos td {
+            padding: 18px 20px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        .tabela-substantivos tr:hover {
+            background: #fff8e8;
+        }
+
+        .tabela-substantivos .destaque-col {
+            color: #E67E22;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .dicas-box {
+            background: linear-gradient(135deg, #1ABC9C, #16A085);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .tipo-card, .destaque, .dicas-box, .exemplo-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Conjugação Verbal 📝</h1>
+        <p class="subtitle">A estrutura e as regras de flexão dos verbos em Português Brasileiro!</p>
+
+        <div class="section">
+            <h2>🎯 O que é Conjugação?</h2>
+            <p class="intro-text">
+                **Conjugação Verbal** é o processo de flexão do verbo em suas diversas formas para indicar 
+                **pessoa** (quem fala, quem ouve, de quem se fala), **número** (singular/plural), **tempo** (presente, passado, futuro) e **modo** (indicativo, subjuntivo, imperativo). 
+                Entender a estrutura do verbo é crucial para conjugá-lo corretamente.
+            </p>
+
+            <div class="destaque">
+                <strong>💡 O Modelo:</strong> Na Língua Portuguesa, há três conjugações baseadas na Vogal Temática: 
+                <br>
+                1ª Conjugação (-AR), 2ª Conjugação (-ER, incluindo PÔR), e 3ª Conjugação (-IR).
+            </div>
+
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">O Paradigma da Flexão</div>
+                <div class="conteudo-exemplo">
+                    O verbo flexiona para concordar com o sujeito e situar a ação no tempo:
+                    <br><br>
+                    • **Eu** <span style="font-weight: bold; color: #E74C3C;">falo</span> (1ª pessoa, singular, presente, indicativo)<br>
+                    • **Nós** <span style="font-weight: bold; color: #E74C3C;">falamos</span> (1ª pessoa, plural, presente, indicativo)<br>
+                    • Que **ele** <span style="font-weight: bold; color: #E74C3C;">falasse</span> (3ª pessoa, singular, pretérito imperfeito, subjuntivo)
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⚛️ Elementos Estruturais do Verbo</h2>
+            <p class="intro-text">
+                Todo verbo é composto por partes que se unem para formar as conjugações.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card radical">
+                    <h3>1. Radical</h3>
+                    <div class="definicao">
+                        É a parte que contém o significado do verbo. É a base da palavra. Obtém-se retirando-se a terminação do infinitivo (-ar, -er, -ir).
+                    </div>
+                    <div class="exemplos">
+                        • **Fal**ar<br>
+                        • **Com**er<br>
+                        • **Part**ir
+                    </div>
+                </div>
+
+                <div class="tipo-card vogal">
+                    <h3>2. Vogal Temática (VT)</h3>
+                    <div class="definicao">
+                        É a vogal que se junta ao radical para formar o tema e indicar a conjugação.
+                    </div>
+                    <div class="exemplos">
+                        • Fal**a**r (1ª conj.)<br>
+                        • Com**e**r (2ª conj.)<br>
+                        • Part**i**r (3ª conj.)
+                    </div>
+                </div>
+
+                <div class="tipo-card desinencia">
+                    <h3>3. Desinências</h3>
+                    <div class="definicao">
+                        São os elementos que se juntam ao tema para indicar as flexões do verbo.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Número-Pessoal (DP):</strong> Indica pessoa e número (Ex: cantam = -m indica 3ª pessoa do plural)<br>
+                        <strong>Modo-Temporal (DMT):</strong> Indica o modo e o tempo (Ex: cantávamos = -va indica pretérito imperfeito do indicativo)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📜 Classificação Quanto à Flexão</h2>
+            <p class="intro-text">
+                A conjugação permite classificar os verbos de acordo com a manutenção ou alteração do seu radical e de suas desinências.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card regular">
+                    <h3>Verbos Regulares</h3>
+                    <div class="definicao">
+                        Mantêm o radical inalterado e seguem as desinências do verbo modelo da sua conjugação. São os mais fáceis de conjugar.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Verbo FALAR:</strong><br>
+                        • Eu **fal**o<br>
+                        • Eu **fal**ei<br>
+                        • Nós **fal**amos<br>
+                        *(O radical **FAL-** se mantém)*
+                    </div>
+                </div>
+
+                <div class="tipo-card irregular">
+                    <h3>Verbos Irregulares</h3>
+                    <div class="definicao">
+                        Sofrem alterações no radical e/ou nas desinências em relação ao verbo modelo. Exigem memorização ou consulta.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Verbo FAZER:</strong><br>
+                        • Eu **faç**o (radical muda de FAZ- para FAÇ-)<br>
+                        • Tu **fiz**este (radical muda de FAZ- para FIZ-)<br>
+                        *(Há alteração do radical)*
+                    </div>
+                </div>
+
+                <div class="tipo-card anomalo">
+                    <h3>Verbos Anômalos</h3>
+                    <div class="definicao">
+                        São considerados um subtipo de irregulares, mas com mudanças radicais e profundas no radical. São apenas **ser** e **ir**.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Verbo IR:</strong><br>
+                        • Eu **vou**<br>
+                        • Eu **fui**<br>
+                        • Eu **iria**<br>
+                        *(O radical muda completamente)*
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Dicas Finais</h2>
+            
+            <div class="dicas-box">
+                <h4>Chaves para a Conjugação Perfeita:</h4>
+                <ul>
+                    <li>A **1ª pessoa do singular (eu)** do presente do indicativo costuma ser o "termômetro" da irregularidade. (Ex: Eu faço, Eu digo).</li>
+                    <li>Verbos com radical terminado em **-Z** (fazer) ou **-C** (dizer) tendem a ser irregulares.</li>
+                    <li>Na dúvida sobre um verbo irregular, use um verbo regular equivalente como auxiliar na locução verbal. (Ex: Em vez de "Ele se precaverá", use "Ele **vai se precaver**".)</li>
+                    <li>Memorize os tempos primitivos (Presente do Indicativo, Pretérito Perfeito do Indicativo e Infinitivo Impessoal), pois eles geram os demais tempos verbais.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

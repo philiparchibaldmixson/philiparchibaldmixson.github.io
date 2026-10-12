@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emplois Particuliers de NOUS et VOUS - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #b71c1c 0%, #c62828 50%, #d32f2f 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0055A4 0%, #EF4135 50%, #FFFFFF 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: rotate 25s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3.2em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .brand {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            z-index: 2;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h2 {
+            color: #0055A4;
+            font-size: 2.3em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #EF4135;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3 {
+            color: #EF4135;
+            font-size: 1.7em;
+            margin: 30px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.2em;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 6px solid #0055A4;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-box p {
+            font-size: 1.2em;
+            color: #1a237e;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .pronoun-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            padding: 35px;
+            border-radius: 18px;
+            margin: 30px 0;
+            border: 3px solid #0055A4;
+            box-shadow: 0 8px 25px rgba(0, 85, 164, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .pronoun-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 85, 164, 0.25);
+            border-color: #EF4135;
+        }
+
+        .pronoun-title {
+            color: #0055A4;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #EF4135;
+        }
+
+        .nous-box {
+            background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #3f51b5;
+        }
+
+        .nous-box h4 {
+            color: #1a237e;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .vous-box {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #c2185b;
+        }
+
+        .vous-box h4 {
+            color: #880e4f;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .exemple {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #4caf50;
+            transition: all 0.3s ease;
+        }
+
+        .exemple:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .exemple strong {
+            color: #2e7d32;
+            font-size: 1.15em;
+        }
+
+        .exemple em {
+            color: #1b5e20;
+            font-style: normal;
+            font-weight: 600;
+            background: rgba(76, 175, 80, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+
+        .context-label {
+            display: inline-block;
+            background: #f57c00;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .usage-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 3px solid #0277bd;
+            transition: all 0.3s ease;
+        }
+
+        .usage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(2, 119, 189, 0.3);
+        }
+
+        .usage-card h5 {
+            color: #01579b;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .comparison-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #f57c00;
+        }
+
+        .comparison-box h4 {
+            color: #e65100;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .comparison-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #f57c00;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #d35400;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #00897b;
+        }
+
+        .note-box strong {
+            color: #004d40;
+            font-size: 1.15em;
+        }
+
+        .grammar-point {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #8e24aa;
+        }
+
+        .grammar-point h4 {
+            color: #4a148c;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #e53935;
+        }
+
+        .warning-box strong {
+            color: #c62828;
+            font-size: 1.15em;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.15em;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 2px solid #e0e0e0;
+            transition: background 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        tr:hover td {
+            background: #f5f5f5;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        li {
+            margin: 12px 0;
+            line-height: 1.9;
+            font-size: 1.05em;
+        }
+
+        .special-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .special-list li::before {
+            content: "🔹";
+            margin-right: 10px;
+        }
+
+        .situation-card {
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #0277bd;
+        }
+
+        .situation-card h5 {
+            color: #01579b;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .register-badge {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .formal {
+            background: #1976d2;
+            color: white;
+        }
+
+        .informal {
+            background: #ff6f00;
+            color: white;
+        }
+
+        .neutral {
+            background: #00897b;
+            color: white;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.7em;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .usage-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brand {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">Língua Academy</div>
+            <h1>Emplois Particuliers</h1>
+            <p class="subtitle">Les pronoms NOUS et VOUS : Usages spécifiques</p>
+        </header>
+
+        <div class="content">
+            <!-- Introduction -->
+            <div class="section">
+                <div class="intro-box">
+                    <p>
+                        Les pronoms <strong>NOUS</strong> et <strong>VOUS</strong> possèdent des <strong>emplois particuliers</strong> 
+                        qui vont au-delà de leur fonction de base (1ère et 2ème personne du pluriel). Ces usages spécifiques 
+                        reflètent des nuances sociales, stylistiques et culturelles importantes en français.
+                    </p>
+                    <p>
+                        Comprendre ces emplois particuliers est essentiel pour maîtriser les <strong>registres de langue</strong>, 
+                        respecter les <strong>conventions sociales</strong> et utiliser un français <strong>approprié au contexte</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- NOUS de majesté -->
+            <div class="section">
+                <h2><span class="icon">👑</span>Les emplois particuliers de NOUS</h2>
+
+                <div class="pronoun-card">
+                    <div class="pronoun-title">
+                        <span>1️⃣</span> NOUS de majesté (pluriel de majesté)
+                    </div>
+
+                    <div class="nous-box">
+                        <h4>📜 Définition et contexte</h4>
+                        <p style="line-height: 1.8; margin-bottom: 15px;">
+                            Le <span class="highlight">NOUS de majesté</span> est utilisé par une personne seule 
+                            (roi, reine, pape, empereur) pour parler d'elle-même. Cette personne utilise <strong>NOUS</strong> 
+                            au lieu de <strong>JE</strong> pour exprimer sa grandeur et son autorité.
+                        </p>
+
+                        <div class="grammar-point">
+                            <h4>📐 Caractéristiques</h4>
+                            <ul class="special-list">
+                                <li>Une <strong>seule personne</strong> utilise NOUS</li>
+                                <li>Marque le <strong>pouvoir</strong> et l'<strong>autorité</strong></li>
+                                <li>Le verbe est au <strong>pluriel</strong></li>
+                                <li>Les adjectifs et participes s'accordent au <strong>singulier</strong></li>
+                            </ul>
+                        </div>
+
+                        <h4 style="margin-top: 25px;">📖 Exemples historiques et littéraires</h4>
+
+                        <div class="exemple">
+                            <div class="context-label">👑 Roi / Reine</div>
+                            <strong>Louis XIV (exemple célèbre) :</strong><br>
+                            <em>« Nous ordonnons que cette loi soit appliquée dans tout le royaume. »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Le roi seul parle, mais utilise NOUS</span>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="context-label">⛪ Pape</div>
+                            <strong>Déclaration papale :</strong><br>
+                            <em>« Nous déclarons solennellement que... »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Le pape parle seul mais utilise NOUS</span>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="context-label">👸 Reine</div>
+                            <strong>Exemple :</strong><br>
+                            <em>« Nous sommes <strong>satisfaite</strong> de votre travail. »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ NOUS (pluriel) + satisfaite (féminin singulier)</span>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Accord important :</strong> Avec le NOUS de majesté, le verbe est au pluriel mais 
+                            l'adjectif ou le participe passé s'accorde au <strong>singulier</strong> selon le genre de la personne.
+                            <ul style="margin-top: 10px;">
+                                <li>Le roi dit : <em>« Nous sommes <strong>satisfait</strong>. »</em> (masculin singulier)</li>
+                                <li>La reine dit : <em>« Nous sommes <strong>satisfaite</strong>. »</em> (féminin singulier)</li>
+                            </ul>
+                        </div>
+
+                        <div class="note-box">
+                            <strong>💡 Usage moderne :</strong> Le NOUS de majesté est aujourd'hui très rare et réservé aux 
+                            textes historiques, littéraires ou aux cérémonies officielles très formelles. On ne l'utilise plus 
+                            dans la vie courante.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NOUS de modestie -->
+                <div class="pronoun-card">
+                    <div class="pronoun-title">
+                        <span>2️⃣</span> NOUS de modestie (ou NOUS d'auteur)
+                    </div>
+
+                    <div class="nous-box">
+                        <h4>📚 Définition et contexte</h4>
+                        <p style="line-height: 1.8; margin-bottom: 15px;">
+                            Le <span class="highlight">NOUS de modestie</span> est utilisé par un auteur, un chercheur 
+                            ou un scientifique qui écrit seul mais utilise <strong>NOUS</strong> au lieu de <strong>JE</strong> 
+                            pour paraître plus modeste et objectif.
+                        </p>
+
+                        <div class="grammar-point">
+                            <h4>📐 Caractéristiques</h4>
+                            <ul class="special-list">
+                                <li>Un <strong>auteur seul</strong> utilise NOUS</li>
+                                <li>Exprime la <strong>modestie</strong> et l'<strong>objectivité</strong></li>
+                                <li>Courant dans les <strong>écrits académiques</strong></li>
+                                <li>Le verbe est au pluriel, les accords aussi</li>
+                            </ul>
+                        </div>
+
+                        <h4 style="margin-top: 25px;">📖 Exemples dans différents contextes</h4>
+
+                        <div class="exemple">
+                            <div class="context-label">📖 Texte académique</div>
+                            <strong>Article scientifique :</strong><br>
+                            <em>« Dans cette étude, nous avons observé que les résultats confirment notre hypothèse. »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Un seul chercheur, mais utilise NOUS</span>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="context-label">📝 Thèse</div>
+                            <strong>Travail universitaire :</strong><br>
+                            <em>« Nous analyserons dans ce chapitre les différentes approches théoriques. »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ L'auteur s'inclut avec le lecteur</span>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="context-label">📰 Essai</div>
+                            <strong>Texte philosophique :</strong><br>
+                            <em>« Nous pouvons conclure que la raison prime sur l'émotion. »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Généralisation incluant l'auteur et le lecteur</span>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="context-label">📚 Livre</div>
+                            <strong>Ouvrage pédagogique :</strong><br>
+                            <em>« Nous verrons dans les prochains chapitres comment résoudre ce problème. »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Inclut le lecteur dans la démarche</span>
+                        </div>
+
+                        <div class="comparison-box">
+                            <h4>🔍 Comparaison JE vs NOUS dans un texte académique</h4>
+
+                            <div class="comparison-grid">
+                                <div class="comparison-item">
+                                    <h5 style="color: #e65100; margin-bottom: 10px;">❌ Avec JE (moins formel)</h5>
+                                    <p style="line-height: 1.8;">
+                                        <em>« J'ai analysé les données et j'ai découvert que... »</em>
+                                    </p>
+                                    <p style="margin-top: 10px; color: #666; font-size: 0.95em;">
+                                        → Trop personnel pour un texte académique
+                                    </p>
+                                </div>
+
+                                <div class="comparison-item">
+                                    <h5 style="color: #e65100; margin-bottom: 10px;">✅ Avec NOUS (plus formel)</h5>
+                                    <p style="line-height: 1.8;">
+                                        <em>« Nous avons analysé les données et nous avons découvert que... »</em>
+                                    </p>
+                                    <p style="margin-top: 10px; color: #666; font-size: 0.95em;">
+                                        → Plus objectif et professionnel
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="note-box">
+                            <strong>💡 Évolution moderne :</strong> Dans les écrits académiques contemporains, l'utilisation de 
+                            <strong>JE</strong> devient de plus en plus acceptée, surtout dans les sciences humaines. Cependant, 
+                            le <strong>NOUS de modestie</strong> reste la norme dans de nombreuses disciplines scientifiques.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NOUS collectif -->
+                <div class="pronoun-card">
+                    <div class="pronoun-title">
+                        <span>3️⃣</span> NOUS collectif (ou NOUS d'entreprise)
+                    </div>
+
+                    <div class="nous-box">
+                        <h4>🏢 Définition et contexte</h4>
+                        <p style="line-height: 1.8; margin-bottom: 15px;">
+                            Le <span class="highlight">NOUS collectif</span> représente un groupe, une entreprise, une organisation 
+                            ou une équipe. Une personne parle au nom du groupe entier en utilisant <strong>NOUS</strong>.
+                        </p>
+
+                        <h4 style="margin-top: 25px;">📖 Exemples dans différents contextes</h4>
+
+                        <div class="usage-grid">
+                            <div class="usage-card">
+                                <h5>🏢 Entreprise</h5>
+                                <div class="exemple">
+                                    <em>« Notre entreprise lance un nouveau produit. Nous sommes fiers de cette innovation. »</em><br>
+                                    <span style="font-size: 0.95em; color: #666;">→ Le porte-parole parle au nom de l'entreprise</span>
+                                </div>
+                            </div>
+
+                            <div class="usage-card">
+                                <h5>👥 Équipe sportive</h5>
+                                <div class="exemple">
+                                    <em>« Nous avons gagné le match grâce à notre travail d'équipe. »</em><br>
+                                    <span style="font-size: 0.95em; color: #666;">→ Un joueur parle au nom de toute l'équipe</span>
+                                </div>
+                            </div>
+
+                            <div class="usage-card">
+                                <h5>🏛️ Institution</h5>
+                                <div class="exemple">
+                                    <em>« Le musée vous accueille. Nous proposons des visites guidées tous les jours. »</em><br>
+                                    <span style="font-size: 0.95em; color: #666;">→ Représente toute l'institution</span>
+                                </div>
+                            </div>
+
+                            <div class="usage-card">
+                                <h5>🏥 Établissement</h5>
+                                <div class="exemple">
+                                    <em>« Nous prenons en charge tous les patients 24h/24. »</em><br>
+                                    <span style="font-size: 0.95em; color: #666;">→ L'hôpital dans son ensemble</span>
+                                </div>
+                            </div>
+
+                            <div class="usage-card">
+                                <h5>🏪 Commerce</h5>
+                                <div class="exemple">
+                                    <em>« Nous sommes ouverts du lundi au samedi. »</em><br>
+                                    <span style="font-size: 0.95em; color: #666;">→ Le magasin/la boutique</span>
+                                </div>
+                            </div>
+
+                            <div class="usage-card">
+                                <h5>🎓 École/Université</h5>
+                                <div class="exemple">
+                                    <em>« Nous offrons des programmes de qualité depuis 1950. »</em><br>
+                                    <span style="font-size: 0.95em; color: #666;">→ L'établissement scolaire</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="context-label">💼 Service client</div>
+                            <strong>Au téléphone :</strong><br>
+                            <em>« Merci de votre appel. Nous allons traiter votre demande dans les plus brefs délais. »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Un employé parle au nom de toute l'entreprise</span>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="context-label">📧 Email professionnel</div>
+                            <strong>Correspondance :</strong><br>
+                            <em>« Nous vous remercions de votre confiance et nous restons à votre disposition. »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Représente l'organisation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NOUS inclusif -->
+                <div class="pronoun-card">
+                    <div class="pronoun-title">
+                        <span>4️⃣</span> NOUS inclusif (avec l'interlocuteur)
+                    </div>
+
+                    <div class="nous-box">
+                        <h4>🤝 Définition et contexte</h4>
+                        <p style="line-height: 1.8; margin-bottom: 15px;">
+                            Le <span class="highlight">NOUS inclusif</span> inclut directement l'interlocuteur. 
+                            Il crée une <strong>proximité</strong>, une <strong>complicité</strong> ou implique 
+                            l'autre personne dans l'action.
+                        </p>
+
+                        <h4 style="margin-top: 25px;">📖 Exemples d'utilisation</h4>
+
+                        <div class="exemple">
+                            <div class="context-label">👨‍⚕️ Médecin → Patient</div>
+                            <strong>Consultation médicale :</strong><br>
+                            <em>« Alors, comment nous sentons-nous aujourd'hui ? »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Le médecin s'inclut pour créer de l'empathie</span>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="context-label">👶 Adulte → Enfant</div>
+                            <strong>Parent ou éducateur :</strong><br>
+                            <em>« Allez, nous allons ranger nos jouets maintenant ! »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Inclut l'enfant pour l'encourager</span>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="context-label">👩‍🏫 Professeur → Élèves</div>
+                            <strong>En classe :</strong><br>
+                            <em>« Aujourd'hui, nous allons étudier la Révolution française. »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Inclut les élèves dans l'apprentissage</span>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="context-label">🍽️ Serveur → Client</div>
+                            <strong>Au restaurant :</strong><br>
+                            <em>« Qu'est-ce que nous prenons aujourd'hui ? »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Crée une atmosphère conviviale</span>
+                        </div>
+
+                        <div class="note-box">
+                            <strong>💡 Effet communicatif :</strong> Le NOUS inclusif crée une <strong>atmosphère de proximité</strong> 
+                            et de <strong>bienveillance</strong>. Il est particulièrement utilisé avec les enfants, les personnes âgées, 
+                            ou les patients pour créer une relation de confiance.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VOUS de politesse -->
+            <div class="section">
+                <h2><span class="icon">🎩</span>Les emplois particuliers de VOUS</h2>
+
+                <div class="pronoun-card">
+                    <div class="pronoun-title">
+                        <span>1️⃣</span> VOUS de politesse (vouvoiement)
+                    </div>
+
+                    <div class="vous-box">
+                        <h4>🤵 Définition et contexte</h4>
+                        <p style="line-height: 1.8; margin-bottom: 15px;">
+                            Le <span class="highlight">VOUS de politesse</span> (ou <strong>vouvoiement</strong>) s'utilise 
+                            pour s'adresser à <strong>une seule personne</strong> qu'on veut traiter avec respect, distance 
+                            ou formalité. C'est l'opposé du tutoiement (TU).
+                        </p>
+
+                        <div class="grammar-point">
+                            <h4>📐 Caractéristiques grammaticales</h4>
+                            <ul class="special-list">
+                                <li>S'adresse à <strong>une seule personne</strong></li>
+                                <li>Le verbe est au <strong>pluriel</strong></li>
+                                <li>Les adjectifs et participes s'accordent au <strong>singulier</strong></li>
+                                <li>Selon le genre de la personne</li>
+                            </ul>
+                        </div>
+
+                        <h4 style="margin-top: 25px;">📖 Exemples d'accord</h4>
+
+                        <div class="exemple">
+                            <strong>À un homme :</strong><br>
+                            <em>« Monsieur, vous êtes <strong>arrivé</strong> en retard. »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ VOUS (pluriel) + arrivé (masculin singulier)</span>
+                        </div>
+
+                        <div class="exemple">
+                            <strong>À une femme :</strong><br>
+                            <em>« Madame, vous êtes <strong>arrivée</strong> en retard. »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ VOUS (pluriel) + arrivée (féminin singulier)</span>
+                        </div>
+
+                        <div class="exemple">
+                            <strong>À un homme :</strong><br>
+                            <em>« Êtes-vous <strong>satisfait</strong> de votre achat ? »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Accord au masculin singulier</span>
+                        </div>
+
+                        <div class="exemple">
+                            <strong>À une femme :</strong><br>
+                            <em>« Êtes-vous <strong>satisfaite</strong> de votre achat ? »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Accord au féminin singulier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quand utiliser VOUS -->
+                <div class="pronoun-card">
+                    <div class="pronoun-title">
+                        <span>2️⃣</span> Quand utiliser VOUS (vouvoiement) ?
+                    </div>
+
+                    <div class="vous-box">
+                        <h4>📋 Situations où on utilise VOUS</h4>
+
+                        <div class="table-responsive">
+                            <table>
+                                <tr>
+                                    <th>Situation</th>
+                                    <th>Explication</th>
+                                    <th>Exemple</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>Personne inconnue</strong></td>
+                                    <td>Quelqu'un qu'on ne connaît pas</td>
+                                    <td><em>« Excusez-moi, vous avez l'heure ? »</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Supérieur hiérarchique</strong></td>
+                                    <td>Patron, chef, directeur</td>
+                                    <td><em>« Monsieur le directeur, puis-je vous parler ? »</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Personne âgée</strong></td>
+                                    <td>Respect envers les aînés</td>
+                                    <td><em>« Madame, puis-je vous aider ? »</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Contexte professionnel</strong></td>
+                                    <td>Collègues, clients, partenaires</td>
+                                    <td><em>« Pouvez-vous m'envoyer le rapport ? »</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Contexte formel</strong></td>
+                                    <td>Administration, justice, médecine</td>
+                                    <td><em>« Docteur, quand pourrai-je sortir ? »</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Commerce</strong></td>
+                                    <td>Vendeur ↔ Client</td>
+                                    <td><em>« Puis-je vous renseigner ? »</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Premiers contacts</strong></td>
+                                    <td>Nouvelle rencontre (adultes)</td>
+                                    <td><em>« Enchanté de vous rencontrer. »</em></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="situation-card">
+                            <h5>🏢 Contexte professionnel</h5>
+                            <div class="exemple">
+                                <strong>Entre collègues (première rencontre) :</strong><br>
+                                <em>« Bonjour, vous êtes le nouveau responsable marketing ? »</em>
+                            </div>
+                            <div class="exemple">
+                                <strong>Réunion formelle :</strong><br>
+                                <em>« Monsieur Dupont, pouvez-vous nous présenter les chiffres ? »</em>
+                            </div>
+                        </div>
+
+                        <div class="situation-card">
+                            <h5>🏪 Commerce et services</h5>
+                            <div class="exemple">
+                                <strong>Vendeur → Client :</strong><br>
+                                <em>« Bonjour, je peux vous aider ? »</em>
+                            </div>
+                            <div class="exemple">
+                                <strong>Client → Vendeur :</strong><br>
+                                <em>« Avez-vous ce modèle en taille 40 ? »</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TU vs VOUS -->
+                <div class="pronoun-card">
+                    <div class="pronoun-title">
+                        <span>3️⃣</span> TU ou VOUS ? Le choix crucial
+                    </div>
+
+                    <div class="comparison-box">
+                        <h4>🔍 Tutoiement (TU) vs Vouvoiement (VOUS)</h4>
+
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <h5 style="color: #e65100; margin-bottom: 15px;">👋 TU (Tutoiement)</h5>
+                                <span class="register-badge informal">INFORMEL</span>
+                                <ul style="margin-top: 15px; line-height: 1.8;">
+                                    <li>Famille et amis proches</li>
+                                    <li>Enfants et adolescents</li>
+                                    <li>Camarades de classe</li>
+                                    <li>Contexte décontracté</li>
+                                    <li>Entre jeunes (souvent)</li>
+                                    <li>Animaux de compagnie</li>
+                                </ul>
+                                <div class="exemple" style="margin-top: 15px;">
+                                    <em>« Salut ! Comment tu vas ? »</em><br>
+                                    <em>« Tu veux venir au cinéma ? »</em>
+                                </div>
+                            </div>
+
+                            <div class="comparison-item">
+                                <h5 style="color: #e65100; margin-bottom: 15px;">🎩 VOUS (Vouvoiement)</h5>
+                                <span class="register-badge formal">FORMEL</span>
+                                <ul style="margin-top: 15px; line-height: 1.8;">
+                                    <li>Inconnus</li>
+                                    <li>Supérieurs hiérarchiques</li>
+                                    <li>Personnes âgées</li>
+                                    <li>Contexte professionnel</li>
+                                    <li>Situations officielles</li>
+                                    <li>Marque de respect</li>
+                                </ul>
+                                <div class="exemple" style="margin-top: 15px;">
+                                    <em>« Bonjour ! Comment allez-vous ? »</em><br>
+                                    <em>« Voulez-vous venir à la réunion ? »</em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Attention culturelle :</strong> Le choix entre TU et VOUS est très important en français ! 
+                        Utiliser TU quand il faut vouvoyer peut être perçu comme <strong>impoli</strong> ou <strong>irrespectueux</strong>. 
+                        En cas de doute, il vaut mieux utiliser <strong>VOUS</strong>.
+                    </div>
+                </div>
+
+                <!-- Passage TU/VOUS -->
+                <div class="pronoun-card">
+                    <div class="pronoun-title">
+                        <span>4️⃣</span> Le passage du VOUS au TU
+                    </div>
+
+                    <div class="vous-box">
+                        <h4>🔄 Comment et quand passer au tutoiement ?</h4>
+                        <p style="line-height: 1.8; margin-bottom: 15px;">
+                            Le passage du <strong>vouvoiement</strong> au <strong>tutoiement</strong> marque une évolution 
+                            dans la relation. C'est un moment important qui doit être géré avec délicatesse.
+                        </p>
+
+                        <div class="grammar-point">
+                            <h4>📐 Règles du passage TU/VOUS</h4>
+                            <ul class="special-list">
+                                <li>C'est généralement la <strong>personne la plus âgée</strong> qui propose</li>
+                                <li>Ou la personne de <strong>statut supérieur</strong> (chef, professeur...)</li>
+                                <li>Le passage se fait par <strong>accord mutuel</strong></li>
+                                <li>Une fois qu'on tutoie, on <strong>ne revient pas</strong> au vouvoiement</li>
+                            </ul>
+                        </div>
+
+                        <h4 style="margin-top: 25px;">📖 Formules pour proposer le tutoiement</h4>
+
+                        <div class="exemple">
+                            <strong>Proposition directe :</strong><br>
+                            <em>« On peut se tutoyer, si vous voulez ? »</em><br>
+                            <em>« Est-ce qu'on peut se dire 'tu' ? »</em>
+                        </div>
+
+                        <div class="exemple">
+                            <strong>Proposition élégante :</strong><br>
+                            <em>« Appelons-nous par nos prénoms, voulez-vous ? »</em><br>
+                            <em>« Tutoyons-nous, ce sera plus simple. »</em>
+                        </div>
+
+                        <div class="exemple">
+                            <strong>Réponse positive :</strong><br>
+                            <em>« Oui, avec plaisir ! »</em><br>
+                            <em>« Bonne idée ! »</em><br>
+                            <em>« D'accord, volontiers ! »</em>
+                        </div>
+
+                        <div class="exemple">
+                            <strong>Réponse polie si on refuse :</strong><br>
+                            <em>« Si cela ne vous dérange pas, je préfère qu'on continue à se vouvoyer. »</em><br>
+                            <em>« Je suis plus à l'aise avec le vouvoiement, si vous n'y voyez pas d'inconvénient. »</em>
+                        </div>
+
+                        <div class="situation-card">
+                            <h5>💼 Exemples de situations de passage</h5>
+                            
+                            <div class="exemple">
+                                <div class="context-label">👥 Entre collègues</div>
+                                <strong>Après quelques semaines de travail ensemble :</strong><br>
+                                <em>« On travaille bien ensemble. On peut se tutoyer, non ? »</em>
+                            </div>
+
+                            <div class="exemple">
+                                <div class="context-label">🎉 Contexte social</div>
+                                <strong>Lors d'une soirée entre amis d'amis :</strong><br>
+                                <em>« On va se voir souvent, autant se tutoyer directement ! »</em>
+                            </div>
+
+                            <div class="exemple">
+                                <div class="context-label">🏫 Professeur → Élève adulte</div>
+                                <strong>Cours pour adultes :</strong><br>
+                                <em>« Dans ce cours, nous allons nous tutoyer pour créer une bonne ambiance. »</em>
+                            </div>
+                        </div>
+
+                        <div class="note-box">
+                            <strong>💡 Contexte moderne :</strong> Dans certains environnements modernes (startups, associations, 
+                            milieux artistiques), le tutoiement est immédiat et généralisé. Cependant, dans les contextes 
+                            traditionnels (banque, administration, médecine), le vouvoiement reste la norme.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VOUS multiple -->
+                <div class="pronoun-card">
+                    <div class="pronoun-title">
+                        <span>5️⃣</span> VOUS pluriel (plusieurs personnes)
+                    </div>
+
+                    <div class="vous-box">
+                        <h4>👥 VOUS pour s'adresser à plusieurs personnes</h4>
+                        <p style="line-height: 1.8; margin-bottom: 15px;">
+                            Bien sûr, <strong>VOUS</strong> a aussi son emploi normal de <strong>2ème personne du pluriel</strong>, 
+                            pour s'adresser à plusieurs personnes (qu'on les tutoie individuellement ou non).
+                        </p>
+
+                        <div class="exemple">
+                            <strong>À un groupe d'amis (qu'on tutoie séparément) :</strong><br>
+                            <em>« Les amis, vous venez tous à la fête samedi ? »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Plusieurs personnes = VOUS (même si on les tutoie individuellement)</span>
+                        </div>
+
+                        <div class="exemple">
+                            <strong>À une classe d'élèves :</strong><br>
+                            <em>« Vous avez tous compris la leçon ? »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ S'adresse à tout le groupe</span>
+                        </div>
+
+                        <div class="exemple">
+                            <strong>À une équipe :</strong><br>
+                            <em>« Vous avez fait un excellent travail ! »</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Félicite tout le groupe</span>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Règle importante :</strong> Dès qu'on s'adresse à <strong>2 personnes ou plus</strong>, 
+                            on utilise toujours <strong>VOUS</strong>, même si on tutoie chaque personne individuellement.
+                            <ul style="margin-top: 10px;">
+                                <li>À Paul seul : <em>« Tu viens ? »</em></li>
+                                <li>À Marie seule : <em>« Tu viens ? »</em></li>
+                                <li>À Paul et Marie ensemble : <em>« Vous venez ? »</em> (pas "tu")</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau récapitulatif -->
+            <div class="section">
+                <h2><span class="icon">📊</span>Tableau récapitulatif complet</h2>
+
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Pronom</th>
+                            <th>Emploi</th>
+                            <th>Qui l'utilise ?</th>
+                            <th>Contexte</th>
+                            <th>Exemple</th>
+                        </tr>
+                        <tr style="background: #e8eaf6;">
+                            <td><strong>NOUS</strong></td>
+                            <td>Majesté</td>
+                            <td>Roi, pape (1 personne)</td>
+                            <td>Historique, officiel</td>
+                            <td><em>Nous ordonnons...</em></td>
+                        </tr>
+                        <tr style="background: #e8eaf6;">
+                            <td><strong>NOUS</strong></td>
+                            <td>Modestie</td>
+                            <td>Auteur seul</td>
+                            <td>Académique, scientifique</td>
+                            <td><em>Nous avons observé...</em></td>
+                        </tr>
+                        <tr style="background: #e8eaf6;">
+                            <td><strong>NOUS</strong></td>
+                            <td>Collectif</td>
+                            <td>Porte-parole</td>
+                            <td>Entreprise, équipe</td>
+                            <td><em>Nous sommes ouverts...</em></td>
+                        </tr>
+                        <tr style="background: #e8eaf6;">
+                            <td><strong>NOUS</strong></td>
+                            <td>Inclusif</td>
+                            <td>Locuteur + interlocuteur</td>
+                            <td>Médical, éducatif</td>
+                            <td><em>Comment nous sentons-nous ?</em></td>
+                        </tr>
+                        <tr style="background: #fce4ec;">
+                            <td><strong>VOUS</strong></td>
+                            <td>Politesse</td>
+                            <td>À 1 personne</td>
+                            <td>Formel, respect</td>
+                            <td><em>Vous êtes arrivé(e).</em></td>
+                        </tr>
+                        <tr style="background: #fce4ec;">
+                            <td><strong>VOUS</strong></td>
+                            <td>Pluriel</td>
+                            <td>À plusieurs personnes</td>
+                            <td>Tout contexte</td>
+                            <td><em>Vous venez tous ?</em></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Conseils pratiques -->
+            <div class="section">
+                <h2><span class="icon">💡</span>Conseils pratiques</h2>
+
+                <div class="grammar-point">
+                    <h4>✅ Points essentiels à retenir</h4>
+                    <ul class="special-list">
+                        <li><strong>NOUS de majesté :</strong> Rare aujourd'hui, historique</li>
+                        <li><strong>NOUS de modestie :</strong> Courant dans les écrits académiques</li>
+                        <li><strong>NOUS collectif :</strong> Très utilisé en contexte professionnel</li>
+                        <li><strong>VOUS de politesse :</strong> Essentiel pour le respect social</li>
+                        <li><strong>TU vs VOUS :</strong> En cas de doute, utilisez VOUS</li>
+                        <li><strong>Passage TU/VOUS :</strong> Toujours par accord mutuel</li>
+                    </ul>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 Pour progresser :</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Observez comment les Français utilisent TU et VOUS dans différents contextes</li>
+                        <li>Commencez toujours par VOUS avec des inconnus</li>
+                        <li>Écoutez attentivement quand on vous propose le tutoiement</li>
+                        <li>En contexte professionnel, suivez l'usage de vos collègues</li>
+                        <li>N'ayez pas peur de demander : « On se tutoie ou on se vouvoie ? »</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <strong>⚠️ Pièges à éviter :</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Ne tutoyez pas automatiquement une personne âgée (même si elle est sympathique)</li>
+                        <li>Ne proposez pas le tutoiement à votre supérieur hiérarchique</li>
+                        <li>Ne mélangez pas TU et VOUS dans la même phrase</li>
+                        <li>N'oubliez pas d'accorder au singulier avec VOUS de politesse</li>
+                        <li>Une fois le tutoiement accepté, ne revenez pas au vouvoiement</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p><strong>Língua Academy</strong> - Excellence en enseignement des langues</p>
+            <p style="margin-top: 10px;">📚 Maîtrisez les subtilités sociales et grammaticales du français</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">© 2024 Língua Academy - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

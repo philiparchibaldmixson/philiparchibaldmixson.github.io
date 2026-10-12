@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accentuation et Prononciation - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1450px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 38px;
+            box-shadow: 0 55px 130px rgba(0, 0, 0, 0.65);
+            overflow: hidden;
+            animation: containerEntrance 1.7s ease-out;
+        }
+
+        @keyframes containerEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(-300px) scale(0.65) rotateX(35deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotateX(0deg);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0055A4 0%, #FFFFFF 12%, #EF4135 24%, #FFFFFF 36%, #0055A4 48%, #EF4135 60%, #FFFFFF 72%, #0055A4 84%, #EF4135 96%, #FFFFFF 100%);
+            padding: 85px 65px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            width: 600%;
+            height: 600%;
+            top: -250%;
+            left: -250%;
+            background: 
+                repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(255,255,255,0.06) 50px, rgba(255,255,255,0.06) 100px),
+                repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(255,255,255,0.06) 50px, rgba(255,255,255,0.06) 100px);
+            animation: gridMove 60s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(100px, 100px) rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 5.5em;
+            margin-bottom: 30px;
+            text-shadow: 8px 8px 22px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+            color: #0055A4;
+            animation: titleWave 8s ease-in-out infinite;
+        }
+
+        @keyframes titleWave {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-25px) scale(1.07); }
+        }
+
+        .subtitle {
+            font-size: 2.4em;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            color: #2d3436;
+        }
+
+        .content {
+            padding: 75px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 65px;
+            border-radius: 32px;
+            margin-bottom: 70px;
+            font-size: 1.5em;
+            box-shadow: 0 28px 80px rgba(106, 17, 203, 0.65);
+            animation: introScale 1.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes introScale {
+            from {
+                opacity: 0;
+                transform: scale(0.5) translateX(-300px) rotateY(-25deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateX(0) rotateY(0deg);
+            }
+        }
+
+        .intro::after {
+            content: '🔊';
+            position: absolute;
+            right: 55px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 11em;
+            opacity: 0.15;
+            animation: soundWave 6s ease-in-out infinite;
+        }
+
+        @keyframes soundWave {
+            0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.15; }
+            50% { transform: translateY(-50%) scale(1.35); opacity: 0.25; }
+        }
+
+        .section {
+            margin-bottom: 70px;
+            padding: 65px;
+            background: linear-gradient(to bottom right, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 32px;
+            border-left: 16px solid #EF4135;
+            transition: all 0.7s ease;
+            animation: sectionSlide 1.3s ease-out;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.11);
+        }
+
+        @keyframes sectionSlide {
+            from { opacity: 0; transform: translateY(100px) rotateX(15deg); }
+            to { opacity: 1; transform: translateY(0) rotateX(0deg); }
+        }
+
+        .section:hover {
+            transform: translateX(28px) scale(1.03);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
+            border-left-color: #0055A4;
+        }
+
+        h2 {
+            color: #0055A4;
+            font-size: 3.4em;
+            margin-bottom: 55px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #EF4135 0%, #ff6b6b 50%, #0055A4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 2.6em;
+            animation: iconOrbit 9s ease-in-out infinite;
+            box-shadow: 0 18px 55px rgba(239, 65, 53, 0.75);
+        }
+
+        @keyframes iconOrbit {
+            0%, 100% { transform: scale(1) rotate(0deg) translateY(0); }
+            25% { transform: scale(1.45) rotate(-35deg) translateY(-15px); }
+            75% { transform: scale(1.45) rotate(35deg) translateY(-15px); }
+        }
+
+        .phonetic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 45px;
+            margin-top: 50px;
+        }
+
+        .phonetic-card {
+            background: white;
+            padding: 50px;
+            border-radius: 28px;
+            border: 7px solid #0055A4;
+            box-shadow: 0 18px 55px rgba(0, 85, 164, 0.2);
+            transition: all 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phonetic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(239, 65, 53, 0.18), transparent);
+            transition: left 0.9s ease;
+        }
+
+        .phonetic-card:hover::before {
+            left: 100%;
+        }
+
+        .phonetic-card:hover {
+            transform: translateY(-25px) scale(1.09);
+            box-shadow: 0 35px 95px rgba(0, 85, 164, 0.4);
+            border-color: #EF4135;
+        }
+
+        .sound-symbol {
+            font-size: 9em;
+            color: #EF4135;
+            text-align: center;
+            margin-bottom: 28px;
+            animation: soundPulse 3.5s ease-in-out infinite;
+            text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+            position: relative;
+            z-index: 1;
+            font-family: 'Arial Unicode MS', 'Lucida Sans Unicode', sans-serif;
+        }
+
+        @keyframes soundPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.18); }
+        }
+
+        .sound-name {
+            color: #0055A4;
+            font-size: 2.4em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sound-description {
+            font-size: 1.25em;
+            color: #636e72;
+            margin-bottom: 28px;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .examples-list {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+            padding: 28px;
+            border-radius: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .example-item {
+            padding: 18px;
+            margin: 14px 0;
+            background: white;
+            border-radius: 12px;
+            font-size: 1.4em;
+            border-left: 6px solid #667eea;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .example-item:hover {
+            transform: translateX(18px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+        }
+
+        .word {
+            color: #EF4135;
+            font-weight: bold;
+            font-size: 1.2em;
+            min-width: 120px;
+        }
+
+        .phonetic {
+            color: #0055A4;
+            font-family: 'Arial Unicode MS', 'Lucida Sans Unicode', sans-serif;
+            font-size: 1.15em;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 5px 15px;
+            border-radius: 8px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 60px;
+            border-radius: 30px;
+            margin: 55px 0;
+            box-shadow: 0 22px 75px rgba(0, 85, 164, 0.65);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .definition-box::after {
+            content: '';
+            position: absolute;
+            width: 400%;
+            height: 400%;
+            top: -150%;
+            right: -150%;
+            background: repeating-conic-gradient(
+                from 45deg,
+                transparent 0deg 15deg,
+                rgba(255, 255, 255, 0.06) 15deg 30deg
+            );
+            animation: conicRotate 35s linear infinite;
+        }
+
+        @keyframes conicRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .definition-title {
+            font-size: 2.8em;
+            font-weight: bold;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .definition-title::before {
+            content: '📖';
+            font-size: 2.4em;
+        }
+
+        .definition-content {
+            font-size: 1.45em;
+            line-height: 2.3;
+            position: relative;
+            z-index: 1;
+        }
+
+        .accent-pronunciation {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .accent-box {
+            background: white;
+            padding: 45px;
+            border-radius: 25px;
+            border: 6px solid #EF4135;
+            box-shadow: 0 15px 45px rgba(239, 65, 53, 0.2);
+        }
+
+        .accent-box h3 {
+            color: #EF4135;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .pronunciation-box {
+            background: white;
+            padding: 45px;
+            border-radius: 25px;
+            border: 6px solid #0055A4;
+            box-shadow: 0 15px 45px rgba(0, 85, 164, 0.2);
+        }
+
+        .pronunciation-box h3 {
+            color: #0055A4;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 18px 55px rgba(0, 0, 0, 0.16);
+            margin: 50px 0;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 38px;
+            font-size: 1.8em;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 38px;
+            border-bottom: 5px solid #e9ecef;
+            font-size: 1.35em;
+        }
+
+        .comparison-table tr:hover {
+            background: linear-gradient(to right, #f8f9fa 0%, #e8f4f8 100%);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 55px;
+            border-radius: 28px;
+            margin: 55px 0;
+            border-left: 14px solid #f39c12;
+            box-shadow: 0 18px 50px rgba(243, 156, 18, 0.55);
+        }
+
+        .highlight-title {
+            font-size: 2em;
+            font-weight: bold;
+            color: #d35400;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .highlight-title::before {
+            content: '💡';
+            font-size: 2.8em;
+            animation: bulbBlink 4.5s infinite;
+        }
+
+        @keyframes bulbBlink {
+            0%, 100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+            50% { opacity: 0.6; transform: scale(1.45); filter: brightness(2.5); }
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .rule-card {
+            background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%);
+            padding: 45px;
+            border-radius: 25px;
+            border: 6px solid #0055A4;
+            transition: all 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.15), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .rule-card:hover::before {
+            left: 100%;
+        }
+
+        .rule-card:hover {
+            transform: translateY(-22px) scale(1.07);
+            box-shadow: 0 28px 85px rgba(0, 85, 164, 0.35);
+            border-color: #EF4135;
+        }
+
+        .rule-title {
+            color: #EF4135;
+            font-size: 2.1em;
+            font-weight: bold;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rule-title::before {
+            content: '▸';
+            color: #0055A4;
+            font-size: 1.9em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-left: 14px solid #f44336;
+            padding: 50px;
+            border-radius: 28px;
+            margin: 50px 0;
+        }
+
+        .warning-title {
+            font-weight: bold;
+            color: #c62828;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            font-size: 1.9em;
+        }
+
+        .warning-title::before {
+            content: '⚠';
+            font-size: 3.2em;
+            animation: warningTremble 3.5s infinite;
+        }
+
+        @keyframes warningTremble {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% { transform: rotate(-30deg) scale(1.35); }
+            10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90% { transform: rotate(30deg) scale(1.35); }
+        }
+
+        .liaison-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 50px;
+            border-radius: 25px;
+            margin: 50px 0;
+            border-left: 12px solid #4caf50;
+        }
+
+        .liaison-title {
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.8em;
+        }
+
+        .liaison-title::before {
+            content: '🔗';
+            font-size: 2.6em;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 70px;
+            border-radius: 35px;
+            margin: 70px 0;
+            box-shadow: 0 28px 95px rgba(102, 126, 234, 0.75);
+        }
+
+        .summary-title {
+            font-size: 3.2em;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .summary-title::before {
+            content: '📋';
+            font-size: 2.8em;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .summary-list li {
+            padding: 28px 0;
+            padding-left: 65px;
+            position: relative;
+            font-size: 1.45em;
+        }
+
+        .summary-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ffd93d;
+            font-weight: bold;
+            font-size: 2.4em;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: white;
+            text-align: center;
+            padding: 70px;
+            font-size: 1em;
+        }
+
+        .footer-logo {
+            font-size: 3.4em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #EF4135 0%, #0055A4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: logoSparkle 9s infinite;
+        }
+
+        @keyframes logoSparkle {
+            0%, 100% { opacity: 1; transform: scale(1) translateY(0) rotate(0deg); }
+            50% { opacity: 0.92; transform: scale(1.15) translateY(-15px) rotate(10deg); }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3.4em;
+            }
+
+            .content {
+                padding: 55px;
+            }
+
+            h2 {
+                font-size: 2.8em;
+            }
+
+            .phonetic-grid,
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .accent-pronunciation {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇫🇷 Accentuation et Prononciation</h1>
+            <p class="subtitle">Guide Complet du Français</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <strong>🔊 Introduction :</strong> L'accentuation et la prononciation sont intimement liées en français. Les accents guident la prononciation, distinguent les sons et donnent vie à la langue. Maîtriser ces deux aspects est essentiel pour parler et comprendre le français correctement !
+            </div>
+
+            <!-- Section 1 : Relation Accent-Prononciation -->
+            <div class="section">
+                <h2><span class="icon">1</span>Accents et Prononciation</h2>
+                
+                <div class="definition-box">
+                    <div class="definition-title">Lien Fondamental</div>
+                    <div class="definition-content">
+                        Les accents en français ne sont pas décoratifs : ils <strong>modifient la prononciation</strong> des voyelles et sont essentiels pour la compréhension orale et écrite. Chaque accent correspond à un son précis.
+                    </div>
+                </div>
+
+                <div class="accent-pronunciation">
+                    <div class="accent-box">
+                        <h3>Accent Aigu (´)</h3>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">été</span>
+                                <span class="phonetic">[e-te]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">école</span>
+                                <span class="phonetic">[e-kɔl]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">café</span>
+                                <span class="phonetic">[ka-fe]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">réalité</span>
+                                <span class="phonetic">[ʁe-a-li-te]</span>
+                            </div>
+                        </div>
+                        <p style="margin-top: 20px; font-size: 1.2em; color: #636e72;">
+                            Son : <strong>[e]</strong> fermé (bouche presque fermée)
+                        </p>
+                    </div>
+
+                    <div class="pronunciation-box">
+                        <h3>Accent Grave (`)</h3>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">père</span>
+                                <span class="phonetic">[pɛʁ]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">mère</span>
+                                <span class="phonetic">[mɛʁ]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">élève</span>
+                                <span class="phonetic">[e-lɛv]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">après</span>
+                                <span class="phonetic">[a-pʁɛ]</span>
+                            </div>
+                        </div>
+                        <p style="margin-top: 20px; font-size: 1.2em; color: #636e72;">
+                            Son : <strong>[ɛ]</strong> ouvert (bouche plus ouverte)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2 : Les Sons du Français -->
+            <div class="section">
+                <h2><span class="icon">2</span>Les Sons Vocaliques Français</h2>
+                
+                <div class="phonetic-grid">
+                    <div class="phonetic-card">
+                        <div class="sound-symbol">[a]</div>
+                        <div class="sound-name">A ouvert</div>
+                        <div class="sound-description">
+                            Voyelle antérieure ouverte non arrondie. Bouche grande ouverte, langue en bas.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">chat</span>
+                                <span class="phonetic">[ʃa]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">Paris</span>
+                                <span class="phonetic">[pa-ʁi]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">table</span>
+                                <span class="phonetic">[tabl]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phonetic-card">
+                        <div class="sound-symbol">[e]</div>
+                        <div class="sound-name">É fermé</div>
+                        <div class="sound-description">
+                            Voyelle antérieure mi-fermée. Bouche presque fermée, lèvres étirées.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">été</span>
+                                <span class="phonetic">[e-te]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">café</span>
+                                <span class="phonetic">[ka-fe]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">et</span>
+                                <span class="phonetic">[e]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phonetic-card">
+                        <div class="sound-symbol">[ɛ]</div>
+                        <div class="sound-name">È ouvert</div>
+                        <div class="sound-description">
+                            Voyelle antérieure mi-ouverte. Bouche plus ouverte que [e].
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">père</span>
+                                <span class="phonetic">[pɛʁ]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">belle</span>
+                                <span class="phonetic">[bɛl]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">merci</span>
+                                <span class="phonetic">[mɛʁ-si]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phonetic-card">
+                        <div class="sound-symbol">[i]</div>
+                        <div class="sound-name">I</div>
+                        <div class="sound-description">
+                            Voyelle antérieure fermée. Bouche presque fermée, langue en avant et en haut.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">lit</span>
+                                <span class="phonetic">[li]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">midi</span>
+                                <span class="phonetic">[mi-di]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">fini</span>
+                                <span class="phonetic">[fi-ni]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phonetic-card">
+                        <div class="sound-symbol">[u]</div>
+                        <div class="sound-name">OU</div>
+                        <div class="sound-description">
+                            Voyelle postérieure fermée arrondie. Lèvres arrondies et projetées en avant.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">jour</span>
+                                <span class="phonetic">[ʒuʁ]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">tout</span>
+                                <span class="phonetic">[tu]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">toujours</span>
+                                <span class="phonetic">[tu-ʒuʁ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phonetic-card">
+                        <div class="sound-symbol">[y]</div>
+                        <div class="sound-name">U</div>
+                        <div class="sound-description">
+                            Voyelle antérieure fermée arrondie. Comme [i] mais avec lèvres arrondies.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">tu</span>
+                                <span class="phonetic">[ty]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">rue</span>
+                                <span class="phonetic">[ʁy]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">lune</span>
+                                <span class="phonetic">[lyn]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phonetic-card">
+                        <div class="sound-symbol">[ø]</div>
+                        <div class="sound-name">EU fermé</div>
+                        <div class="sound-description">
+                            Voyelle antérieure mi-fermée arrondie. Lèvres arrondies, bouche peu ouverte.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">peu</span>
+                                <span class="phonetic">[pø]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">deux</span>
+                                <span class="phonetic">[dø]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">vœu</span>
+                                <span class="phonetic">[vø]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phonetic-card">
+                        <div class="sound-symbol">[œ]</div>
+                        <div class="sound-name">EU ouvert</div>
+                        <div class="sound-description">
+                            Voyelle antérieure mi-ouverte arrondie. Bouche plus ouverte que [ø].
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">peur</span>
+                                <span class="phonetic">[pœʁ]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">cœur</span>
+                                <span class="phonetic">[kœʁ]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">jeune</span>
+                                <span class="phonetic">[ʒœn]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phonetic-card">
+                        <div class="sound-symbol">[o]</div>
+                        <div class="sound-name">O fermé</div>
+                        <div class="sound-description">
+                            Voyelle postérieure mi-fermée arrondie. Lèvres bien arrondies.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">beau</span>
+                                <span class="phonetic">[bo]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">mot</span>
+                                <span class="phonetic">[mo]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">eau</span>
+                                <span class="phonetic">[o]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phonetic-card">
+                        <div class="sound-symbol">[ɔ]</div>
+                        <div class="sound-name">O ouvert</div>
+                        <div class="sound-description">
+                            Voyelle postérieure mi-ouverte arrondie. Bouche plus ouverte que [o].
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">porte</span>
+                                <span class="phonetic">[pɔʁt]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">pomme</span>
+                                <span class="phonetic">[pɔm]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">bonne</span>
+                                <span class="phonetic">[bɔn]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phonetic-card">
+                        <div class="sound-symbol">[ə]</div>
+                        <div class="sound-name">E muet/caduc</div>
+                        <div class="sound-description">
+                            Voyelle centrale mi-fermée. Son atténué, parfois non prononcé.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">le</span>
+                                <span class="phonetic">[lə]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">petit</span>
+                                <span class="phonetic">[pə-ti]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">demain</span>
+                                <span class="phonetic">[də-mɛ̃]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phonetic-card">
+                        <div class="sound-symbol">[ɑ̃]</div>
+                        <div class="sound-name">AN/EN</div>
+                        <div class="sound-description">
+                            Voyelle nasale postérieure. L'air passe par le nez et la bouche.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">blanc</span>
+                                <span class="phonetic">[blɑ̃]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">enfant</span>
+                                <span class="phonetic">[ɑ̃-fɑ̃]</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">temps</span>
+                                <span class="phonetic">[tɑ̃]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 : Accent Tonique -->
+            <div class="section">
+                <h2><span class="icon">3</span>L'Accent Tonique en Français</h2>
+                
+                <div class="definition-box">
+                    <div class="definition-title">Règle Fondamentale</div>
+                    <div class="definition-content">
+                        En français, l'accent tonique (l'intensité de la voix) se place <strong>toujours sur la dernière syllabe</strong> d'un mot ou d'un groupe de mots. C'est une caractéristique unique du français !
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <div class="highlight-title">Position de l'accent tonique</div>
+                    <p style="font-size: 1.3em; margin-bottom: 25px;">
+                        Contrairement à l'anglais ou à l'espagnol où l'accent peut se déplacer, en français il est <strong>fixe et prévisible</strong>.
+                    </p>
+                    
+                    <div class="examples-list">
+                        <div class="example-item">
+                            <span class="word">téléphone</span>
+                            <span>→ télépho<strong style="color: #EF4135; font-size: 1.3em;">NE</strong></span>
+                        </div>
+                        <div class="example-item">
+                            <span class="word">ordinateur</span>
+                            <span>→ ordina<strong style="color: #EF4135; font-size: 1.3em;">TEUR</strong></span>
+                        </div>
+                        <div class="example-item">
+                            <span class="word">magnifique</span>
+                            <span>→ magnifi<strong style="color: #EF4135; font-size: 1.3em;">QUE</strong></span>
+                        </div>
+                        <div class="example-item">
+                            <span class="word">chocolat</span>
+                            <span>→ choco<strong style="color: #EF4135; font-size: 1.3em;">LAT</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rules-grid">
+                    <div class="rule-card">
+                        <div class="rule-title">Dans un mot isolé</div>
+                        <div class="sound-description">
+                            L'accent tonique est sur la dernière syllabe prononcée du mot.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">maison</span>
+                                <span>→ mai<strong>SON</strong></span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">jardin</span>
+                                <span>→ jar<strong>DIN</strong></span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">français</span>
+                                <span>→ fran<strong>ÇAIS</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rule-card">
+                        <div class="rule-title">Dans un groupe de mots</div>
+                        <div class="sound-description">
+                            L'accent tonique est sur la dernière syllabe du groupe rythmique.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="word">à la maison</span>
+                                <span>→ à la mai<strong>SON</strong></span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">dans le jardin</span>
+                                <span>→ dans le jar<strong>DIN</strong></span>
+                            </div>
+                            <div class="example-item">
+                                <span class="word">très intéressant</span>
+                                <span>→ très intéres<strong>SANT</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <div class="warning-title">Exception importante</div>
+                    <p style="font-size: 1.3em;">Le E muet final n'est pas accentué. L'accent tonique tombe sur la syllabe précédente.</p>
+                    <div class="examples-list">
+                        <div class="example-item">
+                            <span class="word">table</span>
+                            <span>→ <strong>TA</strong>ble (pas ta<strong>BLE</strong>)</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="word">chaise</span>
+                            <span>→ <strong>CHAI</strong>se</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="word">porte</span>
+                            <span>→ <strong>POR</strong>te</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4 : Liaisons et Enchaînements -->
+            <div class="section">
+                <h2><span class="icon">4</span>Liaisons et Enchaînements</h2>
+                
+                <div class="liaison-box">
+                    <div class="liaison-title">La Liaison</div>
+                    <p style="font-size: 1.3em; margin-bottom: 25px;">
+                        La liaison consiste à prononcer la consonne finale muette d'un mot avec la voyelle initiale du mot suivant.
+                    </p>
+                    
+                    <div class="examples-list">
+                        <div class="example-item">
+                            <span class="word">les‿enfants</span>
+                            <span class="phonetic">[le-z‿ɑ̃-fɑ̃]</span>
+                            <span style="color: #4caf50;">→ le S se prononce [z]</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="word">un‿ami</span>
+                            <span class="phonetic">[œ̃-n‿a-mi]</span>
+                            <span style="color: #4caf50;">→ le N se prononce</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="word">vous‿avez</span>
+                            <span class="phonetic">[vu-z‿a-ve]</span>
+                            <span style="color: #4caf50;">→ le S se prononce [z]</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="word">très‿intéressant</span>
+                            <span class="phonetic">[tʁɛ-z‿ɛ̃-te-ʁe-sɑ̃]</span>
+                            <span style="color: #4caf50;">→ le S se prononce [z]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Type de Liaison</th>
+                            <th>Exemples</th>
+                            <th>Prononciation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Liaison obligatoire</strong><br>(article + nom)</td>
+                            <td>les enfants<br>un ami<br>des arbres</td>
+                            <td>[le-z‿ɑ̃-fɑ̃]<br>[œ̃-n‿a-mi]<br>[de-z‿aʁbʁ]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Liaison obligatoire</strong><br>(pronom + verbe)</td>
+                            <td>ils ont<br>nous avons<br>vous êtes</td>
+                            <td>[il-z‿ɔ̃]<br>[nu-z‿a-vɔ̃]<br>[vu-z‿ɛt]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Liaison facultative</strong></td>
+                            <td>pas encore<br>beaucoup aimé</td>
+                            <td>[pa-z‿ɑ̃-kɔʁ]<br>[bo-ku-p‿ɛ-me]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Liaison interdite</strong><br>(après ET)</td>
+                            <td>toi et elle<br>lui et eux</td>
+                            <td>[twa / e / ɛl]<br>[lɥi / e / ø]</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box">
+                    <div class="highlight-title">L'Enchaînement</div>
+                    <p style="font-size: 1.3em; margin-bottom: 25px;">
+                        L'enchaînement consiste à prononcer une consonne finale normalement prononcée avec la voyelle du mot suivant.
+                    </p>
+                    
+                    <div class="examples-list">
+                        <div class="example-item">
+                            <span class="word">avec elle</span>
+                            <span class="phonetic">[a-vɛ-k‿ɛl]</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="word">pour une fois</span>
+                            <span class="phonetic">[pu-ʁ‿yn-fwa]</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="word">quelle heure</span>
+                            <span class="phonetic">[kɛ-l‿œʁ]</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5 : Résumé -->
+            <div class="summary-box">
+                <div class="summary-title">Points clés à retenir</div>
+                <ul class="summary-list">
+                    <li>Les accents modifient la prononciation : é [e] fermé vs è [ɛ] ouvert</li>
+                    <li>L'accent tonique en français se place toujours sur la dernière syllabe</li>
+                    <li>Le français possède 12 voyelles orales et 4 voyelles nasales</li>
+                    <li>La liaison lie la consonne finale muette d'un mot à la voyelle initiale du suivant</li>
+                    <li>Certaines liaisons sont obligatoires (article + nom, pronom + verbe)</li>
+                    <li>L'enchaînement lie une consonne normalement prononcée avec la voyelle suivante</li>
+                    <li>Le E muet final n'est pas accentué et peut être non prononcé</li>
+                    <li>Maîtriser la prononciation nécessite de connaître l'alphabet phonétique international (API)</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="footer-logo">Língua Academy</div>
+            <p>Maîtrisez l'accentuation et la prononciation françaises avec excellence ✨</p>
+            <p>© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

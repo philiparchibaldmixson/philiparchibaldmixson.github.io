@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Complément Circonstanciel de Cause - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes ripple {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #002395 0%, #ffffff 50%, #ED2939 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(237, 41, 57, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0, 35, 149, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background: linear-gradient(135deg, #002395, #0035b8, #002395);
+            background-size: 200% 200%;
+            animation: gradientFlow 8s ease infinite;
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 35, 149, 0.4);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .logo {
+            font-size: 1.3em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            opacity: 0.95;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 20px 0;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-top: 15px;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            border: 3px solid rgba(0, 35, 149, 0.2);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .intro-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .intro-section h2::before {
+            content: '🔍';
+            font-size: 1.2em;
+            animation: ripple 2s ease-in-out infinite;
+        }
+
+        .intro-section p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.15em;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 6px solid #002395;
+            margin: 25px 0;
+            font-size: 1.1em;
+            line-height: 1.7;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .definition-box strong {
+            color: #ED2939;
+            font-size: 1.1em;
+        }
+
+        .questions-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .questions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .question-box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #ED2939;
+            transition: all 0.3s ease;
+        }
+
+        .question-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(0, 35, 149, 0.2);
+        }
+
+        .question-title {
+            color: #ED2939;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .question-examples {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .cc-highlight {
+            color: #ED2939;
+            background: rgba(237, 41, 57, 0.1);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .constructions-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .constructions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .construction-item {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.03), rgba(237, 41, 57, 0.03));
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 2px solid rgba(0, 35, 149, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .construction-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 35, 149, 0.15);
+            border-color: #002395;
+        }
+
+        .construction-item h3 {
+            color: #002395;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .construction-type {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .construction-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .construction-examples {
+            margin-top: 15px;
+        }
+
+        .construction-example {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 4px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .construction-example:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .prepositions-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 1.8s ease;
+        }
+
+        .prepositions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .prep-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .prep-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .prep-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 35, 149, 0.2);
+        }
+
+        .prep-title {
+            color: #002395;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prep-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .prep-examples {
+            list-style: none;
+            padding: 0;
+        }
+
+        .prep-examples li {
+            background: rgba(237, 41, 57, 0.05);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-left: 3px solid #ED2939;
+        }
+
+        .prep-examples li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .distinction-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 2s ease;
+        }
+
+        .distinction-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .distinction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .distinction-card {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 30px;
+            border-radius: 20px;
+            border-top: 5px solid #ED2939;
+            transition: all 0.3s ease;
+        }
+
+        .distinction-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 35, 149, 0.15);
+        }
+
+        .distinction-title {
+            color: #ED2939;
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .distinction-content {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .conjonctions-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 2.2s ease;
+        }
+
+        .conjonctions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .conjonction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .conjonction-item {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 35, 149, 0.3);
+            transition: all 0.3s ease;
+            animation: slideIn 1s ease;
+        }
+
+        .conjonction-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 35, 149, 0.5);
+        }
+
+        .special-section {
+            background: linear-gradient(135deg, #002395 0%, #0041c9 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 35, 149, 0.4);
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 2.4s ease;
+        }
+
+        .special-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .special-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .special-section p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .tip-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .table-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 2.6s ease;
+        }
+
+        .table-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+        }
+
+        th {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        th:first-child {
+            border-top-left-radius: 15px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 15px;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid rgba(0, 35, 149, 0.1);
+            font-size: 1.05em;
+            color: #333;
+        }
+
+        tr:hover {
+            background: rgba(0, 35, 149, 0.05);
+        }
+
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 15px;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 15px;
+        }
+
+        .type-highlight {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #002395, #ED2939);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 2.8s ease;
+        }
+
+        .footer-content {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo {
+            font-size: 2em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .distinction-grid, .prep-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 30px;
+            }
+
+            .intro-section, .special-section, .constructions-section {
+                padding: 25px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">⚜️ Língua Academy ⚜️</div>
+            <h1>Le Complément Circonstanciel de Cause</h1>
+            <div class="subtitle">🔍 Pourquoi ? Pour quelle raison ? À cause de quoi ? 🔍</div>
+        </header>
+
+        <div class="intro-section">
+            <h2>Qu'est-ce qu'un CC de Cause ?</h2>
+            <p>
+                Le <strong>complément circonstanciel de cause</strong> (CC de cause) est un complément de phrase qui indique 
+                <strong>la raison, la cause, l'origine</strong> de l'action exprimée par le verbe ou de l'état exprimé par l'adjectif.
+            </p>
+            
+            <div class="definition-box">
+                🔍 <strong>Définition :</strong> Le CC de cause explique pourquoi l'action a lieu ou pourquoi un état existe. 
+                Il répond aux questions : <strong>Pourquoi ? Pour quelle raison ? À cause de quoi ? Grâce à quoi ? 
+                De quoi ? Pour quel motif ?</strong>
+            </div>
+
+            <p>
+                Le CC de cause est généralement <strong>supprimable</strong> et <strong>déplaçable</strong> dans la phrase. 
+                Il apporte une explication sur l'origine ou la motivation de l'action.
+            </p>
+        </div>
+
+        <div class="questions-section">
+            <h2>❓ Les Questions pour Identifier le CC de Cause</h2>
+            
+            <div class="question-box">
+                <div class="question-title">
+                    🔍 Pourquoi ? / Pour quelle raison ?
+                </div>
+                <div class="question-examples">
+                    <strong>La question la plus courante pour identifier le CC de cause :</strong><br><br>
+                    • Il est absent <span class="cc-highlight">à cause de la maladie</span>. → <em>Pourquoi est-il absent ?</em><br>
+                    • Je suis heureux <span class="cc-highlight">parce que j'ai réussi</span>. → <em>Pourquoi suis-je heureux ?</em><br>
+                    • Elle pleure <span class="cc-highlight">de joie</span>. → <em>Pour quelle raison pleure-t-elle ?</em><br>
+                    • Nous partons <span class="cc-highlight">en raison du mauvais temps</span>. → <em>Pourquoi partons-nous ?</em>
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="question-title">
+                    💥 À cause de quoi ? / Grâce à quoi ?
+                </div>
+                <div class="question-examples">
+                    <strong>Pour identifier la cause négative ou positive :</strong><br><br>
+                    • Le match est annulé <span class="cc-highlight">à cause de la pluie</span>. → <em>À cause de quoi ?</em><br>
+                    • Il a réussi <span class="cc-highlight">grâce à son travail</span>. → <em>Grâce à quoi a-t-il réussi ?</em><br>
+                    • Elle est fatiguée <span class="cc-highlight">par le stress</span>. → <em>Par quoi est-elle fatiguée ?</em>
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="question-title">
+                    😊 De quoi ? / Pour quel motif ?
+                </div>
+                <div class="question-examples">
+                    <strong>Pour les causes liées à des émotions ou sentiments :</strong><br><br>
+                    • Il tremble <span class="cc-highlight">de peur</span>. → <em>De quoi tremble-t-il ?</em><br>
+                    • Elle rougit <span class="cc-highlight">de honte</span>. → <em>De quoi rougit-elle ?</em><br>
+                    • Ils crient <span class="cc-highlight">de colère</span>. → <em>Pour quel motif crient-ils ?</em>
+                </div>
+            </div>
+        </div>
+
+        <div class="constructions-section">
+            <h2>🏗️ Constructions du CC de Cause</h2>
+
+            <div class="construction-item">
+                <h3>
+                    <span>1️⃣</span> 
+                    Groupe Nominal avec Préposition
+                    <span class="construction-type">Très fréquent</span>
+                </h3>
+                <div class="construction-description">
+                    Le CC de cause est souvent introduit par une préposition de cause 
+                    (<strong>à cause de, en raison de, par, de, pour, grâce à, faute de, etc.</strong>) 
+                    suivie d'un groupe nominal.
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">À CAUSE DE (cause négative) :</strong><br>
+                        Il est absent <span class="cc-highlight">à cause de la maladie</span> • Le match est annulé <span class="cc-highlight">à cause de la pluie</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">GRÂCE À (cause positive) :</strong><br>
+                        Il a réussi <span class="cc-highlight">grâce à son travail</span> • Nous avons gagné <span class="cc-highlight">grâce à votre aide</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">EN RAISON DE (formel) :</strong><br>
+                        Le vol est retardé <span class="cc-highlight">en raison du brouillard</span> • Elle est absente <span class="cc-highlight">en raison d'un rendez-vous</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">PAR (agent de la cause) :</strong><br>
+                        Il est fatigué <span class="cc-highlight">par le travail</span> • Elle est épuisée <span class="cc-highlight">par le stress</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">DE (émotions, sentiments) :</strong><br>
+                        Il tremble <span class="cc-highlight">de peur</span> • Elle pleure <span class="cc-highlight">de joie</span> • Ils crient <span class="cc-highlight">de colère</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>2️⃣</span> 
+                    Proposition Subordonnée Conjonctive
+                    <span class="construction-type">Très courant</span>
+                </h3>
+                <div class="construction-description">
+                    Le CC de cause peut être une proposition subordonnée introduite par une conjonction de subordination 
+                    (<strong>parce que, puisque, comme, étant donné que, vu que, attendu que, etc.</strong>).
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">PARCE QUE (la plus courante) :</strong><br>
+                        Je reste <span class="cc-highlight">parce que je suis fatigué</span> • Elle est contente <span class="cc-highlight">parce qu'elle a réussi</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">PUISQUE (cause évidente) :</strong><br>
+                        Je pars <span class="cc-highlight">puisque tu ne veux pas rester</span> • Il faut partir <span class="cc-highlight">puisqu'il est tard</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">COMME (en début de phrase) :</strong><br>
+                        <span class="cc-highlight">Comme il pleut</span>, je prends mon parapluie • <span class="cc-highlight">Comme elle est malade</span>, elle reste chez elle
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">ÉTANT DONNÉ QUE / VU QUE (formel) :</strong><br>
+                        <span class="cc-highlight">Étant donné qu'il est absent</span>, nous reportons la réunion • <span class="cc-highlight">Vu que personne ne vient</span>, j'annule
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>3️⃣</span> 
+                    Infinitif Prépositionnel
+                    <span class="construction-type">Courant</span>
+                </h3>
+                <div class="construction-description">
+                    Le CC de cause peut être un infinitif précédé d'une préposition 
+                    (<strong>pour, de, à force de, faute de, etc.</strong>).
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">POUR + infinitif passé :</strong><br>
+                        Il est puni <span class="cc-highlight">pour avoir menti</span> • Elle est félicitée <span class="cc-highlight">pour avoir réussi</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">DE + infinitif :</strong><br>
+                        Je suis fatigué <span class="cc-highlight">d'avoir trop travaillé</span> • Il est content <span class="cc-highlight">d'être arrivé</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">À FORCE DE + infinitif :</strong><br>
+                        Il a réussi <span class="cc-highlight">à force de travailler</span> • Elle a compris <span class="cc-highlight">à force de pratiquer</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">FAUTE DE + infinitif :</strong><br>
+                        Il échoue <span class="cc-highlight">faute de s'être préparé</span> • Nous partons <span class="cc-highlight">faute d'avoir trouvé une solution</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>4️⃣</span> 
+                    Participe Présent ou Gérondif
+                    <span class="construction-type">Plus soutenu</span>
+                </h3>
+                <div class="construction-description">
+                    Le participe présent peut exprimer la cause. Le gérondif peut parfois avoir un sens causal.
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Participe présent :</strong><br>
+                        <span class="cc-highlight">Ne sachant pas quoi faire</span>, il est parti • <span class="cc-highlight">Étant malade</span>, elle ne peut pas venir
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Gérondif (sens causal parfois) :</strong><br>
+                        Il s'est blessé <span class="cc-highlight">en tombant</span> (= parce qu'il est tombé)
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>5️⃣</span> 
+                    Adverbe
+                    <span class="construction-type">Moins fréquent</span>
+                </h3>
+                <div class="construction-description">
+                    Certains adverbes ou locutions adverbiales peuvent exprimer la cause : 
+                    <strong>donc, c'est pourquoi, par conséquent, etc.</strong> (mais ce sont plutôt des connecteurs logiques).
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        Il pleut, <span class="cc-highlight">donc</span> je prends mon parapluie • Je suis fatigué, <span class="cc-highlight">c'est pourquoi</span> je me repose
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="prepositions-section">
+            <h2>🔑 Prépositions et Locutions de Cause</h2>
+            
+            <div class="prep-grid">
+                <div class="prep-card">
+                    <div class="prep-title">
+                        💥 À CAUSE DE
+                    </div>
+                    <div class="prep-description">
+                        Introduit une cause <strong>négative</strong>, un effet défavorable ou désagréable.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Je suis en retard à cause des embouteillages</li>
+                        <li>Il est malade à cause du froid</li>
+                        <li>Le match est annulé à cause de la pluie</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        ✨ GRÂCE À
+                    </div>
+                    <div class="prep-description">
+                        Introduit une cause <strong>positive</strong>, un effet favorable ou heureux.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>J'ai réussi grâce à ton aide</li>
+                        <li>Il a guéri grâce aux médicaments</li>
+                        <li>Nous avons gagné grâce à notre travail</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        📋 EN RAISON DE
+                    </div>
+                    <div class="prep-description">
+                        Introduit une cause de manière <strong>formelle, neutre</strong>. Utilisé surtout à l'écrit.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Le vol est retardé en raison du brouillard</li>
+                        <li>Elle est absente en raison d'un rendez-vous</li>
+                        <li>La réunion est reportée en raison des circonstances</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        🔨 PAR
+                    </div>
+                    <div class="prep-description">
+                        Indique l'<strong>agent, la force</strong> qui provoque l'action. Souvent avec des adjectifs.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il est fatigué par le travail</li>
+                        <li>Elle est épuisée par le stress</li>
+                        <li>Nous sommes impressionnés par cette œuvre</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        😊 DE
+                    </div>
+                    <div class="prep-description">
+                        Introduit une cause liée à des <strong>émotions, sentiments</strong> (peur, joie, colère...).
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il tremble de peur</li>
+                        <li>Elle pleure de joie</li>
+                        <li>Ils crient de colère</li>
+                        <li>Je meurs de faim</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        💪 À FORCE DE
+                    </div>
+                    <div class="prep-description">
+                        Indique une cause par <strong>répétition, insistance, persévérance</strong>.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il a réussi à force de travailler</li>
+                        <li>Elle a compris à force de répéter</li>
+                        <li>Tu vas réussir à force de persévérer</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        🚫 FAUTE DE
+                    </div>
+                    <div class="prep-description">
+                        Indique une cause par <strong>manque, absence</strong> de quelque chose.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il échoue faute de préparation</li>
+                        <li>Nous partons faute de temps</li>
+                        <li>Le projet est annulé faute d'argent</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        🎯 POUR
+                    </div>
+                    <div class="prep-description">
+                        Avec un infinitif passé, indique la <strong>cause d'une sanction ou d'une récompense</strong>.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il est puni pour avoir menti</li>
+                        <li>Elle est félicitée pour avoir réussi</li>
+                        <li>Il est récompensé pour avoir aidé</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="conjonctions-section">
+            <h2>🔗 Conjonctions de Subordination de Cause</h2>
+            
+            <div class="conjonction-grid">
+                <div class="conjonction-item">PARCE QUE</div>
+                <div class="conjonction-item">PUISQUE</div>
+                <div class="conjonction-item">COMME</div>
+                <div class="conjonction-item">ÉTANT DONNÉ QUE</div>
+                <div class="conjonction-item">VU QUE</div>
+                <div class="conjonction-item">ATTENDU QUE</div>
+                <div class="conjonction-item">DU FAIT QUE</div>
+                <div class="conjonction-item">SOUS PRÉTEXTE QUE</div>
+                <div class="conjonction-item">D'AUTANT QUE</div>
+                <div class="conjonction-item">CAR</div>
+            </div>
+        </div>
+
+        <div class="distinction-section">
+            <h2>⚖️ Distinctions Importantes</h2>
+            
+            <div class="distinction-grid">
+                <div class="distinction-card">
+                    <div class="distinction-title">
+                        🔍 CC de Cause
+                    </div>
+                    <div class="distinction-content">
+                        <strong>Pourquoi ? Pour quelle raison ?</strong><br><br>
+                        Explique la <strong>raison, l'origine</strong> de l'action ou de l'état.<br><br>
+                        <em>Exemples :</em><br>
+                        • "Il est absent <strong>parce qu'il est malade</strong>" (cause)<br>
+                        → Pourquoi est-il absent ? Parce qu'il est malade<br><br>
+                        • "Je pars <strong>à cause de la pluie</strong>" (cause)<br>
+                        → Pourquoi pars-je ? À cause de la pluie<br><br>
+                        ➡️ Répond à <strong>"pourquoi ?"</strong>
+                    </div>
+                </div>
+
+                <div class="distinction-card">
+                    <div class="distinction-title">
+                        🎯 CC de But
+                    </div>
+                    <div class="distinction-content">
+                        <strong>Dans quel but ? Pour quoi faire ?</strong><br><br>
+                        Indique l'<strong>objectif, l'intention, la finalité</strong> de l'action.<br><br>
+                        <em>Exemples :</em><br>
+                        • "Il travaille <strong>pour réussir</strong>" (but)<br>
+                        → Dans quel but ? Pour réussir<br><br>
+                        • "Je pars <strong>afin d'éviter la pluie</strong>" (but)<br>
+                        → Pour quoi faire ? Pour éviter la pluie<br><br>
+                        ➡️ Répond à <strong>"dans quel but ?"</strong>
+                    </div>
+                </div>
+
+                <div class="distinction-card">
+                    <div class="distinction-title">
+                        💫 CC de Conséquence
+                    </div>
+                    <div class="distinction-content">
+                        <strong>Quel résultat ? Quelle conséquence ?</strong><br><br>
+                        Exprime le <strong>résultat, l'effet</strong> de l'action.<br><br>
+                        <em>Exemples :</em><br>
+                        • "Il pleut, <strong>donc je prends mon parapluie</strong>" (conséquence)<br>
+                        → La pluie entraîne que je prends mon parapluie<br><br>
+                        • "Il est si fatigué <strong>qu'il dort</strong>" (conséquence)<br>
+                        → Résultat de la fatigue : il dort<br><br>
+                        ➡️ Indique le <strong>résultat</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 30px; background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05)); border-radius: 20px; border-left: 6px solid #002395;">
+                <h3 style="color: #002395; margin-bottom: 20px; font-size: 1.5em;">📌 Règle de Distinction Rapide</h3>
+                <p style="color: #555; line-height: 1.8; font-size: 1.1em; margin-bottom: 15px;">
+                    <strong style="color: #ED2939;">CAUSE</strong> → Explique <strong>pourquoi</strong> l'action a lieu 🔍<br>
+                    <em>"Il est absent <strong>parce qu'il est malade</strong>"</em> (la maladie explique l'absence)
+                </p>
+                <p style="color: #555; line-height: 1.8; font-size: 1.1em; margin-bottom: 15px;">
+                    <strong style="color: #ED2939;">BUT</strong> → Indique <strong>l'intention</strong>, ce qu'on veut obtenir 🎯<br>
+                    <em>"Il travaille <strong>pour réussir</strong>"</em> (l'intention est de réussir)
+                </p>
+                <p style="color: #555; line-height: 1.8; font-size: 1.1em;">
+                    <strong style="color: #ED2939;">CONSÉQUENCE</strong> → Exprime le <strong>résultat</strong> de l'action 💫<br>
+                    <em>"Il pleut, <strong>donc je reste</strong>"</em> (le résultat de la pluie : je reste)
+                </p>
+            </div>
+        </div>
+
+        <div class="table-section">
+            <h2>📊 Tableau : PARCE QUE vs PUISQUE vs COMME</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Conjonction</th>
+                        <th>Usage</th>
+                        <th>Position</th>
+                        <th>Exemple</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="type-highlight">PARCE QUE</span></td>
+                        <td>Cause nouvelle, réponse à "pourquoi ?"</td>
+                        <td>Après la principale</td>
+                        <td>Je reste <strong>parce que je suis fatigué</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">PUISQUE</span></td>
+                        <td>Cause évidente, connue de tous</td>
+                        <td>Avant ou après</td>
+                        <td><strong>Puisque tu es d'accord</strong>, on commence</td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">COMME</span></td>
+                        <td>Cause déjà mentionnée ou évidente</td>
+                        <td>En début de phrase</td>
+                        <td><strong>Comme il pleut</strong>, je prends mon parapluie</td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">CAR</span></td>
+                        <td>Justification, explication (coordination)</td>
+                        <td>Entre deux propositions</td>
+                        <td>Je pars, <strong>car</strong> il est tard</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="special-section">
+            <h2>💡 Conseils pour Identifier le CC de Cause</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>❓ Posez la question "Pourquoi ?"</h4>
+                    <p>
+                        Pour identifier un CC de cause, posez toujours la question <strong>"Pourquoi ?"</strong> 
+                        ou <strong>"Pour quelle raison ?"</strong> après le verbe.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔍 Cherchez les prépositions de cause</h4>
+                    <p>
+                        Les prépositions <strong>à cause de, grâce à, en raison de, par, de, pour</strong> 
+                        introduisent souvent un CC de cause.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔗 Repérez les conjonctions</h4>
+                    <p>
+                        Les conjonctions <strong>parce que, puisque, comme, étant donné que</strong> 
+                        introduisent des propositions subordonnées de cause.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>⚖️ Distinguez cause et but</h4>
+                    <p>
+                        <strong>CAUSE</strong> : Pourquoi ? (raison passée/présente)<br>
+                        <strong>BUT</strong> : Pour quoi faire ? (intention future)
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>💥 Cause positive vs négative</h4>
+                    <p>
+                        <strong>GRÂCE À</strong> = cause positive ✅<br>
+                        <strong>À CAUSE DE</strong> = cause négative ❌<br>
+                        <strong>EN RAISON DE</strong> = neutre (formel)
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>✂️ Testez la suppression</h4>
+                    <p>
+                        Le CC de cause est généralement <strong>supprimable</strong> : 
+                        "Je reste parce que je suis fatigué" → "Je reste" ✅
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="intro-section">
+            <h2>🎯 Points Importants à Retenir</h2>
+            <p>
+                ✅ <strong>Le CC de cause répond à "Pourquoi ?" ou "Pour quelle raison ?" :</strong>
+                <br>• Il explique la raison, l'origine de l'action ou de l'état
+            </p>
+            <p>
+                ✅ <strong>Principales prépositions de cause :</strong>
+                <br>• <strong>À CAUSE DE</strong> : cause négative (problème, inconvénient)
+                <br>• <strong>GRÂCE À</strong> : cause positive (avantage, bénéfice)
+                <br>• <strong>EN RAISON DE</strong> : cause neutre, formelle
+                <br>• <strong>PAR</strong> : agent de la cause (surtout avec adjectifs)
+                <br>• <strong>DE</strong> : émotions et sentiments
+            </p>
+            <p>
+                ✅ <strong>Principales conjonctions de cause :</strong>
+                <br>• <strong>PARCE QUE</strong> : cause nouvelle, répond à "pourquoi ?"
+                <br>• <strong>PUISQUE</strong> : cause évidente, connue
+                <br>• <strong>COMME</strong> : cause en début de phrase
+                <br>• <strong>CAR</strong> : justification (coordination)
+            </p>
+            <p>
+                ✅ <strong>Distinction CAUSE vs BUT vs CONSÉQUENCE :</strong>
+                <br>• <strong>CAUSE</strong> : Pourquoi ? (raison) → "Je pars parce qu'il pleut"
+                <br>• <strong>BUT</strong> : Pour quoi faire ? (intention) → "Je pars pour éviter la pluie"
+                <br>• <strong>CONSÉQUENCE</strong> : Quel résultat ? (effet) → "Il pleut, donc je pars"
+            </p>
+            <p>
+                ✅ <strong>Constructions principales :</strong>
+                <br>• GN avec préposition (à cause de, grâce à...)
+                <br>• Proposition subordonnée (parce que, puisque...)
+                <br>• Infinitif prépositionnel (pour avoir fait, à force de...)
+                <br>• Participe présent (étant malade, ne sachant pas...)
+            </p>
+            <p>
+                ✅ <strong>Le CC de cause est supprimable et déplaçable :</strong>
+                <br>• "Je reste parce que je suis fatigué" → "Je reste" (suppression) ✅
+                <br>• "Parce que je suis fatigué, je reste" (déplacement) ✅
+            </p>
+            <p>
+                ✅ <strong>Attention aux nuances :</strong>
+                <br>• "À FORCE DE" = cause par répétition, persévérance
+                <br>• "FAUTE DE" = cause par manque, absence
+                <br>• "POUR" + infinitif passé = cause d'une sanction ou récompense
+            </p>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                Maîtrisez le complément circonstanciel de cause 
+                pour expliquer les raisons de vos actions avec précision ! 🇫🇷 🔍
+            </div>
+            <div class="footer-logo">⚜️ LÍNGUA ACADEMY ⚜️</div>
+        </footer>
+    </div>
+</body>
+</html>

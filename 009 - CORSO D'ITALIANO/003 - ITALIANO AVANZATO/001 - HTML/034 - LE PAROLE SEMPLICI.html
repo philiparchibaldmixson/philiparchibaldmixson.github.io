@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parole Semplici - Guida Colorata</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 25%, #ff6b95 50%, #95e1d3 75%, #f38181 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 20s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 100%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 0%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border-radius: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            animation: headerPulse 3s ease infinite;
+        }
+
+        @keyframes headerPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); }
+            50% { transform: scale(1.02); box-shadow: 0 15px 50px rgba(255, 255, 255, 0.4); }
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #fff;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+            margin-bottom: 15px;
+            animation: rainbow 5s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 600;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 35px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+            animation: slideUp 0.8s ease;
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(80px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+            border-color: rgba(255, 182, 193, 0.6);
+        }
+
+        h2 {
+            font-size: 3em;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+            animation: textShine 3s ease-in-out infinite;
+        }
+
+        @keyframes textShine {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        h2::after {
+            content: '✨';
+            position: absolute;
+            right: -40px;
+            top: 0;
+            font-size: 0.6em;
+            animation: sparkle 2s ease infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            50% { transform: scale(1.5) rotate(180deg); opacity: 0.5; }
+        }
+
+        h3 {
+            font-size: 2em;
+            color: #ff6b95;
+            margin: 30px 0 20px 0;
+            padding: 15px;
+            background: linear-gradient(90deg, rgba(255, 107, 149, 0.2), rgba(149, 225, 211, 0.2));
+            border-left: 6px solid #ff6b95;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(255, 107, 149, 0.3);
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 2;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 25px;
+            margin: 25px 0;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+            animation: bounceIn 1.2s ease;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) rotate(-10deg);
+            }
+            50% {
+                transform: scale(1.05) rotate(2deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .word-card {
+            padding: 30px;
+            border-radius: 20px;
+            color: white;
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .word-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .word-card:hover::before {
+            left: 100%;
+        }
+
+        .word-card:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .red-card { background: linear-gradient(135deg, #ff6b6b, #ee5a6f); }
+        .blue-card { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .green-card { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+        .purple-card { background: linear-gradient(135deg, #a8c0ff, #3f2b96); }
+        .orange-card { background: linear-gradient(135deg, #fa709a, #fee140); }
+        .pink-card { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .teal-card { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .yellow-card { background: linear-gradient(135deg, #ffd89b, #19547b); }
+        .indigo-card { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .lime-card { background: linear-gradient(135deg, #84fab0, #8fd3f4); }
+        .magenta-card { background: linear-gradient(135deg, #ff6a88, #ff99ac); }
+        .cyan-card { background: linear-gradient(135deg, #30cfd0, #330867); }
+
+        .example-box {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 6px 20px rgba(252, 182, 159, 0.4);
+            border-left: 8px solid #ff6b6b;
+        }
+
+        .example-box p {
+            color: #8b4513;
+            font-weight: 600;
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .category-section {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            padding: 35px;
+            border-radius: 25px;
+            margin: 25px 0;
+            box-shadow: 0 8px 25px rgba(168, 237, 234, 0.5);
+            animation: fadeInScale 1s ease;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .big-word {
+            font-size: 3.5em;
+            font-weight: bold;
+            text-align: center;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 20px;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .morpheme-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 25px 0;
+            gap: 15px;
+        }
+
+        .morpheme {
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .morpheme:hover {
+            transform: translateY(-10px) scale(1.2);
+        }
+
+        .root-morpheme { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .prefix-morpheme { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .suffix-morpheme { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            border-left: 6px solid;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .info-card.nome { border-color: #ff6b6b; }
+        .info-card.verbo { border-color: #4ecdc4; }
+        .info-card.aggettivo { border-color: #f9ca24; }
+        .info-card.avverbio { border-color: #a29bfe; }
+
+        .emoji-big {
+            font-size: 3em;
+            display: inline-block;
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .comparison-box {
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .comparison-box:hover {
+            transform: scale(1.08);
+        }
+
+        .simple-box {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+
+        .complex-box {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            margin-top: 40px;
+            color: white;
+            font-size: 1.3em;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-25px); }
+        }
+
+        .rotating {
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            .word-grid { grid-template-columns: 1fr; }
+        }
+
+        .sparkle-text {
+            position: relative;
+            display: inline-block;
+        }
+
+        .sparkle-text::after {
+            content: '✨';
+            position: absolute;
+            right: -30px;
+            animation: twinkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.5); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="floating">
+            <h1 class="rotating">🌈 LE PAROLE SEMPLICI 🌈</h1>
+            <p class="subtitle">Scopri il Meraviglioso Mondo delle Parole di Base!</p>
+        </header>
+
+        <!-- CHE COSA SONO -->
+        <div class="section">
+            <h2>📖 Che Cosa Sono le Parole Semplici?</h2>
+            <div class="definition-box">
+                <p style="font-size: 1.4em; text-align: center; color: white;">
+                    <span class="emoji-big">💎</span><br>
+                    Le <strong>parole semplici</strong> sono parole formate da <span style="background: rgba(255,255,255,0.3); padding: 5px 10px; border-radius: 8px;">UN SOLO MORFEMA LESSICALE</span> (radice) che non può essere diviso ulteriormente!
+                </p>
+            </div>
+
+            <p>Le parole semplici sono i <span class="highlight">"mattoncini fondamentali"</span> della nostra lingua. Non possono essere scomposte in parti più piccole che abbiano significato!</p>
+
+            <div class="example-box">
+                <h3 style="color: #8b4513; margin: 0 0 15px 0;">🔍 Caratteristiche Principali:</h3>
+                <p>✅ Hanno UN SOLO morfema lessicale (la radice)</p>
+                <p>✅ Non derivano da altre parole</p>
+                <p>✅ Sono la forma base del vocabolario</p>
+                <p>✅ Possono avere solo desinenze grammaticali (per genere, numero, tempo)</p>
+            </div>
+        </div>
+
+        <!-- ESEMPI DI PAROLE SEMPLICI -->
+        <div class="section">
+            <h2>🎨 Esempi di Parole Semplici</h2>
+            <p>Ecco tante parole semplici divise per categorie! Passa il mouse sopra per vedere l'effetto! 🖱️</p>
+
+            <h3>🏠 NOMI (Sostantivi)</h3>
+            <div class="word-grid">
+                <div class="word-card red-card">🌹 ROSA</div>
+                <div class="word-card blue-card">🌊 MARE</div>
+                <div class="word-card green-card">🌳 ALBERO</div>
+                <div class="word-card purple-card">🏔️ MONTE</div>
+                <div class="word-card orange-card">☀️ SOLE</div>
+                <div class="word-card pink-card">🌙 LUNA</div>
+                <div class="word-card teal-card">💧 ACQUA</div>
+                <div class="word-card yellow-card">🔥 FUOCO</div>
+                <div class="word-card indigo-card">🏡 CASA</div>
+                <div class="word-card lime-card">📚 LIBRO</div>
+                <div class="word-card magenta-card">🎵 CANTO</div>
+                <div class="word-card cyan-card">⏰ TEMPO</div>
+            </div>
+
+            <h3>⚡ VERBI</h3>
+            <div class="word-grid">
+                <div class="word-card orange-card">🏃 CORRERE</div>
+                <div class="word-card blue-card">🗣️ PARLARE</div>
+                <div class="word-card green-card">🍽️ MANGIARE</div>
+                <div class="word-card purple-card">💤 DORMIRE</div>
+                <div class="word-card red-card">❤️ AMARE</div>
+                <div class="word-card pink-card">😊 RIDERE</div>
+                <div class="word-card teal-card">📖 LEGGERE</div>
+                <div class="word-card yellow-card">✍️ SCRIVERE</div>
+            </div>
+
+            <h3>🎭 AGGETTIVI</h3>
+            <div class="word-grid">
+                <div class="word-card red-card">🔴 ROSSO</div>
+                <div class="word-card blue-card">🔵 BLU</div>
+                <div class="word-card green-card">🟢 VERDE</div>
+                <div class="word-card yellow-card">🟡 GIALLO</div>
+                <div class="word-card purple-card">😊 FELICE</div>
+                <div class="word-card pink-card">💪 FORTE</div>
+                <div class="word-card orange-card">🎯 VELOCE</div>
+                <div class="word-card indigo-card">✨ BELLO</div>
+            </div>
+
+            <h3>📍 AVVERBI</h3>
+            <div class="word-grid">
+                <div class="word-card cyan-card">⬆️ SOPRA</div>
+                <div class="word-card lime-card">⬇️ SOTTO</div>
+                <div class="word-card magenta-card">🔄 SEMPRE</div>
+                <div class="word-card indigo-card">❌ MAI</div>
+                <div class="word-card orange-card">📍 QUI</div>
+                <div class="word-card blue-card">👉 LÀ</div>
+            </div>
+        </div>
+
+        <!-- STRUTTURA -->
+        <div class="section">
+            <h2>🔍 Struttura di una Parola Semplice</h2>
+            
+            <div class="category-section">
+                <h3 style="color: #2c3e50; text-align: center;">Una parola semplice è formata da:</h3>
+                
+                <div class="morpheme-display">
+                    <div class="morpheme root-morpheme">RADICE (Morfema Lessicale)</div>
+                    <span style="font-size: 2em; color: #2c3e50;">+</span>
+                    <div class="morpheme suffix-morpheme">DESINENZA (Morfema Grammaticale)</div>
+                </div>
+
+                <div class="big-word" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    GAT-T-O
+                </div>
+
+                <div style="text-align: center; font-size: 1.3em; color: #2c3e50; margin-top: 20px;">
+                    <p><strong>GAT-</strong> = radice (significato principale)</p>
+                    <p><strong>-T-</strong> = tema verbale</p>
+                    <p><strong>-O</strong> = desinenza (maschile singolare)</p>
+                </div>
+            </div>
+
+            <div class="info-card nome">
+                <h3 style="color: #ff6b6b; margin: 0 0 10px 0;">📝 Esempio - NOME</h3>
+                <p style="font-size: 1.2em; color: #333;"><strong>FIORE</strong> = FIOR- (radice) + -E (desinenza)</p>
+            </div>
+
+            <div class="info-card verbo">
+                <h3 style="color: #4ecdc4; margin: 0 0 10px 0;">⚡ Esempio - VERBO</h3>
+                <p style="font-size: 1.2em; color: #333;"><strong>CANTO</strong> = CANT- (radice) + -O (desinenza, 1ª persona singolare)</p>
+            </div>
+
+            <div class="info-card aggettivo">
+                <h3 style="color: #f9ca24; margin: 0 0 10px 0;">🎨 Esempio - AGGETTIVO</h3>
+                <p style="font-size: 1.2em; color: #333;"><strong>BELLA</strong> = BELL- (radice) + -A (desinenza femminile)</p>
+            </div>
+        </div>
+
+        <!-- SEMPLICI VS COMPLESSE -->
+        <div class="section">
+            <h2>⚖️ Parole Semplici VS Parole Complesse</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-box simple-box">
+                    <h3 style="color: white; margin-bottom: 15px;">✅ SEMPLICI</h3>
+                    <p>UN SOLO morfema lessicale</p>
+                    <div class="big-word" style="background: rgba(255,255,255,0.2); font-size: 2.5em;">SOLE</div>
+                    <p style="margin-top: 15px;">Non si può dividere!</p>
+                </div>
+
+                <div class="comparison-box complex-box">
+                    <h3 style="color: white; margin-bottom: 15px;">⚠️ COMPLESSE</h3>
+                    <p>PIÙ morfemi lessicali</p>
+                    <div class="big-word" style="background: rgba(255,255,255,0.2); font-size: 2.5em;">GIRASOLE</div>
+                    <p style="margin-top: 15px;">GIRA + SOLE</p>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3 style="color: #8b4513; margin: 0 0 20px 0;">🔬 Altri Confronti:</h3>
+                <div style="font-size: 1.2em;">
+                    <p>✅ <strong>LATTE</strong> (semplice) ❌ <strong>LATTICINI</strong> (derivata: latt- + -icini)</p>
+                    <p>✅ <strong>PANE</strong> (semplice) ❌ <strong>PANETTIERE</strong> (derivata: pan- + -ettiere)</p>
+                    <p>✅ <strong>PORTA</strong> (semplice) ❌ <strong>PORTAFOGLIO</strong> (composta: porta + foglio)</p>
+                    <p>✅ <strong>FIORE</strong> (semplice) ❌ <strong>FIORELLINO</strong> (alterata: fior- + -ellino)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PIÙ ESEMPI COLORATI -->
+        <div class="section">
+            <h2>🌟 Ancora Più Parole Semplici!</h2>
+            
+            <h3>🐾 ANIMALI</h3>
+            <div class="word-grid">
+                <div class="word-card red-card">🐕 CANE</div>
+                <div class="word-card blue-card">🐱 GATTO</div>
+                <div class="word-card green-card">🐦 UCCELLO</div>
+                <div class="word-card purple-card">🐟 PESCE</div>
+                <div class="word-card orange-card">🐴 CAVALLO</div>
+                <div class="word-card pink-card">🐄 MUCCA</div>
+            </div>
+
+            <h3>🍎 CIBO</h3>
+            <div class="word-grid">
+                <div class="word-card yellow-card">🍞 PANE</div>
+                <div class="word-card red-card">🍎 MELA</div>
+                <div class="word-card orange-card">🍊 ARANCIA</div>
+                <div class="word-card green-card">🥗 INSALATA</div>
+                <div class="word-card blue-card">🥛 LATTE</div>
+                <div class="word-card purple-card">🍇 UVA</div>
+            </div>
+
+            <h3>👨‍👩‍👧‍👦 FAMIGLIA</h3>
+            <div class="word-grid">
+                <div class="word-card pink-card">👨 PADRE</div>
+                <div class="word-card cyan-card">👩 MADRE</div>
+                <div class="word-card lime-card">👦 FIGLIO</div>
+                <div class="word-card magenta-card">👧 FIGLIA</div>
+                <div class="word-card indigo-card">👴 NONNO</div>
+                <div class="word-card orange-card">👵 NONNA</div>
+            </div>
+
+            <h3>🌍 NATURA</h3>
+            <div class="word-grid">
+                <div class="word-card blue-card">💧 PIOGGIA</div>
+                <div class="word-card yellow-card">⚡ FULMINE</div>
+                <div class="word-card green-card">🌿 ERBA</div>
+                <div class="word-card cyan-card">🌬️ VENTO</div>
+                <div class="word-card orange-card">🔥 FIAMMA</div>
+                <div class="word-card purple-card">⭐ STELLA</div>
+            </div>
+        </div>
+
+        <!-- PERCHÉ SONO IMPORTANTI -->
+        <div class="section">
+            <h2>💡 Perché le Parole Semplici Sono Importanti?</h2>
+            
+            <div class="definition-box" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+                <p style="font-size: 1.3em; color: white; text-align: center;">
+                    <span class="emoji-big">🏗️</span><br>
+                    Le parole semplici sono la <strong>BASE</strong> per creare tutte le altre parole!
+                </p>
+            </div>
+
+            <div class="category-section">
+                <h3 style="color: #2c3e50; text-align: center;">Da una Parola Semplice nascono molte parole!</h3>
+                
+                <div class="big-word" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                    FIORE
+                </div>
+
+                <div style="text-align: center; font-size: 1.3em; margin-top: 25px;">
+                    <p>⬇️ Parola Semplice ⬇️</p>
+                    <div class="morpheme-display">
+                        <div class="word-card pink-card" style="margin: 10px;">FIORAIO</div>
+                        <div class="word-card blue-card" style="margin: 10px;">FIORIRE</div>
+                        <div class="word-card green-card" style="margin: 10px;">FIORITO</div>
+                        <div class="word-card purple-card" style="margin: 10px;">FIORELLINO</div>
+                        <div class="word-card orange-card" style="margin: 10px;">FIORIERA</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIEPILOGO -->
+        <div class="section">
+            <h2>🎯 Ricorda!</h2>
+            
+            <div class="word-grid">
+                <div class="word-card red-card">
+                    <span class="emoji-big">1️⃣</span><br>
+                    Hanno UN SOLO morfema lessicale
+                </div>
+                <div class="word-card blue-card">
+                    <span class="emoji-big">2️⃣</span><br>
+                    Non derivano da altre parole
+                </div>
+                <div class="word-card green-card">
+                    <span class="emoji-big">3️⃣</span><br>
+                    Sono la base del vocabolario
+                </div>
+                <div class="word-card purple-card">
+                    <span class="emoji-big">4️⃣</span><br>
+                    Possono avere desinenze
+                </div>
+            </div>
+
+            <div class="definition-box" style="background: linear-gradient(135deg, #667eea, #764ba2); margin-top: 30px;">
+                <p style="font-size: 1.5em; color: white; text-align: center;">
+                    <span class="sparkle-text">Le parole semplici sono i mattoncini con cui costruiamo la nostra lingua!</span> 🧱✨
+                </p>
+            </div>
+        </div>
+
+        <footer class="floating">
+            <p><span class="emoji-big">🌈</span></p>
+            <p style="font-size: 1.5em; margin: 15px 0;">Ora conosci le Parole Semplici!</p>
+            <p style="font-size: 1.1em;">Continua a esplorare il fantastico mondo della lingua italiana!</p>
+            <p style="margin-top: 20px;">✨ Divertiti imparando! ✨</p>
+        </footer>
+    </div>
+</body>
+</html>

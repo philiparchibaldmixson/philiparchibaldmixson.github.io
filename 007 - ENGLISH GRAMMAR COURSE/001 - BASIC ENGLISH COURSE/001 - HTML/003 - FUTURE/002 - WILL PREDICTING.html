@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Future with Will – Predicting</title>
+  <style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        color: #333;
+        background: white;
+    }
+    
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 0 auto;
+        background: white;
+        page-break-after: always;
+    }
+    
+    .header {
+        text-align: center;
+        padding: 35px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+    
+    .header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+        font-size: 18px;
+        opacity: 0.95;
+    }
+    
+    .section {
+        margin: 25px 0;
+        padding: 25px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .section.orange {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+    
+    .section.green {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        color: black;
+    }
+    
+    .section.blue {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .section.pink {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+    
+    .section.purple {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    }
+    
+    .section.teal {
+        background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    }
+    
+    .section.coral {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+    
+    h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    
+    .section.green h2, .section.green h3 {
+        color: white;
+    }
+    
+    h3 {
+        font-size: 22px;
+        margin: 20px 0 10px 0;
+        color: #34495e;
+    }
+    
+    p {
+        margin-bottom: 15px;
+        font-size: 16px;
+        text-align: justify;
+    }
+    
+    .verb-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #667eea;
+        margin: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .verb-title {
+        color: #667eea;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    
+    .verb-form {
+        color: #e74c3c;
+        font-style: italic;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .verb-desc {
+        color: #555;
+        font-size: 16px;
+    }
+    
+    .example-box {
+        background: #fff9e6;
+        border: 2px dashed #f39c12;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .example-title {
+        color: #f39c12;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .tip-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #27ae60;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .tip-box h4 {
+        color: #27ae60;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    
+    ul {
+        margin-left: 30px;
+        margin-bottom: 15px;
+    }
+    
+    li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    
+    .structure-table {
+        width: 100%;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .structure-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .structure-table th {
+        background: #667eea;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+    }
+    
+    .structure-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+    }
+    
+    .structure-table tr:nth-child(even) {
+        background: #f8f9fa;
+    }
+    
+    .structure-label {
+        font-weight: bold;
+        color: #3498db;
+    }
+    
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .form-item {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        border-top: 4px solid #3498db;
+    }
+    
+    .form-type {
+        font-weight: bold;
+        color: #3498db;
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+    
+    .form-text {
+        color: #555;
+        font-size: 15px;
+    }
+    
+    .negative-box {
+        background: #ffe6e6;
+        border: 2px solid #e74c3c;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .negative-title {
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .question-box {
+        background: #e6f3ff;
+        border: 2px solid #3498db;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .question-title {
+        color: #3498db;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .comparison-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #9b59b6;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .comparison-title {
+        color: #9b59b6;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .alternative-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #e67e22;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .alternative-title {
+        color: #e67e22;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .error-box {
+        background: #fff5f5;
+        border: 2px solid #c0392b;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .error-title {
+        color: #c0392b;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    
+    @media print {
+        body {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>🔮 FUTURE WITH "WILL" – PREDICTING 🔮</h1>
+      <p>Making Predictions About the Future</p>
+    </div>
+
+    <div class="section orange">
+      <h2>🌟 What Is "Will" for Future?</h2>
+      <p>We use <strong>"will"</strong> to talk about the future when we are making <u>predictions</u>, <u>spontaneous decisions</u>, or <u>promises</u>. In this lesson, we focus on using "will" to <strong>predict</strong> what we think will happen.</p>
+      <p>The structure is: <strong>Subject + will + base verb</strong></p>
+    </div>
+
+    <div class="section blue">
+      <h2>📋 Structure of "Will" for Predictions</h2>
+      <div class="structure-table">
+        <table>
+          <tr>
+            <th>Form</th>
+            <th>Structure</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Affirmative</td>
+            <td>Subject + will + verb</td>
+            <td>She will win the race.</td>
+          </tr>
+          <tr>
+            <td>Negative</td>
+            <td>Subject + will not (won’t) + verb</td>
+            <td>It won’t rain tomorrow.</td>
+          </tr>
+          <tr>
+            <td>Question</td>
+            <td>Will + subject + verb?</td>
+            <td>Will they arrive on time?</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="tip-box">
+        <h4>💡 Quick Tip</h4>
+        <p><strong>Will</strong> is the same for all subjects:<br>I will, You will, He will, She will, It will, We will, They will</p>
+      </div>
+    </div>
+
+    <div class="section green">
+      <h2>🎯 When to Use "Will" for Predictions</h2>
+
+      <div class="verb-box">
+        <div class="verb-title">1. Predictions Without Evidence</div>
+        <div class="verb-desc">To say what we think will happen in the future</div>
+        <div class="example-box">
+          <p>• I think it will snow next week.<br>• She will be a great teacher.<br>• They will win the game.<br>• You will love this movie.</p>
+        </div>
+      </div>
+
+      <div class="verb-box">
+        <div class="verb-title">2. Beliefs About the Future</div>
+        <div class="verb-desc">To express opinions or beliefs about what will happen</div>
+        <div class="example-box">
+          <p>• People will live on Mars one day.<br>• Technology will change everything.<br>• The world will be different in 50 years.<br>• Students will study online more often.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section pink">
+      <h2>📝 More Examples</h2>
+      <div class="example-box">
+        <div class="example-title">✅ Affirmative</div>
+        <p>• I will call you later.<br>• He will pass the exam.<br>• We will travel to Europe.<br>• They will enjoy the concert.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">🚫 Negative</div>
+        <p>• I won’t forget your birthday.<br>• She won’t be late.<br>• We won’t stay long.<br>• It won’t be easy.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">❓ Questions</div>
+        <p>• Will you come to the party?<br>• Will it be cold tomorrow?<br>• Will she like the gift?<br>• What will happen next?</p>
+      </div>
+    </div>
+
+    <div class="section purple">
+      <h2>📌 Time Expressions with "Will"</h2>
+      <div class="form-grid">
+        <div class="form-item">
+          <div class="form-type">Tomorrow</div>
+          <div class="form-text">"I will call you tomorrow."</div>
+        </div>
+        <div class="form-item">
+          <div class="form-type">Next week/month/year</div>
+          <div class="form-text">"She will start college next year."</div>
+        </div>
+        <div class="form-item">
+          <div class="form-type">Soon</div>
+          <div class="form-text">"They will arrive soon."</div>
+        </div>
+        <div class="form-item">
+          <div class="form-type">In the future</div>
+          <div class="form-text">"People will drive electric cars in the future."</div>
+        </div>
+        <div class="form-item">
+          <div class="form-type">Later</div>
+          <div class="form-text">"We will talk later."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section coral">
+      <h2>🔄 "Will" vs "Going To"</h2>
+      <div class="alternative-box">
+        <div class="alternative-title">Comparison</div>
+        <p><strong>Will:</strong> Use for predictions, promises, or decisions made at the moment<br>• "I think it will rain."<br>• "I’ll help you with that."</p>
+        <p><strong>Going to:</strong> Use for plans or predictions with evidence<br>• "I’m going to visit my grandma." (plan)<br>• "Look at the sky! It’s going to rain." (evidence)</p>
+      </div>
+    </div>
+
+    <div class="section orange">
+      <h2>⚠️ Common Mistakes to Avoid</h2>
+      <div class="error-box">
+        <div class="error-title">❌ Wrong → ✅ Correct</div>
+        <p>❌ He will goes to school.<br>✅ He will go to school.</p>
+        <p>❌ Will comes she?<br>✅ Will she come?</p>
+        <p>❌ I no will do it.<br>✅ I won’t do it.</p>
+        <p>❌ They will to travel.<br>✅ They will travel.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Use "Will" to Predict the Future!</strong></p>
+      <p>It’s perfect for expressing beliefs, opinions, and what you think will happen!</p>
+    </div>
+  </div>
+</body>
+</html>

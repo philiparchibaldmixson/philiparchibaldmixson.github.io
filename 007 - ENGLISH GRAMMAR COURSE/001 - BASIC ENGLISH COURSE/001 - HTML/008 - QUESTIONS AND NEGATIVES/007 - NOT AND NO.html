@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NOT vs NO</title>
+  <style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        color: #333;
+        background: white;
+    }
+    
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 0 auto;
+        background: white;
+        page-break-after: always;
+    }
+    
+    .header {
+        text-align: center;
+        padding: 35px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+    
+    .header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+        font-size: 18px;
+        opacity: 0.95;
+    }
+    
+    .section {
+        margin: 25px 0;
+        padding: 25px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .section.orange {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+    
+    .section.green {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        color: black;
+    }
+    
+    .section.blue {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .section.pink {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+    
+    .section.purple {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    }
+    
+    .section.teal {
+        background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    }
+    
+    .section.coral {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+    
+    h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    
+    .section.green h2, .section.green h3 {
+        color: white;
+    }
+    
+    h3 {
+        font-size: 22px;
+        margin: 20px 0 10px 0;
+        color: #34495e;
+    }
+    
+    p {
+        margin-bottom: 15px;
+        font-size: 16px;
+        text-align: justify;
+    }
+    
+    .verb-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #667eea;
+        margin: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .verb-title {
+        color: #667eea;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    
+    .verb-form {
+        color: #e74c3c;
+        font-style: italic;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .verb-desc {
+        color: #555;
+        font-size: 16px;
+    }
+    
+    .example-box {
+        background: #fff9e6;
+        border: 2px dashed #f39c12;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .example-title {
+        color: #f39c12;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .tip-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #27ae60;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .tip-box h4 {
+        color: #27ae60;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    
+    ul {
+        margin-left: 30px;
+        margin-bottom: 15px;
+    }
+    
+    li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    
+    .structure-table {
+        width: 100%;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .structure-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .structure-table th {
+        background: #667eea;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+    }
+    
+    .structure-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+    }
+    
+    .structure-table tr:nth-child(even) {
+        background: #f8f9fa;
+    }
+    
+    .structure-label {
+        font-weight: bold;
+        color: #3498db;
+    }
+    
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .form-item {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        border-top: 4px solid #3498db;
+    }
+    
+    .form-type {
+        font-weight: bold;
+        color: #3498db;
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+    
+    .form-text {
+        color: #555;
+        font-size: 15px;
+    }
+    
+    .negative-box {
+        background: #ffe6e6;
+        border: 2px solid #e74c3c;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .negative-title {
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .question-box {
+        background: #e6f3ff;
+        border: 2px solid #3498db;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .question-title {
+        color: #3498db;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .comparison-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #9b59b6;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .comparison-title {
+        color: #9b59b6;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .alternative-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #e67e22;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .alternative-title {
+        color: #e67e22;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .error-box {
+        background: #fff5f5;
+        border: 2px solid #c0392b;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .error-title {
+        color: #c0392b;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    
+    @media print {
+        body {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>🚫 NOT vs NO 🚫</h1>
+      <p>Understanding the Difference Between “NOT” and “NO”</p>
+    </div>
+
+    <div class="section orange">
+      <h2>🌟 What’s the Difference?</h2>
+      <p><strong>NOT</strong> is used to make verbs, adjectives, or adverbs negative. It’s usually placed <u>before a verb or adjective</u>.</p>
+      <p><strong>NO</strong> is used before a noun to mean “zero” or “none.” It replaces “not any.”</p>
+      <p><strong>Examples:</strong></p>
+      <ul>
+        <li>I’m <strong>not</strong> tired.</li>
+        <li>There is <strong>no</strong> milk in the fridge.</li>
+        <li>She does <strong>not</strong> like coffee.</li>
+        <li>We have <strong>no</strong> time left.</li>
+      </ul>
+    </div>
+
+    <div class="section blue">
+      <h2>📋 Structure Comparison</h2>
+      <div class="structure-table">
+        <table>
+          <tr>
+            <th>Word</th>
+            <th>Used With</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>NOT</td>
+            <td>Verbs, adjectives, adverbs</td>
+            <td>She is <strong>not</strong> ready.</td>
+          </tr>
+          <tr>
+            <td>NO</td>
+            <td>Nouns (without “a” or “any”)</td>
+            <td>There is <strong>no</strong> sugar.</td>
+          </tr>
+          <tr>
+            <td>NOT</td>
+            <td>Auxiliary verbs</td>
+            <td>He does <strong>not</strong> understand.</td>
+          </tr>
+          <tr>
+            <td>NO</td>
+            <td>Before noun phrases</td>
+            <td><strong>No</strong> students were late.</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="tip-box">
+        <h4>💡 Quick Tip</h4>
+        <p>Use <strong>NOT</strong> with verbs and adjectives. Use <strong>NO</strong> before nouns. Never use both together!</p>
+      </div>
+    </div>
+
+    <div class="section green">
+      <h2>🎯 Common Uses</h2>
+
+      <div class="verb-box">
+        <div class="verb-title">1. NOT + Verb</div>
+        <div class="verb-desc">To make a verb negative</div>
+        <div class="example-box">
+          <p>• I do <strong>not</strong> like tea.<br>
+             • She is <strong>not</strong> coming.<br>
+             • They have <strong>not</strong> finished.</p>
+        </div>
+      </div>
+
+      <div class="verb-box">
+        <div class="verb-title">2. NO + Noun</div>
+        <div class="verb-desc">To say “none” or “zero”</div>
+        <div class="example-box">
+          <p>• There is <strong>no</strong> water.<br>
+             • We have <strong>no</strong> idea.<br>
+             • <strong>No</strong> students were absent.</p>
+        </div>
+      </div>
+
+      <div class="verb-box">
+        <div class="verb-title">3. NOT + Adjective</div>
+        <div class="verb-desc">To describe something negatively</div>
+        <div class="example-box">
+          <p>• He is <strong>not</strong> happy.<br>
+             • This is <strong>not</strong> easy.<br>
+             • I’m <strong>not</strong> ready.</p>
+        </div>
+      </div>
+
+      <div class="verb-box">
+        <div class="verb-title">4. NO + Compound Noun</div>
+        <div class="verb-desc">To emphasize absence</div>
+        <div class="example-box">
+          <p>• There is <strong>no</strong> internet connection.<br>
+             • We have <strong>no</strong> homework today.<br>
+             • <strong>No</strong> parking allowed.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section pink">
+      <h2>📝 More Examples</h2>
+      <div class="example-box">
+        <div class="example-title">✅ Using NOT</div>
+        <p>• I’m <strong>not</strong> hungry.<br>
+           • He does <strong>not</strong> want to go.<br>
+           • We are <strong>not</strong> ready yet.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">✅ Using NO</div>
+        <p>• There is <strong>no</strong> food.<br>
+           • <strong>No</strong> children were hurt.<br>
+           • We have <strong>no</strong> plans today.</p>
+      </div>
+    </div>
+
+    <div class="section purple">
+      <h2>📌 NOT vs NO in Context</h2>
+      <div class="form-grid">
+        <div class="form-item">
+          <div class="form-type">NOT</div>
+          <div class="form-text">I’m <strong>not</strong> interested.</div>
+        </div>
+        <div class="form-item">
+          <div class="form-type">NO</div>
+          <div class="form-text">I have <strong>no</strong> interest.</div>
+        </div>
+        <div class="form-item">
+          <div class="form-type">NOT</div>
+          <div class="form-text">She is <strong>not</strong> here.</div>
+        </div>
+        <div class="form-item">
+          <div class="form-type">NO</div>
+          <div class="form-text">There is <strong>no</strong> one here.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section coral">
+      <h2>🔄 Real-Life Sentences</h2>
+      <div class="alternative-box">
+        <div class="alternative-title">Using NOT and NO in Context</div>
+        <p>• I’m <strong>not</strong> going to the party.<br>
+           • There is <strong>no</strong> electricity.<br>
+           • He does <strong>not</strong> speak Spanish.<br>
+           • We have <strong>no</strong> time left.<br>
+           • She is <strong>not</strong> ready for the test.</p>
+      </div>
+    </div>
+
+    <div class="section orange">
+      <h2>⚠️ Common Mistakes to Avoid</h2>
+      <div class="error-box">
+        <div class="error-title">❌ Wrong → ✅ Correct</div>
+        <p>❌ I don’t have no money.<br>✅ I don’t have any money.</p>
+        <p>❌ She no is here.<br>✅ She is not here.</p>
+        <p>❌ We have not time.<br>✅ We have no time.</p>
+        <p>❌ There isn’t no food.<br>✅ There isn’t any food.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Use NOT to make verbs and adjectives negative. Use NO before nouns to mean “none.”</strong></p>
+      <p>Practice with both to sound natural and accurate in English!</p>
+    </div>
+  </div>
+</body>
+</html>

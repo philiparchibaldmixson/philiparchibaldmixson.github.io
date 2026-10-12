@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phrasal Verbs</title>
+  <style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        color: #333;
+        background: white;
+    }
+    
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 0 auto;
+        background: white;
+        page-break-after: always;
+    }
+    
+    .header {
+        text-align: center;
+        padding: 35px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+    
+    .header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+        font-size: 18px;
+        opacity: 0.95;
+    }
+    
+    .section {
+        margin: 25px 0;
+        padding: 25px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .section.orange {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+    
+    .section.green {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        color: black;
+    }
+    
+    .section.blue {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .section.pink {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+    
+    .section.purple {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    }
+    
+    .section.teal {
+        background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    }
+    
+    .section.coral {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+    
+    h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    
+    .section.green h2, .section.green h3 {
+        color: white;
+    }
+    
+    h3 {
+        font-size: 22px;
+        margin: 20px 0 10px 0;
+        color: #34495e;
+    }
+    
+    p {
+        margin-bottom: 15px;
+        font-size: 16px;
+        text-align: justify;
+    }
+    
+    .verb-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #667eea;
+        margin: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .verb-title {
+        color: #667eea;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    
+    .verb-form {
+        color: #e74c3c;
+        font-style: italic;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .verb-desc {
+        color: #555;
+        font-size: 16px;
+    }
+    
+    .example-box {
+        background: #fff9e6;
+        border: 2px dashed #f39c12;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .example-title {
+        color: #f39c12;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .tip-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #27ae60;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .tip-box h4 {
+        color: #27ae60;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    
+    ul {
+        margin-left: 30px;
+        margin-bottom: 15px;
+    }
+    
+    li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    
+    .structure-table {
+        width: 100%;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .structure-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .structure-table th {
+        background: #667eea;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+    }
+    
+    .structure-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+    }
+    
+    .structure-table tr:nth-child(even) {
+        background: #f8f9fa;
+    }
+    
+    .structure-label {
+        font-weight: bold;
+        color: #3498db;
+    }
+    
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .form-item {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        border-top: 4px solid #3498db;
+    }
+    
+    .form-type {
+        font-weight: bold;
+        color: #3498db;
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+    
+    .form-text {
+        color: #555;
+        font-size: 15px;
+    }
+    
+    .negative-box {
+        background: #ffe6e6;
+        border: 2px solid #e74c3c;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .negative-title {
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .question-box {
+        background: #e6f3ff;
+        border: 2px solid #3498db;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .question-title {
+        color: #3498db;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .comparison-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #9b59b6;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .comparison-title {
+        color: #9b59b6;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .alternative-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #e67e22;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .alternative-title {
+        color: #e67e22;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .error-box {
+        background: #fff5f5;
+        border: 2px solid #c0392b;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .error-title {
+        color: #c0392b;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    
+    @media print {
+        body {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>🚀 PHRASAL VERBS 🚀</h1>
+      <p>Common Verb + Particle Combinations in English</p>
+    </div>
+
+    <div class="section orange">
+      <h2>🌟 What Are Phrasal Verbs?</h2>
+      <p>A <strong>phrasal verb</strong> is a combination of a verb + a particle (preposition or adverb) that creates a new meaning. These are very common in everyday English and often have idiomatic meanings.</p>
+      <ul>
+        <li>She <strong>gave up</strong> smoking. (quit)</li>
+        <li>I <strong>ran into</strong> an old friend. (met unexpectedly)</li>
+        <li>They <strong>look after</strong> the baby. (take care of)</li>
+      </ul>
+    </div>
+
+    <div class="section blue">
+      <h2>📋 Structure</h2>
+      <table class="structure-table">
+        <tr>
+          <th>Phrasal Verb</th>
+          <th>Meaning</th>
+          <th>Example</th>
+        </tr>
+        <tr>
+          <td>give up</td>
+          <td>quit</td>
+          <td>She <strong>gave up</strong> chocolate.</td>
+        </tr>
+        <tr>
+          <td>look after</td>
+          <td>take care of</td>
+          <td>I <strong>look after</strong> my little brother.</td>
+        </tr>
+        <tr>
+          <td>run into</td>
+          <td>meet by chance</td>
+          <td>We <strong>ran into</strong> our teacher at the mall.</td>
+        </tr>
+        <tr>
+          <td>turn on</td>
+          <td>activate</td>
+          <td>Please <strong>turn on</strong> the lights.</td>
+        </tr>
+        <tr>
+          <td>pick up</td>
+          <td>collect</td>
+          <td>Can you <strong>pick up</strong> the kids?</td>
+        </tr>
+      </table>
+      <div class="tip-box">
+        <h4>💡 Quick Tip</h4>
+        <p>Some phrasal verbs are separable (you can put the object in the middle), and others are not. Learn them in context!</p>
+      </div>
+    </div>
+
+    <div class="section green">
+      <h2>🎯 Common Phrasal Verbs</h2>
+      <ul>
+        <li><strong>give up</strong> → He <strong>gave up</strong> trying.</li>
+        <li><strong>look after</strong> → She <strong>looks after</strong> her dog.</li>
+        <li><strong>run into</strong> → I <strong>ran into</strong> my cousin.</li>
+        <li><strong>turn on</strong> → He <strong>turned on</strong> the TV.</li>
+        <li><strong>pick up</strong> → We <strong>picked up</strong> groceries.</li>
+        <li><strong>find out</strong> → She <strong>found out</strong> the truth.</li>
+        <li><strong>take off</strong> → The plane <strong>took off</strong> at 6.</li>
+        <li><strong>put off</strong> → They <strong>put off</strong> the meeting.</li>
+        <li><strong>get along</strong> → We <strong>get along</strong> well.</li>
+      </ul>
+    </div>
+
+    <div class="section pink">
+      <h2>📝 More Examples</h2>
+      <h4>✅ Present</h4>
+      <p>• I <strong>get up</strong> at 7 a.m.<br>
+         • She <strong>takes care of</strong> her grandma.<br>
+         • We <strong>hang out</strong> on weekends.</p>
+      <h4>✅ Past</h4>
+      <p>• He <strong>gave up</strong> smoking.<br>
+         • They <strong>ran into</strong> trouble.<br>
+         • I <strong>found out</strong> yesterday.</p>
+      <h4>✅ Future</h4>
+      <p>• I’ll <strong>pick up</strong> the package.<br>
+         • She will <strong>turn off</strong> the alarm.<br>
+         • We’re going to <strong>set up</strong> the room.</p>
+    </div>
+
+    <div class="section purple">
+      <h2>📌 Separable vs Inseparable</h2>
+      <table class="structure-table">
+        <tr>
+          <th>Type</th>
+          <th>Example</th>
+        </tr>
+        <tr>
+          <td>Separable</td>
+          <td>He <strong>turned off</strong> the light / He <strong>turned</strong> the light <strong>off</strong>.</td>
+        </tr>
+        <tr>
+          <td>Inseparable</td>
+          <td>We <strong>looked after</strong> the baby. (❌ We looked the baby after.)</td>
+        </tr>
+        <tr>
+          <td>Separable</td>
+          <td>She <strong>picked up</strong> the phone / She <strong>picked</strong> the phone <strong>up</strong>.</td>
+        </tr>
+        <tr>
+          <td>Inseparable</td>
+          <td>I <strong>ran into</strong> my friend. (❌ I ran my friend into.)</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section coral">
+      <h2>🔄 Real-Life Sentences</h2>
+      <ul>
+        <li>I <strong>gave up</strong> sugar last year.</li>
+        <li>She <strong>looked after</strong> her neighbor’s cat.</li>
+        <li>We <strong>ran into</strong> traffic on the way.</li>
+        <li>He <strong>turned off</strong> the computer.</li>
+        <li>They <strong>picked up</strong> their kids from school.</li>
+      </ul>
+    </div>
+
+    <div class="section orange">
+      <h2>⚠️ Common Mistakes to Avoid</h2>
+      <div class="error-box">
+        <p>❌ I gave smoking.<br>✅ I <strong>gave up</strong> smoking.</p>
+        <p>❌ She looked the baby after.<br>✅ She <strong>looked after</strong> the baby.</p>
+        <p>❌ We picked the kids.<br>✅ We <strong>picked up</strong> the kids.</p>
+        <p>❌ He turned the TV.<br>✅ He <strong>turned on</strong> the TV.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Use phrasal verbs to sound more natural and fluent in everyday English!</strong></p>
+      <p>Practice with different combinations and learn their meanings in context!</p>
+    </div>
+  </div>
+</body>
+</html>

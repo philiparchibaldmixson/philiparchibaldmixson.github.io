@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sílabas em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 50%, #FFA07A 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #FF6B6B;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #FF6B6B;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #FF8E53;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .tipo-card.monossalaba {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .tipo-card.dissalaba {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+        }
+
+        .tipo-card.trissalaba {
+            background: linear-gradient(135deg, #F7DC6F, #F39C12);
+        }
+
+        .tipo-card.polissalaba {
+            background: linear-gradient(135deg, #E91E63, #D81159);
+        }
+
+        .tipo-card h3 {
+            color: white;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            color: white;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            color: white;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .silabas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .silaba-box {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            color: white;
+            padding: 20px 15px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .silaba-box:hover {
+            transform: scale(1.1);
+        }
+
+        .silaba-box.ba { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .silaba-box.ca { background: linear-gradient(135deg, #4ECDC4, #44A08D); }
+        .silaba-box.da { background: linear-gradient(135deg, #45B7D1, #2E86AB); }
+        .silaba-box.fa { background: linear-gradient(135deg, #F7DC6F, #F39C12); }
+        .silaba-box.ga { background: linear-gradient(135deg, #BB8FCE, #9B59B6); }
+        .silaba-box.ja { background: linear-gradient(135deg, #52B788, #2D6A4F); }
+        .silaba-box.la { background: linear-gradient(135deg, #FF6B9D, #E91E63); }
+        .silaba-box.ma { background: linear-gradient(135deg, #C77DFF, #9D4EDD); }
+        .silaba-box.na { background: linear-gradient(135deg, #4EA8DE, #3F8CCA); }
+        .silaba-box.pa { background: linear-gradient(135deg, #06FFA5, #00CC88); }
+        .silaba-box.ra { background: linear-gradient(135deg, #5390D9, #4361EE); }
+        .silaba-box.sa { background: linear-gradient(135deg, #F72C25, #E01E37); }
+        .silaba-box.ta { background: linear-gradient(135deg, #90E0EF, #48CAE4); }
+        .silaba-box.va { background: linear-gradient(135deg, #FFD60A, #FFC300); }
+
+        .exemplos-palavras {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .palavra-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
+
+        .palavra-card .palavra {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .palavra-card .silabas {
+            font-size: 1.3em;
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .regras-box {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .regras-box h4 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .regras-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .regras-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .regras-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .tonicas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tonica-card {
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .tonica-card.oxitona {
+            background: linear-gradient(135deg, #E91E63, #D81159);
+        }
+
+        .tonica-card.paroxitona {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .tonica-card.proparoxitona {
+            background: linear-gradient(135deg, #52B788, #2D6A4F);
+        }
+
+        .tonica-card h4 {
+            color: white;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .tonica-card p {
+            color: white;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .tonica-card .exemplo {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1.2em;
+            color: white;
+            font-weight: bold;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 50%, #FFA07A 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .tipo-card, .silaba-box, .palavra-card, .destaque, 
+            .regras-box, .tonica-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .silabas-grid {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📖 Sílabas em Português Brasileiro 📖</h1>
+        <p class="subtitle">Aprenda tudo sobre a divisão silábica!</p>
+
+        <div class="section">
+            <h2>🎯 O que são Sílabas?</h2>
+            <p class="intro-text">
+                <strong>Sílabas</strong> são as unidades sonoras que formam as palavras. Cada sílaba possui pelo menos uma vogal, 
+                que é o núcleo da sílaba. Ao pronunciarmos uma palavra, naturalmente a dividimos em sílabas, 
+                como em "ca-sa", "por-ta", "ja-ne-la" ou "com-pu-ta-dor".
+            </p>
+
+            <div class="destaque">
+                <strong>💡 Importante:</strong> Toda sílaba precisa ter pelo menos uma vogal (A, E, I, O, U). 
+                As consoantes precisam estar acompanhadas de vogais para formar sílabas!
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Classificação das Palavras por Número de Sílabas</h2>
+            <div class="tipos-grid">
+                <div class="tipo-card monossalaba">
+                    <h3>Monossílaba</h3>
+                    <p class="definicao">Possui apenas 1 sílaba</p>
+                    <div class="exemplos">pé • sol • mar • luz • flor</div>
+                </div>
+
+                <div class="tipo-card dissalaba">
+                    <h3>Dissílaba</h3>
+                    <p class="definicao">Possui 2 sílabas</p>
+                    <div class="exemplos">ca-sa • bo-lo • ga-to • li-vro</div>
+                </div>
+
+                <div class="tipo-card trissalaba">
+                    <h3>Trissílaba</h3>
+                    <p class="definicao">Possui 3 sílabas</p>
+                    <div class="exemplos">ja-ne-la • co-mi-da • ca-va-lo</div>
+                </div>
+
+                <div class="tipo-card polissalaba">
+                    <h3>Polissílaba</h3>
+                    <p class="definicao">Possui 4 ou mais sílabas</p>
+                    <div class="exemplos">com-pu-ta-dor • bi-ci-cle-ta</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔤 Famílias Silábicas</h2>
+            <p class="intro-text">
+                As sílabas são formadas pela combinação de consoantes e vogais. Veja as principais famílias silábicas:
+            </p>
+
+            <h3>Família do B</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box ba">BA</div>
+                <div class="silaba-box ba">BE</div>
+                <div class="silaba-box ba">BI</div>
+                <div class="silaba-box ba">BO</div>
+                <div class="silaba-box ba">BU</div>
+            </div>
+
+            <h3>Família do C</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box ca">CA</div>
+                <div class="silaba-box ca">CE</div>
+                <div class="silaba-box ca">CI</div>
+                <div class="silaba-box ca">CO</div>
+                <div class="silaba-box ca">CU</div>
+            </div>
+
+            <h3>Família do D</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box da">DA</div>
+                <div class="silaba-box da">DE</div>
+                <div class="silaba-box da">DI</div>
+                <div class="silaba-box da">DO</div>
+                <div class="silaba-box da">DU</div>
+            </div>
+
+            <h3>Família do F</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box fa">FA</div>
+                <div class="silaba-box fa">FE</div>
+                <div class="silaba-box fa">FI</div>
+                <div class="silaba-box fa">FO</div>
+                <div class="silaba-box fa">FU</div>
+            </div>
+
+            <h3>Família do G</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box ga">GA</div>
+                <div class="silaba-box ga">GE</div>
+                <div class="silaba-box ga">GI</div>
+                <div class="silaba-box ga">GO</div>
+                <div class="silaba-box ga">GU</div>
+            </div>
+
+            <h3>Família do J</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box ja">JA</div>
+                <div class="silaba-box ja">JE</div>
+                <div class="silaba-box ja">JI</div>
+                <div class="silaba-box ja">JO</div>
+                <div class="silaba-box ja">JU</div>
+            </div>
+
+            <h3>Família do L</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box la">LA</div>
+                <div class="silaba-box la">LE</div>
+                <div class="silaba-box la">LI</div>
+                <div class="silaba-box la">LO</div>
+                <div class="silaba-box la">LU</div>
+            </div>
+
+            <h3>Família do M</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box ma">MA</div>
+                <div class="silaba-box ma">ME</div>
+                <div class="silaba-box ma">MI</div>
+                <div class="silaba-box ma">MO</div>
+                <div class="silaba-box ma">MU</div>
+            </div>
+
+            <h3>Família do N</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box na">NA</div>
+                <div class="silaba-box na">NE</div>
+                <div class="silaba-box na">NI</div>
+                <div class="silaba-box na">NO</div>
+                <div class="silaba-box na">NU</div>
+            </div>
+
+            <h3>Família do P</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box pa">PA</div>
+                <div class="silaba-box pa">PE</div>
+                <div class="silaba-box pa">PI</div>
+                <div class="silaba-box pa">PO</div>
+                <div class="silaba-box pa">PU</div>
+            </div>
+
+            <h3>Família do R</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box ra">RA</div>
+                <div class="silaba-box ra">RE</div>
+                <div class="silaba-box ra">RI</div>
+                <div class="silaba-box ra">RO</div>
+                <div class="silaba-box ra">RU</div>
+            </div>
+
+            <h3>Família do S</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box sa">SA</div>
+                <div class="silaba-box sa">SE</div>
+                <div class="silaba-box sa">SI</div>
+                <div class="silaba-box sa">SO</div>
+                <div class="silaba-box sa">SU</div>
+            </div>
+
+            <h3>Família do T</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box ta">TA</div>
+                <div class="silaba-box ta">TE</div>
+                <div class="silaba-box ta">TI</div>
+                <div class="silaba-box ta">TO</div>
+                <div class="silaba-box ta">TU</div>
+            </div>
+
+            <h3>Família do V</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box va">VA</div>
+                <div class="silaba-box va">VE</div>
+                <div class="silaba-box va">VI</div>
+                <div class="silaba-box va">VO</div>
+                <div class="silaba-box va">VU</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Exemplos de Divisão Silábica</h2>
+            <div class="exemplos-palavras">
+                <div class="palavra-card">
+                    <div class="palavra">ESCOLA</div>
+                    <div class="silabas">es-co-la</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">CADERNO</div>
+                    <div class="silabas">ca-der-no</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">BORBOLETA</div>
+                    <div class="silabas">bor-bo-le-ta</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">BANANA</div>
+                    <div class="silabas">ba-na-na</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">PROFESSOR</div>
+                    <div class="silabas">pro-fes-sor</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">CHOCOLATE</div>
+                    <div class="silabas">cho-co-la-te</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📏 Regras de Divisão Silábica</h2>
+            <div class="regras-box">
+                <h4>Regras Principais:</h4>
+                <ul>
+                    <li>Não se separam ditongos e tritongos (pai, sau-da-de, U-ru-guai)</li>
+                    <li>Separam-se os hiatos (sa-í-da, pa-ís, ga-ú-cho)</li>
+                    <li>Separam-se dígrafos como rr, ss, sc, xc (car-ro, pas-so, nas-cer, ex-ce-ção)</li>
+                    <li>Não se separam dígrafos ch, lh, nh, gu, qu (cha-ve, fi-lho, ni-nho, guer-ra, quei-jo)</li>
+                    <li>Consoantes diferentes seguidas são separadas (por-ta, can-to, sub-ter-râ-neo)</li>
+                    <li>Prefixos terminados em consoante ligam-se à consoante seguinte (sub-ma-ri-no, trans-por-te)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎵 Sílaba Tônica</h2>
+            <p class="intro-text">
+                A <strong>sílaba tônica</strong> é a sílaba pronunciada com maior intensidade na palavra. 
+                De acordo com a posição da sílaba tônica, as palavras são classificadas em:
+            </p>
+
+            <div class="tonicas-grid">
+                <div class="tonica-card oxitona">
+                    <h4>Oxítonas</h4>
+                    <p>A sílaba tônica é a última</p>
+                    <div class="exemplo">
+                        ca-fé • a-mor • so-fá • pa-ra-bé<strong>ns</strong>
+                    </div>
+                </div>
+
+                <div class="tonica-card paroxitona">
+                    <h4>Paroxítonas</h4>
+                    <p>A sílaba tônica é a penúltima (mais comum em português)</p>
+                    <div class="exemplo">
+                        ca-<strong>sa</strong> • me-<strong>sa</strong> • ár-vo-re • fá-cil
+                    </div>
+                </div>
+
+                <div class="tonica-card proparoxitona">
+                    <h4>Proparoxítonas</h4>
+                    <p>A sílaba tônica é a antepenúltima (sempre acentuadas)</p>
+                    <div class="exemplo">
+                        <strong>mé</strong>-di-co • <strong>lâm</strong>-pa-da • <strong>nú</strong>-me-ro
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✨ Curiosidades sobre Sílabas</h2>
+            <div class="destaque">
+                <p style="margin-bottom: 15px;">
+                    <strong>🎭</strong> A palavra mais longa da língua portuguesa é "pneumoultramicroscopicossilicovulcanoconiótico" 
+                    com 46 letras e 19 sílabas!
+                </p>
+                <p style="margin-bottom: 15px;">
+                    <strong>🌟</strong> Palavras monossílabas tônicas levam acento: pá, pé, só, nó, dó.
+                </p>
+                <p>
+                    <strong>📚</strong> Saber dividir sílabas corretamente é fundamental para a escrita e para entender 
+                    as regras de acentuação!
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

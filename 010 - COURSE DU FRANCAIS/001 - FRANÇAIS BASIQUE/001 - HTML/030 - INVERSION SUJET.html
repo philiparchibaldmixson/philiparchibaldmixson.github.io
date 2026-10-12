@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Inversion du Sujet en Français | Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #002395 0%, #ED2939 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 6px solid #ff6b6b;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .intro p {
+            font-size: 1.15em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #002395;
+            font-size: 2em;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ED2939;
+            display: inline-block;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .case-box {
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #0097a7;
+            transition: all 0.3s ease;
+        }
+
+        .case-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0, 151, 167, 0.3);
+        }
+
+        .case-box h3 {
+            color: #00695c;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .case-box h3::before {
+            content: '📌';
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .example-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .example {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        .example:hover {
+            transform: scale(1.02);
+        }
+
+        .example-correct {
+            background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+            border-left: 4px solid #4caf50;
+        }
+
+        .example-structure {
+            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+            border-left: 4px solid #fbc02d;
+        }
+
+        .highlight-subject {
+            background: linear-gradient(135deg, #ffccbc 0%, #ffab91 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #d84315;
+        }
+
+        .highlight-verb {
+            background: linear-gradient(135deg, #b3e5fc 0%, #81d4fa 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #01579b;
+        }
+
+        .attention-box {
+            background: linear-gradient(135deg, #ffe082 0%, #ffd54f 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border: 3px dashed #f57c00;
+            margin: 25px 0;
+        }
+
+        .attention-box h3 {
+            color: #e65100;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .attention-box h3::before {
+            content: '⚠️';
+            margin-right: 10px;
+        }
+
+        .schema {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #4a148c;
+            border: 3px solid #7b1fa2;
+        }
+
+        .numero {
+            display: inline-block;
+            background: linear-gradient(135deg, #ED2939 0%, #c41230 100%);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 10px;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(237, 41, 57, 0.4);
+        }
+
+        .liste-cas {
+            list-style: none;
+            padding: 0;
+        }
+
+        .liste-cas li {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .liste-cas li:hover {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8eaff 100%);
+            transform: translateX(5px);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1.1em;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .logo {
+            font-weight: bold;
+            color: #ffd700;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            header {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇫🇷 L'Inversion du Sujet</h1>
+            <p class="subtitle">La Position du Sujet Après le Verbe</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <p><strong>💡 Qu'est-ce que l'inversion du sujet ?</strong></p>
+                <p>En français, le sujet se place normalement <strong>avant</strong> le verbe. Mais dans certains cas, on inverse l'ordre : le sujet vient <strong>après</strong> le verbe. Cette structure s'appelle l'inversion du sujet.</p>
+            </div>
+
+            <div class="schema">
+                Ordre normal : SUJET + VERBE<br>
+                Inversion : VERBE + SUJET
+            </div>
+
+            <div class="section">
+                <h2>Les Cas d'Inversion du Sujet</h2>
+
+                <div class="case-box">
+                    <h3><span class="numero">1</span>Questions avec Inversion</h3>
+                    <p>Dans les questions formelles ou soutenues, on inverse le sujet et le verbe :</p>
+                    
+                    <div class="example-container">
+                        <div class="example example-correct">
+                            <span class="highlight-verb">Parlez</span>-<span class="highlight-subject">vous</span> français ?
+                        </div>
+                        <div class="example example-correct">
+                            <span class="highlight-verb">Est</span>-<span class="highlight-subject">elle</span> arrivée ?
+                        </div>
+                        <div class="example example-correct">
+                            <span class="highlight-verb">Avez</span>-<span class="highlight-subject">vous</span> compris ?
+                        </div>
+                        <div class="example example-correct">
+                            Où <span class="highlight-verb">habite</span>-<span class="highlight-subject">t-il</span> ?
+                        </div>
+                        <div class="example example-correct">
+                            Comment <span class="highlight-verb">va</span>-<span class="highlight-subject">t-elle</span> ?
+                        </div>
+                    </div>
+
+                    <div class="attention-box">
+                        <h3>Attention au "t" euphonique !</h3>
+                        <p>Quand le verbe se termine par une voyelle et le pronom commence par une voyelle, on ajoute un <strong>-t-</strong> pour faciliter la prononciation :</p>
+                        <div class="example example-structure">
+                            • Parle-<strong>t</strong>-il ? (et non "parle-il")<br>
+                            • A-<strong>t</strong>-elle fini ? (et non "a-elle")<br>
+                            • Ira-<strong>t</strong>-on au cinéma ? (et non "ira-on")
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3><span class="numero">2</span>Après les Verbes de Parole</h3>
+                    <p>Quand on rapporte des paroles, on peut inverser le sujet et le verbe :</p>
+                    
+                    <div class="example-container">
+                        <div class="example example-correct">
+                            « Je suis fatiguée », <span class="highlight-verb">dit</span>-<span class="highlight-subject">elle</span>.
+                        </div>
+                        <div class="example example-correct">
+                            « C'est magnifique ! » <span class="highlight-verb">s'exclame</span> <span class="highlight-subject">Pierre</span>.
+                        </div>
+                        <div class="example example-correct">
+                            « Attendez-moi ! » <span class="highlight-verb">crie</span> <span class="highlight-subject">l'enfant</span>.
+                        </div>
+                        <div class="example example-correct">
+                            « Quelle surprise ! » <span class="highlight-verb">pense</span> <span class="highlight-subject">Marie</span>.
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 15px;"><strong>Verbes concernés :</strong> dire, répondre, demander, s'exclamer, crier, murmurer, penser, répéter, etc.</p>
+                </div>
+
+                <div class="case-box">
+                    <h3><span class="numero">3</span>Après Certains Adverbes</h3>
+                    <p>Après certains adverbes placés en début de phrase, on peut inverser le sujet (style littéraire) :</p>
+                    
+                    <div class="example-container">
+                        <div class="example example-correct">
+                            Peut-être <span class="highlight-verb">viendra</span>-<span class="highlight-subject">t-il</span> demain.
+                        </div>
+                        <div class="example example-correct">
+                            Ainsi <span class="highlight-verb">finit</span> <span class="highlight-subject">l'histoire</span>.
+                        </div>
+                        <div class="example example-correct">
+                            À peine <span class="highlight-verb">était</span>-<span class="highlight-subject">elle</span> partie qu'il commença à pleuvoir.
+                        </div>
+                        <div class="example example-correct">
+                            Aussi <span class="highlight-verb">décida</span>-<span class="highlight-subject">t-il</span> de rester.
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 15px;"><strong>Adverbes concernés :</strong> peut-être, ainsi, aussi, à peine, du moins, sans doute, encore, toujours, etc.</p>
+                </div>
+
+                <div class="case-box">
+                    <h3><span class="numero">4</span>Propositions Incises</h3>
+                    <p>Dans les phrases intercalées qui indiquent qui parle, on inverse toujours :</p>
+                    
+                    <div class="example-container">
+                        <div class="example example-correct">
+                            Il fait beau, <span class="highlight-verb">dit</span>-<span class="highlight-subject">il</span>, allons nous promener.
+                        </div>
+                        <div class="example example-correct">
+                            Je viendrai, <span class="highlight-verb">affirme</span> <span class="highlight-subject">Sophie</span>, c'est certain.
+                        </div>
+                        <div class="example example-correct">
+                            C'est impossible, <span class="highlight-verb">pense</span>-<span class="highlight-subject">t-elle</span>, absolument impossible.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3><span class="numero">5</span>Souhait ou Hypothèse (sans "si")</h3>
+                    <p>Dans certaines expressions de souhait ou d'hypothèse, on inverse le sujet :</p>
+                    
+                    <div class="example-container">
+                        <div class="example example-correct">
+                            <span class="highlight-verb">Puissiez</span>-<span class="highlight-subject">vous</span> réussir ! (souhait)
+                        </div>
+                        <div class="example example-correct">
+                            <span class="highlight-verb">Vive</span> <span class="highlight-subject">la France</span> ! (souhait)
+                        </div>
+                        <div class="example example-correct">
+                            <span class="highlight-verb">Eût</span>-<span class="highlight-subject">il</span> été là, cela ne serait pas arrivé. (hypothèse)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3><span class="numero">6</span>Style Littéraire</h3>
+                    <p>En littérature, l'inversion peut être utilisée pour créer un effet stylistique :</p>
+                    
+                    <div class="example-container">
+                        <div class="example example-correct">
+                            Sur la colline <span class="highlight-verb">se dresse</span> <span class="highlight-subject">un vieux château</span>.
+                        </div>
+                        <div class="example example-correct">
+                            Dans le ciel <span class="highlight-verb">brillent</span> <span class="highlight-subject">mille étoiles</span>.
+                        </div>
+                        <div class="example example-correct">
+                            Au loin <span class="highlight-verb">s'élève</span> <span class="highlight-subject">un chant mystérieux</span>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Règles Importantes</h2>
+                
+                <ul class="liste-cas">
+                    <li>✅ <strong>Avec un pronom :</strong> on utilise toujours un trait d'union → Vient-il ?</li>
+                    <li>✅ <strong>Avec un nom :</strong> pas de trait d'union → Vient Pierre ?</li>
+                    <li>✅ <strong>Le "t" euphonique :</strong> s'ajoute entre deux voyelles → A-t-elle compris ?</li>
+                    <li>✅ <strong>Questions informelles :</strong> on préfère souvent "Est-ce que" + ordre normal → Est-ce que tu viens ?</li>
+                    <li>✅ <strong>À l'écrit formel :</strong> l'inversion est plus courante qu'à l'oral</li>
+                </ul>
+            </div>
+
+            <div class="attention-box">
+                <h3>Astuce Pratique</h3>
+                <p>L'inversion du sujet donne un ton plus formel, littéraire ou soutenu à votre français. À l'oral quotidien, on l'utilise surtout dans les questions courtes :</p>
+                <div class="example example-structure" style="margin-top: 15px;">
+                    • As-tu faim ? (courant à l'oral)<br>
+                    • Peux-tu m'aider ? (courant à l'oral)<br>
+                    • Veux-tu du café ? (courant à l'oral)
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p class="logo">🎓 Língua Academy</p>
+            <p>Maîtrisez la grammaire française avec excellence</p>
+            <p>© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

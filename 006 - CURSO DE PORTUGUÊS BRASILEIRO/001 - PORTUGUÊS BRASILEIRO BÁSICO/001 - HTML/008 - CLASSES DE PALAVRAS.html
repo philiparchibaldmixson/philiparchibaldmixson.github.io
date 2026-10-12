@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes de Palavras e Uso de Há/A</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #F39C12;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #F39C12;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #E67E22;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #F7DC6F, #F39C12);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .classe-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            color: white;
+        }
+
+        .classe-card:hover {
+            transform: translateY(-8px) scale(1.03);
+        }
+
+        .classe-card.substantivo {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+        }
+
+        .classe-card.adjetivo {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+        }
+
+        .classe-card.verbo {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .classe-card.pronome {
+            background: linear-gradient(135deg, #F7DC6F, #F39C12);
+        }
+
+        .classe-card.artigo {
+            background: linear-gradient(135deg, #BB8FCE, #9B59B6);
+        }
+
+        .classe-card.numeral {
+            background: linear-gradient(135deg, #E91E63, #D81159);
+        }
+
+        .classe-card.preposicao {
+            background: linear-gradient(135deg, #52B788, #2D6A4F);
+        }
+
+        .classe-card.conjuncao {
+            background: linear-gradient(135deg, #FF6B9D, #E91E63);
+        }
+
+        .classe-card.adverbio {
+            background: linear-gradient(135deg, #5390D9, #4361EE);
+        }
+
+        .classe-card.interjeicao {
+            background: linear-gradient(135deg, #F72C25, #E01E37);
+        }
+
+        .classe-card h3 {
+            color: white;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .classe-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .classe-card .exemplo {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        .classe-card .exemplo strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .ha-a-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .ha-a-box h3 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid white;
+            padding-bottom: 15px;
+        }
+
+        .comparacao-ha-a {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .ha-card, .a-card {
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .ha-card h4, .a-card h4 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        .regra-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .regra-item .titulo-regra {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .regra-item .explicacao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .regra-item .exemplo-frase {
+            background: rgba(255,255,255,0.15);
+            padding: 12px;
+            border-radius: 10px;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
+        .tabela-classes {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tabela-classes thead {
+            background: linear-gradient(135deg, #F7DC6F, #F39C12);
+            color: white;
+        }
+
+        .tabela-classes th {
+            padding: 20px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        .tabela-classes td {
+            padding: 18px 20px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        .tabela-classes tr:hover {
+            background: #f5f5f5;
+        }
+
+        .quiz-box {
+            background: linear-gradient(135deg, #E91E63, #D81159);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .quiz-box h4 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .quiz-item {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-item .pergunta {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .quiz-item .opcoes {
+            font-size: 1.1em;
+            line-height: 2;
+            padding-left: 20px;
+        }
+
+        .quiz-item .resposta {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        .dicas-box {
+            background: linear-gradient(135deg, #52B788, #2D6A4F);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .exemplo-destaque {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #F39C12;
+        }
+
+        .exemplo-destaque .titulo-exemplo {
+            font-size: 2em;
+            color: #F39C12;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-destaque .texto-exemplo {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .texto-exemplo .destacado {
+            background: #FFF3CD;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #856404;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .classe-card, .destaque, .dicas-box, .quiz-box,
+            .ha-a-box, .exemplo-destaque {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .classes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparacao-ha-a {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📖 Classes de Palavras 📖</h1>
+        <p class="subtitle">Entenda as 10 classes gramaticais e o uso correto de Há e A!</p>
+
+        <div class="section">
+            <h2>🎯 O que são Classes de Palavras?</h2>
+            <p class="intro-text">
+                <strong>Classes de palavras</strong> (ou classes gramaticais) são categorias que agrupam 
+                palavras com características morfológicas, sintáticas e semânticas semelhantes. 
+                Em português, temos <strong>10 classes de palavras</strong>, divididas em variáveis e invariáveis.
+            </p>
+
+            <div class="destaque">
+                <strong>💡 Importante:</strong> Conhecer as classes de palavras é fundamental para 
+                compreender a estrutura da língua portuguesa, fazer análises sintáticas e escrever corretamente!
+            </div>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-classes">
+                    <thead>
+                        <tr>
+                            <th>Classes Variáveis</th>
+                            <th>Classes Invariáveis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1. Substantivo<br>2. Adjetivo<br>3. Verbo<br>4. Pronome<br>5. Artigo<br>6. Numeral</td>
+                            <td>7. Preposição<br>8. Conjunção<br>9. Advérbio<br>10. Interjeição</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 As 10 Classes de Palavras</h2>
+            <p class="intro-text">
+                Vamos conhecer cada uma das classes de palavras com suas definições e exemplos:
+            </p>
+
+            <div class="classes-grid">
+                <div class="classe-card substantivo">
+                    <h3>1. Substantivo</h3>
+                    <div class="definicao">
+                        Nomeia seres, coisas, lugares, sentimentos, ações, qualidades.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Concretos: casa, livro, cachorro<br>
+                        • Abstratos: amor, felicidade, beleza<br>
+                        • Próprios: Brasil, Maria, José<br>
+                        • Comuns: cidade, mulher, animal
+                    </div>
+                </div>
+
+                <div class="classe-card adjetivo">
+                    <h3>2. Adjetivo</h3>
+                    <div class="definicao">
+                        Caracteriza, qualifica ou determina o substantivo.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Casa bonita<br>
+                        • Livro interessante<br>
+                        • Cachorro bravo<br>
+                        • Menina inteligente<br>
+                        • Dia ensolarado
+                    </div>
+                </div>
+
+                <div class="classe-card verbo">
+                    <h3>3. Verbo</h3>
+                    <div class="definicao">
+                        Expressa ação, estado, fenômeno da natureza ou mudança de estado.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Ação: correr, estudar, falar<br>
+                        • Estado: ser, estar, ficar<br>
+                        • Fenômeno: chover, nevar, ventar<br>
+                        • Mudança: tornar-se, virar
+                    </div>
+                </div>
+
+                <div class="classe-card pronome">
+                    <h3>4. Pronome</h3>
+                    <div class="definicao">
+                        Substitui ou acompanha o substantivo, indicando sua posição em relação às pessoas do discurso.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Pessoais: eu, tu, ele, nós<br>
+                        • Possessivos: meu, seu, nosso<br>
+                        • Demonstrativos: este, esse, aquele<br>
+                        • Indefinidos: algum, nenhum, todo
+                    </div>
+                </div>
+
+                <div class="classe-card artigo">
+                    <h3>5. Artigo</h3>
+                    <div class="definicao">
+                        Determina ou indetermina o substantivo, indicando gênero e número.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Definidos: o, a, os, as<br>
+                        "O menino chegou"<br>
+                        • Indefinidos: um, uma, uns, umas<br>
+                        "Um menino chegou"
+                    </div>
+                </div>
+
+                <div class="classe-card numeral">
+                    <h3>6. Numeral</h3>
+                    <div class="definicao">
+                        Indica quantidade, ordem, múltiplo ou fração.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Cardinais: um, dois, três<br>
+                        • Ordinais: primeiro, segundo<br>
+                        • Multiplicativos: dobro, triplo<br>
+                        • Fracionários: meio, terço
+                    </div>
+                </div>
+
+                <div class="classe-card preposicao">
+                    <h3>7. Preposição</h3>
+                    <div class="definicao">
+                        Liga palavras estabelecendo relações de sentido entre elas.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Essenciais: a, ante, após, até, com, contra, de, desde, em, entre, para, por, sem, sob, sobre<br>
+                        • "Vou a São Paulo"<br>
+                        • "Casa de madeira"
+                    </div>
+                </div>
+
+                <div class="classe-card conjuncao">
+                    <h3>8. Conjunção</h3>
+                    <div class="definicao">
+                        Liga orações ou termos de mesma função sintática.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Coordenativas: e, mas, ou, porém<br>
+                        "Estudei e passei"<br>
+                        • Subordinativas: que, se, quando<br>
+                        "Sei que você virá"
+                    </div>
+                </div>
+
+                <div class="classe-card adverbio">
+                    <h3>9. Advérbio</h3>
+                    <div class="definicao">
+                        Modifica o verbo, adjetivo ou outro advérbio, indicando circunstâncias.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Lugar: aqui, lá, perto<br>
+                        • Tempo: hoje, ontem, sempre<br>
+                        • Modo: bem, mal, devagar<br>
+                        • Intensidade: muito, pouco, bastante
+                    </div>
+                </div>
+
+                <div class="classe-card interjeicao">
+                    <h3>10. Interjeição</h3>
+                    <div class="definicao">
+                        Expressa emoções, sentimentos, estados de espírito de forma súbita.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Alegria: Ah! Oba! Viva!<br>
+                        • Dor: Ai! Ui!<br>
+                        • Surpresa: Oh! Uau!<br>
+                        • Silêncio: Psiu! Silêncio!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔍 Identificando as Classes em Frases</h2>
+            <p class="intro-text">
+                Vamos analisar frases identificando cada classe de palavra:
+            </p>
+
+            <div class="exemplo-destaque">
+                <div class="titulo-exemplo">Frase 1: Análise Completa</div>
+                <div class="texto-exemplo">
+                    <span class="destacado">O</span> <span class="destacado">menino</span> <span class="destacado">inteligente</span> <span class="destacado">estudou</span> <span class="destacado">muito</span> <span class="destacado">para</span> <span class="destacado">a</span> <span class="destacado">prova</span>.<br><br>
+                    
+                    <strong>O</strong> = Artigo definido<br>
+                    <strong>menino</strong> = Substantivo comum<br>
+                    <strong>inteligente</strong> = Adjetivo<br>
+                    <strong>estudou</strong> = Verbo (estudar)<br>
+                    <strong>muito</strong> = Advérbio de intensidade<br>
+                    <strong>para</strong> = Preposição<br>
+                    <strong>a</strong> = Artigo definido<br>
+                    <strong>prova</strong> = Substantivo comum
+                </div>
+            </div>
+
+            <div class="exemplo-destaque">
+                <div class="titulo-exemplo">Frase 2: Análise Completa</div>
+                <div class="texto-exemplo">
+                    <span class="destacado">Meu</span> <span class="destacado">cachorro</span> <span class="destacado">corre</span> <span class="destacado">rapidamente</span> <span class="destacado">e</span> <span class="destacado">late</span> <span class="destacado">quando</span> <span class="destacado">vê</span> <span class="destacado">gatos</span>.<br><br>
+                    
+                    <strong>Meu</strong> = Pronome possessivo<br>
+                    <strong>cachorro</strong> = Substantivo comum<br>
+                    <strong>corre</strong> = Verbo (correr)<br>
+                    <strong>rapidamente</strong> = Advérbio de modo<br>
+                    <strong>e</strong> = Conjunção coordenativa aditiva<br>
+                    <strong>late</strong> = Verbo (latir)<br>
+                    <strong>quando</strong> = Conjunção subordinativa temporal<br>
+                    <strong>vê</strong> = Verbo (ver)<br>
+                    <strong>gatos</strong> = Substantivo comum
+                </div>
+            </div>
+        </div>
+
+        <div class="ha-a-box">
+            <h3>⚡ HÁ (VERBO) vs A (PREPOSIÇÃO)</h3>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px;">
+                Uma das maiores dúvidas do português brasileiro!<br>
+                Veja quando usar cada um:
+            </p>
+
+            <div class="comparacao-ha-a">
+                <div class="ha-card">
+                    <h4>HÁ</h4>
+                    
+                    <div class="regra-item">
+                        <div class="titulo-regra">1. TEMPO PASSADO (há = faz)</div>
+                        <div class="explicacao">
+                            Indica tempo decorrido. Pode ser substituído por "faz".
+                        </div>
+                        <div class="exemplo-frase">
+                            ✓ Há três anos que não viajo<br>
+                            (= Faz três anos que não viajo)
+                        </div>
+                        <div class="exemplo-frase">
+                            ✓ Ele saiu há duas horas<br>
+                            (= Ele saiu faz duas horas)
+                        </div>
+                    </div>
+
+                    <div class="regra-item">
+                        <div class="titulo-regra">2. EXISTIR (há = existe/existem)</div>
+                        <div class="explicacao">
+                            Indica existência. Pode ser substituído por "existe" ou "existem".
+                        </div>
+                        <div class="exemplo-frase">
+                            ✓ Há muitas pessoas aqui<br>
+                            (= Existem muitas pessoas aqui)
+                        </div>
+                        <div class="exemplo-frase">
+                            ✓ Há um problema<br>
+                            (= Existe um problema)
+                        </div>
+                    </div>
+
+                    <div class="regra-item">
+                        <div class="titulo-regra">3. ACONTECER (há = ocorre)</div>
+                        <div class="explicacao">
+                            Indica acontecimento ou ocorrência.
+                        </div>
+                        <div class="exemplo-frase">
+                            ✓ Há muito barulho nesta rua<br>
+                            ✓ Não há motivo para preocupação
+                        </div>
+                    </div>
+                </div>
+
+                <div class="a-card">
+                    <h4>A</h4>
+                    
+                    <div class="regra-item">
+                        <div class="titulo-regra">1. TEMPO FUTURO (a = daqui a)</div>
+                        <div class="explicacao">
+                            Indica tempo futuro ou distância temporal à frente.
+                        </div>
+                        <div class="exemplo-frase">
+                            ✓ Voltarei daqui a três dias<br>
+                            ✓ A reunião será daqui a uma hora
+                        </div>
+                        <div class="exemplo-frase">
+                            ✓ Estamos a cinco minutos do local<br>
+                            (faltam cinco minutos)
+                        </div>
+                    </div>
+
+                    <div class="regra-item">
+                        <div class="titulo-regra">2. DISTÂNCIA (a = faltam)</div>
+                        <div class="explicacao">
+                            Indica distância no espaço ou no tempo.
+                        </div>
+                        <div class="exemplo-frase">
+                            ✓ Estamos a 10 km da cidade<br>
+                            ✓ A escola fica a duas quadras daqui
+                        </div>
+                    </div>
+
+                    <div class="regra-item">
+                        <div class="titulo-regra">3. PREPOSIÇÃO (movimento/direção)</div>
+                        <div class="explicacao">
+                            Indica movimento, direção, destino.
+                        </div>
+                        <div class="exemplo-frase">
+                            ✓ Vou a São Paulo amanhã<br>
+                            ✓ Cheguei a casa cedo<br>
+                            ✓ Entreguei o livro a ele
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Macete Para Nunca Mais Errar!</h2>
+            
+            <div class="dicas-box">
+                <h4>Regra de Ouro:</h4>
+                <ul>
+                    <li><strong>HÁ</strong> = Passado (tempo que já passou) → Pode substituir por "FAZ"</li>
+                    <li><strong>A</strong> = Futuro (tempo que ainda não chegou) → Pode substituir por "DAQUI A"</li>
+                    <li><strong>HÁ</strong> = Existir → Pode substituir por "EXISTE/EXISTEM"</li>
+                    <li><strong>A</strong> = Distância → Pode substituir por "FALTAM"</li>
+                </ul>
+            </div>
+
+            <div class="exemplo-destaque">
+                <div class="titulo-exemplo">💡 Teste Rápido</div>
+                <div class="texto-exemplo">
+                    <strong>PASSADO:</strong><br>
+                    ✓ HÁ dois anos morei em São Paulo (= FAZ dois anos)<br>
+                    ✓ Ele chegou HÁ pouco tempo (= FAZ pouco tempo)<br><br>
+
+                    <strong>FUTURO:</strong><br>
+                    ✓ Viajarei daqui A três meses (= DAQUI A três meses)<br>
+                    ✓ O show começa daqui A uma hora (= DAQUI A uma hora)<br><br>
+
+                    <strong>EXISTIR:</strong><br>
+                    ✓ HÁ muitas opções (= EXISTEM muitas opções)<br>
+                    ✓ HÁ esperança (= EXISTE esperança)<br><br>
+
+                    <strong>DISTÂNCIA:</strong><br>
+                    ✓ Estamos A 5 km da praia (= FALTAM 5 km)<br>
+                    ✓ Moro A duas ruas daqui (= FALTAM duas ruas)
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎮 Quiz - Teste Seus Conhecimentos!</h2>
+            
+            <div class="quiz-box">
+                <h4>🧠 Desafio sobre Classes de Palavras</h4>
+                
+                <div class="quiz-item">
+                    <div class="pergunta">1. Qual a classe gramatical da palavra destacada? "O cachorro LATE muito à noite."</div>
+                    <div class="opcoes">
+                        a) Substantivo<br>
+                        b) Verbo<br>
+                        c) Advérbio<br>
+                        d) Adjetivo
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> b) Verbo - "Late" indica ação praticada pelo cachorro.
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">2. Em "Aquela casa é MUITO bonita", a palavra "muito" é:</div>
+                    <div class="opcoes">
+                        a) Adjetivo<br>
+                        b) Advérbio<br>
+                        c) Pronome<br>
+                        d) Conjunção
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> b) Advérbio - Modifica o adjetivo "bonita", indicando intensidade.
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">3. Quantas classes de palavras existem em português?</div>
+                    <div class="opcoes">
+                        a) 8<br>
+                        b) 9<br>
+                        c) 10<br>
+                        d) 12
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> c) 10 - São 6 variáveis e 4 invariáveis.
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">4. Em "João E Maria foram ao cinema", a palavra "e" é:</div>
+                    <div class="opcoes">
+                        a) Preposição<br>
+                        b) Advérbio<br>
+                        c) Conjunção<br>
+                        d) Interjeição
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> c) Conjunção - Liga dois substantivos (João e Maria).
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">5. Qual palavra expressa emoção súbita? "UAU! Que carro bonito!"</div>
+                    <div class="opcoes">
+                        a) Advérbio<br>
+                        b) Interjeição<br>
+                        c) Substantivo<br>
+                        d) Conjunção
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> b) Interjeição - "Uau" expressa surpresa/admiração.
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-box">
+                <h4>🧠 Desafio sobre HÁ e A</h4>
+                
+                <div class="quiz-item">
+                    <div class="pergunta">1. Complete: "___ três dias que não como pizza."</div>
+                    <div class="opcoes">
+                        a) Há<br>
+                        b) A
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> a) Há - Tempo passado (= Faz três dias).
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">2. Complete: "Voltarei daqui ___ dois meses."</div>
+                    <div class="opcoes">
+                        a) Há<br>
+                        b) A
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> b) A - Tempo futuro (= Daqui a dois meses).
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">3. Complete: "___ muitas pessoas na fila."</div>
+                    <div class="opcoes">
+                        a) Há<br>
+                        b) A
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> a) Há - Indica existência (= Existem muitas pessoas).
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">4. Complete: "Estamos ___ 10 km do destino."</div>
+                    <div class="opcoes">
+                        a) Há<br>
+                        b) A
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> b) A - Indica distância (= Faltam 10 km).
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">5. Complete: "Ele partiu ___ cinco anos."</div>
+                    <div class="opcoes">
+                        a) Há<br>
+                        b) A
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> a) Há - Tempo passado (= Faz cinco anos).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Exercícios Práticos</h2>
+            
+            <div class="exemplo-destaque">
+                <div class="titulo-exemplo">Exercício 1: Identifique as Classes</div>
+                <div class="texto-exemplo">
+                    Identifique a classe gramatical de cada palavra destacada:<br><br>
+
+                    <strong>a) "O SOL brilha intensamente."</strong><br>
+                    Resposta: SOL = Substantivo comum<br><br>
+
+                    <strong>b) "Maria corre RAPIDAMENTE."</strong><br>
+                    Resposta: RAPIDAMENTE = Advérbio de modo<br><br>
+
+                    <strong>c) "Comprei TRÊS livros."</strong><br>
+                    Resposta: TRÊS = Numeral cardinal<br><br>
+
+                    <strong>d) "Este é MEU carro."</strong><br>
+                    Resposta: MEU = Pronome possessivo<br><br>
+
+                    <strong>e) "A casa é BONITA."</strong><br>
+                    Resposta: BONITA = Adjetivo
+                </div>
+            </div>
+
+            <div class="exemplo-destaque">
+                <div class="titulo-exemplo">Exercício 2: Complete com HÁ ou A</div>
+                <div class="texto-exemplo">
+                    <strong>a)</strong> ___ dois anos que não viajo. <span style="color: #F39C12;">→ HÁ (tempo passado)</span><br>
+                    <strong>b)</strong> Chegaremos daqui ___ uma hora. <span style="color: #F39C12;">→ A (tempo futuro)</span><br>
+                    <strong>c)</strong> ___ muitos alunos na sala. <span style="color: #F39C12;">→ HÁ (existir)</span><br>
+                    <strong>d)</strong> Estamos ___ 5 km da cidade. <span style="color: #F39C12;">→ A (distância)</span><br>
+                    <strong>e)</strong> Ele saiu ___ pouco tempo. <span style="color: #F39C12;">→ HÁ (tempo passado)</span><br>
+                    <strong>f)</strong> Voltarei ___ três dias. <span style="color: #F39C12;">→ A (tempo futuro)</span><br>
+                    <strong>g)</strong> ___ esperança de melhora. <span style="color: #F39C12;">→ HÁ (existir)</span><br>
+                    <strong>h)</strong> Moramos ___ duas quadras daqui. <span style="color: #F39C12;">→ A (distância)</span>
+                </div>
+            </div>
+
+            <div class="exemplo-destaque">
+                <div class="titulo-exemplo">Exercício 3: Análise de Texto</div>
+                <div class="texto-exemplo">
+                    Identifique as classes de palavras no texto abaixo:<br><br>
+
+                    "<span class="destacado">O</span> <span class="destacado">menino</span> <span class="destacado">feliz</span> <span class="destacado">brincava</span> <span class="destacado">alegremente</span> <span class="destacado">no</span> <span class="destacado">parque</span> <span class="destacado">quando</span> <span class="destacado">viu</span> <span class="destacado">seu</span> <span class="destacado">amigo</span>."<br><br>
+
+                    <strong>Resposta:</strong><br>
+                    • O = Artigo definido<br>
+                    • menino = Substantivo comum<br>
+                    • feliz = Adjetivo<br>
+                    • brincava = Verbo<br>
+                    • alegremente = Advérbio de modo<br>
+                    • no = Preposição (em + o)<br>
+                    • parque = Substantivo comum<br>
+                    • quando = Conjunção subordinativa<br>
+                    • viu = Verbo<br>
+                    • seu = Pronome possessivo<br>
+                    • amigo = Substantivo comum
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Tabela Resumo: HÁ vs A</h2>
+            
+            <div class="tabela-wrapper">
+                <table class="tabela-classes">
+                    <thead>
+                        <tr>
+                            <th>Uso</th>
+                            <th>HÁ (Verbo Haver)</th>
+                            <th>A (Preposição)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Tempo Passado</strong></td>
+                            <td>✓ Há três anos morei lá<br>(= Faz três anos)</td>
+                            <td>✗ Não se usa</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tempo Futuro</strong></td>
+                            <td>✗ Não se usa</td>
+                            <td>✓ Voltarei daqui a três dias<br>(= Daqui a três dias)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Existência</strong></td>
+                            <td>✓ Há muitas opções<br>(= Existem muitas opções)</td>
+                            <td>✗ Não se usa</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Distância</strong></td>
+                            <td>✗ Não se usa</td>
+                            <td>✓ Estamos a 10 km daqui<br>(= Faltam 10 km)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Direção/Movimento</strong></td>
+                            <td>✗ Não se usa</td>
+                            <td>✓ Vou a São Paulo<br>✓ Entreguei a ele</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Dicas Finais</h2>
+            
+            <div class="dicas-box">
+                <h4>Para Memorizar as Classes de Palavras:</h4>
+                <ul>
+                    <li>Leia textos identificando as classes das palavras - pratique constantemente!</li>
+                    <li>Crie frases usando todas as 10 classes para fixar o conteúdo</li>
+                    <li>Lembre-se: 6 classes são VARIÁVEIS (flexionam) e 4 são INVARIÁVEIS</li>
+                    <li>Use mnemônicos: "SÃO VAPE CI" (Substantivo, Adjetivo, Verbo, Pronome, Artigo, Numeral, Preposição, Conjunção, Advérbio, Interjeição)</li>
+                    <li>Faça exercícios de classificação diariamente</li>
+                </ul>
+            </div>
+
+            <div class="dicas-box" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                <h4>Para Nunca Errar HÁ e A:</h4>
+                <ul>
+                    <li>PASSADO = HÁ (sempre!) → Substitua por "FAZ"</li>
+                    <li>FUTURO = A (sempre!) → Substitua por "DAQUI A"</li>
+                    <li>EXISTIR = HÁ (sempre!) → Substitua por "EXISTE/EXISTEM"</li>
+                    <li>DISTÂNCIA = A (sempre!) → Substitua por "FALTAM"</li>
+                    <li>Na dúvida, tente substituir pela palavra equivalente!</li>
+                </ul>
+            </div>
+
+            <div class="destaque">
+                <strong>💡 Lembre-se:</strong> HÁ é verbo (do verbo HAVER), por isso expressa ação ou estado. 
+                A é preposição, por isso liga palavras e expressa relação entre elas. Essa é a diferença fundamental!
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔍 Casos Especiais e Curiosidades</h2>
+            
+            <div class="exemplo-destaque">
+                <div class="titulo-exemplo">Atenção aos Falsos Cognatos!</div>
+                <div class="texto-exemplo">
+                    <strong>1. CEDO (advérbio) vs CEDO (verbo ceder)</strong><br>
+                    • Acordei CEDO hoje. (advérbio de tempo)<br>
+                    • Eu CEDO meu lugar para você. (verbo ceder, 1ª pessoa)<br><br>
+
+                    <strong>2. SÓ (advérbio) vs SÓ (adjetivo = sozinho)</strong><br>
+                    • Quero SÓ água. (advérbio = somente)<br>
+                    • Ela está SÓ. (adjetivo = sozinha)<br><br>
+
+                    <strong>3. MEIO (advérbio) vs MEIO (numeral/substantivo)</strong><br>
+                    • Ela está MEIO cansada. (advérbio = um pouco)<br>
+                    • Comprei MEIO quilo. (numeral fracionário)<br>
+                    • O MEIO ambiente precisa de cuidados. (substantivo)
+                </div>
+            </div>
+
+            <div class="exemplo-destaque">
+                <div class="titulo-exemplo">HÁ em Locuções Verbais</div>
+                <div class="texto-exemplo">
+                    Quando HÁ faz parte de uma locução verbal, pode aparecer no infinitivo ou particípio:<br><br>
+
+                    <strong>• Deve HAVER muitas pessoas lá.</strong> (locução verbal: deve haver)<br>
+                    <strong>• Pode HAVER problemas.</strong> (locução verbal: pode haver)<br>
+                    <strong>• Tinha HAVIDO um acidente.</strong> (locução verbal: tinha havido)<br><br>
+
+                    <strong>⚠️ Importante:</strong> O verbo HAVER no sentido de existir é sempre IMPESSOAL, 
+                    ou seja, não tem sujeito e fica sempre na 3ª pessoa do singular!<br><br>
+
+                    <strong>✓ CORRETO:</strong> Há muitos alunos. (não existe sujeito)<br>
+                    <strong>✗ ERRADO:</strong> Hão muitos alunos.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Resumo Geral</h2>
+            
+            <div class="classes-grid">
+                <div class="classe-card substantivo">
+                    <h3>Variáveis</h3>
+                    <div class="definicao">
+                        Flexionam em gênero, número, grau, pessoa, tempo, modo
+                    </div>
+                    <div class="exemplo">
+                        <strong>6 Classes:</strong><br>
+                        1. Substantivo<br>
+                        2. Adjetivo<br>
+                        3. Verbo<br>
+                        4. Pronome<br>
+                        5. Artigo<br>
+                        6. Numeral
+                    </div>
+                </div>
+
+                <div class="classe-card adverbio">
+                    <h3>Invariáveis</h3>
+                    <div class="definicao">
+                        Não sofrem flexões, mantêm sempre a mesma forma
+                    </div>
+                    <div class="exemplo">
+                        <strong>4 Classes:</strong><br>
+                        7. Preposição<br>
+                        8. Conjunção<br>
+                        9. Advérbio<br>
+                        10. Interjeição
+                    </div>
+                </div>
+            </div>
+
+            <div class="destaque" style="margin-top: 30px;">
+                <strong>🎓 Conclusão:</strong> Dominar as classes de palavras é essencial para compreender 
+                a estrutura da língua portuguesa e escrever corretamente. Quanto ao uso de HÁ e A, lembre-se 
+                sempre: HÁ para passado e existência, A para futuro e distância. Com prática constante, 
+                você nunca mais errará!
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; padding: 30px;">
+            <h2 style="margin-bottom: 20px;">📖 Fim do Material 📖</h2>
+            <p class="intro-text" style="margin-bottom: 0;">
+                Esperamos que este material tenha ajudado você a compreender as classes de palavras 
+                e o uso correto de HÁ e A em português brasileiro. Continue praticando e estudando!
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>

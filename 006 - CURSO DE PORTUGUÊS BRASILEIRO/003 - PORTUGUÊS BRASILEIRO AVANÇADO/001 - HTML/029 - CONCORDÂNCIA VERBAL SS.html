@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concordância Verbal com Sujeito Simples</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* CSS EXATO do ARQUIVO 004 - ORTOGRAFIA */
+        body {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E7D6E 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #2E7D6E; /* Cor principal adaptada do tema */
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #4ECDC4;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #44A08D; /* Cor secundária adaptada do tema */
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+            min-height: 350px;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores adaptadas do tema 004 */
+        .tipo-card.regra-geral {
+            background: linear-gradient(135deg, #FF6B6B, #EE5A5A); /* Vermelho/Regra Geral */
+        }
+
+        .tipo-card.pronomes {
+            background: linear-gradient(135deg, #8338EC, #6C23D6); /* Roxo/Pronomes */
+        }
+
+        .tipo-card.coletivo {
+            background: linear-gradient(135deg, #FFC300, #FFAD00); /* Amarelo/Coletivo */
+            color: #333;
+        }
+
+        .tipo-card.porcento {
+            background: linear-gradient(135deg, #00B4D8, #00A6CC); /* Azul/Porcentagem */
+        }
+
+        .tipo-card.expressoes {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D); /* Verde Água/Expressões */
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+        
+        /* Ajuste de contraste para o card amarelo */
+        .tipo-card.coletivo .exemplos {
+            background: rgba(0,0,0,0.1); 
+            color: #333;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .dicas-box {
+            /* Cor adaptada do arquivo 004 */
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "💡"; /* Ícone adaptado */
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗣️ Concordância Verbal (Sujeito Simples) 🗣️</h1>
+        <p class="subtitle">A regra que garante a harmonia entre o Verbo e o Núcleo do Sujeito!</p>
+
+        <div class="section">
+            <h2>🎯 Princípio Geral</h2>
+            <p class="intro-text">
+                A **Concordância Verbal** é o ajuste do verbo com o núcleo do sujeito em **número** (singular ou plural) e **pessoa** (1ª, 2ª ou 3ª). Quando o sujeito é simples (possui apenas um núcleo), a regra básica é clara: **o verbo concorda com o núcleo do sujeito**.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card regra-geral">
+                    <h3>1. Regra Fundamental</h3>
+                    <div class="definicao">
+                        O verbo concorda com o único núcleo do sujeito, mesmo que outros termos (adjuntos) estejam no plural.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **Aquele carro** *passou* rápido.<br>
+                        • **A maioria dos alunos** *fez* a prova. (Núcleo: maioria)
+                    </div>
+                </div>
+
+                <div class="tipo-card coletivo">
+                    <h3>2. Sujeito Coletivo</h3>
+                    <div class="definicao">
+                        O núcleo do sujeito é um substantivo coletivo (plural implícito). O verbo fica no **singular**.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • O **cardume** *passou* por aqui.<br>
+                        • A **multidão** *gritava* muito.
+                        <br><span style="color: #444;">*Exceção: Se o coletivo vier especificado (ex: cardume de peixes), o verbo pode ir para o plural.*</span>
+                    </div>
+                </div>
+
+                <div class="tipo-card pronomes">
+                    <h3>3. Pronomes de Tratamento</h3>
+                    <div class="definicao">
+                        Pronomes de tratamento (Vossa Senhoria, Sua Excelência) e o pronome *você* fazem a concordância sempre na **3ª pessoa** (singular ou plural, dependendo do número do pronome).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **Você** *trouxe* o livro.<br>
+                        • **Vossas Senhorias** *estiveram* ausentes.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚨 Casos Específicos e Exceções</h2>
+            <p class="intro-text">
+                O sujeito simples pode apresentar formas que geram dúvidas, exigindo atenção especial.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card porcento">
+                    <h3>4. Porcentagens e Frações</h3>
+                    <div class="definicao">
+                        O verbo pode concordar tanto com o **numeral** (o número da porcentagem/fração) quanto com o **substantivo** que a acompanha.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **20% do povo** *votou* (singular) ou *votaram* (plural).<br>
+                        • **Dois terços dos alunos** *fizeram* a prova. (Plural)
+                        <br><span style="color: #444;">*Observação: Se a porcentagem for 1, o verbo é sempre singular: 1% *discorda*.*</span>
+                    </div>
+                </div>
+
+                <div class="tipo-card expressoes">
+                    <h3>5. Expressões Partitivas</h3>
+                    <div class="definicao">
+                        Expressões como *a maioria de*, *a maior parte de*, *grande parte de* permitem o verbo no **singular** (concordando com o partitivo) ou no **plural** (concordando com o termo que especifica o partitivo).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **A maioria dos estudantes** *passou* (singular) ou *passaram* (plural).<br>
+                        • **Parte dos eleitores** *compareceu* ou *compareceram*.
+                    </div>
+                </div>
+
+                <div class="tipo-card expressoes" style="background: linear-gradient(135deg, #EE5A5A, #FF6B6B);">
+                    <h3>6. Pronome "QUEM" e "QUE"</h3>
+                    <div class="definicao">
+                        Se o sujeito for o pronome relativo **QUE**, o verbo concorda com o **antecedente**. Se for o pronome **QUEM**, o verbo pode concordar com o **antecedente** ou ficar na **3ª pessoa do singular**.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Fui eu **que** *paguei* a conta. (Que → Eu)<br>
+                        • Fui eu **quem** *pagou* (3ª p. sing.) ou *paguei* (antecedente).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 Dicas de Ouro</h2>
+            
+            <div class="dicas-box">
+                <h4>Evitando Erros Comuns:</h4>
+                <ul>
+                    <li>**Oração Sem Sujeito:** Verbos como *haver* (sentido de existir), *fazer* (tempo) e fenômenos da natureza ficam sempre na **3ª pessoa do singular**. Ex: *Faz* dez anos. *Havia* problemas.</li>
+                    <li>**Núcleo Distante:** O verbo sempre concorda com o **núcleo** do sujeito, mesmo que ele esteja longe. Ex: *O grande número de problemas na empresa não* **impede** *o crescimento*.</li>
+                    <li>**Voz Passiva Indeterminada (com SE):** O verbo fica na 3ª pessoa do singular quando o Objeto é Indireto. Ex: *Precisa-se* **de** *vendedores*.</li>
+                    <li>**Voz Passiva Sintética (com SE):** O verbo concorda com o Sujeito Paciente. Ex: *Vende-se* **casa** (singular). *Vendem-se* **casas** (plural).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les CC d'Accompagnement et de Privation - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #002395 0%, #ffffff 50%, #ED2939 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(237, 41, 57, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0, 35, 149, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background: linear-gradient(135deg, #002395, #0035b8, #002395);
+            background-size: 200% 200%;
+            animation: gradientFlow 8s ease infinite;
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 35, 149, 0.4);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .logo {
+            font-size: 1.3em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            opacity: 0.95;
+        }
+
+        h1 {
+            font-size: 2.6em;
+            margin: 20px 0;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-top: 15px;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            border: 3px solid rgba(0, 35, 149, 0.2);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .intro-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .intro-section h2::before {
+            content: '👥';
+            font-size: 1.2em;
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        .intro-section p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.15em;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 6px solid #002395;
+            margin: 25px 0;
+            font-size: 1.1em;
+            line-height: 1.7;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .definition-box strong {
+            color: #ED2939;
+            font-size: 1.1em;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .type-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #002395, #ED2939);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .type-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 35, 149, 0.3);
+            border-color: #002395;
+        }
+
+        .type-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .type-icon {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .type-title {
+            color: #002395;
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .type-question {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 1em;
+            font-weight: 600;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(237, 41, 57, 0.3);
+        }
+
+        .type-description {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .examples-container {
+            margin-top: 20px;
+        }
+
+        .example-item {
+            background: rgba(237, 41, 57, 0.05);
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 5px solid #ED2939;
+            transition: all 0.3s ease;
+        }
+
+        .example-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-sentence {
+            color: #222;
+            font-size: 1.1em;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .cc-highlight {
+            color: #ED2939;
+            background: rgba(237, 41, 57, 0.15);
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .example-note {
+            color: #666;
+            font-size: 0.95em;
+            margin-top: 5px;
+            padding-left: 15px;
+            border-left: 3px solid rgba(0, 35, 149, 0.3);
+        }
+
+        .constructions-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .constructions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .construction-item {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.03), rgba(237, 41, 57, 0.03));
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 2px solid rgba(0, 35, 149, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .construction-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 35, 149, 0.15);
+            border-color: #002395;
+        }
+
+        .construction-item h3 {
+            color: #002395;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .construction-type {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .construction-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .construction-examples {
+            margin-top: 15px;
+        }
+
+        .construction-example {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 4px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .construction-example:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .prepositions-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 1.8s ease;
+        }
+
+        .prepositions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .prep-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .prep-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .prep-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 35, 149, 0.2);
+        }
+
+        .prep-title {
+            color: #002395;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prep-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .prep-examples {
+            list-style: none;
+            padding: 0;
+        }
+
+        .prep-examples li {
+            background: rgba(237, 41, 57, 0.05);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-left: 3px solid #ED2939;
+        }
+
+        .prep-examples li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .distinction-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 2s ease;
+        }
+
+        .distinction-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .distinction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .distinction-card {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 30px;
+            border-radius: 20px;
+            border-top: 5px solid #ED2939;
+            transition: all 0.3s ease;
+        }
+
+        .distinction-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 35, 149, 0.15);
+        }
+
+        .distinction-title {
+            color: #ED2939;
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .distinction-content {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .special-section {
+            background: linear-gradient(135deg, #002395 0%, #0041c9 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 35, 149, 0.4);
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 2.2s ease;
+        }
+
+        .special-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .special-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .special-section p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .tip-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .table-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 2.4s ease;
+        }
+
+        .table-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+        }
+
+        th {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        th:first-child {
+            border-top-left-radius: 15px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 15px;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid rgba(0, 35, 149, 0.1);
+            font-size: 1.05em;
+            color: #333;
+        }
+
+        tr:hover {
+            background: rgba(0, 35, 149, 0.05);
+        }
+
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 15px;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 15px;
+        }
+
+        .type-highlight {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #002395, #ED2939);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 2.6s ease;
+        }
+
+        .footer-content {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo {
+            font-size: 2em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .types-grid, .distinction-grid, .prep-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 30px;
+            }
+
+            .intro-section, .special-section, .constructions-section {
+                padding: 25px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">⚜️ Língua Academy ⚜️</div>
+            <h1>Les Compléments Circonstanciels d'Accompagnement et de Privation</h1>
+            <div class="subtitle">👥 Avec qui ? Sans qui ? Sans quoi ? 🚫</div>
+        </header>
+
+        <div class="intro-section">
+            <h2>Qu'est-ce que ces Compléments Circonstanciels ?</h2>
+            <p>
+                Les <strong>compléments circonstanciels d'accompagnement et de privation</strong> sont des compléments de phrase 
+                qui indiquent respectivement <strong>la présence ou l'absence</strong> d'une personne, d'un être vivant, 
+                ou d'une chose pendant l'action.
+            </p>
+            
+            <div class="definition-box">
+                👥 🚫 <strong>Définitions :</strong><br><br>
+                • <strong>CC d'accompagnement :</strong> Indique avec qui ou avec quoi l'action se fait. Répond à la question : 
+                <strong>Avec qui ? Avec quoi ?</strong><br><br>
+                • <strong>CC de privation :</strong> Indique l'absence de quelqu'un ou de quelque chose. Répond à la question : 
+                <strong>Sans qui ? Sans quoi ?</strong>
+            </div>
+
+            <p>
+                Ces compléments sont <strong>supprimables</strong> et généralement <strong>déplaçables</strong> dans la phrase. 
+                Ils apportent une précision sur la présence ou l'absence d'accompagnement.
+            </p>
+        </div>
+
+        <div class="types-grid">
+            <div class="type-card">
+                <div class="type-icon">👥</div>
+                <div class="type-title">CC d'Accompagnement</div>
+                <div class="type-question">Avec qui ? Avec quoi ?</div>
+                <div class="type-description">
+                    Le CC d'accompagnement indique <strong>la personne, l'animal ou la chose qui accompagne</strong> 
+                    le sujet dans l'action. Il exprime la présence, la compagnie.
+                </div>
+                <div class="examples-container">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Elle voyage <span class="cc-highlight">avec ses amis</span>.
+                        </div>
+                        <div class="example-note">→ Avec qui voyage-t-elle ? Avec ses amis (personnes)</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Je sors <span class="cc-highlight">avec mon chien</span>.
+                        </div>
+                        <div class="example-note">→ Avec qui sors-je ? Avec mon chien (animal)</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Il travaille <span class="cc-highlight">en compagnie de Marie</span>.
+                        </div>
+                        <div class="example-note">→ En compagnie de qui ? De Marie</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Nous partons <span class="cc-highlight">avec nos bagages</span>.
+                        </div>
+                        <div class="example-note">→ Avec quoi partons-nous ? Avec nos bagages (choses)</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Elle est venue <span class="cc-highlight">accompagnée de son frère</span>.
+                        </div>
+                        <div class="example-note">→ Accompagnée de qui ? De son frère</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="type-card">
+                <div class="type-icon">🚫</div>
+                <div class="type-title">CC de Privation</div>
+                <div class="type-question">Sans qui ? Sans quoi ?</div>
+                <div class="type-description">
+                    Le CC de privation indique <strong>l'absence d'une personne, d'un animal ou d'une chose</strong>. 
+                    Il exprime le manque, la privation, l'absence d'accompagnement.
+                </div>
+                <div class="examples-container">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Il part <span class="cc-highlight">sans moi</span>.
+                        </div>
+                        <div class="example-note">→ Sans qui part-il ? Sans moi (personne absente)</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Elle travaille <span class="cc-highlight">sans aide</span>.
+                        </div>
+                        <div class="example-note">→ Sans quoi travaille-t-elle ? Sans aide</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Nous sortons <span class="cc-highlight">sans parapluie</span>.
+                        </div>
+                        <div class="example-note">→ Sans quoi sortons-nous ? Sans parapluie</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Il vit <span class="cc-highlight">sans famille</span>.
+                        </div>
+                        <div class="example-note">→ Sans qui vit-il ? Sans famille</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Je pars <span class="cc-highlight">seul</span>.
+                        </div>
+                        <div class="example-note">→ Sans personne (privation d'accompagnement)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="constructions-section">
+            <h2>🏗️ Constructions des CC d'Accompagnement et de Privation</h2>
+
+            <div class="construction-item">
+                <h3>
+                    <span>1️⃣</span> 
+                    Préposition AVEC + GN
+                    <span class="construction-type">CC d'Accompagnement</span>
+                </h3>
+                <div class="construction-description">
+                    La préposition <strong>AVEC</strong> suivie d'un groupe nominal est la construction 
+                    la plus courante pour le CC d'accompagnement.
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">AVEC + personne :</strong><br>
+                        Je voyage <span class="cc-highlight">avec Marie</span> • Il travaille <span class="cc-highlight">avec ses collègues</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">AVEC + animal :</strong><br>
+                        Elle promène <span class="cc-highlight">avec son chien</span> • Ils partent <span class="cc-highlight">avec leur chat</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">AVEC + chose :</strong><br>
+                        Nous partons <span class="cc-highlight">avec nos valises</span> • Il sort <span class="cc-highlight">avec son ordinateur</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>2️⃣</span> 
+                    Préposition SANS + GN
+                    <span class="construction-type">CC de Privation</span>
+                </h3>
+                <div class="construction-description">
+                    La préposition <strong>SANS</strong> suivie d'un groupe nominal exprime la privation, 
+                    l'absence d'accompagnement.
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">SANS + personne :</strong><br>
+                        Il part <span class="cc-highlight">sans nous</span> • Elle vit <span class="cc-highlight">sans famille</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">SANS + chose :</strong><br>
+                        Nous sortons <span class="cc-highlight">sans parapluie</span> • Tu travailles <span class="cc-highlight">sans aide</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">SANS + concept abstrait :</strong><br>
+                        Il agit <span class="cc-highlight">sans réfléchir</span> • Elle parle <span class="cc-highlight">sans hésiter</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>3️⃣</span> 
+                    Locutions Prépositives
+                    <span class="construction-type">Accompagnement</span>
+                </h3>
+                <div class="construction-description">
+                    D'autres locutions prépositives peuvent exprimer l'accompagnement : 
+                    <strong>en compagnie de, accompagné de, en présence de, aux côtés de, etc.</strong>
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        Elle voyage <span class="cc-highlight">en compagnie de sa sœur</span> • Il travaille <span class="cc-highlight">accompagné de son assistant</span>
+                    </div>
+                    <div class="construction-example">
+                        Nous sommes <span class="cc-highlight">en présence du directeur</span> • Il lutte <span class="cc-highlight">aux côtés de ses amis</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>4️⃣</span> 
+                    Adverbe ou Adjectif
+                    <span class="construction-type">Privation</span>
+                </h3>
+                <div class="construction-description">
+                    Certains adverbes ou adjectifs expriment l'absence d'accompagnement : 
+                    <strong>seul, solitairement, isolément, etc.</strong>
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        Je pars <span class="cc-highlight">seul</span> • Elle vit <span class="cc-highlight">seule</span> • Il travaille <span class="cc-highlight">solitairement</span>
+                    </div>
+                    <div class="construction-example">
+                        Nous restons <span class="cc-highlight">isolés</span> • Tu agis <span class="cc-highlight">individuellement</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>5️⃣</span> 
+                    Participe Passé
+                    <span class="construction-type">Accompagnement</span>
+                </h3>
+                <div class="construction-description">
+                    Le participe passé <strong>"accompagné(e)(s)"</strong> ou <strong>"suivi(e)(s)"</strong> 
+                    peut exprimer l'accompagnement.
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        Elle est venue <span class="cc-highlight">accompagnée de son mari</span> • Il arrive <span class="cc-highlight">suivi de son équipe</span>
+                    </div>
+                    <div class="construction-example">
+                        Nous sommes partis <span class="cc-highlight">escortés par des guides</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="prepositions-section">
+            <h2>🔑 Prépositions et Locutions Principales</h2>
+            
+            <div class="prep-grid">
+                <div class="prep-card">
+                    <div class="prep-title">
+                        👥 AVEC
+                    </div>
+                    <div class="prep-description">
+                        La préposition d'accompagnement par excellence. Indique la présence, la compagnie.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Je sors avec Marie</li>
+                        <li>Il voyage avec ses enfants</li>
+                        <li>Elle travaille avec son équipe</li>
+                        <li>Nous partons avec nos bagages</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        🚫 SANS
+                    </div>
+                    <div class="prep-description">
+                        La préposition de privation. Indique l'absence, le manque d'accompagnement.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il part sans moi</li>
+                        <li>Elle vit sans famille</li>
+                        <li>Tu travailles sans aide</li>
+                        <li>Nous sortons sans parapluie</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        🤝 EN COMPAGNIE DE
+                    </div>
+                    <div class="prep-description">
+                        Locution plus soutenue exprimant l'accompagnement, la présence avec quelqu'un.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il dîne en compagnie de ses amis</li>
+                        <li>Elle voyage en compagnie de sa mère</li>
+                        <li>Nous étudions en compagnie d'experts</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        👨‍👩‍👧 ACCOMPAGNÉ DE
+                    </div>
+                    <div class="prep-description">
+                        Participe passé utilisé comme locution pour marquer l'accompagnement.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Elle est venue accompagnée de son frère</li>
+                        <li>Il arrive accompagné de témoins</li>
+                        <li>Nous entrons accompagnés d'un guide</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        👀 EN PRÉSENCE DE
+                    </div>
+                    <div class="prep-description">
+                        Exprime l'accompagnement dans un contexte formel ou officiel.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il signe en présence du notaire</li>
+                        <li>Elle témoigne en présence d'un avocat</li>
+                        <li>Nous déclarons en présence de témoins</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        🤜🤛 AUX CÔTÉS DE
+                    </div>
+                    <div class="prep-description">
+                        Exprime l'accompagnement solidaire, le soutien actif.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il combat aux côtés de ses frères</li>
+                        <li>Elle travaille aux côtés des plus faibles</li>
+                        <li>Nous luttons aux côtés des victimes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="distinction-section">
+            <h2>⚖️ Distinctions Importantes</h2>
+            
+            <div class="distinction-grid">
+                <div class="distinction-card">
+                    <div class="distinction-title">
+                        👥 CC d'Accompagnement
+                    </div>
+                    <div class="distinction-content">
+                        <strong>AVEC + personne/animal</strong><br><br>
+                        Indique la présence réelle de quelqu'un ou quelque chose pendant l'action.<br><br>
+                        <em>Exemples :</em><br>
+                        • "Je voyage <strong>avec mes amis</strong>" ✅<br>
+                        → Mes amis sont physiquement présents<br><br>
+                        • "Elle sort <strong>avec son chien</strong>" ✅<br>
+                        → Le chien l'accompagne réellement
+                    </div>
+                </div>
+
+                <div class="distinction-card">
+                    <div class="distinction-title">
+                        🔧 CC de Moyen
+                    </div>
+                    <div class="distinction-content">
+                        <strong>AVEC + instrument/outil</strong><br><br>
+                        Indique l'outil, l'instrument utilisé pour faire l'action.<br><br>
+                        <em>Exemples :</em><br>
+                        • "J'écris <strong>avec un stylo</strong>" ✅<br>
+                        → Le stylo est l'instrument (moyen)<br><br>
+                        • "Il coupe <strong>avec un couteau</strong>" ✅<br>
+                        → Le couteau est l'outil (moyen)
+                    </div>
+                </div>
+
+                <div class="distinction-card">
+                    <div class="distinction-title">
+                        🎭 CC de Manière
+                    </div>
+                    <div class="distinction-content">
+                        <strong>AVEC + sentiment/qualité abstraite</strong><br><br>
+                        Indique la manière dont l'action est faite.<br><br>
+                        <em>Exemples :</em><br>
+                        • "Il parle <strong>avec respect</strong>" ✅<br>
+                        → Respect = manière de parler<br><br>
+                        • "Elle travaille <strong>avec soin</strong>" ✅<br>
+                        → Soin = manière de travailler
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 30px; background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05)); border-radius: 20px; border-left: 6px solid #002395;">
+                <h3 style="color: #002395; margin-bottom: 20px; font-size: 1.5em;">📌 Règle de Distinction Rapide</h3>
+                <p style="color: #555; line-height: 1.8; font-size: 1.1em; margin-bottom: 15px;">
+                    <strong style="color: #ED2939;">AVEC + être vivant</strong> → CC d'accompagnement<br>
+                    <em>"Je sors <strong>avec Marie</strong>"</em> (personne qui m'accompagne)
+                </p>
+                <p style="color: #555; line-height: 1.8; font-size: 1.1em; margin-bottom: 15px;">
+                    <strong style="color: #ED2939;">AVEC + objet concret</strong> → CC de moyen<br>
+                    <em>"J'écris <strong>avec un stylo</strong>"</em> (instrument utilisé)
+                </p>
+                <p style="color: #555; line-height: 1.8; font-size: 1.1em;">
+                    <strong style="color: #ED2939;">AVEC + abstrait</strong> → CC de manière<br>
+                    <em>"Il parle <strong>avec respect</strong>"</em> (façon de parler)
+                </p>
+            </div>
+        </div>
+
+        <div class="table-section">
+            <h2>📊 Tableau Récapitulatif</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type de CC</th>
+                        <th>Question</th>
+                        <th>Préposition Principale</th>
+                        <th>Exemple</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="type-highlight">👥 Accompagnement</span></td>
+                        <td>Avec qui ? Avec quoi ?</td>
+                        <td>AVEC, en compagnie de</td>
+                        <td>Je voyage <strong>avec Marie</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">🚫 Privation</span></td>
+                        <td>Sans qui ? Sans quoi ?</td>
+                        <td>SANS</td>
+                        <td>Il part <strong>sans moi</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">🔧 Moyen</span></td>
+                        <td>Avec quoi ? Au moyen de quoi ?</td>
+                        <td>AVEC, au moyen de</td>
+                        <td>J'écris <strong>avec un stylo</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">🎭 Manière</span></td>
+                        <td>Comment ?</td>
+                        <td>AVEC + abstrait</td>
+                        <td>Il parle <strong>avec respect</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="special-section">
+            <h2>💡 Conseils pour Identifier ces CC</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>❓ Posez les bonnes questions</h4>
+                    <p>
+                        Pour identifier le CC d'accompagnement : <strong>"Avec qui ?"</strong> ou <strong>"Avec quoi ?"</strong><br>
+                        Pour le CC de privation : <strong>"Sans qui ?"</strong> ou <strong>"Sans quoi ?"</strong>
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>👥 Identifiez le type de complément</h4>
+                    <p>
+                        <strong>Être vivant</strong> (personne/animal) après "avec" → C'est probablement un CC d'accompagnement. 
+                        "Je sors avec mon chien" ✅
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔍 Cherchez "AVEC" et "SANS"</h4>
+                    <p>
+                        La préposition <strong>"AVEC"</strong> introduit souvent l'accompagnement, 
+                        <strong>"SANS"</strong> introduit toujours la privation.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>✂️ Testez la suppression</h4>
+                    <p>
+                        Ces CC sont <strong>supprimables</strong> : "Je voyage avec Marie" → "Je voyage" ✅<br>
+                        La phrase reste correcte grammaticalement.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>⚠️ Ne confondez pas</h4>
+                    <p>
+                        <strong>AVEC + personne</strong> = accompagnement<br>
+                        <strong>AVEC + objet</strong> = moyen<br>
+                        <strong>AVEC + abstrait</strong> = manière
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🎯 Repérez les locutions</h4>
+                    <p>
+                        Expressions comme <strong>"en compagnie de", "accompagné de", "aux côtés de"</strong> 
+                        indiquent toujours l'accompagnement.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="intro-section">
+            <h2>🎯 Points Importants à Retenir</h2>
+            <p>
+                ✅ <strong>CC d'accompagnement = présence / CC de privation = absence :</strong>
+                <br>• Accompagnement répond à "Avec qui ? Avec quoi ?"
+                <br>• Privation répond à "Sans qui ? Sans quoi ?"
+            </p>
+            <p>
+                ✅ <strong>Prépositions principales :</strong>
+                <br>• Accompagnement : <strong>AVEC</strong>, en compagnie de, accompagné de, en présence de, aux côtés de
+                <br>• Privation : <strong>SANS</strong>, ou adverbes comme "seul", "solitairement"
+            </p>
+            <p>
+                ✅ <strong>Distinction cruciale avec "AVEC" :</strong>
+                <br>• <strong>AVEC + être vivant</strong> → Accompagnement : "Je voyage avec Marie"
+                <br>• <strong>AVEC + objet concret</strong> → Moyen : "J'écris avec un stylo"
+                <br>• <strong>AVEC + concept abstrait</strong> → Manière : "Il parle avec respect"
+            </p>
+            <p>
+                ✅ <strong>Ces CC sont supprimables et déplaçables :</strong>
+                <br>• "Je voyage avec mes amis" → "Je voyage" (suppression) ✅
+                <br>• "Avec mes amis, je voyage" (déplacement) ✅
+            </p>
+            <p>
+                ✅ <strong>Le CC de privation exprime l'absence totale :</strong>
+                <br>• "Il part sans moi" = Je ne l'accompagne pas
+                <br>• "Elle travaille sans aide" = Personne ne l'aide
+            </p>
+            <p>
+                ✅ <strong>Expressions particulières :</strong>
+                <br>• "Seul" = sans personne (privation d'accompagnement)
+                <br>• "En compagnie de" = style plus soutenu pour l'accompagnement
+                <br>• "Aux côtés de" = accompagnement solidaire, soutien actif
+            </p>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                Maîtrisez les compléments circonstanciels d'accompagnement et de privation 
+                pour exprimer la présence ou l'absence avec précision ! 🇫🇷 👥 🚫
+            </div>
+            <div class="footer-logo">⚜️ LÍNGUA ACADEMY ⚜️</div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Complément du Nom | Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: fadeIn 0.9s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #002395 0%, #FFFFFF 50%, #ED2939 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🇫🇷';
+            position: absolute;
+            font-size: 15em;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3.3em;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            color: #002395;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            color: #002395;
+            font-weight: 600;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 35px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border-left: 8px solid #e17055;
+            animation: slideInLeft 0.8s ease-out;
+            box-shadow: 0 8px 20px rgba(225, 112, 85, 0.3);
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            color: #2d3436;
+            margin-bottom: 12px;
+        }
+
+        .intro strong {
+            color: #d63031;
+        }
+
+        h2 {
+            color: #002395;
+            font-size: 2.3em;
+            margin: 45px 0 25px 0;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #ED2939;
+            display: inline-block;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            animation: expandWidth 1.5s ease-out forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        .section {
+            margin-bottom: 45px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 4px solid #0984e3;
+            box-shadow: 0 8px 20px rgba(9, 132, 227, 0.3);
+        }
+
+        .definition-box h3 {
+            color: #0c2461;
+            font-size: 1.8em;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .definition-box h3::before {
+            content: '📖';
+            margin-right: 12px;
+            font-size: 1.3em;
+        }
+
+        .definition-box p {
+            font-size: 1.15em;
+            color: #2d3436;
+            line-height: 1.8;
+        }
+
+        .rule-box {
+            background: linear-gradient(135deg, #55efc4 0%, #81ecec 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 6px solid #00b894;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.2);
+        }
+
+        .rule-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 184, 148, 0.4);
+        }
+
+        .rule-box h3 {
+            color: #00695c;
+            font-size: 1.7em;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .rule-box h3::before {
+            content: '✨';
+            margin-right: 12px;
+            font-size: 1.3em;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+            50% { opacity: 0.7; transform: scale(1.2) rotate(180deg); }
+        }
+
+        .structure-box {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+        }
+
+        .structure-arrow {
+            font-size: 1.8em;
+            margin: 0 15px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .example-container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 18px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .example {
+            padding: 18px;
+            margin: 12px 0;
+            border-radius: 10px;
+            font-size: 1.15em;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .example::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .example:hover::before {
+            left: 100%;
+        }
+
+        .example:hover {
+            transform: scale(1.03);
+        }
+
+        .example-correct {
+            background: linear-gradient(135deg, #d4f1f4 0%, #a8e6cf 100%);
+            border-left: 5px solid #00b894;
+        }
+
+        .example-type {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-left: 5px solid #e17055;
+        }
+
+        .example-special {
+            background: linear-gradient(135deg, #fab1a0 0%, #ff7675 100%);
+            border-left: 5px solid #d63031;
+        }
+
+        .highlight-nom {
+            background: linear-gradient(135deg, #ff7979 0%, #eb4d4b 100%);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 2px 5px rgba(235, 77, 75, 0.4);
+        }
+
+        .highlight-complement {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 2px 5px rgba(9, 132, 227, 0.4);
+        }
+
+        .highlight-preposition {
+            background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 2px 5px rgba(225, 112, 85, 0.4);
+        }
+
+        .numero {
+            display: inline-block;
+            background: linear-gradient(135deg, #ED2939 0%, #c41230 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 12px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(237, 41, 57, 0.5);
+            font-size: 1.1em;
+        }
+
+        .attention-box {
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe066 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 4px dashed #f39c12;
+            margin: 30px 0;
+            box-shadow: 0 6px 18px rgba(243, 156, 18, 0.3);
+        }
+
+        .attention-box h3 {
+            color: #d35400;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .attention-box h3::before {
+            content: '💡';
+            margin-right: 12px;
+            font-size: 1.4em;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 5px gold); }
+            50% { filter: brightness(1.3) drop-shadow(0 0 15px gold); }
+        }
+
+        .error-box {
+            background: linear-gradient(135deg, #ffcccc 0%, #ff9999 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 6px solid #c0392b;
+            margin: 30px 0;
+            box-shadow: 0 6px 18px rgba(192, 57, 43, 0.3);
+        }
+
+        .error-box h3 {
+            color: #c0392b;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .error-box h3::before {
+            content: '❌';
+            margin-right: 12px;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .type-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 3px solid #4caf50;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+        }
+
+        .type-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(76, 175, 80, 0.4);
+        }
+
+        .type-card h4 {
+            color: #2e7d32;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .liste-regles {
+            list-style: none;
+            padding: 0;
+        }
+
+        .liste-regles li {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            padding: 18px;
+            margin: 12px 0;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .liste-regles li:hover {
+            background: linear-gradient(135deg, #e8eaff 0%, #d8daff 100%);
+            transform: translateX(8px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 3px solid #1976d2;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(25, 118, 210, 0.4);
+        }
+
+        .comparison-card h4 {
+            color: #0d47a1;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            text-align: center;
+            padding: 35px;
+            font-size: 1.1em;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        .logo {
+            font-weight: bold;
+            color: #ffd700;
+            font-size: 1.3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            header {
+                padding: 40px 20px;
+            }
+
+            .comparison-table {
+                grid-template-columns: 1fr;
+            }
+
+            .types-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Le Complément du Nom</h1>
+            <p class="subtitle">Place du Complément de Détermination</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <p><strong>📌 Qu'est-ce qu'un complément du nom ?</strong></p>
+                <p>Le complément du nom (aussi appelé <strong>complément de détermination</strong>) est un mot ou un groupe de mots qui <strong>complète</strong> et <strong>précise</strong> le sens d'un nom.</p>
+                <p>Il permet de donner des informations supplémentaires sur le nom : sa matière, sa provenance, son contenu, son possesseur, etc.</p>
+            </div>
+
+            <div class="definition-box">
+                <h3>Définition</h3>
+                <p>Le complément du nom est introduit par une <strong>préposition</strong> (de, à, en, pour, avec, sans, etc.) et se place <strong>après le nom</strong> qu'il complète.</p>
+            </div>
+
+            <div class="structure-box">
+                <span class="highlight-nom">NOM</span>
+                <span class="structure-arrow">+</span>
+                <span class="highlight-preposition">PRÉPOSITION</span>
+                <span class="structure-arrow">+</span>
+                <span class="highlight-complement">COMPLÉMENT</span>
+            </div>
+
+            <div class="section">
+                <h2>Position du Complément du Nom</h2>
+
+                <div class="rule-box">
+                    <h3>Règle Générale : APRÈS le nom</h3>
+                    <p>En français, le complément du nom se place <strong>toujours après</strong> le nom qu'il complète.</p>
+                    
+                    <div class="example-container">
+                        <div class="example example-correct">
+                            <span class="highlight-nom">Une tasse</span> <span class="highlight-preposition">de</span> <span class="highlight-complement">café</span>
+                        </div>
+                        <div class="example example-correct">
+                            <span class="highlight-nom">La maison</span> <span class="highlight-preposition">de</span> <span class="highlight-complement">mon ami</span>
+                        </div>
+                        <div class="example example-correct">
+                            <span class="highlight-nom">Un livre</span> <span class="highlight-preposition">sur</span> <span class="highlight-complement">l'histoire</span>
+                        </div>
+                        <div class="example example-correct">
+                            <span class="highlight-nom">Une robe</span> <span class="highlight-preposition">en</span> <span class="highlight-complement">soie</span>
+                        </div>
+                        <div class="example example-correct">
+                            <span class="highlight-nom">Le train</span> <span class="highlight-preposition">pour</span> <span class="highlight-complement">Paris</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="error-box">
+                    <h3>Erreur Fréquente</h3>
+                    <div class="example-container">
+                        <div class="example example-special">
+                            ❌ <strong>INCORRECT :</strong> <span class="highlight-complement">De café</span> <span class="highlight-nom">une tasse</span>
+                        </div>
+                        <div class="example example-correct">
+                            ✅ <strong>CORRECT :</strong> <span class="highlight-nom">Une tasse</span> <span class="highlight-preposition">de</span> <span class="highlight-complement">café</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px;">⚠️ Contrairement à certaines langues, le complément ne précède JAMAIS le nom en français !</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Les Différents Types de Compléments du Nom</h2>
+
+                <div class="types-grid">
+                    <div class="type-card">
+                        <h4><span class="numero">1</span>Matière</h4>
+                        <p style="margin-bottom: 15px;"><strong>Préposition :</strong> en, de</p>
+                        <div class="example example-type">
+                            Une bague <strong>en or</strong>
+                        </div>
+                        <div class="example example-type">
+                            Un mur <strong>de pierre</strong>
+                        </div>
+                        <div class="example example-type">
+                            Une table <strong>en bois</strong>
+                        </div>
+                    </div>
+
+                    <div class="type-card">
+                        <h4><span class="numero">2</span>Contenu</h4>
+                        <p style="margin-bottom: 15px;"><strong>Préposition :</strong> de, à</p>
+                        <div class="example example-type">
+                            Un verre <strong>de vin</strong>
+                        </div>
+                        <div class="example example-type">
+                            Une tasse <strong>de thé</strong>
+                        </div>
+                        <div class="example example-type">
+                            Un sac <strong>de bonbons</strong>
+                        </div>
+                    </div>
+
+                    <div class="type-card">
+                        <h4><span class="numero">3</span>Possession</h4>
+                        <p style="margin-bottom: 15px;"><strong>Préposition :</strong> de</p>
+                        <div class="example example-type">
+                            Le livre <strong>de Marie</strong>
+                        </div>
+                        <div class="example example-type">
+                            La voiture <strong>de mon père</strong>
+                        </div>
+                        <div class="example example-type">
+                            Les jouets <strong>des enfants</strong>
+                        </div>
+                    </div>
+
+                    <div class="type-card">
+                        <h4><span class="numero">4</span>Provenance</h4>
+                        <p style="margin-bottom: 15px;"><strong>Préposition :</strong> de</p>
+                        <div class="example example-type">
+                            Les vins <strong>de France</strong>
+                        </div>
+                        <div class="example example-type">
+                            Un fromage <strong>de Normandie</strong>
+                        </div>
+                        <div class="example example-type">
+                            L'équipe <strong>de Marseille</strong>
+                        </div>
+                    </div>
+
+                    <div class="type-card">
+                        <h4><span class="numero">5</span>Destination</h4>
+                        <p style="margin-bottom: 15px;"><strong>Préposition :</strong> pour, à</p>
+                        <div class="example example-type">
+                            Un billet <strong>pour Lyon</strong>
+                        </div>
+                        <div class="example example-type">
+                            Une machine <strong>à laver</strong>
+                        </div>
+                        <div class="example example-type">
+                            Un cadeau <strong>pour maman</strong>
+                        </div>
+                    </div>
+
+                    <div class="type-card">
+                        <h4><span class="numero">6</span>Sujet/Thème</h4>
+                        <p style="margin-bottom: 15px;"><strong>Préposition :</strong> sur, de</p>
+                        <div class="example example-type">
+                            Un livre <strong>sur la géographie</strong>
+                        </div>
+                        <div class="example example-type">
+                            Une conférence <strong>sur l'art</strong>
+                        </div>
+                        <div class="example example-type">
+                            L'histoire <strong>de France</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Prépositions les Plus Courantes</h2>
+
+                <div class="rule-box">
+                    <h3>Les Prépositions du Complément du Nom</h3>
+                    
+                    <div class="example-container">
+                        <div class="example example-correct">
+                            <strong>DE :</strong> la plus fréquente → un moment <strong>de</strong> repos, le livre <strong>de</strong> Pierre
+                        </div>
+                        <div class="example example-correct">
+                            <strong>À :</strong> destination, caractéristique → une machine <strong>à</strong> laver, un moulin <strong>à</strong> vent
+                        </div>
+                        <div class="example example-correct">
+                            <strong>EN :</strong> matière → une statue <strong>en</strong> bronze, un pull <strong>en</strong> laine
+                        </div>
+                        <div class="example example-correct">
+                            <strong>POUR :</strong> destination → un train <strong>pour</strong> Rome, un cadeau <strong>pour</strong> toi
+                        </div>
+                        <div class="example example-correct">
+                            <strong>AVEC :</strong> accompagnement → un café <strong>avec</strong> du sucre, une chambre <strong>avec</strong> vue
+                        </div>
+                        <div class="example example-correct">
+                            <strong>SANS :</strong> absence → un café <strong>sans</strong> sucre, une vie <strong>sans</strong> soucis
+                        </div>
+                        <div class="example example-correct">
+                            <strong>CONTRE :</strong> opposition → la lutte <strong>contre</strong> le cancer
+                        </div>
+                        <div class="example example-correct">
+                            <strong>SUR :</strong> thème → un débat <strong>sur</strong> l'écologie
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Compléments du Nom Multiples</h2>
+
+                <div class="rule-box">
+                    <h3>Un nom peut avoir plusieurs compléments</h3>
+                    <p>Quand un nom a plusieurs compléments, ils se placent tous <strong>après le nom</strong>, l'un après l'autre :</p>
+                    
+                    <div class="example-container">
+                        <div class="example example-correct">
+                            <span class="highlight-nom">La maison</span> <span class="highlight-preposition">de</span> <span class="highlight-complement">mon oncle</span> <span class="highlight-preposition">à</span> <span class="highlight-complement">la campagne</span>
+                        </div>
+                        <div class="example example-correct">
+                            <span class="highlight-nom">Un livre</span> <span class="highlight-preposition">d'</span><span class="highlight-complement">histoire</span> <span class="highlight-preposition">pour</span> <span class="highlight-complement">enfants</span>
+                        </div>
+                        <div class="example example-correct">
+                            <span class="highlight-nom">Une tasse</span> <span class="highlight-preposition">de</span> <span class="highlight-complement">café</span> <span class="highlight-preposition">avec</span> <span class="highlight-complement">du lait</span>
+                        </div>
+                        <div class="example example-correct">
+                            <span class="highlight-nom">Le train</span> <span class="highlight-preposition">de</span> <span class="highlight-complement">Paris</span> <span class="highlight-preposition">pour</span> <span class="highlight-complement">Lyon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Différence avec l'Adjectif</h2>
+
+                <div class="comparison-table">
+                    <div class="comparison-card">
+                        <h4>📘 Adjectif</h4>
+                        <p style="margin-bottom: 15px;"><strong>Position variable</strong></p>
+                        <div class="example example-correct">
+                            Une <strong>belle</strong> maison<br>
+                            (avant le nom)
+                        </div>
+                        <div class="example example-correct">
+                            Une maison <strong>blanche</strong><br>
+                            (après le nom)
+                        </div>
+                        <p style="margin-top: 15px; color: #0d47a1;"><strong>Pas de préposition</strong></p>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h4>📗 Complément du Nom</h4>
+                        <p style="margin-bottom: 15px;"><strong>Toujours après</strong></p>
+                        <div class="example example-correct">
+                            Une maison <strong>de campagne</strong><br>
+                            (après le nom)
+                        </div>
+                        <div class="example example-correct">
+                            Une maison <strong>en pierre</strong><br>
+                            (après le nom)
+                        </div>
+                        <p style="margin-top: 15px; color: #0d47a1;"><strong>Toujours une préposition</strong></p>
+                    </div>
+                </div>
+
+                <div class="attention-box">
+                    <h3>Astuce pour Reconnaître</h3>
+                    <p>Si vous voyez une <strong>préposition</strong> (de, à, en, pour...) après le nom, c'est un <strong>complément du nom</strong> !</p>
+                    <div class="example example-type" style="margin-top: 15px;">
+                        • Une table <strong>rouge</strong> → adjectif (pas de préposition)<br>
+                        • Une table <strong>en bois</strong> → complément du nom (préposition "en")
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Règles Importantes</h2>
+                
+                <ul class="liste-regles">
+                    <li>✨ <strong>Position fixe :</strong> Le complément du nom se place TOUJOURS après le nom qu'il complète</li>
+                    <li>✨ <strong>Préposition obligatoire :</strong> Le complément est introduit par une préposition (de, à, en, pour, etc.)</li>
+                    <li>✨ <strong>Accord :</strong> Le complément du nom ne s'accorde PAS avec le nom (sauf s'il est un nom lui-même)</li>
+                    <li>✨ <strong>Multiples compléments :</strong> Un nom peut avoir plusieurs compléments successifs</li>
+                    <li>✨ <strong>Fonction :</strong> Le complément précise le sens du nom (matière, contenu, possession, etc.)</li>
+                    <li>✨ <strong>Invariable :</strong> La préposition reste invariable, elle ne change jamais</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Exemples dans des Phrases Complètes</h2>
+
+                <div class="example-container">
+                    <div class="example example-correct">
+                        J'ai acheté <span class="highlight-nom">une robe</span> <span class="highlight-preposition">en</span> <span class="highlight-complement">soie</span> dans <span class="highlight-nom">la boutique</span> <span class="highlight-preposition">du</span> <span class="highlight-complement">quartier</span>.
+                    </div>
+                    <div class="example example-correct">
+                        <span class="highlight-nom">Le professeur</span> <span class="highlight-preposition">de</span> <span class="highlight-complement">mathématiques</span> nous a donné <span class="highlight-nom">un devoir</span> <span class="highlight-preposition">pour</span> <span class="highlight-complement">demain</span>.
+                    </div>
+                    <div class="example example-correct">
+                        Elle boit toujours <span class="highlight-nom">un verre</span> <span class="highlight-preposition">d'</span><span class="highlight-complement">eau</span> <span class="highlight-preposition">avec</span> <span class="highlight-complement">du citron</span> le matin.
+                    </div>
+                    <div class="example example-correct">
+                        <span class="highlight-nom">Les clés</span> <span class="highlight-preposition">de</span> <span class="highlight-complement">la voiture</span> sont sur <span class="highlight-nom">la table</span> <span class="highlight-preposition">du</span> <span class="highlight-complement">salon</span>.
+                    </div>
+                    <div class="example example-correct">
+                        Nous avons visité <span class="highlight-nom">le musée</span> <span class="highlight-preposition">d'</span><span class="highlight-complement">art moderne</span> <span class="highlight-preposition">de</span> <span class="highlight-complement">Paris</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="attention-box">
+                <h3>Conseil Pratique</h3>
+                <p>Pour bien identifier un complément du nom, posez-vous la question :</p>
+                <div class="example example-type" style="margin-top: 15px;">
+                    <strong>« Quel type de [nom] ? »</strong><br><br>
+                    • Une tasse de café → Quel type de tasse ? Une tasse DE CAFÉ<br>
+                    • Une robe en soie → Quel type de robe ? Une robe EN SOIE<br>
+                    • Le livre de Marie → Quel livre ? Le livre DE MARIE
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p class="logo">🎓 Língua Academy</p>
+            <p>Maîtrisez la grammaire française avec excellence</p>
+            <p>© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

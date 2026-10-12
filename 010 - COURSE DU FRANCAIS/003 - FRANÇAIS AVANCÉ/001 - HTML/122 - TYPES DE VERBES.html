@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Différents Types de Verbes | Grammaire Française</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2C3E50;
+            --accent-gold: #D4AF37;
+            --accent-burgundy: #8B2E3E;
+            --soft-cream: #F9F6F1;
+            --light-gray: #E8E4DE;
+            --text-dark: #1a1a1a;
+            --shadow-color: rgba(44, 62, 80, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--soft-cream) 0%, #fff 100%);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Decorative background elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -30%;
+            left: -15%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 46, 62, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: float 25s infinite ease-in-out reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -20px) rotate(5deg); }
+            50% { transform: translate(-15px, 15px) rotate(-5deg); }
+            75% { transform: translate(15px, 10px) rotate(3deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--accent-burgundy);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            line-height: 1.1;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            animation: expandLine 1.5s ease-out 0.5s forwards;
+            transform-origin: center;
+            width: 0;
+        }
+
+        @keyframes expandLine {
+            to { width: 100px; }
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: var(--accent-burgundy);
+            font-style: italic;
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.8s forwards;
+        }
+
+        /* Introduction Card */
+        .intro-card {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px var(--shadow-color);
+            margin-bottom: 60px;
+            border-left: 5px solid var(--accent-gold);
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 1s ease-out 0.5s backwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-card::before {
+            content: '«';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 120px;
+            color: rgba(212, 175, 55, 0.1);
+            line-height: 1;
+        }
+
+        .intro-card p {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Verb Type Cards */
+        .verb-section {
+            margin-bottom: 50px;
+            animation: slideUp 1s ease-out backwards;
+        }
+
+        .verb-section:nth-child(1) { animation-delay: 0.6s; }
+        .verb-section:nth-child(2) { animation-delay: 0.7s; }
+        .verb-section:nth-child(3) { animation-delay: 0.8s; }
+        .verb-section:nth-child(4) { animation-delay: 0.9s; }
+        .verb-section:nth-child(5) { animation-delay: 1s; }
+        .verb-section:nth-child(6) { animation-delay: 1.1s; }
+        .verb-section:nth-child(7) { animation-delay: 1.2s; }
+
+        .verb-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border-top: 4px solid var(--accent-gold);
+        }
+
+        .verb-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .verb-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-burgundy));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .verb-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .verb-type-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .number-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--accent-gold), #C5A028);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .verb-description {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 25px;
+            padding-left: 60px;
+        }
+
+        .subcategories {
+            margin-top: 30px;
+            padding-left: 60px;
+        }
+
+        .subcategory {
+            background: var(--soft-cream);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--accent-burgundy);
+            transition: all 0.3s ease;
+        }
+
+        .subcategory:hover {
+            background: var(--light-gray);
+            transform: translateX(5px);
+        }
+
+        .subcategory h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--accent-burgundy);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .subcategory p {
+            font-size: 0.98rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        /* Examples */
+        .examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .example {
+            background: white;
+            padding: 18px 22px;
+            border-radius: 10px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            position: relative;
+            padding-left: 45px;
+            transition: all 0.3s ease;
+        }
+
+        .example:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transform: scale(1.02);
+        }
+
+        .example::before {
+            content: '→';
+            position: absolute;
+            left: 18px;
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .verb-highlight {
+            font-weight: 700;
+            color: var(--accent-burgundy);
+            font-style: italic;
+        }
+
+        /* Key Points */
+        .key-point {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+            padding: 20px 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid var(--accent-gold);
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .key-point strong {
+            color: var(--accent-burgundy);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px 20px;
+            border-top: 1px solid var(--light-gray);
+            animation: fadeIn 1s ease-out 1.5s backwards;
+        }
+
+        footer p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--accent-burgundy);
+            font-style: italic;
+        }
+
+        .academy-name {
+            font-weight: 700;
+            color: var(--accent-gold);
+            font-style: normal;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .verb-type-title {
+                font-size: 1.8rem;
+            }
+
+            .intro-card,
+            .verb-card {
+                padding: 30px 25px;
+            }
+
+            .verb-description,
+            .subcategories {
+                padding-left: 0;
+            }
+
+            .examples {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll reveal effect */
+        @media (prefers-reduced-motion: no-preference) {
+            .verb-section {
+                opacity: 0;
+                transform: translateY(30px);
+                animation: scrollReveal 0.8s ease-out forwards;
+            }
+
+            @keyframes scrollReveal {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Língua Academy</div>
+            <h1>Les Verbes</h1>
+            <p class="subtitle">Une exploration des différents types de verbes en français</p>
+        </header>
+
+        <div class="intro-card">
+            <p>Le verbe est le mot essentiel de la phrase française. Il exprime une action, un état ou un devenir. Selon leur fonction, leur construction et leur sens, les verbes se classent en plusieurs catégories distinctes. Comprendre ces différents types vous permettra de maîtriser parfaitement la structure de la langue française.</p>
+        </div>
+
+        <div class="verb-section">
+            <div class="verb-card">
+                <h2 class="verb-type-title">
+                    <span class="number-badge">1</span>
+                    Verbes d'Action et Verbes d'État
+                </h2>
+                <p class="verb-description">
+                    La distinction fondamentale entre les verbes qui expriment une action réalisée par le sujet et ceux qui décrivent son état ou sa manière d'être.
+                </p>
+
+                <div class="subcategories">
+                    <div class="subcategory">
+                        <h4>Verbes d'Action</h4>
+                        <p>Ces verbes expriment une action concrète ou abstraite réalisée par le sujet. L'action peut être physique, mentale ou verbale.</p>
+                        <div class="examples">
+                            <div class="example">Elle <span class="verb-highlight">court</span> dans le parc</div>
+                            <div class="example">Nous <span class="verb-highlight">réfléchissons</span> au problème</div>
+                            <div class="example">Il <span class="verb-highlight">parle</span> trois langues</div>
+                        </div>
+                    </div>
+
+                    <div class="subcategory">
+                        <h4>Verbes d'État</h4>
+                        <p>Ces verbes décrivent un état, une caractéristique ou une situation du sujet sans impliquer d'action. Les principaux sont : être, sembler, paraître, demeurer, rester, devenir.</p>
+                        <div class="examples">
+                            <div class="example">Marie <span class="verb-highlight">est</span> professeure</div>
+                            <div class="example">Il <span class="verb-highlight">paraît</span> fatigué</div>
+                            <div class="example">Nous <span class="verb-highlight">restons</span> optimistes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="verb-section">
+            <div class="verb-card">
+                <h2 class="verb-type-title">
+                    <span class="number-badge">2</span>
+                    Verbes Transitifs
+                </h2>
+                <p class="verb-description">
+                    Les verbes transitifs sont accompagnés d'un complément d'objet qui reçoit ou complète l'action exprimée par le verbe.
+                </p>
+
+                <div class="subcategories">
+                    <div class="subcategory">
+                        <h4>Verbes Transitifs Directs (VTD)</h4>
+                        <p>Le complément d'objet est directement relié au verbe, sans préposition.</p>
+                        <div class="examples">
+                            <div class="example">J'<span class="verb-highlight">aime</span> le chocolat</div>
+                            <div class="example">Elle <span class="verb-highlight">lit</span> un roman</div>
+                            <div class="example">Ils <span class="verb-highlight">construisent</span> une maison</div>
+                        </div>
+                        <div class="key-point">
+                            <strong>Astuce :</strong> On peut généralement remplacer le COD par "le, la, les" → J'aime le chocolat → Je l'aime.
+                        </div>
+                    </div>
+
+                    <div class="subcategory">
+                        <h4>Verbes Transitifs Indirects (VTI)</h4>
+                        <p>Le complément d'objet est relié au verbe par une préposition (à, de, en, sur, etc.).</p>
+                        <div class="examples">
+                            <div class="example">Il <span class="verb-highlight">parle</span> à son ami</div>
+                            <div class="example">Je <span class="verb-highlight">pense</span> à toi</div>
+                            <div class="example">Nous <span class="verb-highlight">discutons</span> de ce projet</div>
+                        </div>
+                        <div class="key-point">
+                            <strong>Astuce :</strong> On remplace généralement le COI par "lui, leur, en, y" → Je pense à toi → Je pense à toi / J'y pense.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="verb-section">
+            <div class="verb-card">
+                <h2 class="verb-type-title">
+                    <span class="number-badge">3</span>
+                    Verbes Intransitifs
+                </h2>
+                <p class="verb-description">
+                    Les verbes intransitifs expriment une action complète en elle-même et n'admettent pas de complément d'objet. Ils peuvent être accompagnés de compléments circonstanciels.
+                </p>
+
+                <div class="examples">
+                    <div class="example">Le soleil <span class="verb-highlight">brille</span></div>
+                    <div class="example">Les oiseaux <span class="verb-highlight">chantent</span> le matin</div>
+                    <div class="example">Il <span class="verb-highlight">dort</span> profondément</div>
+                    <div class="example">Nous <span class="verb-highlight">marchons</span> dans la forêt</div>
+                </div>
+
+                <div class="key-point">
+                    <strong>Note importante :</strong> Certains verbes peuvent être transitifs ou intransitifs selon le contexte. Ex : "Je monte" (intransitif) / "Je monte l'escalier" (transitif).
+                </div>
+            </div>
+        </div>
+
+        <div class="verb-section">
+            <div class="verb-card">
+                <h2 class="verb-type-title">
+                    <span class="number-badge">4</span>
+                    Verbes Pronominaux
+                </h2>
+                <p class="verb-description">
+                    Les verbes pronominaux sont toujours accompagnés d'un pronom réfléchi (me, te, se, nous, vous, se) qui renvoie au sujet. Ils se conjuguent avec l'auxiliaire "être" aux temps composés.
+                </p>
+
+                <div class="subcategories">
+                    <div class="subcategory">
+                        <h4>Verbes Essentiellement Pronominaux</h4>
+                        <p>Ces verbes n'existent qu'à la forme pronominale. On ne peut pas les conjuguer sans le pronom réfléchi.</p>
+                        <div class="examples">
+                            <div class="example">Elle <span class="verb-highlight">s'évanouit</span> de peur</div>
+                            <div class="example">Nous <span class="verb-highlight">nous souvenons</span> de ce jour</div>
+                            <div class="example">Ils <span class="verb-highlight">s'absentent</span> souvent</div>
+                        </div>
+                    </div>
+
+                    <div class="subcategory">
+                        <h4>Verbes Pronominaux Réfléchis</h4>
+                        <p>L'action effectuée par le sujet se retourne sur lui-même. Le sujet est à la fois l'agent et le patient de l'action.</p>
+                        <div class="examples">
+                            <div class="example">Je <span class="verb-highlight">me lave</span> les mains</div>
+                            <div class="example">Tu <span class="verb-highlight">te regardes</span> dans le miroir</div>
+                            <div class="example">Il <span class="verb-highlight">se coiffe</span> devant la glace</div>
+                        </div>
+                    </div>
+
+                    <div class="subcategory">
+                        <h4>Verbes Pronominaux Réciproques</h4>
+                        <p>L'action s'exerce mutuellement entre deux ou plusieurs sujets. Chaque sujet agit sur l'autre.</p>
+                        <div class="examples">
+                            <div class="example">Ils <span class="verb-highlight">s'aiment</span> profondément</div>
+                            <div class="example">Nous <span class="verb-highlight">nous téléphonons</span> chaque jour</div>
+                            <div class="example">Vous <span class="verb-highlight">vous disputez</span> souvent</div>
+                        </div>
+                    </div>
+
+                    <div class="subcategory">
+                        <h4>Verbes Pronominaux à Sens Passif</h4>
+                        <p>Le sujet subit l'action sans l'accomplir lui-même. Le verbe a un sens passif.</p>
+                        <div class="examples">
+                            <div class="example">Ce vin <span class="verb-highlight">se boit</span> frais</div>
+                            <div class="example">Ce livre <span class="verb-highlight">se lit</span> facilement</div>
+                            <div class="example">Cette langue <span class="verb-highlight">s'apprend</span> vite</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="verb-section">
+            <div class="verb-card">
+                <h2 class="verb-type-title">
+                    <span class="number-badge">5</span>
+                    Verbes Auxiliaires
+                </h2>
+                <p class="verb-description">
+                    Les verbes auxiliaires servent à former les temps composés et les formes passives des autres verbes. Les deux principaux auxiliaires sont "être" et "avoir".
+                </p>
+
+                <div class="subcategories">
+                    <div class="subcategory">
+                        <h4>Auxiliaire AVOIR</h4>
+                        <p>Utilisé pour former les temps composés de la majorité des verbes.</p>
+                        <div class="examples">
+                            <div class="example">J'<span class="verb-highlight">ai mangé</span> une pomme</div>
+                            <div class="example">Tu <span class="verb-highlight">as fini</span> ton travail</div>
+                            <div class="example">Ils <span class="verb-highlight">avaient compris</span> la leçon</div>
+                        </div>
+                    </div>
+
+                    <div class="subcategory">
+                        <h4>Auxiliaire ÊTRE</h4>
+                        <p>Utilisé pour les verbes pronominaux, certains verbes de déplacement (aller, venir, partir, arriver, etc.) et la forme passive.</p>
+                        <div class="examples">
+                            <div class="example">Elle <span class="verb-highlight">est partie</span> hier</div>
+                            <div class="example">Nous <span class="verb-highlight">sommes arrivés</span> tôt</div>
+                            <div class="example">Le gâteau <span class="verb-highlight">est préparé</span> par le chef</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-point">
+                    <strong>Les 14 verbes conjugués avec ÊTRE :</strong> aller, venir, arriver, partir, entrer, sortir, monter, descendre, naître, mourir, rester, tomber, retourner, passer (+ leurs dérivés : devenir, revenir, rentrer, etc.)
+                </div>
+            </div>
+        </div>
+
+        <div class="verb-section">
+            <div class="verb-card">
+                <h2 class="verb-type-title">
+                    <span class="number-badge">6</span>
+                    Verbes Impersonnels
+                </h2>
+                <p class="verb-description">
+                    Les verbes impersonnels ne se conjuguent qu'à la troisième personne du singulier avec le pronom "il" (qui ne représente rien de précis). Ils expriment souvent des phénomènes météorologiques ou des nécessités.
+                </p>
+
+                <div class="examples">
+                    <div class="example"><span class="verb-highlight">Il pleut</span> depuis ce matin</div>
+                    <div class="example"><span class="verb-highlight">Il neige</span> en montagne</div>
+                    <div class="example"><span class="verb-highlight">Il faut</span> partir maintenant</div>
+                    <div class="example"><span class="verb-highlight">Il arrive</span> que je me trompe</div>
+                    <div class="example"><span class="verb-highlight">Il s'agit</span> d'un problème important</div>
+                    <div class="example"><span class="verb-highlight">Il convient</span> de réfléchir</div>
+                </div>
+
+                <div class="key-point">
+                    <strong>Remarque :</strong> Certains verbes peuvent avoir un emploi impersonnel : "Il arrive un malheur" / "Il se passe quelque chose" / "Il existe une solution".
+                </div>
+            </div>
+        </div>
+
+        <div class="verb-section">
+            <div class="verb-card">
+                <h2 class="verb-type-title">
+                    <span class="number-badge">7</span>
+                    Verbes Défectifs
+                </h2>
+                <p class="verb-description">
+                    Les verbes défectifs sont des verbes qui ne possèdent pas tous les modes, tous les temps ou toutes les personnes de conjugaison. Leur conjugaison est incomplète.
+                </p>
+
+                <div class="subcategories">
+                    <div class="subcategory">
+                        <h4>Exemples de verbes défectifs</h4>
+                        <p><strong>Falloir :</strong> uniquement à la 3ᵉ personne du singulier (il faut, il fallait, il a fallu)</p>
+                        <p><strong>Pleuvoir :</strong> principalement impersonnel (il pleut, il pleuvait)</p>
+                        <p><strong>Gésir :</strong> "ci-gît" sur les tombes, pas de passé simple ni de futur</p>
+                        <p><strong>Clore :</strong> conjugaison limitée (je clos, tu clos, il clôt)</p>
+                        <div class="examples">
+                            <div class="example"><span class="verb-highlight">Il faut</span> du courage</div>
+                            <div class="example">Ci-<span class="verb-highlight">gît</span> un poète</div>
+                            <div class="example">Je <span class="verb-highlight">clos</span> le débat</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-point">
+                    <strong>À noter :</strong> D'autres verbes défectifs incluent choir, échoir, seoir, messeoir, braire, frire (rarement utilisés dans certaines formes).
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Créé avec passion par <span class="academy-name">Língua Academy</span></p>
+            <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">L'excellence dans l'apprentissage du français</p>
+        </footer>
+    </div>
+</body>
+</html>

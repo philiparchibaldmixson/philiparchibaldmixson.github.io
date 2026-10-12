@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Pluriel des Noms Composés - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e94057 0%, #8a2387 50%, #0055A4 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: fadeInScale 1s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0055A4 0%, #FFFFFF 50%, #EF4135 100%);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 20px,
+                rgba(255, 255, 255, 0.1) 20px,
+                rgba(255, 255, 255, 0.1) 40px
+            );
+            animation: slideBackground 15s linear infinite;
+        }
+
+        @keyframes slideBackground {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(40px); }
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            color: #0055A4;
+            animation: titleBounce 1s ease-out;
+        }
+
+        @keyframes titleBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            color: #2d3436;
+        }
+
+        .content {
+            padding: 45px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 35px;
+            font-size: 1.15em;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(to bottom right, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 20px;
+            border-left: 6px solid #EF4135;
+            transition: all 0.4s ease;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section:hover {
+            transform: translateX(8px) scale(1.01);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            color: #0055A4;
+            font-size: 2em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #EF4135 0%, #0055A4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.4em;
+            animation: rotate 3s infinite;
+            box-shadow: 0 4px 15px rgba(239, 65, 53, 0.3);
+        }
+
+        @keyframes rotate {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        .rule-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #0055A4;
+            box-shadow: 0 5px 15px rgba(0, 85, 164, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: scale(1.02);
+        }
+
+        .rule-title {
+            color: #EF4135;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .rule-title::before {
+            content: '✓';
+            background: #EF4135;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1em;
+            animation: checkPulse 2s infinite;
+        }
+
+        @keyframes checkPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 65, 53, 0.4); }
+            50% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(239, 65, 53, 0); }
+        }
+
+        .examples {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .example-item {
+            padding: 12px 15px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .example-item:hover {
+            transform: translateX(15px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left-color: #0055A4;
+        }
+
+        .arrow {
+            color: #0055A4;
+            font-weight: bold;
+            font-size: 1.5em;
+            animation: arrowBounce 1.5s infinite;
+        }
+
+        @keyframes arrowBounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+
+        .french-term {
+            color: #EF4135;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .explanation {
+            color: #636e72;
+            font-style: italic;
+            flex: 1;
+        }
+
+        .composition-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .composition-card {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(9, 132, 227, 0.3);
+        }
+
+        .composition-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(9, 132, 227, 0.5);
+        }
+
+        .composition-card strong {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(0, 85, 164, 0.4);
+        }
+
+        .highlight-title {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .highlight-title::before {
+            content: '⚠';
+            font-size: 1.8em;
+            animation: warning 1.5s infinite;
+        }
+
+        @keyframes warning {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .variable-table {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr 2fr;
+            gap: 15px;
+            padding: 15px;
+            border-bottom: 1px solid #e1e8ed;
+            transition: background 0.3s ease;
+        }
+
+        .table-row:hover {
+            background: linear-gradient(to right, #f8f9fa 0%, #e8f4f8 100%);
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, #EF4135 0%, #c0392b 100%);
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .table-header:hover {
+            background: linear-gradient(135deg, #EF4135 0%, #c0392b 100%);
+        }
+
+        .note {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff3cc 100%);
+            border-left: 5px solid #ffa500;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .note-title {
+            font-weight: bold;
+            color: #ff8c00;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2em;
+        }
+
+        .note-title::before {
+            content: '💡';
+            font-size: 1.5em;
+        }
+
+        .exception-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .exception-card {
+            background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #0055A4;
+            transition: all 0.3s ease;
+        }
+
+        .exception-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 85, 164, 0.2);
+            border-color: #EF4135;
+        }
+
+        .exception-card h3 {
+            color: #EF4135;
+            margin-bottom: 12px;
+            font-size: 1.3em;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1em;
+        }
+
+        .footer-logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #EF4135 0%, #0055A4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            .table-row {
+                grid-template-columns: 1fr;
+            }
+
+            .composition-box,
+            .exception-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇫🇷 Le Pluriel des Noms Composés</h1>
+            <p class="subtitle">Grammaire Française - Guide Complet</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <strong>📚 Définition :</strong> Un nom composé est formé de deux ou plusieurs mots qui forment une seule unité de sens. Le pluriel des noms composés dépend de la nature grammaticale des éléments qui les composent : nom, adjectif, verbe, préposition, adverbe, etc.
+            </div>
+
+            <!-- Section 1 -->
+            <div class="section">
+                <h2><span class="icon">1</span>Composition des noms composés</h2>
+                
+                <div class="composition-box">
+                    <div class="composition-card">
+                        <strong>Nom + Nom</strong>
+                        <p>un chou-fleur</p>
+                    </div>
+                    <div class="composition-card">
+                        <strong>Nom + Adjectif</strong>
+                        <p>un coffre-fort</p>
+                    </div>
+                    <div class="composition-card">
+                        <strong>Adjectif + Nom</strong>
+                        <p>un grand-père</p>
+                    </div>
+                    <div class="composition-card">
+                        <strong>Verbe + Nom</strong>
+                        <p>un tire-bouchon</p>
+                    </div>
+                    <div class="composition-card">
+                        <strong>Verbe + Verbe</strong>
+                        <p>un savoir-faire</p>
+                    </div>
+                    <div class="composition-card">
+                        <strong>Mot invariable + Nom</strong>
+                        <p>un avant-bras</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="section">
+                <h2><span class="icon">2</span>Nom + Nom</h2>
+                
+                <div class="rule-box">
+                    <div class="rule-title">Règle générale</div>
+                    <p>Quand deux noms sont juxtaposés ou reliés par un trait d'union, <strong>les deux prennent la marque du pluriel</strong>.</p>
+                    
+                    <div class="examples">
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un chou-fleur</span>
+                            <span>➜</span>
+                            <span class="french-term">des choux-fleurs</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un wagon-lit</span>
+                            <span>➜</span>
+                            <span class="french-term">des wagons-lits</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un oiseau-mouche</span>
+                            <span>➜</span>
+                            <span class="french-term">des oiseaux-mouches</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un chef-lieu</span>
+                            <span>➜</span>
+                            <span class="french-term">des chefs-lieux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="note">
+                    <div class="note-title">Exception importante</div>
+                    <p>Si le deuxième nom a une valeur de complément ou est un nom propre, il reste invariable :</p>
+                    <div class="examples">
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un timbre-poste</span>
+                            <span>➜</span>
+                            <span class="french-term">des timbres-poste</span>
+                            <span class="explanation">(pour la poste)</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un arc-en-ciel</span>
+                            <span>➜</span>
+                            <span class="french-term">des arcs-en-ciel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="section">
+                <h2><span class="icon">3</span>Nom + Adjectif / Adjectif + Nom</h2>
+                
+                <div class="rule-box">
+                    <div class="rule-title">Règle</div>
+                    <p><strong>Les deux éléments prennent la marque du pluriel</strong> car ils s'accordent ensemble.</p>
+                    
+                    <div class="examples">
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un coffre-fort</span>
+                            <span>➜</span>
+                            <span class="french-term">des coffres-forts</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">une basse-cour</span>
+                            <span>➜</span>
+                            <span class="french-term">des basses-cours</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un grand-parent</span>
+                            <span>➜</span>
+                            <span class="french-term">des grands-parents</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un rouge-gorge</span>
+                            <span>➜</span>
+                            <span class="french-term">des rouges-gorges</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">une belle-mère</span>
+                            <span>➜</span>
+                            <span class="french-term">des belles-mères</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <div class="highlight-title">Attention aux cas particuliers !</div>
+                    <p><strong>Demi-, semi-, mi-</strong> restent toujours invariables :</p>
+                    <div class="examples">
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">une demi-heure</span>
+                            <span>➜</span>
+                            <span class="french-term">des demi-heures</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un semi-remorque</span>
+                            <span>➜</span>
+                            <span class="french-term">des semi-remorques</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="section">
+                <h2><span class="icon">4</span>Verbe + Nom</h2>
+                
+                <div class="rule-box">
+                    <div class="rule-title">Règle principale</div>
+                    <p>Le <strong>verbe reste toujours invariable</strong>. Le nom varie selon le sens logique.</p>
+                </div>
+
+                <div class="variable-table">
+                    <div class="table-row table-header">
+                        <div>Cas</div>
+                        <div>Singulier</div>
+                        <div>Pluriel</div>
+                    </div>
+                    <div class="table-row">
+                        <div><strong>Nom au pluriel</strong></div>
+                        <div>un tire-bouchon</div>
+                        <div>des tire-bouchons</div>
+                    </div>
+                    <div class="table-row">
+                        <div><strong>Nom au pluriel</strong></div>
+                        <div>un porte-manteau</div>
+                        <div>des porte-manteaux</div>
+                    </div>
+                    <div class="table-row">
+                        <div><strong>Nom au pluriel</strong></div>
+                        <div>un gratte-ciel</div>
+                        <div>des gratte-ciel (le ciel)</div>
+                    </div>
+                    <div class="table-row">
+                        <div><strong>Nom invariable</strong></div>
+                        <div>un abat-jour</div>
+                        <div>des abat-jour (le jour)</div>
+                    </div>
+                    <div class="table-row">
+                        <div><strong>Nom au singulier</strong></div>
+                        <div>un garde-fou</div>
+                        <div>des garde-fous</div>
+                    </div>
+                    <div class="table-row">
+                        <div><strong>Nom au pluriel</strong></div>
+                        <div>un couvre-lit</div>
+                        <div>des couvre-lits</div>
+                    </div>
+                </div>
+
+                <div class="note">
+                    <div class="note-title">Astuce importante</div>
+                    <p>Pour savoir si le nom prend un -s, posez-vous la question : "Est-ce qu'on tire plusieurs bouchons ?" Si oui, le nom prend la marque du pluriel !</p>
+                </div>
+
+                <div class="examples">
+                    <div class="example-item">
+                        <span class="arrow">→</span>
+                        <span class="french-term">un ouvre-boîte</span>
+                        <span>➜</span>
+                        <span class="french-term">des ouvre-boîtes</span>
+                        <span class="explanation">(on ouvre des boîtes)</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="arrow">→</span>
+                        <span class="french-term">un cache-nez</span>
+                        <span>➜</span>
+                        <span class="french-term">des cache-nez</span>
+                        <span class="explanation">(un seul nez)</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="arrow">→</span>
+                        <span class="french-term">un porte-clés</span>
+                        <span>➜</span>
+                        <span class="french-term">des porte-clés</span>
+                        <span class="explanation">(on porte des clés)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="section">
+                <h2><span class="icon">5</span>Verbe + Verbe</h2>
+                
+                <div class="rule-box">
+                    <div class="rule-title">Règle</div>
+                    <p><strong>Les deux verbes restent invariables</strong>.</p>
+                    
+                    <div class="examples">
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un savoir-faire</span>
+                            <span>➜</span>
+                            <span class="french-term">des savoir-faire</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un laissez-passer</span>
+                            <span>➜</span>
+                            <span class="french-term">des laissez-passer</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un savoir-vivre</span>
+                            <span>➜</span>
+                            <span class="french-term">des savoir-vivre</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6 -->
+            <div class="section">
+                <h2><span class="icon">6</span>Mot invariable + Nom</h2>
+                
+                <div class="rule-box">
+                    <div class="rule-title">Règle</div>
+                    <p>Le <strong>mot invariable (préposition, adverbe) reste invariable</strong>, seul le <strong>nom varie</strong>.</p>
+                    
+                    <div class="examples">
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un avant-bras</span>
+                            <span>➜</span>
+                            <span class="french-term">des avant-bras</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un après-midi</span>
+                            <span>➜</span>
+                            <span class="french-term">des après-midi</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un arrière-plan</span>
+                            <span>➜</span>
+                            <span class="french-term">des arrière-plans</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un sans-abri</span>
+                            <span>➜</span>
+                            <span class="french-term">des sans-abri</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">→</span>
+                            <span class="french-term">un hors-bord</span>
+                            <span>➜</span>
+                            <span class="french-term">des hors-bord</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 7 -->
+            <div class="section">
+                <h2><span class="icon">7</span>Cas particuliers et exceptions</h2>
+                
+                <div class="exception-grid">
+                    <div class="exception-card">
+                        <h3>🔴 Composés avec "garde"</h3>
+                        <p><strong>Si "garde" est un nom</strong> (= personne) :</p>
+                        <p>• un garde-malade → des <strong>gardes-malades</strong></p>
+                        <p><strong>Si "garde" est un verbe</strong> :</p>
+                        <p>• un garde-manger → des <strong>garde-manger</strong></p>
+                    </div>
+                    
+                    <div class="exception-card">
+                        <h3>🔵 Mots invariables</h3>
+                        <p>Certains noms composés sont <strong>toujours invariables</strong> :</p>
+                        <p>• un passe-partout → des <strong>passe-partout</strong></p>
+                        <p>• un porte-bonheur → des <strong>porte-bonheur</strong></p>
+                        <p>• un tête-à-tête → des <strong>tête-à-tête</strong></p>
+                    </div>
+                    
+                    <div class="exception-card">
+                        <h3>⚪ Noms soudés</h3>
+                        <p>Certains noms composés sont <strong>soudés en un seul mot</strong> :</p>
+                        <p>• un portefeuille → des <strong>portefeuilles</strong></p>
+                        <p>• un portemanteau → des <strong>portemanteaux</strong></p>
+                        <p>• un gentilhomme → des <strong>gentilshommes</strong></p>
+                    </div>
+                    
+                    <div class="exception-card">
+                        <h3>🟡 Grand-mère / Grand-père</h3>
+                        <p><strong>Orthographe traditionnelle</strong> :</p>
+                        <p>• des <strong>grands-mères</strong></p>
+                        <p>• des <strong>grands-pères</strong></p>
+                        <p><strong>Réforme 1990</strong> (acceptée) :</p>
+                        <p>• des <strong>grand-mères</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 8 -->
+            <div class="section">
+                <h2><span class="icon">8</span>Tableau récapitulatif</h2>
+                
+                <div class="variable-table">
+                    <div class="table-row table-header">
+                        <div>Type</div>
+                        <div>Règle</div>
+                        <div>Exemple</div>
+                    </div>
+                    <div class="table-row">
+                        <div><strong>Nom + Nom</strong></div>
+                        <div>Les 2 varient</div>
+                        <div>choux-fleurs</div>
+                    </div>
+                    <div class="table-row">
+                        <div><strong>Nom + Adj</strong></div>
+                        <div>Les 2 varient</div>
+                        <div>coffres-forts</div>
+                    </div>
+                    <div class="table-row">
+                        <div><strong>Adj + Nom</strong></div>
+                        <div>Les 2 varient</div>
+                        <div>grands-parents</div>
+                    </div>
+                    <div class="table-row">
+                        <div><strong>Verbe + Nom</strong></div>
+                        <div>Verbe invariable</div>
+                        <div>tire-bouchons</div>
+                    </div>
+                    <div class="table-row">
+                        <div><strong>Verbe + Verbe</strong></div>
+                        <div>Les 2 invariables</div>
+                        <div>savoir-faire</div>
+                    </div>
+                    <div class="table-row">
+                        <div><strong>Invariable + Nom</strong></div>
+                        <div>Seul le nom varie</div>
+                        <div>avant-bras</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 9 -->
+            <div class="section">
+                <h2><span class="icon">9</span>Exercices pratiques</h2>
+                
+                <div class="rule-box">
+                    <div class="rule-title">Mettez au pluriel</div>
+                    
+                    <div class="examples">
+                        <div class="example-item">
+                            <span class="arrow">1.</span>
+                            <span>un arc-en-ciel</span>
+                            <span>➜</span>
+                            <span class="french-term">des arcs-en-ciel</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">2.</span>
+                            <span>un porte-avions</span>
+                            <span>➜</span>
+                            <span class="french-term">des porte-avions</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">3.</span>
+                            <span>un château-fort</span>
+                            <span>➜</span>
+                            <span class="french-term">des châteaux-forts</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">4.</span>
+                            <span>un perce-neige</span>
+                            <span>➜</span>
+                            <span class="french-term">des perce-neige</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">5.</span>
+                            <span>une belle-sœur</span>
+                            <span>➜</span>
+                            <span class="french-term">des belles-sœurs</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arrow">6.</span>
+                            <span>un après-rasage</span>
+                            <span>➜</span>
+                            <span class="french-term">des après-rasages</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="footer-logo">Língua Academy</div>
+            <p>Maîtrisez la grammaire française avec élégance et précision ✨</p>
+            <p>© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

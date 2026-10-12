@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place de l'Adjectif Qualificatif Épithète</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: slideIn 0.7s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "📍";
+            position: absolute;
+            font-size: 250px;
+            opacity: 0.1;
+            top: -50px;
+            right: -20px;
+            transform: rotate(-15deg);
+        }
+
+        h1 {
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            border-left: 6px solid #f5576c;
+            box-shadow: 0 8px 25px rgba(245, 87, 108, 0.3);
+        }
+
+        .intro h2 {
+            color: #c94b1f;
+            margin-bottom: 20px;
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .intro p {
+            line-height: 2;
+            color: #2d3748;
+            font-size: 1.15em;
+        }
+
+        .position-section {
+            margin-bottom: 60px;
+            animation: fadeInUp 0.7s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .position-section:nth-child(2) { animation-delay: 0.1s; }
+        .position-section:nth-child(3) { animation-delay: 0.2s; }
+        .position-section:nth-child(4) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .position-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+        }
+
+        .position-icon {
+            background: white;
+            color: #f5576c;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .position-title {
+            font-size: 1.9em;
+            font-weight: bold;
+        }
+
+        .position-content {
+            background: #f8faff;
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px solid #e0e7ff;
+        }
+
+        .rule-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .rule-box h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .rule-box p {
+            line-height: 1.9;
+            color: #2d3748;
+            font-size: 1.08em;
+        }
+
+        .examples-container {
+            margin-top: 25px;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .example-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #f5576c;
+        }
+
+        .example-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(245, 87, 108, 0.3);
+        }
+
+        .example-text {
+            font-size: 1.2em;
+            color: #2d3748;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .adjective {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .noun {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .explanation {
+            font-size: 0.95em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .category-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #fcb69f;
+        }
+
+        .category-box h4 {
+            color: #c94b1f;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .category-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .category-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 500;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .meaning-change {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 35px;
+            border-radius: 15px;
+            margin: 35px 0;
+            border: 3px solid #fdcb6e;
+            box-shadow: 0 8px 25px rgba(253, 203, 110, 0.4);
+        }
+
+        .meaning-change h3 {
+            color: #d63031;
+            margin-bottom: 25px;
+            font-size: 1.7em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.2em;
+        }
+
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid #e0e7ff;
+            font-size: 1.05em;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8faff;
+        }
+
+        .before-position {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .after-position {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 35px 0;
+            border-left: 6px solid #4facfe;
+            box-shadow: 0 5px 20px rgba(168, 237, 234, 0.4);
+        }
+
+        .tip-box h3 {
+            color: #4facfe;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5em;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-top: 15px;
+        }
+
+        li {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #2d3748;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 18px;
+            margin-top: 60px;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        .summary-box h2 {
+            margin-bottom: 30px;
+            font-size: 2.3em;
+            text-align: center;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .summary-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .summary-card h4 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            padding-bottom: 10px;
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 35px;
+            font-size: 0.95em;
+        }
+
+        .icon {
+            display: inline-block;
+            font-size: 1.5em;
+        }
+
+        .highlight {
+            background: #fff5f7;
+            color: #f5576c;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .visual-position {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+            font-size: 1.3em;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📍 Place de l'Adjectif Épithète</h1>
+            <p class="subtitle">Les règles de positionnement en grammaire française</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <h2><span class="icon">📖</span> Introduction</h2>
+                <p>La place de l'adjectif qualificatif épithète par rapport au nom qu'il qualifie n'est pas fixe en français. Elle varie selon plusieurs critères : la nature de l'adjectif, sa longueur, son sens, et parfois le style recherché. Cette position peut même modifier complètement le sens de l'adjectif ! Découvrons ensemble les règles qui régissent cette place.</p>
+            </div>
+
+            <div class="position-section">
+                <div class="position-header">
+                    <div class="position-icon">👈</div>
+                    <div class="position-title">Adjectifs Placés AVANT le Nom</div>
+                </div>
+                <div class="position-content">
+                    <div class="rule-box">
+                        <h3>📌 Règle Générale</h3>
+                        <p>Certains adjectifs se placent généralement <strong>avant le nom</strong>. Ce sont souvent des adjectifs <span class="highlight">courts</span>, <span class="highlight">fréquents</span> et <span class="highlight">subjectifs</span>.</p>
+                    </div>
+
+                    <div class="category-box">
+                        <h4><span class="icon">🎯</span> Adjectifs courants placés avant :</h4>
+                        <div class="category-list">
+                            <div class="category-item">beau, belle</div>
+                            <div class="category-item">bon, bonne</div>
+                            <div class="category-item">mauvais, mauvaise</div>
+                            <div class="category-item">jeune</div>
+                            <div class="category-item">vieux, vieille</div>
+                            <div class="category-item">petit, petite</div>
+                            <div class="category-item">grand, grande</div>
+                            <div class="category-item">gros, grosse</div>
+                            <div class="category-item">joli, jolie</div>
+                            <div class="category-item">nouveau, nouvelle</div>
+                            <div class="category-item">long, longue</div>
+                            <div class="category-item">court, courte</div>
+                        </div>
+                    </div>
+
+                    <div class="examples-container">
+                        <h4 style="color: #667eea; font-size: 1.3em; margin-bottom: 20px;">✨ Exemples :</h4>
+                        <div class="example-grid">
+                            <div class="example-card">
+                                <div class="example-text">
+                                    Une <span class="adjective">belle</span> <span class="noun">maison</span>
+                                </div>
+                                <div class="explanation">Adjectif d'appréciation esthétique</div>
+                            </div>
+                            <div class="example-card">
+                                <div class="example-text">
+                                    Un <span class="adjective">bon</span> <span class="noun">repas</span>
+                                </div>
+                                <div class="explanation">Adjectif d'appréciation qualitative</div>
+                            </div>
+                            <div class="example-card">
+                                <div class="example-text">
+                                    Une <span class="adjective">petite</span> <span class="noun">fille</span>
+                                </div>
+                                <div class="explanation">Adjectif de taille</div>
+                            </div>
+                            <div class="example-card">
+                                <div class="example-text">
+                                    Un <span class="adjective">jeune</span> <span class="noun">homme</span>
+                                </div>
+                                <div class="explanation">Adjectif d'âge</div>
+                            </div>
+                            <div class="example-card">
+                                <div class="example-text">
+                                    Un <span class="adjective">vieux</span> <span class="noun">livre</span>
+                                </div>
+                                <div class="explanation">Adjectif d'ancienneté</div>
+                            </div>
+                            <div class="example-card">
+                                <div class="example-text">
+                                    Un <span class="adjective">gros</span> <span class="noun">chien</span>
+                                </div>
+                                <div class="explanation">Adjectif de volume</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="visual-position">
+                        <span class="adjective">ADJECTIF</span>
+                        <span style="font-size: 2em;">+</span>
+                        <span class="noun">NOM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="position-section">
+                <div class="position-header">
+                    <div class="position-icon">👉</div>
+                    <div class="position-title">Adjectifs Placés APRÈS le Nom</div>
+                </div>
+                <div class="position-content">
+                    <div class="rule-box">
+                        <h3>📌 Règle Générale</h3>
+                        <p>La majorité des adjectifs se placent <strong>après le nom</strong>, notamment les adjectifs <span class="highlight">longs</span>, <span class="highlight">techniques</span> et ceux qui expriment des caractéristiques <span class="highlight">objectives</span>.</p>
+                    </div>
+
+                    <div class="category-box">
+                        <h4><span class="icon">🎯</span> Catégories d'adjectifs placés après :</h4>
+                        <div style="margin-top: 20px;">
+                            <div style="margin-bottom: 25px;">
+                                <strong style="color: #c94b1f; font-size: 1.15em;">🎨 Couleur :</strong>
+                                <div class="category-list" style="margin-top: 10px;">
+                                    <div class="category-item">rouge, bleu, vert</div>
+                                    <div class="category-item">jaune, noir, blanc</div>
+                                    <div class="category-item">rose, violet, orange</div>
+                                </div>
+                            </div>
+
+                            <div style="margin-bottom: 25px;">
+                                <strong style="color: #c94b1f; font-size: 1.15em;">📐 Forme :</strong>
+                                <div class="category-list" style="margin-top: 10px;">
+                                    <div class="category-item">carré, rond, rectangulaire</div>
+                                    <div class="category-item">triangulaire, ovale</div>
+                                    <div class="category-item">pointu, courbé</div>
+                                </div>
+                            </div>
+
+                            <div style="margin-bottom: 25px;">
+                                <strong style="color: #c94b1f; font-size: 1.15em;">🌍 Nationalité / Origine :</strong>
+                                <div class="category-list" style="margin-top: 10px;">
+                                    <div class="category-item">français, brésilien</div>
+                                    <div class="category-item">américain, chinois</div>
+                                    <div class="category-item">européen, africain</div>
+                                </div>
+                            </div>
+
+                            <div style="margin-bottom: 25px;">
+                                <strong style="color: #c94b1f; font-size: 1.15em;">✝️ Religion :</strong>
+                                <div class="category-list" style="margin-top: 10px;">
+                                    <div class="category-item">catholique, musulman</div>
+                                    <div class="category-item">protestant, bouddhiste</div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <strong style="color: #c94b1f; font-size: 1.15em;">📚 Adjectifs longs / Participes passés :</strong>
+                                <div class="category-list" style="margin-top: 10px;">
+                                    <div class="category-item">magnifique, extraordinaire</div>
+                                    <div class="category-item">passionné, déterminé</div>
+                                    <div class="category-item">compliqué, fatigué</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="examples-container">
+                        <h4 style="color: #667eea; font-size: 1.3em; margin-bottom: 20px;">✨ Exemples :</h4>
+                        <div class="example-grid">
+                            <div class="example-card">
+                                <div class="example-text">
+                                    Une <span class="noun">voiture</span> <span class="adjective">rouge</span>
+                                </div>
+                                <div class="explanation">Adjectif de couleur</div>
+                            </div>
+                            <div class="example-card">
+                                <div class="example-text">
+                                    Un <span class="noun">drapeau</span> <span class="adjective">français</span>
+                                </div>
+                                <div class="explanation">Adjectif de nationalité</div>
+                            </div>
+                            <div class="example-card">
+                                <div class="example-text">
+                                    Une <span class="noun">table</span> <span class="adjective">ronde</span>
+                                </div>
+                                <div class="explanation">Adjectif de forme</div>
+                            </div>
+                            <div class="example-card">
+                                <div class="example-text">
+                                    Un <span class="noun">spectacle</span> <span class="adjective">magnifique</span>
+                                </div>
+                                <div class="explanation">Adjectif long</div>
+                            </div>
+                            <div class="example-card">
+                                <div class="example-text">
+                                    Un <span class="noun">enfant</span> <span class="adjective">fatigué</span>
+                                </div>
+                                <div class="explanation">Participe passé</div>
+                            </div>
+                            <div class="example-card">
+                                <div class="example-text">
+                                    Une <span class="noun">fête</span> <span class="adjective">catholique</span>
+                                </div>
+                                <div class="explanation">Adjectif de religion</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="visual-position">
+                        <span class="noun">NOM</span>
+                        <span style="font-size: 2em;">+</span>
+                        <span class="adjective">ADJECTIF</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="meaning-change">
+                <h3><span class="icon">🔄</span> Changement de Sens Selon la Place</h3>
+                <p style="line-height: 1.8; color: #2d3748; margin-bottom: 25px;">Attention ! Certains adjectifs changent complètement de sens selon qu'ils sont placés <strong>avant</strong> ou <strong>après</strong> le nom. C'est une particularité très importante du français !</p>
+
+                <table class="comparison-table">
+                    <tr>
+                        <th>Avant le nom</th>
+                        <th>Après le nom</th>
+                    </tr>
+                    <tr>
+                        <td>Un <span class="before-position">grand</span> homme<br><em>(une personne célèbre, importante)</em></td>
+                        <td>Un homme <span class="after-position">grand</span><br><em>(une personne de haute taille)</em></td>
+                    </tr>
+                    <tr>
+                        <td>Un <span class="before-position">pauvre</span> homme<br><em>(malheureux, à plaindre)</em></td>
+                        <td>Un homme <span class="after-position">pauvre</span><br><em>(qui n'a pas d'argent)</em></td>
+                    </tr>
+                    <tr>
+                        <td>Un <span class="before-position">simple</span> soldat<br><em>(ordinaire, sans grade)</em></td>
+                        <td>Un problème <span class="after-position">simple</span><br><em>(facile, pas compliqué)</em></td>
+                    </tr>
+                    <tr>
+                        <td>Mon <span class="before-position">ancien</span> professeur<br><em>(celui d'avant, ex-professeur)</em></td>
+                        <td>Un meuble <span class="after-position">ancien</span><br><em>(vieux, d'époque)</em></td>
+                    </tr>
+                    <tr>
+                        <td>Un <span class="before-position">curieux</span> enfant<br><em>(bizarre, étrange)</em></td>
+                        <td>Un enfant <span class="after-position">curieux</span><br><em>(qui veut tout savoir)</em></td>
+                    </tr>
+                    <tr>
+                        <td>Un <span class="before-position">certain</span> âge<br><em>(un âge avancé, indéterminé)</em></td>
+                        <td>Une victoire <span class="after-position">certaine</span><br><em>(sûre, garantie)</em></td>
+                    </tr>
+                    <tr>
+                        <td>Ma <span class="before-position">propre</span> voiture<br><em>(celle qui m'appartient)</em></td>
+                        <td>Une chemise <span class="after-position">propre</span><br><em>(nettoyée, pas sale)</em></td>
+                    </tr>
+                    <tr>
+                        <td>Un <span class="before-position">brave</span> homme<br><em>(gentil, honnête)</em></td>
+                        <td>Un homme <span class="after-position">brave</span><br><em>(courageux)</em></td>
+                    </tr>
+                    <tr>
+                        <td>La <span class="before-position">dernière</span> semaine<br><em>(finale, ultime)</em></td>
+                        <td>La semaine <span class="after-position">dernière</span><br><em>(précédente, passée)</em></td>
+                    </tr>
+                    <tr>
+                        <td>Un <span class="before-position">seul</span> ami<br><em>(unique, un seulement)</em></td>
+                        <td>Un homme <span class="after-position">seul</span><br><em>(solitaire, isolé)</em></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tip-box">
+                <h3><span class="icon">💡</span> Astuces et Cas Particuliers</h3>
+                <ul>
+                    <li><strong>Plusieurs adjectifs :</strong> Si un nom a plusieurs adjectifs, chacun garde sa place habituelle. Ex : Une <span class="highlight">petite</span> voiture <span class="highlight">rouge</span></li>
+                    <li><strong>Emphase stylistique :</strong> On peut parfois déplacer un adjectif pour créer un effet poétique ou insister. Ex : "Une <span class="highlight">magnifique</span> soirée" (au lieu de "soirée magnifique")</li>
+                    <li><strong>Adjectifs numéraux :</strong> Les nombres se placent toujours avant le nom. Ex : Trois livres, la première place</li>
+                    <li><strong>Adjectifs composés :</strong> Ils suivent généralement la règle de l'adjectif principal. Ex : Un pull bleu marine (après)</li>
+                    <li><strong>Euphonie :</strong> Parfois la place dépend du son et du rythme de la phrase pour une meilleure harmonie</li>
+                </ul>
+            </div>
+
+            <div class="summary-box">
+                <h2>📋 Récapitulatif</h2>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h4>👈 Avant le Nom</h4>
+                        <ul style="margin-left: 20px; margin-top: 15px;">
+                            <li>Adjectifs courts et courants</li>
+                            <li>Taille : petit, grand, gros</li>
+                            <li>Âge : jeune, vieux, nouveau</li>
+                            <li>Appréciation : beau, bon, mauvais</li>
+                        </ul>
+                    </div>
+
+                    <div class="summary-card">
+                        <h4>👉 Après le Nom</h4>
+                        <ul style="margin-left: 20px; margin-top: 15px;">
+                            <li>Adjectifs de couleur</li>
+                            <li>Adjectifs de forme</li>
+                            <li>Adjectifs de nationalité</li>
+                            <li>Adjectifs longs</li>
+                            <li>Participes passés</li>
+                        </ul>
+                    </div>
+
+                    <div class="summary-card">
+                        <h4>🔄 Double Sens</h4>
+                        <ul style="margin-left: 20px; margin-top: 15px;">
+                            <li>grand, pauvre, simple</li>
+                            <li>ancien, curieux, certain</li>
+                            <li>propre, brave, dernier</li>
+                            <li>seul</li>
+                            <li><em>La place change le sens !</em></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px; padding: 25px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                    <h3 style="margin-bottom: 15px; font-size: 1.5em;">🎯 Points Clés à Retenir</h3>
+                    <ul style="margin-left: 20px;">
+                        <li>La position de l'adjectif n'est pas aléatoire en français</li>
+                        <li>Les adjectifs courts et subjectifs vont généralement avant</li>
+                        <li>Les adjectifs objectifs et longs vont généralement après</li>
+                        <li>Certains adjectifs changent de sens selon leur position</li>
+                        <li>Le contexte et le style peuvent influencer la place</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>📍 Grammaire Française - Place de l'Adjectif Qualificatif Épithète © 2024</p>
+            <p style="margin-top: 12px; opacity: 0.85;">Maîtrisez la position des adjectifs !</p>
+        </footer>
+    </div>
+</body>
+</html>

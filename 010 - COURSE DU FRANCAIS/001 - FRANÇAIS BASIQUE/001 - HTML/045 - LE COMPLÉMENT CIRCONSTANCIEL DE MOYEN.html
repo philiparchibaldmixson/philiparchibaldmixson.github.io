@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Complément Circonstanciel de Moyen - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #002395 0%, #ffffff 50%, #ED2939 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(237, 41, 57, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0, 35, 149, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background: linear-gradient(135deg, #002395, #0035b8, #002395);
+            background-size: 200% 200%;
+            animation: gradientFlow 8s ease infinite;
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 35, 149, 0.4);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .logo {
+            font-size: 1.3em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            opacity: 0.95;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 20px 0;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-top: 15px;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            border: 3px solid rgba(0, 35, 149, 0.2);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .intro-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .intro-section h2::before {
+            content: '🔧';
+            font-size: 1.2em;
+            animation: swing 2s ease-in-out infinite;
+        }
+
+        .intro-section p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.15em;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 6px solid #002395;
+            margin: 25px 0;
+            font-size: 1.1em;
+            line-height: 1.7;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .definition-box strong {
+            color: #ED2939;
+            font-size: 1.1em;
+        }
+
+        .questions-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .questions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .question-box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #ED2939;
+            transition: all 0.3s ease;
+        }
+
+        .question-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(0, 35, 149, 0.2);
+        }
+
+        .question-title {
+            color: #ED2939;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .question-examples {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .cc-highlight {
+            color: #ED2939;
+            background: rgba(237, 41, 57, 0.1);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #002395, #ED2939);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 35, 149, 0.3);
+            border-color: #002395;
+        }
+
+        .category-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .category-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .category-title {
+            color: #002395;
+            font-size: 1.7em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .category-type {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(237, 41, 57, 0.3);
+        }
+
+        .category-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .example-list {
+            margin-top: 15px;
+        }
+
+        .example-item {
+            background: rgba(237, 41, 57, 0.05);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border-left: 4px solid #ED2939;
+            transition: all 0.3s ease;
+        }
+
+        .example-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-sentence {
+            color: #222;
+            font-size: 1.05em;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .constructions-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 1.8s ease;
+        }
+
+        .constructions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .construction-item {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.03), rgba(237, 41, 57, 0.03));
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 2px solid rgba(0, 35, 149, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .construction-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 35, 149, 0.15);
+            border-color: #002395;
+        }
+
+        .construction-item h3 {
+            color: #002395;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .construction-type {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .construction-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .construction-examples {
+            margin-top: 15px;
+        }
+
+        .construction-example {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 4px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .construction-example:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .prepositions-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 2s ease;
+        }
+
+        .prepositions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .prep-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .prep-item {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 35, 149, 0.3);
+            transition: all 0.3s ease;
+            animation: slideIn 1s ease;
+        }
+
+        .prep-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 35, 149, 0.5);
+        }
+
+        .distinction-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 2.2s ease;
+        }
+
+        .distinction-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .distinction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .distinction-card {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 30px;
+            border-radius: 20px;
+            border-top: 5px solid #ED2939;
+            transition: all 0.3s ease;
+        }
+
+        .distinction-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 35, 149, 0.15);
+        }
+
+        .distinction-title {
+            color: #ED2939;
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .distinction-content {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .special-section {
+            background: linear-gradient(135deg, #002395 0%, #0041c9 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 35, 149, 0.4);
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 2.4s ease;
+        }
+
+        .special-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .special-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .special-section p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .tip-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .table-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 2.6s ease;
+        }
+
+        .table-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+        }
+
+        th {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        th:first-child {
+            border-top-left-radius: 15px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 15px;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid rgba(0, 35, 149, 0.1);
+            font-size: 1.05em;
+            color: #333;
+        }
+
+        tr:hover {
+            background: rgba(0, 35, 149, 0.05);
+        }
+
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 15px;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 15px;
+        }
+
+        .type-highlight {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #002395, #ED2939);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 2.8s ease;
+        }
+
+        .footer-content {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo {
+            font-size: 2em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .categories-grid, .distinction-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 30px;
+            }
+
+            .intro-section, .special-section, .constructions-section {
+                padding: 25px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">⚜️ Língua Academy ⚜️</div>
+            <h1>Le Complément Circonstanciel de Moyen</h1>
+            <div class="subtitle">🔧 Comment ? Avec quoi ? Au moyen de quoi ? Par quel moyen ? 🔧</div>
+        </header>
+
+        <div class="intro-section">
+            <h2>Qu'est-ce qu'un CC de Moyen ?</h2>
+            <p>
+                Le <strong>complément circonstanciel de moyen</strong> (CC de moyen) est un complément de phrase qui indique 
+                <strong>l'instrument, l'outil, le moyen utilisé</strong> pour réaliser l'action exprimée par le verbe.
+            </p>
+            
+            <div class="definition-box">
+                🔧 <strong>Définition :</strong> Le CC de moyen précise l'instrument, l'outil, le véhicule, le procédé 
+                ou la méthode employé(e) pour accomplir l'action. Il répond aux questions : 
+                <strong>Comment ? Avec quoi ? Au moyen de quoi ? Par quel moyen ? Grâce à quoi ?</strong>
+            </div>
+
+            <p>
+                Le CC de moyen est généralement <strong>supprimable</strong> et <strong>déplaçable</strong> dans la phrase. 
+                Il apporte une précision sur la façon concrète dont l'action est réalisée.
+            </p>
+        </div>
+
+        <div class="questions-section">
+            <h2>❓ Les Questions pour Identifier le CC de Moyen</h2>
+            
+            <div class="question-box">
+                <div class="question-title">
+                    🔧 Avec quoi ? / Au moyen de quoi ?
+                </div>
+                <div class="question-examples">
+                    <strong>La question la plus courante pour identifier le CC de moyen :</strong><br><br>
+                    • J'écris <span class="cc-highlight">avec un stylo</span>. → <em>Avec quoi écris-je ?</em><br>
+                    • Il coupe le pain <span class="cc-highlight">avec un couteau</span>. → <em>Avec quoi coupe-t-il ?</em><br>
+                    • Elle communique <span class="cc-highlight">au moyen d'un téléphone</span>. → <em>Au moyen de quoi ?</em><br>
+                    • Nous voyageons <span class="cc-highlight">en train</span>. → <em>Par quel moyen ?</em>
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="question-title">
+                    🚗 Par quel moyen ? / Comment ?
+                </div>
+                <div class="question-examples">
+                    <strong>Pour les moyens de transport et les méthodes :</strong><br><br>
+                    • Il va au travail <span class="cc-highlight">en voiture</span>. → <em>Par quel moyen ?</em><br>
+                    • Elle se déplace <span class="cc-highlight">à vélo</span>. → <em>Comment se déplace-t-elle ?</em><br>
+                    • Nous partons <span class="cc-highlight">par avion</span>. → <em>Par quel moyen de transport ?</em>
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="question-title">
+                    💡 Grâce à quoi ? / Par quoi ?
+                </div>
+                <div class="question-examples">
+                    <strong>Pour les moyens abstraits ou les méthodes :</strong><br><br>
+                    • Il a réussi <span class="cc-highlight">grâce à son travail</span>. → <em>Grâce à quoi ?</em><br>
+                    • Elle apprend <span class="cc-highlight">par la pratique</span>. → <em>Par quoi apprend-elle ?</em><br>
+                    • Nous résolvons le problème <span class="cc-highlight">à l'aide d'un logiciel</span>. → <em>À l'aide de quoi ?</em>
+                </div>
+            </div>
+        </div>
+
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">✏️</div>
+                <div class="category-title">Instruments et Outils</div>
+                <div class="category-type">Objets concrets</div>
+                <div class="category-description">
+                    Le CC de moyen désigne les <strong>instruments, outils, ustensiles</strong> utilisés pour effectuer l'action.
+                </div>
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            J'écris <span class="cc-highlight">avec un stylo</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Il coupe <span class="cc-highlight">avec un couteau</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Elle peint <span class="cc-highlight">au pinceau</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Nous mesurons <span class="cc-highlight">à l'aide d'une règle</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Il fixe <span class="cc-highlight">avec des clous</span>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">🚗</div>
+                <div class="category-title">Moyens de Transport</div>
+                <div class="category-type">Véhicules</div>
+                <div class="category-description">
+                    Le CC de moyen indique le <strong>véhicule, le moyen de transport</strong> utilisé pour se déplacer.
+                </div>
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Je vais au travail <span class="cc-highlight">en voiture</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Elle voyage <span class="cc-highlight">par avion</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Nous partons <span class="cc-highlight">en train</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Il se déplace <span class="cc-highlight">à vélo</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Ils arrivent <span class="cc-highlight">en bateau</span>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">💻</div>
+                <div class="category-title">Moyens de Communication</div>
+                <div class="category-type">Technologies</div>
+                <div class="category-description">
+                    Le CC de moyen désigne les <strong>technologies, moyens de communication</strong> utilisés.
+                </div>
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Je communique <span class="cc-highlight">par téléphone</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Elle envoie un message <span class="cc-highlight">par email</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Nous discutons <span class="cc-highlight">via Internet</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Il s'informe <span class="cc-highlight">grâce aux médias</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Ils échangent <span class="cc-highlight">au moyen d'une application</span>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">📚</div>
+                <div class="category-title">Méthodes et Procédés</div>
+                <div class="category-type">Moyens abstraits</div>
+                <div class="category-description">
+                    Le CC de moyen exprime la <strong>méthode, le procédé, la manière abstraite</strong> d'accomplir l'action.
+                </div>
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Il apprend <span class="cc-highlight">par la pratique</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Elle réussit <span class="cc-highlight">grâce à son travail</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Nous progressons <span class="cc-highlight">à force d'efforts</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Il comprend <span class="cc-highlight">au moyen d'exemples</span>.
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Tu convaincs <span class="cc-highlight">par tes arguments</span>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="constructions-section">
+            <h2>🏗️ Constructions du CC de Moyen</h2>
+
+            <div class="construction-item">
+                <h3>
+                    <span>1️⃣</span> 
+                    Préposition AVEC + GN
+                    <span class="construction-type">Très fréquent</span>
+                </h3>
+                <div class="construction-description">
+                    La préposition <strong>AVEC</strong> suivie d'un groupe nominal est la construction 
+                    la plus courante pour le CC de moyen (surtout pour les instruments et outils).
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">AVEC + outil/instrument :</strong><br>
+                        J'écris <span class="cc-highlight">avec un stylo</span> • Il coupe <span class="cc-highlight">avec un couteau</span> • Elle peint <span class="cc-highlight">avec un pinceau</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">AVEC + objet concret :</strong><br>
+                        Il ouvre <span class="cc-highlight">avec une clé</span> • Nous fixons <span class="cc-highlight">avec de la colle</span> • Tu mesures <span class="cc-highlight">avec un mètre</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>2️⃣</span> 
+                    Prépositions PAR / EN / À
+                    <span class="construction-type">Moyens de transport</span>
+                </h3>
+                <div class="construction-description">
+                    Pour les moyens de transport, on utilise <strong>EN, PAR, À</strong> selon le véhicule.
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">EN + véhicule fermé :</strong><br>
+                        Je voyage <span class="cc-highlight">en voiture</span> • Elle part <span class="cc-highlight">en train</span> • Nous arrivons <span class="cc-highlight">en avion</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">PAR + moyen général :</strong><br>
+                        Il envoie <span class="cc-highlight">par la poste</span> • Elle voyage <span class="cc-highlight">par avion</span> • Nous communiquons <span class="cc-highlight">par téléphone</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">À + véhicule ouvert/deux-roues :</strong><br>
+                        Je vais <span class="cc-highlight">à vélo</span> • Elle se déplace <span class="cc-highlight">à moto</span> • Il voyage <span class="cc-highlight">à cheval</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>3️⃣</span> 
+                    Locutions Prépositives
+                    <span class="construction-type">Formes soutenues</span>
+                </h3>
+                <div class="construction-description">
+                    Diverses locutions prépositives expriment le moyen : 
+                    <strong>au moyen de, à l'aide de, grâce à, par l'intermédiaire de, via, etc.</strong>
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        Elle résout le problème <span class="cc-highlight">au moyen d'un logiciel</span> • Il ouvre <span class="cc-highlight">à l'aide d'un tournevis</span>
+                    </div>
+                    <div class="construction-example">
+                        Nous réussissons <span class="cc-highlight">grâce à notre travail</span> • Je contacte <span class="cc-highlight">par l'intermédiaire d'un ami</span>
+                    </div>
+                    <div class="construction-example">
+                        Il communique <span class="cc-highlight">via Internet</span> • Elle progresse <span class="cc-highlight">à force de patience</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>4️⃣</span> 
+                    Gérondif
+                    <span class="construction-type">Moins fréquent pour le moyen</span>
+                </h3>
+                <div class="construction-description">
+                    Le gérondif (en + participe présent) peut parfois exprimer le moyen, 
+                    mais il exprime plus souvent la manière ou le temps.
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        Il a réussi <span class="cc-highlight">en travaillant dur</span> • Elle apprend <span class="cc-highlight">en pratiquant</span> • Tu progresses <span class="cc-highlight">en persévérant</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>5️⃣</span> 
+                    Groupe Nominal sans Préposition
+                    <span class="construction-type">Rare</span>
+                </h3>
+                <div class="construction-description">
+                    Dans certains cas, le moyen peut être exprimé par un groupe nominal sans préposition, 
+                    souvent dans des expressions figées.
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        Il envoie le colis <span class="cc-highlight">courrier express</span> • Elle paie <span class="cc-highlight">carte bancaire</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="prepositions-section">
+            <h2>🔑 Prépositions de Moyen Courantes</h2>
+            
+            <div class="prep-grid">
+                <div class="prep-item">AVEC</div>
+                <div class="prep-item">PAR</div>
+                <div class="prep-item">EN</div>
+                <div class="prep-item">À</div>
+                <div class="prep-item">AU MOYEN DE</div>
+                <div class="prep-item">À L'AIDE DE</div>
+                <div class="prep-item">GRÂCE À</div>
+                <div class="prep-item">VIA</div>
+                <div class="prep-item">À FORCE DE</div>
+                <div class="prep-item">PAR L'INTERMÉDIAIRE DE</div>
+                <div class="prep-item">AU TRAVERS DE</div>
+                <div class="prep-item">À COUPS DE</div>
+            </div>
+        </div>
+
+        <div class="distinction-section">
+            <h2>⚖️ CC de Moyen vs Autres Compléments</h2>
+            
+            <div class="distinction-grid">
+                <div class="distinction-card">
+                    <div class="distinction-title">
+                        🔧 CC de Moyen
+                    </div>
+                    <div class="distinction-content">
+                        <strong>Avec quoi ? Au moyen de quoi ?</strong><br><br>
+                        Instrument, outil, véhicule utilisé pour faire l'action.<br><br>
+                        <em>Exemples :</em><br>
+                        • "J'écris <strong>avec un stylo</strong>" (moyen)<br>
+                        • "Il voyage <strong>en train</strong>" (moyen de transport)<br>
+                        • "Elle coupe <strong>avec un couteau</strong>" (instrument)<br><br>
+                        ➡️ Objet <strong>concret</strong> utilisé
+                    </div>
+                </div>
+
+                <div class="distinction-card">
+                    <div class="distinction-title">
+                        🎭 CC de Manière
+                    </div>
+                    <div class="distinction-content">
+                        <strong>Comment ? De quelle façon ?</strong><br><br>
+                        Façon, attitude, sentiment avec lequel l'action est faite.<br><br>
+                        <em>Exemples :</em><br>
+                        • "Il parle <strong>avec respect</strong>" (manière)<br>
+                        • "Elle travaille <strong>avec soin</strong>" (manière)<br>
+                        • "Il agit <strong>avec prudence</strong>" (manière)<br><br>
+                        ➡️ Concept <strong>abstrait</strong> (sentiment, qualité)
+                    </div>
+                </div>
+
+                <div class="distinction-card">
+                    <div class="distinction-title">
+                        👥 CC d'Accompagnement
+                    </div>
+                    <div class="distinction-content">
+                        <strong>Avec qui ?</strong><br><br>
+                        Personne ou animal qui accompagne pendant l'action.<br><br>
+                        <em>Exemples :</em><br>
+                        • "Je voyage <strong>avec Marie</strong>" (accompagnement)<br>
+                        • "Elle sort <strong>avec son chien</strong>" (accompagnement)<br>
+                        • "Il travaille <strong>avec son équipe</strong>" (accompagnement)<br><br>
+                        ➡️ <strong>Être vivant</strong> (personne/animal)
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 30px; background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05)); border-radius: 20px; border-left: 6px solid #002395;">
+                <h3 style="color: #002395; margin-bottom: 20px; font-size: 1.5em;">📌 Règle de Distinction avec "AVEC"</h3>
+                <p style="color: #555; line-height: 1.8; font-size: 1.1em; margin-bottom: 15px;">
+                    <strong style="color: #ED2939;">AVEC + objet concret</strong> → CC de moyen<br>
+                    <em>"J'écris <strong>avec un stylo</strong>"</em> (instrument utilisé) 🔧
+                </p>
+                <p style="color: #555; line-height: 1.8; font-size: 1.1em; margin-bottom: 15px;">
+                    <strong style="color: #ED2939;">AVEC + concept abstrait</strong> → CC de manière<br>
+                    <em>"Il parle <strong>avec respect</strong>"</em> (façon de parler) 🎭
+                </p>
+                <p style="color: #555; line-height: 1.8; font-size: 1.1em;">
+                    <strong style="color: #ED2939;">AVEC + être vivant</strong> → CC d'accompagnement<br>
+                    <em>"Je sors <strong>avec Marie</strong>"</em> (personne qui accompagne) 👥
+                </p>
+            </div>
+        </div>
+
+        <div class="table-section">
+            <h2>📊 Tableau : Prépositions et Moyens de Transport</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Préposition</th>
+                        <th>Type de Moyen</th>
+                        <th>Exemples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="type-highlight">EN</span></td>
+                        <td>Véhicules fermés, moyens collectifs</td>
+                        <td>en voiture, en train, en avion, en bus, en bateau</td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">À</span></td>
+                        <td>Véhicules ouverts, deux-roues, animaux</td>
+                        <td>à vélo, à moto, à cheval, à pied, à dos d'âne</td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">PAR</span></td>
+                        <td>Moyen général, voie, méthode</td>
+                        <td>par avion, par la poste, par téléphone, par email</td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">AVEC</span></td>
+                        <td>Instruments, outils, objets concrets</td>
+                        <td>avec un stylo, avec un couteau, avec une clé</td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">AU MOYEN DE</span></td>
+                        <td>Instrument, méthode (formel)</td>
+                        <td>au moyen d'un logiciel, au moyen d'une corde</td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">GRÂCE À</span></td>
+                        <td>Moyen favorable, aide</td>
+                        <td>grâce à son travail, grâce à un ami</td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">VIA</span></td>
+                        <td>Passage par, moyen de communication</td>
+                        <td>via Internet, via satellite, via Paris</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="special-section">
+            <h2>💡 Conseils pour Identifier le CC de Moyen</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>❓ Posez la question "Avec quoi ?"</h4>
+                    <p>
+                        Pour identifier un CC de moyen, posez la question <strong>"Avec quoi ?"</strong>, 
+                        <strong>"Au moyen de quoi ?"</strong> ou <strong>"Par quel moyen ?"</strong> après le verbe.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔍 Cherchez les objets concrets</h4>
+                    <p>
+                        Le CC de moyen désigne généralement un <strong>objet concret, un outil, un instrument</strong> 
+                        ou un <strong>véhicule</strong> utilisé pour l'action.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🚗 Repérez les transports</h4>
+                    <p>
+                        Les moyens de transport (voiture, train, avion, vélo...) sont toujours des CC de moyen. 
+                        Attention aux prépositions : <strong>EN, À, PAR</strong>.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>⚠️ Distinguez AVEC + ...</h4>
+                    <p>
+                        <strong>AVEC + objet</strong> = moyen ✅<br>
+                        <strong>AVEC + abstrait</strong> = manière<br>
+                        <strong>AVEC + personne</strong> = accompagnement
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>✂️ Testez la suppression</h4>
+                    <p>
+                        Le CC de moyen est généralement <strong>supprimable</strong> : 
+                        "J'écris avec un stylo" → "J'écris" ✅
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔑 Repérez les locutions</h4>
+                    <p>
+                        Les locutions <strong>"au moyen de", "à l'aide de", "grâce à", "via"</strong> 
+                        introduisent presque toujours un CC de moyen.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="intro-section">
+            <h2>🎯 Points Importants à Retenir</h2>
+            <p>
+                ✅ <strong>Le CC de moyen répond à "Avec quoi ?" ou "Par quel moyen ?" :</strong>
+                <br>• Il désigne l'instrument, l'outil, le véhicule ou la méthode utilisé(e) pour réaliser l'action
+            </p>
+            <p>
+                ✅ <strong>4 catégories principales de moyens :</strong>
+                <br>• Instruments et outils (stylo, couteau, pinceau...)
+                <br>• Moyens de transport (voiture, train, vélo...)
+                <br>• Moyens de communication (téléphone, email, Internet...)
+                <br>• Méthodes et procédés (pratique, travail, efforts...)
+            </p>
+            <p>
+                ✅ <strong>Prépositions principales :</strong>
+                <br>• <strong>AVEC</strong> : instruments et outils concrets
+                <br>• <strong>EN</strong> : véhicules fermés (voiture, train, avion)
+                <br>• <strong>À</strong> : véhicules ouverts/deux-roues (vélo, moto, cheval)
+                <br>• <strong>PAR</strong> : moyens généraux (poste, téléphone, avion)
+            </p>
+            <p>
+                ✅ <strong>Distinction cruciale avec "AVEC" :</strong>
+                <br>• <strong>AVEC + objet concret</strong> → Moyen : "J'écris avec un stylo" 🔧
+                <br>• <strong>AVEC + concept abstrait</strong> → Manière : "Il parle avec respect" 🎭
+                <br>• <strong>AVEC + être vivant</strong> → Accompagnement : "Je sors avec Marie" 👥
+            </p>
+            <p>
+                ✅ <strong>Locutions courantes de moyen :</strong>
+                <br>• AU MOYEN DE, À L'AIDE DE (plus formel)
+                <br>• GRÂCE À (moyen favorable)
+                <br>• VIA (passage par)
+                <br>• À FORCE DE, PAR L'INTERMÉDIAIRE DE
+            </p>
+            <p>
+                ✅ <strong>Le CC de moyen est supprimable et déplaçable :</strong>
+                <br>• "J'écris avec un stylo" → "J'écris" (suppression) ✅
+                <br>• "Avec un stylo, j'écris" (déplacement) ✅
+            </p>
+            <p>
+                ✅ <strong>Ne confondez pas le gérondif :</strong>
+                <br>• "En travaillant dur" peut être moyen, manière ou temps selon le contexte
+                <br>• Le gérondif exprime plus souvent la manière que le moyen
+            </p>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                Maîtrisez le complément circonstanciel de moyen 
+                pour préciser vos instruments et méthodes d'action ! 🇫🇷 🔧
+            </div>
+            <div class="footer-logo">⚜️ LÍNGUA ACADEMY ⚜️</div>
+        </footer>
+    </div>
+</body>
+</html>

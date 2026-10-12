@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Predicato - Grammatica Italiana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 25%, #2c5364 50%, #667eea 75%, #764ba2 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1.2s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-80px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 4.5em;
+            color: #fff;
+            text-shadow: 6px 6px 12px rgba(0,0,0,0.5);
+            margin-bottom: 15px;
+            animation: pulse 2.5s ease-in-out infinite;
+            letter-spacing: 3px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            font-weight: 300;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 35px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            backdrop-filter: blur(20px);
+            border: 4px solid rgba(255,255,255,0.5);
+            animation: fadeInUp 1s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-18px) scale(1.01);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            border-bottom: 6px solid #764ba2;
+            padding-bottom: 15px;
+            display: inline-block;
+            animation: slideInLeft 1.2s ease;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-150px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h3 {
+            color: #2c5364;
+            font-size: 2.2em;
+            margin: 35px 0 25px 0;
+        }
+
+        .definition {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 35px;
+            border-radius: 25px;
+            margin: 30px 0;
+            font-size: 1.35em;
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+            animation: zoomIn 1.2s ease;
+            line-height: 2;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.4);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            padding: 30px;
+            border-radius: 25px;
+            margin: 25px 0;
+            color: white;
+            font-size: 1.25em;
+            box-shadow: 0 12px 30px rgba(245, 87, 108, 0.5);
+            animation: slideInRight 1.2s ease;
+            line-height: 2;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(150px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .predicato-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 35px 0;
+        }
+
+        .predicato-box {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            padding: 35px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(79, 172, 254, 0.5);
+            transition: all 0.4s ease;
+            animation: bounceIn 1.3s ease;
+            border: 4px solid rgba(255,255,255,0.3);
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.2);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            70% {
+                transform: scale(0.85);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .predicato-box:hover {
+            transform: translateY(-20px) rotate(2deg);
+            box-shadow: 0 20px 45px rgba(79, 172, 254, 0.7);
+        }
+
+        .predicato-title {
+            color: #fff;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .predicato-description {
+            color: #fff;
+            font-size: 1.25em;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .predicato-example {
+            background: rgba(255,255,255,0.35);
+            padding: 25px;
+            border-radius: 18px;
+            color: #fff;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.3em;
+            border: 3px solid rgba(255,255,255,0.6);
+        }
+
+        .verb-highlight {
+            background: #f5576c;
+            padding: 10px 20px;
+            border-radius: 12px;
+            display: inline-block;
+            animation: bounce 2.5s ease-in-out infinite;
+            box-shadow: 0 6px 18px rgba(245, 87, 108, 0.6);
+            font-weight: bold;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .copula-highlight {
+            background: #43e97b;
+            padding: 10px 20px;
+            border-radius: 12px;
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 6px 18px rgba(67, 233, 123, 0.6);
+            font-weight: bold;
+        }
+
+        .nome-parte-highlight {
+            background: #feca57;
+            padding: 10px 20px;
+            border-radius: 12px;
+            display: inline-block;
+            animation: wiggle 2s ease-in-out infinite;
+            box-shadow: 0 6px 18px rgba(254, 202, 87, 0.6);
+            font-weight: bold;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        .frase-nominale-section {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            padding: 45px;
+            border-radius: 30px;
+            color: white;
+            margin: 35px 0;
+            box-shadow: 0 18px 40px rgba(250, 112, 154, 0.6);
+            animation: slideInLeft 1.3s ease;
+        }
+
+        .frase-nominale-section h3 {
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .espansione-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .espansione-card {
+            background: linear-gradient(135deg, #ff6a00, #ee0979);
+            padding: 30px;
+            border-radius: 22px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(238, 9, 121, 0.5);
+            transition: all 0.4s ease;
+            animation: zoomIn 1s ease;
+            border: 3px solid rgba(255,255,255,0.4);
+        }
+
+        .espansione-card:hover {
+            transform: scale(1.1) rotate(-3deg);
+            box-shadow: 0 18px 40px rgba(238, 9, 121, 0.7);
+        }
+
+        .espansione-title {
+            color: #fff;
+            font-size: 1.7em;
+            font-weight: bold;
+            margin-bottom: 18px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .espansione-description {
+            color: #fff;
+            font-size: 1.15em;
+            line-height: 1.7;
+        }
+
+        .espansione-example {
+            background: rgba(255,255,255,0.3);
+            padding: 18px;
+            border-radius: 12px;
+            color: #fff;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 1.15em;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .note {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            padding: 28px;
+            border-radius: 20px;
+            margin: 28px 0;
+            font-style: italic;
+            border-left: 10px solid #667eea;
+            animation: slideInRight 1.2s ease;
+            font-size: 1.2em;
+            line-height: 1.9;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            padding: 25px;
+            border-radius: 18px;
+            margin: 25px 0;
+            border-left: 10px solid #ff6a00;
+            animation: slideInLeft 1.2s ease;
+            font-size: 1.2em;
+            line-height: 1.9;
+        }
+
+        ul {
+            margin-left: 40px;
+            line-height: 2.2;
+        }
+
+        li {
+            margin: 15px 0;
+            font-size: 1.2em;
+        }
+
+        .emoji {
+            font-size: 2em;
+            margin-right: 15px;
+            display: inline-block;
+            animation: rotate 4s ease-in-out infinite;
+        }
+
+        @keyframes rotate {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-15deg) scale(1.1); }
+            75% { transform: rotate(15deg) scale(1.1); }
+        }
+
+        .interactive-analysis {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 35px;
+            border-radius: 25px;
+            margin: 30px 0;
+            color: white;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.6);
+        }
+
+        .sentence-display {
+            background: rgba(255,255,255,0.25);
+            padding: 30px;
+            border-radius: 18px;
+            margin: 20px 0;
+            border: 4px dashed rgba(255,255,255,0.7);
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        .analysis-step {
+            background: rgba(255,255,255,0.2);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 18px 0;
+            border-left: 6px solid #fff;
+        }
+
+        .word-tag {
+            background: rgba(255,255,255,0.4);
+            padding: 12px 25px;
+            border-radius: 12px;
+            display: inline-block;
+            margin: 8px;
+            font-weight: bold;
+            font-size: 1.3em;
+            transition: all 0.3s ease;
+            border: 3px solid rgba(255,255,255,0.6);
+        }
+
+        .word-tag:hover {
+            background: rgba(255,255,255,0.7);
+            transform: scale(1.15);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
+        }
+
+        th, td {
+            padding: 25px;
+            text-align: left;
+            color: white;
+            font-size: 1.2em;
+            border-bottom: 3px solid rgba(255,255,255,0.3);
+        }
+
+        th {
+            background: rgba(255,255,255,0.25);
+            font-size: 1.5em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        tr:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .comparison-table {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            margin: 30px 0;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+            padding: 30px;
+            font-size: 1.4em;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3em; }
+            h2 { font-size: 2.2em; }
+            h3 { font-size: 1.8em; }
+            .predicato-comparison, .espansione-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sparkle {
+            display: inline-block;
+            animation: sparkle 1.8s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+            50% { opacity: 0.6; transform: scale(1.4) rotate(180deg); }
+        }
+
+        .arrow-divider {
+            text-align: center;
+            font-size: 3em;
+            color: #fff;
+            margin: 25px 0;
+            animation: float 2.5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-25px); }
+        }
+
+        .schema-box {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            padding: 35px;
+            border-radius: 25px;
+            margin: 30px 0;
+            box-shadow: 0 15px 35px rgba(67, 233, 123, 0.5);
+        }
+
+        .schema-box h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .formula {
+            background: rgba(255,255,255,0.3);
+            padding: 25px;
+            border-radius: 15px;
+            color: #fff;
+            font-size: 1.6em;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0;
+            border: 3px solid rgba(255,255,255,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="sparkle">🎯</span> IL PREDICATO <span class="sparkle">🎯</span></h1>
+            <p class="subtitle">Grammatica Italiana - Analisi Logica Completa</p>
+        </header>
+
+        <!-- Sezione: Cos'è il Predicato -->
+        <div class="card">
+            <h2><span class="emoji">💫</span> Cos'è il Predicato?</h2>
+            <div class="definition">
+                <strong>Il PREDICATO</strong> è quella parte della frase che dice qualcosa sul soggetto. Indica ciò che il soggetto fa, come è, o in che stato si trova. È l'elemento fondamentale della frase insieme al soggetto.
+            </div>
+
+            <div class="example-box">
+                <span class="emoji">📌</span> <strong>Esempi:</strong><br><br>
+                Marco <span class="verb-highlight">studia</span> matematica.<br>
+                Il cane <span class="verb-highlight">abbaia</span> nel giardino.<br>
+                Maria <span class="verb-highlight">è contenta</span>.<br>
+                I bambini <span class="verb-highlight">giocano</span> al parco.
+            </div>
+
+            <div class="highlight">
+                <span class="emoji">🔑</span> <strong>Come trovare il predicato?</strong><br><br>
+                Il predicato è sempre il <strong>VERBO</strong> della frase (o il verbo + altre parole).<br>
+                Fai la domanda: Il soggetto <strong>"CHE COSA FA?"</strong> o <strong>"COM'È?"</strong>
+            </div>
+
+            <div class="note">
+                <span class="emoji">💡</span> <strong>Importante:</strong> Senza il predicato non esiste la frase! Il predicato è l'elemento più importante dell'analisi logica.
+            </div>
+        </div>
+
+        <!-- Sezione: Predicato Verbale vs Predicato Nominale -->
+        <div class="card">
+            <h2><span class="emoji">⚖️</span> Tipi di Predicato</h2>
+            <p style="font-size: 1.3em; margin-bottom: 30px; line-height: 1.9;">
+                Il predicato si divide in due tipi principali: <strong>PREDICATO VERBALE</strong> e <strong>PREDICATO NOMINALE</strong>.
+            </p>
+
+            <div class="predicato-comparison">
+                <div class="predicato-box" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    <div class="predicato-title">🎬 PREDICATO VERBALE</div>
+                    <div class="predicato-description">
+                        È formato da un verbo che ha significato compiuto da solo. Esprime un'azione, uno stato o una condizione del soggetto.
+                    </div>
+                    <div class="predicato-example">
+                        Marco <span class="verb-highlight">corre</span>.<br><br>
+                        La pioggia <span class="verb-highlight">cade</span>.<br><br>
+                        Luca <span class="verb-highlight">mangia</span> la pizza.<br><br>
+                        Il gatto <span class="verb-highlight">dorme</span> sul divano.
+                    </div>
+                    <div style="margin-top: 25px; font-size: 1.2em; color: white;">
+                        <strong>✅ QUALSIASI VERBO</strong><br>
+                        (tranne essere, sembrare, parere, diventare quando fanno da copula)
+                    </div>
+                </div>
+
+                <div class="predicato-box" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                    <div class="predicato-title">👑 PREDICATO NOMINALE</div>
+                    <div class="predicato-description">
+                        È formato da una COPULA (verbo essere o verbi copulativi) + PARTE NOMINALE (nome o aggettivo). Attribuisce una qualità o identità al soggetto.
+                    </div>
+                    <div class="predicato-example">
+                        Marco <span class="copula-highlight">è</span> <span class="nome-parte-highlight">studioso</span>.<br><br>
+                        Il cielo <span class="copula-highlight">sembra</span> <span class="nome-parte-highlight">sereno</span>.<br><br>
+                        Laura <span class="copula-highlight">è</span> <span class="nome-parte-highlight">medico</span>.<br><br>
+                        Paolo <span class="copula-highlight">diventa</span> <span class="nome-parte-highlight">rosso</span>.
+                    </div>
+                    <div style="margin-top: 25px; font-size: 1.2em; color: white;">
+                        <strong>✅ COPULA + NOME/AGGETTIVO</strong><br>
+                        (essere, sembrare, parere, diventare, apparire, risultare)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sezione: Predicato Verbale Dettagliato -->
+        <div class="card">
+            <h2><span class="emoji">🎬</span> Il Predicato Verbale - Approfondimento</h2>
+            
+            <div class="schema-box">
+                <h3>Formula del Predicato Verbale:</h3>
+                <div class="formula">
+                    PREDICATO VERBALE = VERBO (con significato completo)
+                </div>
+            </div>
+
+            <div class="example-box">
+                <span class="emoji">🌟</span> <strong>Esempi Completi:</strong><br><br>
+                <strong>1.</strong> Gli uccelli <span class="verb-highlight">cantano</span> all'alba.<br>
+                → "cantano" = predicato verbale (verbo con significato completo)<br><br>
+                <strong>2.</strong> Maria <span class="verb-highlight">ha scritto</span> una lettera.<br>
+                → "ha scritto" = predicato verbale (verbo composto)<br><br>
+                <strong>3.</strong> I bambini <span class="verb-highlight">giocavano</span> nel parco.<br>
+                → "giocavano" = predicato verbale<br><br>
+                <strong>4.</strong> Il treno <span class="verb-highlight">parte</span> alle otto.<br>
+                → "parte" = predicato verbale
+            </div>
+
+            <div class="highlight">
+                <span class="emoji">📚</span> <strong>Tipi di verbi nel Predicato Verbale:</strong><br><br>
+                • <strong>Verbi transitivi:</strong> Hanno un oggetto → "Marco mangia la mela"<br>
+                • <strong>Verbi intransitivi:</strong> Non hanno oggetto → "Il sole splende"<br>
+                • <strong>Verbi riflessivi:</strong> L'azione ricade sul soggetto → "Mi lavo"<br>
+                • <strong>Verbi impersonali:</strong> Senza soggetto determinato → "Piove"
+            </div>
+
+            <table>
+                <tr>
+                    <th>Tipo di Verbo</th>
+                    <th>Esempio</th>
+                    <th>Predicato Verbale</th>
+                </tr>
+                <tr>
+                    <td><strong>Semplice</strong></td>
+                    <td>Luca corre veloce.</td>
+                    <td>corre</td>
+                </tr>
+                <tr>
+                    <td><strong>Composto</strong></td>
+                    <td>Maria ha mangiato.</td>
+                    <td>ha mangiato</td>
+                </tr>
+                <tr>
+                    <td><strong>Riflessivo</strong></td>
+                    <td>Mi sono vestito.</td>
+                    <td>mi sono vestito</td>
+                </tr>
+                <tr>
+                    <td><strong>Passivo</strong></td>
+                    <td>Il libro è letto.</td>
+                    <td>è letto</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sezione: Predicato Nominale Dettagliato -->
+        <div class="card">
+            <h2><span class="emoji">👑</span> Il Predicato Nominale - Approfondimento</h2>
+            
+            <div class="schema-box">
+                <h3>Formula del Predicato Nominale:</h3>
+                <div class="formula">
+                    PREDICATO NOMINALE = COPULA + PARTE NOMINALE
+                </div>
+                <div class="formula" style="font-size: 1.3em; margin-top: 20px;">
+                    COPULA = verbo essere (o verbo copulativo)<br>
+                    PARTE NOMINALE = nome o aggettivo
+                </div>
+            </div>
+
+            <div class="interactive-analysis">
+                <h3 style="color: white; margin-bottom: 25px;">🔍 Analisi Dettagliata:</h3>
+                <div class="sentence-display">
+                    "Marco è studioso."
+                </div>
+                <div class="analysis-step">
+                    <strong style="font-size: 1.3em;">PASSO 1:</strong> Identifica il verbo → "è" (verbo essere)
+                </div>
+                <div class="analysis-step">
+                    <strong style="font-size: 1.3em;">PASSO 2:</strong> Il verbo essere fa da COPULA (= collega)
+                </div>
+                <div class="analysis-step">
+                    <strong style="font-size: 1.3em;">PASSO 3:</strong> Trova la PARTE NOMINALE → "studioso" (aggettivo)
+                </div>
+                <div class="analysis-step">
+                    <strong style="font-size: 1.3em;">RISULTATO:</strong><br>
+                    <span class="word-tag">COPULA: è</span>
+                    <span class="word-tag">PARTE NOMINALE: studioso</span><br>
+                    <span class="word-tag" style="background: #43e97b; margin-top: 15px;">PREDICATO NOMINALE: è studioso</span>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <span class="emoji">💎</span> <strong>Verbi Copulativi (che formano predicato nominale):</strong><br><br>
+                <table style="background: transparent; box-shadow: none;">
+                    <tr>
+                        <th>Verbo Copulativo</th>
+                        <th>Esempio</th>
+                    </tr>
+                    <tr>
+                        <td><strong>ESSERE</strong></td>
+                        <td>Marco è intelligente.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SEMBRARE</strong></td>
+                        <td>Lucia sembra felice.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PARERE</strong></td>
+                        <td>Mi pare stanco.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DIVENTARE</strong></td>
+                        <td>Paolo diventa rosso.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>APPARIRE</strong></td>
+                        <td>Appare triste.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RISULTARE</strong></td>
+                        <td>Risulta vincitore.</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="highlight">
+                <span class="emoji">⚠️</span> <strong>ATTENZIONE - Quando "essere" NON è copula:</strong><br><br>
+                Il verbo "essere" può anche essere predicato verbale quando significa:<br>
+                • <strong>Esistere:</strong> "Dio è." (= esiste)<br>
+                • <strong>Trovarsi:</strong> "Marco è a casa." (= si trova)<br>
+                • <strong>Stare:</strong> "Come sei?" (= come stai)<br>
+                • <strong>Appartenere:</strong> "Il libro è di Maria." (= appartiene a)
+            </div>
+        </div>
+
+        <!-- Sezione: La Frase Nominale -->
+        <div class="card">
+            <h2><span class="emoji">🎨</span> La Frase Nominale</h2>
+            <div class="frase-nominale-section">
+                <h3>Cos'è la Frase Nominale?</h3>
+                <p style="font-size: 1.35em; line-height: 2; margin: 25px 0;">
+                    La <strong>frase nominale</strong> è una frase SENZA VERBO! È formata solo da nomi, aggettivi, avverbi o altre parti del discorso, ma non contiene alcun predicato verbale.
+                </p>
+
+                <div class="arrow-divider">⬇️</div>
+
+                <div style="background: rgba(255,255,255,0.3); padding: 30px; border-radius: 20px; border: 4px solid rgba(255,255,255,0.5);">
+                    <h4 style="color: white; font-size: 1.8em; margin-bottom: 20px;">📋 Quando si usa:</h4>
+                    <ul style="color: white; font-size: 1.2em; line-height: 2;">
+                        <li><strong>Titoli:</strong> "Incendio in centro!"</li>
+                        <li><strong>Esclamazioni:</strong> "Che bella giornata!"</li>
+                        <li><strong>Insegne:</strong> "Farmacia", "Uscita"</li>
+                        <li><strong>Proverbi:</strong> "Rosso di sera, bel tempo si spera."</li>
+                        <li><strong>Annunci:</strong> "Vendesi appartamento."</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <span class="emoji">✨</span> <strong>Esempi di Frasi Nominali:</strong><br><br>
+                <strong>1.</strong> "Bellissimo!" → Frase nominale (solo aggettivo)<br><br>
+                <strong>2.</strong> "Attenzione al cane!" → Frase nominale (nomi)<br><br>
+                <strong>3.</strong> "Silenzio in sala!" → Frase nominale (nome + complemento)<br><br>
+                <strong>4.</strong> "Che meraviglia!" → Frase nominale (esclamazione)<br><br>
+                <strong>5.</strong> "Divieto di sosta." → Frase nominale (cartello)
+            </div>
+
+            <table class="comparison-table">
+                <tr>
+                    <th>Frase Nominale</th>
+                    <th>Frase con Predicato</th>
+                </tr>
+                <tr>
+                    <td>Bel tempo oggi!</td>
+                    <td>Oggi c'è bel tempo.</td>
+                </tr>
+                <tr>
+                    <td>Incendio!</td>
+                    <td>C'è un incendio!</td>
+                </tr>
+                <tr>
+                    <td>Che sorpresa!</td>
+                    <td>Questa è una sorpresa!</td>
+                </tr>
+                <tr>
+                    <td>Vietato fumare.</td>
+                    <td>È vietato fumare.</td>
+                </tr>
+            </table>
+
+            <div class="note">
+                <span class="emoji">📌</span> <strong>Ricorda:</strong> La frase nominale è molto usata nel linguaggio giornalistico, pubblicitario e nei cartelli stradali per la sua brevità ed efficacia.
+            </div>
+        </div>
+
+        <!-- Sezione: Espansioni del Soggetto -->
+        <div class="card">
+            <h2><span class="emoji">🌟</span> Espansioni del Soggetto</h2>
+            <p style="font-size: 1.3em; margin-bottom: 30px; line-height: 2;">
+                Le <strong>espansioni</strong> sono parole o gruppi di parole che arricchiscono il soggetto, dandogli più informazioni e dettagli.
+            </p>
+
+            <div class="schema-box">
+                <h3>Da Soggetto Semplice a Soggetto Espanso:</h3>
+                <div class="formula">
+                    SOGGETTO SEMPLICE: Il gatto
+                </div>
+                <div class="arrow-divider">⬇️</div>
+                <div class="formula" style="background: rgba(255,255,255,0.5);">
+                    SOGGETTO ESPANSO: Il gatto nero della mia vicina
+                </div>
+            </div>
+
+            <div class="espansione-container">
+                <div class="espansione-card" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    <div class="espansione-title">📝 AGGETTIVI</div>
+                    <div class="espansione-description">
+                        Descrivono una qualità del soggetto
+                    </div>
+                    <div class="espansione-example">
+                        Il gatto <strong>nero</strong><br>
+                        La ragazza <strong>simpatica</strong><br>
+                        Un libro <strong>interessante</strong>
+                    </div>
+                </div>
+
+                <div class="espansione-card" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                    <div class="espansione-title">🔗 COMPLEMENTI</div>
+                    <div class="espansione-description">
+                        Aggiungono informazioni con preposizioni
+                    </div>
+                    <div class="espansione-example">
+                        Il gatto <strong>di Maria</strong><br>
+                        Il libro <strong>sulla storia</strong><br>
+                        La casa <strong>in montagna</strong>
+                    </div>
+                </div>
+
+                <div class="espansione-card" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                    <div class="espansione-title">🎯 APPOSIZIONI</div>
+                    <div class="espansione-description">
+                        Specificano meglio il soggetto
+                    </div>
+                    <div class="espansione-example">
+                        Marco, <strong>mio fratello</strong><br>
+                        Roma, <strong>la capitale</strong><br>
+                        Il dottor Rossi, <strong>medico</strong>
+                    </div>
+                </div>
+
+                <div class="espansione-card" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                    <div class="espansione-title">📖 PROPOSIZIONI</div>
+                    <div class="espansione-description">
+                        Frasi che espandono il soggetto
+                    </div>
+                    <div class="espansione-example">
+                        Il ragazzo <strong>che studia</strong><br>
+                        La casa <strong>dove abito</strong><br>
+                        L'uomo <strong>che corre</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interactive-analysis">
+                <h3 style="color: white; margin-bottom: 25px;">🎨 Esempio di Espansione Progressiva:</h3>
+                <div class="sentence-display">
+                    1. Il cane
+                </div>
+                <div class="arrow-divider">⬇️ + Aggettivo</div>
+                <div class="sentence-display">
+                    2. Il cane nero
+                </div>
+                <div class="arrow-divider">⬇️ + Complemento</div>
+                <div class="sentence-display">
+                    3. Il cane nero di Marco
+                </div>
+                <div class="arrow-divider">⬇️ + Proposizione</div>
+                <div class="sentence-display">
+                    4. Il cane nero di Marco che abbaia sempre
+                </div>
+            </div>
+        </div>
+
+        <!-- Sezione: Espansioni del Predicato -->
+        <div class="card">
+            <h2><span class="emoji">🚀</span> Espansioni del Predicato</h2>
+            <p style="font-size: 1.3em; margin-bottom: 30px; line-height: 2;">
+                Anche il predicato può essere arricchito con <strong>espansioni</strong> che completano il significato del verbo.
+            </p>
+
+            <div class="schema-box">
+                <h3>Da Predicato Semplice a Predicato Espanso:</h3>
+                <div class="formula">
+                    PREDICATO SEMPLICE: corre
+                </div>
+                <div class="arrow-divider">⬇️</div>
+                <div class="formula" style="background: rgba(255,255,255,0.5);">
+                    PREDICATO ESPANSO: corre velocemente nel parco ogni mattina
+                </div>
+            </div>
+
+            <div class="espansione-container">
+                <div class="espansione-card" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+                    <div class="espansione-title">⚡ AVVERBI</div>
+                    <div class="espansione-description">
+                        Modificano il modo, il tempo, il luogo
+                    </div>
+                    <div class="espansione-example">
+                        Corre <strong>velocemente</strong><br>
+                        Parla <strong>chiaramente</strong><br>
+                        Arriva <strong>domani</strong>
+                    </div>
+                </div>
+
+                <div class="espansione-card" style="background: linear-gradient(135deg, #ff6a00, #ee0979);">
+                    <div class="espansione-title">🎯 COMPLEMENTI OGGETTO</div>
+                    <div class="espansione-description">
+                        Completano i verbi transitivi
+                    </div>
+                    <div class="espansione-example">
+                        Mangia <strong>la mela</strong><br>
+                        Legge <strong>un libro</strong><br>
+                        Scrive <strong>una lettera</strong>
+                    </div>
+                </div>
+
+                <div class="espansione-card" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    <div class="espansione-title">📍 COMPLEMENTI INDIRETTI</div>
+                    <div class="espansione-description">
+                        Aggiungono circostanze (luogo, tempo, modo)
+                    </div>
+                    <div class="espansione-example">
+                        Vado <strong>a scuola</strong><br>
+                        Arrivo <strong>alle otto</strong><br>
+                        Parlo <strong>con te</strong>
+                    </div>
+                </div>
+
+                <div class="espansione-card" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                    <div class="espansione-title">🔧 PREDICATIVI</div>
+                    <div class="espansione-description">
+                        Completano il senso del predicato
+                    </div>
+                    <div class="espansione-example">
+                        Torna <strong>felice</strong><br>
+                        Rimane <strong>in silenzio</strong><br>
+                        Diventa <strong>famoso</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <span class="emoji">🌈</span> <strong>Esempio Completo di Frase Espansa:</strong><br><br>
+                <div style="background: rgba(255,255,255,0.3); padding: 25px; border-radius: 15px; margin-top: 20px;">
+                    <p style="font-size: 1.4em; margin-bottom: 15px;"><strong>Frase Minima:</strong></p>
+                    <p style="font-size: 1.5em; margin-bottom: 30px;">Marco studia.</p>
+                    
+                    <p style="font-size: 1.4em; margin-bottom: 15px;"><strong>Frase Completamente Espansa:</strong></p>
+                    <p style="font-size: 1.5em;">
+                        <span class="word-tag">Marco</span> 
+                        <span class="word-tag">studioso</span> (espansione soggetto)<br>
+                        <span class="word-tag">studia</span> 
+                        <span class="word-tag">attentamente</span> (espansione predicato - avverbio)<br>
+                        <span class="word-tag">la matematica</span> (espansione predicato - complemento oggetto)<br>
+                        <span class="word-tag">in biblioteca</span> (espansione predicato - complemento di luogo)<br>
+                        <span class="word-tag">ogni pomeriggio</span> (espansione predicato - complemento di tempo)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sezione Riassuntiva -->
+        <div class="card">
+            <h2><span class="emoji">📋</span> Schema Riassuntivo Completo</h2>
+            
+            <table style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                <tr>
+                    <th>CONCETTO</th>
+                    <th>DEFINIZIONE</th>
+                    <th>ESEMPIO</th>
+                </tr>
+                <tr>
+                    <td><strong>PREDICATO</strong></td>
+                    <td>Ciò che si dice del soggetto</td>
+                    <td>Marco corre.</td>
+                </tr>
+                <tr>
+                    <td><strong>PREDICATO VERBALE</strong></td>
+                    <td>Verbo con significato completo</td>
+                    <td>Maria mangia la mela.</td>
+                </tr>
+                <tr>
+                    <td><strong>PREDICATO NOMINALE</strong></td>
+                    <td>Copula + Parte nominale</td>
+                    <td>Luca è studioso.</td>
+                </tr>
+                <tr>
+                    <td><strong>FRASE NOMINALE</strong></td>
+                    <td>Frase senza verbo</td>
+                    <td>Che bello!</td>
+                </tr>
+                <tr>
+                    <td><strong>ESPANSIONE SOGGETTO</strong></td>
+                    <td>Arricchisce il soggetto</td>
+                    <td>Il gatto nero di Maria</td>
+                </tr>
+                <tr>
+                    <td><strong>ESPANSIONE PREDICATO</strong></td>
+                    <td>Completa il predicato</td>
+                    <td>Corre velocemente nel parco</td>
+                </tr>
+            </table>
+
+            <div class="highlight" style="margin-top: 40px;">
+                <h3 style="color: #ff6a00;">🎯 Punti Chiave da Ricordare:</h3>
+                <ul>
+                    <li><strong>Il predicato è il cuore della frase</strong> - senza predicato non c'è frase (tranne nelle frasi nominali)</li>
+                    <li><strong>Predicato Verbale:</strong> Qualsiasi verbo con significato completo</li>
+                    <li><strong>Predicato Nominale:</strong> Sempre formato da COPULA + PARTE NOMINALE</li>
+                    <li><strong>Verbi Copulativi:</strong> essere, sembrare, parere, diventare, apparire, risultare</li>
+                    <li><strong>Frase Nominale:</strong> Senza verbo, usata per titoli, esclamazioni, insegne</li>
+                    <li><strong>Espansioni:</strong> Arricchiscono sia il soggetto che il predicato</li>
+                    <li><strong>Espansioni Soggetto:</strong> Aggettivi, complementi, apposizioni, proposizioni</li>
+                    <li><strong>Espansioni Predicato:</strong> Avverbi, complementi oggetto, complementi indiretti, predicativi</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>🌟 Continua a studiare e padroneggerai l'analisi logica! 🌟</p>
+            <p>📚 Grammatica Italiana - Il Predicato e le Espansioni 📚</p>
+        </footer>
+    </div>
+</body>
+</html>

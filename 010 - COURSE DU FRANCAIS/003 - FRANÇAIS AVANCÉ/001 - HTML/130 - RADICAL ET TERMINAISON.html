@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radical et Terminaison | Grammaire Française</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Newsreader:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --burnt-orange: #D2691E;
+            --olive-green: #6B8E23;
+            --mustard: #E3B448;
+            --brown-chocolate: #5C4033;
+            --terracotta: #C65D3B;
+            --sage: #9CAF88;
+            --cream: #F5E6D3;
+            --beige: #E8DCC4;
+            --rust: #B7410E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--beige) 100%);
+            color: var(--brown-chocolate);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Retro circles pattern */
+        .retro-background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .retro-circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.08;
+        }
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--burnt-orange);
+            top: 5%;
+            right: -100px;
+            animation: rotate 30s linear infinite;
+        }
+
+        .circle-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--olive-green);
+            bottom: 10%;
+            left: -80px;
+            animation: rotate 25s linear infinite reverse;
+        }
+
+        .circle-3 {
+            width: 250px;
+            height: 250px;
+            background: var(--mustard);
+            top: 40%;
+            right: 10%;
+            animation: rotate 35s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Container */
+        .wrapper {
+            max-width: 1350px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        /* Retro header */
+        header {
+            padding: 100px 0 80px;
+            position: relative;
+        }
+
+        .vintage-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--burnt-orange);
+            color: var(--cream);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            box-shadow: 
+                0 8px 0 var(--rust),
+                0 8px 30px rgba(0, 0, 0, 0.2);
+            animation: bounce 0.8s ease-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .badge-star {
+            font-size: 1rem;
+        }
+
+        h1 {
+            font-family: 'Newsreader', serif;
+            font-size: 7rem;
+            font-weight: 800;
+            color: var(--brown-chocolate);
+            line-height: 0.95;
+            margin-bottom: 30px;
+            text-shadow: 4px 4px 0 rgba(210, 105, 30, 0.2);
+            animation: slideInLeft 1s ease-out 0.2s backwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .title-word {
+            display: block;
+        }
+
+        .title-accent {
+            color: var(--burnt-orange);
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            color: var(--olive-green);
+            font-weight: 500;
+            max-width: 850px;
+            animation: slideInLeft 1s ease-out 0.4s backwards;
+        }
+
+        /* Retro box intro */
+        .intro-box {
+            background: white;
+            padding: 60px;
+            border-radius: 40px;
+            margin: 70px 0;
+            box-shadow: 
+                0 0 0 8px var(--mustard),
+                0 0 0 16px var(--cream),
+                0 30px 60px rgba(0, 0, 0, 0.15);
+            animation: popIn 1s ease-out 0.6s backwards;
+            position: relative;
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .intro-box::before,
+        .intro-box::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .intro-box::before {
+            background: var(--burnt-orange);
+            top: -30px;
+            left: 50px;
+            opacity: 0.6;
+        }
+
+        .intro-box::after {
+            background: var(--olive-green);
+            bottom: -30px;
+            right: 60px;
+            opacity: 0.6;
+        }
+
+        .intro-box h2 {
+            font-family: 'Newsreader', serif;
+            font-size: 3rem;
+            color: var(--brown-chocolate);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .intro-box p {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--brown-chocolate);
+        }
+
+        .keyword {
+            background: linear-gradient(180deg, transparent 60%, var(--mustard) 60%);
+            font-weight: 700;
+            padding: 0 4px;
+        }
+
+        /* Section with retro numbers */
+        .content-section {
+            margin: 100px 0;
+            animation: popIn 1s ease-out backwards;
+        }
+
+        .content-section:nth-child(4) { animation-delay: 0.8s; }
+        .content-section:nth-child(5) { animation-delay: 1s; }
+        .content-section:nth-child(6) { animation-delay: 1.2s; }
+        .content-section:nth-child(7) { animation-delay: 1.4s; }
+
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 35px;
+            margin-bottom: 60px;
+        }
+
+        .retro-number {
+            width: 100px;
+            height: 100px;
+            background: var(--burnt-orange);
+            color: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Newsreader', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            box-shadow: 
+                0 8px 0 var(--rust),
+                0 8px 35px rgba(0, 0, 0, 0.25);
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .retro-number::before {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            border: 3px dashed var(--cream);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .section-title {
+            font-family: 'Newsreader', serif;
+            font-size: 3.5rem;
+            color: var(--brown-chocolate);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            color: var(--olive-green);
+            line-height: 1.9;
+            font-weight: 500;
+        }
+
+        /* Retro cards */
+        .retro-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .retro-card {
+            background: white;
+            padding: 45px;
+            border-radius: 30px;
+            box-shadow: 
+                0 0 0 6px var(--sage),
+                0 20px 50px rgba(0, 0, 0, 0.12);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .retro-card:hover {
+            transform: translateY(-8px) rotate(-1deg);
+            box-shadow: 
+                0 0 0 6px var(--burnt-orange),
+                0 30px 60px rgba(0, 0, 0, 0.18);
+        }
+
+        .retro-card::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: var(--mustard);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .card-label {
+            display: inline-block;
+            background: var(--burnt-orange);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+        }
+
+        .retro-card h4 {
+            font-family: 'Newsreader', serif;
+            font-size: 2.2rem;
+            color: var(--brown-chocolate);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .card-content {
+            font-size: 1.05rem;
+            color: var(--brown-chocolate);
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        /* Visual breakdown */
+        .breakdown-box {
+            background: var(--beige);
+            padding: 35px;
+            border-radius: 25px;
+            margin: 50px 0;
+            border: 4px solid var(--mustard);
+        }
+
+        .breakdown-title {
+            font-family: 'Newsreader', serif;
+            font-size: 2rem;
+            color: var(--brown-chocolate);
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .verb-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            font-family: 'Newsreader', serif;
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 30px 0;
+        }
+
+        .radical-part {
+            background: var(--burnt-orange);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 20px 0 0 20px;
+            box-shadow: inset 0 -8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .ending-part {
+            background: var(--olive-green);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 0 20px 20px 0;
+            box-shadow: inset 0 -8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .part-label {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .label-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .label-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .radical-color {
+            background: var(--burnt-orange);
+        }
+
+        .ending-color {
+            background: var(--olive-green);
+        }
+
+        /* Examples grid */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .example-card {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .example-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .example-verb {
+            font-family: 'Newsreader', serif;
+            font-size: 2rem;
+            color: var(--brown-chocolate);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .example-breakdown {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 1.8rem;
+            font-family: 'Newsreader', serif;
+            font-weight: 700;
+        }
+
+        .radical-text {
+            color: var(--burnt-orange);
+        }
+
+        .ending-text {
+            color: var(--olive-green);
+        }
+
+        .plus-sign {
+            color: var(--mustard);
+            font-size: 1.5rem;
+        }
+
+        /* Conjugation table retro */
+        .conjugation-showcase {
+            background: white;
+            padding: 60px;
+            border-radius: 35px;
+            margin: 70px 0;
+            box-shadow: 
+                0 0 0 8px var(--olive-green),
+                0 0 0 16px var(--cream),
+                0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .showcase-title {
+            font-family: 'Newsreader', serif;
+            font-size: 3rem;
+            text-align: center;
+            color: var(--brown-chocolate);
+            margin-bottom: 50px;
+            font-weight: 800;
+        }
+
+        .conjugation-table {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .conjugation-cell {
+            background: var(--beige);
+            padding: 25px;
+            border-radius: 20px;
+            border: 3px solid var(--mustard);
+            text-align: center;
+        }
+
+        .person-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--olive-green);
+            margin-bottom: 15px;
+        }
+
+        .conjugated-form {
+            font-family: 'Newsreader', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--brown-chocolate);
+            margin-bottom: 10px;
+        }
+
+        .form-breakdown {
+            font-size: 1rem;
+            color: var(--brown-chocolate);
+        }
+
+        /* Info panels */
+        .info-panel {
+            background: var(--burnt-orange);
+            color: white;
+            padding: 60px;
+            border-radius: 35px;
+            margin: 70px 0;
+            box-shadow: 0 20px 60px rgba(210, 105, 30, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-panel::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .info-panel h3 {
+            font-family: 'Newsreader', serif;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-panel-content {
+            font-size: 1.15rem;
+            line-height: 2;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-panel-content ul {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .info-panel-content li {
+            padding: 15px 0;
+            padding-left: 35px;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .info-panel-content li:last-child {
+            border-bottom: none;
+        }
+
+        .info-panel-content li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            color: var(--mustard);
+        }
+
+        .info-panel-content strong {
+            color: var(--mustard);
+            font-weight: 700;
+        }
+
+        /* Special groups section */
+        .groups-section {
+            margin: 80px 0;
+        }
+
+        .group-card {
+            background: white;
+            padding: 50px;
+            border-radius: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            border-left: 12px solid var(--burnt-orange);
+        }
+
+        .group-card:nth-child(2) {
+            border-left-color: var(--olive-green);
+        }
+
+        .group-card:nth-child(3) {
+            border-left-color: var(--mustard);
+        }
+
+        .group-title {
+            font-family: 'Newsreader', serif;
+            font-size: 2.5rem;
+            color: var(--brown-chocolate);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .group-description {
+            font-size: 1.1rem;
+            color: var(--brown-chocolate);
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+        .verbs-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .verb-tag {
+            background: var(--beige);
+            padding: 15px 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-family: 'Newsreader', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--brown-chocolate);
+            border: 2px solid var(--mustard);
+            transition: all 0.3s ease;
+        }
+
+        .verb-tag:hover {
+            background: var(--mustard);
+            transform: scale(1.05);
+        }
+
+        /* Footer retro */
+        footer {
+            margin-top: 120px;
+            padding: 80px 0;
+            background: var(--brown-chocolate);
+            color: var(--cream);
+            text-align: center;
+            position: relative;
+            border-radius: 50px 50px 0 0;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            background: var(--burnt-orange);
+            border-radius: 50%;
+            box-shadow: 0 8px 0 var(--rust);
+        }
+
+        .footer-logo {
+            font-family: 'Newsreader', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--mustard);
+        }
+
+        .footer-text {
+            font-size: 1.1rem;
+            color: var(--cream);
+            font-weight: 400;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .wrapper {
+                padding: 0 40px;
+            }
+
+            .retro-cards,
+            .examples-grid,
+            .conjugation-table {
+                grid-template-columns: 1fr;
+            }
+
+            .verbs-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .wrapper {
+                padding: 0 25px;
+            }
+
+            h1 {
+                font-size: 4rem;
+            }
+
+            .intro-box,
+            .conjugation-showcase,
+            .info-panel {
+                padding: 40px 25px;
+            }
+
+            .section-header {
+                flex-direction: column;
+            }
+
+            .retro-number {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .verb-display {
+                flex-direction: column;
+                gap: 20px;
+                font-size: 3rem;
+            }
+
+            .radical-part,
+            .ending-part {
+                border-radius: 20px;
+            }
+
+            .verbs-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="retro-background">
+        <div class="retro-circle circle-1"></div>
+        <div class="retro-circle circle-2"></div>
+        <div class="retro-circle circle-3"></div>
+    </div>
+
+    <div class="wrapper">
+        <header>
+            <div class="vintage-badge">
+                <span class="badge-star">★</span>
+                <span>Língua Academy</span>
+                <span class="badge-star">★</span>
+            </div>
+            <h1>
+                <span class="title-word">Radical &</span>
+                <span class="title-word"><span class="title-accent">Terminaison</span></span>
+            </h1>
+            <p class="tagline">
+                Découvrez la structure fondamentale des verbes français : le radical qui porte le sens et la terminaison qui indique la personne, le temps et le mode
+            </p>
+        </header>
+
+        <div class="intro-box">
+            <h2>La Structure du Verbe Conjugué</h2>
+            <p>
+                Tout verbe conjugué en français se décompose en deux parties essentielles : le <span class="keyword">radical</span> (ou racine) qui porte le sens du verbe, et la <span class="keyword">terminaison</span> (ou désinence) qui indique la personne, le nombre, le temps et le mode. Cette structure est la clé pour comprendre et maîtriser la conjugaison française. En identifiant ces deux éléments, vous pouvez déchiffrer n'importe quelle forme verbale.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <div class="retro-number">1</div>
+                <div>
+                    <h3 class="section-title">Le Radical : Le Sens du Verbe</h3>
+                    <p class="section-description">
+                        Le radical est la partie du verbe qui reste généralement constante et qui porte le sens lexical. C'est le cœur sémantique du verbe, ce qui le distingue des autres verbes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="breakdown-box">
+                <h4 class="breakdown-title">Décomposition Visuelle</h4>
+                <div class="verb-display">
+                    <div class="radical-part">PARL</div>
+                    <div class="ending-part">ONS</div>
+                </div>
+                <div class="part-label">
+                    <div class="label-item">
+                        <div class="label-color radical-color"></div>
+                        <span>Radical (sens)</span>
+                    </div>
+                    <div class="label-item">
+                        <div class="label-color ending-color"></div>
+                        <span>Terminaison (grammaire)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="retro-cards">
+                <div class="retro-card">
+                    <div class="card-label">Définition</div>
+                    <h4>Qu'est-ce que le radical ?</h4>
+                    <p class="card-content">
+                        Le radical est la partie stable du verbe, obtenue en enlevant la terminaison de l'infinitif. Pour les verbes réguliers, il reste identique à toutes les formes de conjugaison. C'est lui qui donne le sens principal du verbe.
+                    </p>
+                </div>
+
+                <div class="retro-card">
+                    <div class="card-label">Formation</div>
+                    <h4>Comment trouver le radical ?</h4>
+                    <p class="card-content">
+                        Pour trouver le radical d'un verbe, prenez l'infinitif et retirez la terminaison (-er, -ir, -re, -oir). Ce qui reste est le radical. Par exemple : PARL-er, FINISS-ir, VEND-re.
+                    </p>
+                </div>
+            </div>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-verb">PARLER</div>
+                    <div class="example-breakdown">
+                        <span class="radical-text">PARL</span>
+                        <span class="plus-sign">+</span>
+                        <span class="ending-text">ER</span>
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-verb">FINIR</div>
+                    <div class="example-breakdown">
+                        <span class="radical-text">FIN</span>
+                        <span class="plus-sign">+</span>
+                        <span class="ending-text">IR</span>
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-verb">VENDRE</div>
+                    <div class="example-breakdown">
+                        <span class="radical-text">VEND</span>
+                        <span class="plus-sign">+</span>
+                        <span class="ending-text">RE</span>
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-verb">RECEVOIR</div>
+                    <div class="example-breakdown">
+                        <span class="radical-text">RECEV</span>
+                        <span class="plus-sign">+</span>
+                        <span class="ending-text">OIR</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <div class="retro-number">2</div>
+                <div>
+                    <h3 class="section-title">La Terminaison : L'Information Grammaticale</h3>
+                    <p class="section-description">
+                        La terminaison est la partie variable du verbe qui s'ajoute au radical. Elle indique la personne, le nombre, le temps et le mode. C'est elle qui permet de conjuguer le verbe.
+                    </p>
+                </div>
+            </div>
+
+            <div class="retro-cards">
+                <div class="retro-card">
+                    <div class="card-label">Rôle</div>
+                    <h4>Ce qu'indique la terminaison</h4>
+                    <p class="card-content">
+                        La terminaison encode quatre informations grammaticales essentielles : la personne (1ère, 2ème, 3ème), le nombre (singulier, pluriel), le temps (présent, passé, futur) et le mode (indicatif, subjonctif, etc.).
+                    </p>
+                </div>
+
+                <div class="retro-card">
+                    <div class="card-label">Variabilité</div>
+                    <h4>Une partie qui change</h4>
+                    <p class="card-content">
+                        Contrairement au radical qui reste stable, la terminaison change constamment selon la conjugaison. C'est cette variabilité qui permet d'exprimer toutes les nuances grammaticales du français.
+                    </p>
+                </div>
+            </div>
+
+            <div class="conjugation-showcase">
+                <h3 class="showcase-title">Exemple : PARLER au présent</h3>
+                <div class="conjugation-table">
+                    <div class="conjugation-cell">
+                        <div class="person-label">Je</div>
+                        <div class="conjugated-form">parle</div>
+                        <div class="form-breakdown">parl + e</div>
+                    </div>
+                    <div class="conjugation-cell">
+                        <div class="person-label">Tu</div>
+                        <div class="conjugated-form">parles</div>
+                        <div class="form-breakdown">parl + es</div>
+                    </div>
+                    <div class="conjugation-cell">
+                        <div class="person-label">Il/Elle</div>
+                        <div class="conjugated-form">parle</div>
+                        <div class="form-breakdown">parl + e</div>
+                    </div>
+                    <div class="conjugation-cell">
+                        <div class="person-label">Nous</div>
+                        <div class="conjugated-form">parlons</div>
+                        <div class="form-breakdown">parl + ons</div>
+                    </div>
+                    <div class="conjugation-cell">
+                        <div class="person-label">Vous</div>
+                        <div class="conjugated-form">parlez</div>
+                        <div class="form-breakdown">parl + ez</div>
+                    </div>
+                    <div class="conjugation-cell">
+                        <div class="person-label">Ils/Elles</div>
+                        <div class="conjugated-form">parlent</div>
+                        <div class="form-breakdown">parl + ent</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h3>Terminaisons du Présent de l'Indicatif</h3>
+            <div class="info-panel-content">
+                <p><strong>Verbes en -ER</strong> (1er groupe) :</p>
+                <ul>
+                    <li><strong>-e, -es, -e, -ons, -ez, -ent</strong> (je parle, tu parles, il parle, nous parlons, vous parlez, ils parlent)</li>
+                </ul>
+                <p style="margin-top: 20px;"><strong>Verbes en -IR</strong> (2ème groupe) :</p>
+                <ul>
+                    <li><strong>-is, -is, -it, -issons, -issez, -issent</strong> (je finis, tu finis, il finit, nous finissons, vous finissez, ils finissent)</li>
+                </ul>
+                <p style="margin-top: 20px;"><strong>Verbes du 3ème groupe</strong> (terminaisons variées) :</p>
+                <ul>
+                    <li><strong>-s, -s, -t, -ons, -ez, -ent</strong> pour la plupart (je vends, tu vends, il vend, nous vendons, vous vendez, ils vendent)</li>
+                    <li><strong>-x, -x, -t, -ons, -ez, -ent</strong> pour certains (je veux, tu veux, il veut, nous voulons, vous voulez, ils veulent)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <div class="retro-number">3</div>
+                <div>
+                    <h3 class="section-title">Les Radicaux Variables</h3>
+                    <p class="section-description">
+                        Certains verbes ne gardent pas un radical unique. Leur radical change selon le temps, le mode ou même la personne. Ces variations sont importantes à connaître pour bien conjuguer.
+                    </p>
+                </div>
+            </div>
+
+            <div class="groups-section">
+                <div class="group-card">
+                    <h4 class="group-title">Premier Groupe : Radical Stable</h4>
+                    <p class="group-description">
+                        Les verbes du premier groupe (en -ER) ont généralement un radical stable qui ne change pas à la conjugaison. C'est la catégorie la plus régulière.
+                    </p>
+                    <div class="verbs-list">
+                        <div class="verb-tag">PARL-er</div>
+                        <div class="verb-tag">CHANT-er</div>
+                        <div class="verb-tag">DANS-er</div>
+                        <div class="verb-tag">MARCH-er</div>
+                        <div class="verb-tag">MANG-er</div>
+                        <div class="verb-tag">AIM-er</div>
+                    </div>
+                </div>
+
+                <div class="group-card">
+                    <h4 class="group-title">Deuxième Groupe : Radical avec Infixe</h4>
+                    <p class="group-description">
+                        Les verbes du deuxième groupe (en -IR) ont un radical qui s'allonge avec l'infixe "-iss-" à certaines personnes et certains temps.
+                    </p>
+                    <div class="verbs-list">
+                        <div class="verb-tag">FIN-ir → finiss-ons</div>
+                        <div class="verb-tag">CHOIS-ir → choisiss-ons</div>
+                        <div class="verb-tag">RÉUSS-ir → réussiss-ons</div>
+                        <div class="verb-tag">GRAN-ir → grandiss-ons</div>
+                        <div class="verb-tag">ROUG-ir → rougiss-ons</div>
+                        <div class="verb-tag">RÉFLÉCH-ir → réfléchiss-ons</div>
+                    </div>
+                </div>
+
+                <div class="group-card">
+                    <h4 class="group-title">Troisième Groupe : Radicaux Multiples</h4>
+                    <p class="group-description">
+                        Les verbes du troisième groupe ont souvent plusieurs radicaux différents selon le temps et la personne. Ils sont les plus irréguliers.
+                    </p>
+                    <div class="verbs-list">
+                        <div class="verb-tag">POUV-oir → peux / pouv-ons / pourr-ai</div>
+                        <div class="verb-tag">VEN-ir → viens / ven-ons / viendr-ai</div>
+                        <div class="verb-tag">PREND-re → prends / pren-ons / prendr-ai</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="conjugation-showcase">
+            <h3 class="showcase-title">Exemple de Radical Variable : VENIR</h3>
+            <div class="conjugation-table">
+                <div class="conjugation-cell">
+                    <div class="person-label">Présent</div>
+                    <div class="conjugated-form">je viens</div>
+                    <div class="form-breakdown">vien + s</div>
+                </div>
+                <div class="conjugation-cell">
+                    <div class="person-label">Présent</div>
+                    <div class="conjugated-form">nous venons</div>
+                    <div class="form-breakdown">ven + ons</div>
+                </div>
+                <div class="conjugation-cell">
+                    <div class="person-label">Imparfait</div>
+                    <div class="conjugated-form">je venais</div>
+                    <div class="form-breakdown">ven + ais</div>
+                </div>
+                <div class="conjugation-cell">
+                    <div class="person-label">Futur</div>
+                    <div class="conjugated-form">je viendrai</div>
+                    <div class="form-breakdown">viendr + ai</div>
+                </div>
+                <div class="conjugation-cell">
+                    <div class="person-label">Passé simple</div>
+                    <div class="conjugated-form">je vins</div>
+                    <div class="form-breakdown">vin + s</div>
+                </div>
+                <div class="conjugation-cell">
+                    <div class="person-label">Subjonctif</div>
+                    <div class="conjugated-form">que je vienne</div>
+                    <div class="form-breakdown">vienn + e</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h3>Les Modifications Orthographiques</h3>
+            <div class="info-panel-content">
+                <p>Certains verbes du 1er groupe subissent des modifications orthographiques pour conserver la prononciation :</p>
+                <ul>
+                    <li><strong>Verbes en -CER</strong> : c → ç devant a, o (je commence, nous commençons)</li>
+                    <li><strong>Verbes en -GER</strong> : g → ge devant a, o (je mange, nous mangeons)</li>
+                    <li><strong>Verbes en -ELER/-ETER</strong> : doublement de la consonne (j'appelle) ou ajout d'accent grave (j'achète)</li>
+                    <li><strong>Verbes en -AYER/-OYER/-UYER</strong> : y → i devant e muet (je paie/paye, j'essuie)</li>
+                    <li><strong>Verbes en É+consonne+ER</strong> : é → è devant syllabe muette (je préfère, nous préférons)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="intro-box" style="margin: 80px 0;">
+            <h2>En Résumé</h2>
+            <p>
+                La structure <span class="keyword">radical + terminaison</span> est universelle en français. Le <span class="keyword">radical</span> porte le sens du verbe et reste généralement stable (sauf pour les verbes irréguliers), tandis que la <span class="keyword">terminaison</span> change selon la personne, le nombre, le temps et le mode. Maîtriser cette décomposition vous permet de comprendre la logique de la conjugaison française et de conjuguer plus facilement n'importe quel verbe. Les verbes du 1er groupe sont les plus réguliers, ceux du 2ème groupe ajoutent l'infixe -iss-, et ceux du 3ème groupe ont des radicaux variables.
+            </p>
+        </div>
+
+        <footer>
+            <div class="footer-logo">Língua Academy</div>
+            <p class="footer-text">La grammaire française avec style et clarté</p>
+        </footer>
+    </div>
+</body>
+</html>

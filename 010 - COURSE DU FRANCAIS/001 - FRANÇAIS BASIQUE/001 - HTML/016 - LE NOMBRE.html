@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Nombre en Français - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .flag-colors {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .flag-bar {
+            width: 80px;
+            height: 8px;
+            border-radius: 4px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .blue { background: #002395; }
+        .white { background: #ffffff; }
+        .red { background: #ED2939; }
+
+        h1 {
+            color: #fff;
+            font-size: 3.5em;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+                             0 0 30px rgba(237, 41, 57, 0.6);
+            }
+        }
+
+        .subtitle {
+            color: #f0f0f0;
+            font-size: 1.3em;
+            font-weight: 300;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: #002395;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #ED2939;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        h3 {
+            color: #203a43;
+            font-size: 1.6em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .number-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .number-box {
+            background: linear-gradient(135deg, #002395 0%, #ED2939 100%);
+            border-radius: 20px;
+            padding: 35px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            animation: scaleIn 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .number-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .number-box:hover {
+            transform: scale(1.05) rotateZ(-2deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .number-box h3 {
+            color: #fff;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .number-box p,
+        .number-box ul {
+            color: rgba(255, 255, 255, 0.95);
+            position: relative;
+            z-index: 1;
+        }
+
+        .number-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .number-box li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .number-box li:last-child {
+            border-bottom: none;
+        }
+
+        .rule-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            animation: slideInLeft 0.8s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        .rule-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .rule-card h3 {
+            color: #fff;
+            font-size: 1.7em;
+            margin-bottom: 15px;
+        }
+
+        .rule-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .rule-card li {
+            padding: 12px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            border-left: 5px solid #fff;
+            transition: all 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        .rule-card li:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateX(5px);
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .example-box strong {
+            font-size: 1.3em;
+            display: block;
+            margin-bottom: 12px;
+            color: #ffe66d;
+        }
+
+        .example-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .example-box li {
+            padding: 10px;
+            margin: 8px 0;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .example-box li:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(5px);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ED2939 0%, #002395 100%);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, #002395 0%, #ED2939 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+        }
+
+        td {
+            padding: 15px 18px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        tr:hover {
+            background: #e3f2fd;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            color: #333;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s ease-in-out infinite;
+            border: 3px solid #fdcb6e;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .tip-box strong {
+            display: block;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #d63031;
+        }
+
+        .special-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            color: #333;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .special-box h3 {
+            color: #6c5ce7;
+            margin-bottom: 15px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .comparison-item {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #002395;
+        }
+
+        .comparison-item strong {
+            color: #002395;
+            font-size: 1.2em;
+        }
+
+        .exception-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            color: #333;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .exception-box h4 {
+            color: #c23616;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .content-card {
+                padding: 25px;
+            }
+
+            .number-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="flag-colors">
+                <div class="flag-bar blue"></div>
+                <div class="flag-bar white"></div>
+                <div class="flag-bar red"></div>
+            </div>
+            <h1>🔢 Le Nombre en Français</h1>
+            <p class="subtitle">Maîtriser le Singulier et le Pluriel</p>
+        </header>
+
+        <div class="content-card">
+            <h2>Qu'est-ce que le Nombre Grammatical ?</h2>
+            <p>Le <span class="highlight">nombre grammatical</span> est une catégorie qui indique la quantité : un seul être ou objet (<strong>singulier</strong>) ou plusieurs (<strong>pluriel</strong>). En français, la formation du pluriel suit des règles précises selon la terminaison du mot.</p>
+            
+            <div class="tip-box">
+                <strong>💡 Important !</strong>
+                <p>Le pluriel en français ne se forme pas toujours avec un simple "s". Il existe de nombreuses exceptions et règles spécifiques à connaître pour bien écrire !</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Singulier vs Pluriel</h2>
+            <div class="number-grid">
+                <div class="number-box">
+                    <span class="icon">1️⃣</span>
+                    <h3>Singulier</h3>
+                    <p><strong>Indique une seule personne, un seul animal ou objet</strong></p>
+                    <ul>
+                        <li>📘 le livre</li>
+                        <li>🐱 le chat</li>
+                        <li>🌸 la fleur</li>
+                        <li>👨 l'homme</li>
+                        <li>🏠 la maison</li>
+                    </ul>
+                </div>
+
+                <div class="number-box">
+                    <span class="icon">2️⃣</span>
+                    <h3>Pluriel</h3>
+                    <p><strong>Indique deux ou plusieurs personnes, animaux ou objets</strong></p>
+                    <ul>
+                        <li>📚 les livres</li>
+                        <li>🐱🐱 les chats</li>
+                        <li>🌸🌸 les fleurs</li>
+                        <li>👨👨 les hommes</li>
+                        <li>🏠🏠 les maisons</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Règles de Formation du Pluriel</h2>
+            
+            <div class="rule-card">
+                <h3>1️⃣ Règle Générale</h3>
+                <p><strong>On ajoute un -S au singulier</strong></p>
+                <ul>
+                    <li>chat → chat<strong>s</strong></li>
+                    <li>table → table<strong>s</strong></li>
+                    <li>ami → ami<strong>s</strong></li>
+                    <li>voiture → voiture<strong>s</strong></li>
+                    <li>maison → maison<strong>s</strong></li>
+                </ul>
+            </div>
+
+            <div class="rule-card">
+                <h3>2️⃣ Mots Terminés par -S, -X ou -Z</h3>
+                <p><strong>Règle : INVARIABLES (pas de changement)</strong></p>
+                <ul>
+                    <li>le fils → les fils</li>
+                    <li>la souris → les souris</li>
+                    <li>le prix → les prix</li>
+                    <li>la voix → les voix</li>
+                    <li>le nez → les nez</li>
+                    <li>le gaz → les gaz</li>
+                </ul>
+            </div>
+
+            <div class="rule-card">
+                <h3>3️⃣ Mots Terminés par -AU, -EU, -EAU</h3>
+                <p><strong>On ajoute un -X</strong></p>
+                <ul>
+                    <li>tuyau → tuyau<strong>x</strong></li>
+                    <li>château → château<strong>x</strong></li>
+                    <li>cadeau → cadeau<strong>x</strong></li>
+                    <li>jeu → jeu<strong>x</strong></li>
+                    <li>cheveu → cheveu<strong>x</strong></li>
+                </ul>
+                
+                <div class="exception-box">
+                    <h4>⚠️ Exceptions :</h4>
+                    <ul>
+                        <li>pneu → pneu<strong>s</strong></li>
+                        <li>bleu → bleu<strong>s</strong></li>
+                        <li>landau → landau<strong>s</strong></li>
+                        <li>sarrau → sarrau<strong>s</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <h3>4️⃣ Mots Terminés par -OU</h3>
+                <p><strong>Règle générale : on ajoute -S</strong></p>
+                <ul>
+                    <li>clou → clou<strong>s</strong></li>
+                    <li>fou → fou<strong>s</strong></li>
+                    <li>trou → trou<strong>s</strong></li>
+                </ul>
+                
+                <div class="exception-box">
+                    <h4>⚠️ 7 Exceptions qui prennent -X :</h4>
+                    <ul>
+                        <li>bijou → bijou<strong>x</strong></li>
+                        <li>caillou → caillou<strong>x</strong></li>
+                        <li>chou → chou<strong>x</strong></li>
+                        <li>genou → genou<strong>x</strong></li>
+                        <li>hibou → hibou<strong>x</strong></li>
+                        <li>joujou → joujou<strong>x</strong></li>
+                        <li>pou → pou<strong>x</strong></li>
+                    </ul>
+                    <p><em>Astuce : « Viens mon chou, mon bijou, mon joujou, sur mes genoux, et jette des cailloux à ce hibou plein de poux. »</em></p>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <h3>5️⃣ Mots Terminés par -AL</h3>
+                <p><strong>-AL devient -AUX</strong></p>
+                <ul>
+                    <li>cheval → chev<strong>aux</strong></li>
+                    <li>journal → journ<strong>aux</strong></li>
+                    <li>animal → anim<strong>aux</strong></li>
+                    <li>hôpital → hôpit<strong>aux</strong></li>
+                    <li>général → génér<strong>aux</strong></li>
+                </ul>
+                
+                <div class="exception-box">
+                    <h4>⚠️ Exceptions qui prennent -S :</h4>
+                    <ul>
+                        <li>bal → bal<strong>s</strong></li>
+                        <li>carnaval → carnaval<strong>s</strong></li>
+                        <li>festival → festival<strong>s</strong></li>
+                        <li>récital → récital<strong>s</strong></li>
+                        <li>chacal → chacal<strong>s</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <h3>6️⃣ Mots Terminés par -AIL</h3>
+                <p><strong>Règle générale : on ajoute -S</strong></p>
+                <ul>
+                    <li>détail → détail<strong>s</strong></li>
+                    <li>rail → rail<strong>s</strong></li>
+                    <li>chandail → chandail<strong>s</strong></li>
+                </ul>
+                
+                <div class="exception-box">
+                    <h4>⚠️ Exceptions qui deviennent -AUX :</h4>
+                    <ul>
+                        <li>travail → trav<strong>aux</strong></li>
+                        <li>vitrail → vitr<strong>aux</strong></li>
+                        <li>émail → ém<strong>aux</strong></li>
+                        <li>corail → cor<strong>aux</strong></li>
+                        <li>bail → b<strong>aux</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Pluriel des Noms Composés</h2>
+            
+            <div class="special-box">
+                <h3>🔗 Nom + Nom</h3>
+                <p><strong>Les deux noms prennent le pluriel</strong></p>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <strong>Singulier :</strong>
+                        <p>un chou-fleur</p>
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Pluriel :</strong>
+                        <p>des choux-fleurs</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>un oiseau-mouche → des oiseaux-mouches</li>
+                    <li>un wagon-lit → des wagons-lits</li>
+                </ul>
+            </div>
+
+            <div class="special-box">
+                <h3>🔗 Nom + Adjectif ou Adjectif + Nom</h3>
+                <p><strong>Les deux mots varient</strong></p>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <strong>Singulier :</strong>
+                        <p>un coffre-fort</p>
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Pluriel :</strong>
+                        <p>des coffres-forts</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>un grand-père → des grands-pères</li>
+                    <li>une belle-sœur → des belles-sœurs</li>
+                </ul>
+            </div>
+
+            <div class="special-box">
+                <h3>🔗 Verbe + Nom</h3>
+                <p><strong>Le verbe reste invariable, seul le nom varie</strong></p>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <strong>Singulier :</strong>
+                        <p>un tire-bouchon</p>
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Pluriel :</strong>
+                        <p>des tire-bouchons</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>un porte-monnaie → des porte-monnaie (le nom reste au singulier car on porte LA monnaie)</li>
+                    <li>un couvre-lit → des couvre-lits</li>
+                    <li>un essuie-main → des essuie-mains</li>
+                </ul>
+            </div>
+
+            <div class="special-box">
+                <h3>🔗 Mot Invariable + Nom</h3>
+                <p><strong>Seul le nom varie</strong></p>
+                <ul>
+                    <li>un avant-bras → des avant-bras</li>
+                    <li>un sans-abri → des sans-abri</li>
+                    <li>un en-tête → des en-têtes</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Cas Particuliers et Pluriels Irréguliers</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                        <th>Particularité</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>œil</td>
+                        <td>yeux</td>
+                        <td>Pluriel complètement irrégulier</td>
+                    </tr>
+                    <tr>
+                        <td>monsieur</td>
+                        <td>messieurs</td>
+                        <td>Forme différente</td>
+                    </tr>
+                    <tr>
+                        <td>madame</td>
+                        <td>mesdames</td>
+                        <td>Forme différente</td>
+                    </tr>
+                    <tr>
+                        <td>mademoiselle</td>
+                        <td>mesdemoiselles</td>
+                        <td>Forme différente</td>
+                    </tr>
+                    <tr>
+                        <td>ciel</td>
+                        <td>cieux / ciels</td>
+                        <td>Deux formes selon le sens</td>
+                    </tr>
+                    <tr>
+                        <td>aïeul</td>
+                        <td>aïeuls / aïeux</td>
+                        <td>aïeuls (grands-parents), aïeux (ancêtres)</td>
+                    </tr>
+                    <tr>
+                        <td>œuf</td>
+                        <td>œufs</td>
+                        <td>Prononciation change : [œf] → [ø]</td>
+                    </tr>
+                    <tr>
+                        <td>bœuf</td>
+                        <td>bœufs</td>
+                        <td>Prononciation change : [bœf] → [bø]</td>
+                    </tr>
+                    <tr>
+                        <td>os</td>
+                        <td>os</td>
+                        <td>Prononciation change : [ɔs] → [o]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-card">
+            <h2>Noms Toujours au Pluriel</h2>
+            
+            <div class="example-box">
+                <strong>📌 Certains noms n'existent qu'au pluriel :</strong>
+                <ul>
+                    <li><strong>les gens</strong> (les personnes)</li>
+                    <li><strong>les mœurs</strong> (les habitudes, coutumes)</li>
+                    <li><strong>les funérailles</strong> (cérémonie)</li>
+                    <li><strong>les environs</strong> (les alentours)</li>
+                    <li><strong>les frais</strong> (dépenses)</li>
+                    <li><strong>les archives</strong> (documents anciens)</li>
+                    <li><strong>les décombres</strong> (ruines)</li>
+                    <li><strong>les ténèbres</strong> (obscurité)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Noms Étrangers</h2>
+            
+            <div class="special-box">
+                <h3>🌍 Pluriel des Mots d'Origine Étrangère</h3>
+                <p><strong>En général, les mots étrangers francisés prennent un -S :</strong></p>
+                <ul>
+                    <li>un sandwich → des sandwich<strong>s</strong></li>
+                    <li>un album → des album<strong>s</strong></li>
+                    <li>un scénario → des scénario<strong>s</strong></li>
+                    <li>un maximum → des maximum<strong>s</strong></li>
+                </ul>
+                
+                <div class="exception-box">
+                    <h4>⚠️ Certains gardent leur pluriel d'origine :</h4>
+                    <ul>
+                        <li>un gentleman → des gentlem<strong>en</strong> (anglais)</li>
+                        <li>un match → des match<strong>s</strong> ou match (les deux acceptés)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>L'Accord en Nombre</h2>
+            
+            <div class="tip-box">
+                <strong>✅ Règle de Concordance</strong>
+                <p>Les articles, adjectifs et participes passés s'accordent en nombre avec le nom :</p>
+                <ul>
+                    <li><strong>Le</strong> petit chat noir (singulier masculin)</li>
+                    <li><strong>Les</strong> petits chats noirs (pluriel masculin)</li>
+                    <li><strong>La</strong> belle fleur rouge (singulier féminin)</li>
+                    <li><strong>Les</strong> belles fleurs rouges (pluriel féminin)</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>⚠️ Attention aux Pièges !</strong>
+                <ul>
+                    <li><strong>Après "un kilo de", "beaucoup de", etc.</strong> : le nom qui suit prend le pluriel
+                        <br>→ un kilo de pomme<strong>s</strong>, beaucoup d'ami<strong>s</strong></li>
+                    <li><strong>Les noms de couleur composés sont invariables</strong>
+                        <br>→ des chemises <em>bleu clair</em> (pas de -s)</li>
+                    <li><strong>Les couleurs qui sont des noms de choses restent invariables</strong>
+                        <br>→ des robes <em>orange</em>, des yeux <em>noisette</em></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Astuces Mnémotechniques</h2>
+            
+            <div class="example-box">
+                <strong>🎯 Pour retenir les 7 mots en -OU qui prennent -X :</strong>
+                <p><em>« Viens mon chou, mon bijou, mon joujou, sur mes genoux, et jette des cailloux à ce hibou plein de poux. »</em></p>
+            </div>
+
+            <div class="example-box">
+                <strong>🎯 Pour retenir les exceptions en -AL qui prennent -S :</strong>
+                <p><em>« Les bals, carnavals et festivals sont des récitals de chacals. »</em></p>
+            </div>
+
+            <div class="example-box">
+                <strong>🎯 Pour retenir les mots en -AIL qui deviennent -AUX :</strong>
+                <p><em>« Le travail des vitraux, baux, coraux et émaux. »</em></p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="flag-colors">
+                <div class="flag-bar blue"></div>
+                <div class="flag-bar white"></div>
+                <div class="flag-bar red"></div>
+            </div>
+            <p>✨ <strong>Língua Academy</strong> - Apprenez le français avec style ! ✨</p>
+            <p>© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emplois Particuliers - Aucun, Autre, Autrui | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel+Decorative:wght@400;700;900&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azur-medieval: #2B5F8F;
+            --or-enluminure: #D4AF37;
+            --vermillon: #D32F2F;
+            --parchemin: #F4E4C1;
+            --encre-noire: #1A1A1A;
+            --bleu-nuit: #1B2A41;
+            --pourpre: #800080;
+            --ivoire-ancien: #FFFEF0;
+            --brun-cuir: #654321;
+            --vert-medieval: #2D5016;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cardo', serif;
+            background: linear-gradient(135deg, var(--parchemin) 0%, var(--ivoire-ancien) 50%, #F8F0D8 100%);
+            color: var(--encre-noire);
+            line-height: 2;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Texture parchemin ancien */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                repeating-linear-gradient(0deg, transparent, transparent 5px, rgba(101, 67, 33, 0.02) 5px, rgba(101, 67, 33, 0.02) 10px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        /* Bordure enluminée */
+        .illuminated-border {
+            position: fixed;
+            pointer-events: none;
+            z-index: 5;
+            background: linear-gradient(135deg, var(--azur-medieval) 0%, var(--or-enluminure) 50%, var(--azur-medieval) 100%);
+            box-shadow: 
+                inset 0 0 25px rgba(0, 0, 0, 0.6),
+                0 0 35px rgba(43, 95, 143, 0.5);
+        }
+
+        .border-top, .border-bottom {
+            left: 15px;
+            right: 15px;
+            height: 45px;
+        }
+
+        .border-top {
+            top: 15px;
+        }
+
+        .border-bottom {
+            bottom: 15px;
+        }
+
+        .border-left, .border-right {
+            top: 60px;
+            bottom: 60px;
+            width: 45px;
+        }
+
+        .border-left {
+            left: 15px;
+        }
+
+        .border-right {
+            right: 15px;
+        }
+
+        /* Coins enluminés */
+        .illuminated-corner {
+            position: fixed;
+            width: 120px;
+            height: 120px;
+            pointer-events: none;
+            z-index: 6;
+            background: radial-gradient(circle, var(--or-enluminure) 0%, var(--azur-medieval) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 0 50px rgba(212, 175, 55, 0.7),
+                inset 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .corner-tl {
+            top: 15px;
+            left: 15px;
+            border-radius: 50% 0 0 0;
+        }
+
+        .corner-tr {
+            top: 15px;
+            right: 15px;
+            border-radius: 0 50% 0 0;
+        }
+
+        .corner-bl {
+            bottom: 15px;
+            left: 15px;
+            border-radius: 0 0 0 50%;
+        }
+
+        .corner-br {
+            bottom: 15px;
+            right: 15px;
+            border-radius: 0 0 50% 0;
+        }
+
+        .corner-ornament {
+            font-size: 4rem;
+            color: var(--ivoire-ancien);
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .container {
+            max-width: 1750px;
+            margin: 0 auto;
+            padding: 0 180px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* En-tête manuscrit */
+        header {
+            background: linear-gradient(160deg, var(--bleu-nuit) 0%, var(--azur-medieval) 60%, #3A7CA5 100%);
+            padding: 120px 0 145px;
+            position: relative;
+            overflow: hidden;
+            margin: 80px 80px 0 80px;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 
+                0 65px 155px rgba(27, 42, 65, 0.65),
+                inset 0 0 130px rgba(212, 175, 55, 0.15);
+            border: 10px solid var(--or-enluminure);
+        }
+
+        /* Motif floral médiéval */
+        .floral-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(212, 175, 55, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(211, 47, 47, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Marque manuscrit */
+        .manuscript-brand {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 80px;
+            animation: manuscriptFadeIn 2.5s ease-out;
+        }
+
+        @keyframes manuscriptFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .illuminated-seal {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 52px;
+            background: 
+                radial-gradient(circle, var(--or-enluminure) 0%, var(--vermillon) 100%);
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 
+                0 40px 100px rgba(0, 0, 0, 0.75),
+                inset 0 0 70px rgba(255, 255, 255, 0.3);
+            border: 8px solid var(--ivoire-ancien);
+            animation: sealRotate 20s linear infinite;
+        }
+
+        @keyframes sealRotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .seal-symbol {
+            font-size: 7.5rem;
+            color: var(--ivoire-ancien);
+            text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+            animation: sealRotate 20s linear infinite reverse;
+        }
+
+        .brand-manuscript {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 5.5rem;
+            color: var(--or-enluminure);
+            font-weight: 900;
+            letter-spacing: 22px;
+            margin-bottom: 35px;
+            text-shadow: 
+                7px 7px 18px rgba(0, 0, 0, 0.95),
+                0 0 75px rgba(212, 175, 55, 0.6);
+            text-transform: uppercase;
+        }
+
+        .brand-scripture {
+            color: var(--ivoire-ancien);
+            font-size: 1.5rem;
+            letter-spacing: 9px;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'Philosopher', serif;
+            font-style: italic;
+            opacity: 0.96;
+        }
+
+        /* Titre enluminé */
+        h1 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 8.5rem;
+            color: var(--or-enluminure);
+            text-align: center;
+            font-weight: 900;
+            line-height: 1.6;
+            margin-top: 80px;
+            position: relative;
+            z-index: 2;
+            animation: manuscriptFadeIn 2.5s ease-out 0.3s backwards;
+            text-shadow: 
+                9px 9px 22px rgba(0, 0, 0, 0.95),
+                0 0 95px rgba(212, 175, 55, 0.5);
+            letter-spacing: 10px;
+        }
+
+        .manuscript-subtitle {
+            text-align: center;
+            color: var(--ivoire-ancien);
+            font-size: 2.8rem;
+            margin-top: 55px;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+            animation: manuscriptFadeIn 2.5s ease-out 0.6s backwards;
+            font-style: italic;
+            letter-spacing: 4.5px;
+            font-family: 'Old Standard TT', serif;
+        }
+
+        /* Ornement diviseur */
+        .manuscript-divider {
+            text-align: center;
+            margin: 75px 0;
+            font-size: 3.2rem;
+            color: var(--or-enluminure);
+            position: relative;
+        }
+
+        .manuscript-divider::before,
+        .manuscript-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 240px;
+            height: 4px;
+            background: linear-gradient(to right, transparent, var(--or-enluminure), transparent);
+        }
+
+        .manuscript-divider::before {
+            right: calc(50% + 100px);
+        }
+
+        .manuscript-divider::after {
+            left: calc(50% + 100px);
+        }
+
+        /* Contenu principal */
+        main {
+            padding: 125px 0;
+            margin: 0 80px;
+            background: var(--ivoire-ancien);
+            box-shadow: 
+                0 55px 135px rgba(0, 0, 0, 0.3),
+                inset 0 0 110px rgba(212, 175, 55, 0.1);
+            border-left: 10px solid var(--or-enluminure);
+            border-right: 10px solid var(--or-enluminure);
+        }
+
+        /* Introduction enluminée */
+        .intro-illuminated {
+            background: linear-gradient(135deg, rgba(244, 228, 193, 0.95) 0%, rgba(255, 254, 240, 0.95) 100%);
+            padding: 105px;
+            border-radius: 30px;
+            box-shadow: 
+                0 45px 105px rgba(0, 0, 0, 0.25),
+                inset 0 0 85px rgba(43, 95, 143, 0.12);
+            margin-bottom: 150px;
+            position: relative;
+            border: 6px solid var(--azur-medieval);
+            animation: scrollFadeIn 2.2s ease-out 2.5s backwards;
+        }
+
+        @keyframes scrollFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(120px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-illuminated::before {
+            content: '📜';
+            position: absolute;
+            top: -62px;
+            left: 100px;
+            font-size: 8.5rem;
+            color: var(--azur-medieval);
+            background: var(--ivoire-ancien);
+            padding: 18px 42px;
+            border-radius: 50%;
+            box-shadow: 0 18px 52px rgba(0, 0, 0, 0.38);
+            border: 6px solid var(--azur-medieval);
+        }
+
+        .illuminated-heading {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 5.2rem;
+            color: var(--azur-medieval);
+            margin-bottom: 75px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 45px;
+        }
+
+        .illuminated-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 320px;
+            height: 7px;
+            background: linear-gradient(90deg, var(--azur-medieval), var(--or-enluminure));
+            border-radius: 4px;
+        }
+
+        .illuminated-text {
+            font-size: 1.85rem;
+            line-height: 3;
+            color: var(--encre-noire);
+            margin-bottom: 48px;
+            text-align: justify;
+            text-indent: 3.2em;
+        }
+
+        .illuminated-text:first-of-type::first-letter {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 6.5rem;
+            font-weight: 900;
+            float: left;
+            line-height: 0.95;
+            margin: 15px 20px 0 0;
+            color: var(--vermillon);
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Sections thématiques */
+        .theme-section {
+            background: linear-gradient(135deg, rgba(244, 228, 193, 0.98) 0%, rgba(255, 254, 240, 0.98) 100%);
+            padding: 100px;
+            border-radius: 28px;
+            box-shadow: 
+                0 40px 100px rgba(0, 0, 0, 0.25),
+                inset 0 0 80px rgba(43, 95, 143, 0.1);
+            margin: 100px 0;
+            animation: scrollFadeIn 2.2s ease-out backwards;
+            border: 5px solid var(--azur-medieval);
+        }
+
+        .section-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 5.5rem;
+            color: var(--azur-medieval);
+            margin-bottom: 80px;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            padding-bottom: 60px;
+        }
+
+        .section-title::after {
+            content: '❦';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3.5rem;
+            color: var(--or-enluminure);
+        }
+
+        /* Cadre exemple */
+        .example-scroll {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 254, 240, 0.96) 100%);
+            padding: 72px 80px;
+            border-radius: 24px;
+            margin: 68px 0;
+            border-left: 18px solid var(--azur-medieval);
+            position: relative;
+            transition: all 0.95s ease;
+            box-shadow: 0 20px 58px rgba(0, 0, 0, 0.22);
+        }
+
+        .example-scroll:hover {
+            transform: translateX(38px);
+            border-left-width: 26px;
+            box-shadow: -20px 25px 68px rgba(43, 95, 143, 0.4);
+        }
+
+        .example-label {
+            font-family: 'Philosopher', serif;
+            font-size: 1.55rem;
+            color: var(--azur-medieval);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 6.5px;
+            margin-bottom: 38px;
+            font-style: italic;
+        }
+
+        .sentence-scroll {
+            font-size: 2.3rem;
+            font-weight: 600;
+            color: var(--encre-noire);
+            margin: 48px 0;
+            padding: 52px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            box-shadow: 
+                0 14px 48px rgba(0, 0, 0, 0.16),
+                inset 0 0 48px rgba(43, 95, 143, 0.12);
+            line-height: 2.8;
+            font-style: italic;
+            border: 4px solid rgba(43, 95, 143, 0.2);
+        }
+
+        .analysis-scroll {
+            font-size: 1.65rem;
+            line-height: 2.9;
+            color: var(--encre-noire);
+            margin-top: 45px;
+            padding-left: 62px;
+            border-left: 14px solid rgba(43, 95, 143, 0.3);
+        }
+
+        .word-highlight {
+            color: var(--vermillon);
+            font-weight: 700;
+            background: rgba(211, 47, 47, 0.15);
+            padding: 9px 20px;
+            border-radius: 12px;
+            border-bottom: 7px solid var(--vermillon);
+            text-decoration: none;
+        }
+
+        .usage-detail {
+            color: var(--azur-medieval);
+            font-weight: 600;
+            font-style: italic;
+            background: rgba(43, 95, 143, 0.15);
+            padding: 8px 18px;
+            border-radius: 11px;
+        }
+
+        /* Boîte règle */
+        .rule-scroll {
+            background: linear-gradient(135deg, rgba(43, 95, 143, 0.22) 0%, rgba(43, 95, 143, 0.12) 100%);
+            border: 9px solid var(--azur-medieval);
+            padding: 85px 92px;
+            border-radius: 26px;
+            margin: 92px 0;
+            position: relative;
+            animation: scrollFadeIn 2.2s ease-out backwards;
+            box-shadow: 0 35px 92px rgba(43, 95, 143, 0.42);
+        }
+
+        .rule-scroll::before {
+            content: '§';
+            position: absolute;
+            top: -62px;
+            left: 85px;
+            background: var(--ivoire-ancien);
+            padding: 28px 45px;
+            border-radius: 50%;
+            font-size: 4.8rem;
+            box-shadow: 0 18px 52px rgba(0, 0, 0, 0.42);
+            border: 9px solid var(--azur-medieval);
+            color: var(--azur-medieval);
+            font-family: 'Cinzel Decorative', serif;
+        }
+
+        .rule-heading {
+            font-family: 'Cinzel Decorative', serif;
+            color: var(--azur-medieval);
+            font-size: 4.5rem;
+            margin-bottom: 55px;
+            font-weight: 700;
+        }
+
+        .rule-content {
+            font-size: 1.75rem;
+            line-height: 3.1;
+            color: var(--encre-noire);
+        }
+
+        .rule-list {
+            list-style: none;
+            margin: 65px 0;
+        }
+
+        .rule-list li {
+            padding: 48px 0 48px 100px;
+            position: relative;
+            font-size: 1.75rem;
+            line-height: 2.9;
+            border-bottom: 5px dashed rgba(43, 95, 143, 0.22);
+        }
+
+        .rule-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rule-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 32px;
+            color: var(--or-enluminure);
+            font-size: 4.2rem;
+        }
+
+        /* Tableau manuscrit */
+        .table-manuscript {
+            background: linear-gradient(135deg, rgba(244, 228, 193, 0.98) 0%, rgba(255, 254, 240, 0.98) 100%);
+            padding: 98px;
+            border-radius: 26px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.25);
+            margin: 100px 0;
+            overflow-x: auto;
+            animation: scrollFadeIn 2.2s ease-out backwards;
+            border: 5px solid var(--azur-medieval);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 65px 0;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--azur-medieval) 0%, var(--bleu-nuit) 100%);
+        }
+
+        th {
+            color: var(--ivoire-ancien);
+            padding: 48px 40px;
+            text-align: left;
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.85rem;
+            font-weight: 700;
+            letter-spacing: 2.2px;
+        }
+
+        th:first-child {
+            border-radius: 32px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 32px 0 0;
+        }
+
+        td {
+            padding: 42px 40px;
+            border-bottom: 5px solid rgba(43, 95, 143, 0.16);
+            font-size: 1.7rem;
+            line-height: 2.8;
+            color: var(--encre-noire);
+        }
+
+        tbody tr {
+            transition: all 0.85s ease;
+            background: rgba(255, 254, 240, 0.65);
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(244, 228, 193, 0.38) 100%);
+            transform: translateX(28px);
+            box-shadow: 0 0 45px rgba(212, 175, 55, 0.38);
+        }
+
+        tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 32px;
+        }
+
+        tbody tr:last-child td:last-child {
+            border-radius: 0 0 32px 0;
+        }
+
+        .table-emphasis {
+            font-weight: 700;
+            color: var(--vermillon);
+            font-size: 1.85rem;
+        }
+
+        /* Avertissement */
+        .warning-scroll {
+            background: linear-gradient(135deg, rgba(211, 47, 47, 0.22) 0%, rgba(211, 47, 47, 0.12) 100%);
+            border: 9px solid var(--vermillon);
+            padding: 85px 92px;
+            border-radius: 26px;
+            margin: 92px 0;
+            position: relative;
+            animation: scrollFadeIn 2.2s ease-out backwards;
+            box-shadow: 0 35px 92px rgba(211, 47, 47, 0.38);
+        }
+
+        .warning-scroll::before {
+            content: '⚠';
+            position: absolute;
+            top: -62px;
+            left: 85px;
+            background: var(--ivoire-ancien);
+            padding: 28px 45px;
+            border-radius: 50%;
+            font-size: 4.8rem;
+            box-shadow: 0 18px 52px rgba(0, 0, 0, 0.42);
+            border: 9px solid var(--vermillon);
+            color: var(--vermillon);
+        }
+
+        .warning-heading {
+            font-family: 'Cinzel Decorative', serif;
+            color: var(--vermillon);
+            font-size: 4.5rem;
+            margin-bottom: 55px;
+            font-weight: 700;
+        }
+
+        .warning-content {
+            font-size: 1.75rem;
+            line-height: 3.1;
+            color: var(--encre-noire);
+        }
+
+        /* Conseil */
+        .tip-scroll {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.22) 0%, rgba(212, 175, 55, 0.12) 100%);
+            border-left: 20px solid var(--or-enluminure);
+            padding: 80px 88px;
+            border-radius: 22px;
+            margin: 88px 0;
+            position: relative;
+            animation: scrollFadeIn 2.2s ease-out backwards;
+            box-shadow: 0 30px 78px rgba(212, 175, 55, 0.35);
+        }
+
+        .tip-scroll::before {
+            content: '✍';
+            position: absolute;
+            top: -55px;
+            left: 80px;
+            background: var(--ivoire-ancien);
+            padding: 25px 42px;
+            border-radius: 58px;
+            font-size: 4.5rem;
+            box-shadow: 0 14px 48px rgba(0, 0, 0, 0.42);
+            border: 8px solid var(--or-enluminure);
+            color: var(--or-enluminure);
+        }
+
+        .tip-heading {
+            font-family: 'Cinzel Decorative', serif;
+            color: var(--or-enluminure);
+            font-size: 4.3rem;
+            margin-bottom: 52px;
+            font-weight: 700;
+        }
+
+        .tip-content {
+            font-size: 1.7rem;
+            line-height: 3;
+            color: var(--encre-noire);
+        }
+
+        /* Panneau synthèse */
+        .synthesis-panel {
+            background: linear-gradient(135deg, var(--bleu-nuit) 0%, var(--azur-medieval) 100%);
+            padding: 110px;
+            border-radius: 30px;
+            margin: 105px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 58px 135px rgba(27, 42, 65, 0.58);
+            animation: scrollFadeIn 2.2s ease-out backwards;
+            border: 6px solid var(--or-enluminure);
+        }
+
+        .synthesis-panel::before {
+            content: '';
+            position: absolute;
+            top: -210px;
+            right: -210px;
+            width: 750px;
+            height: 750px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .synthesis-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -195px;
+            left: -195px;
+            width: 720px;
+            height: 720px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.28) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .synthesis-panel h2 {
+            font-family: 'Cinzel Decorative', serif;
+            color: var(--or-enluminure);
+            font-size: 5.8rem;
+            margin-bottom: 75px;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
+            text-shadow: 6px 6px 16px rgba(0, 0, 0, 0.85);
+        }
+
+        .synthesis-panel p {
+            color: var(--ivoire-ancien);
+            font-size: 1.85rem;
+            line-height: 3.2;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 48px;
+        }
+
+        .synthesis-list {
+            list-style: none;
+            margin: 72px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .synthesis-list li {
+            color: var(--ivoire-ancien);
+            font-size: 1.8rem;
+            padding: 52px 0 52px 100px;
+            position: relative;
+            line-height: 3.1;
+        }
+
+        .synthesis-list li::before {
+            content: '❖';
+            position: absolute;
+            left: 30px;
+            color: var(--or-enluminure);
+            font-size: 4.5rem;
+        }
+
+        /* Pied de page */
+        footer {
+            background: linear-gradient(135deg, var(--bleu-nuit) 0%, var(--azur-medieval) 100%);
+            color: var(--ivoire-ancien);
+            padding: 100px 0;
+            text-align: center;
+            margin: 0 80px 80px 80px;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+            overflow: hidden;
+            border: 10px solid var(--or-enluminure);
+            border-top: none;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 40% 50%, rgba(212, 175, 55, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 60% 50%, rgba(212, 175, 55, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        footer p {
+            font-size: 1.7rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 2.8px;
+            margin: 30px 0;
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel Decorative', serif;
+            color: var(--or-enluminure);
+            font-weight: 700;
+            font-size: 3.5rem;
+            margin-top: 42px;
+            letter-spacing: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 65px;
+            }
+
+            h1 {
+                font-size: 6.5rem;
+            }
+
+            .manuscript-subtitle {
+                font-size: 2.2rem;
+            }
+
+            .intro-illuminated,
+            .theme-section,
+            .table-manuscript,
+            .synthesis-panel {
+                padding: 75px;
+            }
+
+            table {
+                font-size: 1.45rem;
+            }
+
+            th, td {
+                padding: 38px 30px;
+            }
+        }
+
+        /* Scrollbar manuscrit */
+        ::-webkit-scrollbar {
+            width: 30px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--parchemin);
+            border-left: 6px solid rgba(43, 95, 143, 0.16);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--azur-medieval), var(--or-enluminure), var(--azur-medieval));
+            border-radius: 15px;
+            border: 10px solid var(--parchemin);
+            box-shadow: inset 0 0 22px rgba(0, 0, 0, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--or-enluminure), var(--azur-medieval), var(--or-enluminure));
+            box-shadow: inset 0 0 28px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <!-- Bordure enluminée -->
+    <div class="illuminated-border border-top"></div>
+    <div class="illuminated-border border-bottom"></div>
+    <div class="illuminated-border border-left"></div>
+    <div class="illuminated-border border-right"></div>
+
+    <!-- Coins enluminés -->
+    <div class="illuminated-corner corner-tl">
+        <div class="corner-ornament">✦</div>
+    </div>
+    <div class="illuminated-corner corner-tr">
+        <div class="corner-ornament">✦</div>
+    </div>
+    <div class="illuminated-corner corner-bl">
+        <div class="corner-ornament">✦</div>
+    </div>
+    <div class="illuminated-corner corner-br">
+        <div class="corner-ornament">✦</div>
+    </div>
+
+    <header>
+        <div class="floral-pattern"></div>
+        
+        <div class="container">
+            <div class="manuscript-brand">
+                <div class="illuminated-seal">
+                    <div class="seal-symbol">📖</div>
+                </div>
+                <div class="brand-manuscript">Língua Academy</div>
+                <div class="brand-scripture">Manuscrit Enluminé de Grammaire</div>
+            </div>
+            <h1>EMPLOIS PARTICULIERS</h1>
+            <p class="manuscript-subtitle">Aucun, Aucune / Autre, Autrui</p>
+            <div class="manuscript-divider">❦</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Introduction enluminée -->
+            <section class="intro-illuminated">
+                <h2 class="illuminated-heading">Préambule Grammatical</h2>
+                <p class="illuminated-text">
+                    Les mots <strong>AUCUN</strong>, <strong>AUTRE</strong> et <strong>AUTRUI</strong> occupent une place 
+                    singulière dans le système des indéfinis français, présentant chacun des particularités d'emploi, des 
+                    nuances sémantiques subtiles, et des évolutions historiques remarquables qui méritent une étude 
+                    approfondie et systématique. Ces trois termes, bien que tous classés parmi les indéfinis, manifestent 
+                    des comportements grammaticaux et des valeurs sémantiques fort différents les uns des autres. 
+                    <strong>AUCUN</strong> et <strong>AUCUNE</strong>, issus du latin "aliquis unus" ("quelque un"), ont 
+                    connu une évolution sémantique fascinante : originellement positifs et signifiant "quelqu'un", 
+                    "quelque chose", ils sont devenus exclusivement négatifs en français moderne, exprimant l'absence 
+                    totale. <strong>AUTRE</strong>, du latin "alter", conserve sa valeur d'altérité et de différence tout 
+                    en manifestant une grande polyvalence syntaxique, fonctionnant aussi bien comme adjectif que comme 
+                    pronom. <strong>AUTRUI</strong>, forme archaïque du cas régime de "autre", survit uniquement comme 
+                    pronom avec une valeur philosophique et morale particulière.
+                </p>
+                <p class="illuminated-text">
+                    L'étude détaillée de ces trois indéfinis révèle la richesse et la complexité du système grammatical 
+                    français. <strong>AUCUN/AUCUNE</strong> présente une double nature (adjectif et pronom), une double 
+                    valeur sémantique (positive archaïque et négative moderne), et des contraintes d'emploi spécifiques 
+                    (accord en genre, singulier obligatoire, construction avec "ne"). <strong>AUTRE</strong> manifeste 
+                    une remarquable polyvalence fonctionnelle et sémantique : adjectif indéfini variable en nombre, pronom 
+                    indéfini aux emplois variés, élément de constructions corrélatives ("l'un... l'autre"), et composant 
+                    de nombreuses expressions figées. <strong>AUTRUI</strong>, quant à lui, représente une survivance 
+                    lexicale précieuse, employé exclusivement comme pronom invariable, principalement après préposition, 
+                    dans des contextes philosophiques, moraux et juridiques, pour désigner "les autres personnes" considérées 
+                    collectivement et abstraitement. Ces particularités d'emploi, loin d'être de simples curiosités 
+                    grammaticales, reflètent l'histoire de la langue, les évolutions sémantiques, et les nuances expressives 
+                    que le français a développées au fil des siècles.
+                </p>
+            </section>
+
+            <!-- Section AUCUN -->
+            <section class="theme-section" style="animation-delay: 2.7s;">
+                <h2 class="section-title">AUCUN / AUCUNE</h2>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUCUN Adjectif — Valeur Négative Moderne</div>
+                    <div class="sentence-scroll">
+                        Il n'a <span class="word-highlight">aucun</span> espoir de réussir l'examen.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">ADJECTIF indéfini (accompagne "espoir")</span><br>
+                        → <strong>Valeur :</strong> NÉGATIVE (avec "ne") = "pas un seul", "pas le moindre"<br>
+                        → <strong>Accord :</strong> Masculin singulier (accord avec "espoir")<br>
+                        → <strong>Construction :</strong> "Ne... aucun" (négation totale)<br>
+                        → <strong>Position :</strong> Avant le nom (position normale de l'adjectif indéfini)<br>
+                        → <strong>Nombre :</strong> Singulier obligatoire (sens : absence totale, zéro)<br>
+                        → <strong>Remarque :</strong> Forme moderne, usage courant dans tous les registres
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUCUNE Adjectif — Accord Féminin</div>
+                    <div class="sentence-scroll">
+                        Elle n'a <span class="word-highlight">aucune</span> idée de ce qui s'est passé.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">ADJECTIF indéfini (accompagne "idée")</span><br>
+                        → <strong>Valeur :</strong> NÉGATIVE = "pas une seule", "nulle"<br>
+                        → <strong>Accord :</strong> Féminin singulier (accord avec "idée" féminin)<br>
+                        → <strong>Forme :</strong> AUCUNE = AUCUN + e (marque du féminin)<br>
+                        → <strong>Prononciation :</strong> Liaison possible ("aucune idée" [okynide])<br>
+                        → <strong>Construction :</strong> Toujours avec "ne" en français moderne<br>
+                        → <strong>Sens :</strong> Négation totale, absence complète
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUCUN Pronom — Fonction Sujet</div>
+                    <div class="sentence-scroll">
+                        <span class="word-highlight">Aucun</span> n'est venu à la réunion ce matin.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">PRONOM indéfini (remplace un nom masculin)</span><br>
+                        → <strong>Fonction :</strong> SUJET du verbe "venir" (3ème personne singulier)<br>
+                        → <strong>Valeur :</strong> NÉGATIVE = "aucune personne", "pas un seul"<br>
+                        → <strong>Accord verbal :</strong> Singulier obligatoire ("est venu")<br>
+                        → <strong>Test :</strong> "Qui est venu ?" → Aucun (personne)<br>
+                        → <strong>Construction :</strong> "Aucun ne..." (négation avec "ne")<br>
+                        → <strong>Remarque :</strong> Pronom masculin (référent masculin sous-entendu)
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUCUNE Pronom — Fonction COD</div>
+                    <div class="sentence-scroll">
+                        Je n'en ai vu <span class="word-highlight">aucune</span> lors de ma visite.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">PRONOM indéfini (remplace un nom féminin)</span><br>
+                        → <strong>Fonction :</strong> COD du verbe "voir" (placé après le verbe)<br>
+                        → <strong>Valeur :</strong> NÉGATIVE = "aucune chose", "pas une seule"<br>
+                        → <strong>Pronom "en" :</strong> Reprend un groupe nominal (partitif)<br>
+                        → <strong>Test :</strong> "J'ai vu quoi ?" → Aucune (rien)<br>
+                        → <strong>Accord :</strong> Féminin (référent féminin : "aucune personne/chose")<br>
+                        → <strong>Construction :</strong> "Ne... en... aucune" (négation renforcée)
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUCUN Valeur Positive Archaïque — Sans "ne"</div>
+                    <div class="sentence-scroll">
+                        D'<span class="word-highlight">aucuns</span> pensent que cette solution est la meilleure.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">PRONOM indéfini (emploi archaïque)</span><br>
+                        → <strong>Valeur :</strong> POSITIVE (sans "ne") = "quelques-uns", "certains"<br>
+                        → <strong>Forme :</strong> "D'aucuns" (pluriel archaïque, très littéraire)<br>
+                        → <strong>Registre :</strong> Littéraire, soutenu, vieilli<br>
+                        → <strong>Sens :</strong> "Quelques personnes", "certaines personnes"<br>
+                        → <strong>Usage moderne :</strong> Très rare, expression figée<br>
+                        → <strong>Remarque :</strong> Conserve la valeur positive latine originelle
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUCUN Pluriel Rare — Noms sans Singulier</div>
+                    <div class="sentence-scroll">
+                        Il n'a eu <span class="word-highlight">aucuns</span> frais à payer pour cette opération.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">ADJECTIF indéfini (emploi exceptionnel au pluriel)</span><br>
+                        → <strong>Valeur :</strong> NÉGATIVE (avec "ne")<br>
+                        → <strong>Forme :</strong> AUCUNS (pluriel) avec "frais" (nom sans singulier)<br>
+                        → <strong>Justification :</strong> "Frais" n'existe pas au singulier<br>
+                        → <strong>Autres cas :</strong> "Aucunes funérailles", "aucunes fiançailles"<br>
+                        → <strong>Fréquence :</strong> Très rare, cas exceptionnels uniquement<br>
+                        → <strong>Remarque :</strong> Seul cas de pluriel accepté pour "aucun"
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUCUN Expressions Figées</div>
+                    <div class="sentence-scroll">
+                        Il a réussi sans <span class="word-highlight">aucun</span> doute grâce à son travail.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Expression :</strong> <span class="usage-detail">"Sans aucun doute" (locution figée)</span><br>
+                        → <strong>Sens :</strong> "Certainement", "assurément", "indubitablement"<br>
+                        → <strong>Construction :</strong> Sans "ne" (préposition "sans" suffit)<br>
+                        → <strong>Autres expressions :</strong> "En aucun cas", "à aucun moment", "d'aucune façon"<br>
+                        → <strong>Valeur :</strong> Négative absolue (exclusion totale)<br>
+                        → <strong>Usage :</strong> Très fréquent, tous registres<br>
+                        → <strong>Remarque :</strong> "Sans" rend "ne" inutile (négation déjà exprimée)
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section AUTRE -->
+            <section class="theme-section" style="animation-delay: 2.9s;">
+                <h2 class="section-title">AUTRE</h2>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUTRE Adjectif — Différence</div>
+                    <div class="sentence-scroll">
+                        Trouvons une <span class="word-highlight">autre</span> solution à ce problème complexe.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">ADJECTIF indéfini (accompagne "solution")</span><br>
+                        → <strong>Sens :</strong> DIFFÉRENCE = "une solution différente", "distincte"<br>
+                        → <strong>Accord :</strong> Féminin singulier (avec "solution")<br>
+                        → <strong>Forme :</strong> Invariable en genre (autre m. = autre f.)<br>
+                        → <strong>Position :</strong> Avant le nom (adjectif indéfini)<br>
+                        → <strong>Article :</strong> Avec article indéfini "une" (une autre)<br>
+                        → <strong>Valeur :</strong> Altérité, changement, remplacement
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUTRES Adjectif Pluriel — Addition</div>
+                    <div class="sentence-scroll">
+                        Il y a d'<span class="word-highlight">autres</span> possibilités que nous devons explorer.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">ADJECTIF indéfini (accompagne "possibilités")</span><br>
+                        → <strong>Sens :</strong> ADDITION = "des possibilités supplémentaires", "en plus"<br>
+                        → <strong>Accord :</strong> Pluriel (avec "possibilités")<br>
+                        → <strong>Forme :</strong> AUTRES (ajout du -s au pluriel)<br>
+                        → <strong>Construction :</strong> "D'autres" (de + autres, partitif)<br>
+                        → <strong>Valeur :</strong> Existence de plusieurs éléments distincts<br>
+                        → <strong>Usage :</strong> Très fréquent pour exprimer la pluralité
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUTRE Pronom — Personne Différente</div>
+                    <div class="sentence-scroll">
+                        Un dit cela, un <span class="word-highlight">autre</span> dit exactement le contraire.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">PRONOM indéfini (remplace "une personne")</span><br>
+                        → <strong>Fonction :</strong> SUJET du verbe "dire"<br>
+                        → <strong>Sens :</strong> "Une personne différente", "quelqu'un d'autre"<br>
+                        → <strong>Construction :</strong> "Un... un autre" (opposition binaire)<br>
+                        → <strong>Accord verbal :</strong> Singulier (3ème personne)<br>
+                        → <strong>Valeur :</strong> Opposition, contraste entre deux personnes<br>
+                        → <strong>Remarque :</strong> Fonctionne seul, sans nom (pronom)
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">D'AUTRES Pronom Pluriel</div>
+                    <div class="sentence-scroll">
+                        Certains sont venus, d'<span class="word-highlight">autres</span> ont préféré rester chez eux.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">PRONOM indéfini pluriel</span><br>
+                        → <strong>Fonction :</strong> SUJET du verbe "préférer"<br>
+                        → <strong>Sens :</strong> "D'autres personnes", "le reste des gens"<br>
+                        → <strong>Construction :</strong> "Certains... d'autres" (distribution partitive)<br>
+                        → <strong>Accord verbal :</strong> Pluriel (3ème personne pluriel)<br>
+                        → <strong>Valeur :</strong> Division en groupes distincts<br>
+                        → <strong>Forme :</strong> "D'autres" = de + autres (partitif pluriel)
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">L'UN... L'AUTRE — Corrélation Binaire</div>
+                    <div class="sentence-scroll">
+                        <span class="word-highlight">L'un</span> parle français, <span class="word-highlight">l'autre</span> parle anglais.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">PRONOMS indéfinis corrélatifs</span><br>
+                        → <strong>Construction :</strong> "L'un... l'autre" (paire corrélative)<br>
+                        → <strong>Sens :</strong> Opposition binaire entre deux éléments distincts<br>
+                        → <strong>Fonction :</strong> Chacun SUJET de son verbe<br>
+                        → <strong>Valeur :</strong> Contraste, différence, opposition<br>
+                        → <strong>Variantes :</strong> "L'une... l'autre" (f.), "Les uns... les autres" (pl.)<br>
+                        → <strong>Usage :</strong> Très courant pour marquer l'opposition
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">LES UNS... LES AUTRES — Réciprocité</div>
+                    <div class="sentence-scroll">
+                        Ils s'aident <span class="word-highlight">les uns les autres</span> dans les moments difficiles.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">PRONOMS indéfinis corrélatifs pluriels</span><br>
+                        → <strong>Construction :</strong> "Les uns les autres" (réciprocité mutuelle)<br>
+                        → <strong>Sens :</strong> Action réciproque, mutuellement, entre eux<br>
+                        → <strong>Valeur :</strong> RÉCIPROCITÉ (chacun vers les autres)<br>
+                        → <strong>Fonction :</strong> COD de "aider" (s'aider les uns les autres)<br>
+                        → <strong>Variantes :</strong> "Les unes les autres" (féminin pluriel)<br>
+                        → <strong>Remarque :</strong> Exprime l'interaction mutuelle au sein d'un groupe
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUTRE CHOSE — Locution Figée</div>
+                    <div class="sentence-scroll">
+                        C'est <span class="word-highlight">autre chose</span> qu'il faut faire maintenant.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">LOCUTION pronominale invariable</span><br>
+                        → <strong>Forme :</strong> "Autre chose" (deux mots séparés)<br>
+                        → <strong>Sens :</strong> "Une chose différente", "quelque chose d'autre"<br>
+                        → <strong>Invariabilité :</strong> Toujours invariable (neutre)<br>
+                        → <strong>Fonction :</strong> Peut être sujet, COD, attribut<br>
+                        → <strong>Construction :</strong> Peut être suivi de "de + adjectif" : "autre chose de bien"<br>
+                        → <strong>Expressions :</strong> "C'est autre chose" (= très différent)
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUTRE Expressions Idiomatiques</div>
+                    <div class="sentence-scroll">
+                        Ceci est une chose, mais c'est tout <span class="word-highlight">autre chose</span> de réussir.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Expression :</strong> <span class="usage-detail">"C'est tout autre chose" (locution)</span><br>
+                        → <strong>Sens :</strong> "C'est très différent", "c'est bien plus difficile"<br>
+                        → <strong>Autres expressions :</strong> "Entre autres" (notamment), "Autre part" (ailleurs)<br>
+                        → <strong>Locutions :</strong> "D'autre part" (en plus), "Comme nul autre" (incomparable)<br>
+                        → <strong>Tournures :</strong> "Ni l'un ni l'autre", "L'un et l'autre", "L'un ou l'autre"<br>
+                        → <strong>Remarque :</strong> Nombreuses expressions figées avec "autre"<br>
+                        → <strong>Usage :</strong> Très productif en français pour nuancer le discours
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section AUTRUI -->
+            <section class="theme-section" style="animation-delay: 3.1s;">
+                <h2 class="section-title">AUTRUI</h2>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUTRUI Pronom — Après Préposition</div>
+                    <div class="sentence-scroll">
+                        Il ne faut jamais convoiter le bien d'<span class="word-highlight">autrui</span>.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">PRONOM indéfini invariable (jamais adjectif)</span><br>
+                        → <strong>Position :</strong> Après préposition "de" (emploi typique)<br>
+                        → <strong>Sens :</strong> "Les autres personnes", "le prochain", "ses semblables"<br>
+                        → <strong>Fonction :</strong> Complément du nom "bien" (le bien de qui ? d'autrui)<br>
+                        → <strong>Registre :</strong> Soutenu, moral, philosophique, juridique<br>
+                        → <strong>Invariabilité :</strong> Forme unique, jamais d'accord<br>
+                        → <strong>Remarque :</strong> Forme archaïque conservée dans certains contextes
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUTRUI Contexte Moral — Respect</div>
+                    <div class="sentence-scroll">
+                        Le respect d'<span class="word-highlight">autrui</span> est un principe fondamental de la vie en société.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">PRONOM (complément du nom "respect")</span><br>
+                        → <strong>Contexte :</strong> Moral, éthique, philosophique<br>
+                        → <strong>Sens :</strong> "Des autres personnes" considérées collectivement<br>
+                        → <strong>Valeur :</strong> Dimension éthique, morale (autrui = le prochain)<br>
+                        → <strong>Construction :</strong> "Respect de + autrui" (complément du nom)<br>
+                        → <strong>Usage :</strong> Fréquent dans les textes de morale, éthique, droit<br>
+                        → <strong>Remarque :</strong> Évoque une relation morale à l'autre
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUTRUI Contexte Juridique — Droits</div>
+                    <div class="sentence-scroll">
+                        Nul ne peut porter atteinte aux droits d'<span class="word-highlight">autrui</span>.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">PRONOM (complément du nom "droits")</span><br>
+                        → <strong>Contexte :</strong> Juridique, légal, législatif<br>
+                        → <strong>Sens :</strong> "D'autres personnes" dans un cadre légal<br>
+                        → <strong>Fonction :</strong> Complément du nom (les droits de qui ? d'autrui)<br>
+                        → <strong>Valeur :</strong> Dimension juridique (protection des droits)<br>
+                        → <strong>Formulation :</strong> Style juridique soutenu ("nul ne peut")<br>
+                        → <strong>Remarque :</strong> Terme privilégié dans les textes de loi
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUTRUI Préposition À — Relation</div>
+                    <div class="sentence-scroll">
+                        Il faut toujours se montrer bienveillant à l'égard d'<span class="word-highlight">autrui</span>.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Nature :</strong> <span class="usage-detail">PRONOM (après locution prépositive)</span><br>
+                        → <strong>Construction :</strong> "À l'égard de + autrui" (locution prépositive)<br>
+                        → <strong>Sens :</strong> "Envers les autres", "vis-à-vis d'autrui"<br>
+                        → <strong>Fonction :</strong> Complément circonstanciel (relation, attitude)<br>
+                        → <strong>Autres constructions :</strong> "Envers autrui", "vis-à-vis d'autrui"<br>
+                        → <strong>Valeur :</strong> Relation morale, attitude éthique<br>
+                        → <strong>Remarque :</strong> Toujours après préposition ou locution prépositive
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUTRUI Distinction AUTRE vs AUTRUI</div>
+                    <div class="sentence-scroll">
+                        L'<span class="word-highlight">autre</span> est un individu, <span class="word-highlight">autrui</span> représente l'ensemble des autres.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>AUTRE :</strong> <span class="usage-detail">Individu spécifique, personne distincte déterminée</span><br>
+                        → <strong>AUTRUI :</strong> Collectif abstrait, l'ensemble des autres indéterminé<br>
+                        → <strong>Différence sémantique :</strong> Particulier (autre) vs Général (autrui)<br>
+                        → <strong>Usage :</strong> "L'autre" = une personne / "Autrui" = les gens en général<br>
+                        → <strong>Registre :</strong> "Autre" courant / "Autrui" soutenu<br>
+                        → <strong>Exemples :</strong> "L'autre client" (spécifique) vs "Le bien d'autrui" (général)<br>
+                        → <strong>Remarque :</strong> "Autrui" a une dimension philosophique absente de "autre"
+                    </p>
+                </div>
+
+                <div class="example-scroll">
+                    <div class="example-label">AUTRUI Expressions Classiques</div>
+                    <div class="sentence-scroll">
+                        Ne fais pas à <span class="word-highlight">autrui</span> ce que tu ne voudrais pas qu'on te fasse.
+                    </div>
+                    <p class="analysis-scroll">
+                        → <strong>Expression :</strong> <span class="usage-detail">Règle d'or morale (maxime universelle)</span><br>
+                        → <strong>Construction :</strong> "Faire à autrui" (après préposition "à")<br>
+                        → <strong>Sens :</strong> Principe de réciprocité éthique fondamental<br>
+                        → <strong>Contexte :</strong> Philosophie morale, éthique, sagesse<br>
+                        → <strong>Autres expressions :</strong> "L'enfer, c'est les autres" (≠ autrui collectif)<br>
+                        → <strong>Valeur :</strong> Dimension éthique, morale, philosophique profonde<br>
+                        → <strong>Remarque :</strong> "Autrui" convient aux maximes universelles morales
+                    </p>
+                </div>
+            </section>
+
+            <!-- Règle -->
+            <div class="rule-scroll" style="animation-delay: 3.3s;">
+                <h3 class="rule-heading">Règles d'Emploi Fondamentales</h3>
+                <div class="rule-content">
+                    <ul class="rule-list">
+                        <li>
+                            <strong>AUCUN/AUCUNE — Double valeur historique :</strong> En français moderne, "aucun" a 
+                            une valeur NÉGATIVE obligatoire et s'emploie avec "ne" : "Il n'a aucun espoir". La valeur 
+                            POSITIVE archaïque (= "quelqu'un", "quelque") ne subsiste que dans l'expression figée 
+                            littéraire "d'aucuns" (= "certains") employée sans "ne" : "D'aucuns pensent que...". Cette 
+                            valeur positive reflète l'étymologie latine "aliquis unus" mais est totalement obsolète en 
+                            français courant.
+                        </li>
+                        <li>
+                            <strong>AUCUN/AUCUNE — Accord en genre obligatoire :</strong> Qu'il soit adjectif ou pronom, 
+                            "aucun" s'accorde en genre avec le nom auquel il se rapporte : MASCULIN "aucun homme", 
+                            "aucun n'est venu" ; FÉMININ "aucune femme", "aucune n'est venue". Le féminin se forme 
+                            régulièrement par ajout de -e : aucun → aucune. Cet accord en genre est obligatoire et 
+                            visible à l'écrit, parfois audible à l'oral par la liaison.
+                        </li>
+                        <li>
+                            <strong>AUCUN/AUCUNE — Singulier obligatoire :</strong> "Aucun" s'emploie pratiquement 
+                            toujours au SINGULIER car il exprime l'absence totale, le zéro ("pas un seul"). Le PLURIEL 
+                            n'est accepté que dans de très rares cas avec des noms qui n'existent pas au singulier : 
+                            "aucuns frais", "aucunes funérailles", "aucunes fiançailles". Ces formes plurielles restent 
+                            exceptionnelles et archaïques ; le singulier est la règle générale absolue.
+                        </li>
+                        <li>
+                            <strong>AUTRE — Polyvalence adjectif/pronom :</strong> "Autre" peut fonctionner comme 
+                            ADJECTIF indéfini (accompagne un nom : "une autre solution", "d'autres idées") ou comme 
+                            PRONOM indéfini (remplace un nom : "un autre", "d'autres"). Dans les deux cas, il varie 
+                            UNIQUEMENT en NOMBRE (autre/autres) mais reste INVARIABLE en GENRE (même forme au masculin 
+                            et au féminin). Cette polyvalence syntaxique permet de nombreux emplois et nuances.
+                        </li>
+                        <li>
+                            <strong>AUTRE — Constructions corrélatives :</strong> "Autre" entre dans de nombreuses 
+                            constructions corrélatives exprimant l'opposition, la réciprocité ou l'alternative. 
+                            OPPOSITION : "L'un... l'autre" (deux éléments distincts). RÉCIPROCITÉ : "Les uns les autres" 
+                            (action mutuelle). ALTERNATIVE : "L'un ou l'autre" (choix), "Ni l'un ni l'autre" (double 
+                            négation), "L'un et l'autre" (les deux ensemble). Ces constructions s'accordent en genre et 
+                            nombre selon le référent.
+                        </li>
+                        <li>
+                            <strong>AUTRUI — Uniquement pronom, jamais adjectif :</strong> "Autrui" fonctionne 
+                            EXCLUSIVEMENT comme PRONOM indéfini et ne peut JAMAIS accompagner un nom comme adjectif. 
+                            CORRECT : "Le bien d'autrui" (pronom). INCORRECT : *"Autrui personne" (impossible comme 
+                            adjectif). "Autrui" est totalement INVARIABLE (pas de variation en genre ni en nombre) et 
+                            s'emploie principalement APRÈS PRÉPOSITION : "de/à/envers/pour autrui".
+                        </li>
+                        <li>
+                            <strong>AUTRUI — Registre soutenu et contextes spécifiques :</strong> "Autrui" appartient 
+                            au REGISTRE SOUTENU et s'emploie surtout dans des contextes PHILOSOPHIQUES, MORAUX et 
+                            JURIDIQUES. Il désigne "les autres personnes" considérées collectivement et abstraitement, 
+                            avec une dimension éthique. "Autrui" diffère de "les autres" (plus concret) et de "l'autre" 
+                            (individu spécifique) par son caractère abstrait et général. Usage typique : droit, morale, 
+                            éthique, philosophie.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tableau -->
+            <section class="table-manuscript" style="animation-delay: 3.5s;">
+                <h2 class="illuminated-heading">Tableau Comparatif Complet</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Indéfini</th>
+                            <th>Nature</th>
+                            <th>Variation</th>
+                            <th>Valeur</th>
+                            <th>Emploi Principal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-emphasis">AUCUN</td>
+                            <td>Adj. / Pronom</td>
+                            <td>Genre (m./f.)</td>
+                            <td>Négative (moderne)</td>
+                            <td><em>Il n'a aucun espoir</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-emphasis">AUCUNE</td>
+                            <td>Adj. / Pronom</td>
+                            <td>Genre (féminin)</td>
+                            <td>Négative</td>
+                            <td><em>Aucune n'est venue</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-emphasis">D'AUCUNS</td>
+                            <td>Pronom (archaïque)</td>
+                            <td>Pluriel figé</td>
+                            <td>Positive (archaïque)</td>
+                            <td><em>D'aucuns pensent que...</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-emphasis">AUTRE</td>
+                            <td>Adj. / Pronom</td>
+                            <td>Nombre (sg./pl.)</td>
+                            <td>Différence, altérité</td>
+                            <td><em>Une autre solution</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-emphasis">AUTRES</td>
+                            <td>Adj. / Pronom</td>
+                            <td>Pluriel</td>
+                            <td>Addition, pluralité</td>
+                            <td><em>D'autres sont venus</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-emphasis">L'UN... L'AUTRE</td>
+                            <td>Pronoms corrélatifs</td>
+                            <td>Genre et nombre</td>
+                            <td>Opposition binaire</td>
+                            <td><em>L'un dit oui, l'autre dit non</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-emphasis">AUTRE CHOSE</td>
+                            <td>Locution pronominale</td>
+                            <td>Invariable</td>
+                            <td>Chose différente</td>
+                            <td><em>C'est autre chose</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-emphasis">AUTRUI</td>
+                            <td>Pronom uniquement</td>
+                            <td>Invariable</td>
+                            <td>Les autres (collectif)</td>
+                            <td><em>Le bien d'autrui</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 class="illuminated-heading" style="margin-top: 110px;">Contextes d'Emploi par Registre</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Indéfini</th>
+                            <th>Registre Courant</th>
+                            <th>Registre Soutenu</th>
+                            <th>Registre Littéraire/Archaïque</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-emphasis">AUCUN/AUCUNE</td>
+                            <td>✓ Très fréquent (négation)</td>
+                            <td>✓ Fréquent (tous contextes)</td>
+                            <td>✓ "D'aucuns" (archaïque positif)</td>
+                        </tr>
+                        <tr>
+                            <td class="table-emphasis">AUTRE/AUTRES</td>
+                            <td>✓ Très fréquent (tous emplois)</td>
+                            <td>✓ Fréquent (toutes nuances)</td>
+                            <td>✓ Constructions littéraires</td>
+                        </tr>
+                        <tr>
+                            <td class="table-emphasis">AUTRUI</td>
+                            <td>— Rare (préférer "les autres")</td>
+                            <td>✓ Courant (moral, juridique)</td>
+                            <td>✓ Philosophique, éthique</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Avertissement -->
+            <div class="warning-scroll" style="animation-delay: 3.7s;">
+                <h3 class="warning-heading">Erreurs Fréquentes à Éviter</h3>
+                <div class="warning-content">
+                    <p style="margin-bottom: 45px;">
+                        <strong>Erreur n°1 : "Aucun" sans "ne" en français moderne</strong><br>
+                        ❌ <em>"Il a aucun espoir de réussir"</em> (manque "ne")<br>
+                        ✅ <em>"Il n'a aucun espoir de réussir"</em> (avec "ne" obligatoire)<br>
+                        → En français moderne, "aucun" négatif exige TOUJOURS "ne" (sauf après "sans")
+                    </p>
+                    
+                    <p style="margin-bottom: 45px;">
+                        <strong>Erreur n°2 : Pluriel de "aucun" avec noms ordinaires</strong><br>
+                        ❌ <em>"Aucuns livres ne sont intéressants"</em> (pluriel incorrect)<br>
+                        ✅ <em>"Aucun livre n'est intéressant"</em> (singulier obligatoire)<br>
+                        → Le pluriel n'est accepté qu'avec des noms sans singulier ("aucuns frais")
+                    </p>
+                    
+                    <p style="margin-bottom: 45px;">
+                        <strong>Erreur n°3 : Mauvais accord en genre de "aucun"</strong><br>
+                        ❌ <em>"Aucun personne n'est venue"</em> (masculin + nom féminin)<br>
+                        ✅ <em>"Aucune personne n'est venue"</em> (accord féminin obligatoire)<br>
+                        → "Aucun" doit s'accorder en genre avec le nom (aucun m. / aucune f.)
+                    </p>
+                    
+                    <p style="margin-bottom: 45px;">
+                        <strong>Erreur n°4 : "Autrui" employé comme adjectif</strong><br>
+                        ❌ <em>"Les autrui opinions sont importantes"</em> (adjectif impossible)<br>
+                        ✅ <em>"Les opinions d'autrui sont importantes"</em> (pronom après préposition)<br>
+                        → "Autrui" est UNIQUEMENT pronom, jamais adjectif devant un nom
+                    </p>
+                    
+                    <p style="margin-bottom: 45px;">
+                        <strong>Erreur n°5 : Confusion "autre" pronom vs adjectif</strong><br>
+                        ❌ <em>"J'ai vu autre hier"</em> (forme incorrecte du pronom)<br>
+                        ✅ <em>"J'ai vu un autre hier"</em> (pronom avec article)<br>
+                        → Comme pronom, "autre" nécessite généralement un déterminant ("un autre", "d'autres")
+                    </p>
+                    
+                    <p>
+                        <strong>Erreur n°6 : "Autrui" au pluriel</strong><br>
+                        ❌ <em>"Les biens d'autruis"</em> (tentative de pluriel)<br>
+                        ✅ <em>"Les biens d'autrui"</em> (toujours invariable)<br>
+                        → "Autrui" est totalement INVARIABLE, aucune marque de pluriel possible
+                    </p>
+                </div>
+            </div>
+
+            <!-- Conseil -->
+            <div class="tip-scroll" style="animation-delay: 3.9s;">
+                <h3 class="tip-heading">Guide Pratique d'Emploi</h3>
+                <div class="tip-content">
+                    <p style="margin-bottom: 38px;">
+                        <strong>Stratégies pour maîtriser ces indéfinis :</strong>
+                    </p>
+                    
+                    <p style="margin-bottom: 35px;">
+                        <strong>Pour AUCUN/AUCUNE :</strong><br>
+                        → Mémorisez : valeur NÉGATIVE moderne = avec "ne" OBLIGATOIRE<br>
+                        → Accord en GENRE : aucun (m.) / aucune (f.) selon le nom<br>
+                        → Nombre : SINGULIER sauf noms sans singulier (très rare)<br>
+                        → Expression "sans aucun" : "sans" remplace "ne" (pas de double négation)<br>
+                        → "D'aucuns" (archaïque) : valeur positive = "certains" (littéraire uniquement)
+                    </p>
+                    
+                    <p style="margin-bottom: 35px;">
+                        <strong>Pour AUTRE/AUTRES :</strong><br>
+                        → Variation en NOMBRE uniquement : autre (sg.) / autres (pl.)<br>
+                        → Genre INVARIABLE : même forme masculin/féminin<br>
+                        → Adjectif : avant le nom ("une autre solution")<br>
+                        → Pronom : avec déterminant ("un autre", "d'autres", "les autres")<br>
+                        → Corrélations : "l'un... l'autre" (opposition), "les uns... les autres" (réciprocité)<br>
+                        → Locutions : "autre chose" (invariable), "entre autres", "d'autre part"
+                    </p>
+                    
+                    <p style="margin-bottom: 35px;">
+                        <strong>Pour AUTRUI :</strong><br>
+                        → Uniquement PRONOM, jamais adjectif<br>
+                        → Totalement INVARIABLE (pas de genre ni de nombre)<br>
+                        → Après PRÉPOSITION principalement : "de/à/envers/pour autrui"<br>
+                        → Registre SOUTENU : philosophie, morale, éthique, droit<br>
+                        → Sens : "les autres personnes" (collectif abstrait général)<br>
+                        → Distinction : "l'autre" (individu) vs "autrui" (collectif moral)
+                    </p>
+                    
+                    <p style="margin-bottom: 35px;">
+                        <strong>Tests de vérification :</strong><br>
+                        → AUCUN : cherchez le "ne" (obligatoire en français moderne)<br>
+                        → AUCUN : vérifiez l'accord en genre avec le nom<br>
+                        → AUTRE : vérifiez s'il accompagne un nom (adj.) ou le remplace (pron.)<br>
+                        → AUTRUI : vérifiez qu'il est après une préposition et sans nom<br>
+                        → AUTRUI : vérifiez le registre (évitez en langage familier)
+                    </p>
+                    
+                    <p>
+                        <strong>Mémo rapide :</strong> AUCUN = négatif moderne (avec "ne"), accord genre, singulier. 
+                        AUTRE = variable nombre uniquement, adj. ou pron., nombreuses constructions. AUTRUI = pronom 
+                        invariable, après préposition, registre soutenu, sens moral/philosophique. Ces trois indéfinis 
+                        ont des emplois très différents malgré leur appartenance commune à la classe des indéfinis.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Synthèse -->
+            <section class="synthesis-panel" style="animation-delay: 4.1s;">
+                <h2>Synthèse des Emplois Particuliers</h2>
+                <ul class="synthesis-list">
+                    <li>
+                        <strong>AUCUN/AUCUNE — Évolution sémantique remarquable :</strong> "Aucun" illustre un cas 
+                        fascinant d'évolution sémantique du latin au français moderne. Issu du latin "aliquis unus" 
+                        signifiant "quelque un", "quelqu'un", il possédait à l'origine une valeur POSITIVE. Par un 
+                        processus d'affaiblissement sémantique progressif dans les contextes négatifs, "aucun" a fini 
+                        par acquérir une valeur exclusivement NÉGATIVE en français moderne, signifiant "pas un seul", 
+                        "zéro". Seule l'expression figée archaïque "d'aucuns" conserve la valeur positive originelle 
+                        ("certains", "quelques-uns"), témoignage précieux de l'état ancien de la langue.
+                    </li>
+                    <li>
+                        <strong>AUCUN/AUCUNE — Double nature grammaticale :</strong> "Aucun" fonctionne à la fois comme 
+                        ADJECTIF indéfini (accompagnant un nom : "aucun espoir", "aucune idée") et comme PRONOM indéfini 
+                        (remplaçant un nom : "aucun n'est venu", "aucune n'a répondu"). Dans les deux emplois, il 
+                        s'accorde obligatoirement en GENRE (aucun masculin / aucune féminin) mais reste pratiquement 
+                        toujours au SINGULIER, exprimant l'absence totale, le zéro. Le pluriel rarissime ("aucuns frais", 
+                        "aucunes funérailles") ne s'emploie qu'avec des noms dépourvus de forme singulière.
+                    </li>
+                    <li>
+                        <strong>AUCUN/AUCUNE — Construction négative moderne :</strong> En français contemporain, "aucun" 
+                        à valeur négative exige TOUJOURS la présence de la particule "ne" : "Il n'a aucun espoir", 
+                        "Aucune n'est venue". Cette construction "ne... aucun" exprime une négation totale, absolue, 
+                        équivalente à "ne... pas un seul". Exception : après la préposition "sans", le "ne" devient 
+                        inutile car "sans" exprime déjà la négation : "sans aucun doute" (et non *"sans n'avoir aucun 
+                        doute"). De nombreuses expressions figées emploient "aucun" après "sans" : "en aucun cas", "à 
+                        aucun moment", "d'aucune façon".
+                    </li>
+                    <li>
+                        <strong>AUTRE — Polyvalence syntaxique et sémantique exceptionnelle :</strong> "Autre" se 
+                        distingue par sa remarquable polyvalence. SYNTAXIQUEMENT, il fonctionne comme adjectif indéfini 
+                        (variable en nombre : autre/autres) accompagnant un nom ("une autre solution", "d'autres idées") 
+                        et comme pronom indéfini remplaçant un nom ("un autre", "d'autres"). SÉMANTIQUEMENT, il exprime 
+                        des nuances variées : DIFFÉRENCE ("une autre personne" = différente), ADDITION ("d'autres 
+                        possibilités" = supplémentaires), OPPOSITION ("l'un... l'autre"), RÉCIPROCITÉ ("les uns les 
+                        autres"), ALTERNATIVE ("l'un ou l'autre"). Cette polyvalence fait de "autre" l'un des indéfinis 
+                        les plus productifs et les plus fréquents du français.
+                    </li>
+                    <li>
+                        <strong>AUTRE — Constructions corrélatives riches :</strong> "Autre" entre dans de nombreuses 
+                        constructions corrélatives exprimant des relations logiques complexes. OPPOSITION BINAIRE : 
+                        "L'un... l'autre" (deux éléments distincts et opposés). RÉCIPROCITÉ : "Les uns les autres", 
+                        "les uns aux autres" (action mutuelle au sein d'un groupe). ALTERNATIVE : "L'un ou l'autre" 
+                        (choix exclusif), "L'un et l'autre" (les deux ensemble), "Ni l'un ni l'autre" (double exclusion). 
+                        Ces constructions s'accordent en genre et en nombre (l'un/l'une/les uns/les unes, l'autre/les 
+                        autres) et permettent d'exprimer des nuances logiques et relationnelles subtiles indispensables 
+                        au discours argumentatif et narratif.
+                    </li>
+                    <li>
+                        <strong>AUTRE — Expressions figées nombreuses :</strong> "Autre" participe à de très nombreuses 
+                        expressions figées et locutions du français. LOCUTIONS ADVERBIALES : "d'autre part" (en outre), 
+                        "autre part" (ailleurs), "entre autres" (notamment). LOCUTIONS PRONOMINALES : "autre chose" 
+                        (quelque chose de différent, invariable), "grand-chose" (avec négation). TOURNURES FIGÉES : 
+                        "c'est tout autre chose" (très différent), "ni plus ni moins", "comme nul autre" (incomparable), 
+                        "à d'autres !" (exclamation de doute). Cette productivité lexicale témoigne de la vitalité et 
+                        de la fréquence d'emploi de "autre" dans tous les registres du français.
+                    </li>
+                    <li>
+                        <strong>AUTRUI — Pronom archaïque à valeur philosophique :</strong> "Autrui", forme archaïque du 
+                        cas régime de "autre" en ancien français, a survécu en français moderne comme PRONOM indéfini 
+                        invariable à valeur philosophique, morale et juridique. Il désigne "les autres personnes" 
+                        considérées collectivement et abstraitement, avec une dimension éthique absente de "les autres" 
+                        ou "l'autre". "Autrui" ne fonctionne JAMAIS comme adjectif, reste totalement INVARIABLE, et 
+                        s'emploie principalement APRÈS PRÉPOSITION ("de/à/envers/pour autrui"). Son usage appartient au 
+                        REGISTRE SOUTENU et se concentre dans des contextes philosophiques, moraux, éthiques et juridiques : 
+                        "le respect d'autrui", "ne pas nuire à autrui", "le bien d'autrui".
+                    </li>
+                    <li>
+                        <strong>Maîtrise et conscience linguistique :</strong> La connaissance approfondie des emplois 
+                        particuliers de AUCUN, AUTRE et AUTRUI révèle la richesse historique, sémantique et syntaxique 
+                        du système des indéfinis français. Elle permet de comprendre les évolutions de la langue (valeur 
+                        positive → négative pour "aucun"), d'apprécier la polyvalence grammaticale (double nature 
+                        adjectif/pronom), d'employer les nuances sémantiques appropriées (différence, opposition, 
+                        réciprocité pour "autre"), et d'adapter le registre de langue aux contextes (valeur philosophique 
+                        d'autrui). Cette maîtrise constitue un élément essentiel de la compétence grammaticale avancée 
+                        en français et témoigne d'une conscience linguistique développée et nuancée.
+                    </li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Língua Academy · Tous droits réservés</p>
+            <p class="footer-brand">LÍNGUA ACADEMY</p>
+            <p>Manuscrit Enluminé de Grammaire Française</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer pour animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -150px 0px'
+        };
+
+        const fadeObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer les scrolls d'exemples
+        document.querySelectorAll('.example-scroll').forEach(scroll => {
+            scroll.style.opacity = '0';
+            scroll.style.transform = 'translateY(62px)';
+            scroll.style.transition = 'opacity 1.4s ease, transform 1.4s ease';
+            fadeObserver.observe(scroll);
+        });
+
+        // Animer les rangées de tableau
+        document.querySelectorAll('tbody tr').forEach((row, index) => {
+            row.style.opacity = '0';
+            row.style.transform = 'translateX(-82px)';
+            row.style.transition = `opacity 1.2s ease ${index * 0.13}s, transform 1.2s ease ${index * 0.13}s`;
+            
+            fadeObserver.observe(row);
+        });
+    </script>
+</body>
+</html>

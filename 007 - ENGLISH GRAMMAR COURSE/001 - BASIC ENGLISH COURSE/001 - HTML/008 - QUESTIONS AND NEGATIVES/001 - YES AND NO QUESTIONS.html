@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yes/No Questions</title>
+  <style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        color: #333;
+        background: white;
+    }
+    
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 0 auto;
+        background: white;
+        page-break-after: always;
+    }
+    
+    .header {
+        text-align: center;
+        padding: 35px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+    
+    .header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+        font-size: 18px;
+        opacity: 0.95;
+    }
+    
+    .section {
+        margin: 25px 0;
+        padding: 25px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .section.orange {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+    
+    .section.green {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        color: black;
+    }
+    
+    .section.blue {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .section.pink {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+    
+    .section.purple {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    }
+    
+    .section.teal {
+        background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    }
+    
+    .section.coral {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+    
+    h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    
+    .section.green h2, .section.green h3 {
+        color: white;
+    }
+    
+    h3 {
+        font-size: 22px;
+        margin: 20px 0 10px 0;
+        color: #34495e;
+    }
+    
+    p {
+        margin-bottom: 15px;
+        font-size: 16px;
+        text-align: justify;
+    }
+    
+    .verb-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #667eea;
+        margin: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .verb-title {
+        color: #667eea;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    
+    .verb-form {
+        color: #e74c3c;
+        font-style: italic;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .verb-desc {
+        color: #555;
+        font-size: 16px;
+    }
+    
+    .example-box {
+        background: #fff9e6;
+        border: 2px dashed #f39c12;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .example-title {
+        color: #f39c12;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .tip-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #27ae60;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .tip-box h4 {
+        color: #27ae60;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    
+    ul {
+        margin-left: 30px;
+        margin-bottom: 15px;
+    }
+    
+    li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    
+    .structure-table {
+        width: 100%;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .structure-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .structure-table th {
+        background: #667eea;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+    }
+    
+    .structure-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+    }
+    
+    .structure-table tr:nth-child(even) {
+        background: #f8f9fa;
+    }
+    
+    .structure-label {
+        font-weight: bold;
+        color: #3498db;
+    }
+    
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .form-item {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        border-top: 4px solid #3498db;
+    }
+    
+    .form-type {
+        font-weight: bold;
+        color: #3498db;
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+    
+    .form-text {
+        color: #555;
+        font-size: 15px;
+    }
+    
+    .negative-box {
+        background: #ffe6e6;
+        border: 2px solid #e74c3c;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .negative-title {
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .question-box {
+        background: #e6f3ff;
+        border: 2px solid #3498db;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .question-title {
+        color: #3498db;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .comparison-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #9b59b6;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .comparison-title {
+        color: #9b59b6;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .alternative-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #e67e22;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .alternative-title {
+        color: #e67e22;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .error-box {
+        background: #fff5f5;
+        border: 2px solid #c0392b;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .error-title {
+        color: #c0392b;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    
+    @media print {
+        body {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>❓ YES / NO QUESTIONS ❓</h1>
+      <p>Ask Questions That Can Be Answered With “Yes” or “No”</p>
+    </div>
+
+    <div class="section orange">
+      <h2>🌟 What Are Yes/No Questions?</h2>
+      <p><strong>Yes/No Questions</strong> are questions that can be answered with a simple <strong>“Yes”</strong> or <strong>“No”</strong>. They usually begin with an <u>auxiliary verb</u> like <strong>do, does, did, is, are, was, were, will, can, have, has</strong>.</p>
+      <ul>
+        <li><strong>Do you like pizza?</strong> → Yes, I do.</li>
+        <li><strong>Is she at home?</strong> → No, she isn’t.</li>
+        <li><strong>Can they swim?</strong> → Yes, they can.</li>
+      </ul>
+    </div>
+
+    <div class="section blue">
+      <h2>📋 Structure of Yes/No Questions</h2>
+      <div class="structure-table">
+        <table>
+          <tr>
+            <th>Tense</th>
+            <th>Structure</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Present Simple</td>
+            <td>Do/Does + subject + base verb</td>
+            <td>Do you study English?</td>
+          </tr>
+          <tr>
+            <td>Past Simple</td>
+            <td>Did + subject + base verb</td>
+            <td>Did she call you?</td>
+          </tr>
+          <tr>
+            <td>Present Continuous</td>
+            <td>Am/Is/Are + subject + verb-ing</td>
+            <td>Is he working?</td>
+          </tr>
+          <tr>
+            <td>Future Simple</td>
+            <td>Will + subject + base verb</td>
+            <td>Will they arrive soon?</td>
+          </tr>
+          <tr>
+            <td>Present Perfect</td>
+            <td>Have/Has + subject + past participle</td>
+            <td>Have you finished?</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="tip-box">
+        <h4>💡 Quick Tip</h4>
+        <p>Start with the auxiliary verb, then add the subject and main verb. Don’t forget the question mark!</p>
+      </div>
+    </div>
+
+    <div class="section green">
+      <h2>🎯 Common Auxiliary Verbs</h2>
+
+      <div class="verb-box">
+        <div class="verb-title">1. DO / DOES</div>
+        <div class="verb-desc">Present Simple</div>
+        <div class="example-box">
+          <p>• Do you like music?<br>
+             • Does she play guitar?<br>
+             • Do they live here?</p>
+        </div>
+      </div>
+
+      <div class="verb-box">
+        <div class="verb-title">2. DID</div>
+        <div class="verb-desc">Past Simple</div>
+        <div class="example-box">
+          <p>• Did you go to the party?<br>
+             • Did he call you?<br>
+             • Did they arrive late?</p>
+        </div>
+      </div>
+
+      <div class="verb-box">
+        <div class="verb-title">3. IS / ARE / AM</div>
+        <div class="verb-desc">Present Continuous</div>
+        <div class="example-box">
+          <p>• Is she studying?<br>
+             • Are you listening?<br>
+             • Am I late?</p>
+        </div>
+      </div>
+
+      <div class="verb-box">
+        <div class="verb-title">4. WILL</div>
+        <div class="verb-desc">Future Simple</div>
+        <div class="example-box">
+          <p>• Will you come tomorrow?<br>
+             • Will it rain?<br>
+             • Will they help us?</p>
+        </div>
+      </div>
+
+      <div class="verb-box">
+        <div class="verb-title">5. CAN / COULD</div>
+        <div class="verb-desc">Ability / Permission</div>
+        <div class="example-box">
+          <p>• Can you swim?<br>
+             • Could I borrow your pen?<br>
+             • Can they speak French?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section pink">
+      <h2>📝 More Examples</h2>
+      <div class="example-box">
+        <div class="example-title">✅ Present</div>
+        <p>• Do you like coffee?<br>
+           • Is she your friend?<br>
+           • Are they ready?</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">✅ Past</div>
+        <p>• Did you see the movie?<br>
+           • Was it expensive?<br>
+           • Were they tired?</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">✅ Future</div>
+        <p>• Will you be there?<br>
+           • Will it be easy?<br>
+           • Will they join us?</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">✅ Perfect</div>
+        <p>• Have you eaten?<br>
+           • Has she arrived?<br>
+           • Have they finished?</p>
+      </div>
+    </div>
+
+    <div class="section purple">
+      <h2>📌 Short Answers</h2>
+      <div class="form-grid">
+        <div class="form-item">
+          <div class="form-type">Yes</div>
+          <div class="form-text">Yes, I do. / Yes, she is. / Yes, they have.</div>
+        </div>
+        <div class="form-item">
+          <div class="form-type">No</div>
+          <div class="form-text">No, I don’t. / No, he isn’t. / No, we haven’t.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section coral">
+      <h2>🔄 Real-Life Sentences</h2>
+      <div class="alternative-box">
+        <div class="alternative-title">Using Yes/No Questions in Context</div>
+        <p>• Do you live in Itamaraju?<br>
+           • Is this your book?<br>
+           • Did you study yesterday?<br>
+           • Will you come to the party?<br>
+           • Have you ever been to Bahia?</p>
+      </div>
+    </div>
+
+    <div class="section orange">
+      <h2>⚠️ Common Mistakes to Avoid</h2>
+      <div class="error-box">
+        <div class="error-title">❌ Wrong → ✅ Correct</div>
+        <p>❌ You like pizza?<br>✅ Do you like pizza?</p>
+        <p>❌ She is your sister?<br>✅ Is she your sister?</p>
+        <p>❌ You went to school?<br>✅ Did you go to school?</p>
+        <p>❌ You will help?<br>✅ Will you help?</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Use Yes/No Questions to Ask Clearly and Get Direct Answers!</strong></p>
+      <p>Practice with different tenses and auxiliary verbs to build fluency and confidence!</p>
+    </div>
+  </div>
+</body>
+</html>

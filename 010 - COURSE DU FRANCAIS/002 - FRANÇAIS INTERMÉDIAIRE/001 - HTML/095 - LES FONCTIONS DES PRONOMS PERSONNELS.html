@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonctions des Pronoms Personnels - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 50%, #ab47bc 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0055A4 0%, #EF4135 50%, #FFFFFF 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: rotate 25s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3.2em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .brand {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            z-index: 2;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h2 {
+            color: #0055A4;
+            font-size: 2.3em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #EF4135;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3 {
+            color: #EF4135;
+            font-size: 1.7em;
+            margin: 30px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.2em;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 6px solid #0055A4;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-box p {
+            font-size: 1.2em;
+            color: #1a237e;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #f57c00;
+        }
+
+        .definition-box h4 {
+            color: #e65100;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .definition-box p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .fonction-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            padding: 35px;
+            border-radius: 18px;
+            margin: 30px 0;
+            border: 3px solid #0055A4;
+            box-shadow: 0 8px 25px rgba(0, 85, 164, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .fonction-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 85, 164, 0.25);
+            border-color: #EF4135;
+        }
+
+        .fonction-title {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #EF4135;
+        }
+
+        /* Codes couleur par fonction */
+        .fonction-sujet {
+            color: #1976d2;
+            border-color: #1976d2;
+        }
+
+        .fonction-cod {
+            color: #388e3c;
+            border-color: #388e3c;
+        }
+
+        .fonction-coi {
+            color: #f57c00;
+            border-color: #f57c00;
+        }
+
+        .fonction-reflechi {
+            color: #c2185b;
+            border-color: #c2185b;
+        }
+
+        .exemple {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #4caf50;
+            transition: all 0.3s ease;
+        }
+
+        .exemple:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .exemple strong {
+            color: #2e7d32;
+            font-size: 1.15em;
+        }
+
+        .exemple em {
+            color: #1b5e20;
+            font-style: normal;
+            font-weight: 600;
+            background: rgba(76, 175, 80, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+
+        .methode-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #8e24aa;
+        }
+
+        .methode-box h4 {
+            color: #4a148c;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+        }
+
+        .step {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #8e24aa;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #8e24aa;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #d35400;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #00897b;
+        }
+
+        .note-box strong {
+            color: #004d40;
+            font-size: 1.15em;
+        }
+
+        .grammar-point {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #c2185b;
+        }
+
+        .grammar-point h4 {
+            color: #880e4f;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #e53935;
+        }
+
+        .warning-box strong {
+            color: #c62828;
+            font-size: 1.15em;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.15em;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 2px solid #e0e0e0;
+            transition: background 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        tr:hover td {
+            background: #f5f5f5;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        li {
+            margin: 12px 0;
+            line-height: 1.9;
+            font-size: 1.05em;
+        }
+
+        .special-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .special-list li::before {
+            content: "🔹";
+            margin-right: 10px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .comparison-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 3px solid #0277bd;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(2, 119, 189, 0.3);
+        }
+
+        .comparison-item h5 {
+            color: #01579b;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .visual-schema {
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #0277bd;
+        }
+
+        .schema-title {
+            color: #01579b;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .schema-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .schema-box {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .arrow-schema {
+            font-size: 2em;
+            color: #0277bd;
+            font-weight: bold;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.7em;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .schema-flow {
+                flex-direction: column;
+            }
+
+            .arrow-schema {
+                transform: rotate(90deg);
+            }
+
+            .brand {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">Língua Academy</div>
+            <h1>Les Fonctions des Pronoms Personnels</h1>
+            <p class="subtitle">Identifier et comprendre chaque fonction grammaticale</p>
+        </header>
+
+        <div class="content">
+            <!-- Introduction -->
+            <div class="section">
+                <div class="intro-box">
+                    <p>
+                        Les pronoms personnels peuvent avoir différentes <strong>fonctions grammaticales</strong> dans une phrase. 
+                        Comprendre ces fonctions est essentiel pour :
+                    </p>
+                    <ul style="margin-top: 15px;">
+                        <li>Choisir la <strong>bonne forme</strong> du pronom</li>
+                        <li>Placer correctement le pronom dans la phrase</li>
+                        <li>Faire les <strong>accords</strong> nécessaires (participe passé)</li>
+                        <li>Éviter les <strong>erreurs grammaticales</strong></li>
+                    </ul>
+                </div>
+
+                <div class="definition-box">
+                    <h4>📚 Qu'est-ce qu'une fonction grammaticale ?</h4>
+                    <p>
+                        La <strong>fonction grammaticale</strong> indique le <span class="highlight">rôle</span> qu'un mot 
+                        (ici un pronom) joue dans la phrase par rapport au verbe. C'est sa "mission" dans la phrase.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        Un même pronom peut avoir des <strong>formes différentes</strong> selon sa fonction. 
+                        Par exemple, à la 1ère personne du singulier : <strong>je, me, moi</strong> sont trois formes différentes 
+                        pour trois fonctions différentes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Vue d'ensemble -->
+            <div class="section">
+                <h2><span class="icon">🎯</span>Vue d'ensemble des fonctions</h2>
+
+                <div class="visual-schema">
+                    <div class="schema-title">Les 4 fonctions principales</div>
+                    
+                    <div class="comparison-grid">
+                        <div class="comparison-item" style="border-color: #1976d2;">
+                            <h5 style="color: #1976d2;">1️⃣ SUJET</h5>
+                            <p style="margin: 10px 0;"><strong>Qui fait l'action ?</strong></p>
+                            <div class="exemple" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-color: #1976d2;">
+                                <em><strong style="color: #1976d2;">Je</strong> mange.</em><br>
+                                <em><strong style="color: #1976d2;">Tu</strong> dors.</em>
+                            </div>
+                        </div>
+
+                        <div class="comparison-item" style="border-color: #388e3c;">
+                            <h5 style="color: #388e3c;">2️⃣ COD</h5>
+                            <p style="margin: 10px 0;"><strong>Qui/Quoi ?</strong></p>
+                            <div class="exemple" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-color: #388e3c;">
+                                <em>Il <strong style="color: #388e3c;">me</strong> voit.</em><br>
+                                <em>Je <strong style="color: #388e3c;">te</strong> connais.</em>
+                            </div>
+                        </div>
+
+                        <div class="comparison-item" style="border-color: #f57c00;">
+                            <h5 style="color: #f57c00;">3️⃣ COI</h5>
+                            <p style="margin: 10px 0;"><strong>À qui ? De qui?</strong></p>
+                            <div class="exemple" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-color: #f57c00;">
+                                <em>Il <strong style="color: #f57c00;">me</strong> parle.</em><br>
+                                <em>Je <strong style="color: #f57c00;">lui</strong> téléphone.</em>
+                            </div>
+                        </div>
+
+                        <div class="comparison-item" style="border-color: #c2185b;">
+                            <h5 style="color: #c2185b;">4️⃣ RÉFLÉCHI</h5>
+                            <p style="margin: 10px 0;"><strong>Action sur soi-même</strong></p>
+                            <div class="exemple" style="background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); border-color: #c2185b;">
+                                <em>Je <strong style="color: #c2185b;">me</strong> lave.</em><br>
+                                <em>Tu <strong style="color: #c2185b;">te</strong> reposes.</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fonction 1: SUJET -->
+            <div class="section">
+                <h2><span class="icon">👤</span>Fonction 1 : Le pronom SUJET</h2>
+
+                <div class="fonction-card">
+                    <div class="fonction-title fonction-sujet">
+                        <span>📌</span> Le pronom comme SUJET du verbe
+                    </div>
+
+                    <div class="definition-box">
+                        <h4>Définition</h4>
+                        <p>
+                            Le pronom <strong>SUJET</strong> indique <span class="highlight">qui fait l'action</span> du verbe. 
+                            C'est le sujet de la phrase, celui qui "agit".
+                        </p>
+                    </div>
+
+                    <div class="methode-box">
+                        <h4>🔍 Comment identifier un pronom sujet ?</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <strong>Trouvez le verbe conjugué</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <strong>Posez la question :</strong> "Qui est-ce qui [verbe] ?" ou "Qu'est-ce qui [verbe] ?"
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <strong>La réponse</strong> est le sujet
+                        </div>
+                    </div>
+
+                    <h3>📖 Exemples détaillés</h3>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em><strong style="color: #1976d2;">Je</strong> mange une pomme.</em><br>
+                        <strong>Question :</strong> Qui est-ce qui mange ? → <strong style="color: #1976d2;">Je</strong><br>
+                        <strong>Fonction :</strong> <span class="highlight">JE = SUJET</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em><strong style="color: #1976d2;">Tu</strong> travailles beaucoup.</em><br>
+                        <strong>Question :</strong> Qui est-ce qui travaille ? → <strong style="color: #1976d2;">Tu</strong><br>
+                        <strong>Fonction :</strong> <span class="highlight">TU = SUJET</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em><strong style="color: #1976d2;">Il</strong> dort profondément.</em><br>
+                        <strong>Question :</strong> Qui est-ce qui dort ? → <strong style="color: #1976d2;">Il</strong><br>
+                        <strong>Fonction :</strong> <span class="highlight">IL = SUJET</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em><strong style="color: #1976d2;">Nous</strong> partons demain.</em><br>
+                        <strong>Question :</strong> Qui est-ce qui part ? → <strong style="color: #1976d2;">Nous</strong><br>
+                        <strong>Fonction :</strong> <span class="highlight">NOUS = SUJET</span>
+                    </div>
+
+                    <div class="grammar-point">
+                        <h4>📐 Les formes SUJETS</h4>
+                        <p>Formes : <strong style="color: #1976d2;">je, tu, il/elle/on, nous, vous, ils/elles</strong></p>
+                        <ul class="special-list">
+                            <li>Ces pronoms sont <strong>obligatoires</strong> en français (pas comme en espagnol ou italien)</li>
+                            <li>Ils se placent toujours <strong>devant le verbe</strong></li>
+                            <li>Ils déterminent la <strong>conjugaison</strong> du verbe</li>
+                        </ul>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Caractéristiques :</strong>
+                        <ul style="margin-top: 10px;">
+                            <li>Position : <strong>AVANT le verbe</strong></li>
+                            <li>Accord : le verbe s'accorde avec le pronom sujet</li>
+                            <li>Inversion possible : <em>Mange<strong>s</strong>-<strong style="color: #1976d2;">tu</strong> ?</em> (forme interrogative)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fonction 2: COD -->
+            <div class="section">
+                <h2><span class="icon">🎯</span>Fonction 2 : Le pronom COD</h2>
+
+                <div class="fonction-card">
+                    <div class="fonction-title fonction-cod">
+                        <span>📌</span> Le pronom comme COD (Complément d'Objet Direct)
+                    </div>
+
+                    <div class="definition-box">
+                        <h4>Définition</h4>
+                        <p>
+                            Le pronom <strong>COD</strong> (Complément d'Objet Direct) complète directement le verbe, 
+                            <span class="highlight">sans préposition</span>. Il désigne la personne ou la chose qui 
+                            "subit" l'action.
+                        </p>
+                    </div>
+
+                    <div class="methode-box">
+                        <h4>🔍 Comment identifier un pronom COD ?</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <strong>Trouvez le verbe conjugué</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <strong>Posez la question :</strong> "[Sujet] [verbe] qui ?" ou "[Sujet] [verbe] quoi ?"
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <strong>La réponse SANS préposition</strong> est le COD
+                        </div>
+                    </div>
+
+                    <h3>📖 Exemples détaillés</h3>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em>Il <strong style="color: #388e3c;">me</strong> voit.</em><br>
+                        <strong>Question :</strong> Il voit qui ? → <strong style="color: #388e3c;">me</strong> (= moi)<br>
+                        <strong>Fonction :</strong> <span class="highlight">ME = COD</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em>Je <strong style="color: #388e3c;">te</strong> connais bien.</em><br>
+                        <strong>Question :</strong> Je connais qui ? → <strong style="color: #388e3c;">te</strong> (= toi)<br>
+                        <strong>Fonction :</strong> <span class="highlight">TE = COD</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em>Elle <strong style="color: #388e3c;">le</strong> regarde.</em><br>
+                        <strong>Question :</strong> Elle regarde qui ? → <strong style="color: #388e3c;">le</strong> (= lui)<br>
+                        <strong>Fonction :</strong> <span class="highlight">LE = COD</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em>Nous <strong style="color: #388e3c;">vous</strong> attendons.</em><br>
+                        <strong>Question :</strong> Nous attendons qui ? → <strong style="color: #388e3c;">vous</strong><br>
+                        <strong>Fonction :</strong> <span class="highlight">VOUS = COD</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em>Ils <strong style="color: #388e3c;">les</strong> invitent.</em><br>
+                        <strong>Question :</strong> Ils invitent qui ? → <strong style="color: #388e3c;">les</strong> (= eux/elles)<br>
+                        <strong>Fonction :</strong> <span class="highlight">LES = COD</span>
+                    </div>
+
+                    <div class="grammar-point">
+                        <h4>📐 Les formes COD</h4>
+                        <p>Formes : <strong style="color: #388e3c;">me, te, le/la, nous, vous, les</strong></p>
+                        <ul class="special-list">
+                            <li>Se placent <strong>avant le verbe</strong> (sauf impératif affirmatif)</li>
+                            <li>Élision : me, te, le, la → m', t', l' (devant voyelle)</li>
+                            <li>Accord du participe passé avec <strong>AVOIR</strong> si COD placé avant</li>
+                        </ul>
+                    </div>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Structure avec COD</div>
+                        <div class="schema-flow">
+                            <div class="schema-box" style="background: #e3f2fd; color: #1976d2;">SUJET</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box" style="background: #c8e6c9; color: #388e3c;">COD</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box">VERBE</div>
+                        </div>
+                        <p style="text-align: center; margin-top: 15px; font-size: 1.1em;">
+                            Exemple : <em><strong style="color: #1976d2;">Il</strong> <strong style="color: #388e3c;">me</strong> voit.</em>
+                        </p>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Attention : COD vs COI</strong>
+                        <p style="margin-top: 10px;">
+                            Le COD se construit <strong>SANS préposition</strong> :
+                        </p>
+                        <ul style="margin-top: 10px;">
+                            <li>✅ COD : <em>Je <strong>te</strong> vois.</em> (voir quelqu'un, pas de préposition)</li>
+                            <li>❌ COI : <em>Je <strong>te</strong> parle.</em> (parler <strong>à</strong> quelqu'un)</li>
+                        </ul>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Accord du participe passé avec COD :</strong>
+                        <p style="margin-top: 10px;">
+                            Quand le COD est placé <strong>avant</strong> le verbe conjugué avec AVOIR, 
+                            le participe passé s'accorde avec le COD.
+                        </p>
+                        <ul style="margin-top: 10px;">
+                            <li><em>Je <strong>l'</strong>ai vue.</em> (l' = elle → féminin → accord)</li>
+                            <li><em>Je <strong>les</strong> ai vus.</em> (les = eux → masculin pluriel → accord)</li>
+                            <li><em>Je <strong>les</strong> ai vues.</em> (les = elles → féminin pluriel → accord)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fonction 3: COI -->
+            <div class="section">
+                <h2><span class="icon">💬</span>Fonction 3 : Le pronom COI</h2>
+
+                <div class="fonction-card">
+                    <div class="fonction-title fonction-coi">
+                        <span>📌</span> Le pronom comme COI (Complément d'Objet Indirect)
+                    </div>
+
+                    <div class="definition-box">
+                        <h4>Définition</h4>
+                        <p>
+                            Le pronom <strong>COI</strong> (Complément d'Objet Indirect) complète le verbe 
+                            <span class="highlight">avec une préposition</span> (généralement <strong>à</strong> ou <strong>de</strong>). 
+                            Il indique à qui ou de qui on fait l'action.
+                        </p>
+                    </div>
+
+                    <div class="methode-box">
+                        <h4>🔍 Comment identifier un pronom COI ?</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <strong>Trouvez le verbe conjugué</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <strong>Posez la question :</strong> "[Sujet] [verbe] <strong>à</strong> qui ?" ou "[Sujet] [verbe] <strong>de</strong> qui ?"
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <strong>La réponse AVEC préposition</strong> est le COI
+                        </div>
+                    </div>
+
+                    <h3>📖 Exemples détaillés</h3>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em>Il <strong style="color: #f57c00;">me</strong> parle.</em><br>
+                        <strong>Question :</strong> Il parle <strong>à</strong> qui ? → <strong style="color: #f57c00;">à me</strong> (= à moi)<br>
+                        <strong>Fonction :</strong> <span class="highlight">ME = COI</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em>Je <strong style="color: #f57c00;">te</strong> téléphone.</em><br>
+                        <strong>Question :</strong> Je téléphone <strong>à</strong> qui ? → <strong style="color: #f57c00;">à te</strong> (= à toi)<br>
+                        <strong>Fonction :</strong> <span class="highlight">TE = COI</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em>Elle <strong style="color: #f57c00;">lui</strong> répond.</em><br>
+                        <strong>Question :</strong> Elle répond <strong>à</strong> qui ? → <strong style="color: #f57c00;">à lui/elle</strong><br>
+                        <strong>Fonction :</strong> <span class="highlight">LUI = COI</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em>Nous <strong style="color: #f57c00;">vous</strong> obéissons.</em><br>
+                        <strong>Question :</strong> Nous obéissons <strong>à</strong> qui ? → <strong style="color: #f57c00;">à vous</strong><br>
+                        <strong>Fonction :</strong> <span class="highlight">VOUS = COI</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em>Ils <strong style="color: #f57c00;">leur</strong> écrivent.</em><br>
+                        <strong>Question :</strong> Ils écrivent <strong>à</strong> qui ? → <strong style="color: #f57c00;">à leur</strong> (= à eux/elles)<br>
+                        <strong>Fonction :</strong> <span class="highlight">LEUR = COI</span>
+                    </div>
+
+                    <div class="grammar-point">
+                        <h4>📐 Les formes COI</h4>
+                        <p>Formes : <strong style="color: #f57c00;">me, te, lui, nous, vous, leur</strong></p>
+                        <ul class="special-list">
+                            <li>Se placent <strong>avant le verbe</strong> (sauf impératif affirmatif)</li>
+                            <li>À la 3ème personne : <strong>LUI</strong> (singulier) et <strong>LEUR</strong> (pluriel)</li>
+                            <li><strong>LUI</strong> = à lui OU à elle (pas de distinction de genre)</li>
+                            <li><strong>LEUR</strong> est toujours invariable (≠ leur/leurs adjectif possessif)</li>
+                        </ul>
+                    </div>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Structure avec COI</div>
+                        <div class="schema-flow">
+                            <div class="schema-box" style="background: #e3f2fd; color: #1976d2;">SUJET</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box" style="background: #ffe0b2; color: #f57c00;">COI</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box">VERBE</div>
+                        </div>
+                        <p style="text-align: center; margin-top: 15px; font-size: 1.1em;">
+                            Exemple : <em><strong style="color: #1976d2;">Il</strong> <strong style="color: #f57c00;">me</strong> parle.</em>
+                        </p>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Verbes fréquents avec COI (à + personne) :</strong>
+                        <ul style="margin-top: 10px; columns: 2;">
+                            <li>parler à</li>
+                            <li>téléphoner à</li>
+                            <li>écrire à</li>
+                            <li>répondre à</li>
+                            <li>dire à</li>
+                            <li>demander à</li>
+                            <li>offrir à</li>
+                            <li>donner à</li>
+                            <li>montrer à</li>
+                            <li>expliquer à</li>
+                            <li>plaire à</li>
+                            <li>sourire à</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Attention : Pas d'accord du participe passé avec COI !</strong>
+                        <p style="margin-top: 10px;">
+                            Contrairement au COD, le participe passé <strong>ne s'accorde jamais</strong> avec un COI placé avant.
+                        </p>
+                        <ul style="margin-top: 10px;">
+                            <li>✅ <em>Je <strong>lui</strong> ai parlé.</em> (pas d'accord, même si "lui" = elle)</li>
+                            <li>✅ <em>Je <strong>leur</strong> ai téléphoné.</em> (pas d'accord)</li>
+                            <li>❌ <em>Je lui ai parlée.</em> (incorrect)</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-item" style="border-color: #388e3c;">
+                            <h5 style="color: #388e3c;">COD (sans préposition)</h5>
+                            <div class="exemple" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-color: #388e3c;">
+                                <em>Je <strong>le</strong> vois.</em><br>
+                                <span style="font-size: 0.95em;">(voir quelqu'un)</span>
+                            </div>
+                            <div class="exemple" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-color: #388e3c;">
+                                <em>Je <strong>la</strong> connais.</em><br>
+                                <span style="font-size: 0.95em;">(connaître quelqu'un)</span>
+                            </div>
+                        </div>
+
+                        <div class="comparison-item" style="border-color: #f57c00;">
+                            <h5 style="color: #f57c00;">COI (avec À)</h5>
+                            <div class="exemple" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-color: #f57c00;">
+                                <em>Je <strong>lui</strong> parle.</em><br>
+                                <span style="font-size: 0.95em;">(parler <strong>à</strong> quelqu'un)</span>
+                            </div>
+                            <div class="exemple" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-color: #f57c00;">
+                                <em>Je <strong>lui</strong> téléphone.</em><br>
+                                <span style="font-size: 0.95em;">(téléphoner <strong>à</strong> quelqu'un)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fonction 4: RÉFLÉCHI -->
+            <div class="section">
+                <h2><span class="icon">🔄</span>Fonction 4 : Le pronom RÉFLÉCHI</h2>
+
+                <div class="fonction-card">
+                    <div class="fonction-title fonction-reflechi">
+                        <span>📌</span> Le pronom RÉFLÉCHI
+                    </div>
+
+                    <div class="definition-box">
+                        <h4>Définition</h4>
+                        <p>
+                            Le pronom <strong>RÉFLÉCHI</strong> accompagne les <span class="highlight">verbes pronominaux</span>. 
+                            Il renvoie au sujet : l'action "revient" sur celui qui la fait.
+                        </p>
+                    </div>
+
+                    <div class="methode-box">
+                        <h4>🔍 Comment identifier un pronom réfléchi ?</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <strong>Le verbe est pronominal</strong> (se + verbe à l'infinitif)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <strong>Le pronom renvoie au sujet</strong> (même personne)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <strong>L'action revient sur le sujet</strong>
+                        </div>
+                    </div>
+
+                    <h3>📖 Exemples détaillés</h3>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em>Je <strong style="color: #c2185b;">me</strong> lave.</em><br>
+                        <strong>Analyse :</strong> Je lave <strong style="color: #c2185b;">moi-même</strong> (action sur soi)<br>
+                        <strong>Fonction :</strong> <span class="highlight">ME = RÉFLÉCHI</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em>Tu <strong style="color: #c2185b;">te</strong> reposes.</em><br>
+                        <strong>Analyse :</strong> Tu reposes <strong style="color: #c2185b;">toi-même</strong><br>
+                        <strong>Fonction :</strong> <span class="highlight">TE = RÉFLÉCHI</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em>Il <strong style="color: #c2185b;">se</strong> regarde dans le miroir.</em><br>
+                        <strong>Analyse :</strong> Il regarde <strong style="color: #c2185b;">lui-même</strong><br>
+                        <strong>Fonction :</strong> <span class="highlight">SE = RÉFLÉCHI</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em>Nous <strong style="color: #c2185b;">nous</strong> amusons.</em><br>
+                        <strong>Analyse :</strong> Nous amusons <strong style="color: #c2185b;">nous-mêmes</strong><br>
+                        <strong>Fonction :</strong> <span class="highlight">NOUS = RÉFLÉCHI</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Phrase :</strong> <em>Elles <strong style="color: #c2185b;">se</strong> préparent.</em><br>
+                        <strong>Analyse :</strong> Elles préparent <strong style="color: #c2185b;">elles-mêmes</strong><br>
+                        <strong>Fonction :</strong> <span class="highlight">SE = RÉFLÉCHI</span>
+                    </div>
+
+                    <div class="grammar-point">
+                        <h4>📐 Les formes RÉFLÉCHIES</h4>
+                        <p>Formes : <strong style="color: #c2185b;">me, te, se, nous, vous, se</strong></p>
+                        <ul class="special-list">
+                            <li>Identiques aux formes COD/COI sauf à la <strong>3ème personne : SE</strong></li>
+                            <li>Toujours avec des <strong>verbes pronominaux</strong></li>
+                            <li>Le pronom et le sujet désignent la <strong>même personne</strong></li>
+                            <li>Auxiliaire <strong>ÊTRE</strong> aux temps composés</li>
+                        </ul>
+                    </div>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Structure avec pronom réfléchi</div>
+                        <div class="schema-flow">
+                            <div class="schema-box" style="background: #e3f2fd; color: #1976d2;">SUJET</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box" style="background: #f8bbd0; color: #c2185b;">RÉFLÉCHI</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box">VERBE</div>
+                        </div>
+                        <p style="text-align: center; margin-top: 15px; font-size: 1.1em;">
+                            Exemple : <em><strong style="color: #1976d2;">Je</strong> <strong style="color: #c2185b;">me</strong> lave.</em>
+                        </p>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Verbes pronominaux courants :</strong>
+                        <ul style="margin-top: 10px; columns: 2;">
+                            <li>se laver</li>
+                            <li>se lever</li>
+                            <li>se coucher</li>
+                            <li>s'habiller</li>
+                            <li>se reposer</li>
+                            <li>s'amuser</li>
+                            <li>se promener</li>
+                            <li>se dépêcher</li>
+                            <li>se réveiller</li>
+                            <li>s'endormir</li>
+                            <li>se préparer</li>
+                            <li>se regarder</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau récapitulatif complet -->
+            <div class="section">
+                <h2><span class="icon">📊</span>Tableau récapitulatif des fonctions</h2>
+
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Fonction</th>
+                            <th>Question</th>
+                            <th>Formes</th>
+                            <th>Position</th>
+                            <th>Exemple</th>
+                        </tr>
+                        <tr style="background: #e3f2fd;">
+                            <td><strong style="color: #1976d2;">SUJET</strong></td>
+                            <td>Qui fait l'action ?</td>
+                            <td>je, tu, il/elle, nous, vous, ils/elles</td>
+                            <td>Avant le verbe</td>
+                            <td><em><strong>Je</strong> mange.</em></td>
+                        </tr>
+                        <tr style="background: #e8f5e9;">
+                            <td><strong style="color: #388e3c;">COD</strong></td>
+                            <td>Verbe + qui/quoi ?</td>
+                            <td>me, te, le/la, nous, vous, les</td>
+                            <td>Avant le verbe</td>
+                            <td><em>Il <strong>me</strong> voit.</em></td>
+                        </tr>
+                        <tr style="background: #fff3e0;">
+                            <td><strong style="color: #f57c00;">COI</strong></td>
+                            <td>Verbe + à/de qui ?</td>
+                            <td>me, te, lui, nous, vous, leur</td>
+                            <td>Avant le verbe</td>
+                            <td><em>Il <strong>me</strong> parle.</em></td>
+                        </tr>
+                        <tr style="background: #fce4ec;">
+                            <td><strong style="color: #c2185b;">RÉFLÉCHI</strong></td>
+                            <td>Action sur soi ?</td>
+                            <td>me, te, se, nous, vous, se</td>
+                            <td>Avant le verbe</td>
+                            <td><em>Je <strong>me</strong> lave.</em></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Comparaison des formes -->
+            <div class="section">
+                <h2><span class="icon">⚖️</span>Comparaison : Même pronom, fonctions différentes</h2>
+
+                <div class="fonction-card">
+                    <div class="fonction-title">
+                        <span>🔍</span> Le pronom ME : 3 fonctions possibles
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        Un même pronom comme <strong>ME</strong> peut avoir différentes fonctions selon le contexte.
+                    </p>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-item" style="border-color: #388e3c;">
+                            <h5 style="color: #388e3c;">ME = COD</h5>
+                            <div class="exemple" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-color: #388e3c;">
+                                <em>Il <strong>me</strong> voit.</em><br>
+                                <span style="font-size: 0.95em; color: #666;">Il voit qui ? → me</span>
+                            </div>
+                            <div class="exemple" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-color: #388e3c;">
+                                <em>Tu <strong>me</strong> connais.</em><br>
+                                <span style="font-size: 0.95em; color: #666;">Tu connais qui ? → me</span>
+                            </div>
+                        </div>
+
+                        <div class="comparison-item" style="border-color: #f57c00;">
+                            <h5 style="color: #f57c00;">ME = COI</h5>
+                            <div class="exemple" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-color: #f57c00;">
+                                <em>Il <strong>me</strong> parle.</em><br>
+                                <span style="font-size: 0.95em; color: #666;">Il parle à qui ? → à me</span>
+                            </div>
+                            <div class="exemple" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-color: #f57c00;">
+                                <em>Tu <strong>me</strong> téléphones.</em><br>
+                                <span style="font-size: 0.95em; color: #666;">Tu téléphones à qui ? → à me</span>
+                            </div>
+                        </div>
+
+                        <div class="comparison-item" style="border-color: #c2185b;">
+                            <h5 style="color: #c2185b;">ME = RÉFLÉCHI</h5>
+                            <div class="exemple" style="background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); border-color: #c2185b;">
+                                <em>Je <strong>me</strong> lave.</em><br>
+                                <span style="font-size: 0.95em; color: #666;">Je lave moi-même</span>
+                            </div>
+                            <div class="exemple" style="background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); border-color: #c2185b;">
+                                <em>Je <strong>me</strong> repose.</em><br>
+                                <span style="font-size: 0.95em; color: #666;">Je repose moi-même</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Comment faire la différence ?</strong>
+                        <ul style="margin-top: 10px;">
+                            <li><strong>COD :</strong> Verbe + qui/quoi → réponse directe (sans préposition)</li>
+                            <li><strong>COI :</strong> Verbe + à/de qui → réponse avec préposition</li>
+                            <li><strong>RÉFLÉCHI :</strong> Verbe pronominal → action sur soi-même</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercices pratiques -->
+            <div class="section">
+                <h2><span class="icon">✏️</span>Exercices pratiques</h2>
+
+                <div class="grammar-point">
+                    <h4>🎯 Identifiez la fonction du pronom souligné</h4>
+
+                    <div class="exemple">
+                        <strong>1.</strong> <em><strong>Je</strong> travaille tous les jours.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong style="color: #1976d2;">SUJET</strong> (Qui travaille ? → Je)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>2.</strong> <em>Il <strong>me</strong> regarde.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong style="color: #388e3c;">COD</strong> (Il regarde qui ? → me)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>3.</strong> <em>Elle <strong>lui</strong> téléphone.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong style="color: #f57c00;">COI</strong> (Elle téléphone à qui ? → à lui)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>4.</strong> <em>Nous <strong>nous</strong> amusons.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong style="color: #c2185b;">RÉFLÉCHI</strong> (verbe pronominal s'amuser)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>5.</strong> <em>Tu <strong>les</strong> invites ?</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong style="color: #388e3c;">COD</strong> (Tu invites qui ? → les)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>6.</strong> <em>Je <strong>leur</strong> écris souvent.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong style="color: #f57c00;">COI</strong> (J'écris à qui ? → à leur)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>7.</strong> <em>Elle <strong>se</strong> prépare pour la fête.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong style="color: #c2185b;">RÉFLÉCHI</strong> (verbe pronominal se préparer)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>8.</strong> <em><strong>Vous</strong> partez demain ?</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong style="color: #1976d2;">SUJET</strong> (Qui part ? → Vous)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Récapitulatif final -->
+            <div class="section">
+                <h2><span class="icon">📝</span>Récapitulatif final</h2>
+
+                <div class="grammar-point">
+                    <h4>✅ Points essentiels à retenir</h4>
+                    <ul class="special-list">
+                        <li>Les pronoms personnels ont <strong>4 fonctions principales</strong> : sujet, COD, COI, réfléchi</li>
+                        <li>La <strong>forme</strong> du pronom change selon sa fonction</li>
+                        <li>Pour identifier la fonction : <strong>poser les bonnes questions</strong></li>
+                        <li><strong>SUJET :</strong> Qui fait l'action ? → formes : je, tu, il/elle...</li>
+                        <li><strong>COD :</strong> Verbe + qui/quoi ? (sans préposition) → formes : me, te, le/la...</li>
+                        <li><strong>COI :</strong> Verbe + à/de qui ? (avec préposition) → formes : me, te, lui...</li>
+                        <li><strong>RÉFLÉCHI :</strong> Action sur soi-même → formes : me, te, se...</li>
+                        <li>Le participe passé s'accorde avec le <strong>COD placé avant</strong> (pas avec le COI)</li>
+                    </ul>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 Pour progresser :</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Entraînez-vous à poser les questions pour identifier les fonctions</li>
+                        <li>Mémorisez les formes spécifiques à chaque fonction</li>
+                        <li>Faites attention aux verbes qui demandent un COI (à + personne)</li>
+                        <li>Pratiquez l'accord du participe passé avec les COD</li>
+                        <li>Distinguez bien les verbes pronominaux (réfléchis)</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <strong>⚠️ Erreurs fréquentes à éviter :</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Confondre COD et COI (penser à la préposition !)</li>
+                        <li>Utiliser la mauvaise forme (ex : "le" au lieu de "lui" pour un COI)</li>
+                        <li>Oublier que LUI = à lui OU à elle (pas de distinction de genre au COI)</li>
+                        <li>Accorder le participe passé avec un COI (ne jamais le faire !)</li>
+                        <li>Oublier que LEUR (COI) est invariable</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p><strong>Língua Academy</strong> - Excellence en enseignement des langues</p>
+            <p style="margin-top: 10px;">📚 Maîtrisez les fonctions des pronoms personnels</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">© 2024 Língua Academy - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

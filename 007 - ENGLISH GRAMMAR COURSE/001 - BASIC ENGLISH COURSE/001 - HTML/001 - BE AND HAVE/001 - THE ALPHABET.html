@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The English Alphabet</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 0 auto;
+            background: white;
+            page-break-after: always;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+        
+        .section {
+            margin: 25px 0;
+            padding: 25px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section.orange {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .section.green {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            color: black;
+        }
+        
+        .section.blue {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .section.pink {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+        
+        .section.purple {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .section.teal {
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+        }
+        
+        .section.coral {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+        
+        h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .section.green h2, .section.green h3 {
+            color: white;
+        }
+        
+        h3 {
+            font-size: 22px;
+            margin: 20px 0 10px 0;
+            color: #34495e;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            text-align: justify;
+        }
+        
+        .alphabet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .letter-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 5px solid;
+            transition: transform 0.2s;
+        }
+        
+        .letter-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .letter-box:nth-child(6n+1) { border-top-color: #e74c3c; }
+        .letter-box:nth-child(6n+2) { border-top-color: #3498db; }
+        .letter-box:nth-child(6n+3) { border-top-color: #2ecc71; }
+        .letter-box:nth-child(6n+4) { border-top-color: #f39c12; }
+        .letter-box:nth-child(6n+5) { border-top-color: #9b59b6; }
+        .letter-box:nth-child(6n) { border-top-color: #1abc9c; }
+        
+        .letter-upper {
+            font-size: 48px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .letter-lower {
+            font-size: 36px;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .letter-name {
+            font-size: 16px;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+        
+        .letter-example {
+            font-size: 14px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .tip-box {
+            background: white;
+            padding: 20px;
+            border-left: 6px solid #27ae60;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tip-box h4 {
+            color: #27ae60;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .example-box {
+            background: #fff9e6;
+            border: 2px dashed #f39c12;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .example-title {
+            color: #f39c12;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .vowels-box {
+            background: white;
+            padding: 25px;
+            border: 4px solid #e74c3c;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .vowels-title {
+            color: #e74c3c;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .vowels-display {
+            font-size: 48px;
+            color: #e74c3c;
+            letter-spacing: 20px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        
+        .consonants-box {
+            background: white;
+            padding: 25px;
+            border: 4px solid #3498db;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .consonants-title {
+            color: #3498db;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .consonants-display {
+            font-size: 28px;
+            color: #3498db;
+            letter-spacing: 10px;
+            margin: 15px 0;
+            font-weight: bold;
+            line-height: 1.8;
+        }
+        
+        .special-box {
+            background: white;
+            padding: 20px;
+            border: 3px solid #9b59b6;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .special-title {
+            color: #9b59b6;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .pronunciation-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .sound-item {
+            padding: 12px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .sound-letter {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .sound-phonetic {
+            color: #e74c3c;
+            font-style: italic;
+            margin: 0 10px;
+        }
+        
+        .sound-words {
+            color: #27ae60;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>🔤 The English Alphabet 🔤</h1>
+            <p>26 Letters That Make Up the English Language</p>
+        </div>
+        
+        <div class="section orange">
+            <h2>🌟 Introduction to the Alphabet</h2>
+            <p>The English alphabet consists of <strong>26 letters</strong>, each with an uppercase (capital) and lowercase (small) form. These letters are derived from the Latin alphabet and form the foundation of written English. Learning the alphabet is the first essential step in reading, writing, and spelling in English.</p>
+            <p>The alphabet is divided into two main categories: <strong>vowels</strong> (5 letters) and <strong>consonants</strong> (21 letters). Vowels are the "open" sounds that can stand alone, while consonants typically need to be combined with vowels to form syllables and words. Mastering both the names and sounds of these letters is crucial for proper pronunciation and literacy.</p>
+        </div>
+        
+        <div class="section blue">
+            <h2>🎨 The 5 Vowels</h2>
+            
+            <div class="vowels-box">
+                <div class="vowels-title">The Five Vowels</div>
+                <div class="vowels-display">A E I O U</div>
+                <p style="color: #555; font-size: 16px;">These letters are the foundation of every word in English</p>
+            </div>
+            
+            <div class="alphabet-grid">
+                <div class="letter-box">
+                    <div class="letter-upper">A</div>
+                    <div class="letter-lower">a</div>
+                    <div class="letter-name">(ay)</div>
+                    <div class="letter-example">Apple, Amazing</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">E</div>
+                    <div class="letter-lower">e</div>
+                    <div class="letter-name">(ee)</div>
+                    <div class="letter-example">Elephant, Evening</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">I</div>
+                    <div class="letter-lower">i</div>
+                    <div class="letter-name">(eye)</div>
+                    <div class="letter-example">Ice, Island</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">O</div>
+                    <div class="letter-lower">o</div>
+                    <div class="letter-name">(oh)</div>
+                    <div class="letter-example">Orange, Ocean</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">U</div>
+                    <div class="letter-lower">u</div>
+                    <div class="letter-name">(you)</div>
+                    <div class="letter-example">Umbrella, Universe</div>
+                </div>
+            </div>
+            <div class="section orange">
+            <h2>📊 Interesting Alphabet Facts</h2>
+            
+            <div class="special-box">
+                <div class="special-title">🎯 Fun Facts About the English Alphabet:</div>
+                <ul>
+                    <li><strong>Most common letter:</strong> E (appears most frequently in English text)</li>
+                    <li><strong>Least common letter:</strong> Z (appears least frequently)</li>
+                    <li><strong>Most common starting letter:</strong> S (more words begin with S)</li>
+                    <li><strong>Only letter not in state names:</strong> Q (no U.S. state has Q in its name)</li>
+                    <li><strong>Oldest letter:</strong> O (dates back thousands of years)</li>
+                    <li><strong>Newest letter:</strong> J (was added to the alphabet around 1524)</li>
+                    <li><strong>Most valuable in Scrabble:</strong> Q and Z (worth 10 points each)</li>
+                    <li><strong>Pangram:</strong> "The quick brown fox jumps over the lazy dog" uses all 26 letters</li>
+                </ul>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">📝 Letter Frequency in English:</div>
+                <p><strong>Most Common:</strong> E, T, A, O, I, N, S, H, R<br>
+                <strong>Moderately Common:</strong> D, L, C, U, M, W, F, G, Y, P, B<br>
+                <strong>Least Common:</strong> V, K, J, X, Q, Z</p>
+            </div>
+        </div>
+        
+        <div class="section pink">
+            <h2>🌍 Alphabet Around the World</h2>
+            
+            <div class="special-box">
+                <div class="special-title">Comparison with Other Alphabets:</div>
+                <p><strong>Latin/Roman Alphabet (English):</strong> 26 letters<br>
+                • Used in English, Spanish, French, German, Italian, Portuguese, and many others</p>
+                
+                <p><strong>Spanish Alphabet:</strong> 27 letters<br>
+                • Includes the letter Ñ (eñe), unique to Spanish</p>
+                
+                <p><strong>German Alphabet:</strong> 26 letters + umlauts<br>
+                • Adds Ä, Ö, Ü and ß (eszett)</p>
+                
+                <p><strong>Greek Alphabet:</strong> 24 letters<br>
+                • Alpha, Beta, Gamma, Delta, etc.</p>
+                
+                <p><strong>Russian (Cyrillic):</strong> 33 letters<br>
+                • Completely different writing system</p>
+                
+                <p><strong>Arabic Alphabet:</strong> 28 letters<br>
+                • Written right to left</p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Did You Know?</h4>
+                <p>The word "alphabet" comes from the first two letters of the Greek alphabet: <strong>Alpha</strong> and <strong>Beta</strong>!</p>
+            </div>
+        </div>
+        
+        <div class="section purple">
+            <h2>✍️ Handwriting Tips</h2>
+            
+            <div class="special-box">
+                <div class="special-title">How to Write Letters Properly:</div>
+                
+                <p><strong>Uppercase Letters (Capitals):</strong></p>
+                <ul>
+                    <li>Should be the same height (reach the top line)</li>
+                    <li>Used at the beginning of sentences and for proper nouns</li>
+                    <li>Letters like B, D, E, F, H, I, K, L, M, N, P, R, T touch both top and bottom lines</li>
+                    <li>Letters like A, G, O, Q, U, V, W, X, Y, Z fit between the lines</li>
+                </ul>
+                
+                <p><strong>Lowercase Letters (Small):</strong></p>
+                <ul>
+                    <li><strong>Tall letters:</strong> b, d, f, h, k, l, t (reach up)</li>
+                    <li><strong>Short letters:</strong> a, c, e, i, m, n, o, r, s, u, v, w, x, z (middle height)</li>
+                    <li><strong>Letters with tails:</strong> g, j, p, q, y (go below the line)</li>
+                </ul>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">📝 Printing vs. Cursive:</div>
+                <p><strong>Printing (Block Letters):</strong> Each letter is separate<br>
+                Example: <span style="font-family: Arial;">Hello World</span></p>
+                
+                <p><strong>Cursive (Script):</strong> Letters are connected<br>
+                Note: Cursive is less commonly taught today but still useful for signatures</p>
+            </div>
+        </div>
+        
+        <div class="section teal">
+            <h2>🎓 Using the Alphabet in Daily Life</h2>
+            
+            <div class="special-box">
+                <div class="special-title">Practical Applications:</div>
+                
+                <p><strong>1. Using Dictionaries:</strong><br>
+                Words are arranged alphabetically. To find "cat," look in the C section, then find CA, then CAT.</p>
+                
+                <p><strong>2. Filing and Organization:</strong><br>
+                Files, folders, and documents are often organized alphabetically by name or title.</p>
+                
+                <p><strong>3. Phone Books and Directories:</strong><br>
+                People's names are listed alphabetically by last name.</p>
+                
+                <p><strong>4. Library Systems:</strong><br>
+                Books are organized using alphabetical systems (author's last name, title, subject).</p>
+                
+                <p><strong>5. Indexes:</strong><br>
+                Book indexes, glossaries, and encyclopedias use alphabetical order.</p>
+                
+                <p><strong>6. Computer Files:</strong><br>
+                Default file sorting on computers is often alphabetical.</p>
+                
+                <p><strong>7. Spelling and Pronunciation:</strong><br>
+                Understanding the alphabet helps you spell words correctly and ask for spelling clarification.</p>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">💬 Common Phrases:</div>
+                <p><strong>"Can you spell that?"</strong> - Asking someone to say the letters<br>
+                <strong>"Is that with a capital or lowercase?"</strong> - Clarifying letter case<br>
+                <strong>"ABC" or "ABCs"</strong> - Informal term for the alphabet<br>
+                <strong>"From A to Z"</strong> - Meaning everything, completely</p>
+            </div>
+        </div>
+        
+        <div class="section coral">
+            <h2>🎯 Alphabet Mnemonics and Memory Tricks</h2>
+            
+            <div class="special-box">
+                <div class="special-title">Ways to Remember the Alphabet:</div>
+                
+                <p><strong>Visual Associations:</strong></p>
+                <ul>
+                    <li>A looks like a triangle or mountain peak</li>
+                    <li>B looks like two bumps or bellies</li>
+                    <li>C looks like a crescent moon or cup</li>
+                    <li>D looks like a door</li>
+                    <li>O looks like a circle or ball</li>
+                    <li>S looks like a snake</li>
+                </ul>
+                
+                <p><strong>Sound Associations:</strong></p>
+                <ul>
+                    <li>A for Apple, Ant, Alligator</li>
+                    <li>B for Ball, Bear, Banana</li>
+                    <li>C for Cat, Car, Cup</li>
+                    <li>D for Dog, Door, Duck</li>
+                </ul>
+                
+                <p><strong>Chunking Method:</strong><br>
+                Break the alphabet into smaller groups:<br>
+                • ABCD (4 letters)<br>
+                • EFGH (4 letters)<br>
+                • IJKL (4 letters)<br>
+                • MNOP (4 letters)<br>
+                • QRST (4 letters)<br>
+                • UVWXYZ (6 letters)</p>
+            </div>
+        </div>
+        
+        <div class="section blue">
+            <h2>🎨 Creative Alphabet Activities</h2>
+            
+            <div class="example-box">
+                <div class="example-title">🎮 Fun Learning Games:</div>
+                
+                <p><strong>1. Alphabet Scavenger Hunt:</strong><br>
+                Find objects around your house that start with each letter of the alphabet.</p>
+                
+                <p><strong>2. Letter of the Day:</strong><br>
+                Focus on one letter each day. Find words, practice writing, and use it in sentences.</p>
+                
+                <p><strong>3. Alphabet Art:</strong><br>
+                Draw pictures that look like letters or create letters using objects.</p>
+                
+                <p><strong>4. I Spy with Letters:</strong><br>
+                "I spy something that starts with B" (book, ball, bird)</p>
+                
+                <p><strong>5. Alphabet Categories:</strong><br>
+                Name animals, foods, or countries for each letter:<br>
+                • A - Ant, Apple, Australia<br>
+                • B - Bear, Banana, Brazil<br>
+                • C - Cat, Cake, Canada</p>
+                
+                <p><strong>6. Backwards Alphabet:</strong><br>
+                Challenge yourself to say or write the alphabet backwards: Z Y X W V...</p>
+                
+                <p><strong>7. Speed Challenge:</strong><br>
+                How fast can you write the entire alphabet? Time yourself and try to improve!</p>
+            </div>
+        </div>
+        
+        <div class="section green">
+            <h2>📱 Digital Age and the Alphabet</h2>
+            
+            <div class="special-box">
+                <div class="special-title">Modern Uses:</div>
+                
+                <p><strong>Texting and Internet:</strong></p>
+                <ul>
+                    <li>LOL (Laughing Out Loud) - using initial letters</li>
+                    <li>BRB (Be Right Back)</li>
+                    <li>ASAP (As Soon As Possible)</li>
+                    <li>FYI (For Your Information)</li>
+                </ul>
+                
+                <p><strong>Usernames and Passwords:</strong><br>
+                Combining letters, numbers, and symbols for security.</p>
+                
+                <p><strong>Website Addresses (URLs):</strong><br>
+                Using letters to create domain names (www.example.com)</p>
+                
+                <p><strong>Hashtags and Social Media:</strong><br>
+                #AlphabetDay #LearningEnglish</p>
+                
+                <p><strong>Email Addresses:</strong><br>
+                Knowing how to spell and dictate letters is essential for sharing contact information.</p>
+            </div>
+        </div>
+        
+        <div class="section orange">
+            <h2>✅ Alphabet Mastery Checklist</h2>
+            
+            <div class="example-box">
+                <div class="example-title">📋 Can You Do These?</div>
+                <p>Check off each skill as you master it:</p>
+                <ul>
+                    <li>☐ Recite the alphabet from A to Z</li>
+                    <li>☐ Identify all 26 letters in both uppercase and lowercase</li>
+                    <li>☐ Write all letters correctly</li>
+                    <li>☐ Know the difference between vowels and consonants</li>
+                    <li>☐ Spell your name using letter names</li>
+                    <li>☐ Put words in alphabetical order</li>
+                    <li>☐ Recognize letter sounds in words</li>
+                    <li>☐ Use a dictionary to look up words</li>
+                    <li>☐ Understand when to use uppercase vs lowercase</li>
+                    <li>☐ Recognize common digraphs (ch, sh, th)</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Next Steps After Mastering the Alphabet:</h4>
+                <ul>
+                    <li>Learn phonics (how letters combine to make sounds)</li>
+                    <li>Practice reading simple words and sentences</li>
+                    <li>Build vocabulary by learning new words daily</li>
+                    <li>Practice spelling common words</li>
+                    <li>Start writing simple sentences</li>
+                    <li>Read children's books to practice letter recognition</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Congratulations on Learning the Alphabet!</strong></p>
+            <p>The alphabet is your key to reading, writing, and communicating in English. Keep practicing!</p>
+        </div>
+    </div>
+
+
+    <div>
+    <p><strong>Every English word contains at least one vowel.</strong> Vowels can make multiple sounds depending on their position in a word and what letters surround them. For example, the letter "A" sounds different in "cat" (short a) versus "cake" (long a).</p>
+    </div>
+    <div class="pronunciation-box">    
+        <div class="example-box">
+            <div class="example-title">📝 Vowel Sounds:</div>
+            <p><strong>Short sounds:</strong> cat, bed, sit, hot, cup<br>
+            <strong>Long sounds:</strong> cake, see, bike, hope, use<br>
+            <strong>Other sounds:</strong> ball, car, bird, book, about</p>
+        </div>
+    </div>
+    
+    <div class="section green">
+        <h2>📚 The 21 Consonants (Part 1)</h2>
+        <p style="color: white;">Consonants are letters that represent sounds made by blocking or restricting airflow. Here are the first consonants of the alphabet:</p>
+        
+        <div class="alphabet-grid">
+            <div class="letter-box">
+                <div class="letter-upper">B</div>
+                <div class="letter-lower">b</div>
+                <div class="letter-name">(bee)</div>
+                <div class="letter-example">Ball, Baby, Book</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">C</div>
+                <div class="letter-lower">c</div>
+                <div class="letter-name">(see)</div>
+                <div class="letter-example">Cat, Car, Cup</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">D</div>
+                <div class="letter-lower">d</div>
+                <div class="letter-name">(dee)</div>
+                <div class="letter-example">Dog, Door, Day</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">F</div>
+                <div class="letter-lower">f</div>
+                <div class="letter-name">(ef)</div>
+                <div class="letter-example">Fish, Family, Fun</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">G</div>
+                <div class="letter-lower">g</div>
+                <div class="letter-name">(jee)</div>
+                <div class="letter-example">Go, Good, Girl</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">H</div>
+                <div class="letter-lower">h</div>
+                <div class="letter-name">(aych)</div>
+                <div class="letter-example">Happy, House, Help</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">J</div>
+                <div class="letter-lower">j</div>
+                <div class="letter-name">(jay)</div>
+                <div class="letter-example">Jump, Joy, Juice</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">K</div>
+                <div class="letter-lower">k</div>
+                <div class="letter-name">(kay)</div>
+                <div class="letter-example">King, Key, Kind</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">L</div>
+                <div class="letter-lower">l</div>
+                <div class="letter-name">(el)</div>
+                <div class="letter-example">Love, Like, Lion</div>
+            </div>
+        </div>
+        
+        <div class="tip-box">
+            <h4>💡 Consonant Sounds</h4>
+            <p>Some consonants have multiple sounds:<br>
+            <strong>C:</strong> can sound like "k" (cat) or "s" (city)<br>
+            <strong>G:</strong> can sound like "g" (go) or "j" (gem)</p>
+        </div>
+    </div>
+    
+    <div class="section pink">
+        <h2>📚 The 21 Consonants (Part 2)</h2>
+        
+        <div class="alphabet-grid">
+            <div class="letter-box">
+                <div class="letter-upper">M</div>
+                <div class="letter-lower">m</div>
+                <div class="letter-name">(em)</div>
+                <div class="letter-example">Mother, Moon, Music</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">N</div>
+                <div class="letter-lower">n</div>
+                <div class="letter-name">(en)</div>
+                <div class="letter-example">Name, Night, New</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">P</div>
+                <div class="letter-lower">p</div>
+                <div class="letter-name">(pee)</div>
+                <div class="letter-example">People, Play, Paper</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">Q</div>
+                <div class="letter-lower">q</div>
+                <div class="letter-name">(kyoo)</div>
+                <div class="letter-example">Queen, Question, Quick</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">R</div>
+                <div class="letter-lower">r</div>
+                <div class="letter-name">(ar)</div>
+                <div class="letter-example">Red, Run, River</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">S</div>
+                <div class="letter-lower">s</div>
+                <div class="letter-name">(es)</div>
+                <div class="letter-example">Sun, School, Sister</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">T</div>
+                <div class="letter-lower">t</div>
+                <div class="letter-name">(tee)</div>
+                <div class="letter-example">Time, Tree, Teach</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">V</div>
+                <div class="letter-lower">v</div>
+                <div class="letter-name">(vee)</div>
+                <div class="letter-example">Very, Voice, Video</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">W</div>
+                <div class="letter-lower">w</div>
+                <div class="letter-name">(double-you)</div>
+                <div class="letter-example">Water, Work, World</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">X</div>
+                <div class="letter-lower">x</div>
+                <div class="letter-name">(eks)</div>
+                <div class="letter-example">Box, Six, Xylophone</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">Y</div>
+                <div class="letter-lower">y</div>
+                <div class="letter-name">(why)</div>
+                <div class="letter-example">Yes, You, Yellow</div>
+            </div>
+            
+            <div class="letter-box">
+                <div class="letter-upper">Z</div>
+                <div class="letter-lower">z</div>
+                <div class="letter-name">(zee/zed)</div>
+                <div class="letter-example">Zoo, Zero, Zebra</div>
+            </div>
+        </div>
+        
+        <div class="special-box">
+            <div class="special-title">📌 Special Notes:</div>
+            <p><strong>Q:</strong> Almost always followed by "u" in English (queen, quick, question)<br>
+            <strong>Y:</strong> Can act as a vowel (gym, my, happy) or consonant (yes, yellow)<br>
+            <strong>Z:</strong> Pronounced "zee" in American English, "zed" in British English</p>
+        </div>
+    </div>
+    
+    <div class="section purple">
+        <h2>🎯 Complete Alphabet in Order</h2>
+        
+        <div class="consonants-box">
+            <div class="consonants-title">All 26 Letters</div>
+            <div class="consonants-display">
+                A B C D E F G H I J K L M<br>
+                N O P Q R S T U V W X Y Z
+            </div>
+        </div>
+        
+        <div class="example-box">
+            <div class="example-title">🔤 Alphabetical Order Practice:</div>
+            <p>Learning alphabetical order is essential for using dictionaries, organizing files, and finding information. Practice by:</p>
+            <ul>
+                <li>Singing the alphabet song</li>
+                <li>Writing the letters in order from memory</li>
+                <li>Arranging words alphabetically</li>
+                <li>Playing alphabet games and puzzles</li>
+            </ul>
+        </div>
+        
+        <div class="special-box">
+            <div class="special-title">📌 The Alphabet Song:</div>
+            <p style="font-style: italic; color: #555;">
+                A-B-C-D-E-F-G,<br>
+                H-I-J-K-L-M-N-O-P,<br>
+                Q-R-S, T-U-V,<br>
+                W-X, Y and Z,<br>
+                Now I know my ABCs,<br>
+                Next time won't you sing with me!
+            </p>
+        </div>
+    </div>
+    
+    <div class="section teal">
+        <h2>🔊 Letter Sounds vs. Letter Names</h2>
+        <p>One important concept in English is that letters have <strong>names</strong> (how we say them in the alphabet) and <strong>sounds</strong> (how they sound in words).</p>
+        
+        <div class="pronunciation-box">
+            <div class="sound-item">
+                <span class="sound-letter">A</span>
+                <span class="sound-phonetic">Name: "ay"</span>
+                <span class="sound-words">Sounds: /æ/ as in "cat", /eɪ/ as in "cake", /ɑ/ as in "car"</span>
+            </div>
+            
+            <div class="sound-item">
+                <span class="sound-letter">B</span>
+                <span class="sound-phonetic">Name: "bee"</span>
+                <span class="sound-words">Sound: /b/ as in "ball", "baby", "book"</span>
+            </div>
+            
+            <div class="sound-item">
+                <span class="sound-letter">C</span>
+                <span class="sound-phonetic">Name: "see"</span>
+                <span class="sound-words">Sounds: /k/ as in "cat", /s/ as in "city"</span>
+            </div>
+            
+            <div class="sound-item">
+                <span class="sound-letter">E</span>
+                <span class="sound-phonetic">Name: "ee"</span>
+                <span class="sound-words">Sounds: /ɛ/ as in "bed", /i:/ as in "see", silent as in "make"</span>
+            </div>
+            
+            <div class="sound-item">
+                <span class="sound-letter">G</span>
+                <span class="sound-phonetic">Name: "jee"</span>
+                <span class="sound-words">Sounds: /g/ as in "go", /dʒ/ as in "gem"</span>
+            </div>
+            
+            <div class="sound-item">
+                <span class="sound-letter">H</span>
+                <span class="sound-phonetic">Name: "aych"</span>
+                <span class="sound-words">Sound: /h/ as in "house", silent in "hour"</span>
+            </div>
+        </div>
+        
+        <div class="tip-box">
+            <h4>💡 Why This Matters</h4>
+            <p>When spelling a word aloud, we use letter <strong>names</strong>. When reading a word, we use letter <strong>sounds</strong>. For example, spelling "CAT" = "see-ay-tee", but reading "CAT" = /k/ /æ/ /t/.</p>
+        </div>
+    </div>
+    
+    <div class="section coral">
+        <h2>✍️ Uppercase vs. Lowercase</h2>
+        
+        <div class="special-box">
+            <div class="special-title">When to Use UPPERCASE (Capital Letters):</div>
+            <ul>
+                <li><strong>First letter of a sentence:</strong> The dog is sleeping.</li>
+                <li><strong>Proper nouns (names):</strong> John, London, Monday, December</li>
+                <li><strong>Pronoun "I":</strong> I am happy.</li>
+                <li><strong>Titles:</strong> Dr. Smith, President Lincoln</li>
+                <li><strong>Acronyms:</strong> USA, NASA, FBI</li>
+                <li><strong>Important words in titles:</strong> Harry Potter and the Chamber of Secrets</li>
+            </ul>
+        </div>
+        
+        <div class="special-box">
+            <div class="special-title">When to Use lowercase (Small Letters):</div>
+            <ul>
+                <li><strong>Most words in sentences:</strong> The cat is playing.</li>
+                <li><strong>Common nouns:</strong> book, table, city, month (unless starting sentence)</li>
+                <li><strong>Most of your writing:</strong> Lowercase is the default for most text</li>
+            </ul>
+        </div>
+        
+        <div class="example-box">
+            <div class="example-title">📝 Practice Examples:</div>
+            <p>✅ Correct: My name is Sarah and I live in New York.<br>
+            ❌ Wrong: my Name is sarah and i live in new york.<br><br>
+            
+            ✅ Correct: On Monday, Dr. Johnson will visit the USA.<br>
+            ❌ Wrong: on monday, dr. johnson will visit the usa.</p>
+        </div>
+    </div>
+    
+    <div class="section blue">
+        <h2>🎪 Letter Combinations (Digraphs)</h2>
+        <p>Some letters combine to make special sounds. These are called <strong>digraphs</strong> (two letters, one sound).</p>
+        
+        <div class="special-box">
+            <div class="special-title">Common Digraphs:</div>
+            
+            <div class="pronunciation-box">
+                <div class="sound-item">
+                    <span class="sound-letter">CH</span>
+                    <span class="sound-words">church, children, chocolate, cheese</span>
+                </div>
+                
+                <div class="sound-item">
+                    <span class="sound-letter">SH</span>
+                    <span class="sound-words">ship, shop, fish, wish</span>
+                </div>
+                
+                <div class="sound-item">
+                    <span class="sound-letter">TH</span>
+                    <span class="sound-words">think, thank, the, this</span>
+                </div>
+                
+                <div class="sound-item">
+                    <span class="sound-letter">PH</span>
+                    <span class="sound-words">phone, photo, elephant (sounds like F)</span>
+                </div>
+                
+                <div class="sound-item">
+                    <span class="sound-letter">WH</span>
+                    <span class="sound-words">what, when, where, why</span>
+                </div>
+                
+                <div class="sound-item">
+                    <span class="sound-letter">NG</span>
+                    <span class="sound-words">sing, ring, long, king</span>
+                </div>
+                
+                <div class="sound-item">
+                    <span class="sound-letter">CK</span>
+                    <span class="sound-words">back, clock, black, stick</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tip-box">
+            <h4>💡 Important Note</h4>
+            <p>Digraphs are treated as ONE sound, even though they're written with TWO letters. When counting sounds in a word, "ship" has 3 sounds: /sh/ /i/ /p/, not 4.</p>
+        </div>
+    </div>
+    <div class="section green">
+        <h2>📝 Alphabetical Order Practice</h2>
+        <p>Knowing how to arrange words in alphabetical order is a useful skill for using dictionaries, organizing files, and finding information quickly.</p>
+        
+        <div class="example-box">
+            <div class="example-title">📋 Practice Exercise:</div>
+            <p>Arrange the following words in alphabetical order:</p>
+            <ul>
+                <li>Banana</li>
+                <li>Apple</li>
+                <li>Grape</li>
+                <li>Orange</li>
+                <li>Cherry</li>
+            </ul>
+            <p><strong>Answer:</strong> Apple, Banana, Cherry, Grape, Orange</p>
+        </div>
+        
+        <div class="tip-box">
+            <h4>💡 Tips for Alphabetical Order:</h4>
+            <ul>
+                <li>Start with the first letter of each word.</li>
+                <li>If the first letters are the same, look at the second letter, and so on.</li>
+                <li>Ignore spaces and punctuation when ordering.</li>
+            </ul>
+        </div>
+        
+        <div class="example-box">
+            <div class="example-title">🔤 More Practice:</div>
+            <p>Arrange these words alphabetically:</p>
+            <ul>
+                <li>Dog</li>
+                <li>Cat</li>
+                <li>Elephant</li>
+                <li>Bear</li>
+                <li>Ant</li>
+            </ul>
+            <p><strong>Answer:</strong> Ant, Bear, Cat, Dog, Elephant</p>
+        </div>
+    </div>
+    <div class="section orange">
+        <h2>📊 Fun Facts About the Alphabet</h2>
+        
+        <div class="special-box">
+            <div class="special-title">Did You Know?</div>
+            <ul>
+                <li><strong>Total letters:</strong> 26 in the English alphabet</li>
+                <li><strong>Vowels vs. Consonants:</strong> 5 vowels (A, E, I, O, U) and 21 consonants</li>
+                <li><strong>Letter with highest frequency:</strong> E (most common letter in English)</li>
+                <li><strong>Letter with lowest frequency:</strong> Z (least common letter in English)</li>
+                <li><strong>Letter not used in any U.S. state name:</strong> J (no U.S. state has J in its name)</li>
+                <li><strong>Letter also not used in any U.S. state name:</strong> Q (no U.S. state has Q in its name)</li>
+                <li><strong>Oldest letter:</strong> O (dates back thousands of years)</li>
+                <li><strong>Newest letter:</strong> J (was added to the alphabet around 1524)</li>
+                <li><strong>Most valuable in Scrabble:</strong> Q and Z (worth 10 points each)</li>
+                <li><strong>Pangram:</strong> "The quick brown fox jumps over the lazy dog" uses all 26 letters</li>
+            </ul>
+        </div>
+        
+        <div class="example-box">
+            <div class="example-title">📝 Letter Frequency in English:</div>
+            <p><strong>Most Common:</strong> E, T, A, O, I, N, S, H, R<br>
+            <strong>Moderately Common:</strong> D, L, C, U, M, W, F, G, Y, P, B<br>
+            <strong>Least Common:</strong> V, K, J, X, Q, Z</p>
+        </div>
+        <div class="example-box">
+            <div class="example-title">🌍 Alphabets Around the World:</div>
+            <p><strong>Greek Alphabet:</strong> 24 letters<br>
+            • Used in mathematics and science symbols<br>
+            • Examples: Alpha (Α), Beta (Β), Gamma (Γ)</p>
+            <p><strong>Cyrillic Alphabet:</strong> 33 letters<br>
+            • Used in Russian and other Slavic languages<br>
+            • Examples: А (A), Б (B), В (V)</p>
+            <p><strong>Hebrew Alphabet:</strong> 22 letters<br>
+            • Written from right to left<br>
+            • Examples: א (Aleph), ב (Bet), ג (Gimel)</p>
+        </div>
+    </div> 
+    <div class="section purple">
+        <h2>✍️ Writing the Alphabet</h2>
+        <p>Learning to write the letters of the alphabet correctly is important for clear communication. Here are some tips on how to write both uppercase and lowercase letters properly.</p>
+        
+        <div class="alphabet-grid">
+            <div class="letter-box">
+                <div class="letter-upper">A</div>
+                <div class="letter-lower">a</div>
+            </div> 
+            <div class="letter-box">
+                <div class="letter-upper">B</div>
+                <div class="letter-lower">b</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">C</div>
+                <div class="letter-lower">c</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">D</div>
+                <div class="letter-lower">d</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">E</div>
+                <div class="letter-lower">e</div>           
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">F</div>
+                <div class="letter-lower">f</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">G</div>
+                <div class="letter-lower">g</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">H</div>
+                <div class="letter-lower">h</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">I</div>
+                <div class="letter-lower">i</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">J</div>
+                <div class="letter-lower">j</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">K</div>
+                <div class="letter-lower">k</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">L</div>
+                <div class="letter-lower">l</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">M</div>
+                <div class="letter-lower">m</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">N</div>
+                <div class="letter-lower">n</div>
+            </div>  
+            <div class="letter-box">
+                <div class="letter-upper">O</div>
+                <div class="letter-lower">o</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">P</div>
+                <div class="letter-lower">p</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">Q</div>
+                <div class="letter-lower">q</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">R</div>
+                <div class="letter-lower">r</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">S</div>
+                <div class="letter-lower">s</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">T</div>
+                <div class="letter-lower">t</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">U</div>
+                <div class="letter-lower">u</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">V</div>
+                <div class="letter-lower">v</div>
+            </div> 
+            <div class="letter-box">
+                <div class="letter-upper">W</div>
+                <div class="letter-lower">w</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">X</div>
+                <div class="letter-lower">x</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">Y</div>
+                <div class="letter-lower">y</div>
+            </div>
+            <div class="letter-box">
+                <div class="letter-upper">Z</div>
+                <div class="letter-lower">z</div>
+            </div>
+        </div>
+        <div class="tip-box">
+            <h4>💡 Writing Tips:</h4>
+            <ul>
+                <li>Use lined paper to help with letter size and alignment.</li>
+                <li>Practice each letter multiple times to build muscle memory.</li>
+                <li>Start with uppercase letters, then move to lowercase.</li>
+                <li>Focus on proper formation: start and end points for each letter.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section teal">
+        <h2>🎉 Fun Alphabet Activities</h2>
+        <p>Make learning the alphabet enjoyable with these fun activities!</p>
+        
+        <div class="example-box">
+            <div class="example-title">🎲 Activities:</div>
+            
+            <p><strong>1. Alphabet Scavenger Hunt:</strong><br>
+            Find objects around your home or classroom that start with each letter of the alphabet.</p> 
+            <p><strong>2. Letter Tracing:</strong><br>
+            Use worksheets or apps to trace both uppercase and lowercase letters.</p>
+            <p><strong>3. Alphabet Songs and Videos:</strong><br>
+            Sing along to popular alphabet songs or watch educational videos.</p>
+            <p><strong>4. Flashcards:</strong><br>
+            Create flashcards with letters on one side and pictures/words on the other.</p> 
+            <p><strong>5. Alphabet Puzzles:</strong><br>
+            Solve puzzles that require arranging letters in order.</p>
+            <p><strong>6. Reverse Alphabet Challenge:</strong><br>
+            Try to recite the alphabet backwards from Z to A!</p>
+            <p><strong>7. Speed Writing:</strong><br>
+            Time yourself writing the alphabet to see how fast you can go while maintaining accuracy.</p>
+        </div>
+        <div class="tip-box">
+            <h4>💡 Tips for Making Learning Fun:</h4>
+            <ul>
+                <li>Incorporate games and play into learning sessions.</li>
+                <li>Use colorful materials and engaging visuals.</li>
+                <li>Encourage creativity by allowing kids to draw or decorate letters.</li>
+                <li>Celebrate progress with small rewards or recognition.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section coral">
+        <h2>🌐 Practical Uses of the Alphabet</h2>
+        <p>The alphabet is not just for reading and writing; it has many practical applications in everyday life.</p>
+        <div class="example-box">
+            <div class="example-title">📝 Real-World Applications:</div>
+            
+            <p><strong>Phone Numbers:</strong><br>
+            Letters are often used in phone numbers for easy recall (1-800-FLOWERS).</p>
+            
+            <p><strong>License Plates:</strong><br>
+            Combinations of letters and numbers identify vehicles.</p>
+            
+            <p><strong>Passwords:</strong><br>
+            Strong passwords often include a mix of letters (uppercase and lowercase), numbers, and symbols.</p>
+            
+            <p><strong>Domain Names:</strong><br>
+            Websites use combinations of letters to create unique addresses (e.g., www.example.com).</p>
+            
+            <p><strong>Abbreviations and Acronyms:</strong><br>
+            Many organizations and terms are known by their initials (e.g., NASA, ASAP).</p>
+        </div>
+        <div class="tip-box">
+            <h4>💡 Tips for Using the Alphabet Effectively:</h4>
+            <ul>
+                <li>Familiarize yourself with common abbreviations and acronyms.</li>
+                <li>Practice creating memorable combinations of letters for passwords.</li>
+                <li>Use mnemonic devices to remember sequences of letters.</li>
+                <li>Stay organized by labeling files and folders alphabetically.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section blue">
+        <h2>🚀 Next Steps After Learning the Alphabet</h2>
+        <p>Once you have mastered the alphabet, it's time to move on to more advanced
+        language skills. Here are some suggestions for your next steps:</p> 
+        <div class="example-box">
+            <div class="example-title">📚 Suggested Next Steps:</div>
+            <ul>
+                <li>Learn basic phonics to understand letter-sound relationships</li>
+                <li>Start building simple vocabulary words</li>
+                <li>Practice reading short sentences and stories</li>
+                <li>Begin writing simple words and phrases</li>
+                <li>Explore common sight words for faster reading</li>
+                <li>Engage in listening exercises to improve comprehension</li>
+                <li>Participate in speaking activities to build confidence</li>
+                <li>Use educational apps and games to reinforce learning</li>
+                <li>Join a beginner's English class or group for practice</li>
+                <li>Set daily practice goals to maintain progress</li>
+            </ul>
+        </div>
+        <div class="tip-box">
+            <h4>💡 Tips for Continued Learning:</h4>
+            <ul>
+                <li>Be consistent with your practice to build strong language skills.</li>
+                <li>Use a variety of resources (books, videos, apps) to keep learning engaging.</li>
+                <li>Don't be afraid to make mistakes; they are part of the learning process.</li>
+                <li>Seek feedback from teachers or language partners to improve.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="section green">
+        <h2>📝 Alphabet Exercises</h2>    
+        <div class="tip-box">
+            <h4>💡 Important Note About Vowels</h4>
+            <p><strong>1. Write the Alphabet:</strong><br>
+            Practice writing all 26 letters in order, both uppercase and lowercase:<br>
+            A a B b C c D d E e F f G g H h I i J j K k L l M m<br>
+            N n O o P p Q q R r S s T t U u V v W w X x Y y Z z</p>
+            
+            <p><strong>2. Identify Vowels and Consonants:</strong><br>
+            Circle the vowels in these words:<br>
+            • COMPUTER → C O M P U T E R (O, U, E are vowels)<br>
+            • HAPPINESS → H A P P I N E S S (A, I, E are vowels)<br>
+            • EDUCATION → E D U C A T I O N (E, U, A, I, O are vowels)</p>
+            
+            <p><strong>3. Alphabetical Order:</strong><br>
+            Arrange these words alphabetically:<br>
+            • Dog, Apple, Cat, Elephant, Ball<br>
+            Answer: Apple, Ball, Cat, Dog, Elephant</p>
+            
+            <p><strong>4. Spelling Practice:</strong><br>
+            Spell your name using letter names:<br>
+            • SARAH = S (ess) - A (ay) - R (ar) - A (ay) - H (aych)<br>
+            • MICHAEL = M (em) - I (eye) - C (see) - H (aych) - A (ay) - E (ee) - L (el)</p>
+            
+            <p><strong>5. Find the Missing Letter:</strong><br>
+            • A B C _ E F (Answer: D)<br>
+            • M N O P _ R (Answer: Q)<br>
+            • W X _ Z (Answer: Y)</p>
+        </div>
+        
+        <div class="tip-box">
+            <h4>💡 Learning Tips</h4>
+            <ul>
+                <li>Practice writing each letter 10 times to improve handwriting</li>
+                <li>Learn the alphabet song to memorize the order</li>
+                <li>Use flashcards with pictures for each letter</li>
+                <li>Play alphabet games online or with friends</li>
+                <li>Read books and identify letters you've learned</li>
+                <li>Practice spelling common words out loud</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="section coral">
+        <h2>🗣️ Real Conversations</h2>
+        
+        <div class="dialogue-box">
+            <h3>Conversation 1: Meeting Someone New</h3>
+            <div class="dialogue-item person-a">
+                <strong>Person A:</strong> Hi! What's your name?
+            </div>
+            <div class="dialogue-item person-b">
+                <strong>Person B:</strong> My name is Maria. What about you?
+            </div>
+            <div class="dialogue-item person-a">
+                <strong>Person A:</strong> I'm John. Where are you from?
+            </div>
+            <div class="dialogue-item person-b">
+                <strong>Person B:</strong> I'm from Spain. And you?
+            </div>
+            <div class="dialogue-item person-a">
+                <strong>Person A:</strong> I'm from Canada. How long have you been here?
+            </div>
+            <div class="dialogue-item person-b">
+                <strong>Person B:</strong> About three months. Why did you come here?
+            </div>
+            <div class="dialogue-item person-a">
+                <strong>Person A:</strong> For work. What do you do?
+            </div>
+            <div class="dialogue-item person-b">
+                <strong>Person B:</strong> I'm a teacher. How about you?
+            </div>
+        </div>
+        
+        <div class="dialogue-box">
+            <h3>Conversation 2: Making Plans</h3>
+            <div class="dialogue-item person-a">
+                <strong>Sarah:</strong> What are you doing this weekend?
+            </div>
+            <div class="dialogue-item person-b">
+                <strong>Tom:</strong> Nothing special. Why?
+            </div>
+            <div class="dialogue-item person-a">
+                <strong>Sarah:</strong> Would you like to go to the movies?
+            </div>
+            <div class="dialogue-item person-b">
+                <strong>Tom:</strong> Sure! When do you want to go?
+            </div>
+            <div class="dialogue-item person-a">
+                <strong>Sarah:</strong> How about Saturday evening?
+            </div>
+            <div class="dialogue-item person-b">
+                <strong>Tom:</strong> Perfect! Where should we meet?
+            </div>
+            <div class="dialogue-item person-a">
+                <strong>Sarah:</strong> At the cinema entrance at 7 PM.
+            </div>
+            <div class="dialogue-item person-b">
+                <strong>Tom:</strong> Great! Which movie do you want to see?
+            </div>
+            <div class="dialogue-item person-a">
+                <strong>Sarah:</strong> How about the new action movie?
+            </div>
+            <div class="dialogue-item person-b">
+                <strong>Tom:</strong> Sounds good! See you Saturday!
+            </div>
+        </div>
+        
+        <div class="dialogue-box">
+            <h3>Conversation 3: At a Restaurant</h3>
+            <div class="dialogue-item person-a">
+                <strong>Waiter:</strong> Good evening! How many people?
+            </div>
+            <div class="dialogue-item person-b">
+                <strong>Customer:</strong> Just two, please.
+            </div>
+            <div class="dialogue-item person-a">
+                <strong>Waiter:</strong> Where would you like to sit?
+            </div>
+            <div class="dialogue-item person-b">
+                <strong>Customer:</strong> By the window, if possible.
+            </div>
+            <div class="dialogue-item person-a">
+                <strong>Waiter:</strong> What can I get you to drink?
+            </div>
+            <div class="dialogue-item person-b">
+                <strong>Customer:</strong> What drinks do you recommend?
+            </div>
+            <div class="dialogue-item person-a">
+                <strong>Waiter:</strong> Our fresh lemonade is very popular. When are you ready to order food?
+            </div>
+            <div class="dialogue-item person-b">
+                <strong>Customer:</strong> We need a few minutes. Which dish is your specialty?
+            </div>
+            <div class="dialogue-item person-a">
+                <strong>Waiter:</strong> The grilled salmon is excellent. Why don't I give you some time to look at the menu?
+            </div>
+        </div>
+    </div>
+    
+    <div class="section purple">
+        <h2>📝 Practice Exercises</h2>
+        
+        <div class="example-box">
+            <div class="example-title">✏️ Exercise 1: Complete These Questions</div>
+            <p><strong>1.</strong> _____ is your favorite color?<br>
+            <span style="color: #27ae60;">Answer: What</span></p>
+            
+            <p><strong>2.</strong> _____ do you live?<br>
+            <span style="color: #27ae60;">Answer: Where</span></p>
+            
+            <p><strong>3.</strong> _____ is your birthday?<br>
+            <span style="color: #27ae60;">Answer: When</span></p>
+            
+            <p><strong>4.</strong> _____ are you sad?<br>
+            <span style="color: #27ae60;">Answer: Why</span></p>
+            
+            <p><strong>5.</strong> _____ did you learn English?<br>
+            <span style="color: #27ae60;">Answer: How</span></p>
+            
+            <p><strong>6.</strong> _____ is calling you?<br>
+            <span style="color: #27ae60;">Answer: Who</span></p>
+            
+            <p><strong>7.</strong> _____ bag is this?<br>
+            <span style="color: #27ae60;">Answer: Whose</span></p>
+            
+            <p><strong>8.</strong> _____ one do you prefer, tea or coffee?<br>
+            <span style="color: #27ae60;">Answer: Which</span></p>
+        </div>
+        
+        <div class="example-box">
+            <div class="example-title">✏️ Exercise 2: Write Questions for These Answers</div>
+            <p><strong>Answer:</strong> I'm 25 years old.<br>
+            <strong>Question:</strong> <span style="color: #3498db;">How old are you?</span></p>
+            
+            <p><strong>Answer:</strong> I live in New York.<br>
+            <strong>Question:</strong> <span style="color: #3498db;">Where do you live?</span></p>
+            
+            <p><strong>Answer:</strong> Because I love pizza!<br>
+            <strong>Question:</strong> <span style="color: #3498db;">Why do you like this restaurant?</span></p>
+            
+            <p><strong>Answer:</strong> My birthday is in June.<br>
+            <strong>Question:</strong> <span style="color: #3498db;">When is your birthday?</span></p>
+            
+            <p><strong>Answer:</strong> That's my brother.<br>
+            <strong>Question:</strong> <span style="color: #3498db;">Who is that person?</span></p>
+            
+            <p><strong>Answer:</strong> The red one.<br>
+            <strong>Question:</strong> <span style="color: #3498db;">Which one do you want?</span></p>
+            
+            <p><strong>Answer:</strong> It's Mary's book.<br>
+            <strong>Question:</strong> <span style="color: #3498db;">Whose book is this?</span></p>
+            
+            <p><strong>Answer:</strong> I'm studying English.<br>
+            <strong>Question:</strong> <span style="color: #3498db;">What are you studying?</span></p>
+        </div>
+        
+        <div class="example-box">
+            <div class="example-title">✏️ Exercise 3: Match Questions with Answers</div>
+            <p><strong>Questions:</strong><br>
+            A. Where is the library?<br>
+            B. When does the store open?<br>
+            C. Why are you happy?<br>
+            D. How do you get to work?<br>
+            E. Who is your teacher?</p>
+            
+            <p><strong>Answers:</strong><br>
+            1. Because I got a promotion.<br>
+            2. Mr. Johnson.<br>
+            3. On Main Street.<br>
+            4. By bus.<br>
+            5. At 9 AM.</p>
+            
+            <p><strong>Correct Matches:</strong><br>
+            <span style="color: #27ae60;">A-3, B-5, C-1, D-4, E-2</span></p>
+        </div>
+        
+        <div class="example-box">
+            <div class="example-title">✏️ Exercise 4: Create Your Own Questions</div>
+            <p>Write 5 questions about your best friend using different question words:</p>
+            <p>1. What _________________________________?</p>
+            <p>2. Where _________________________________?</p>
+            <p>3. When _________________________________?</p>
+            <p>4. Why _________________________________?</p>
+            <p>5. How _________________________________?</p>
+            
+            <p style="margin-top: 15px;"><strong>Example Answers:</strong><br>
+            <span style="color: #3498db;">
+            1. What is your best friend's favorite hobby?<br>
+            2. Where does your best friend live?<br>
+            3. When did you meet your best friend?<br>
+            4. Why do you like your best friend?<br>
+            5. How often do you see your best friend?
+            </span></p>
+        </div>
+    </div>
+    
+    <div class="section teal">
+        <h2>🎯 Summary: All Question Words</h2>
+        
+        <div class="comparison-box">
+            <div class="comparison-title">Quick Reference Guide:</div>
+            
+            <p><strong>WHAT</strong> → Things, actions, information<br>
+            <em>Examples:</em> What is your name? What do you do? What time is it?</p>
+            
+            <p><strong>WHERE</strong> → Places, locations<br>
+            <em>Examples:</em> Where do you live? Where is the bank? Where are you going?</p>
+            
+            <p><strong>WHEN</strong> → Time, dates, occasions<br>
+            <em>Examples:</em> When is your birthday? When did you arrive? When will you leave?</p>
+            
+            <p><strong>WHY</strong> → Reasons, causes, purposes<br>
+            <em>Examples:</em> Why are you late? Why did you choose this? Why can't we go?</p>
+            
+            <p><strong>HOW</strong> → Manner, way, condition, degree<br>
+            <em>Examples:</em> How are you? How do you make this? How old are you?</p>
+            
+            <p><strong>WHO</strong> → People, identity<br>
+            <em>Examples:</em> Who is that? Who called you? Who wants pizza?</p>
+            
+            <p><strong>WHICH</strong> → Specific choice from limited options<br>
+            <em>Examples:</em> Which color do you prefer? Which book is yours? Which way?</p>
+            
+            <p><strong>WHOSE</strong> → Possession, ownership<br>
+            <em>Examples:</em> Whose phone is this? Whose car are we taking? Whose idea was this?</p>
+        </div>
+        
+        <div class="tip-box">
+            <h4>💡 Final Tips for Mastering Question Words</h4>
+            <ul>
+                <li>Practice asking questions every day in real conversations</li>
+                <li>Listen carefully to how native speakers use question words</li>
+                <li>Remember the word order: Question Word + Auxiliary + Subject + Verb</li>
+                <li>Pay attention to the type of answer each question word requires</li>
+                <li>Use "how" with adjectives for specific information (how much, how many, how often)</li>
+                <li>Don't be afraid to ask questions - it shows you want to learn and communicate!</li>
+            </ul>
+        </div>
+        
+        <div class="example-box">
+            <div class="example-title">🎓 Common Mistakes to Avoid:</div>
+            <p>❌ <strong>Wrong:</strong> What you do?<br>
+            ✅ <strong>Correct:</strong> What do you do?</p>
+            
+            <p>❌ <strong>Wrong:</strong> Where you are from?<br>
+            ✅ <strong>Correct:</strong> Where are you from?</p>
+            
+            <p>❌ <strong>Wrong:</strong> Why you are late?<br>
+            ✅ <strong>Correct:</strong> Why are you late?</p>
+            
+            <p>❌ <strong>Wrong:</strong> How you learned English?<br>
+            ✅ <strong>Correct:</strong> How did you learn English?</p>
+            
+            <p>❌ <strong>Wrong:</strong> Who's car is this? (who's = who is)<br>
+            ✅ <strong>Correct:</strong> Whose car is this?</p>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p><strong>Master Question Words for Better Communication!</strong></p>
+        <p>These words are essential for asking questions and having meaningful conversations in English. Keep practicing!</p>
+    </div>
+</div>
+
+
+    <!-- <script>
+        window.onload = function() {
+            const printBtn = document.createElement('button');
+            printBtn.textContent = '🖨️ Print/Save as PDF';
+            printBtn.style.cssText = 'position: fixed; top: 20px; right: 20px; padding: 15px 25px; background: #667eea; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1000;';
+            printBtn.onmouseover = function() { this.style.background = '#764ba2'; };
+            printBtn.onmouseout = function() { this.style.background = '#667eea'; };
+            printBtn.onclick = function() { window.print(); };
+            document.body.appendChild(printBtn);
+        };
+    </script> -->
+</body>
+</html>

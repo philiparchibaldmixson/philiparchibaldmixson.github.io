@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparatifs et Superlatifs Irréguliers - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 20%, #4facfe 40%, #00f2fe 60%, #43e97b 80%, #f5576c 100%);
+            background-size: 600% 600%;
+            animation: irregularGradient 30s ease infinite;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes irregularGradient {
+            0% { background-position: 0% 50%; }
+            33% { background-position: 100% 50%; }
+            66% { background-position: 50% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.15) 0%, transparent 35%),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.15) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: irregularFloat 25s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes irregularFloat {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            33% { transform: translate(30px, -30px) scale(1.1) rotate(120deg); }
+            66% { transform: translate(-30px, 30px) scale(0.9) rotate(240deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            background: linear-gradient(135deg, #f5576c, #f093fb);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.3em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+            animation: irregularPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes irregularPulse {
+            0%, 100% { 
+                box-shadow: 0 10px 30px rgba(245, 87, 108, 0.6);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 20px 60px rgba(240, 147, 251, 0.9);
+                transform: scale(1.1);
+            }
+        }
+
+        h1 {
+            color: white;
+            font-size: 3.5em;
+            text-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+            animation: irregularGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes irregularGlow {
+            from { 
+                text-shadow: 5px 5px 15px rgba(245, 87, 108, 0.7);
+                filter: drop-shadow(0 0 30px rgba(245, 87, 108, 0.6));
+            }
+            to { 
+                text-shadow: 5px 5px 30px rgba(67, 233, 123, 1);
+                filter: drop-shadow(0 0 50px rgba(67, 233, 123, 0.8));
+            }
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.8em;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #f5576c, #f093fb, #4facfe, #00f2fe, #43e97b, #f5576c);
+            background-size: 400% 100%;
+            animation: borderFlow 10s ease infinite;
+        }
+
+        @keyframes borderFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        h2 {
+            color: #f5576c;
+            font-size: 2.6em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 5px solid #4facfe;
+            position: relative;
+        }
+
+        h2::after {
+            content: '⚡';
+            margin-left: 15px;
+            animation: lightning 2s ease-in-out infinite;
+        }
+
+        @keyframes lightning {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg); 
+                opacity: 1;
+                color: #f5576c;
+            }
+            50% { 
+                transform: scale(1.4) rotate(180deg); 
+                opacity: 0.7;
+                color: #4facfe;
+            }
+        }
+
+        h3 {
+            color: #4facfe;
+            font-size: 2em;
+            margin: 35px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3::before {
+            content: '🔀';
+            font-size: 1.3em;
+            animation: shuffle 3s ease-in-out infinite;
+        }
+
+        @keyframes shuffle {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #f5576c15, #f093fb15);
+            border-left: 6px solid #f5576c;
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            font-size: 1.25em;
+            line-height: 1.9;
+            color: #2d3748;
+        }
+
+        .irregular-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.15);
+            border: 4px solid;
+            transition: all 0.3s ease;
+        }
+
+        .irregular-card:nth-child(odd) { border-color: #f5576c; }
+        .irregular-card:nth-child(even) { border-color: #4facfe; }
+
+        .irregular-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(245, 87, 108, 0.3);
+        }
+
+        .irregular-title {
+            color: #f5576c;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .irregular-title::before {
+            content: '🎲';
+            font-size: 1.4em;
+            animation: dice 3s ease-in-out infinite;
+        }
+
+        @keyframes dice {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.2); }
+            50% { transform: rotate(180deg) scale(1); }
+            75% { transform: rotate(270deg) scale(1.2); }
+        }
+
+        .forms-table {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+            background: linear-gradient(135deg, #f5576c10, #4facfe10);
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .form-cell {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .form-cell:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .form-cell h4 {
+            color: #f5576c;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .form-cell p {
+            color: #2d3748;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #43e97b15, #00f2fe15);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #43e97b;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 35px rgba(67, 233, 123, 0.2);
+        }
+
+        .example {
+            color: #2d3748;
+            font-size: 1.25em;
+            line-height: 2.2;
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .example::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+            color: #43e97b;
+            font-weight: bold;
+        }
+
+        .wrong-example {
+            color: #e74c3c;
+            font-size: 1.25em;
+            line-height: 2.2;
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .wrong-example::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .highlight-positive {
+            background: linear-gradient(120deg, #f5576c50 0%, #f093fb50 100%);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #c0392b;
+        }
+
+        .highlight-negative {
+            background: linear-gradient(120deg, #4facfe50 0%, #00f2fe50 100%);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #2c5aa0;
+        }
+
+        .highlight-super {
+            background: linear-gradient(120deg, #43e97b50 0%, #38f9d750 100%);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #1e7e34;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .comparison-item {
+            background: linear-gradient(135deg, #f5576c10, #f093fb10);
+            padding: 25px;
+            border-radius: 15px;
+            border: 3px solid #f5576c;
+        }
+
+        .comparison-item h4 {
+            color: #f5576c;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffd43b15, #ff8c4215);
+            border: 3px solid #ffd43b;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .warning-box::before {
+            content: '⚠️ ATTENTION';
+            position: absolute;
+            top: -15px;
+            left: 35px;
+            background: linear-gradient(135deg, #ffd43b, #ff8c42);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.95em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .warning-box p {
+            margin-top: 15px;
+            color: #2d3748;
+            line-height: 1.9;
+            font-size: 1.15em;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #43e97b15, #38f9d715);
+            border: 3px dashed #43e97b;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .note-box::before {
+            content: '💡 BON À SAVOIR';
+            position: absolute;
+            top: -15px;
+            left: 35px;
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.95em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .note-box p {
+            margin-top: 15px;
+            color: #2d3748;
+            line-height: 1.9;
+            font-size: 1.15em;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #f5576c, #4facfe);
+            color: white;
+        }
+
+        th {
+            padding: 18px;
+            text-align: left;
+            font-size: 1.15em;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, #f5576c10, #4facfe10);
+        }
+
+        .schema-box {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.18);
+            border: 4px solid #f5576c;
+        }
+
+        .schema-title {
+            text-align: center;
+            color: #f5576c;
+            font-size: 1.7em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .schema-title::before,
+        .schema-title::after {
+            content: '═══';
+            color: #4facfe;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #4facfe20, #00f2fe20);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 3px solid #4facfe;
+        }
+
+        .tip-box h4 {
+            color: #4facfe;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tip-box h4::before {
+            content: '🎯';
+            font-size: 1.3em;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        footer p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .emoji-decoration {
+            display: inline-block;
+            animation: wildSpin 8s linear infinite;
+        }
+
+        @keyframes wildSpin {
+            from { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            to { transform: rotate(360deg) scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            h2 {
+                font-size: 1.9em;
+            }
+            
+            h3 {
+                font-size: 1.6em;
+            }
+
+            .forms-table,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🎓 Língua Academy</div>
+            <h1>Comparatifs et Superlatifs</h1>
+            <p class="subtitle">Formes Irrégulières</p>
+        </header>
+
+        <div class="content-card">
+            <h2>Introduction aux Formes Irrégulières</h2>
+            <div class="intro-box">
+                Certains adjectifs ne suivent pas les règles habituelles pour former le comparatif et le superlatif. 
+                Au lieu d'utiliser <strong style="color: #f5576c;">« plus »</strong>, ils ont des 
+                <strong style="color: #4facfe;">formes spéciales</strong> qui doivent être apprises par cœur. 
+                Ces formes irrégulières sont parmi les plus utilisées en français !
+            </div>
+
+            <h2>Les Trois Adjectifs Irréguliers Principaux</h2>
+
+            <h3>1. BON → MEILLEUR → LE MEILLEUR</h3>
+            <div class="irregular-card">
+                <div class="irregular-title">L'Irrégularité de « BON »</div>
+                
+                <div class="forms-table">
+                    <div class="form-cell">
+                        <h4>Positif</h4>
+                        <p>bon(ne)</p>
+                    </div>
+                    <div class="form-cell">
+                        <h4>Comparatif</h4>
+                        <p><span class="highlight-positive">meilleur(e)</span></p>
+                    </div>
+                    <div class="form-cell">
+                        <h4>Superlatif relatif</h4>
+                        <p><span class="highlight-super">le/la meilleur(e)</span></p>
+                    </div>
+                    <div class="form-cell">
+                        <h4>Superlatif absolu</h4>
+                        <p>très bon(ne)</p>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4 style="color: #43e97b; font-size: 1.3em; margin-bottom: 15px;">✓ Formes CORRECTES :</h4>
+                    <div class="example">
+                        Ce gâteau est <span class="highlight-positive">meilleur</span> que l'autre.
+                    </div>
+                    <div class="example">
+                        C'est <span class="highlight-super">le meilleur</span> restaurant de la ville.
+                    </div>
+                    <div class="example">
+                        Tes notes sont <span class="highlight-positive">meilleures</span> que les miennes.
+                    </div>
+                    <div class="example">
+                        Elle a obtenu <span class="highlight-super">la meilleure</span> note de la classe.
+                    </div>
+                    <div class="example">
+                        Ce sont <span class="highlight-super">les meilleurs</span> chocolats du monde.
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <p>
+                        <strong>ERREUR FRÉQUENTE :</strong><br><br>
+                        ❌ <strong>JAMAIS</strong> « plus bon » ou « le plus bon »<br>
+                        ✓ <strong>TOUJOURS</strong> « meilleur » ou « le meilleur »<br><br>
+                        Exception : Le superlatif absolu reste « très bon » (pas « très meilleur »)
+                    </p>
+                </div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h4>❌ INCORRECT</h4>
+                        <div class="wrong-example">Ce vin est <del>plus bon</del> que celui-là.</div>
+                        <div class="wrong-example">C'est <del>le plus bon</del> élève.</div>
+                        <div class="wrong-example">Cette tarte est <del>plus bonne</del>.</div>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>✓ CORRECT</h4>
+                        <div class="example">Ce vin est <strong>meilleur</strong> que celui-là.</div>
+                        <div class="example">C'est <strong>le meilleur</strong> élève.</div>
+                        <div class="example">Cette tarte est <strong>meilleure</strong>.</div>
+                    </div>
+                </div>
+
+                <div class="note-box">
+                    <p>
+                        <strong>Accord :</strong> « Meilleur » s'accorde en genre et en nombre comme un adjectif normal :<br><br>
+                        • un <strong>meilleur</strong> film (masculin singulier)<br>
+                        • une <strong>meilleure</strong> idée (féminin singulier)<br>
+                        • de <strong>meilleurs</strong> résultats (masculin pluriel)<br>
+                        • de <strong>meilleures</strong> notes (féminin pluriel)
+                    </p>
+                </div>
+            </div>
+
+            <h3>2. MAUVAIS → PIRE / PLUS MAUVAIS → LE PIRE</h3>
+            <div class="irregular-card">
+                <div class="irregular-title">L'Irrégularité de « MAUVAIS »</div>
+                
+                <div class="forms-table">
+                    <div class="form-cell">
+                        <h4>Positif</h4>
+                        <p>mauvais(e)</p>
+                    </div>
+                    <div class="form-cell">
+                        <h4>Comparatif</h4>
+                        <p><span class="highlight-positive">pire</span><br>OU<br>plus mauvais(e)</p>
+                    </div>
+                    <div class="form-cell">
+                        <h4>Superlatif relatif</h4>
+                        <p><span class="highlight-super">le/la pire</span></p>
+                    </div>
+                    <div class="form-cell">
+                        <h4>Superlatif absolu</h4>
+                        <p>très mauvais(e)</p>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4 style="color: #43e97b; font-size: 1.3em; margin-bottom: 15px;">✓ Formes CORRECTES :</h4>
+                    <div class="example">
+                        La situation est <span class="highlight-positive">pire</span> qu'hier.
+                    </div>
+                    <div class="example">
+                        C'est <span class="highlight-super">le pire</span> film que j'aie vu.
+                    </div>
+                    <div class="example">
+                        Ses résultats sont <span class="highlight-positive">pires</span> que prévu.
+                    </div>
+                    <div class="example">
+                        C'est <span class="highlight-super">la pire</span> décision possible.
+                    </div>
+                    <div class="example">
+                        Ce sont <span class="highlight-super">les pires</span> moments de ma vie.
+                    </div>
+                </div>
+
+                <div class="note-box">
+                    <p>
+                        <strong>Double possibilité :</strong> Pour le comparatif de « mauvais », on peut utiliser 
+                        <strong>PIRE</strong> (plus littéraire) ou <strong>PLUS MAUVAIS</strong> (plus courant) :<br><br>
+                        • Cette situation est <strong>pire</strong> que l'autre. (littéraire)<br>
+                        • Cette situation est <strong>plus mauvaise</strong> que l'autre. (courant)<br><br>
+                        <strong>Cependant</strong>, pour le superlatif relatif, on préfère toujours « le pire ».
+                    </p>
+                </div>
+
+                <div class="tip-box">
+                    <h4>Nuance d'Usage</h4>
+                    <p style="line-height: 1.9; color: #2d3748;">
+                        <strong>PIRE</strong> s'emploie surtout pour des notions abstraites ou morales :<br>
+                        • C'est pire que je pensais. (abstrait)<br>
+                        • La situation est pire. (abstrait)<br><br>
+                        <strong>PLUS MAUVAIS</strong> s'emploie pour des qualités concrètes ou physiques :<br>
+                        • Ce vin est plus mauvais que l'autre. (goût)<br>
+                        • Le temps est plus mauvais aujourd'hui. (météo)
+                    </p>
+                </div>
+
+                <div class="warning-box">
+                    <p>
+                        <strong>Accord :</strong> « Pire » est invariable en genre mais s'accorde en nombre :<br><br>
+                        • un <strong>pire</strong> problème (masculin)<br>
+                        • une <strong>pire</strong> situation (féminin - même forme)<br>
+                        • de <strong>pires</strong> résultats (pluriel)<br>
+                        • de <strong>pires</strong> nouvelles (pluriel)
+                    </p>
+                </div>
+            </div>
+
+            <h3>3. PETIT → MOINDRE → LE MOINDRE</h3>
+            <div class="irregular-card">
+                <div class="irregular-title">L'Irrégularité de « PETIT »</div>
+                
+                <div class="forms-table">
+                    <div class="form-cell">
+                        <h4>Positif</h4>
+                        <p>petit(e)</p>
+                    </div>
+                    <div class="form-cell">
+                        <h4>Comparatif</h4>
+                        <p>plus petit(e)<br>OU<br><span class="highlight-positive">moindre</span></p>
+                    </div>
+                    <div class="form-cell">
+                        <h4>Superlatif relatif</h4>
+                        <p>le/la plus petit(e)<br>OU<br><span class="highlight-super">le/la moindre</span></p>
+                    </div>
+                    <div class="form-cell">
+                        <h4>Superlatif absolu</h4>
+                        <p>très petit(e)</p>
+                    </div>
+                </div>
+
+                <div class="note-box">
+                    <p>
+                        <strong>Distinction IMPORTANTE :</strong><br><br>
+                        <strong>PLUS PETIT / LE PLUS PETIT</strong> → Sens concret (taille physique)<br>
+                        • Mon frère est <strong>plus petit</strong> que moi. (taille)<br>
+                        • C'est <strong>la plus petite</strong> maison du village. (dimension)<br><br>
+                        <strong>MOINDRE / LE MOINDRE</strong> → Sens abstrait (importance, valeur)<br>
+                        • C'est de <strong>moindre</strong> importance. (abstrait)<br>
+                        • Je n'ai pas <strong>la moindre</strong> idée. (abstrait)
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <h4 style="color: #43e97b; font-size: 1.3em; margin-bottom: 15px;">✓ Exemples avec MOINDRE (sens abstrait) :</h4>
+                    <div class="example">
+                        C'est un détail de <span class="highlight-positive">moindre</span> importance.
+                    </div>
+                    <div class="example">
+                        Je n'ai pas <span class="highlight-super">la moindre</span> envie de sortir.
+                    </div>
+                    <div class="example">
+                        Sans <span class="highlight-super">le moindre</span> doute.
+                    </div>
+                    <div class="example">
+                        C'est <span class="highlight-super">le moindre</span> de mes soucis.
+                    </div>
+                    <div class="example">
+                        Il ne fait pas <span class="highlight-super">le moindre</span> effort.
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4 style="color: #4facfe; font-size: 1.3em; margin-bottom: 15px;">✓ Exemples avec PLUS PETIT (sens concret) :</h4>
+                    <div class="example">
+                        Cette chambre est <span class="highlight-negative">plus petite</span> que l'autre.
+                    </div>
+                    <div class="example">
+                        C'est <span class="highlight-negative">le plus petit</span> appartement de l'immeuble.
+                    </div>
+                    <div class="example">
+                        Ma voiture est <span class="highlight-negative">plus petite</span> que la tienne.
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <p>
+                        <strong>ERREUR À ÉVITER :</strong><br><br>
+                        ❌ Ne dites pas « moindre » pour parler de taille physique<br>
+                        ❌ Mon frère est <del>moindre</del> que moi.<br>
+                        ✓ Mon frère est <strong>plus petit</strong> que moi.<br><br>
+                        « Moindre » s'utilise uniquement dans un sens abstrait !
+                    </p>
+                </div>
+            </div>
+
+            <h2>Tableau Récapitulatif Complet</h2>
+            <div class="schema-box">
+                <div class="schema-title">Synthèse des Formes Irrégulières</div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Positif</th>
+                                <th>Comparatif</th>
+                                <th>Superlatif Relatif</th>
+                                <th>Superlatif Absolu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: #f5576c10;">
+                                <td><strong>bon(ne)</strong></td>
+                                <td><span style="color: #f5576c; font-weight: bold;">meilleur(e) que</span></td>
+                                <td><span style="color: #f5576c; font-weight: bold;">le/la meilleur(e)</span></td>
+                                <td>très bon(ne)</td>
+                            </tr>
+                            <tr style="background: #4facfe10;">
+                                <td><strong>mauvais(e)</strong></td>
+                                <td><span style="color: #4facfe; font-weight: bold;">pire que<br>OU<br>plus mauvais(e) que</span></td>
+                                <td><span style="color: #4facfe; font-weight: bold;">le/la pire</span></td>
+                                <td>très mauvais(e)</td>
+                            </tr>
+                            <tr style="background: #43e97b10;">
+                                <td><strong>petit(e)</strong></td>
+                                <td><span style="color: #43e97b; font-weight: bold;">moindre que<br>(sens abstrait)<br>OU<br>plus petit(e) que</span></td>
+                                <td><span style="color: #43e97b; font-weight: bold;">le/la moindre<br>(sens abstrait)<br>OU<br>le/la plus petit(e)</span></td>
+                                <td>très petit(e)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h2>Règles d'Accord</h2>
+            <div class="schema-box">
+                <div class="schema-title">Comment Accorder les Formes Irrégulières</div>
+                
+                <div style="padding: 20px;">
+                    <div style="background: linear-gradient(135deg, #f5576c10, #f093fb10); padding: 25px; border-radius: 15px; margin: 15px 0;">
+                        <h4 style="color: #f5576c; font-size: 1.4em; margin-bottom: 15px;">MEILLEUR(E)(S)</h4>
+                        <p style="line-height: 1.9; color: #2d3748;">
+                            S'accorde en <strong>genre et en nombre</strong> avec le nom :<br><br>
+                            • un meilleur café (masc. sing.)<br>
+                            • une meilleure idée (fém. sing.)<br>
+                            • de meilleurs résultats (masc. plur.)<br>
+                            • de meilleures solutions (fém. plur.)
+                        </p>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #4facfe10, #00f2fe10); padding: 25px; border-radius: 15px; margin: 15px 0;">
+                        <h4 style="color: #4facfe; font-size: 1.4em; margin-bottom: 15px;">PIRE(S)</h4>
+                        <p style="line-height: 1.9; color: #2d3748;">
+                            Invariable en <strong>genre</strong>, variable en <strong>nombre</strong> :<br><br>
+                            • un pire moment (masc. sing.)<br>
+                            • une pire situation (fém. sing. - même forme)<br>
+                            • de pires circonstances (plur.)<br>
+                            • de pires conséquences (plur.)
+                        </p>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #43e97b10, #38f9d710); padding: 25px; border-radius: 15px; margin: 15px 0;">
+                        <h4 style="color: #43e97b; font-size: 1.4em; margin-bottom: 15px;">MOINDRE(S)</h4>
+                        <p style="line-height: 1.9; color: #2d3748;">
+                            Invariable en <strong>genre</strong>, variable en <strong>nombre</strong> :<br><br>
+                            • un moindre mal (masc. sing.)<br>
+                            • une moindre importance (fém. sing. - même forme)<br>
+                            • de moindres efforts (plur.)<br>
+                            • de moindres conséquences (plur.)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Exercices Pratiques</h2>
+            <div class="example-box">
+                <h4 style="color: #f5576c; font-size: 1.4em; margin-bottom: 15px;">Complétez avec la forme correcte :</h4>
+                <div class="example">1. Ce gâteau est ___________ (bon +) que celui d'hier.</div>
+                <div class="example">2. C'est ___________ (bon + superlatif) restaurant de la ville.</div>
+                <div class="example">3. La situation est ___________ (mauvais +) qu'avant.</div>
+                <div class="example">4. C'est ___________ (mauvais + superlatif) décision possible.</div>
+                <div class="example">5. Je n'ai pas ___________ (petit + superlatif abstrait) idée.</div>
+                <div class="example">6. Ton appartement est ___________ (petit + concret) que le mien.</div>
+                <div class="example">7. Tes notes sont ___________ (bon +) que les miennes.</div>
+                <div class="example">8. Ce sont ___________ (mauvais + superlatif) résultats de l'année.</div>
+                <div class="example">9. C'est un détail de ___________ (petit + abstrait) importance.</div>
+                <div class="example">10. Elle a obtenu ___________ (bon + superlatif) note de la classe.</div>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #4facfe; font-size: 1.4em; margin-bottom: 15px;">Corrigez les erreurs :</h4>
+                <div class="wrong-example">1. Ce vin est plus bon que l'autre. → ___________</div>
+                <div class="wrong-example">2. C'est le plus bon élève. → ___________</div>
+                <div class="wrong-example">3. Mon frère est moindre que moi. → ___________</div>
+                <div class="wrong-example">4. Cette tarte est plus bonne. → ___________</div>
+                <div class="wrong-example">5. C'est la plus mauvaise idée. → ___________ (forme littéraire)</div>
+            </div>
+
+            <div class="tip-box">
+                <h4>Astuce de Mémorisation</h4>
+                <p style="line-height: 1.9; color: #2d3748;">
+                    Pour retenir les trois formes irrégulières, utilisez cette phrase mnémotechnique :<br><br>
+                    <strong>« Mon BON ami a MEILLEUR goût que le PIRE des MAUVAIS, et ce n'est pas le MOINDRE de ses talents ! »</strong><br><br>
+                    • BON → MEILLEUR<br>
+                    • MAUVAIS → PIRE<br>
+                    • PETIT → MOINDRE (abstrait)<br><br>
+                    Et rappelez-vous : <strong>JAMAIS « plus bon » !</strong> 🎯
+                </p>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>Conclusion :</strong> Les formes irrégulières sont essentielles et très fréquentes en français. 
+                    Maîtrisez particulièrement « meilleur » (jamais « plus bon »), comprenez la nuance entre « pire » 
+                    et « plus mauvais », et utilisez « moindre » uniquement dans un sens abstrait. Ces trois formes 
+                    irrégulières vous permettront de parler français avec précision et naturel ! ⚡
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p><span class="emoji-decoration">🎓</span> <strong>Língua Academy</strong> <span class="emoji-decoration">🎓</span></p>
+            <p>Maîtrisez toutes les subtilités du français !</p>
+            <p style="font-size: 0.9em; opacity: 0.8; margin-top: 15px;">© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

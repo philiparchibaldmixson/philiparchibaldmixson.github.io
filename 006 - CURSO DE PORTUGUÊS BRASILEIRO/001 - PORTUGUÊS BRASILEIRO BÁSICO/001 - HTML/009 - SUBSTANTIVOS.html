@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substantivos em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 50%, #00d2ff 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.8em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+            animation: slideDown 1s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.5em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            color: #6a11cb;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #6a11cb;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #2575fc;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .tipo-card.concreto {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .tipo-card.abstrato {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .tipo-card.proprio {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+
+        .tipo-card.comum {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+        }
+
+        .tipo-card.simples {
+            background: linear-gradient(135deg, #30cfd0, #330867);
+        }
+
+        .tipo-card.composto {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            color: #333;
+        }
+
+        .tipo-card.primitivo {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            color: #333;
+        }
+
+        .tipo-card.derivado {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            color: #333;
+        }
+
+        .tipo-card.coletivo {
+            background: linear-gradient(135deg, #ff6e7f, #bfe9ff);
+        }
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .flexao-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .flexao-box h3 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid white;
+            padding-bottom: 15px;
+        }
+
+        .flexao-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .flexao-item {
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 25px;
+        }
+
+        .flexao-item h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .flexao-item .exemplo-flexao {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
+        .tabela-substantivos {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tabela-substantivos thead {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+        }
+
+        .tabela-substantivos th {
+            padding: 20px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        .tabela-substantivos td {
+            padding: 18px 20px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        .tabela-substantivos tr:hover {
+            background: #f0f7ff;
+        }
+
+        .tabela-substantivos .destaque-col {
+            color: #6a11cb;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .coletivos-box {
+            background: linear-gradient(135deg, #ff6e7f, #bfe9ff);
+            padding: 35px;
+            border-radius: 25px;
+            margin: 30px 0;
+            color: #333;
+        }
+
+        .coletivos-box h3 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            text-align: center;
+            color: #d63031;
+        }
+
+        .coletivos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .coletivo-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .coletivo-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .coletivo-item .nome {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #d63031;
+            margin-bottom: 10px;
+        }
+
+        .coletivo-item .descricao {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .quiz-box {
+            background: linear-gradient(135deg, #fc466b, #3f5efb);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .quiz-box h4 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .quiz-item {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-item .pergunta {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .quiz-item .opcoes {
+            font-size: 1.1em;
+            line-height: 2;
+            padding-left: 20px;
+        }
+
+        .quiz-item .resposta {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        .dicas-box {
+            background: linear-gradient(135deg, #52B788, #2D6A4F);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        .exemplo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #6a11cb;
+        }
+
+        .exemplo-card .titulo-exemplo {
+            font-size: 2em;
+            color: #6a11cb;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .conteudo-exemplo {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .genero-box {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            padding: 35px;
+            border-radius: 25px;
+            margin: 30px 0;
+        }
+
+        .genero-box h3 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 3px solid white;
+            padding-bottom: 15px;
+        }
+
+        .genero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .genero-item {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 20px;
+        }
+
+        .genero-item h4 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .genero-lista {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.1em;
+            line-height: 2;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #6a11cb 0%, #2575fc 50%, #00d2ff 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .tipo-card, .destaque, .dicas-box, .quiz-box,
+            .flexao-box, .coletivos-box, .exemplo-card, .genero-box {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid, .flexao-grid, .coletivos-grid, .genero-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Substantivos 📝</h1>
+        <p class="subtitle">Tudo sobre a classe de palavras que nomeia o mundo!</p>
+
+        <div class="section">
+            <h2>🎯 O que é Substantivo?</h2>
+            <p class="intro-text">
+                O **substantivo** é a classe de palavras que nomeia seres, objetos, lugares, 
+                sentimentos, ações, qualidades e fenômenos. É uma das classes mais importantes da língua 
+                portuguesa, pois sem os substantivos não conseguiríamos identificar e nomear as coisas ao 
+                nosso redor.
+            </p>
+
+            <div class="destaque">
+                <strong>💡 Definição:</strong> Substantivo é toda palavra que nomeia algo e pode ser 
+                precedida de artigo (o, a, os, as, um, uma, uns, umas). Se você consegue colocar um artigo 
+                antes da palavra, ela é um substantivo!
+            </div>
+
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">Teste Rápido</div>
+                <div class="conteudo-exemplo">
+                    <strong>Como identificar um substantivo?</strong><br><br>
+                    1. Coloque um artigo antes da palavra<br>
+                    2. Se fizer sentido, é substantivo!<br><br>
+                    
+                    Exemplos:<br>
+                    • <strong>O</strong> cachorro → cachorro é substantivo ✓<br>
+                    • <strong>A</strong> felicidade → felicidade é substantivo ✓<br>
+                    • <strong>O</strong> Brasil → Brasil é substantivo ✓<br>
+                    • <strong>O</strong> correr → correr (substantivado) ✓<br>
+                    • <strong>O</strong> bonito → não faz sentido natural ✗ (bonito é adjetivo)
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔢 Classificação dos Substantivos</h2>
+            <p class="intro-text">
+                Os substantivos são classificados de diversas formas. Vamos conhecer cada tipo:
+            </p>
+
+            <h3>1. Quanto à Existência</h3>
+            <div class="tipos-grid">
+                <div class="tipo-card concreto">
+                    <h3>Concreto</h3>
+                    <div class="definicao">
+                        Nomeia seres de existência real ou concreta, que podem ser vistos, tocados ou 
+                        imaginados como seres independentes.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Pessoas: menino, Maria, professor<br>
+                        • Animais: cachorro, pássaro, leão<br>
+                        • Objetos: mesa, livro, cadeira<br>
+                        • Lugares: casa, escola, Brasil<br>
+                        • Seres mitológicos: Deus, anjo, fada
+                    </div>
+                </div>
+
+                <div class="tipo-card abstrato">
+                    <h3>Abstrato</h3>
+                    <div class="definicao">
+                        Nomeia seres sem existência própria, que dependem de outro ser para existir. 
+                        Indica sentimentos, qualidades, ações, estados.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Sentimentos: amor, ódio, tristeza<br>
+                        • Qualidades: beleza, bondade, honestidade<br>
+                        • Ações: corrida, viagem, trabalho<br>
+                        • Estados: vida, morte, saúde<br>
+                        • Conceitos: liberdade, justiça, paz
+                    </div>
+                </div>
+            </div>
+
+            <div class="destaque" style="margin-top: 25px;">
+                <strong>🔍 Dica:</strong> Para diferenciar concreto de abstrato, pergunte: "Posso ver, 
+                tocar ou imaginar como um ser independente?" Se sim, é concreto. Se depende de outro 
+                ser para existir, é abstrato. Ex: Amor (abstrato) só existe se alguém ama alguém.
+            </div>
+
+            <h3>2. Quanto à Especificidade</h3>
+            <div class="tipos-grid">
+                <div class="tipo-card proprio">
+                    <h3>Próprio</h3>
+                    <div class="definicao">
+                        Nomeia um ser específico, único, individualizado. Sempre escrito com letra maiúscula.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Pessoas: Maria, João, Pedro<br>
+                        • Países: Brasil, Portugal, Japão<br>
+                        • Cidades: Fortaleza, São Paulo<br>
+                        • Rios: Amazonas, Nilo, Tejo<br>
+                        • Marcas: Nike, Coca-Cola, Apple
+                    </div>
+                </div>
+
+                <div class="tipo-card comum">
+                    <h3>Comum</h3>
+                    <div class="definicao">
+                        Nomeia seres de forma genérica, não individualizada. Escrito com letra minúscula 
+                        (exceto em início de frase).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Pessoas: menino, mulher, professor<br>
+                        • Lugares: país, cidade, rua<br>
+                        • Objetos: cadeira, mesa, livro<br>
+                        • Animais: cachorro, gato, pássaro<br>
+                        • Conceitos: amor, paz, guerra
+                    </div>
+                </div>
+            </div>
+
+            <h3>3. Quanto à Formação</h3>
+            <div class="tipos-grid">
+                <div class="tipo-card simples">
+                    <h3>Simples</h3>
+                    <div class="definicao">
+                        Formado por apenas um radical (um único elemento).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • casa<br>
+                        • flor<br>
+                        • tempo<br>
+                        • água<br>
+                        • sol<br>
+                        • livro
+                    </div>
+                </div>
+
+                <div class="tipo-card composto">
+                    <h3>Composto</h3>
+                    <div class="definicao">
+                        Formado por dois ou mais radicais (elementos).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • guarda-chuva<br>
+                        • passatempo<br>
+                        • girassol<br>
+                        • couve-flor<br>
+                        • beija-flor<br>
+                        • segunda-feira
+                    </div>
+                </div>
+            </div>
+
+            <h3>4. Quanto à Origem</h3>
+            <div class="tipos-grid">
+                <div class="tipo-card primitivo">
+                    <h3>Primitivo</h3>
+                    <div class="definicao">
+                        Não deriva de outra palavra da língua portuguesa. É a palavra original.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • pedra<br>
+                        • ferro<br>
+                        • casa<br>
+                        • livro<br>
+                        • terra<br>
+                        • mar
+                    </div>
+                </div>
+
+                <div class="tipo-card derivado">
+                    <h3>Derivado</h3>
+                    <div class="definicao">
+                        Deriva de outra palavra da língua portuguesa através de processos de derivação.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • pedreira (de pedra)<br>
+                        • ferreiro (de ferro)<br>
+                        • casarão (de casa)<br>
+                        • livraria (de livro)<br>
+                        • terreno (de terra)<br>
+                        • maremoto (de mar)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>👥 Substantivos Coletivos</h2>
+            <p class="intro-text">
+                **Substantivos coletivos** são aqueles que, mesmo no singular, indicam um 
+                conjunto ou grupo de seres da mesma espécie.
+            </p>
+
+            <div class="coletivos-box">
+                <h3>🎯 Principais Coletivos</h3>
+                <div class="coletivos-grid">
+                    <div class="coletivo-item">
+                        <div class="nome">Álbum</div>
+                        <div class="descricao">Coleção de fotos, selos</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Alcateia</div>
+                        <div class="descricao">Conjunto de lobos</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Arquipélago</div>
+                        <div class="descricao">Conjunto de ilhas</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Banda</div>
+                        <div class="descricao">Conjunto de músicos</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Bando</div>
+                        <div class="descricao">Conjunto de aves, pessoas</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Batalhão</div>
+                        <div class="descricao">Conjunto de soldados</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Biblioteca</div>
+                        <div class="descricao">Conjunto de livros</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Buquê</div>
+                        <div class="descricao">Conjunto de flores</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Cacho</div>
+                        <div class="descricao">Conjunto de uvas, bananas</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Cardume</div>
+                        <div class="descricao">Conjunto de peixes</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Constelação</div>
+                        <div class="descricao">Conjunto de estrelas</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Elenco</div>
+                        <div class="descricao">Conjunto de atores</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Enxame</div>
+                        <div class="descricao">Conjunto de abelhas</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Esquadra</div>
+                        <div class="descricao">Conjunto de navios</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Flora</div>
+                        <div class="descricao">Conjunto de plantas</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Fauna</div>
+                        <div class="descricao">Conjunto de animais</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Frota</div>
+                        <div class="descricao">Conjunto de veículos</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Júri</div>
+                        <div class="descricao">Conjunto de jurados</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Manada</div>
+                        <div class="descricao">Conjunto de bois, elefantes</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Matilha</div>
+                        <div class="descricao">Conjunto de cães</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Multidão</div>
+                        <div class="descricao">Conjunto de pessoas</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Orquestra</div>
+                        <div class="descricao">Conjunto de músicos</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Pomar</div>
+                        <div class="descricao">Conjunto de árvores frutíferas</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Ramalhete</div>
+                        <div class="descricao">Conjunto de flores</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Rebanho</div>
+                        <div class="descricao">Conjunto de ovelhas, cabras</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Récua</div>
+                        <div class="descricao">Conjunto de animais de carga</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Vara</div>
+                        <div class="descricao">Conjunto de porcos</div>
+                    </div>
+                    <div class="coletivo-item">
+                        <div class="nome">Vocabulário</div>
+                        <div class="descricao">Conjunto de palavras</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔄 Flexão dos Substantivos</h2>
+            <p class="intro-text">
+                O substantivo é uma classe de palavra variável, pois se flexiona em **gênero**, **número** e **grau**.
+            </p>
+
+            <div class="flexao-box">
+                <h3>Flexão de Gênero (Masculino e Feminino)</h3>
+                <div class="genero-box" style="margin: 0; padding: 0; background: none; box-shadow: none;">
+                    <div class="genero-grid">
+                        <div class="genero-item">
+                            <h4>Masculino</h4>
+                            <div class="genero-lista">
+                                o menino, o carro, um pão, o amor
+                            </div>
+                        </div>
+                        <div class="genero-item">
+                            <h4>Feminino</h4>
+                            <div class="genero-lista">
+                                a menina, a casa, uma flor, a beleza
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 40px;">Flexão de Número (Singular e Plural)</h3>
+                <div class="flexao-grid">
+                    <div class="flexao-item">
+                        <h4>Plural Simples</h4>
+                        <div class="exemplo-flexao">
+                            • Casa → Casas<br>
+                            • Flor → Flores<br>
+                            • Trem → Trens<br>
+                            • Pastel → Pastéis
+                        </div>
+                    </div>
+                    <div class="flexao-item">
+                        <h4>Plural Composto</h4>
+                        <div class="exemplo-flexao">
+                            • Guarda-chuva → Guarda-chuvas<br>
+                            • Couve-flor → Couves-flores<br>
+                            • Beija-flor → Beija-flores<br>
+                            • Guarda-roupa → Guarda-roupas
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 40px;">Flexão de Grau (Aumentativo e Diminutivo)</h3>
+                <div class="flexao-grid">
+                    <div class="flexao-item">
+                        <h4>Diminutivo</h4>
+                        <div class="exemplo-flexao">
+                            • Casa → Casinha, Casebre<br>
+                            • Livro → Livrinho, Libreto<br>
+                            • Cão → Cãozinho
+                        </div>
+                    </div>
+                    <div class="flexao-item">
+                        <h4>Aumentativo</h4>
+                        <div class="exemplo-flexao">
+                            • Casa → Casarão<br>
+                            • Livro → Livraço<br>
+                            • Cão → Cãozarrão
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>❓ Quiz Rápido de Substantivos</h2>
+            <p class="intro-text">
+                Teste seus conhecimentos sobre a classificação dos substantivos.
+            </p>
+
+            <div class="quiz-box">
+                <h4>Desafio de Classificação</h4>
+
+                <div class="quiz-item">
+                    <div class="pergunta">1. Qual a classificação do substantivo **beleza**?</div>
+                    <div class="opcoes">
+                        a) Concreto, Comum, Primitivo<br>
+                        b) Abstrato, Comum, Derivado<br>
+                        c) Concreto, Próprio, Simples<br>
+                        d) Abstrato, Próprio, Primitivo
+                    </div>
+                    <div class="resposta">
+                        Resposta Correta: **b) Abstrato, Comum, Derivado** (Deriva de 'belo').
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">2. O substantivo **guarda-chuva** é classificado como:</div>
+                    <div class="opcoes">
+                        a) Simples e Primitivo<br>
+                        b) Composto e Derivado<br>
+                        c) Composto e Primitivo<br>
+                        d) Simples e Derivado
+                    </div>
+                    <div class="resposta">
+                        Resposta Correta: **c) Composto e Primitivo** (Composto por "guarda" + "chuva"; não deriva de outra palavra mais simples no sentido de radical).
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">3. Qual substantivo é um **Coletivo** e indica um conjunto de ilhas?</div>
+                    <div class="opcoes">
+                        a) Arquipélago<br>
+                        b) Constelação<br>
+                        c) Frota<br>
+                        d) Álbum
+                    </div>
+                    <div class="resposta">
+                        Resposta Correta: **a) Arquipélago**.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⭐ Dicas Essenciais</h2>
+            <div class="dicas-box">
+                <h4>Não Cometa Erros!</h4>
+                <ul>
+                    <li>**Substantivos Abstratos e Concretos:** Lembre-se, seres imaginários como "saci" ou "fada" são considerados **concretos** porque existem independentemente na sua imaginação. </li>
+                    <li>**Flexão de Gênero:** Em substantivos sobre profissões, o gênero costuma mudar (O professor / A professora). Em outros, a palavra não muda (O estudante / A estudante) - são chamados **comuns de dois gêneros**.</li>
+                    <li>**Substantivação:** Qualquer palavra de outra classe pode se tornar um substantivo se for precedida por um artigo. Ex: "O **não** dela foi definitivo." ("não" é advérbio substantivado).</li>
+                    <li>**Plural de Compostos:** A regra mais comum: se o composto tiver Verbo ou Partícula Invariável, só o segundo elemento vai para o plural (ex: guarda-chuvas, beija-flores).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

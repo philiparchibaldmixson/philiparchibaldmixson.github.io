@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place des Compléments Circonstanciels - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideRight {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #002395 0%, #ffffff 50%, #ED2939 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(237, 41, 57, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0, 35, 149, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background: linear-gradient(135deg, #002395, #0035b8, #002395);
+            background-size: 200% 200%;
+            animation: gradientFlow 8s ease infinite;
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 35, 149, 0.4);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .logo {
+            font-size: 1.3em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            opacity: 0.95;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin: 20px 0;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-top: 15px;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            border: 3px solid rgba(0, 35, 149, 0.2);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .intro-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .intro-section h2::before {
+            content: '📍';
+            font-size: 1.2em;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .intro-section p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.15em;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 6px solid #002395;
+            margin: 25px 0;
+            font-size: 1.1em;
+            line-height: 1.7;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .definition-box strong {
+            color: #ED2939;
+            font-size: 1.1em;
+        }
+
+        .positions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .position-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .position-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #002395, #ED2939);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .position-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 35, 149, 0.3);
+            border-color: #002395;
+        }
+
+        .position-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .position-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .position-title {
+            color: #002395;
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .position-badge {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(237, 41, 57, 0.3);
+        }
+
+        .position-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .example-box {
+            background: rgba(237, 41, 57, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 15px;
+            border-left: 4px solid #ED2939;
+        }
+
+        .example-sentence {
+            color: #222;
+            font-size: 1.1em;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .cc-highlight {
+            color: #ED2939;
+            background: rgba(237, 41, 57, 0.15);
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .rules-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .rules-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .rule-item {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.03), rgba(237, 41, 57, 0.03));
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 2px solid rgba(0, 35, 149, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .rule-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 35, 149, 0.15);
+            border-color: #002395;
+        }
+
+        .rule-item h3 {
+            color: #002395;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .rule-type {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .rule-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .rule-examples {
+            margin-top: 15px;
+        }
+
+        .rule-example {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 4px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .rule-example:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 1.8s ease;
+        }
+
+        .order-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .order-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .order-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 35, 149, 0.2);
+        }
+
+        .order-title {
+            color: #002395;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .order-content {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .special-section {
+            background: linear-gradient(135deg, #002395 0%, #0041c9 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 35, 149, 0.4);
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 2s ease;
+        }
+
+        .special-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .special-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .special-section p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .tip-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .table-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 2.2s ease;
+        }
+
+        .table-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+        }
+
+        th {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        th:first-child {
+            border-top-left-radius: 15px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 15px;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid rgba(0, 35, 149, 0.1);
+            font-size: 1.05em;
+            color: #333;
+        }
+
+        tr:hover {
+            background: rgba(0, 35, 149, 0.05);
+        }
+
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 15px;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 15px;
+        }
+
+        .type-highlight {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .visual-example {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .sentence-parts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .part {
+            padding: 15px 25px;
+            border-radius: 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .part-cc {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            box-shadow: 0 5px 15px rgba(237, 41, 57, 0.3);
+        }
+
+        .part-subject {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 35, 149, 0.3);
+        }
+
+        .part-verb {
+            background: linear-gradient(135deg, #00c853, #00e676);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 200, 83, 0.3);
+        }
+
+        .part-complement {
+            background: linear-gradient(135deg, #ff9800, #ffc107);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+        }
+
+        .part:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .arrow {
+            font-size: 2em;
+            color: #002395;
+            animation: slideRight 2s ease-in-out infinite;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #002395, #ED2939);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 2.4s ease;
+        }
+
+        .footer-content {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo {
+            font-size: 2em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .positions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 30px;
+            }
+
+            .intro-section, .special-section, .rules-section {
+                padding: 25px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            .sentence-parts {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">⚜️ Língua Academy ⚜️</div>
+            <h1>Place des Compléments Circonstanciels</h1>
+            <div class="subtitle">📍 Mobilité, Position et Ordre dans la Phrase 📍</div>
+        </header>
+
+        <div class="intro-section">
+            <h2>La Mobilité des Compléments Circonstanciels</h2>
+            <p>
+                Les <strong>compléments circonstanciels</strong> se distinguent des autres compléments par deux caractéristiques 
+                essentielles : ils sont généralement <strong>supprimables</strong> et <strong>déplaçables</strong> dans la phrase.
+            </p>
+            
+            <div class="definition-box">
+                📍 <strong>Principe fondamental :</strong> Contrairement aux compléments essentiels (COD, COI, attribut) qui ont 
+                une place fixe après le verbe, les CC peuvent occuper <strong>différentes positions</strong> dans la phrase : 
+                au début, au milieu ou à la fin. Cette mobilité permet de varier l'expression et de mettre l'accent sur 
+                différents éléments.
+            </div>
+
+            <p>
+                La position du CC dans la phrase n'est pas anodine : elle peut changer la <strong>nuance</strong>, 
+                l'<strong>emphase</strong> ou l'<strong>ordre logique</strong> de l'information. Cependant, certaines règles et 
+                contraintes stylistiques existent.
+            </p>
+        </div>
+
+        <div class="positions-grid">
+            <div class="position-card">
+                <div class="position-icon">⬅️</div>
+                <div class="position-title">Position Initiale</div>
+                <div class="position-badge">En début de phrase</div>
+                <div class="position-description">
+                    Le CC en <strong>début de phrase</strong> (avant le sujet) crée un effet de <strong>mise en relief</strong>. 
+                    Il permet de situer l'action dans un contexte ou de créer une emphase.
+                </div>
+                <div class="example-box">
+                    <div class="example-sentence">
+                        <span class="cc-highlight">Demain</span>, je partirai en voyage.
+                    </div>
+                    <div class="example-sentence">
+                        <span class="cc-highlight">À Paris</span>, nous avons visité le Louvre.
+                    </div>
+                    <div class="example-sentence">
+                        <span class="cc-highlight">Parce qu'il pleut</span>, je reste chez moi.
+                    </div>
+                    <div class="example-sentence">
+                        <span class="cc-highlight">Lentement</span>, il s'approcha de la porte.
+                    </div>
+                </div>
+                <p style="color: #666; margin-top: 15px; font-size: 0.95em;">
+                    ✅ <strong>Effet :</strong> Mise en relief, contexte immédiat, emphase
+                </p>
+            </div>
+
+            <div class="position-card">
+                <div class="position-icon">↔️</div>
+                <div class="position-title">Position Médiane</div>
+                <div class="position-badge">Au milieu de la phrase</div>
+                <div class="position-description">
+                    Le CC en <strong>position médiane</strong> (entre le sujet et le verbe, ou après le verbe et avant un complément) 
+                    est moins fréquent et crée un effet d'<strong>insertion</strong> ou d'incise.
+                </div>
+                <div class="example-box">
+                    <div class="example-sentence">
+                        Je, <span class="cc-highlight">demain</span>, partirai en voyage.
+                    </div>
+                    <div class="example-sentence">
+                        Nous avons, <span class="cc-highlight">à Paris</span>, visité le Louvre.
+                    </div>
+                    <div class="example-sentence">
+                        Il s'approcha, <span class="cc-highlight">lentement</span>, de la porte.
+                    </div>
+                </div>
+                <p style="color: #666; margin-top: 15px; font-size: 0.95em;">
+                    ⚠️ <strong>Remarque :</strong> Position rare, souvent entre virgules, effet d'incise
+                </p>
+            </div>
+
+            <div class="position-card">
+                <div class="position-icon">➡️</div>
+                <div class="position-title">Position Finale</div>
+                <div class="position-badge">En fin de phrase</div>
+                <div class="position-description">
+                    Le CC en <strong>fin de phrase</strong> (après le verbe et les compléments essentiels) est la position 
+                    la plus <strong>naturelle et neutre</strong>. C'est la position par défaut.
+                </div>
+                <div class="example-box">
+                    <div class="example-sentence">
+                        Je partirai en voyage <span class="cc-highlight">demain</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Nous avons visité le Louvre <span class="cc-highlight">à Paris</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Je reste chez moi <span class="cc-highlight">parce qu'il pleut</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Il s'approcha de la porte <span class="cc-highlight">lentement</span>.
+                    </div>
+                </div>
+                <p style="color: #666; margin-top: 15px; font-size: 0.95em;">
+                    ✅ <strong>Effet :</strong> Position neutre, naturelle, ordre logique standard
+                </p>
+            </div>
+        </div>
+
+        <div class="visual-example">
+            <h3 style="color: #002395; text-align: center; margin-bottom: 25px; font-size: 1.8em;">
+                📊 Visualisation : Trois Positions Possibles
+            </h3>
+            
+            <div style="margin-bottom: 30px;">
+                <h4 style="color: #ED2939; margin-bottom: 15px;">Position 1 : Début de phrase</h4>
+                <div class="sentence-parts">
+                    <div class="part part-cc">Hier</div>
+                    <div class="arrow">→</div>
+                    <div class="part part-subject">je</div>
+                    <div class="part part-verb">suis allé</div>
+                    <div class="part part-complement">au cinéma</div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <h4 style="color: #ED2939; margin-bottom: 15px;">Position 2 : Milieu de phrase (rare)</h4>
+                <div class="sentence-parts">
+                    <div class="part part-subject">Je</div>
+                    <div class="part part-cc">hier</div>
+                    <div class="part part-verb">suis allé</div>
+                    <div class="part part-complement">au cinéma</div>
+                </div>
+            </div>
+
+            <div>
+                <h4 style="color: #ED2939; margin-bottom: 15px;">Position 3 : Fin de phrase (neutre)</h4>
+                <div class="sentence-parts">
+                    <div class="part part-subject">Je</div>
+                    <div class="part part-verb">suis allé</div>
+                    <div class="part part-complement">au cinéma</div>
+                    <div class="arrow">→</div>
+                    <div class="part part-cc">hier</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rules-section">
+            <h2>📋 Règles de Déplacement et de Suppression</h2>
+
+            <div class="rule-item">
+                <h3>
+                    <span>1️⃣</span> 
+                    Suppression Possible
+                    <span class="rule-type">Caractéristique principale</span>
+                </h3>
+                <div class="rule-description">
+                    Le CC est généralement <strong>supprimable</strong> sans que la phrase devienne incorrecte grammaticalement. 
+                    La phrase reste cohérente, mais perd une information circonstancielle.
+                </div>
+                <div class="rule-examples">
+                    <div class="rule-example">
+                        <strong style="color: #002395;">Avec CC :</strong><br>
+                        Je travaille <span class="cc-highlight">à la bibliothèque</span>. → Je travaille. ✅
+                    </div>
+                    <div class="rule-example">
+                        <strong style="color: #002395;">Avec CC :</strong><br>
+                        Il part <span class="cc-highlight">demain</span>. → Il part. ✅
+                    </div>
+                    <div class="rule-example">
+                        <strong style="color: #002395;">Avec CC :</strong><br>
+                        Elle court <span class="cc-highlight">rapidement</span>. → Elle court. ✅
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-item">
+                <h3>
+                    <span>2️⃣</span> 
+                    Déplacement Possible
+                    <span class="rule-type">Grande mobilité</span>
+                </h3>
+                <div class="rule-description">
+                    Le CC peut généralement être <strong>déplacé</strong> dans la phrase sans en altérer le sens fondamental. 
+                    Cependant, le déplacement peut modifier la nuance ou l'emphase.
+                </div>
+                <div class="rule-examples">
+                    <div class="rule-example">
+                        Je pars <span class="cc-highlight">demain</span> en vacances.<br>
+                        <span class="cc-highlight">Demain</span>, je pars en vacances.<br>
+                        Je pars en vacances <span class="cc-highlight">demain</span>.
+                    </div>
+                    <div class="rule-example">
+                        Il travaille <span class="cc-highlight">avec soin</span>.<br>
+                        <span class="cc-highlight">Avec soin</span>, il travaille.
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-item">
+                <h3>
+                    <span>3️⃣</span> 
+                    Virgules Souvent Nécessaires
+                    <span class="rule-type">Ponctuation</span>
+                </h3>
+                <div class="rule-description">
+                    Quand le CC est placé <strong>en début de phrase</strong> ou <strong>en incise</strong>, 
+                    il est généralement séparé par une ou des <strong>virgules</strong>.
+                </div>
+                <div class="rule-examples">
+                    <div class="rule-example">
+                        <strong style="color: #002395;">Début de phrase :</strong><br>
+                        <span class="cc-highlight">Demain</span>, je partirai. (virgule nécessaire)<br>
+                        <span class="cc-highlight">Parce qu'il pleut</span>, je reste. (virgule nécessaire)
+                    </div>
+                    <div class="rule-example">
+                        <strong style="color: #002395;">En incise :</strong><br>
+                        Je partirai, <span class="cc-highlight">demain</span>, en vacances. (virgules nécessaires)
+                    </div>
+                    <div class="rule-example">
+                        <strong style="color: #002395;">Fin de phrase :</strong><br>
+                        Je partirai demain. (pas de virgule)
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-item">
+                <h3>
+                    <span>4️⃣</span> 
+                    Exceptions : CC Non Déplaçables
+                    <span class="rule-type">Cas particuliers</span>
+                </h3>
+                <div class="rule-description">
+                    Certains CC sont <strong>difficilement déplaçables</strong> ou <strong>non supprimables</strong> :
+                </div>
+                <div class="rule-examples">
+                    <div class="rule-example">
+                        <strong style="color: #002395;">CC de prix/mesure avec verbes spécifiques :</strong><br>
+                        Ce livre coûte <span class="cc-highlight">dix euros</span>. (non déplaçable, essentiel au verbe "coûter")
+                    </div>
+                    <div class="rule-example">
+                        <strong style="color: #002395;">CC d'intensité très court :</strong><br>
+                        Il mange <span class="cc-highlight">beaucoup</span>. (déplacement difficile)
+                    </div>
+                    <div class="rule-example">
+                        <strong style="color: #002395;">Adverbes de négation :</strong><br>
+                        Il ne travaille <span class="cc-highlight">jamais</span>. (position fixe avec la négation)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-section">
+            <h2>🔢 Ordre entre Plusieurs CC</h2>
+
+            <div class="order-card">
+                <div class="order-title">
+                    1️⃣ Ordre Général Préféré
+                </div>
+                <div class="order-content">
+                    Quand plusieurs CC sont présents dans une même phrase, il existe un <strong>ordre préférentiel</strong> 
+                    (mais non obligatoire) :<br><br>
+                    <strong style="color: #002395; font-size: 1.2em;">
+                        CC de Manière → CC de Lieu → CC de Temps
+                    </strong><br><br>
+                    <em>Exemple :</em><br>
+                    Il travaille <span class="cc-highlight">avec soin</span> (manière) 
+                    <span class="cc-highlight">à la bibliothèque</span> (lieu) 
+                    <span class="cc-highlight">tous les jours</span> (temps).
+                </div>
+            </div>
+
+            <div class="order-card">
+                <div class="order-title">
+                    2️⃣ CC Courts avant CC Longs
+                </div>
+                <div class="order-content">
+                    Les CC <strong>courts</strong> (un ou deux mots) sont généralement placés <strong>avant</strong> 
+                    les CC <strong>longs</strong> (plusieurs mots ou propositions).<br><br>
+                    <em>Exemple :</em><br>
+                    Je pars <span class="cc-highlight">demain</span> (court) 
+                    <span class="cc-highlight">pour voir mes amis</span> (long).<br><br>
+                    Il travaille <span class="cc-highlight">ici</span> (court) 
+                    <span class="cc-highlight">depuis trois ans</span> (plus long).
+                </div>
+            </div>
+
+            <div class="order-card">
+                <div class="order-title">
+                    3️⃣ CC de Cause/But en Fin
+                </div>
+                <div class="order-content">
+                    Les CC de <strong>cause</strong> et de <strong>but</strong> (surtout les propositions subordonnées) 
+                    sont souvent placés en <strong>fin de phrase</strong>, car ils expliquent ou justifient l'action.<br><br>
+                    <em>Exemple :</em><br>
+                    Je reste chez moi <span class="cc-highlight">parce qu'il pleut</span>. (cause)<br>
+                    Il travaille dur <span class="cc-highlight">pour réussir</span>. (but)
+                </div>
+            </div>
+
+            <div class="order-card">
+                <div class="order-title">
+                    4️⃣ Liberté de Mise en Relief
+                </div>
+                <div class="order-content">
+                    Pour créer un <strong>effet d'emphase</strong> ou mettre en relief un élément particulier, 
+                    on peut <strong>déplacer</strong> un CC en début de phrase, quel que soit son type.<br><br>
+                    <em>Exemple :</em><br>
+                    <span class="cc-highlight">Demain</span>, je pars en voyage. (mise en relief du temps)<br>
+                    <span class="cc-highlight">À Paris</span>, nous avons visité le Louvre. (mise en relief du lieu)<br>
+                    <span class="cc-highlight">Parce qu'il pleut</span>, je reste. (mise en relief de la cause)
+                </div>
+            </div>
+        </div>
+
+        <div class="table-section">
+            <h2>📊 Tableau Récapitulatif : Position et Effet</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Position du CC</th>
+                        <th>Effet Produit</th>
+                        <th>Ponctuation</th>
+                        <th>Exemple</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="type-highlight">Début</span></td>
+                        <td>Mise en relief, emphase, contexte immédiat</td>
+                        <td>Virgule après le CC</td>
+                        <td><strong>Demain,</strong> je pars</td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">Milieu</span></td>
+                        <td>Incise, insertion (rare)</td>
+                        <td>Virgules avant et après</td>
+                        <td>Je, <strong>demain,</strong> pars</td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">Fin</span></td>
+                        <td>Position neutre, naturelle, ordre logique</td>
+                        <td>Généralement pas de virgule</td>
+                        <td>Je pars <strong>demain</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">Après verbe</span></td>
+                        <td>Position standard des CC courts</td>
+                        <td>Pas de virgule</td>
+                        <td>Il mange <strong>beaucoup</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="special-section">
+            <h2>💡 Conseils Pratiques pour la Place des CC</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>📍 Position par Défaut</h4>
+                    <p>
+                        En cas de doute, placez le CC <strong>en fin de phrase</strong>, après le verbe 
+                        et les compléments essentiels. C'est la position la plus neutre et naturelle.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🎯 Mise en Relief</h4>
+                    <p>
+                        Pour <strong>mettre en relief</strong> une information circonstancielle, 
+                        placez le CC <strong>en début de phrase</strong> suivi d'une virgule.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>📏 Longueur du CC</h4>
+                    <p>
+                        Les CC <strong>courts</strong> (1-2 mots) sont plus mobiles que les CC longs. 
+                        Les CC longs (propositions) sont souvent en fin de phrase.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔢 Plusieurs CC</h4>
+                    <p>
+                        Ordre préférentiel : <strong>Manière → Lieu → Temps</strong><br>
+                        "Il travaille <em>avec soin</em> <em>à Paris</em> <em>tous les jours</em>"
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>✂️ Test de Suppression</h4>
+                    <p>
+                        Pour vérifier qu'un complément est bien circonstanciel, 
+                        <strong>supprimez-le</strong>. Si la phrase reste correcte, c'est un CC.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔄 Test de Déplacement</h4>
+                    <p>
+                        <strong>Déplacez</strong> le complément dans la phrase. 
+                        S'il peut bouger sans rendre la phrase incorrecte, c'est un CC.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="intro-section">
+            <h2>🎯 Points Importants à Retenir</h2>
+            <p>
+                ✅ <strong>Trois positions possibles pour les CC :</strong>
+                <br>• <strong>Début</strong> : mise en relief, emphase (+ virgule)
+                <br>• <strong>Milieu</strong> : incise, rare (+ virgules)
+                <br>• <strong>Fin</strong> : position neutre, naturelle (standard)
+            </p>
+            <p>
+                ✅ <strong>Les CC sont supprimables et déplaçables :</strong>
+                <br>• Contrairement aux compléments essentiels (COD, COI, attribut)
+                <br>• On peut les enlever : la phrase reste correcte grammaticalement
+                <br>• On peut les déplacer : la phrase reste correcte (la nuance peut changer)
+            </p>
+            <p>
+                ✅ <strong>Ponctuation importante :</strong>
+                <br>• CC en début de phrase → virgule après
+                <br>• CC en incise → virgules avant et après
+                <br>• CC en fin de phrase → généralement pas de virgule
+            </p>
+            <p>
+                ✅ <strong>Ordre entre plusieurs CC :</strong>
+                <br>• Ordre préféré : <strong>Manière → Lieu → Temps</strong>
+                <br>• CC courts avant CC longs
+                <br>• CC de cause/but souvent en fin
+                <br>• Liberté de mise en relief en début
+            </p>
+            <p>
+                ✅ <strong>Exceptions aux règles de déplacement :</strong>
+                <br>• CC de prix/mesure avec verbes comme "coûter", "peser" (souvent essentiels)
+                <br>• Certains adverbes courts difficiles à déplacer
+                <br>• Adverbes de négation en position fixe
+            </p>
+            <p>
+                ✅ <strong>Position et effet stylistique :</strong>
+                <br>• Début = emphase, mise en contexte immédiat
+                <br>• Fin = neutre, ordre logique standard
+                <br>• Le choix de la position dépend de ce qu'on veut mettre en avant
+            </p>
+            <p>
+                ✅ <strong>Tests pour identifier un CC :</strong>
+                <br>• Test de suppression : peut-on l'enlever ?
+                <br>• Test de déplacement : peut-on le déplacer ?
+                <br>• Si oui aux deux → c'est probablement un CC
+            </p>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                Maîtrisez la place des compléments circonstanciels 
+                pour varier et enrichir vos phrases ! 🇫🇷 📍
+            </div>
+            <div class="footer-logo">⚜️ LÍNGUA ACADEMY ⚜️</div>
+        </footer>
+    </div>
+</body>
+</html>

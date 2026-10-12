@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Complément Circonstanciel d'Opposition - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #002395 0%, #ffffff 50%, #ED2939 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(237, 41, 57, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0, 35, 149, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background: linear-gradient(135deg, #002395, #0035b8, #002395);
+            background-size: 200% 200%;
+            animation: gradientFlow 8s ease infinite;
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 35, 149, 0.4);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .logo {
+            font-size: 1.3em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            opacity: 0.95;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin: 20px 0;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-top: 15px;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            border: 3px solid rgba(0, 35, 149, 0.2);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .intro-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .intro-section h2::before {
+            content: '⚔️';
+            font-size: 1.2em;
+            animation: swing 2s ease-in-out infinite;
+        }
+
+        .intro-section p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.15em;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 6px solid #002395;
+            margin: 25px 0;
+            font-size: 1.1em;
+            line-height: 1.7;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .definition-box strong {
+            color: #ED2939;
+            font-size: 1.1em;
+        }
+
+        .questions-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .questions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .question-box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #ED2939;
+            transition: all 0.3s ease;
+        }
+
+        .question-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(0, 35, 149, 0.2);
+        }
+
+        .question-title {
+            color: #ED2939;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .question-examples {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .cc-highlight {
+            color: #ED2939;
+            background: rgba(237, 41, 57, 0.1);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .constructions-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .constructions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .construction-item {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.03), rgba(237, 41, 57, 0.03));
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 2px solid rgba(0, 35, 149, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .construction-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 35, 149, 0.15);
+            border-color: #002395;
+        }
+
+        .construction-item h3 {
+            color: #002395;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .construction-type {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .construction-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .construction-examples {
+            margin-top: 15px;
+        }
+
+        .construction-example {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 4px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .construction-example:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .prepositions-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 1.8s ease;
+        }
+
+        .prepositions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .prep-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .prep-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .prep-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 35, 149, 0.2);
+        }
+
+        .prep-title {
+            color: #002395;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prep-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .prep-examples {
+            list-style: none;
+            padding: 0;
+        }
+
+        .prep-examples li {
+            background: rgba(237, 41, 57, 0.05);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-left: 3px solid #ED2939;
+        }
+
+        .prep-examples li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .distinction-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 2s ease;
+        }
+
+        .distinction-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .distinction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .distinction-card {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 30px;
+            border-radius: 20px;
+            border-top: 5px solid #ED2939;
+            transition: all 0.3s ease;
+        }
+
+        .distinction-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 35, 149, 0.15);
+        }
+
+        .distinction-title {
+            color: #ED2939;
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .distinction-content {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .conjonctions-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 2.2s ease;
+        }
+
+        .conjonctions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .conjonction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .conjonction-item {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 35, 149, 0.3);
+            transition: all 0.3s ease;
+            animation: slideIn 1s ease;
+        }
+
+        .conjonction-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 35, 149, 0.5);
+        }
+
+        .special-section {
+            background: linear-gradient(135deg, #002395 0%, #0041c9 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 35, 149, 0.4);
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 2.4s ease;
+        }
+
+        .special-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .special-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .special-section p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .tip-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .table-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 2.6s ease;
+        }
+
+        .table-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+        }
+
+        th {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        th:first-child {
+            border-top-left-radius: 15px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 15px;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid rgba(0, 35, 149, 0.1);
+            font-size: 1.05em;
+            color: #333;
+        }
+
+        tr:hover {
+            background: rgba(0, 35, 149, 0.05);
+        }
+
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 15px;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 15px;
+        }
+
+        .type-highlight {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #002395, #ED2939);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 2.8s ease;
+        }
+
+        .footer-content {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo {
+            font-size: 2em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .distinction-grid, .prep-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 30px;
+            }
+
+            .intro-section, .special-section, .constructions-section {
+                padding: 25px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">⚜️ Língua Academy ⚜️</div>
+            <h1>Le Complément Circonstanciel d'Opposition</h1>
+            <div class="subtitle">⚔️ Malgré quoi ? En dépit de quoi ? Contrairement à quoi ? ⚔️</div>
+        </header>
+
+        <div class="intro-section">
+            <h2>Qu'est-ce qu'un CC d'Opposition ?</h2>
+            <p>
+                Le <strong>complément circonstanciel d'opposition</strong> (CC d'opposition) est un complément de phrase qui indique 
+                <strong>une contradiction, un contraste, un obstacle</strong> par rapport à l'action exprimée. Il introduit un fait 
+                qui s'oppose logiquement à ce qui est affirmé, sans empêcher l'action de se réaliser.
+            </p>
+            
+            <div class="definition-box">
+                ⚔️ <strong>Définition :</strong> Le CC d'opposition exprime un contraste, une contradiction entre deux faits. 
+                L'action se réalise malgré un obstacle ou contrairement à une attente. Il répond aux questions : 
+                <strong>Malgré quoi ? En dépit de quoi ? Contrairement à quoi ? Malgré quel obstacle ?</strong>
+            </div>
+
+            <p>
+                Le CC d'opposition est proche de la <strong>concession</strong>. La différence : l'opposition souligne le contraste, 
+                la concession souligne qu'un obstacle n'empêche pas l'action. Ces deux notions sont souvent regroupées sous le terme 
+                d'<strong>"opposition-concession"</strong>.
+            </p>
+            <p>
+                Le CC d'opposition est généralement <strong>supprimable</strong> et <strong>déplaçable</strong> dans la phrase.
+            </p>
+        </div>
+
+        <div class="questions-section">
+            <h2>❓ Les Questions pour Identifier le CC d'Opposition</h2>
+            
+            <div class="question-box">
+                <div class="question-title">
+                    ⚔️ Malgré quoi ? / En dépit de quoi ?
+                </div>
+                <div class="question-examples">
+                    <strong>La question la plus courante pour identifier le CC d'opposition :</strong><br><br>
+                    • Il sort <span class="cc-highlight">malgré la pluie</span>. → <em>Malgré quoi sort-il ?</em><br>
+                    • Elle réussit <span class="cc-highlight">en dépit des difficultés</span>. → <em>En dépit de quoi réussit-elle ?</em><br>
+                    • Nous partons <span class="cc-highlight">malgré le mauvais temps</span>. → <em>Malgré quel obstacle ?</em><br>
+                    • Il continue <span class="cc-highlight">en dépit de la fatigue</span>. → <em>En dépit de quoi continue-t-il ?</em>
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="question-title">
+                    🔄 Contrairement à quoi ? / Par opposition à quoi ?
+                </div>
+                <div class="question-examples">
+                    <strong>Pour exprimer un contraste, une différence :</strong><br><br>
+                    • Il aime le sport, <span class="cc-highlight">contrairement à son frère</span>. → <em>Contrairement à qui ?</em><br>
+                    • Elle est calme, <span class="cc-highlight">par opposition à sa sœur</span>. → <em>Par opposition à qui ?</em><br>
+                    • <span class="cc-highlight">Contrairement aux prévisions</span>, il fait beau. → <em>Contrairement à quoi ?</em>
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="question-title">
+                    💪 Bien que / Quoique / Alors que ?
+                </div>
+                <div class="question-examples">
+                    <strong>Avec des propositions subordonnées d'opposition :</strong><br><br>
+                    • Il sort <span class="cc-highlight">bien qu'il pleuve</span>. → <em>Malgré quelle circonstance ?</em><br>
+                    • Elle travaille <span class="cc-highlight">alors qu'elle est malade</span>. → <em>En dépit de quel obstacle ?</em><br>
+                    • Nous partons <span class="cc-highlight">quoiqu'il fasse froid</span>. → <em>Malgré quoi ?</em>
+                </div>
+            </div>
+        </div>
+
+        <div class="constructions-section">
+            <h2>🏗️ Constructions du CC d'Opposition</h2>
+
+            <div class="construction-item">
+                <h3>
+                    <span>1️⃣</span> 
+                    Groupe Nominal avec Préposition
+                    <span class="construction-type">Très fréquent</span>
+                </h3>
+                <div class="construction-description">
+                    Le CC d'opposition est souvent introduit par une préposition d'opposition 
+                    (<strong>malgré, en dépit de, contrairement à, au lieu de, sans, etc.</strong>) 
+                    suivie d'un groupe nominal.
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">MALGRÉ (la plus courante) :</strong><br>
+                        Il sort <span class="cc-highlight">malgré la pluie</span> • Elle réussit <span class="cc-highlight">malgré les difficultés</span> • Nous partons <span class="cc-highlight">malgré le mauvais temps</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">EN DÉPIT DE (plus soutenu) :</strong><br>
+                        Il continue <span class="cc-highlight">en dépit de la fatigue</span> • Elle avance <span class="cc-highlight">en dépit des obstacles</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">CONTRAIREMENT À (contraste) :</strong><br>
+                        Il aime lire, <span class="cc-highlight">contrairement à son frère</span> • <span class="cc-highlight">Contrairement aux prévisions</span>, il fait beau
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">AU LIEU DE (substitution opposée) :</strong><br>
+                        Il joue <span class="cc-highlight">au lieu de travailler</span> • Elle dort <span class="cc-highlight">au lieu d'étudier</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">SANS (absence qui s'oppose) :</strong><br>
+                        Il part <span class="cc-highlight">sans dire au revoir</span> • Elle travaille <span class="cc-highlight">sans se plaindre</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>2️⃣</span> 
+                    Proposition Subordonnée Conjonctive
+                    <span class="construction-type">Très courant</span>
+                </h3>
+                <div class="construction-description">
+                    Le CC d'opposition peut être une proposition subordonnée introduite par une conjonction de subordination 
+                    (<strong>bien que, quoique, alors que, tandis que, même si, etc.</strong>).
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">BIEN QUE + subjonctif (concession) :</strong><br>
+                        Il sort <span class="cc-highlight">bien qu'il pleuve</span> • Elle travaille <span class="cc-highlight">bien qu'elle soit malade</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">QUOIQUE + subjonctif (concession) :</strong><br>
+                        Nous partons <span class="cc-highlight">quoiqu'il fasse froid</span> • Il continue <span class="cc-highlight">quoiqu'il soit fatigué</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">ALORS QUE + indicatif (opposition) :</strong><br>
+                        Il travaille <span class="cc-highlight">alors qu'il est malade</span> • Elle rit <span class="cc-highlight">alors qu'elle devrait pleurer</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">TANDIS QUE + indicatif (contraste) :</strong><br>
+                        Il aime le sport, <span class="cc-highlight">tandis que son frère préfère lire</span> • Elle est active <span class="cc-highlight">tandis qu'il est calme</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">MÊME SI + indicatif (hypothèse concessive) :</strong><br>
+                        Je viendrai <span class="cc-highlight">même s'il pleut</span> • Il partira <span class="cc-highlight">même si tu ne veux pas</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>3️⃣</span> 
+                    Infinitif Prépositionnel
+                    <span class="construction-type">Courant</span>
+                </h3>
+                <div class="construction-description">
+                    Le CC d'opposition peut être un infinitif précédé d'une préposition 
+                    (<strong>au lieu de, sans, loin de, bien loin de, etc.</strong>).
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">AU LIEU DE + infinitif :</strong><br>
+                        Il joue <span class="cc-highlight">au lieu de travailler</span> • Elle dort <span class="cc-highlight">au lieu d'étudier</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">SANS + infinitif :</strong><br>
+                        Il part <span class="cc-highlight">sans dire au revoir</span> • Elle travaille <span class="cc-highlight">sans se plaindre</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">LOIN DE + infinitif :</strong><br>
+                        <span class="cc-highlight">Loin de l'aider</span>, tu le gênes • <span class="cc-highlight">Loin de se décourager</span>, il persévère
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>4️⃣</span> 
+                    Participe Présent ou Gérondif
+                    <span class="construction-type">Plus soutenu</span>
+                </h3>
+                <div class="construction-description">
+                    Le participe présent avec <strong>"tout en"</strong> ou certaines constructions 
+                    avec gérondif peuvent exprimer l'opposition ou la concession.
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">TOUT EN + participe présent :</strong><br>
+                        Il travaille <span class="cc-highlight">tout en étant malade</span> • Elle sourit <span class="cc-highlight">tout en souffrant</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Gérondif avec valeur concessive :</strong><br>
+                        <span class="cc-highlight">Même en travaillant dur</span>, il n'a pas réussi
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>5️⃣</span> 
+                    Adverbes ou Locutions Adverbiales
+                    <span class="construction-type">Coordination</span>
+                </h3>
+                <div class="construction-description">
+                    Certains adverbes ou locutions adverbiales marquent l'opposition : 
+                    <strong>pourtant, cependant, néanmoins, toutefois, en revanche, par contre, etc.</strong>
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        Il pleut, <span class="cc-highlight">pourtant</span> il sort • Elle est fatiguée, <span class="cc-highlight">cependant</span> elle continue
+                    </div>
+                    <div class="construction-example">
+                        Il fait froid, <span class="cc-highlight">néanmoins</span> nous partons • C'est difficile, <span class="cc-highlight">toutefois</span> c'est possible
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="prepositions-section">
+            <h2>🔑 Prépositions et Locutions d'Opposition</h2>
+            
+            <div class="prep-grid">
+                <div class="prep-card">
+                    <div class="prep-title">
+                        ⚔️ MALGRÉ
+                    </div>
+                    <div class="prep-description">
+                        Préposition la plus courante pour l'opposition. Indique que l'action se réalise <strong>en dépit d'un obstacle</strong>.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il sort malgré la pluie</li>
+                        <li>Elle réussit malgré les difficultés</li>
+                        <li>Nous partons malgré le mauvais temps</li>
+                        <li>Il continue malgré la fatigue</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        💪 EN DÉPIT DE
+                    </div>
+                    <div class="prep-description">
+                        Plus soutenu que "malgré". Exprime qu'on agit <strong>en bravant un obstacle</strong>.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>En dépit de la fatigue, il continue</li>
+                        <li>Elle avance en dépit des obstacles</li>
+                        <li>En dépit du danger, ils restent</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        🔄 CONTRAIREMENT À
+                    </div>
+                    <div class="prep-description">
+                        Exprime un <strong>contraste, une différence</strong> par rapport à quelqu'un ou quelque chose.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Contrairement à son frère, il aime lire</li>
+                        <li>Contrairement aux prévisions, il fait beau</li>
+                        <li>Contrairement à ce que tu penses, c'est facile</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        🔀 AU LIEU DE
+                    </div>
+                    <div class="prep-description">
+                        Indique une <strong>substitution opposée</strong> : on fait une chose à la place d'une autre.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il joue au lieu de travailler</li>
+                        <li>Elle dort au lieu d'étudier</li>
+                        <li>Tu te plains au lieu d'agir</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        🚫 SANS
+                    </div>
+                    <div class="prep-description">
+                        Peut exprimer l'opposition quand l'absence de quelque chose <strong>s'oppose à une attente</strong>.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il part sans dire au revoir</li>
+                        <li>Elle travaille sans se plaindre</li>
+                        <li>Tu réussis sans effort apparent</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        ↔️ PAR OPPOSITION À
+                    </div>
+                    <div class="prep-description">
+                        Marque explicitement le <strong>contraste</strong> entre deux éléments.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il est calme, par opposition à son frère</li>
+                        <li>Elle préfère l'action, par opposition à la réflexion</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        🎯 LOIN DE
+                    </div>
+                    <div class="prep-description">
+                        Exprime une opposition forte : <strong>bien au contraire</strong>, c'est l'inverse.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Loin de l'aider, tu le gênes</li>
+                        <li>Loin de se décourager, il persévère</li>
+                        <li>Loin de s'améliorer, ça empire</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        🔧 TOUT EN
+                    </div>
+                    <div class="prep-description">
+                        Avec le gérondif, exprime la <strong>simultanéité avec opposition</strong>.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il travaille tout en étant malade</li>
+                        <li>Elle sourit tout en souffrant</li>
+                        <li>Tu écoutes tout en pensant à autre chose</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="conjonctions-section">
+            <h2>🔗 Conjonctions de Subordination d'Opposition</h2>
+            
+            <div class="conjonction-grid">
+                <div class="conjonction-item">BIEN QUE + subjonctif</div>
+                <div class="conjonction-item">QUOIQUE + subjonctif</div>
+                <div class="conjonction-item">ALORS QUE + indicatif</div>
+                <div class="conjonction-item">TANDIS QUE + indicatif</div>
+                <div class="conjonction-item">MÊME SI + indicatif</div>
+                <div class="conjonction-item">ENCORE QUE + subjonctif</div>
+                <div class="conjonction-item">SI... QUE + subjonctif</div>
+                <div class="conjonction-item">POUR... QUE + subjonctif</div>
+                <div class="conjonction-item">QUELQUE... QUE + subjonctif</div>
+                <div class="conjonction-item">QUOI QUE + subjonctif</div>
+            </div>
+        </div>
+
+        <div class="distinction-section">
+            <h2>⚖️ Distinctions Importantes</h2>
+            
+            <div class="distinction-grid">
+                <div class="distinction-card">
+                    <div class="distinction-title">
+                        ⚔️ Opposition
+                    </div>
+                    <div class="distinction-content">
+                        <strong>Contraste entre deux faits</strong><br><br>
+                        Met en évidence une <strong>différence, un contraste</strong> entre deux situations, deux personnes, deux actions.<br><br>
+                        <em>Exemples :</em><br>
+                        • "Il aime le sport, <strong>tandis que son frère préfère lire</strong>" (opposition)<br>
+                        → Contraste entre deux personnes<br><br>
+                        • "<strong>Contrairement aux prévisions</strong>, il fait beau" (opposition)<br>
+                        → Contraste avec une attente<br><br>
+                        ➡️ Souligne une <strong>différence</strong>
+                    </div>
+                </div>
+
+                <div class="distinction-card">
+                    <div class="distinction-title">
+                        💪 Concession
+                    </div>
+                    <div class="distinction-content">
+                        <strong>Action malgré un obstacle</strong><br><br>
+                        Indique qu'un <strong>obstacle n'empêche pas</strong> l'action de se réaliser.<br><br>
+                        <em>Exemples :</em><br>
+                        • "Il sort <strong>bien qu'il pleuve</strong>" (concession)<br>
+                        → La pluie n'empêche pas de sortir<br><br>
+                        • "Elle réussit <strong>malgré les difficultés</strong>" (concession)<br>
+                        → Les difficultés n'empêchent pas la réussite<br><br>
+                        ➡️ Souligne qu'un <strong>obstacle ne bloque pas</strong>
+                    </div>
+                </div>
+
+                <div class="distinction-card">
+                    <div class="distinction-title">
+                        🎯 But (rappel)
+                    </div>
+                    <div class="distinction-content">
+                        <strong>Objectif, intention</strong><br><br>
+                        Exprime ce qu'on veut obtenir, l'intention derrière l'action.<br><br>
+                        <em>Exemples :</em><br>
+                        • "Il travaille <strong>pour réussir</strong>" (but)<br>
+                        → L'objectif est de réussir<br><br>
+                        • "Elle étudie <strong>afin d'apprendre</strong>" (but)<br>
+                        → L'intention est d'apprendre<br><br>
+                        ➡️ Indique l'<strong>intention</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 30px; background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05)); border-radius: 20px; border-left: 6px solid #002395;">
+                <h3 style="color: #002395; margin-bottom: 20px; font-size: 1.5em;">📌 Opposition vs Concession</h3>
+                <p style="color: #555; line-height: 1.8; font-size: 1.1em; margin-bottom: 15px;">
+                    En pratique, <strong>opposition et concession</strong> sont souvent regroupées car elles sont très proches :
+                </p>
+                <p style="color: #555; line-height: 1.8; font-size: 1.1em; margin-bottom: 15px;">
+                    <strong style="color: #ED2939;">Opposition</strong> → Souligne le <strong>contraste</strong> ⚔️<br>
+                    <em>"Il aime lire, <strong>tandis que</strong> son frère préfère le sport"</em> (deux choses différentes)
+                </p>
+                <p style="color: #555; line-height: 1.8; font-size: 1.1em;">
+                    <strong style="color: #ED2939;">Concession</strong> → Souligne que l'<strong>obstacle n'empêche pas</strong> 💪<br>
+                    <em>"Il sort <strong>bien qu'il</strong> pleuve"</em> (la pluie n'empêche pas de sortir)
+                </p>
+            </div>
+        </div>
+
+        <div class="table-section">
+            <h2>📊 Tableau : Conjonctions avec Subjonctif vs Indicatif</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Conjonction</th>
+                        <th>Mode</th>
+                        <th>Sens</th>
+                        <th>Exemple</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="type-highlight">BIEN QUE</span></td>
+                        <td>Subjonctif</td>
+                        <td>Concession</td>
+                        <td>Il sort <strong>bien qu'il pleuve</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">QUOIQUE</span></td>
+                        <td>Subjonctif</td>
+                        <td>Concession</td>
+                        <td>Elle travaille <strong>quoiqu'elle soit malade</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">ALORS QUE</span></td>
+                        <td>Indicatif</td>
+                        <td>Opposition</td>
+                        <td>Il rit <strong>alors qu'il devrait pleurer</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">TANDIS QUE</span></td>
+                        <td>Indicatif</td>
+                        <td>Opposition (contraste)</td>
+                        <td>Il aime lire, <strong>tandis qu'elle préfère le sport</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">MÊME SI</span></td>
+                        <td>Indicatif</td>
+                        <td>Concession hypothétique</td>
+                        <td>Je viendrai <strong>même s'il pleut</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">ENCORE QUE</span></td>
+                        <td>Subjonctif</td>
+                        <td>Concession avec réserve</td>
+                        <td>C'est facile, <strong>encore qu'il faille s'entraîner</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="special-section">
+            <h2>💡 Conseils pour Identifier le CC d'Opposition</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>❓ Posez la question "Malgré quoi ?"</h4>
+                    <p>
+                        Pour identifier un CC d'opposition/concession, posez la question <strong>"Malgré quoi ?"</strong>, 
+                        <strong>"En dépit de quoi ?"</strong> ou <strong>"Contrairement à quoi ?"</strong>
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔍 Cherchez "malgré" et "bien que"</h4>
+                    <p>
+                        Les mots <strong>"malgré", "en dépit de", "bien que", "quoique"</strong> 
+                        introduisent presque toujours un CC d'opposition.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>⚔️ Repérez le contraste</h4>
+                    <p>
+                        L'opposition crée un <strong>contraste logique</strong> : 
+                        deux situations qui s'opposent mais coexistent quand même.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>📚 Attention au subjonctif</h4>
+                    <p>
+                        <strong>BIEN QUE, QUOIQUE</strong> → toujours suivis du subjonctif<br>
+                        <strong>ALORS QUE, TANDIS QUE</strong> → toujours suivis de l'indicatif
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔄 Distinguez les nuances</h4>
+                    <p>
+                        <strong>MALGRÉ</strong> = concession (obstacle qui n'empêche pas)<br>
+                        <strong>CONTRAIREMENT À</strong> = contraste (différence)<br>
+                        <strong>AU LIEU DE</strong> = substitution opposée
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>✂️ Testez la suppression</h4>
+                    <p>
+                        Le CC d'opposition est généralement <strong>supprimable</strong> : 
+                        "Il sort malgré la pluie" → "Il sort" ✅
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="intro-section">
+            <h2>🎯 Points Importants à Retenir</h2>
+            <p>
+                ✅ <strong>Le CC d'opposition/concession exprime un contraste ou un obstacle dépassé :</strong>
+                <br>• Opposition : souligne une différence, un contraste
+                <br>• Concession : souligne qu'un obstacle n'empêche pas l'action
+            </p>
+            <p>
+                ✅ <strong>Principales prépositions d'opposition :</strong>
+                <br>• <strong>MALGRÉ</strong> : l'action se réalise en dépit d'un obstacle
+                <br>• <strong>EN DÉPIT DE</strong> : plus soutenu, même sens que "malgré"
+                <br>• <strong>CONTRAIREMENT À</strong> : marque un contraste, une différence
+                <br>• <strong>AU LIEU DE</strong> : substitution opposée (faire A au lieu de B)
+            </p>
+            <p>
+                ✅ <strong>Principales conjonctions d'opposition :</strong>
+                <br>• <strong>BIEN QUE + subjonctif</strong> : concession (obstacle qui n'empêche pas)
+                <br>• <strong>QUOIQUE + subjonctif</strong> : concession (même sens que "bien que")
+                <br>• <strong>ALORS QUE + indicatif</strong> : opposition simple
+                <br>• <strong>TANDIS QUE + indicatif</strong> : contraste entre deux faits
+                <br>• <strong>MÊME SI + indicatif</strong> : concession hypothétique
+            </p>
+            <p>
+                ✅ <strong>Distinction Opposition vs Concession :</strong>
+                <br>• <strong>Opposition</strong> : met en évidence un contraste, une différence
+                <br>• <strong>Concession</strong> : indique qu'un obstacle n'empêche pas l'action
+                <br>• En pratique, ces deux notions sont souvent regroupées
+            </p>
+            <p>
+                ✅ <strong>Règle du mode avec les conjonctions :</strong>
+                <br>• <strong>Subjonctif</strong> : bien que, quoique, encore que, pour... que
+                <br>• <strong>Indicatif</strong> : alors que, tandis que, même si
+            </p>
+            <p>
+                ✅ <strong>Le CC d'opposition est supprimable et déplaçable :</strong>
+                <br>• "Il sort malgré la pluie" → "Il sort" (suppression) ✅
+                <br>• "Malgré la pluie, il sort" (déplacement) ✅
+            </p>
+            <p>
+                ✅ <strong>Adverbes de liaison marquant l'opposition :</strong>
+                <br>• POURTANT, CEPENDANT, NÉANMOINS, TOUTEFOIS (opposition)
+                <br>• EN REVANCHE, PAR CONTRE, AU CONTRAIRE (contraste)
+            </p>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                Maîtrisez le complément circonstanciel d'opposition 
+                pour exprimer les contrastes et obstacles dépassés ! 🇫🇷 ⚔️
+            </div>
+            <div class="footer-logo">⚜️ LÍNGUA ACADEMY ⚜️</div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Soggetto - Grammatica Italiana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff0844 0%, #ffb199 25%, #f093fb 50%, #4facfe 75%, #43e97b 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #fff;
+            text-shadow: 5px 5px 10px rgba(0,0,0,0.4);
+            margin-bottom: 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        .subtitle {
+            font-size: 1.6em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 35px;
+            margin-bottom: 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            backdrop-filter: blur(15px);
+            border: 3px solid rgba(255,255,255,0.4);
+            animation: fadeInUp 0.8s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #ff0844;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 5px solid #f093fb;
+            padding-bottom: 12px;
+            display: inline-block;
+            animation: slideInLeft 1s ease;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h3 {
+            color: #4facfe;
+            font-size: 2em;
+            margin: 30px 0 20px 0;
+        }
+
+        .definition {
+            background: linear-gradient(135deg, #ff0844, #ffb199);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.3em;
+            box-shadow: 0 10px 25px rgba(255, 8, 68, 0.4);
+            animation: zoomIn 1s ease;
+            line-height: 1.8;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+            color: white;
+            font-size: 1.2em;
+            box-shadow: 0 10px 25px rgba(245, 87, 108, 0.4);
+            animation: slideInRight 1s ease;
+            line-height: 1.8;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .highlight-subject {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 10px 25px rgba(67, 233, 123, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-subject:hover {
+            transform: scale(1.05) rotate(1deg);
+        }
+
+        .subject-title {
+            color: #fff;
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subject-example {
+            background: rgba(255,255,255,0.3);
+            padding: 20px;
+            border-radius: 15px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.3em;
+            border-left: 6px solid #fff;
+            margin-top: 15px;
+        }
+
+        .soggetto-word {
+            background: #ff0844;
+            padding: 8px 15px;
+            border-radius: 10px;
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+            box-shadow: 0 5px 15px rgba(255, 8, 68, 0.5);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .position-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .position-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+            transition: all 0.3s ease;
+            animation: bounceIn 1s ease;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.08);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .position-box:hover {
+            transform: translateY(-15px) rotate(3deg);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.6);
+        }
+
+        .position-title {
+            color: #fff;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .position-description {
+            color: #fff;
+            font-size: 1.2em;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .position-example {
+            background: rgba(255,255,255,0.3);
+            padding: 20px;
+            border-radius: 12px;
+            color: #fff;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 1.2em;
+            border: 3px solid rgba(255,255,255,0.5);
+        }
+
+        .partitivo-section {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            padding: 40px;
+            border-radius: 25px;
+            color: white;
+            margin: 30px 0;
+            box-shadow: 0 15px 35px rgba(250, 112, 154, 0.5);
+            animation: slideInLeft 1.2s ease;
+        }
+
+        .partitivo-section h3 {
+            color: #fff;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .partitivo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .partitivo-card {
+            background: rgba(255,255,255,0.25);
+            padding: 25px;
+            border-radius: 15px;
+            border: 3px solid rgba(255,255,255,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .partitivo-card:hover {
+            background: rgba(255,255,255,0.35);
+            transform: scale(1.05);
+        }
+
+        .sottinteso-box {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            padding: 35px;
+            border-radius: 25px;
+            color: white;
+            margin: 30px 0;
+            box-shadow: 0 15px 35px rgba(79, 172, 254, 0.5);
+            animation: zoomIn 1.2s ease;
+        }
+
+        .sottinteso-box h3 {
+            color: #fff;
+            font-size: 2.3em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .note {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            padding: 25px;
+            border-radius: 18px;
+            margin: 25px 0;
+            font-style: italic;
+            border-left: 8px solid #ff0844;
+            animation: slideInRight 1s ease;
+            font-size: 1.15em;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 8px solid #ff6a00;
+            animation: slideInLeft 1s ease;
+            font-size: 1.15em;
+            line-height: 1.7;
+        }
+
+        ul {
+            margin-left: 35px;
+            line-height: 2;
+        }
+
+        li {
+            margin: 12px 0;
+            font-size: 1.15em;
+        }
+
+        .emoji {
+            font-size: 1.8em;
+            margin-right: 12px;
+            display: inline-block;
+            animation: rotate 3s ease-in-out infinite;
+        }
+
+        @keyframes rotate {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        .interactive-example {
+            background: linear-gradient(135deg, #ff6a00, #ee0979);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            color: white;
+            box-shadow: 0 12px 30px rgba(238, 9, 121, 0.5);
+        }
+
+        .sentence-breakdown {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            border: 3px dashed rgba(255,255,255,0.6);
+        }
+
+        .word-highlight {
+            background: rgba(255,255,255,0.4);
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 5px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+
+        .word-highlight:hover {
+            background: rgba(255,255,255,0.6);
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            padding: 25px;
+            font-size: 1.3em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8em; }
+            h2 { font-size: 2em; }
+            h3 { font-size: 1.6em; }
+            .position-container, .partitivo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sparkle {
+            display: inline-block;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+            50% { opacity: 0.7; transform: scale(1.3) rotate(180deg); }
+        }
+
+        .arrow-box {
+            text-align: center;
+            font-size: 2.5em;
+            color: #fff;
+            margin: 20px 0;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 20px;
+            text-align: left;
+            color: white;
+            font-size: 1.1em;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+
+        th {
+            background: rgba(255,255,255,0.2);
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background: rgba(255,255,255,0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="sparkle">⭐</span> IL SOGGETTO <span class="sparkle">⭐</span></h1>
+            <p class="subtitle">Grammatica Italiana - Analisi Logica</p>
+        </header>
+
+        <!-- Sezione: Cos'è il Soggetto -->
+        <div class="card">
+            <h2><span class="emoji">👑</span> Cos'è il Soggetto?</h2>
+            <div class="definition">
+                <strong>Il SOGGETTO</strong> è la persona, l'animale o la cosa di cui si parla nella frase. È colui che compie l'azione espressa dal verbo o di cui si dice qualcosa.
+            </div>
+
+            <div class="example-box">
+                <span class="emoji">📌</span> <strong>Esempi:</strong><br><br>
+                <span class="soggetto-word">Maria</span> studia matematica.<br>
+                <span class="soggetto-word">Il cane</span> abbaia nel giardino.<br>
+                <span class="soggetto-word">La pioggia</span> cade incessantemente.<br>
+                <span class="soggetto-word">I bambini</span> giocano al parco.
+            </div>
+
+            <div class="highlight">
+                <span class="emoji">🔍</span> <strong>Come trovare il soggetto?</strong><br><br>
+                Fai la domanda: <strong>"CHI?"</strong> o <strong>"CHE COSA?"</strong> + verbo<br><br>
+                Esempio: "Il gatto dorme sul divano."<br>
+                Domanda: "Chi dorme sul divano?" → Risposta: <strong>Il gatto</strong> (SOGGETTO)
+            </div>
+
+            <div class="interactive-example">
+                <h3 style="color: white; margin-bottom: 20px;">🎯 Analisi Interattiva:</h3>
+                <div class="sentence-breakdown">
+                    <p style="font-size: 1.3em; margin-bottom: 15px;">"Luca mangia una mela rossa."</p>
+                    <div class="arrow-box">⬇️</div>
+                    <p style="font-size: 1.2em;">Chi mangia? →</p>
+                    <div class="word-highlight" style="background: #43e97b;">LUCA = SOGGETTO</div>
+                </div>
+            </div>
+
+            <div class="note">
+                <span class="emoji">💡</span> <strong>Importante:</strong> Il soggetto concorda sempre con il verbo in numero (singolare/plurale) e persona (1ª, 2ª, 3ª).
+            </div>
+        </div>
+
+        <!-- Sezione: Posizione del Soggetto -->
+        <div class="card">
+            <h2><span class="emoji">📍</span> La Posizione del Soggetto</h2>
+            <p style="font-size: 1.2em; margin-bottom: 25px; line-height: 1.8;">
+                In italiano, il soggetto può occupare diverse posizioni nella frase, a differenza di altre lingue come l'inglese dove la posizione è fissa.
+            </p>
+
+            <div class="position-container">
+                <div class="position-box" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    <div class="position-title">1️⃣ POSIZIONE NORMALE</div>
+                    <div class="position-description">
+                        Il soggetto viene PRIMA del verbo.<br>
+                        Questa è la posizione più comune.
+                    </div>
+                    <div class="position-example">
+                        <span class="soggetto-word">Marco</span> + legge un libro.<br><br>
+                        <span class="soggetto-word">La maestra</span> + spiega la lezione.<br><br>
+                        <span class="soggetto-word">Gli studenti</span> + ascoltano attentamente.
+                    </div>
+                </div>
+
+                <div class="position-box" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                    <div class="position-title">2️⃣ POSIZIONE INVERTITA</div>
+                    <div class="position-description">
+                        Il soggetto viene DOPO il verbo.<br>
+                        Si usa per enfatizzare o in frasi particolari.
+                    </div>
+                    <div class="position-example">
+                        Arriva + <span class="soggetto-word">il treno</span>!<br><br>
+                        Canta + <span class="soggetto-word">un usignolo</span>.<br><br>
+                        Squilla + <span class="soggetto-word">il telefono</span>.
+                    </div>
+                </div>
+
+                <div class="position-box" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                    <div class="position-title">3️⃣ POSIZIONE FINALE</div>
+                    <div class="position-description">
+                        Il soggetto si trova alla fine della frase,<br>
+                        dopo il verbo e i complementi.
+                    </div>
+                    <div class="position-example">
+                        In giardino corre + <span class="soggetto-word">mio fratello</span>.<br><br>
+                        Ieri sera è arrivata + <span class="soggetto-word">mia zia</span>.<br><br>
+                        Sul tavolo c'è + <span class="soggetto-word">una lettera</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 30px;">
+                <span class="emoji">⚡</span> <strong>Perché il soggetto cambia posizione?</strong><br><br>
+                • <strong>Enfasi:</strong> Per dare più importanza a un elemento<br>
+                • <strong>Stile:</strong> Per rendere la frase più elegante o poetica<br>
+                • <strong>Ritmo:</strong> Per migliorare la musicalità del discorso<br>
+                • <strong>Chiarezza:</strong> Per evitare ambiguità
+            </div>
+        </div>
+
+        <!-- Sezione: Soggetto Partitivo -->
+        <div class="card">
+            <h2><span class="emoji">🎨</span> Il Soggetto Partitivo</h2>
+            <div class="partitivo-section">
+                <h3>Cos'è il Soggetto Partitivo?</h3>
+                <p style="font-size: 1.3em; line-height: 1.8; margin: 20px 0;">
+                    Il <strong>soggetto partitivo</strong> è un soggetto che indica una quantità indeterminata di persone o cose. Si forma con l'<strong>articolo partitivo</strong> (del, dello, della, dei, degli, delle).
+                </p>
+
+                <div class="partitivo-grid">
+                    <div class="partitivo-card">
+                        <h4 style="color: white; font-size: 1.4em; margin-bottom: 10px;">Singolare Maschile</h4>
+                        <p style="color: white; font-size: 1.2em;">
+                            <strong>DEL</strong> pane<br>
+                            <strong>DELLO</strong> zucchero
+                        </p>
+                    </div>
+
+                    <div class="partitivo-card">
+                        <h4 style="color: white; font-size: 1.4em; margin-bottom: 10px;">Singolare Femminile</h4>
+                        <p style="color: white; font-size: 1.2em;">
+                            <strong>DELLA</strong> farina<br>
+                            <strong>DELL'</strong> acqua
+                        </p>
+                    </div>
+
+                    <div class="partitivo-card">
+                        <h4 style="color: white; font-size: 1.4em; margin-bottom: 10px;">Plurale Maschile</h4>
+                        <p style="color: white; font-size: 1.2em;">
+                            <strong>DEI</strong> ragazzi<br>
+                            <strong>DEGLI</strong> studenti
+                        </p>
+                    </div>
+
+                    <div class="partitivo-card">
+                        <h4 style="color: white; font-size: 1.4em; margin-bottom: 10px;">Plurale Femminile</h4>
+                        <p style="color: white; font-size: 1.2em;">
+                            <strong>DELLE</strong> ragazze<br>
+                            <strong>DELLE</strong> amiche
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <span class="emoji">💎</span> <strong>Esempi di Soggetto Partitivo:</strong><br><br>
+                <span class="soggetto-word">Dei bambini</span> giocano nel parco.<br>
+                (= Alcuni bambini, una parte dei bambini)<br><br>
+                <span class="soggetto-word">Delle stelle</span> brillano nel cielo.<br>
+                (= Alcune stelle, una quantità di stelle)<br><br>
+                <span class="soggetto-word">Del vino</span> è rimasto nella bottiglia.<br>
+                (= Una quantità di vino)<br><br>
+                <span class="soggetto-word">Degli uccelli</span> cantano all'alba.<br>
+                (= Alcuni uccelli)
+            </div>
+
+            <div class="highlight">
+                <span class="emoji">🔑</span> <strong>Differenza Importante:</strong><br><br>
+                • <strong>Con articolo determinativo:</strong> "I bambini giocano" = TUTTI i bambini<br>
+                • <strong>Con articolo partitivo:</strong> "Dei bambini giocano" = ALCUNI bambini, una parte
+            </div>
+
+            <div class="note">
+                <span class="emoji">📚</span> <strong>Ricorda:</strong> Il soggetto partitivo esprime sempre una quantità indefinita o parziale, mai una totalità.
+            </div>
+        </div>
+
+        <!-- Sezione: Soggetto Sottinteso -->
+        <div class="card">
+            <h2><span class="emoji">👻</span> Il Soggetto Sottinteso</h2>
+            <div class="sottinteso-box">
+                <h3>Quando il soggetto "sparisce"!</h3>
+                <p style="font-size: 1.3em; line-height: 1.8; margin: 20px 0;">
+                    Il <strong>soggetto sottinteso</strong> (o soggetto implicito) è un soggetto che NON viene espresso nella frase, ma si capisce dalla desinenza del verbo.
+                </p>
+                
+                <table>
+                    <tr>
+                        <th>Frase con Soggetto Sottinteso</th>
+                        <th>Soggetto Implicito</th>
+                    </tr>
+                    <tr>
+                        <td>Mangio una mela.</td>
+                        <td>(io)</td>
+                    </tr>
+                    <tr>
+                        <td>Studi molto.</td>
+                        <td>(tu)</td>
+                    </tr>
+                    <tr>
+                        <td>Andiamo al cinema.</td>
+                        <td>(noi)</td>
+                    </tr>
+                    <tr>
+                        <td>Partite domani?</td>
+                        <td>(voi)</td>
+                    </tr>
+                    <tr>
+                        <td>Giocano a calcio.</td>
+                        <td>(loro/essi)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="highlight-subject" style="background: linear-gradient(135deg, #ff6a00, #ee0979);">
+                <div class="subject-title">🎯 Perché si usa il Soggetto Sottinteso?</div>
+                <div class="subject-example">
+                    1️⃣ <strong>ECONOMIA:</strong> Per rendere la frase più breve e scorrevole<br><br>
+                    2️⃣ <strong>CHIAREZZA:</strong> La desinenza del verbo indica già chi compie l'azione<br><br>
+                    3️⃣ <strong>STILE:</strong> Rende il discorso più naturale e fluido
+                </div>
+            </div>
+
+            <div class="example-box">
+                <span class="emoji">✨</span> <strong>Confronto - Con e Senza Soggetto:</strong><br><br>
+                ❌ <strong>Con soggetto espresso (meno naturale):</strong><br>
+                "Io vado al mare. Io nuoto. Io mi diverto."<br><br>
+                ✅ <strong>Con soggetto sottinteso (più naturale):</strong><br>
+                "Vado al mare. Nuoto. Mi diverto."
+            </div>
+
+            <div class="interactive-example">
+                <h3 style="color: white; margin-bottom: 20px;">🔍 Come riconoscere il Soggetto Sottinteso:</h3>
+                <div class="sentence-breakdown">
+                    <p style="font-size: 1.3em; margin-bottom: 15px;">"Leggiamo un libro interessante."</p>
+                    <div class="arrow-box">⬇️</div>
+                    <p style="font-size: 1.2em;">Chi legge? → Il verbo finisce in "-iamo"</p>
+                    <div class="word-highlight" style="background: #4facfe;">Soggetto = (NOI) - SOTTINTESO</div>
+                </div>
+            </div>
+
+            <div class="note">
+                <span class="emoji">⚠️</span> <strong>Attenzione:</strong> Il soggetto può essere sottinteso solo quando è chiaro dal contesto o dalla desinenza del verbo. Se c'è ambiguità, è meglio esprimerlo!
+            </div>
+        </div>
+
+        <!-- Sezione: Tipi di Soggetto -->
+        <div class="card">
+            <h2><span class="emoji">🌈</span> Tipi di Soggetto - Riepilogo</h2>
+            
+            <div class="highlight-subject" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                <div class="subject-title">1. SOGGETTO ESPRESSO</div>
+                <div class="subject-example">
+                    Il soggetto è presente nella frase.<br>
+                    Es: <span class="soggetto-word">Marco</span> corre veloce.
+                </div>
+            </div>
+
+            <div class="highlight-subject" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                <div class="subject-title">2. SOGGETTO SOTTINTESO</div>
+                <div class="subject-example">
+                    Il soggetto non è espresso ma si capisce dal verbo.<br>
+                    Es: Corro veloce. → Soggetto: <span class="soggetto-word">(io)</span>
+                </div>
+            </div>
+
+            <div class="highlight-subject" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                <div class="subject-title">3. SOGGETTO PARTITIVO</div>
+                <div class="subject-example">
+                    Il soggetto indica una quantità indeterminata.<br>
+                    Es: <span class="soggetto-word">Dei ragazzi</span> studiano in biblioteca.
+                </div>
+            </div>
+
+            <div class="highlight-subject" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+                <div class="subject-title">4. SOGGETTO SINGOLARE/PLURALE</div>
+                <div class="subject-example">
+                    Singolare: <span class="soggetto-word">Il gatto</span> miagola.<br>
+                    Plurale: <span class="soggetto-word">I gatti</span> miagolano.
+                </div>
+            </div>
+
+            <div class="highlight-subject" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                <div class="subject-title">5. SOGGETTO COMPOSTO</div>
+                <div class="subject-example">
+                    Formato da più elementi.<br>
+                    Es: <span class="soggetto-word">Marco e Lucia</span> vanno al cinema.
+                </div>
+            </div>
+        </div>
+
+        <!-- Sezione Finale - Esercizi Pratici -->
+        <div class="card">
+            <h2><span class="emoji">🎓</span> Schema Riassuntivo</h2>
+            <div class="highlight">
+                <h3 style="color: #ff0844;">🔥 Punti Chiave da Ricordare:</h3>
+                <ul>
+                    <li><strong>Il soggetto</strong> è chi compie l'azione o di cui si parla</li>
+                    <li><strong>Si trova con la domanda:</strong> "Chi?" o "Che cosa?" + verbo</li>
+                    <li><strong>Posizione:</strong> Prima del verbo (normale), dopo il verbo (invertita), fine frase (finale)</li>
+                    <li><strong>Soggetto partitivo:</strong> Con articolo partitivo (del, dello, della, dei, degli, delle) indica quantità indefinite</li>
+                    <li><strong>Soggetto sottinteso:</strong> Non espresso ma chiaro dalla desinenza del verbo</li>
+                    <li><strong>Concordanza:</strong> Il soggetto concorda sempre con il verbo in numero e persona</li>
+                </ul>
+            </div>
+
+            <div class="interactive-example">
+                <h3 style="color: white; margin-bottom: 20px;">📝 Esempio Completo di Analisi:</h3>
+                <div class="sentence-breakdown">
+                    <p style="font-size: 1.4em; margin-bottom: 20px;">"Dei bambini giocano felici nel parco."</p>
+                    <div class="word-highlight" style="background: #43e97b;">SOGGETTO: Dei bambini</div>
+                    <div class="word-highlight" style="background: #f093fb;">TIPO: Partitivo (quantità indefinita)</div>
+                    <div class="word-highlight" style="background: #4facfe;">POSIZIONE: Prima del verbo (normale)</div>
+                    <div class="word-highlight" style="background: #fa709a;">NUMERO: Plurale</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>🌟 Continua a esercitarti e diventerai un esperto! 🌟</p>
+            <p>📚 Grammatica Italiana - Il Soggetto 📚</p>
+        </footer>
+    </div>
+</body>
+</html>

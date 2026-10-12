@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Plus-que-Parfait & Le Futur Antérieur | Língua Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Overpass:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyber-cyan: #00ffff;
+            --neon-magenta: #ff00ff;
+            --electric-lime: #ccff00;
+            --deep-violet: #8b00ff;
+            --holographic-blue: #4d4dff;
+            --midnight: #0a0a1a;
+            --soft-white: #f0f0ff;
+            --glass-white: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Overpass', sans-serif;
+            background: var(--midnight);
+            color: var(--soft-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated gradient mesh background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, var(--cyber-cyan) 0%, transparent 50%),
+                radial-gradient(circle at 80% 60%, var(--neon-magenta) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, var(--deep-violet) 0%, transparent 50%),
+                radial-gradient(circle at 90% 20%, var(--electric-lime) 0%, transparent 50%);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+            animation: gradient-shift 20s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { 
+                filter: hue-rotate(0deg);
+            }
+            50% { 
+                filter: hue-rotate(60deg);
+            }
+        }
+
+        /* Holographic particles */
+        .holo-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        .particle-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--cyber-cyan), transparent);
+            top: 10%;
+            right: 10%;
+            animation: float-holo 15s ease-in-out infinite;
+            filter: blur(60px);
+        }
+
+        .particle-2 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, var(--neon-magenta), transparent);
+            bottom: 20%;
+            left: 15%;
+            animation: float-holo 18s ease-in-out infinite reverse;
+            filter: blur(60px);
+        }
+
+        .particle-3 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--electric-lime), transparent);
+            top: 50%;
+            left: 50%;
+            animation: float-holo 12s ease-in-out infinite;
+            filter: blur(60px);
+        }
+
+        @keyframes float-holo {
+            0%, 100% { 
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(30px, -40px) scale(1.1);
+            }
+            50% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+            75% {
+                transform: translate(40px, 10px) scale(1.05);
+            }
+        }
+
+        /* Content */
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero - Holographic glass */
+        .hero {
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: conic-gradient(
+                from 0deg,
+                var(--cyber-cyan),
+                var(--neon-magenta),
+                var(--deep-violet),
+                var(--electric-lime),
+                var(--cyber-cyan)
+            );
+            opacity: 0.1;
+            animation: rotate-gradient 20s linear infinite;
+            filter: blur(80px);
+        }
+
+        @keyframes rotate-gradient {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .brand-glow {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--neon-magenta), var(--electric-lime));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .hero-title {
+            font-family: 'Exo 2', sans-serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--cyber-cyan), var(--neon-magenta), var(--electric-lime));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            animation: glow-pulse 2s ease-in-out infinite, slideDown 1s ease-out;
+            text-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            color: var(--soft-white);
+            opacity: 0.9;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 0.9; }
+        }
+
+        .time-pills {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        .time-pill {
+            padding: 1.2rem 3rem;
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .time-pill::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .time-pill:hover {
+            border-color: var(--cyber-cyan);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .time-pill:hover::before {
+            left: 100%;
+        }
+
+        .time-pill:first-child {
+            border-color: var(--neon-magenta);
+        }
+
+        .time-pill:first-child:hover {
+            border-color: var(--neon-magenta);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-tag {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--neon-magenta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-family: 'Exo 2', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--cyber-cyan), var(--electric-lime));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-intro {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--soft-white);
+            opacity: 0.85;
+        }
+
+        /* Glass morphism cards */
+        .glass-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .glass-card {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--neon-magenta), var(--electric-lime));
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 255, 255, 0.3);
+            border-color: rgba(0, 255, 255, 0.5);
+        }
+
+        .card-header-glass {
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+            position: relative;
+        }
+
+        .card-time-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--cyber-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .card-title-glass {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--soft-white);
+        }
+
+        .card-formula {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            padding: 1rem 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            border-left: 3px solid var(--electric-lime);
+            margin-top: 1.5rem;
+        }
+
+        .card-body-glass {
+            padding: 3rem;
+        }
+
+        .card-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .example-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .example-glass {
+            padding: 1.2rem 1.5rem;
+            background: rgba(0, 255, 255, 0.05);
+            border-left: 3px solid var(--cyber-cyan);
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .example-glass:hover {
+            background: rgba(0, 255, 255, 0.1);
+            border-left-width: 5px;
+            padding-left: 2rem;
+        }
+
+        /* Conjugation holographic */
+        .conjugation-holo {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.02), rgba(255, 0, 255, 0.02));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conjugation-holo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 50px,
+                    rgba(0, 255, 255, 0.02) 50px,
+                    rgba(0, 255, 255, 0.02) 51px
+                );
+        }
+
+        .conjugation-grid-holo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .conjugation-card-holo {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .conjugation-card-holo:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 60px rgba(255, 0, 255, 0.3);
+        }
+
+        .conj-header {
+            padding: 2.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(255, 0, 255, 0.15));
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .conj-verb {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--neon-magenta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .conj-time {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--electric-lime);
+            margin-top: 0.5rem;
+        }
+
+        .conj-body {
+            padding: 2.5rem;
+        }
+
+        .conj-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .conj-line {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .conj-line:hover {
+            background: rgba(0, 255, 255, 0.1);
+            padding-left: 2rem;
+        }
+
+        .conj-pronoun {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--electric-lime);
+        }
+
+        .conj-verb-form {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .aux-highlight {
+            color: var(--neon-magenta);
+        }
+
+        /* Timeline visualization */
+        .timeline-section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .timeline-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--neon-magenta), var(--electric-lime));
+            border-radius: 2px;
+        }
+
+        .timeline-events {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-event {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-event::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: var(--cyber-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--cyber-cyan);
+        }
+
+        .timeline-event:hover {
+            transform: translateY(-10px);
+            border-color: var(--cyber-cyan);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
+        }
+
+        .event-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--cyber-cyan), var(--electric-lime));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .event-title {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--soft-white);
+        }
+
+        .event-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.85;
+        }
+
+        .event-example {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Usage grid */
+        .usage-holo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .usage-card-holo {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .usage-card-holo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--cyber-cyan), transparent);
+            opacity: 0.1;
+            filter: blur(40px);
+            transition: all 0.4s ease;
+        }
+
+        .usage-card-holo:hover::before {
+            opacity: 0.2;
+            top: -30%;
+            right: -30%;
+        }
+
+        .usage-card-holo:hover {
+            transform: translateY(-10px);
+            border-color: var(--cyber-cyan);
+            box-shadow: 0 20px 60px rgba(0, 255, 255, 0.3);
+        }
+
+        .usage-icon-holo {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--cyber-cyan), var(--neon-magenta));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .usage-title-holo {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--soft-white);
+            position: relative;
+            z-index: 2;
+        }
+
+        .usage-text-holo {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            opacity: 0.85;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .usage-example-holo {
+            padding: 1rem 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid var(--electric-lime);
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Tips neon */
+        .tips-neon {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.02), rgba(204, 255, 0, 0.02));
+        }
+
+        .tips-grid-neon {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .tip-card-neon {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .tip-card-neon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--neon-magenta), var(--electric-lime));
+            border-radius: 20px 20px 0 0;
+        }
+
+        .tip-card-neon:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(255, 0, 255, 0.3);
+            border-color: var(--neon-magenta);
+        }
+
+        .tip-number-neon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--neon-magenta), var(--deep-violet));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(255, 0, 255, 0.4);
+        }
+
+        .tip-title-neon {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--soft-white);
+        }
+
+        .tip-text-neon {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            opacity: 0.85;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(255, 0, 255, 0.05));
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--neon-magenta), var(--electric-lime), var(--cyber-cyan));
+            animation: gradient-slide 3s linear infinite;
+        }
+
+        @keyframes gradient-slide {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .footer-brand {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--cyber-cyan), var(--neon-magenta), var(--electric-lime));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .footer-tagline {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--electric-lime);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .glass-grid,
+            .conjugation-grid-holo,
+            .timeline-events {
+                grid-template-columns: 1fr;
+            }
+
+            .tips-grid-neon {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 80vh;
+                padding: 3rem 1.5rem;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .time-pills {
+                flex-direction: column;
+            }
+        }
+
+        /* Scroll animations */
+        .reveal-holo {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal-holo.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Holographic particles -->
+    <div class="holo-particle particle-1"></div>
+    <div class="holo-particle particle-2"></div>
+    <div class="holo-particle particle-3"></div>
+
+    <div class="content">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="brand-glow">Língua Academy</div>
+                <h1 class="hero-title">
+                    Temps de<br>L'Antériorité
+                </h1>
+                <p class="hero-subtitle">
+                    Le plus-que-parfait et le futur antérieur : deux temps composés qui expriment l'antériorité, c'est-à-dire une action qui se passe avant une autre action dans le passé ou dans le futur.
+                </p>
+                <div class="time-pills">
+                    <div class="time-pill">Plus-que-Parfait</div>
+                    <div class="time-pill">Futur Antérieur</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Structure -->
+            <section class="section reveal-holo">
+                <div class="section-header">
+                    <div class="section-tag">/// Structure Composée</div>
+                    <h2 class="section-title">Formation des Temps</h2>
+                    <p class="section-intro">
+                        Ces deux temps partagent la même structure : auxiliaire (ÊTRE ou AVOIR) + participe passé. Seul le temps de l'auxiliaire change.
+                    </p>
+                </div>
+
+                <div class="glass-grid">
+                    <div class="glass-card">
+                        <div class="card-header-glass">
+                            <div class="card-time-label">Temps 01</div>
+                            <h3 class="card-title-glass">Plus-que-Parfait</h3>
+                            <div class="card-formula">
+                                AVOIR/ÊTRE (imparfait) + PARTICIPE PASSÉ
+                            </div>
+                        </div>
+                        <div class="card-body-glass">
+                            <p class="card-description">
+                                Le plus-que-parfait se forme avec l'auxiliaire AVOIR ou ÊTRE conjugué à l'imparfait, suivi du participe passé du verbe.
+                            </p>
+                            <div class="example-list">
+                                <div class="example-glass">
+                                    J'<strong>avais</strong> mangé (avoir à l'imparfait + PP)
+                                </div>
+                                <div class="example-glass">
+                                    Tu <strong>étais</strong> parti (être à l'imparfait + PP)
+                                </div>
+                                <div class="example-glass">
+                                    Nous <strong>avions</strong> fini (avoir à l'imparfait + PP)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card">
+                        <div class="card-header-glass">
+                            <div class="card-time-label">Temps 02</div>
+                            <h3 class="card-title-glass">Futur Antérieur</h3>
+                            <div class="card-formula">
+                                AVOIR/ÊTRE (futur simple) + PARTICIPE PASSÉ
+                            </div>
+                        </div>
+                        <div class="card-body-glass">
+                            <p class="card-description">
+                                Le futur antérieur se forme avec l'auxiliaire AVOIR ou ÊTRE conjugué au futur simple, suivi du participe passé du verbe.
+                            </p>
+                            <div class="example-list">
+                                <div class="example-glass">
+                                    J'<strong>aurai</strong> mangé (avoir au futur simple + PP)
+                                </div>
+                                <div class="example-glass">
+                                    Tu <strong>seras</strong> parti (être au futur simple + PP)
+                                </div>
+                                <div class="example-glass">
+                                    Nous <strong>aurons</strong> fini (avoir au futur simple + PP)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conjugations -->
+            <section class="conjugation-holo reveal-holo">
+                <div class="container">
+                    <div class="section-header">
+                        <div class="section-tag">/// Conjugaisons Complètes</div>
+                        <h2 class="section-title">Exemples Détaillés</h2>
+                    </div>
+
+                    <div class="conjugation-grid-holo">
+                        <div class="conjugation-card-holo">
+                            <div class="conj-header">
+                                <h3 class="conj-verb">Parler</h3>
+                                <p class="conj-time">Plus-que-Parfait</p>
+                            </div>
+                            <div class="conj-body">
+                                <div class="conj-list">
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Je</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">avais</span> parlé</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Tu</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">avais</span> parlé</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Il/Elle</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">avait</span> parlé</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Nous</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">avions</span> parlé</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Vous</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">aviez</span> parlé</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Ils/Elles</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">avaient</span> parlé</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="conjugation-card-holo">
+                            <div class="conj-header">
+                                <h3 class="conj-verb">Aller</h3>
+                                <p class="conj-time">Plus-que-Parfait</p>
+                            </div>
+                            <div class="conj-body">
+                                <div class="conj-list">
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Je</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">étais</span> allé(e)</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Tu</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">étais</span> allé(e)</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Il/Elle</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">était</span> allé(e)</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Nous</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">étions</span> allé(e)s</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Vous</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">étiez</span> allé(e)(s)</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Ils/Elles</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">étaient</span> allé(e)s</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="conjugation-card-holo">
+                            <div class="conj-header">
+                                <h3 class="conj-verb">Parler</h3>
+                                <p class="conj-time">Futur Antérieur</p>
+                            </div>
+                            <div class="conj-body">
+                                <div class="conj-list">
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Je</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">aurai</span> parlé</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Tu</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">auras</span> parlé</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Il/Elle</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">aura</span> parlé</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Nous</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">aurons</span> parlé</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Vous</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">aurez</span> parlé</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Ils/Elles</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">auront</span> parlé</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="conjugation-card-holo">
+                            <div class="conj-header">
+                                <h3 class="conj-verb">Aller</h3>
+                                <p class="conj-time">Futur Antérieur</p>
+                            </div>
+                            <div class="conj-body">
+                                <div class="conj-list">
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Je</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">serai</span> allé(e)</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Tu</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">seras</span> allé(e)</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Il/Elle</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">sera</span> allé(e)</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Nous</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">serons</span> allé(e)s</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Vous</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">serez</span> allé(e)(s)</span>
+                                    </div>
+                                    <div class="conj-line">
+                                        <span class="conj-pronoun">Ils/Elles</span>
+                                        <span class="conj-verb-form"><span class="aux-highlight">seront</span> allé(e)s</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline visualization -->
+            <section class="timeline-section reveal-holo">
+                <div class="section-header">
+                    <div class="section-tag">/// Chronologie</div>
+                    <h2 class="section-title">L'Ordre des Actions</h2>
+                    <p class="section-intro">
+                        Ces temps expriment l'antériorité : une action qui se produit AVANT une autre action.
+                    </p>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-events">
+                        <div class="timeline-event">
+                            <div class="event-number">01</div>
+                            <h3 class="event-title">Action 1<br>(Antérieure)</h3>
+                            <p class="event-text">
+                                L'action qui se passe EN PREMIER. Exprimée au plus-que-parfait ou au futur antérieur.
+                            </p>
+                            <div class="event-example">
+                                J'avais fini<br>J'aurai fini
+                            </div>
+                        </div>
+
+                        <div class="timeline-event">
+                            <div class="event-number">02</div>
+                            <h3 class="event-title">Action 2<br>(Référence)</h3>
+                            <p class="event-text">
+                                L'action qui se passe EN DEUXIÈME. Exprimée à un temps simple (imparfait, passé composé, futur).
+                            </p>
+                            <div class="event-example">
+                                quand il est arrivé<br>
+                                quand il arrivera
+                            </div>
+                        </div>
+
+                        <div class="timeline-event">
+                            <div class="event-number">03</div>
+                            <h3 class="event-title">Phrase Complète</h3>
+                            <p class="event-text">
+                                La phrase complète montre la succession logique des deux actions.
+                            </p>
+                            <div class="event-example">
+                                J'avais fini quand il est arrivé.<br>
+                                J'aurai fini quand il arrivera.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Usage -->
+            <section class="section reveal-holo">
+                <div class="section-header">
+                    <div class="section-tag">/// Utilisation</div>
+                    <h2 class="section-title">Quand les utiliser ?</h2>
+                </div>
+
+                <div class="usage-holo">
+                    <div class="usage-card-holo">
+                        <div class="usage-icon-holo">⏮️</div>
+                        <h3 class="usage-title-holo">Antériorité dans le passé</h3>
+                        <p class="usage-text-holo">
+                            Le plus-que-parfait exprime une action passée qui s'est produite avant une autre action passée.
+                        </p>
+                        <div class="usage-example-holo">
+                            Quand je suis arrivé, le film avait déjà commencé.<br>
+                            (Le film a commencé AVANT mon arrivée)
+                        </div>
+                    </div>
+
+                    <div class="usage-card-holo">
+                        <div class="usage-icon-holo">⏭️</div>
+                        <h3 class="usage-title-holo">Antériorité dans le futur</h3>
+                        <p class="usage-text-holo">
+                            Le futur antérieur exprime une action future qui sera terminée avant une autre action future.
+                        </p>
+                        <div class="usage-example-holo">
+                            Quand tu arriveras, j'aurai fini mes devoirs.<br>
+                            (Je finirai mes devoirs AVANT ton arrivée)
+                        </div>
+                    </div>
+
+                    <div class="usage-card-holo">
+                        <div class="usage-icon-holo">💭</div>
+                        <h3 class="usage-title-holo">Regret ou hypothèse</h3>
+                        <p class="usage-text-holo">
+                            Le plus-que-parfait peut exprimer un regret ou une hypothèse sur le passé.
+                        </p>
+                        <div class="usage-example-holo">
+                            Si j'avais su, je serais venu plus tôt.<br>
+                            J'aurais dû étudier davantage.
+                        </div>
+                    </div>
+
+                    <div class="usage-card-holo">
+                        <div class="usage-icon-holo">✅</div>
+                        <h3 class="usage-title-holo">Action accomplie</h3>
+                        <p class="usage-text-holo">
+                            Le futur antérieur exprime qu'une action sera accomplie à un moment donné du futur.
+                        </p>
+                        <div class="usage-example-holo">
+                            Dans deux ans, j'aurai terminé mes études.<br>
+                            À 18h, nous serons partis.
+                        </div>
+                    </div>
+
+                    <div class="usage-card-holo">
+                        <div class="usage-icon-holo">🔄</div>
+                        <h3 class="usage-title-holo">Cause & Conséquence</h3>
+                        <p class="usage-text-holo">
+                            Le plus-que-parfait explique souvent la cause d'une situation passée.
+                        </p>
+                        <div class="usage-example-holo">
+                            Il était fatigué car il avait travaillé toute la nuit.<br>
+                            Elle pleurait parce qu'elle avait perdu son chat.
+                        </div>
+                    </div>
+
+                    <div class="usage-card-holo">
+                        <div class="usage-icon-holo">🎯</div>
+                        <h3 class="usage-title-holo">Supposition</h3>
+                        <p class="usage-text-holo">
+                            Le futur antérieur peut exprimer une supposition sur le passé récent.
+                        </p>
+                        <div class="usage-example-holo">
+                            Il ne répond pas, il sera parti en vacances.<br>
+                            Elle aura oublié notre rendez-vous.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Tips -->
+        <section class="tips-neon reveal-holo">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">/// Conseils Pratiques</div>
+                    <h2 class="section-title">Maîtriser l'Antériorité</h2>
+                </div>
+
+                <div class="tips-grid-neon">
+                    <div class="tip-card-neon">
+                        <div class="tip-number-neon">01</div>
+                        <h3 class="tip-title-neon">La règle d'or</h3>
+                        <p class="tip-text-neon">
+                            Pensez toujours à l'ordre chronologique des actions. L'action antérieure (qui se passe en premier) prend le temps "antérieur" : plus-que-parfait ou futur antérieur.
+                        </p>
+                    </div>
+
+                    <div class="tip-card-neon">
+                        <div class="tip-number-neon">02</div>
+                        <h3 class="tip-title-neon">Mots-clés utiles</h3>
+                        <p class="tip-text-neon">
+                            Cherchez les mots "quand", "lorsque", "dès que", "après que", "une fois que". Ils indiquent souvent qu'une action se passe avant une autre.
+                        </p>
+                    </div>
+
+                    <div class="tip-card-neon">
+                        <div class="tip-number-neon">03</div>
+                        <h3 class="tip-title-neon">Formation simple</h3>
+                        <p class="tip-text-neon">
+                            La formation est identique au passé composé, mais avec l'auxiliaire conjugué différemment : à l'imparfait (plus-que-parfait) ou au futur (futur antérieur).
+                        </p>
+                    </div>
+
+                    <div class="tip-card-neon">
+                        <div class="tip-number-neon">04</div>
+                        <h3 class="tip-title-neon">Le plus-que-parfait</h3>
+                        <p class="tip-text-neon">
+                            Très utilisé en français pour raconter des histoires et expliquer le contexte. "Il était triste parce qu'il avait perdu son emploi."
+                        </p>
+                    </div>
+
+                    <div class="tip-card-neon">
+                        <div class="tip-number-neon">05</div>
+                        <h3 class="tip-title-neon">Le futur antérieur</h3>
+                        <p class="tip-text-neon">
+                            Moins fréquent mais important pour parler de projets : "Dans cinq ans, j'aurai fini mes études et je serai devenu ingénieur."
+                        </p>
+                    </div>
+
+                    <div class="tip-card-neon">
+                        <div class="tip-number-neon">06</div>
+                        <h3 class="tip-title-neon">Pratiquez la chronologie</h3>
+                        <p class="tip-text-neon">
+                            Créez des phrases avec deux actions et demandez-vous : laquelle se passe en premier ? Celle-là prend le temps antérieur.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-brand">LÍNGUA ACADEMY</div>
+            <p class="footer-tagline">Future Forward • Grammar Excellence</p>
+        </footer>
+    </div>
+
+    <script>
+        // Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-holo').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Interactive effects
+        document.querySelectorAll('.glass-card, .usage-card-holo, .tip-card-neon').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>

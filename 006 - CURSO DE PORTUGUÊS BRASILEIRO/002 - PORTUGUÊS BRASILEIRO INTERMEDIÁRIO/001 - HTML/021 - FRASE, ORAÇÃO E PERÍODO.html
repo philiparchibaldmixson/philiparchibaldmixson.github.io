@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frase, Oração e Período em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #E67E22;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #E67E22;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #F39C12;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores Adaptadas/Reutilizadas do 008 - CLASSES DE PALAVRAS */
+        .tipo-card.frase {
+            background: linear-gradient(135deg, #E74C3C, #C0392B); /* Frase */
+        }
+
+        .tipo-card.oracao {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD); /* Oração */
+        }
+
+        .tipo-card.periodo-simples {
+            background: linear-gradient(135deg, #3498DB, #2980B9); /* Período Simples */
+        }
+
+        .tipo-card.periodo-composto {
+            background: linear-gradient(135deg, #2ECC71, #16A085); /* Período Composto */
+        }
+        
+        .tipo-card.coordenacao {
+            background: linear-gradient(135deg, #F1C40F, #F39C12); /* Coordenação */
+            color: #333;
+        }
+        
+        .tipo-card.subordinacao {
+            background: linear-gradient(135deg, #1ABC9C, #16A085); /* Subordinação */
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .exemplo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #E67E22;
+        }
+
+        .exemplo-card .titulo-exemplo {
+            font-size: 2em;
+            color: #E67E22;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .conteudo-exemplo {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .dicas-box {
+            background: linear-gradient(135deg, #1ABC9C, #16A085);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .tipo-card, .destaque, .dicas-box, .exemplo-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗣️ Frase, Oração e Período ✍️</h1>
+        <p class="subtitle">A estrutura básica da comunicação em Português Brasileiro!</p>
+
+        <div class="section">
+            <h2>🎯 Os Três Pilares da Comunicação</h2>
+            <p class="intro-text">
+                Na análise sintática, entendemos a estrutura de uma comunicação através de três conceitos interligados, mas distintos: **Frase**, **Oração** e **Período**.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card frase">
+                    <h3>1. Frase</h3>
+                    <div class="definicao">
+                        É todo enunciado que possui **sentido completo** para o interlocutor, transmitindo uma ideia. Pode ou não conter verbo.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • "Bom dia!" (Sem verbo)<br>
+                        • "Silêncio!" (Sem verbo)<br>
+                        • "Choveu muito." (Com verbo)
+                    </div>
+                </div>
+
+                <div class="tipo-card oracao">
+                    <h3>2. Oração</h3>
+                    <div class="definicao">
+                        É todo enunciado que possui, obrigatoriamente, **pelo menos um verbo** (ou uma locução verbal) em sua estrutura. O verbo é o seu núcleo.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • "O professor explicou a matéria." (Núcleo: explicou)<br>
+                        • "Cuidado!" (Verbo implícito/subentendido)
+                    </div>
+                </div>
+
+                <div class="tipo-card periodo-simples">
+                    <h3>3. Período Simples</h3>
+                    <div class="definicao">
+                        É um enunciado formado por **apenas uma oração** (um único verbo).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • "A criança correu rapidamente." (Apenas uma oração/verbo: *correu*).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🧩 Período Composto</h2>
+            <p class="intro-text">
+                O Período Composto é formado por **duas ou mais orações** ligadas entre si. O modo como essas orações se ligam define sua estrutura.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card periodo-composto">
+                    <h3>Período Composto</h3>
+                    <div class="definicao">
+                        Formado por duas ou mais orações. A ligação pode ser por coordenação ou subordinação.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong> "O sol nasceu **e** os pássaros cantaram." (Duas orações ligadas pela conjunção "e").
+                    </div>
+                </div>
+                
+                <div class="tipo-card coordenacao">
+                    <h3>A. Coordenação</h3>
+                    <div class="definicao">
+                        Ligam orações independentes sintaticamente (coordenadas).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • "Choveu, **mas** não molhou." (Coordenação Adversativa)<br>
+                        • "Ele estudou **e** passou." (Coordenação Aditiva)
+                    </div>
+                </div>
+                
+                <div class="tipo-card subordinacao">
+                    <h3>B. Subordinação</h3>
+                    <div class="definicao">
+                        Uma oração (subordinada) depende sintaticamente da outra (principal).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • "Espero **que você volte**." (Oração subordinada substantiva) <br>
+                        • "A cidade **onde moro** é linda." (Oração subordinada adjetiva)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Diferenças Cruciais</h2>
+            
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">Visualizando as Diferenças</div>
+                <div class="conteudo-exemplo">
+                    1. **Frase Sem Verbo:** "Que bela paisagem!" (Sentido completo, mas sem verbo explícito).<br>
+                    2. **Oração Sem Frase (Pouco Comum):** Não existe, pois oração sempre tem verbo, o núcleo de um sentido.<br>
+                    3. **Período Simples:** "O gato dormiu." (Uma oração, um verbo).<br>
+                    4. **Período Composto:** "O gato dormiu **enquanto** o rato fugia." (Duas orações, dois verbos: *dormiu* e *fugia*).
+                </div>
+            </div>
+
+            <div class="dicas-box">
+                <h4>Regra Prática: Conte os Verbos!</h4>
+                <ul>
+                    <li>Para saber quantas **ORAÇÕES** existem, conte quantos **VERBOS** ou **LOCUÇÕES VERBAIS** há no texto.</li>
+                    <li>Se o número de verbos for **1**, você tem um **PERÍODO SIMPLES**.</li>
+                    <li>Se o número de verbos for **2 ou mais**, você tem um **PERÍODO COMPOSTO**.</li>
+                    <li>Toda Oração é uma Frase, mas nem toda Frase é uma Oração. Todo Período é uma Frase, mas pode ser Simples ou Composto.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presente de Indicativo: Otras Irregularidades</title>
+  <style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        color: #333;
+        background: white;
+    }
+    
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 0 auto;
+        background: white;
+        page-break-after: always;
+    }
+    
+    .header {
+        text-align: center;
+        padding: 35px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+    
+    .header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+        font-size: 18px;
+        opacity: 0.95;
+    }
+    
+    .section {
+        margin: 25px 0;
+        padding: 25px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .section.orange {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+    
+    .section.green {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        color: black;
+    }
+    
+    .section.blue {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .section.pink {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+    
+    .section.purple {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    }
+    
+    .section.teal {
+        background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    }
+    
+    .section.coral {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+    
+    h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    
+    .section.green h2, .section.green h3 {
+        color: white;
+    }
+    
+    h3 {
+        font-size: 22px;
+        margin: 20px 0 10px 0;
+        color: #34495e;
+    }
+    
+    p {
+        margin-bottom: 15px;
+        font-size: 16px;
+        text-align: justify;
+    }
+    
+    .verb-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #667eea;
+        margin: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .verb-title {
+        color: #667eea;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    
+    .verb-form {
+        color: #e74c3c;
+        font-style: italic;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .verb-desc {
+        color: #555;
+        font-size: 16px;
+    }
+    
+    .example-box {
+        background: #fff9e6;
+        border: 2px dashed #f39c12;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .example-title {
+        color: #f39c12;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .tip-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #27ae60;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .tip-box h4 {
+        color: #27ae60;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    
+    ul {
+        margin-left: 30px;
+        margin-bottom: 15px;
+    }
+    
+    li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    
+    .structure-table {
+        width: 100%;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .structure-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .structure-table th {
+        background: #667eea;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+    }
+    
+    .structure-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+    }
+    
+    .structure-table tr:nth-child(even) {
+        background: #f8f9fa;
+    }
+    
+    .structure-label {
+        font-weight: bold;
+        color: #3498db;
+    }
+    
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .form-item {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        border-top: 4px solid #3498db;
+    }
+    
+    .form-type {
+        font-weight: bold;
+        color: #3498db;
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+    
+    .form-text {
+        color: #555;
+        font-size: 15px;
+    }
+    
+    .negative-box {
+        background: #ffe6e6;
+        border: 2px solid #e74c3c;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .negative-title {
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .question-box {
+        background: #e6f3ff;
+        border: 2px solid #3498db;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .question-title {
+        color: #3498db;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .comparison-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #9b59b6;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .comparison-title {
+        color: #9b59b6;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .alternative-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #e67e22;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .alternative-title {
+        color: #e67e22;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .error-box {
+        background: #fff5f5;
+        border: 2px solid #c0392b;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .error-title {
+        color: #c0392b;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    
+    @media print {
+        body {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>🌀 Verbos Irregulares: Otras Irregularidades 🌀</h1>
+      <p>Presente de Indicativo en español</p>
+    </div>
+
+    <div class="section orange">
+      <h2>🌟 ¿Qué son las Irregularidades?</h2>
+      <p>Además de los verbos con diptongos o con “g” en la primera persona, existen otros verbos irregulares que presentan <strong>cambios ortográficos</strong>, <strong>formas únicas</strong> o <strong>alteraciones en la raíz</strong> en el presente de indicativo.</p>
+      <p>Estas irregularidades deben memorizarse, ya que no siguen patrones fijos.</p>
+    </div>
+
+    <div class="section blue">
+      <h2>✏️ Cambios Ortográficos</h2>
+      <p>Algunos verbos cambian letras para mantener la pronunciación:</p>
+      <ul>
+        <li><strong>escoger</strong> → yo <strong>escojo</strong></li>
+        <li><strong>proteger</strong> → yo <strong>protejo</strong></li>
+        <li><strong>dirigir</strong> → yo <strong>dirijo</strong></li>
+        <li><strong>corregir</strong> → yo <strong>corrijo</strong></li>
+      </ul>
+      <div class="tip-box">
+        <h4>💡 Consejo</h4>
+        <p>La letra “g” cambia a “j” delante de la “o” para mantener el sonido suave.</p>
+      </div>
+    </div>
+
+    <div class="section green">
+      <h2>🧠 Verbos con Forma Única en “yo”</h2>
+      <p style="color: white;">Algunos verbos tienen una forma completamente única en la primera persona del singular:</p>
+      <ul>
+        <li style="color: white;"><strong>saber</strong> → yo <strong>sé</strong></li>
+        <li style="color: white;"><strong>ver</strong> → yo <strong>veo</strong></li>
+        <li style="color: white;"><strong>dar</strong> → yo <strong>doy</strong></li>
+        <li style="color: white;"><strong>estar</strong> → yo <strong>estoy</strong></li>
+      </ul>
+      <div class="tip-box">
+        <h4>💡 Observación</h4>
+        <p>Estas formas deben memorizarse, ya que no siguen reglas comunes.</p>
+      </div>
+    </div>
+
+    <div class="section pink">
+      <h2>🔄 Cambios en la Raíz</h2>
+      <p>Algunos verbos cambian letras en la raíz sin formar diptongos:</p>
+      <ul>
+        <li><strong>decir</strong> → yo <strong>digo</strong>, tú <strong>dices</strong></li>
+        <li><strong>oír</strong> → yo <strong>oigo</strong>, tú <strong>oyes</strong></li>
+        <li><strong>venir</strong> → yo <strong>vengo</strong>, tú <strong>vienes</strong></li>
+      </ul>
+      <div class="tip-box">
+        <h4>💡 Consejo</h4>
+        <p>Estos verbos combinan cambios en la raíz con formas irregulares en “yo”.</p>
+      </div>
+    </div>
+
+    <div class="section purple">
+      <h2>📝 Práctica</h2>
+      <div class="example-box">
+        <div class="example-title">🔍 Completa con la forma correcta</div>
+        <p>1. Yo ______ (escoger) la opción<br>
+           2. Tú ______ (decir) la verdad<br>
+           3. Ella ______ (ver) la película<br>
+           4. Nosotros ______ (proteger) el medio ambiente<br>
+           5. Yo ______ (saber) la respuesta</p>
+      </div>
+    </div>
+
+    <div class="section teal">
+      <h2>🎯 Consejos para Aprender</h2>
+      <ul>
+        <li>Haz una lista de verbos con irregularidades únicas</li>
+        <li>Practica la forma “yo” de cada verbo</li>
+        <li>Escribe frases con diferentes personas gramaticales</li>
+        <li>Escucha diálogos y canciones para identificar estas formas</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <p><strong>¡Practica los verbos irregulares todos los días!</strong></p>
+      <p>Dominar estas formas te ayudará a expresarte con más precisión en español.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Pronoms - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #EF4135 0%, #0055A4 100%);
+            color: white;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid #EF4135;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .intro h2 {
+            color: #d63031;
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            color: #0055A4;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #EF4135;
+            display: inline-block;
+        }
+
+        .section h3 {
+            color: #EF4135;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #0055A4;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(106, 17, 203, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .definition-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(106, 17, 203, 0.4);
+        }
+
+        .definition-box strong {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .type-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #0055A4;
+            transition: all 0.3s ease;
+        }
+
+        .type-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .type-card h4 {
+            color: #0055A4;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .example-box {
+            background: #fff;
+            border: 2px solid #EF4135;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            background: #fff5f5;
+            border-color: #0055A4;
+            box-shadow: 0 5px 15px rgba(239, 65, 53, 0.2);
+        }
+
+        .example {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .example::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #EF4135;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: #EF4135;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .highlight-blue {
+            color: #0055A4;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #EF4135 0%, #c0392b 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 15px 18px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        tr:hover {
+            background: #ffe0e0;
+            transition: background 0.3s ease;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #e17055;
+            box-shadow: 0 5px 15px rgba(253, 203, 110, 0.3);
+        }
+
+        .note-box strong {
+            color: #d63031;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #EF4135 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(239, 65, 53, 0.3);
+        }
+
+        .important-box strong {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .grid-item {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(9, 132, 227, 0.3);
+        }
+
+        .grid-item h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .list-style {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-style li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+        }
+
+        .list-style li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #EF4135;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+        }
+
+        .comparison-card h4 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .section h2 {
+                font-size: 1.8em;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: #0055A4;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        .badge-red {
+            background: #EF4135;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #dfe6e9 0%, #b2bec3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #0984e3;
+        }
+
+        .info-card strong {
+            color: #2d3436;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 Les Pronoms</h1>
+            <p>Emploi des Déterminants et des Pronoms</p>
+            <div class="logo">🎓 LÍNGUA ACADEMY</div>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <h2>🎯 Introduction</h2>
+                <p>Les <strong>pronoms</strong> sont des mots qui <strong>remplacent</strong> un nom ou un groupe nominal déjà mentionné dans le discours. Ils évitent les répétitions et rendent la phrase plus fluide. Le pronom s'accorde généralement en genre et en nombre avec le nom qu'il remplace, appelé <strong>l'antécédent</strong>.</p>
+            </div>
+
+            <div class="definition-box pulse">
+                <strong>📖 Définition Générale</strong>
+                <p>Un pronom est un mot qui remplace un nom, un groupe nominal ou une proposition pour éviter la répétition. Il existe plusieurs catégories de pronoms, chacune ayant une fonction et un emploi spécifiques dans la phrase.</p>
+            </div>
+
+            <section class="section">
+                <h2>1️⃣ Les Pronoms Personnels</h2>
+                <p>Les pronoms personnels représentent les personnes grammaticales (1ère, 2ème, 3ème personne) et peuvent avoir différentes fonctions dans la phrase.</p>
+
+                <h3>A. Pronoms Personnels Sujets</h3>
+                <div class="type-card">
+                    <h4>Fonction : Sujet du verbe</h4>
+                    <p>Ils indiquent qui fait l'action et se placent généralement avant le verbe.</p>
+                    
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>Personne</th>
+                                <th>Singulier</th>
+                                <th>Pluriel</th>
+                            </tr>
+                            <tr>
+                                <td>1ère personne</td>
+                                <td><strong>je (j')</strong></td>
+                                <td><strong>nous</strong></td>
+                            </tr>
+                            <tr>
+                                <td>2ème personne</td>
+                                <td><strong>tu</strong></td>
+                                <td><strong>vous</strong></td>
+                            </tr>
+                            <tr>
+                                <td>3ème personne (m.)</td>
+                                <td><strong>il</strong></td>
+                                <td><strong>ils</strong></td>
+                            </tr>
+                            <tr>
+                                <td>3ème personne (f.)</td>
+                                <td><strong>elle</strong></td>
+                                <td><strong>elles</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Indéfini</td>
+                                <td colspan="2"><strong>on</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="example-box">
+                        <p><strong>Exemples :</strong></p>
+                        <div class="example"><span class="highlight">Je</span> parle français.</div>
+                        <div class="example"><span class="highlight">Tu</span> es intelligent.</div>
+                        <div class="example"><span class="highlight">Il</span> aime la musique. / <span class="highlight">Elle</span> chante bien.</div>
+                        <div class="example"><span class="highlight">Nous</span> travaillons ensemble.</div>
+                        <div class="example"><span class="highlight">Vous</span> êtes gentils.</div>
+                        <div class="example"><span class="highlight">Ils</span> jouent au football. / <span class="highlight">Elles</span> dansent.</div>
+                        <div class="example"><span class="highlight">On</span> va au cinéma. (= nous, en langage familier)</div>
+                    </div>
+                </div>
+
+                <h3>B. Pronoms Personnels Toniques (ou Disjoints)</h3>
+                <div class="type-card">
+                    <h4>Usages Multiples</h4>
+                    <p>Ils s'utilisent après une préposition, pour insister, en apposition ou dans des réponses courtes.</p>
+                    
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>Personne</th>
+                                <th>Singulier</th>
+                                <th>Pluriel</th>
+                            </tr>
+                            <tr>
+                                <td>1ère personne</td>
+                                <td><strong>moi</strong></td>
+                                <td><strong>nous</strong></td>
+                            </tr>
+                            <tr>
+                                <td>2ème personne</td>
+                                <td><strong>toi</strong></td>
+                                <td><strong>vous</strong></td>
+                            </tr>
+                            <tr>
+                                <td>3ème personne (m.)</td>
+                                <td><strong>lui</strong></td>
+                                <td><strong>eux</strong></td>
+                            </tr>
+                            <tr>
+                                <td>3ème personne (f.)</td>
+                                <td><strong>elle</strong></td>
+                                <td><strong>elles</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Réfléchi</td>
+                                <td colspan="2"><strong>soi</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="example-box">
+                        <p><strong>Exemples d'utilisation :</strong></p>
+                        <div class="example"><strong>Après préposition :</strong> Il vient avec <span class="highlight">moi</span>. / C'est pour <span class="highlight">toi</span>.</div>
+                        <div class="example"><strong>Pour insister :</strong> <span class="highlight">Moi</span>, je préfère le thé. / <span class="highlight">Lui</span>, il aime le café.</div>
+                        <div class="example"><strong>En apposition :</strong> <span class="highlight">Toi</span> et moi, nous sommes amis.</div>
+                        <div class="example"><strong>Réponse courte :</strong> Qui a gagné ? — <span class="highlight">Moi</span> !</div>
+                        <div class="example"><strong>Comparaison :</strong> Elle est plus grande que <span class="highlight">lui</span>.</div>
+                    </div>
+                </div>
+
+                <h3>C. Pronoms Personnels Compléments d'Objet Direct (COD)</h3>
+                <div class="type-card">
+                    <h4>Fonction : Complément d'objet direct</h4>
+                    <p>Ils remplacent un complément d'objet direct et se placent avant le verbe (sauf à l'impératif affirmatif).</p>
+                    
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>Personne</th>
+                                <th>Singulier</th>
+                                <th>Pluriel</th>
+                            </tr>
+                            <tr>
+                                <td>1ère personne</td>
+                                <td><strong>me (m')</strong></td>
+                                <td><strong>nous</strong></td>
+                            </tr>
+                            <tr>
+                                <td>2ème personne</td>
+                                <td><strong>te (t')</strong></td>
+                                <td><strong>vous</strong></td>
+                            </tr>
+                            <tr>
+                                <td>3ème personne (m.)</td>
+                                <td><strong>le (l')</strong></td>
+                                <td><strong>les</strong></td>
+                            </tr>
+                            <tr>
+                                <td>3ème personne (f.)</td>
+                                <td><strong>la (l')</strong></td>
+                                <td><strong>les</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="example-box">
+                        <p><strong>Exemples avec transformation :</strong></p>
+                        <div class="example">Je regarde <span class="highlight-blue">le film</span>. → Je <span class="highlight">le</span> regarde.</div>
+                        <div class="example">Il aime <span class="highlight-blue">Marie</span>. → Il <span class="highlight">l'</span>aime.</div>
+                        <div class="example">Nous écoutons <span class="highlight-blue">les chansons</span>. → Nous <span class="highlight">les</span> écoutons.</div>
+                        <div class="example">Elle voit <span class="highlight-blue">ses parents</span>. → Elle <span class="highlight">les</span> voit.</div>
+                        <div class="example">Tu <span class="highlight">me</span> connais bien.</div>
+                        <div class="example">Je <span class="highlight">te</span> remercie.</div>
+                    </div>
+                </div>
+
+                <h3>D. Pronoms Personnels Compléments d'Objet Indirect (COI)</h3>
+                <div class="type-card">
+                    <h4>Fonction : Complément d'objet indirect</h4>
+                    <p>Ils remplacent un complément d'objet indirect introduit par <strong>à</strong> et se placent avant le verbe.</p>
+                    
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>Personne</th>
+                                <th>Singulier</th>
+                                <th>Pluriel</th>
+                            </tr>
+                            <tr>
+                                <td>1ère personne</td>
+                                <td><strong>me (m')</strong></td>
+                                <td><strong>nous</strong></td>
+                            </tr>
+                            <tr>
+                                <td>2ème personne</td>
+                                <td><strong>te (t')</strong></td>
+                                <td><strong>vous</strong></td>
+                            </tr>
+                            <tr>
+                                <td>3ème personne</td>
+                                <td><strong>lui</strong></td>
+                                <td><strong>leur</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="example-box">
+                        <p><strong>Exemples avec transformation :</strong></p>
+                        <div class="example">Je parle <span class="highlight-blue">à Marie</span>. → Je <span class="highlight">lui</span> parle.</div>
+                        <div class="example">Il téléphone <span class="highlight-blue">à ses parents</span>. → Il <span class="highlight">leur</span> téléphone.</div>
+                        <div class="example">Elle donne un cadeau <span class="highlight-blue">à Pierre</span>. → Elle <span class="highlight">lui</span> donne un cadeau.</div>
+                        <div class="example">Tu <span class="highlight">me</span> dis la vérité.</div>
+                        <div class="example">Nous <span class="highlight">vous</span> écrivons souvent.</div>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>⚠️ Attention :</strong>
+                        <p>Ne confondez pas <strong>leur</strong> (pronom COI, invariable) et <strong>leur/leurs</strong> (adjectif possessif, variable) :<br>
+                        → Je <span class="highlight">leur</span> parle. (pronom COI)<br>
+                        → <span class="highlight">Leur</span> maison est grande. (adjectif possessif)</p>
+                    </div>
+                </div>
+
+                <h3>E. Pronoms Réfléchis</h3>
+                <div class="type-card">
+                    <h4>Verbes Pronominaux</h4>
+                    <p>Ils s'utilisent avec les verbes pronominaux et renvoient au sujet.</p>
+                    
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>Personne</th>
+                                <th>Pronom Réfléchi</th>
+                                <th>Exemple</th>
+                            </tr>
+                            <tr>
+                                <td>Je</td>
+                                <td><strong>me (m')</strong></td>
+                                <td>Je <span class="highlight">me</span> lave</td>
+                            </tr>
+                            <tr>
+                                <td>Tu</td>
+                                <td><strong>te (t')</strong></td>
+                                <td>Tu <span class="highlight">te</span> lèves</td>
+                            </tr>
+                            <tr>
+                                <td>Il/Elle</td>
+                                <td><strong>se (s')</strong></td>
+                                <td>Il <span class="highlight">se</span> promène</td>
+                            </tr>
+                            <tr>
+                                <td>Nous</td>
+                                <td><strong>nous</strong></td>
+                                <td>Nous <span class="highlight">nous</span> habillons</td>
+                            </tr>
+                            <tr>
+                                <td>Vous</td>
+                                <td><strong>vous</strong></td>
+                                <td>Vous <span class="highlight">vous</span> reposez</td>
+                            </tr>
+                            <tr>
+                                <td>Ils/Elles</td>
+                                <td><strong>se (s')</strong></td>
+                                <td>Ils <span class="highlight">se</span> préparent</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="example-box">
+                        <p><strong>Exemples de verbes pronominaux :</strong></p>
+                        <div class="example">Je <span class="highlight">me</span> réveille à 7 heures.</div>
+                        <div class="example">Elle <span class="highlight">se</span> maquille le matin.</div>
+                        <div class="example">Nous <span class="highlight">nous</span> amusons bien.</div>
+                        <div class="example">Ils <span class="highlight">se</span> souviennent de tout.</div>
+                    </div>
+                </div>
+
+                <div class="important-box">
+                    <strong>🔑 Ordre des Pronoms Personnels Compléments</strong>
+                    <p>Lorsque plusieurs pronoms compléments se suivent, voici l'ordre à respecter :<br><br>
+                    <strong>Devant le verbe :</strong><br>
+                    me / te / se / nous / vous → le / la / les → lui / leur<br><br>
+                    <strong>Exemples :</strong><br>
+                    → Je <span class="highlight">te le</span> donne. (te = COI, le = COD)<br>
+                    → Il <span class="highlight">nous les</span> montre.<br>
+                    → Elle <span class="highlight">me l'</span>explique.<br>
+                    → Je <span class="highlight">le lui</span> dis. (le = COD, lui = COI)</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>2️⃣ Les Pronoms Adverbiaux</h2>
+                <p>Les pronoms adverbiaux <strong>EN</strong> et <strong>Y</strong> remplacent des compléments introduits par des prépositions.</p>
+
+                <div class="comparison-table">
+                    <div class="comparison-card">
+                        <h4>Le Pronom EN</h4>
+                        <p><strong>Remplace :</strong></p>
+                        <ul class="list-style">
+                            <li>Un complément introduit par <strong>de</strong></li>
+                            <li>Un complément de quantité</li>
+                            <li>Un complément de lieu (origine)</li>
+                        </ul>
+                        
+                        <div style="margin-top: 20px;">
+                            <p><strong>Exemples :</strong></p>
+                            <div class="example">Je viens <span class="highlight-blue">de Paris</span>. → J'<span class="highlight">en</span> viens.</div>
+                            <div class="example">Il parle <span class="highlight-blue">de son voyage</span>. → Il <span class="highlight">en</span> parle.</div>
+                            <div class="example">J'ai acheté <span class="highlight-blue">trois livres</span>. → J'<span class="highlight">en</span> ai acheté trois.</div>
+                            <div class="example">Elle veut <span class="highlight-blue">du pain</span>. → Elle <span class="highlight">en</span> veut.</div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h4>Le Pronom Y</h4>
+                        <p><strong>Remplace :</strong></p>
+                        <ul class="list-style">
+                            <li>Un complément de lieu (destination)</li>
+                            <li>Un complément introduit par <strong>à</strong> (chose)</li>
+                        </ul>
+                        
+                        <div style="margin-top: 20px;">
+                            <p><strong>Exemples :</strong></p>
+                            <div class="example">Je vais <span class="highlight-blue">à Paris</span>. → J'<span class="highlight">y</span> vais.</div>
+                            <div class="example">Il habite <span class="highlight-blue">en France</span>. → Il <span class="highlight">y</span> habite.</div>
+                            <div class="example">Je pense <span class="highlight-blue">à mon examen</span>. → J'<span class="highlight">y</span> pense.</div>
+                            <div class="example">Elle s'intéresse <span class="highlight-blue">à la musique</span>. → Elle <span class="highlight">s'y</span> intéresse.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 Astuce :</strong>
+                    <p><strong>Y</strong> = lieu où on va (destination)<br>
+                    <strong>EN</strong> = lieu d'où on vient (origine)<br><br>
+                    Pour les personnes après <strong>à</strong>, on utilise <strong>lui/leur</strong> :<br>
+                    → Je pense à <span class="highlight-blue">Marie</span>. → Je pense à <span class="highlight">elle</span>. (pas "y")</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>3️⃣ Les Pronoms Possessifs</h2>
+                <p>Les pronoms possessifs remplacent un nom précédé d'un adjectif possessif et indiquent la possession.</p>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Possesseur</th>
+                            <th>Masculin Singulier</th>
+                            <th>Féminin Singulier</th>
+                            <th>Masculin Pluriel</th>
+                            <th>Féminin Pluriel</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Je</strong></td>
+                            <td>le mien</td>
+                            <td>la mienne</td>
+                            <td>les miens</td>
+                            <td>les miennes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tu</strong></td>
+                            <td>le tien</td>
+                            <td>la tienne</td>
+                            <td>les tiens</td>
+                            <td>les tiennes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Il/Elle</strong></td>
+                            <td>le sien</td>
+                            <td>la sienne</td>
+                            <td>les siens</td>
+                            <td>les siennes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nous</strong></td>
+                            <td>le nôtre</td>
+                            <td>la nôtre</td>
+                            <td>les nôtres</td>
+                            <td>les nôtres</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vous</strong></td>
+                            <td>le vôtre</td>
+                            <td>la vôtre</td>
+                            <td>les vôtres</td>
+                            <td>les vôtres</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ils/Elles</strong></td>
+                            <td>le leur</td>
+                            <td>la leur</td>
+                            <td>les leurs</td>
+                            <td>les leurs</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Exemples avec transformation :</strong></p>
+                    <div class="example">C'est <span class="highlight-blue">mon livre</span>. → C'est <span class="highlight">le mien</span>.</div>
+                    <div class="example">Voici <span class="highlight-blue">ta voiture</span>. → Voici <span class="highlight">la tienne</span>.</div>
+                    <div class="example">Ce sont <span class="highlight-blue">nos amis</span>. → Ce sont <span class="highlight">les nôtres</span>.</div>
+                    <div class="example">J'aime <span class="highlight-blue">vos idées</span>. → J'aime <span class="highlight">les vôtres</span>.</div>
+                    <div class="example">Elle préfère <span class="highlight-blue">leur maison</span>. → Elle préfère <span class="highlight">la leur</span>.</div>
+                </div>
+
+                <div class="note-box">
+                    <strong>⚠️ Important :</strong>
+                    <p>Les pronoms possessifs sont toujours précédés d'un article défini (le, la, les) et s'accordent en genre et en nombre avec le nom qu'ils remplacent (l'objet possédé), pas avec le possesseur.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>4️⃣ Les Pronoms Démonstratifs</h2>
+                <p>Les pronoms démonstratifs désignent un être ou une chose en les montrant. Ils remplacent un nom précédé d'un adjectif démonstratif.</p>
+
+                <h3>A. Formes Simples</h3>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Genre et Nombre</th>
+                            <th>Pronom</th>
+                            <th>Exemples</th>
+                        </tr>
+                        <tr>
+                            <td>Masculin singulier</td>
+                            <td><strong>celui</strong></td>
+                            <td><span class="highlight">Celui</span> qui travaille réussit</td>
+                        </tr>
+                        <tr>
+                            <td>Féminin singulier</td>
+                            <td><strong>celle</strong></td>
+                            <td><span class="highlight">Celle</span> que tu vois</td>
+                        </tr>
+                        <tr>
+                            <td>Masculin pluriel</td>
+                            <td><strong>ceux</strong></td>
+                            <td><span class="highlight">Ceux</span> qui partent</td>
+                        </tr>
+                        <tr>
+                            <td>Féminin pluriel</td>
+                            <td><strong>celles</strong></td>
+                            <td><span class="highlight">Celles</span> dont je parle</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3>B. Formes Composées</h3>
+                <div class="type-card">
+                    <h4>Avec -ci et -là</h4>
+                    <p>Pour distinguer entre deux éléments : <strong>-ci</strong> (proximité) et <strong>-là</strong> (éloignement)</p>
+                    
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>Proximité (-ci)</th>
+                                <th>Éloignement (-là)</th>
+                            </tr>
+                            <tr>
+                                <td>celui-ci, celle-ci</td>
+                                <td>celui-là, celle-là</td>
+                            </tr>
+                            <tr>
+                                <td>ceux-ci, celles-ci</td>
+                                <td>ceux-là, celles-là</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="example-box">
+                        <p><strong>Exemples :</strong></p>
+                        <div class="example">Quel livre préfères-tu ? <span class="highlight">Celui-ci</span> ou <span class="highlight">celui-là</span> ?</div>
+                        <div class="example">J'aime <span class="highlight">celle-ci</span> mais pas <span class="highlight">celle-là</span>.</div>
+                        <div class="example"><span class="highlight">Ceux-ci</span> sont mes préférés.</div>
+                    </div>
+                </div>
+
+                <h3>C. Formes Neutres</h3>
+                <div class="type-card">
+                    <h4>Ce, Ceci, Cela, Ça</h4>
+                    <p>Ces pronoms neutres ne représentent pas un nom précis mais une idée, une situation ou un concept.</p>
+                    
+                    <div class="example-box">
+                        <p><strong>Exemples :</strong></p>
+                        <div class="example"><span class="highlight">C'</span>est magnifique ! <span class="highlight">Ce</span> sont mes amis.</div>
+                        <div class="example"><span class="highlight">Ceci</span> est important : écoutez bien.</div>
+                        <div class="example"><span class="highlight">Cela</span> (= <span class="highlight">ça</span>) me plaît beaucoup.</div>
+                        <div class="example">Écoute bien <span class="highlight">ceci</span> : tout va bien se passer.</div>
+                        <div class="example"><span class="highlight">Ça</span> va ? (langage familier)</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>5️⃣ Les Pronoms Relatifs</h2>
+                <p>Les pronoms relatifs introduisent une proposition subordonnée relative et relient deux phrases en évitant la répétition.</p>
+
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h4>QUI</h4>
+                        <p><strong>Fonction :</strong> Sujet</p>
+                        <p style="margin-top: 10px;"><strong>Remplace :</strong> Personnes ou choses</p>
+                        <div style="margin-top: 15px;">
+                            <div class="example" style="color: white;">L'homme <span style="color: #ffeaa7;">qui</span> parle est mon père.</div>
+                            <div class="example" style="color: white;">Le livre <span style="color: #ffeaa7;">qui</span> est sur la table.</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <h4>QUE (QU')</h4>
+                        <p><strong>Fonction :</strong> COD</p>
+                        <p style="margin-top: 10px;"><strong>Remplace :</strong> Personnes ou choses</p>
+                        <div style="margin-top: 15px;">
+                            <div class="example" style="color: white;">La fille <span style="color: #ffeaa7;">que</span> je connais.</div>
+                            <div class="example" style="color: white;">Le film <span style="color: #ffeaa7;">qu'</span>il a vu.</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <h4>DONT</h4>
+                        <p><strong>Fonction :</strong> Complément introduit par DE</p>
+                        <p style="margin-top: 10px;"><strong>Remplace :</strong> Personnes ou choses</p>
+                        <div style="margin-top: 15px;">
+                            <div class="example" style="color: white;">Le livre <span style="color: #ffeaa7;">dont</span> je parle.</div>
+                            <div class="example" style="color: white;">L'ami <span style="color: #ffeaa7;">dont</span> je t'ai parlé.</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <h4>OÙ</h4>
+                        <p><strong>Fonction :</strong> Complément de lieu ou de temps</p>
+                        <p style="margin-top: 10px;"><strong>Remplace :</strong> Un lieu ou un moment</p>
+                        <div style="margin-top: 15px;">
+                            <div class="example" style="color: white;">La ville <span style="color: #ffeaa7;">où</span> j'habite.</div>
+                            <div class="example" style="color: white;">Le jour <span style="color: #ffeaa7;">où</span> je suis né.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="type-card">
+                    <h4>Pronoms Relatifs Composés</h4>
+                    <p>Ils s'utilisent après une préposition et varient selon le genre et le nombre.</p>
+                    
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>Préposition + Pronom</th>
+                                <th>Masculin Singulier</th>
+                                <th>Féminin Singulier</th>
+                                <th>Pluriel</th>
+                            </tr>
+                            <tr>
+                                <td>Personnes</td>
+                                <td>lequel</td>
+                                <td>laquelle</td>
+                                <td>lesquels / lesquelles</td>
+                            </tr>
+                            <tr>
+                                <td>Avec à</td>
+                                <td>auquel</td>
+                                <td>à laquelle</td>
+                                <td>auxquels / auxquelles</td>
+                            </tr>
+                            <tr>
+                                <td>Avec de</td>
+                                <td>duquel</td>
+                                <td>de laquelle</td>
+                                <td>desquels / desquelles</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="example-box">
+                        <p><strong>Exemples :</strong></p>
+                        <div class="example">Le stylo avec <span class="highlight">lequel</span> j'écris.</div>
+                        <div class="example">La question à <span class="highlight">laquelle</span> je réponds.</div>
+                        <div class="example">Les amis chez <span class="highlight">lesquels</span> je vais.</div>
+                        <div class="example">Le problème <span class="highlight">auquel</span> je pense.</div>
+                    </div>
+                </div>
+
+                <div class="important-box">
+                    <strong>🔑 Astuce pour choisir le bon pronom relatif :</strong>
+                    <p>1. <strong>QUI</strong> → sujet (qui fait l'action)<br>
+                    2. <strong>QUE</strong> → COD (subit l'action)<br>
+                    3. <strong>DONT</strong> → complément avec DE<br>
+                    4. <strong>OÙ</strong> → lieu ou temps<br>
+                    5. <strong>LEQUEL</strong> (et formes) → après préposition (sauf DE)</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>6️⃣ Les Pronoms Interrogatifs</h2>
+                <p>Les pronoms interrogatifs servent à poser des questions sur l'identité d'une personne ou d'une chose.</p>
+
+                <div class="comparison-table">
+                    <div class="comparison-card">
+                        <h4>Pour les Personnes</h4>
+                        <p><strong>Qui / Qui est-ce qui</strong> (sujet)</p>
+                        <div class="example" style="color: white;"><span style="color: #ffeaa7;">Qui</span> vient ce soir ?</div>
+                        <div class="example" style="color: white;"><span style="color: #ffeaa7;">Qui est-ce qui</span> parle ?</div>
+                        
+                        <p style="margin-top: 15px;"><strong>Qui / Qui est-ce que</strong> (COD)</p>
+                        <div class="example" style="color: white;"><span style="color: #ffeaa7;">Qui</span> cherches-tu ?</div>
+                        <div class="example" style="color: white;"><span style="color: #ffeaa7;">Qui est-ce que</span> tu vois ?</div>
+                        
+                        <p style="margin-top: 15px;"><strong>À qui / De qui</strong> (avec préposition)</p>
+                        <div class="example" style="color: white;"><span style="color: #ffeaa7;">À qui</span> parles-tu ?</div>
+                        <div class="example" style="color: white;"><span style="color: #ffeaa7;">De qui</span> parles-tu ?</div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h4>Pour les Choses</h4>
+                        <p><strong>Qu'est-ce qui</strong> (sujet)</p>
+                        <div class="example" style="color: white;"><span style="color: #ffeaa7;">Qu'est-ce qui</span> se passe ?</div>
+                        <div class="example" style="color: white;"><span style="color: #ffeaa7;">Qu'est-ce qui</span> fait ce bruit ?</div>
+                        
+                        <p style="margin-top: 15px;"><strong>Que / Qu'est-ce que</strong> (COD)</p>
+                        <div class="example" style="color: white;"><span style="color: #ffeaa7;">Que</span> veux-tu ?</div>
+                        <div class="example" style="color: white;"><span style="color: #ffeaa7;">Qu'est-ce que</span> tu fais ?</div>
+                        
+                        <p style="margin-top: 15px;"><strong>Quoi</strong> (après préposition)</p>
+                        <div class="example" style="color: white;">À <span style="color: #ffeaa7;">quoi</span> penses-tu ?</div>
+                        <div class="example" style="color: white;">De <span style="color: #ffeaa7;">quoi</span> parlez-vous ?</div>
+                    </div>
+                </div>
+
+                <div class="type-card">
+                    <h4>Lequel, Laquelle, Lesquels, Lesquelles</h4>
+                    <p>Ces pronoms interrogatifs servent à interroger sur un choix parmi plusieurs éléments.</p>
+                    
+                    <div class="example-box">
+                        <p><strong>Exemples :</strong></p>
+                        <div class="example"><span class="highlight">Lequel</span> préfères-tu ? (masculin singulier)</div>
+                        <div class="example"><span class="highlight">Laquelle</span> de ces robes choisis-tu ? (féminin singulier)</div>
+                        <div class="example"><span class="highlight">Lesquels</span> sont à toi ? (masculin pluriel)</div>
+                        <div class="example"><span class="highlight">Lesquelles</span> veux-tu acheter ? (féminin pluriel)</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>7️⃣ Les Pronoms Indéfinis</h2>
+                <p>Les pronoms indéfinis désignent des personnes ou des choses de manière imprécise ou générale.</p>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Pronom Indéfini</th>
+                            <th>Sens</th>
+                            <th>Exemples</th>
+                        </tr>
+                        <tr>
+                            <td><strong>quelqu'un</strong></td>
+                            <td>Une personne indéterminée</td>
+                            <td><span class="highlight">Quelqu'un</span> a frappé à la porte</td>
+                        </tr>
+                        <tr>
+                            <td><strong>quelque chose</strong></td>
+                            <td>Une chose indéterminée</td>
+                            <td>J'ai vu <span class="highlight">quelque chose</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>personne</strong></td>
+                            <td>Aucune personne (négatif)</td>
+                            <td><span class="highlight">Personne</span> n'est venu</td>
+                        </tr>
+                        <tr>
+                            <td><strong>rien</strong></td>
+                            <td>Aucune chose (négatif)</td>
+                            <td>Je ne vois <span class="highlight">rien</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>tout</strong></td>
+                            <td>Toute chose</td>
+                            <td><span class="highlight">Tout</span> va bien</td>
+                        </tr>
+                        <tr>
+                            <td><strong>tous, toutes</strong></td>
+                            <td>Toutes les personnes/choses</td>
+                            <td><span class="highlight">Tous</span> sont venus</td>
+                        </tr>
+                        <tr>
+                            <td><strong>chacun(e)</strong></td>
+                            <td>Chaque personne</td>
+                            <td><span class="highlight">Chacun</span> a son opinion</td>
+                        </tr>
+                        <tr>
+                            <td><strong>plusieurs</strong></td>
+                            <td>Un nombre indéfini</td>
+                            <td><span class="highlight">Plusieurs</span> sont partis</td>
+                        </tr>
+                        <tr>
+                            <td><strong>certain(e)s</strong></td>
+                            <td>Quelques-uns</td>
+                            <td><span class="highlight">Certains</span> pensent que...</td>
+                        </tr>
+                        <tr>
+                            <td><strong>autre(s)</strong></td>
+                            <td>Personne/chose différente</td>
+                            <td>J'en veux un <span class="highlight">autre</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>l'un(e), l'autre</strong></td>
+                            <td>Le premier, le second</td>
+                            <td><span class="highlight">L'un</span> est grand, <span class="highlight">l'autre</span> est petit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>aucun(e)</strong></td>
+                            <td>Pas un seul (négatif)</td>
+                            <td><span class="highlight">Aucun</span> n'est parfait</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Exemples en contexte :</strong></p>
+                    <div class="example"><span class="highlight">Quelqu'un</span> a téléphoné pour toi.</div>
+                    <div class="example">Tu veux <span class="highlight">quelque chose</span> à boire ?</div>
+                    <div class="example"><span class="highlight">Personne</span> ne m'a répondu.</div>
+                    <div class="example">Je ne comprends <span class="highlight">rien</span> à ce problème.</div>
+                    <div class="example"><span class="highlight">Tous</span> ont accepté l'invitation.</div>
+                    <div class="example"><span class="highlight">Chacun</span> fait ce qu'il veut.</div>
+                    <div class="example"><span class="highlight">Plusieurs</span> ont déjà quitté la salle.</div>
+                    <div class="example"><span class="highlight">Certains</span> préfèrent le thé, <span class="highlight">d'autres</span> préfèrent le café.</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>📊 Tableau Récapitulatif des Pronoms</h2>
+                
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h4>Pronoms Personnels</h4>
+                        <p><span class="badge-red">Sujets</span> je, tu, il, elle...</p>
+                        <p><span class="badge-red">Toniques</span> moi, toi, lui, elle...</p>
+                        <p><span class="badge-red">COD</span> me, te, le, la, les...</p>
+                        <p><span class="badge-red">COI</span> me, te, lui, leur...</p>
+                        <p><span class="badge-red">Réfléchis</span> me, te, se...</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4>Pronoms Adverbiaux</h4>
+                        <p><span class="badge-red">EN</span> Remplace DE + nom</p>
+                        <p><span class="badge-red">Y</span> Remplace À + lieu/chose</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4>Pronoms Possessifs</h4>
+                        <p><span class="badge-red">Mien</span> le mien, la mienne...</p>
+                        <p><span class="badge-red">Tien</span> le tien, la tienne...</p>
+                        <p><span class="badge-red">Sien</span> le sien, la sienne...</p>
+                        <p><span class="badge-red">Nôtre</span> le nôtre, les nôtres...</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4>Pronoms Démonstratifs</h4>
+                        <p><span class="badge-red">Simples</span> celui, celle, ceux, celles</p>
+                        <p><span class="badge-red">Composés</span> celui-ci, celle-là...</p>
+                        <p><span class="badge-red">Neutres</span> ce, ceci, cela, ça</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4>Pronoms Relatifs</h4>
+                        <p><span class="badge-red">Simples</span> qui, que, dont, où</p>
+                        <p><span class="badge-red">Composés</span> lequel, laquelle...</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4>Pronoms Interrogatifs</h4>
+                        <p><span class="badge-red">Personnes</span> qui, qui est-ce qui/que</p>
+                        <p><span class="badge-red">Choses</span> que, qu'est-ce qui/que, quoi</p>
+                        <p><span class="badge-red">Choix</span> lequel, laquelle...</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4>Pronoms Indéfinis</h4>
+                        <p><span class="badge-red">Positifs</span> quelqu'un, quelque chose</p>
+                        <p><span class="badge-red">Négatifs</span> personne, rien, aucun</p>
+                        <p><span class="badge-red">Quantité</span> tous, plusieurs, certains</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>✨ Points Clés à Retenir</h2>
+                
+                <div class="important-box">
+                    <strong>🎯 Règles Fondamentales</strong>
+                    <p>
+                    <strong>1.</strong> Le pronom remplace un nom pour éviter la répétition et s'accorde avec son antécédent.<br><br>
+                    <strong>2.</strong> Les pronoms personnels compléments se placent avant le verbe (sauf à l'impératif affirmatif).<br><br>
+                    <strong>3.</strong> EN remplace un complément introduit par DE, Y remplace un complément de lieu ou introduit par À (pour les choses).<br><br>
+                    <strong>4.</strong> Les pronoms relatifs relient deux propositions : QUI (sujet), QUE (COD), DONT (DE), OÙ (lieu/temps).<br><br>
+                    <strong>5.</strong> Les pronoms possessifs et démonstratifs s'accordent en genre et en nombre avec le nom qu'ils remplacent.<br><br>
+                    <strong>6.</strong> Ordre des pronoms compléments : me/te/se/nous/vous → le/la/les → lui/leur → y → en
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <div class="footer">
+            <p><strong>📚 LÍNGUA ACADEMY</strong></p>
+            <p>Excellence en Enseignement des Langues</p>
+            <p style="font-size: 0.9em; margin-top: 15px;">© 2024 Língua Academy - Tous droits réservés</p>
+        </div>
+    </div>
+</body>
+</html>

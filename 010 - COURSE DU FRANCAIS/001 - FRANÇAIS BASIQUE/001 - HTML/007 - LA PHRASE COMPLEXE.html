@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Phrase Complexe en Français</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3em;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .definition {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .compare-card {
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .compare-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .compare-simple {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .compare-complex {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .compare-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .compare-card p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .type-card {
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .type-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .type-card p {
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .type-juxtaposition {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+        }
+
+        .type-coordination {
+            background: linear-gradient(135deg, #f77062 0%, #fe5196 100%);
+        }
+
+        .type-subordination {
+            background: linear-gradient(135deg, #c471f5 0%, #fa71cd 100%);
+        }
+
+        .examples-container {
+            margin-top: 20px;
+        }
+
+        .example-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .example-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .example-juxtaposition {
+            border-left-color: #8ec5fc;
+        }
+
+        .example-coordination {
+            border-left-color: #fe5196;
+        }
+
+        .example-subordination {
+            border-left-color: #fa71cd;
+        }
+
+        .phrase-text {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .phrase-analysis {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .proposition {
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            color: white;
+            font-weight: 500;
+        }
+
+        .prop-principale {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .prop-subordonnee {
+            background: linear-gradient(135deg, #96fbc4 0%, #f9f586 100%);
+        }
+
+        .prop-independante {
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+        }
+
+        .connecteur {
+            display: inline-block;
+            padding: 8px 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .connecteurs-section {
+            background: linear-gradient(135deg, #feada6 0%, #f5efef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .connecteurs-section h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .connecteurs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .connecteur-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #667eea;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .connecteur-item:hover {
+            transform: scale(1.1);
+        }
+
+        .schema {
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .schema-title {
+            font-size: 1.3em;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .schema-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .schema-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #667eea;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            min-width: 150px;
+        }
+
+        .schema-arrow {
+            font-size: 2em;
+            color: white;
+            font-weight: bold;
+        }
+
+        .rules-list {
+            background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .rules-list h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .rule-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .rule-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: white;
+            font-size: 0.9em;
+            opacity: 0.9;
+            padding-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+            
+            .phrase-text {
+                font-size: 1.2em;
+            }
+            
+            .types-grid, .comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .schema-flow {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔗 La Phrase Complexe</h1>
+            <p class="subtitle">Plusieurs propositions pour des idées riches et nuancées</p>
+        </header>
+
+        <!-- Définition -->
+        <div class="section">
+            <h2 class="section-title">💡 Qu'est-ce qu'une phrase complexe ?</h2>
+            <div class="definition">
+                Une phrase complexe est une phrase qui contient PLUSIEURS verbes conjugués, donc PLUSIEURS propositions. Elle permet d'exprimer des idées complexes et de relier plusieurs informations.
+            </div>
+        </div>
+
+        <!-- Comparaison Simple vs Complexe -->
+        <div class="section">
+            <h2 class="section-title">⚖️ Simple VS Complexe</h2>
+            <div class="comparison">
+                <div class="compare-card compare-simple">
+                    <h3>📌 Phrase Simple</h3>
+                    <p><strong>1 seul verbe conjugué</strong></p>
+                    <p style="margin-top: 15px; font-size: 1.3em;">Le chat dort.</p>
+                    <p style="margin-top: 10px;">→ Une seule proposition</p>
+                </div>
+                <div class="compare-card compare-complex">
+                    <h3>🔗 Phrase Complexe</h3>
+                    <p><strong>2 verbes ou plus</strong></p>
+                    <p style="margin-top: 15px; font-size: 1.3em;">Le chat dort parce qu'il est fatigué.</p>
+                    <p style="margin-top: 10px;">→ Deux propositions</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Les 3 types -->
+        <div class="section">
+            <h2 class="section-title">🎯 Les 3 Types de Phrases Complexes</h2>
+            <div class="types-grid">
+                <div class="type-card type-juxtaposition">
+                    <h3>1️⃣ Juxtaposition</h3>
+                    <p><strong>Définition :</strong> Les propositions sont séparées par une ponctuation (virgule, point-virgule, deux-points).</p>
+                    <p style="margin-top: 10px;"><strong>Exemple :</strong></p>
+                    <p style="font-size: 1.2em; margin-top: 5px;">Il pleut, je prends mon parapluie.</p>
+                </div>
+
+                <div class="type-card type-coordination">
+                    <h3>2️⃣ Coordination</h3>
+                    <p><strong>Définition :</strong> Les propositions sont reliées par une conjonction de coordination (mais, ou, et, donc, or, ni, car).</p>
+                    <p style="margin-top: 10px;"><strong>Exemple :</strong></p>
+                    <p style="font-size: 1.2em; margin-top: 5px;">Il pleut et je prends mon parapluie.</p>
+                </div>
+
+                <div class="type-card type-subordination">
+                    <h3>3️⃣ Subordination</h3>
+                    <p><strong>Définition :</strong> Une proposition principale + une proposition subordonnée reliée par un mot subordonnant (que, quand, si, parce que...).</p>
+                    <p style="margin-top: 10px;"><strong>Exemple :</strong></p>
+                    <p style="font-size: 1.2em; margin-top: 5px;">Je prends mon parapluie parce qu'il pleut.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exemples Juxtaposition -->
+        <div class="section">
+            <h2 class="section-title">🎨 Phrases Juxtaposées</h2>
+            <div class="examples-container">
+                <div class="example-card example-juxtaposition">
+                    <div class="phrase-text">Le soleil brille, les oiseaux chantent.</div>
+                    <div class="phrase-analysis">
+                        <div class="proposition prop-independante">Proposition 1 : Le soleil brille</div>
+                        <div style="text-align: center; font-size: 1.5em; color: #8ec5fc;">▼ virgule ▼</div>
+                        <div class="proposition prop-independante">Proposition 2 : les oiseaux chantent</div>
+                    </div>
+                </div>
+
+                <div class="example-card example-juxtaposition">
+                    <div class="phrase-text">Marie étudie ; son frère joue au football.</div>
+                    <div class="phrase-analysis">
+                        <div class="proposition prop-independante">Proposition 1 : Marie étudie</div>
+                        <div style="text-align: center; font-size: 1.5em; color: #8ec5fc;">▼ point-virgule ▼</div>
+                        <div class="proposition prop-independante">Proposition 2 : son frère joue au football</div>
+                    </div>
+                </div>
+
+                <div class="example-card example-juxtaposition">
+                    <div class="phrase-text">Il fait froid : je mets un manteau.</div>
+                    <div class="phrase-analysis">
+                        <div class="proposition prop-independante">Proposition 1 : Il fait froid</div>
+                        <div style="text-align: center; font-size: 1.5em; color: #8ec5fc;">▼ deux-points ▼</div>
+                        <div class="proposition prop-independante">Proposition 2 : je mets un manteau</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exemples Coordination -->
+        <div class="section">
+            <h2 class="section-title">🔗 Phrases Coordonnées</h2>
+            <div class="connecteurs-section">
+                <h3>🎭 Les 7 Conjonctions de Coordination</h3>
+                <div class="connecteurs-grid">
+                    <div class="connecteur-item">mais</div>
+                    <div class="connecteur-item">ou</div>
+                    <div class="connecteur-item">et</div>
+                    <div class="connecteur-item">donc</div>
+                    <div class="connecteur-item">or</div>
+                    <div class="connecteur-item">ni</div>
+                    <div class="connecteur-item">car</div>
+                </div>
+            </div>
+
+            <div class="examples-container">
+                <div class="example-card example-coordination">
+                    <div class="phrase-text">Je veux sortir mais il pleut.</div>
+                    <div class="phrase-analysis">
+                        <div class="proposition prop-independante">Proposition 1 : Je veux sortir</div>
+                        <div style="text-align: center;">
+                            <span class="connecteur">mais</span>
+                            <span style="color: #666; font-style: italic;">(opposition)</span>
+                        </div>
+                        <div class="proposition prop-independante">Proposition 2 : il pleut</div>
+                    </div>
+                </div>
+
+                <div class="example-card example-coordination">
+                    <div class="phrase-text">Il travaille beaucoup et il réussit.</div>
+                    <div class="phrase-analysis">
+                        <div class="proposition prop-independante">Proposition 1 : Il travaille beaucoup</div>
+                        <div style="text-align: center;">
+                            <span class="connecteur">et</span>
+                            <span style="color: #666; font-style: italic;">(addition)</span>
+                        </div>
+                        <div class="proposition prop-independante">Proposition 2 : il réussit</div>
+                    </div>
+                </div>
+
+                <div class="example-card example-coordination">
+                    <div class="phrase-text">Je suis fatigué donc je vais me coucher.</div>
+                    <div class="phrase-analysis">
+                        <div class="proposition prop-independante">Proposition 1 : Je suis fatigué</div>
+                        <div style="text-align: center;">
+                            <span class="connecteur">donc</span>
+                            <span style="color: #666; font-style: italic;">(conséquence)</span>
+                        </div>
+                        <div class="proposition prop-independante">Proposition 2 : je vais me coucher</div>
+                    </div>
+                </div>
+
+                <div class="example-card example-coordination">
+                    <div class="phrase-text">Elle n'aime ni le café ni le thé.</div>
+                    <div class="phrase-analysis">
+                        <div class="proposition prop-independante">Proposition 1 : Elle n'aime le café</div>
+                        <div style="text-align: center;">
+                            <span class="connecteur">ni</span>
+                            <span style="color: #666; font-style: italic;">(négation)</span>
+                        </div>
+                        <div class="proposition prop-independante">Proposition 2 : elle n'aime le thé</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exemples Subordination -->
+        <div class="section">
+            <h2 class="section-title">🎯 Phrases Subordonnées</h2>
+            <div class="schema">
+                <div class="schema-title">Structure de la Subordination</div>
+                <div class="schema-flow">
+                    <div class="schema-box">Proposition Principale</div>
+                    <div class="schema-arrow">→</div>
+                    <div class="schema-box">Mot Subordonnant</div>
+                    <div class="schema-arrow">→</div>
+                    <div class="schema-box">Proposition Subordonnée</div>
+                </div>
+            </div>
+
+            <div class="connecteurs-section">
+                <h3>🔑 Mots Subordonnants Courants</h3>
+                <div class="connecteurs-grid">
+                    <div class="connecteur-item">que</div>
+                    <div class="connecteur-item">quand</div>
+                    <div class="connecteur-item">si</div>
+                    <div class="connecteur-item">parce que</div>
+                    <div class="connecteur-item">puisque</div>
+                    <div class="connecteur-item">comme</div>
+                    <div class="connecteur-item">bien que</div>
+                    <div class="connecteur-item">afin que</div>
+                    <div class="connecteur-item">pour que</div>
+                    <div class="connecteur-item">depuis que</div>
+                    <div class="connecteur-item">avant que</div>
+                    <div class="connecteur-item">après que</div>
+                </div>
+            </div>
+
+            <div class="examples-container">
+                <div class="example-card example-subordination">
+                    <div class="phrase-text">Je pense que tu as raison.</div>
+                    <div class="phrase-analysis">
+                        <div class="proposition prop-principale">Proposition principale : Je pense</div>
+                        <div style="text-align: center;">
+                            <span class="connecteur">que</span>
+                            <span style="color: #666; font-style: italic;">(complétive)</span>
+                        </div>
+                        <div class="proposition prop-subordonnee">Proposition subordonnée : tu as raison</div>
+                    </div>
+                </div>
+
+                <div class="example-card example-subordination">
+                    <div class="phrase-text">Je reste à la maison parce qu'il pleut.</div>
+                    <div class="phrase-analysis">
+                        <div class="proposition prop-principale">Proposition principale : Je reste à la maison</div>
+                        <div style="text-align: center;">
+                            <span class="connecteur">parce qu'</span>
+                            <span style="color: #666; font-style: italic;">(cause)</span>
+                        </div>
+                        <div class="proposition prop-subordonnee">Proposition subordonnée : il pleut</div>
+                    </div>
+                </div>
+
+                <div class="example-card example-subordination">
+                    <div class="phrase-text">Si tu viens, nous irons au cinéma.</div>
+                    <div class="phrase-analysis">
+                        <div style="text-align: center;">
+                            <span class="connecteur">Si</span>
+                            <span style="color: #666; font-style: italic;">(condition)</span>
+                        </div>
+                        <div class="proposition prop-subordonnee">Proposition subordonnée : tu viens</div>
+                        <div class="proposition prop-principale">Proposition principale : nous irons au cinéma</div>
+                    </div>
+                </div>
+
+                <div class="example-card example-subordination">
+                    <div class="phrase-text">Quand le soleil se lève, les oiseaux chantent.</div>
+                    <div class="phrase-analysis">
+                        <div style="text-align: center;">
+                            <span class="connecteur">Quand</span>
+                            <span style="color: #666; font-style: italic;">(temps)</span>
+                        </div>
+                        <div class="proposition prop-subordonnee">Proposition subordonnée : le soleil se lève</div>
+                        <div class="proposition prop-principale">Proposition principale : les oiseaux chantent</div>
+                    </div>
+                </div>
+
+                <div class="example-card example-subordination">
+                    <div class="phrase-text">Elle étudie afin qu'elle réussisse son examen.</div>
+                    <div class="phrase-analysis">
+                        <div class="proposition prop-principale">Proposition principale : Elle étudie</div>
+                        <div style="text-align: center;">
+                            <span class="connecteur">afin qu'</span>
+                            <span style="color: #666; font-style: italic;">(but)</span>
+                        </div>
+                        <div class="proposition prop-subordonnee">Proposition subordonnée : elle réussisse son examen</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Règles -->
+        <div class="section">
+            <h2 class="section-title">📚 Règles à Retenir</h2>
+            <div class="rules-list">
+                <h3>✅ Points Essentiels</h3>
+                <div class="rule-item">
+                    <span class="rule-number">1</span>
+                    <strong>Phrase complexe = 2 verbes conjugués minimum</strong>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-number">2</span>
+                    <strong>Juxtaposition : propositions séparées par une ponctuation</strong>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-number">3</span>
+                    <strong>Coordination : propositions reliées par mais, ou, et, donc, or, ni, car</strong>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-number">4</span>
+                    <strong>Subordination : proposition principale + subordonnée dépendante</strong>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-number">5</span>
+                    <strong>La proposition subordonnée ne peut pas exister seule</strong>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-number">6</span>
+                    <strong>Compter les verbes conjugués pour identifier le nombre de propositions</strong>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>✨ Maîtrisez les phrases complexes pour enrichir votre expression ! ✨</p>
+        </footer>
+    </div>
+</body>
+</html>

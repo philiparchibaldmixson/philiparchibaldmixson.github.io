@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Syllabes Composées en Français</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3em;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .syllables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .syllable-card {
+            padding: 25px 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .syllable-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Couleurs pour les groupes BR */
+        .groupe-br { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        
+        /* Couleurs pour les groupes CR */
+        .groupe-cr { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        
+        /* Couleurs pour les groupes DR */
+        .groupe-dr { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        
+        /* Couleurs pour les groupes FR */
+        .groupe-fr { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        
+        /* Couleurs pour les groupes GR */
+        .groupe-gr { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+        
+        /* Couleurs pour les groupes PR */
+        .groupe-pr { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        
+        /* Couleurs pour les groupes TR */
+        .groupe-tr { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+        
+        /* Couleurs pour les groupes VR */
+        .groupe-vr { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+        
+        /* Couleurs pour les groupes BL */
+        .groupe-bl { background: linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%); }
+        
+        /* Couleurs pour les groupes CL */
+        .groupe-cl { background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); }
+        
+        /* Couleurs pour les groupes FL */
+        .groupe-fl { background: linear-gradient(135deg, #f77062 0%, #fe5196 100%); }
+        
+        /* Couleurs pour les groupes GL */
+        .groupe-gl { background: linear-gradient(135deg, #c471f5 0%, #fa71cd 100%); }
+        
+        /* Couleurs pour les groupes PL */
+        .groupe-pl { background: linear-gradient(135deg, #48c6ef 0%, #6f86d6 100%); }
+        
+        /* Couleurs pour les groupes CH */
+        .groupe-ch { background: linear-gradient(135deg, #feada6 0%, #f5efef 100%); }
+        
+        /* Couleurs pour les groupes PH */
+        .groupe-ph { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        
+        /* Couleurs pour les groupes TH */
+        .groupe-th { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); }
+        
+        /* Couleurs pour les groupes GN */
+        .groupe-gn { background: linear-gradient(135deg, #96fbc4 0%, #f9f586 100%); }
+        
+        /* Couleurs pour les groupes QU */
+        .groupe-qu { background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); }
+        
+        /* Couleurs pour les groupes SC */
+        .groupe-sc { background: linear-gradient(135deg, #fdcbf1 0%, #e6dee9 100%); }
+        
+        /* Couleurs pour les groupes ST */
+        .groupe-st { background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); }
+        
+        /* Couleurs pour les groupes SP */
+        .groupe-sp { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+        
+        /* Couleurs pour les groupes SN */
+        .groupe-sn { background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%); }
+        
+        /* Couleurs pour les voyelles nasales AN */
+        .groupe-an { background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%); }
+        
+        /* Couleurs pour les voyelles nasales EN */
+        .groupe-en { background: linear-gradient(135deg, #9890e3 0%, #b1f4cf 100%); }
+        
+        /* Couleurs pour les voyelles nasales IN */
+        .groupe-in { background: linear-gradient(135deg, #ebc0fd 0%, #d9ded8 100%); }
+        
+        /* Couleurs pour les voyelles nasales ON */
+        .groupe-on { background: linear-gradient(135deg, #96e6a1 0%, #d4fc79 100%); }
+        
+        /* Couleurs pour les voyelles nasales UN */
+        .groupe-un { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        
+        /* Couleurs pour les groupes OU */
+        .groupe-ou { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+        
+        /* Couleurs pour les groupes OI */
+        .groupe-oi { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        
+        /* Couleurs pour les groupes AU */
+        .groupe-au { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+        
+        /* Couleurs pour les groupes EU */
+        .groupe-eu { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: white;
+            font-size: 0.9em;
+            opacity: 0.9;
+            padding-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+            
+            .syllables-grid {
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+                gap: 10px;
+            }
+            
+            .syllable-card {
+                font-size: 1.4em;
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Les Syllabes Composées</h1>
+            <p class="subtitle">Consonnes doubles et sons complexes en français</p>
+        </header>
+
+        <!-- Section Consonnes + R -->
+        <div class="section">
+            <h2 class="section-title">🎸 Syllabes avec Consonne + R</h2>
+            <div class="syllables-grid">
+                <div class="syllable-card groupe-br">bra</div>
+                <div class="syllable-card groupe-br">bre</div>
+                <div class="syllable-card groupe-br">bri</div>
+                <div class="syllable-card groupe-br">bro</div>
+                <div class="syllable-card groupe-br">bru</div>
+                
+                <div class="syllable-card groupe-cr">cra</div>
+                <div class="syllable-card groupe-cr">cre</div>
+                <div class="syllable-card groupe-cr">cri</div>
+                <div class="syllable-card groupe-cr">cro</div>
+                <div class="syllable-card groupe-cr">cru</div>
+                
+                <div class="syllable-card groupe-dr">dra</div>
+                <div class="syllable-card groupe-dr">dre</div>
+                <div class="syllable-card groupe-dr">dri</div>
+                <div class="syllable-card groupe-dr">dro</div>
+                <div class="syllable-card groupe-dr">dru</div>
+                
+                <div class="syllable-card groupe-fr">fra</div>
+                <div class="syllable-card groupe-fr">fre</div>
+                <div class="syllable-card groupe-fr">fri</div>
+                <div class="syllable-card groupe-fr">fro</div>
+                <div class="syllable-card groupe-fr">fru</div>
+                
+                <div class="syllable-card groupe-gr">gra</div>
+                <div class="syllable-card groupe-gr">gre</div>
+                <div class="syllable-card groupe-gr">gri</div>
+                <div class="syllable-card groupe-gr">gro</div>
+                <div class="syllable-card groupe-gr">gru</div>
+                
+                <div class="syllable-card groupe-pr">pra</div>
+                <div class="syllable-card groupe-pr">pre</div>
+                <div class="syllable-card groupe-pr">pri</div>
+                <div class="syllable-card groupe-pr">pro</div>
+                <div class="syllable-card groupe-pr">pru</div>
+                
+                <div class="syllable-card groupe-tr">tra</div>
+                <div class="syllable-card groupe-tr">tre</div>
+                <div class="syllable-card groupe-tr">tri</div>
+                <div class="syllable-card groupe-tr">tro</div>
+                <div class="syllable-card groupe-tr">tru</div>
+                
+                <div class="syllable-card groupe-vr">vra</div>
+                <div class="syllable-card groupe-vr">vre</div>
+                <div class="syllable-card groupe-vr">vri</div>
+                <div class="syllable-card groupe-vr">vro</div>
+                <div class="syllable-card groupe-vr">vru</div>
+            </div>
+        </div>
+
+        <!-- Section Consonnes + L -->
+        <div class="section">
+            <h2 class="section-title">🎹 Syllabes avec Consonne + L</h2>
+            <div class="syllables-grid">
+                <div class="syllable-card groupe-bl">bla</div>
+                <div class="syllable-card groupe-bl">ble</div>
+                <div class="syllable-card groupe-bl">bli</div>
+                <div class="syllable-card groupe-bl">blo</div>
+                <div class="syllable-card groupe-bl">blu</div>
+                
+                <div class="syllable-card groupe-cl">cla</div>
+                <div class="syllable-card groupe-cl">cle</div>
+                <div class="syllable-card groupe-cl">cli</div>
+                <div class="syllable-card groupe-cl">clo</div>
+                <div class="syllable-card groupe-cl">clu</div>
+                
+                <div class="syllable-card groupe-fl">fla</div>
+                <div class="syllable-card groupe-fl">fle</div>
+                <div class="syllable-card groupe-fl">fli</div>
+                <div class="syllable-card groupe-fl">flo</div>
+                <div class="syllable-card groupe-fl">flu</div>
+                
+                <div class="syllable-card groupe-gl">gla</div>
+                <div class="syllable-card groupe-gl">gle</div>
+                <div class="syllable-card groupe-gl">gli</div>
+                <div class="syllable-card groupe-gl">glo</div>
+                <div class="syllable-card groupe-gl">glu</div>
+                
+                <div class="syllable-card groupe-pl">pla</div>
+                <div class="syllable-card groupe-pl">ple</div>
+                <div class="syllable-card groupe-pl">pli</div>
+                <div class="syllable-card groupe-pl">plo</div>
+                <div class="syllable-card groupe-pl">plu</div>
+            </div>
+        </div>
+
+        <!-- Section Digrammes CH, PH, TH -->
+        <div class="section">
+            <h2 class="section-title">🎭 Syllabes avec CH, PH, TH</h2>
+            <div class="syllables-grid">
+                <div class="syllable-card groupe-ch">cha</div>
+                <div class="syllable-card groupe-ch">che</div>
+                <div class="syllable-card groupe-ch">chi</div>
+                <div class="syllable-card groupe-ch">cho</div>
+                <div class="syllable-card groupe-ch">chu</div>
+                
+                <div class="syllable-card groupe-ph">pha</div>
+                <div class="syllable-card groupe-ph">phe</div>
+                <div class="syllable-card groupe-ph">phi</div>
+                <div class="syllable-card groupe-ph">pho</div>
+                <div class="syllable-card groupe-ph">phu</div>
+                
+                <div class="syllable-card groupe-th">tha</div>
+                <div class="syllable-card groupe-th">the</div>
+                <div class="syllable-card groupe-th">thi</div>
+                <div class="syllable-card groupe-th">tho</div>
+                <div class="syllable-card groupe-th">thu</div>
+            </div>
+        </div>
+
+        <!-- Section GN et QU -->
+        <div class="section">
+            <h2 class="section-title">🌟 Syllabes avec GN et QU</h2>
+            <div class="syllables-grid">
+                <div class="syllable-card groupe-gn">gna</div>
+                <div class="syllable-card groupe-gn">gne</div>
+                <div class="syllable-card groupe-gn">gni</div>
+                <div class="syllable-card groupe-gn">gno</div>
+                <div class="syllable-card groupe-gn">gnu</div>
+                
+                <div class="syllable-card groupe-qu">qua</div>
+                <div class="syllable-card groupe-qu">que</div>
+                <div class="syllable-card groupe-qu">qui</div>
+                <div class="syllable-card groupe-qu">quo</div>
+            </div>
+        </div>
+
+        <!-- Section S + Consonne -->
+        <div class="section">
+            <h2 class="section-title">💫 Syllabes avec S + Consonne</h2>
+            <div class="syllables-grid">
+                <div class="syllable-card groupe-sc">sca</div>
+                <div class="syllable-card groupe-sc">sce</div>
+                <div class="syllable-card groupe-sc">sci</div>
+                <div class="syllable-card groupe-sc">sco</div>
+                <div class="syllable-card groupe-sc">scu</div>
+                
+                <div class="syllable-card groupe-st">sta</div>
+                <div class="syllable-card groupe-st">ste</div>
+                <div class="syllable-card groupe-st">sti</div>
+                <div class="syllable-card groupe-st">sto</div>
+                <div class="syllable-card groupe-st">stu</div>
+                
+                <div class="syllable-card groupe-sp">spa</div>
+                <div class="syllable-card groupe-sp">spe</div>
+                <div class="syllable-card groupe-sp">spi</div>
+                <div class="syllable-card groupe-sp">spo</div>
+                <div class="syllable-card groupe-sp">spu</div>
+                
+                <div class="syllable-card groupe-sn">sna</div>
+                <div class="syllable-card groupe-sn">sne</div>
+                <div class="syllable-card groupe-sn">sni</div>
+                <div class="syllable-card groupe-sn">sno</div>
+                <div class="syllable-card groupe-sn">snu</div>
+            </div>
+        </div>
+
+        <!-- Section Voyelles Nasales -->
+        <div class="section">
+            <h2 class="section-title">👃 Voyelles Nasales (AN, EN, IN, ON, UN)</h2>
+            <div class="syllables-grid">
+                <div class="syllable-card groupe-an">an</div>
+                <div class="syllable-card groupe-an">am</div>
+                <div class="syllable-card groupe-an">ban</div>
+                <div class="syllable-card groupe-an">dan</div>
+                <div class="syllable-card groupe-an">fan</div>
+                <div class="syllable-card groupe-an">man</div>
+                <div class="syllable-card groupe-an">pan</div>
+                <div class="syllable-card groupe-an">ran</div>
+                <div class="syllable-card groupe-an">tan</div>
+                <div class="syllable-card groupe-an">van</div>
+                
+                <div class="syllable-card groupe-en">en</div>
+                <div class="syllable-card groupe-en">em</div>
+                <div class="syllable-card groupe-en">ben</div>
+                <div class="syllable-card groupe-en">den</div>
+                <div class="syllable-card groupe-en">fen</div>
+                <div class="syllable-card groupe-en">men</div>
+                <div class="syllable-card groupe-en">pen</div>
+                <div class="syllable-card groupe-en">ren</div>
+                <div class="syllable-card groupe-en">ten</div>
+                <div class="syllable-card groupe-en">ven</div>
+                
+                <div class="syllable-card groupe-in">in</div>
+                <div class="syllable-card groupe-in">im</div>
+                <div class="syllable-card groupe-in">ain</div>
+                <div class="syllable-card groupe-in">ein</div>
+                <div class="syllable-card groupe-in">bin</div>
+                <div class="syllable-card groupe-in">din</div>
+                <div class="syllable-card groupe-in">fin</div>
+                <div class="syllable-card groupe-in">min</div>
+                <div class="syllable-card groupe-in">pin</div>
+                <div class="syllable-card groupe-in">rin</div>
+                <div class="syllable-card groupe-in">tin</div>
+                <div class="syllable-card groupe-in">vin</div>
+                
+                <div class="syllable-card groupe-on">on</div>
+                <div class="syllable-card groupe-on">om</div>
+                <div class="syllable-card groupe-on">bon</div>
+                <div class="syllable-card groupe-on">don</div>
+                <div class="syllable-card groupe-on">fon</div>
+                <div class="syllable-card groupe-on">mon</div>
+                <div class="syllable-card groupe-on">pon</div>
+                <div class="syllable-card groupe-on">ron</div>
+                <div class="syllable-card groupe-on">ton</div>
+                <div class="syllable-card groupe-on">von</div>
+                
+                <div class="syllable-card groupe-un">un</div>
+                <div class="syllable-card groupe-un">um</div>
+                <div class="syllable-card groupe-un">bun</div>
+                <div class="syllable-card groupe-un">dun</div>
+                <div class="syllable-card groupe-un">lun</div>
+            </div>
+        </div>
+
+        <!-- Section Voyelles Composées -->
+        <div class="section">
+            <h2 class="section-title">🎨 Voyelles Composées (OU, OI, AU, EU)</h2>
+            <div class="syllables-grid">
+                <div class="syllable-card groupe-ou">ou</div>
+                <div class="syllable-card groupe-ou">bou</div>
+                <div class="syllable-card groupe-ou">cou</div>
+                <div class="syllable-card groupe-ou">dou</div>
+                <div class="syllable-card groupe-ou">fou</div>
+                <div class="syllable-card groupe-ou">lou</div>
+                <div class="syllable-card groupe-ou">mou</div>
+                <div class="syllable-card groupe-ou">nou</div>
+                <div class="syllable-card groupe-ou">pou</div>
+                <div class="syllable-card groupe-ou">rou</div>
+                <div class="syllable-card groupe-ou">tou</div>
+                <div class="syllable-card groupe-ou">vou</div>
+                
+                <div class="syllable-card groupe-oi">oi</div>
+                <div class="syllable-card groupe-oi">boi</div>
+                <div class="syllable-card groupe-oi">doi</div>
+                <div class="syllable-card groupe-oi">foi</div>
+                <div class="syllable-card groupe-oi">loi</div>
+                <div class="syllable-card groupe-oi">moi</div>
+                <div class="syllable-card groupe-oi">poi</div>
+                <div class="syllable-card groupe-oi">roi</div>
+                <div class="syllable-card groupe-oi">soi</div>
+                <div class="syllable-card groupe-oi">toi</div>
+                <div class="syllable-card groupe-oi">voi</div>
+                
+                <div class="syllable-card groupe-au">au</div>
+                <div class="syllable-card groupe-au">eau</div>
+                <div class="syllable-card groupe-au">bau</div>
+                <div class="syllable-card groupe-au">cau</div>
+                <div class="syllable-card groupe-au">fau</div>
+                <div class="syllable-card groupe-au">lau</div>
+                <div class="syllable-card groupe-au">mau</div>
+                <div class="syllable-card groupe-au">pau</div>
+                <div class="syllable-card groupe-au">sau</div>
+                <div class="syllable-card groupe-au">tau</div>
+                
+                <div class="syllable-card groupe-eu">eu</div>
+                <div class="syllable-card groupe-eu">œu</div>
+                <div class="syllable-card groupe-eu">beu</div>
+                <div class="syllable-card groupe-eu">feu</div>
+                <div class="syllable-card groupe-eu">jeu</div>
+                <div class="syllable-card groupe-eu">peu</div>
+                <div class="syllable-card groupe-eu">reu</div>
+                <div class="syllable-card groupe-eu">seu</div>
+                <div class="syllable-card groupe-eu">veu</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>✨ Maîtrisez toutes les syllabes composées du français ! ✨</p>
+        </footer>
+    </div>
+</body>
+</html>

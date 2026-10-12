@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Pronom Personnel EN - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ad1457 0%, #c2185b 50%, #e91e63 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0055A4 0%, #EF4135 50%, #FFFFFF 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: rotate 25s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .brand {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            z-index: 2;
+        }
+
+        .en-highlight {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6f00 0%, #ff8f00 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.3em;
+            box-shadow: 0 4px 10px rgba(255, 111, 0, 0.3);
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h2 {
+            color: #0055A4;
+            font-size: 2.3em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #EF4135;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3 {
+            color: #EF4135;
+            font-size: 1.7em;
+            margin: 30px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.2em;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 6px solid #0055A4;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-box p {
+            font-size: 1.2em;
+            color: #1a237e;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #f57c00;
+        }
+
+        .definition-box h4 {
+            color: #e65100;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .definition-box p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .emploi-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            padding: 35px;
+            border-radius: 18px;
+            margin: 30px 0;
+            border: 3px solid #0055A4;
+            box-shadow: 0 8px 25px rgba(0, 85, 164, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .emploi-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 85, 164, 0.25);
+            border-color: #EF4135;
+        }
+
+        .emploi-title {
+            color: #0055A4;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #EF4135;
+        }
+
+        .exemple {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #4caf50;
+            transition: all 0.3s ease;
+        }
+
+        .exemple:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .exemple strong {
+            color: #2e7d32;
+            font-size: 1.15em;
+        }
+
+        .exemple em {
+            color: #1b5e20;
+            font-style: normal;
+            font-weight: 600;
+            background: rgba(76, 175, 80, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+
+        .transformation-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #8e24aa;
+        }
+
+        .transformation-box h5 {
+            color: #4a148c;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .transformation-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 15px;
+            align-items: center;
+            margin: 15px 0;
+        }
+
+        .phrase-avant {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .phrase-apres {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .arrow-transform {
+            font-size: 2em;
+            color: #8e24aa;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #d35400;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #00897b;
+        }
+
+        .note-box strong {
+            color: #004d40;
+            font-size: 1.15em;
+        }
+
+        .grammar-point {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #c2185b;
+        }
+
+        .grammar-point h4 {
+            color: #880e4f;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #e53935;
+        }
+
+        .warning-box strong {
+            color: #c62828;
+            font-size: 1.15em;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.15em;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 2px solid #e0e0e0;
+            transition: background 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        tr:hover td {
+            background: #f5f5f5;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        li {
+            margin: 12px 0;
+            line-height: 1.9;
+            font-size: 1.05em;
+        }
+
+        .special-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .special-list li::before {
+            content: "🔹";
+            margin-right: 10px;
+        }
+
+        .position-card {
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #0277bd;
+        }
+
+        .position-card h5 {
+            color: #01579b;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .visual-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: center;
+            border: 3px solid #8e24aa;
+        }
+
+        .visual-element {
+            display: inline-block;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #6a1b9a;
+        }
+
+        .arrow {
+            display: inline-block;
+            font-size: 2em;
+            color: #8e24aa;
+            margin: 0 10px;
+        }
+
+        .expression-card {
+            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border: 3px solid #fbc02d;
+            transition: all 0.3s ease;
+        }
+
+        .expression-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(251, 192, 45, 0.3);
+        }
+
+        .expression-card .expr-title {
+            color: #f57f17;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .comparison-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #f57c00;
+        }
+
+        .comparison-box h4 {
+            color: #e65100;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .comparison-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #f57c00;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.7em;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .transformation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .arrow-transform {
+                transform: rotate(90deg);
+            }
+
+            .brand {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">Língua Academy</div>
+            <h1>Le Pronom Personnel <span class="en-highlight">EN</span></h1>
+            <p class="subtitle">Maîtriser tous ses emplois et ses subtilités</p>
+        </header>
+
+        <div class="content">
+            <!-- Introduction -->
+            <div class="section">
+                <div class="intro-box">
+                    <p>
+                        Le pronom <strong class="en-highlight">EN</strong> est l'un des pronoms les plus utilisés en français, 
+                        mais aussi l'un des plus difficiles à maîtriser pour les apprenants. Il a de multiples emplois et 
+                        remplace différents types de compléments.
+                    </p>
+                    <p>
+                        Comprendre <strong>EN</strong> est essentiel pour parler un français fluide et naturel, car il permet 
+                        d'éviter les répétitions et de rendre le discours plus élégant.
+                    </p>
+                </div>
+
+                <div class="definition-box">
+                    <h4>📚 Définition : Le pronom EN</h4>
+                    <p>
+                        <strong>EN</strong> est un <span class="highlight">pronom adverbial</span> qui remplace principalement :
+                    </p>
+                    <ul style="margin-top: 15px;">
+                        <li>Un complément introduit par la préposition <strong>DE</strong></li>
+                        <li>Une <strong>quantité</strong> (partitive ou indéfinie)</li>
+                        <li>Un <strong>lieu</strong> d'origine (d'où l'on vient)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Emploi 1: Remplace DE + complément -->
+            <div class="section">
+                <h2><span class="icon">📌</span>Emploi 1 : EN remplace DE + complément</h2>
+
+                <div class="emploi-card">
+                    <div class="emploi-title">
+                        <span>1️⃣</span> EN = DE + nom (chose ou idée)
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 20px; line-height: 1.8;">
+                        Le pronom <strong>EN</strong> remplace un complément introduit par la préposition <strong>DE</strong> 
+                        quand il s'agit d'une <span class="highlight">chose</span> ou d'une <span class="highlight">idée</span> 
+                        (pas une personne).
+                    </p>
+
+                    <h3>📖 Avec des verbes + DE</h3>
+
+                    <div class="transformation-box">
+                        <h5>Transformation : phrase complète → phrase avec EN</h5>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Je parle <strong>de mon voyage</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>J'<strong class="en-highlight">en</strong> parle.</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Tu as besoin <strong>de ce livre</strong> ?</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Tu <strong class="en-highlight">en</strong> as besoin ?</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Elle se souvient <strong>de cette histoire</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Elle s'<strong class="en-highlight">en</strong> souvient.</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Nous parlons <strong>du problème</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Nous <strong class="en-highlight">en</strong> parlons.</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grammar-point">
+                        <h4>📐 Verbes fréquents suivis de DE (qui utilisent EN)</h4>
+                        <ul style="columns: 2;">
+                            <li><strong>parler de</strong> → en parler</li>
+                            <li><strong>avoir besoin de</strong> → en avoir besoin</li>
+                            <li><strong>avoir envie de</strong> → en avoir envie</li>
+                            <li><strong>se souvenir de</strong> → s'en souvenir</li>
+                            <li><strong>se servir de</strong> → s'en servir</li>
+                            <li><strong>profiter de</strong> → en profiter</li>
+                            <li><strong>rêver de</strong> → en rêver</li>
+                            <li><strong>avoir peur de</strong> → en avoir peur</li>
+                            <li><strong>être content de</strong> → en être content</li>
+                            <li><strong>être fier de</strong> → en être fier</li>
+                            <li><strong>s'occuper de</strong> → s'en occuper</li>
+                            <li><strong>se moquer de</strong> → s'en moquer</li>
+                        </ul>
+                    </div>
+
+                    <h3>📖 Plus d'exemples</h3>
+
+                    <div class="exemple">
+                        <strong>Parler de :</strong><br>
+                        <em>Tu parles de tes vacances ? — Oui, j'<strong class="en-highlight">en</strong> parle souvent.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Avoir besoin de :</strong><br>
+                        <em>Vous avez besoin d'aide ? — Non, nous n'<strong class="en-highlight">en</strong> avons pas besoin.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Se souvenir de :</strong><br>
+                        <em>Il se souvient de son enfance ? — Oui, il s'<strong class="en-highlight">en</strong> souvient bien.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Être content de :</strong><br>
+                        <em>Elle est contente de son résultat ? — Oui, elle <strong class="en-highlight">en</strong> est très contente.</em>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Attention :</strong> Pour les <strong>personnes</strong>, on n'utilise généralement pas EN, 
+                        mais les pronoms toniques (lui, elle, eux, elles) avec la préposition DE.
+                        <ul style="margin-top: 10px;">
+                            <li>✅ <em>Je parle de mon voyage → J'<strong>en</strong> parle.</em> (chose)</li>
+                            <li>✅ <em>Je parle de Marie → Je parle <strong>d'elle</strong>.</em> (personne)</li>
+                            <li>❌ <em>Je parle de Marie → J'en parle.</em> (incorrect pour une personne)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emploi 2: Remplace une quantité -->
+            <div class="section">
+                <h2><span class="icon">🔢</span>Emploi 2 : EN remplace une quantité</h2>
+
+                <div class="emploi-card">
+                    <div class="emploi-title">
+                        <span>2️⃣</span> EN = article partitif/indéfini + nom
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 20px; line-height: 1.8;">
+                        Le pronom <strong>EN</strong> remplace un nom précédé d'un <span class="highlight">article partitif</span> 
+                        (du, de la, des) ou d'un <span class="highlight">article indéfini</span> (un, une, des), ainsi que les 
+                        expressions de quantité.
+                    </p>
+
+                    <h3>📖 Avec les articles partitifs (du, de la, de l', des)</h3>
+
+                    <div class="transformation-box">
+                        <h5>Transformations</h5>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Je mange <strong>du pain</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>J'<strong class="en-highlight">en</strong> mange.</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Tu bois <strong>de l'eau</strong> ?</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Tu <strong class="en-highlight">en</strong> bois ?</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Elle achète <strong>de la viande</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Elle <strong class="en-highlight">en</strong> achète.</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Ils ont <strong>des problèmes</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Ils <strong class="en-highlight">en</strong> ont.</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>📖 Avec les articles indéfinis (un, une, des)</h3>
+
+                    <div class="transformation-box">
+                        <h5>Transformations avec maintien de la quantité</h5>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>J'ai <strong>un frère</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>J'<strong class="en-highlight">en</strong> ai <strong>un</strong>.</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Elle a <strong>une voiture</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Elle <strong class="en-highlight">en</strong> a <strong>une</strong>.</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Nous avons <strong>des enfants</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Nous <strong class="en-highlight">en</strong> avons.</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Règle importante :</strong> Avec <strong>UN/UNE</strong>, on garde le nombre après EN !
+                        <ul style="margin-top: 10px;">
+                            <li>✅ <em>J'ai un livre → J'<strong>en</strong> ai <strong>un</strong>.</em></li>
+                            <li>✅ <em>Elle a une sœur → Elle <strong>en</strong> a <strong>une</strong>.</em></li>
+                            <li>❌ <em>J'ai un livre → J'<strong>en</strong> ai.</em> (incomplet)</li>
+                        </ul>
+                    </div>
+
+                    <h3>📖 Avec les expressions de quantité</h3>
+
+                    <div class="exemple">
+                        <strong>Beaucoup de :</strong><br>
+                        <em>Il a beaucoup d'amis → Il <strong class="en-highlight">en</strong> a <strong>beaucoup</strong>.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Peu de :</strong><br>
+                        <em>Elle a peu d'argent → Elle <strong class="en-highlight">en</strong> a <strong>peu</strong>.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Trop de :</strong><br>
+                        <em>Tu as trop de travail → Tu <strong class="en-highlight">en</strong> as <strong>trop</strong>.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Assez de :</strong><br>
+                        <em>Nous avons assez de temps → Nous <strong class="en-highlight">en</strong> avons <strong>assez</strong>.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Plusieurs :</strong><br>
+                        <em>J'ai plusieurs livres → J'<strong class="en-highlight">en</strong> ai <strong>plusieurs</strong>.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Quelques :</strong><br>
+                        <em>Elle a quelques amis → Elle <strong class="en-highlight">en</strong> a <strong>quelques-uns</strong>.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Un kilo de, 3 litres de, 5 euros de :</strong><br>
+                        <em>J'achète 2 kilos de pommes → J'<strong class="en-highlight">en</strong> achète <strong>2 kilos</strong>.</em><br>
+                        <em>Elle boit 1 litre d'eau → Elle <strong class="en-highlight">en</strong> boit <strong>1 litre</strong>.</em>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Règle générale :</strong> Avec les expressions de quantité, on utilise EN et on 
+                        <strong>garde l'expression de quantité</strong> après le verbe.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emploi 3: EN = lieu (provenance) -->
+            <div class="section">
+                <h2><span class="icon">🗺️</span>Emploi 3 : EN remplace un lieu de provenance</h2>
+
+                <div class="emploi-card">
+                    <div class="emploi-title">
+                        <span>3️⃣</span> EN = DE + lieu (d'où l'on vient)
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 20px; line-height: 1.8;">
+                        Le pronom <strong>EN</strong> peut remplacer un complément de lieu introduit par <strong>DE</strong> 
+                        pour indiquer la <span class="highlight">provenance</span> (d'où l'on vient).
+                    </p>
+
+                    <div class="transformation-box">
+                        <h5>Transformations avec lieux</h5>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Je viens <strong>de Paris</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>J'<strong class="en-highlight">en</strong> viens.</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Elle revient <strong>de France</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Elle <strong class="en-highlight">en</strong> revient.</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Nous sortons <strong>du cinéma</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Nous <strong class="en-highlight">en</strong> sortons.</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Ils arrivent <strong>de la gare</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Ils <strong class="en-highlight">en</strong> arrivent.</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>📖 Verbes de mouvement avec EN</h3>
+
+                    <div class="exemple">
+                        <strong>Venir de :</strong> <em>Tu viens du Brésil ? — Oui, j'<strong class="en-highlight">en</strong> viens.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Revenir de :</strong> <em>Elle revient de vacances ? — Oui, elle <strong class="en-highlight">en</strong> revient.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Sortir de :</strong> <em>Vous sortez de la réunion ? — Oui, nous <strong class="en-highlight">en</strong> sortons.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Partir de :</strong> <em>Il part de Lyon demain. Il <strong class="en-highlight">en</strong> part tôt.</em>
+                    </div>
+
+                    <div class="comparison-box">
+                        <h4>🔍 EN (provenance) vs Y (destination)</h4>
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <h5 style="color: #e65100; margin-bottom: 10px;">🔙 EN = d'où l'on vient</h5>
+                                <div class="exemple">
+                                    <em>Je viens <strong>de Paris</strong>.</em><br>
+                                    <em>→ J'<strong class="en-highlight">en</strong> viens.</em>
+                                </div>
+                                <div class="exemple">
+                                    <em>Elle sort <strong>du bureau</strong>.</em><br>
+                                    <em>→ Elle <strong class="en-highlight">en</strong> sort.</em>
+                                </div>
+                            </div>
+                            <div class="comparison-item">
+                                <h5 style="color: #e65100; margin-bottom: 10px;">🔜 Y = où l'on va</h5>
+                                <div class="exemple">
+                                    <em>Je vais <strong>à Paris</strong>.</em><br>
+                                    <em>→ J'<strong>y</strong> vais.</em>
+                                </div>
+                                <div class="exemple">
+                                    <em>Elle va <strong>au bureau</strong>.</em><br>
+                                    <em>→ Elle <strong>y</strong> va.</em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Position de EN -->
+            <div class="section">
+                <h2><span class="icon">📍</span>Position du pronom EN</h2>
+
+                <div class="emploi-card">
+                    <div class="emploi-title">
+                        <span>🎯</span> Où placer EN dans la phrase ?
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        La position de <strong>EN</strong> suit les mêmes règles que les autres pronoms compléments.
+                    </p>
+
+                    <div class="position-card">
+                        <h5>1️⃣ Temps simples (présent, imparfait, futur...)</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> EN <span class="highlight">AVANT</span> le verbe</p>
+                        <div class="exemple">
+                            <strong>Présent :</strong> <em>J'<strong class="en-highlight">en</strong> mange.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Imparfait :</strong> <em>Tu <strong class="en-highlight">en</strong> parlais souvent.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Futur :</strong> <em>Elle <strong class="en-highlight">en</strong> achètera demain.</em>
+                        </div>
+                    </div>
+
+                    <div class="position-card">
+                        <h5>2️⃣ Temps composés (passé composé, plus-que-parfait...)</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> EN <span class="highlight">AVANT l'auxiliaire</span></p>
+                        <div class="exemple">
+                            <strong>Passé composé :</strong> <em>J'<strong class="en-highlight">en</strong> ai mangé.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Plus-que-parfait :</strong> <em>Tu <strong class="en-highlight">en</strong> avais parlé.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Futur antérieur :</strong> <em>Elle <strong class="en-highlight">en</strong> aura acheté.</em>
+                        </div>
+                    </div>
+
+                    <div class="position-card">
+                        <h5>3️⃣ Avec un infinitif</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> EN <span class="highlight">AVANT l'infinitif</span></p>
+                        <div class="exemple">
+                            <strong>Exemple 1 :</strong> <em>Je vais <strong class="en-highlight">en</strong> manger.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Exemple 2 :</strong> <em>Tu dois <strong class="en-highlight">en</strong> parler.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Exemple 3 :</strong> <em>Il veut <strong class="en-highlight">en</strong> acheter.</em>
+                        </div>
+                    </div>
+
+                    <div class="position-card">
+                        <h5>4️⃣ À la forme négative</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> NE + EN + verbe + PAS</p>
+                        <div class="exemple">
+                            <strong>Présent :</strong> <em>Je n'<strong class="en-highlight">en</strong> mange pas.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Passé composé :</strong> <em>Tu n'<strong class="en-highlight">en</strong> as pas parlé.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Avec infinitif :</strong> <em>Il ne veut pas <strong class="en-highlight">en</strong> acheter.</em>
+                        </div>
+                    </div>
+
+                    <div class="position-card">
+                        <h5>5️⃣ À l'impératif AFFIRMATIF</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> EN <span class="highlight">APRÈS</span> le verbe (avec trait d'union)</p>
+                        <div class="exemple">
+                            <strong>2ème pers. sing. :</strong> <em>Mange-<strong class="en-highlight">en</strong> !</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>1ère pers. plur. :</strong> <em>Achetons-<strong class="en-highlight">en</strong> !</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>2ème pers. plur. :</strong> <em>Parlez-<strong class="en-highlight">en</strong> !</em>
+                        </div>
+                        <div class="warning-box">
+                            <strong>⚠️ Attention :</strong> À l'impératif affirmatif avec les verbes en -ER, on ajoute un <strong>S</strong> 
+                            devant EN pour faciliter la prononciation !
+                            <ul style="margin-top: 10px;">
+                                <li>✅ <em>Mange<strong>s</strong>-en !</em> (on ajoute un S)</li>
+                                <li>✅ <em>Achète<strong>s</strong>-en !</em> (on ajoute un S)</li>
+                                <li>✅ <em>Parle<strong>s</strong>-en !</em> (on ajoute un S)</li>
+                                <li>❌ <em>Mange-en !</em> (incorrect, on ne peut pas prononcer)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="position-card">
+                        <h5>6️⃣ À l'impératif NÉGATIF</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> EN <span class="highlight">AVANT</span> le verbe</p>
+                        <div class="exemple">
+                            <strong>2ème pers. sing. :</strong> <em>N'<strong class="en-highlight">en</strong> mange pas !</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>1ère pers. plur. :</strong> <em>N'<strong class="en-highlight">en</strong> achetons pas !</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>2ème pers. plur. :</strong> <em>N'<strong class="en-highlight">en</strong> parlez pas !</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expressions courantes avec EN -->
+            <div class="section">
+                <h2><span class="icon">💬</span>Expressions idiomatiques avec EN</h2>
+
+                <div class="emploi-card">
+                    <div class="emploi-title">
+                        <span>💎</span> Expressions courantes
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        Le pronom <strong>EN</strong> entre dans de nombreuses expressions figées de la langue française.
+                    </p>
+
+                    <div class="expression-card">
+                        <div class="expr-title">En avoir assez</div>
+                        <p><strong>Sens :</strong> être fatigué de quelque chose, en avoir marre</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>J'<strong class="en-highlight">en</strong> ai assez de ce bruit !</em><br>
+                            <em>Elle <strong class="en-highlight">en</strong> a assez d'attendre.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">En vouloir à quelqu'un</div>
+                        <p><strong>Sens :</strong> être fâché contre quelqu'un</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Je ne t'<strong class="en-highlight">en</strong> veux pas.</em><br>
+                            <em>Ne m'<strong class="en-highlight">en</strong> veux pas !</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">S'en aller</div>
+                        <p><strong>Sens :</strong> partir</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Je m'<strong class="en-highlight">en</strong> vais maintenant.</em><br>
+                            <em>Ils s'<strong class="en-highlight">en</strong> sont allés tôt.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">S'en faire</div>
+                        <p><strong>Sens :</strong> s'inquiéter, se faire du souci</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Ne t'<strong class="en-highlight">en</strong> fais pas !</em><br>
+                            <em>Il s'<strong class="en-highlight">en</strong> fait trop pour rien.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">S'en sortir</div>
+                        <p><strong>Sens :</strong> réussir à surmonter une difficulté</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Tu t'<strong class="en-highlight">en</strong> sors bien avec tes études.</em><br>
+                            <em>On s'<strong class="en-highlight">en</strong> sortira !</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">S'en remettre à quelqu'un</div>
+                        <p><strong>Sens :</strong> faire confiance à quelqu'un pour décider</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Je m'<strong class="en-highlight">en</strong> remets à vous.</em><br>
+                            <em>Il s'<strong class="en-highlight">en</strong> remet à son avocat.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">En être à</div>
+                        <p><strong>Sens :</strong> avoir atteint un certain point, un certain niveau</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Où <strong class="en-highlight">en</strong> es-tu dans ton travail ?</em><br>
+                            <em>J'<strong class="en-highlight">en</strong> suis à la page 50.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">En venir à</div>
+                        <p><strong>Sens :</strong> finir par arriver à (un point, une action)</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Il <strong class="en-highlight">en</strong> est venu aux mains. (= se battre)</em><br>
+                            <em>J'<strong class="en-highlight">en</strong> viens au fait. (= au sujet principal)</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">Ne pas en revenir</div>
+                        <p><strong>Sens :</strong> être très étonné</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Je n'<strong class="en-highlight">en</strong> reviens pas !</em><br>
+                            <em>Elle n'<strong class="en-highlight">en</strong> est pas revenue.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">C'en est trop !</div>
+                        <p><strong>Sens :</strong> ça suffit !, c'est exagéré !</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>C'<strong class="en-highlight">en</strong> est trop ! Je pars !</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau récapitulatif -->
+            <div class="section">
+                <h2><span class="icon">📊</span>Tableau récapitulatif</h2>
+
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Emploi de EN</th>
+                            <th>Ce qu'il remplace</th>
+                            <th>Exemple AVANT</th>
+                            <th>Exemple APRÈS</th>
+                        </tr>
+                        <tr>
+                            <td><strong>DE + chose</strong></td>
+                            <td>Complément avec DE</td>
+                            <td><em>Je parle <strong>de ce livre</strong>.</em></td>
+                            <td><em>J'<strong class="en-highlight">en</strong> parle.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Article partitif</strong></td>
+                            <td>du, de la, de l', des + nom</td>
+                            <td><em>Je mange <strong>du pain</strong>.</em></td>
+                            <td><em>J'<strong class="en-highlight">en</strong> mange.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Article indéfini</strong></td>
+                            <td>un, une, des + nom</td>
+                            <td><em>J'ai <strong>un frère</strong>.</em></td>
+                            <td><em>J'<strong class="en-highlight">en</strong> ai <strong>un</strong>.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Quantité</strong></td>
+                            <td>Expression de quantité + nom</td>
+                            <td><em>J'ai <strong>beaucoup de livres</strong>.</em></td>
+                            <td><em>J'<strong class="en-highlight">en</strong> ai <strong>beaucoup</strong>.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lieu (provenance)</strong></td>
+                            <td>DE + lieu</td>
+                            <td><em>Je viens <strong>de Paris</strong>.</em></td>
+                            <td><em>J'<strong class="en-highlight">en</strong> viens.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Expressions</strong></td>
+                            <td>Locutions figées</td>
+                            <td><em>J'ai assez <strong>de ce bruit</strong>.</em></td>
+                            <td><em>J'<strong class="en-highlight">en</strong> ai assez.</em></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Exercices -->
+            <div class="section">
+                <h2><span class="icon">✏️</span>Exercices pratiques</h2>
+
+                <div class="grammar-point">
+                    <h4>🎯 Remplacez par EN</h4>
+
+                    <div class="exemple">
+                        <strong>1.</strong> <em>Je parle de mes vacances.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : J'<strong class="en-highlight">en</strong> parle.</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>2.</strong> <em>Tu manges du chocolat ?</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Tu <strong class="en-highlight">en</strong> manges ?</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>3.</strong> <em>Elle a trois enfants.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Elle <strong class="en-highlight">en</strong> a trois.</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>4.</strong> <em>Nous venons de France.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Nous <strong class="en-highlight">en</strong> venons.</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>5.</strong> <em>Vous avez besoin d'aide ?</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Vous <strong class="en-highlight">en</strong> avez besoin ?</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>6.</strong> <em>Ils ont beaucoup de problèmes.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Ils <strong class="en-highlight">en</strong> ont beaucoup.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Récapitulatif -->
+            <div class="section">
+                <h2><span class="icon">📝</span>Récapitulatif</h2>
+
+                <div class="grammar-point">
+                    <h4>✅ Points essentiels à retenir</h4>
+                    <ul class="special-list">
+                        <li><strong>EN</strong> remplace DE + complément (chose, pas personne)</li>
+                        <li><strong>EN</strong> remplace les articles partitifs et indéfinis</li>
+                        <li>Avec UN/UNE, on garde le nombre : <em>J'en ai un / une</em></li>
+                        <li>Avec quantités, on garde l'expression : <em>J'en ai beaucoup</em></li>
+                        <li><strong>EN</strong> remplace un lieu de provenance (d'où l'on vient)</li>
+                        <li>Position normale : <strong>avant le verbe</strong></li>
+                        <li>À l'impératif affirmatif : <strong>après le verbe</strong> (+ trait d'union)</li>
+                        <li>Verbes en -ER à l'impératif : ajouter un <strong>S</strong> devant EN</li>
+                    </ul>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 Pour progresser :</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Pratiquez avec les verbes courants + DE (parler de, avoir besoin de...)</li>
+                        <li>Utilisez EN pour éviter les répétitions</li>
+                        <li>Apprenez les expressions idiomatiques avec EN</li>
+                        <li>Faites attention à la position selon le temps verbal</li>
+                        <li>Exercez-vous avec des dialogues naturels</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <strong>⚠️ Erreurs fréquentes à éviter :</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Ne pas utiliser EN pour les personnes avec DE (utiliser de lui/elle/eux/elles)</li>
+                        <li>Ne pas oublier le nombre avec UN/UNE : <em>J'en ai un</em> (pas juste "J'en ai")</li>
+                        <li>Ne pas oublier le S à l'impératif des verbes en -ER : <em>Manges-en !</em></li>
+                        <li>Ne pas confondre EN (provenance) et Y (destination)</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p><strong>Língua Academy</strong> - Excellence en enseignement des langues</p>
+            <p style="margin-top: 10px;">📚 Maîtrisez le pronom EN et enrichissez votre français</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">© 2024 Língua Academy - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

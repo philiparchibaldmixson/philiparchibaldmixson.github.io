@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigos em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 50%, #00d2ff 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.8em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+            animation: slideDown 1s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.5em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            color: #6a11cb;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #6a11cb;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #2575fc;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Usando cores do arquivo original */
+        .tipo-card.concreto {
+            background: linear-gradient(135deg, #f093fb, #f5576c); /* Definidos */
+        }
+
+        .tipo-card.abstrato {
+            background: linear-gradient(135deg, #4facfe, #00f2fe); /* Indefinidos */
+        }
+
+        .tipo-card.proprio {
+            background: linear-gradient(135deg, #43e97b, #38f9d7); /* Função de Definir */
+        }
+
+        .tipo-card.comum {
+            background: linear-gradient(135deg, #fa709a, #fee140); /* Função de Indefinir */
+        }
+
+        .tipo-card.simples {
+            background: linear-gradient(135deg, #30cfd0, #330867);
+        }
+
+        .tipo-card.composto {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            color: #333;
+        }
+
+        .tipo-card.primitivo {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            color: #333;
+        }
+
+        .tipo-card.derivado {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            color: #333;
+        }
+
+        .tipo-card.coletivo {
+            background: linear-gradient(135deg, #ff6e7f, #bfe9ff);
+        }
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .flexao-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .flexao-box h3 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid white;
+            padding-bottom: 15px;
+        }
+
+        .flexao-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .flexao-item {
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 25px;
+        }
+
+        .flexao-item h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .flexao-item .exemplo-flexao {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
+        .tabela-substantivos { /* Renomeada para Artigos para clareza, mas mantém o estilo */
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tabela-substantivos thead {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+        }
+
+        .tabela-substantivos th {
+            padding: 20px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        .tabela-substantivos td {
+            padding: 18px 20px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        .tabela-substantivos tr:hover {
+            background: #f0f7ff;
+        }
+
+        .tabela-substantivos .destaque-col {
+            color: #6a11cb;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .coletivos-box { /* Usado para regras de uso */
+            background: linear-gradient(135deg, #ff6e7f, #bfe9ff);
+            padding: 35px;
+            border-radius: 25px;
+            margin: 30px 0;
+            color: #333;
+        }
+
+        .coletivos-box h3 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            text-align: center;
+            color: #d63031;
+        }
+
+        .coletivos-grid { /* Usado para regras de uso */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .coletivo-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .coletivo-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .coletivo-item .nome {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #d63031;
+            margin-bottom: 10px;
+        }
+
+        .coletivo-item .descricao {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .quiz-box {
+            background: linear-gradient(135deg, #fc466b, #3f5efb);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .quiz-box h4 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .quiz-item {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-item .pergunta {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .quiz-item .opcoes {
+            font-size: 1.1em;
+            line-height: 2;
+            padding-left: 20px;
+        }
+
+        .quiz-item .resposta {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        .dicas-box {
+            background: linear-gradient(135deg, #52B788, #2D6A4F);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        .exemplo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #6a11cb;
+        }
+
+        .exemplo-card .titulo-exemplo {
+            font-size: 2em;
+            color: #6a11cb;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .conteudo-exemplo {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .genero-box {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            padding: 35px;
+            border-radius: 25px;
+            margin: 30px 0;
+        }
+
+        .genero-box h3 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 3px solid white;
+            padding-bottom: 15px;
+        }
+
+        .genero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .genero-item {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 20px;
+        }
+
+        .genero-item h4 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .genero-lista {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.1em;
+            line-height: 2;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #6a11cb 0%, #2575fc 50%, #00d2ff 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .tipo-card, .destaque, .dicas-box, .quiz-box,
+            .flexao-box, .coletivos-box, .exemplo-card, .genero-box {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid, .flexao-grid, .coletivos-grid, .genero-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📑 Artigo 📑</h1>
+        <p class="subtitle">A classe gramatical que define ou indetermina o substantivo!</p>
+
+        <div class="section">
+            <h2>🎯 O que é Artigo?</h2>
+            <p class="intro-text">
+                O <strong>Artigo</strong> é a classe de palavras variável que antecede o substantivo para 
+                determiná-lo ou indeterminá-lo, indicando, ao mesmo tempo, seu gênero (masculino/feminino) e 
+                seu número (singular/plural).
+            </p>
+
+            <div class="destaque">
+                <strong>💡 Função Morfológica:</strong> O artigo é um determinante do substantivo, 
+                ou seja, ele atua diretamente sobre o nome, concordando com ele. Ele sempre virá antes de um substantivo.
+            </div>
+
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">Artigo Substantivador</div>
+                <div class="conteudo-exemplo">
+                    O artigo tem a função especial de <strong>substantivar</strong> qualquer outra classe de palavra,
+                    transformando-a em um substantivo.
+                    <br><br>
+                    Exemplos:<br>
+                    • O <span style="font-weight: bold; color: #f5576c;">correr</span> (verbo) → O Artigo transforma "correr" em substantivo.<br>
+                    • O <span style="font-weight: bold; color: #f5576c;">sim</span> (advérbio) → O Artigo transforma "sim" em substantivo.<br>
+                    • O <span style="font-weight: bold; color: #f5576c;">azul</span> (adjetivo) → O Artigo transforma "azul" em substantivo.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔢 Classificação dos Artigos</h2>
+            <p class="intro-text">
+                Os artigos se dividem em dois grupos: Definidos e Indefinidos.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card concreto">
+                    <h3>Artigos Definidos</h3>
+                    <div class="definicao">
+                        Determinam o substantivo de forma precisa, particularizando o ser. O leitor/ouvinte já 
+                        conhece ou identifica o ser.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Formas:</strong> o, a, os, as<br><br>
+                        <strong>Exemplos de Uso:</strong><br>
+                        • Eu li <strong>o</strong> livro que você me deu. (Um livro específico)<br>
+                        • <strong>As</strong> alunas vieram à aula. (Todas as alunas conhecidas)<br>
+                        • <strong>O</strong> Brasil é lindo. (Antes de substantivos próprios de lugar)
+                    </div>
+                </div>
+
+                <div class="tipo-card abstrato">
+                    <h3>Artigos Indefinidos</h3>
+                    <div class="definicao">
+                        Determinam o substantivo de forma vaga, imprecisa, generalizando o ser. O leitor/ouvinte 
+                        não o conhece ou não o identifica.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Formas:</strong> um, uma, uns, umas<br><br>
+                        <strong>Exemplos de Uso:</strong><br>
+                        • Eu li <strong>um</strong> livro. (Qualquer livro, um livro não especificado)<br>
+                        • <strong>Umas</strong> alunas vieram à aula. (Algumas alunas, não todas)<br>
+                        • Ele comprou <strong>uma</strong> casa. (Uma casa qualquer)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📌 Flexão dos Artigos</h2>
+            <p class="intro-text">
+                Os artigos são palavras variáveis e se flexionam em Gênero (masculino e feminino) e Número (singular e plural), 
+                concordando sempre com o substantivo que acompanham.
+            </p>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-substantivos">
+                    <thead>
+                        <tr>
+                            <th>Classificação</th>
+                            <th>Singular</th>
+                            <th>Plural</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="destaque-col">Artigo Definido (Masc.)</td>
+                            <td>o</td>
+                            <td>os</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">Artigo Definido (Fem.)</td>
+                            <td>a</td>
+                            <td>as</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">Artigo Indefinido (Masc.)</td>
+                            <td>um</td>
+                            <td>uns</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">Artigo Indefinido (Fem.)</td>
+                            <td>uma</td>
+                            <td>umas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>❌ Casos de Uso e Proibição</h2>
+            <p class="intro-text">
+                Existem regras específicas para o uso (ou não-uso) dos artigos.
+            </p>
+
+            <div class="genero-box">
+                <h3>Regras Essenciais</h3>
+                
+                <div class="genero-grid">
+                    <div class="genero-item">
+                        <h4>Uso Obrigatório (Definidos)</h4>
+                        <div class="genero-lista">
+                            • Antes de substantivos próprios de lugar (em geral): <br>
+                                "Vou <strong>ao</strong> Rio de Janeiro."<br>
+                            • Antes de nomes de ruas, avenidas, praças: <br>
+                                "Moro na Rua <strong>da</strong> Paz."<br>
+                            • Para substantivar palavras: <br>
+                                "O <span style="font-weight: bold;">não</span> é difícil de dizer."
+                        </div>
+                    </div>
+
+                    <div class="genero-item">
+                        <h4>Uso Proibido</h4>
+                        <div class="genero-lista">
+                            • Antes de pronomes de tratamento (exceto Sr(a).): <br>
+                                ✗ "A Vossa Excelência..."<br>
+                            • Antes dos pronomes possessivos (facultativo, mas evitado): <br>
+                                ✗ "A minha casa é nova."<br>
+                            • Depois do pronome "cujo(a)": <br>
+                                ✗ "O livro cuja a capa..."<br>
+                            • Depois do advérbio <span style="font-style: italic;">ambos(as)</span>: <br>
+                                ✗ "Ambos os alunos."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎮 Quiz - Teste Seus Conhecimentos!</h2>
+            
+            <div class="quiz-box">
+                <h4>🧠 Desafio sobre Artigos</h4>
+                
+                <div class="quiz-item">
+                    <div class="pergunta">1. Qual a classe gramatical da palavra destacada? "<strong>As</strong> mesas estão vazias."</div>
+                    <div class="opcoes">
+                        a) Pronome<br>
+                        b) Artigo definido<br>
+                        c) Artigo indefinido<br>
+                        d) Preposição
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> b) Artigo definido - "As" define o substantivo "mesas" de forma precisa.
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">2. Em "Ele me contou <strong>um</strong> segredo", a palavra destacada é um artigo:</div>
+                    <div class="opcoes">
+                        a) Definido feminino singular<br>
+                        b) Indefinido masculino singular<br>
+                        c) Definido masculino plural<br>
+                        d) Indefinido feminino plural
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> b) Indefinido masculino singular - "Um" é indefinido e está no singular e masculino.
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">3. Qual palavra está funcionando como substantivo na frase: "O <span style="font-weight: bold;">verde</span> é a cor da esperança."</div>
+                    <div class="opcoes">
+                        a) cor<br>
+                        b) esperança<br>
+                        c) é<br>
+                        d) verde
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> d) verde - O artigo "O" substantiva a palavra "verde" (que originalmente é um adjetivo).
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">4. Qual é a forma correta:</div>
+                    <div class="opcoes">
+                        a) A minha caneta sumiu.<br>
+                        b) Minha caneta sumiu.<br>
+                        c) As ambas canetas sumiram.<br>
+                        d) Eu vi o Vossa Excelência.
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> b) Minha caneta sumiu. - O uso do artigo antes de pronome possessivo é facultativo, mas a alternativa (b) é a mais fluida e direta. (a) é aceitável, mas (c) e (d) são erros de concordância e de regência, respectivamente.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Tabela Resumo: Formas do Artigo</h2>
+            
+            <div class="tabela-wrapper">
+                <table class="tabela-substantivos">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Gênero</th>
+                            <th>Número</th>
+                            <th>Forma</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Definido</strong></td>
+                            <td>Masculino</td>
+                            <td>Singular</td>
+                            <td>o</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Definido</strong></td>
+                            <td>Masculino</td>
+                            <td>Plural</td>
+                            <td>os</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Definido</strong></td>
+                            <td>Feminino</td>
+                            <td>Singular</td>
+                            <td>a</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Definido</strong></td>
+                            <td>Feminino</td>
+                            <td>Plural</td>
+                            <td>as</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Indefinido</strong></td>
+                            <td>Masculino</td>
+                            <td>Singular</td>
+                            <td>um</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Indefinido</strong></td>
+                            <td>Masculino</td>
+                            <td>Plural</td>
+                            <td>uns</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Indefinido</strong></td>
+                            <td>Feminino</td>
+                            <td>Singular</td>
+                            <td>uma</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Indefinido</strong></td>
+                            <td>Feminino</td>
+                            <td>Plural</td>
+                            <td>umas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Dicas Finais</h2>
+            
+            <div class="dicas-box">
+                <h4>Para Dominar o Artigo:</h4>
+                <ul>
+                    <li>O Artigo <span style="font-weight: bold;">SEMPRE</span> concorda em gênero e número com o substantivo que acompanha.</li>
+                    <li>Sua principal função é atuar como "satélite" do substantivo, definindo-o ou não.</li>
+                    <li>Lembre-se da função substantivadora: qualquer palavra acompanhada de artigo vira substantivo (o porquê, o andar, o belo).</li>
+                </ul>
+            </div>
+
+            <div class="destaque">
+                <strong>🎓 Conclusão:</strong> O Artigo é uma das seis classes de palavras variáveis da Língua Portuguesa. Dominar seu uso e classificação é fundamental para a clareza e correção gramatical.
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; padding: 30px;">
+            <h2 style="margin-bottom: 20px;">📖 Fim do Material 📖</h2>
+            <p class="intro-text" style="margin-bottom: 0;">
+                Esperamos que este material tenha ajudado você a compreender a classe gramatical Artigo!
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>

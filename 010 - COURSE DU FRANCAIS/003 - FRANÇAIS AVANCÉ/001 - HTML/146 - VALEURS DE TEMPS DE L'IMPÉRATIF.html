@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Valeurs des Temps de l'Impératif | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-dark: #1a1a2e;
+            --color-blue: #0f3460;
+            --color-accent: #16213e;
+            --color-teal: #2ec4b6;
+            --color-coral: #ff6b6b;
+            --color-gold: #ffd93d;
+            --color-purple: #a8dadc;
+            --color-light: #f8f9fa;
+            --color-cream: #fffef9;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: var(--color-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .header-decoration {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .header-line {
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-teal), transparent);
+        }
+
+        .header-icon {
+            font-size: 3em;
+            filter: drop-shadow(0 0 20px var(--color-teal));
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5em;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--color-teal), var(--color-gold), var(--color-coral));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            color: var(--color-purple);
+            font-weight: 300;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .intro-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 80px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-teal), var(--color-gold), var(--color-coral));
+        }
+
+        .intro-box p {
+            font-size: 1.2em;
+            line-height: 1.9;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .temps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .temps-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 35px;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .temps-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--card-gradient);
+        }
+
+        .temps-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--card-glow) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .temps-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            border-color: var(--card-border);
+        }
+
+        .temps-card:hover::after {
+            opacity: 0.1;
+        }
+
+        .temps-card.present {
+            --card-gradient: linear-gradient(90deg, #2ec4b6, #1abc9c);
+            --card-glow: rgba(46, 196, 182, 0.5);
+            --card-border: rgba(46, 196, 182, 0.5);
+        }
+
+        .temps-card.passe {
+            --card-gradient: linear-gradient(90deg, #ff6b6b, #ee5a6f);
+            --card-glow: rgba(255, 107, 107, 0.5);
+            --card-border: rgba(255, 107, 107, 0.5);
+        }
+
+        .temps-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .temps-icon-circle {
+            width: 90px;
+            height: 90px;
+            background: var(--card-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            box-shadow: 0 10px 40px var(--card-glow);
+            flex-shrink: 0;
+        }
+
+        .temps-title-group h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .temps-subtitle {
+            font-size: 1em;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .definition-block {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 35px;
+            border-left: 5px solid var(--card-gradient);
+        }
+
+        .definition-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            color: var(--color-gold);
+            margin-bottom: 15px;
+        }
+
+        .definition-block p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .formation-box {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .formation-box h4 {
+            font-size: 1.2em;
+            color: var(--color-gold);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .formation-box h4::before {
+            content: '⚡';
+            font-size: 1.2em;
+        }
+
+        .formation-box p {
+            font-size: 1.05em;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+
+        .exemples-section {
+            margin-top: 30px;
+        }
+
+        .exemples-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6em;
+            color: white;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .exemples-section h3::before {
+            content: '💬';
+            font-size: 1em;
+        }
+
+        .exemple-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .present .exemple-item {
+            border-color: var(--color-teal);
+        }
+
+        .passe .exemple-item {
+            border-color: var(--color-coral);
+        }
+
+        .exemple-item:hover {
+            background: rgba(0, 0, 0, 0.4);
+            transform: translateX(8px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .exemple-text {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .exemple-explication {
+            font-size: 1em;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .contexte-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-top: 10px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .comparaison-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 60px;
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comparaison-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-teal), var(--color-coral));
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, var(--color-teal), var(--color-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .comparison-column {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 35px;
+            border-radius: 20px;
+            border: 2px solid;
+        }
+
+        .comparison-column.left {
+            border-color: var(--color-teal);
+        }
+
+        .comparison-column.right {
+            border-color: var(--color-coral);
+        }
+
+        .comparison-column h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .comparison-divider {
+            width: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            align-self: center;
+        }
+
+        .vs-circle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-teal), var(--color-coral));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3em;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .comparison-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+        }
+
+        .comparison-item h4 {
+            font-size: 1.1em;
+            color: var(--color-gold);
+            margin-bottom: 10px;
+        }
+
+        .comparison-item p {
+            font-size: 1em;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .exemple-comparison {
+            font-style: italic;
+            color: white;
+            margin-top: 8px;
+            padding-left: 15px;
+            border-left: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .notes-section {
+            background: linear-gradient(135deg, rgba(255, 215, 61, 0.1), rgba(255, 107, 107, 0.1));
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 215, 61, 0.3);
+            border-radius: 25px;
+            padding: 45px;
+            margin-bottom: 60px;
+        }
+
+        .notes-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: var(--color-gold);
+            margin-bottom: 30px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .notes-section h3::before {
+            content: '📝';
+            font-size: 1em;
+        }
+
+        .note-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--color-gold);
+        }
+
+        .note-item h4 {
+            font-size: 1.3em;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .note-item p {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .rare-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-left: 15px;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-teal), var(--color-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1em;
+        }
+
+        @media (max-width: 1200px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .comparison-divider {
+                flex-direction: row;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2.8em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+                letter-spacing: 3px;
+            }
+
+            .temps-container {
+                grid-template-columns: 1fr;
+            }
+
+            .temps-card {
+                padding: 30px;
+            }
+
+            .comparaison-section {
+                padding: 30px;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .temps-card,
+        .comparaison-section,
+        .notes-section {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .temps-card:nth-child(1) { animation-delay: 0.1s; }
+        .temps-card:nth-child(2) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <div class="header-decoration">
+                <div class="header-line"></div>
+                <div class="header-icon">⏰</div>
+                <div class="header-line"></div>
+            </div>
+            <h1>Les Valeurs des Temps<br>de l'Impératif</h1>
+            <div class="subtitle">Présent & Passé • Nuances Temporelles</div>
+        </header>
+
+        <div class="intro-box">
+            <p>
+                L'impératif français possède deux temps distincts : le <strong>présent</strong>, omniprésent dans la langue quotidienne, et le <strong>passé</strong>, forme rare et sophistiquée. Chaque temps véhicule des nuances temporelles et aspectuelles qui enrichissent la précision de l'expression impérative. Comprendre leurs valeurs permet de maîtriser pleinement l'art du commandement français.
+            </p>
+        </div>
+
+        <div class="temps-container">
+            <!-- PRÉSENT DE L'IMPÉRATIF -->
+            <div class="temps-card present">
+                <div class="temps-header">
+                    <div class="temps-icon-circle">🎯</div>
+                    <div class="temps-title-group">
+                        <h2>Présent de l'Impératif</h2>
+                        <div class="temps-subtitle">Le Temps de l'Action Immédiate</div>
+                    </div>
+                </div>
+
+                <div class="definition-block">
+                    <h3>Valeur Principale</h3>
+                    <p>
+                        Le présent de l'impératif exprime une <strong>action à accomplir au moment de l'énonciation ou dans un futur proche</strong>. C'est le temps par excellence de l'ordre, du conseil et de la demande, qui s'ancre dans l'immédiateté de la communication.
+                    </p>
+                </div>
+
+                <div class="formation-box">
+                    <h4>Formation</h4>
+                    <p>
+                        Base verbale conjuguée à la 2e personne du singulier (sans pronom), 1ère personne du pluriel et 2e personne du pluriel. Les verbes du 1er groupe perdent le -s final à la 2e personne du singulier (sauf devant « en » et « y »).
+                    </p>
+                </div>
+
+                <div class="exemples-section">
+                    <h3>Exemples & Valeurs</h3>
+
+                    <div class="exemple-item">
+                        <div class="exemple-text">« Écoute-moi attentivement. »</div>
+                        <div class="exemple-explication">
+                            <strong>Valeur :</strong> Action immédiate — L'écoute doit se faire maintenant, au moment même où la parole est prononcée.
+                        </div>
+                        <span class="contexte-badge">Présent immédiat</span>
+                    </div>
+
+                    <div class="exemple-item">
+                        <div class="exemple-text">« Viens me voir demain matin. »</div>
+                        <div class="exemple-explication">
+                            <strong>Valeur :</strong> Action future — L'impératif présent exprime une action à réaliser dans le futur (demain), démontrant sa capacité à projeter l'ordre au-delà du moment présent.
+                        </div>
+                        <span class="contexte-badge">Futur proche</span>
+                    </div>
+
+                    <div class="exemple-item">
+                        <div class="exemple-text">« Prenez vos médicaments tous les matins. »</div>
+                        <div class="exemple-explication">
+                            <strong>Valeur :</strong> Action itérative — L'ordre vaut pour une habitude à adopter, une action répétée dans le temps.
+                        </div>
+                        <span class="contexte-badge">Valeur habituelle</span>
+                    </div>
+
+                    <div class="exemple-item">
+                        <div class="exemple-text">« Sois sage ! »</div>
+                        <div class="exemple-explication">
+                            <strong>Valeur :</strong> État ou attitude — L'impératif présent peut exprimer non pas une action ponctuelle mais un état à adopter ou maintenir.
+                        </div>
+                        <span class="contexte-badge">Valeur d'état</span>
+                    </div>
+
+                    <div class="exemple-item">
+                        <div class="exemple-text">« Mange ta soupe pendant qu'elle est chaude. »</div>
+                        <div class="exemple-explication">
+                            <strong>Valeur :</strong> Action avec durée limitée — L'action doit se dérouler dans un cadre temporel précis, ici conditionné par la température de la soupe.
+                        </div>
+                        <span class="contexte-badge">Action délimitée</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASSÉ DE L'IMPÉRATIF -->
+            <div class="temps-card passe">
+                <div class="temps-header">
+                    <div class="temps-icon-circle">🕐</div>
+                    <div class="temps-title-group">
+                        <h2>Passé de l'Impératif <span class="rare-badge">RARE</span></h2>
+                        <div class="temps-subtitle">L'Antériorité dans le Futur</div>
+                    </div>
+                </div>
+
+                <div class="definition-block">
+                    <h3>Valeur Principale</h3>
+                    <p>
+                        Le passé de l'impératif exprime une <strong>action qui doit être accomplie avant un moment donné du futur</strong>. Il marque l'antériorité par rapport à un point de référence futur et s'utilise principalement dans des contextes formels ou littéraires.
+                    </p>
+                </div>
+
+                <div class="formation-box">
+                    <h4>Formation</h4>
+                    <p>
+                        Auxiliaire <em>avoir</em> ou <em>être</em> à l'impératif présent + participe passé du verbe. Exemples : <em>aie terminé, sois parti(e), ayons fini, soyez revenus</em>.
+                    </p>
+                </div>
+
+                <div class="exemples-section">
+                    <h3>Exemples & Valeurs</h3>
+
+                    <div class="exemple-item">
+                        <div class="exemple-text">« Aie terminé tes devoirs avant mon retour. »</div>
+                        <div class="exemple-explication">
+                            <strong>Valeur :</strong> Antériorité obligatoire — L'action de terminer les devoirs doit être accomplie <em>avant</em> que le locuteur ne revienne. Le passé de l'impératif impose une échéance claire.
+                        </div>
+                        <span class="contexte-badge">Deadline imposée</span>
+                    </div>
+
+                    <div class="exemple-item">
+                        <div class="exemple-text">« Soyez partis avant l'aube. »</div>
+                        <div class="exemple-explication">
+                            <strong>Valeur :</strong> Accomplissement requis — Le départ doit être effectif au moment où l'aube se lève, impliquant que l'action soit terminée à ce moment précis du futur.
+                        </div>
+                        <span class="contexte-badge">Moment butoir</span>
+                    </div>
+
+                    <div class="exemple-item">
+                        <div class="exemple-text">« Ayez tout rangé quand je rentrerai. »</div>
+                        <div class="exemple-explication">
+                            <strong>Valeur :</strong> Condition d'antériorité — Le rangement complet constitue une condition qui doit être remplie avant l'événement de référence (le retour).
+                        </div>
+                        <span class="contexte-badge">Condition temporelle</span>
+                    </div>
+
+                    <div class="exemple-item">
+                        <div class="exemple-text">« Aie bien réfléchi avant de prendre ta décision. »</div>
+                        <div class="exemple-explication">
+                            <strong>Valeur :</strong> Préalable nécessaire — La réflexion doit précéder et être achevée avant l'acte de décider, marquant une séquence temporelle stricte.
+                        </div>
+                        <span class="contexte-badge">Prérequis</span>
+                    </div>
+
+                    <div class="exemple-item">
+                        <div class="exemple-text">« Sois rentré avant minuit. »</div>
+                        <div class="exemple-explication">
+                            <strong>Valeur :</strong> Respect d'un horaire limite — L'état d'être rentré doit être effectif à minuit, soulignant l'importance du respect de l'échéance temporelle.
+                        </div>
+                        <span class="contexte-badge">Impératif horaire</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPARAISON DÉTAILLÉE -->
+        <div class="comparaison-section">
+            <h2 class="section-title">Comparaison des Deux Temps</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-column left">
+                    <h3 style="color: var(--color-teal);">Présent de l'Impératif</h3>
+                    
+                    <div class="comparison-item">
+                        <h4>Fréquence d'usage</h4>
+                        <p>Extrêmement courant dans la langue parlée et écrite, quotidien et universel.</p>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h4>Perspective temporelle</h4>
+                        <p>Action à accomplir maintenant ou dans le futur, sans indication d'achèvement préalable.</p>
+                        <div class="exemple-comparison">« Finis ton travail. »</div>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h4>Registre</h4>
+                        <p>Tous registres : familier, courant, soutenu.</p>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h4>Aspect</h4>
+                        <p>Non accompli — L'action est envisagée dans sa réalisation, pas dans son achèvement.</p>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h4>Simplicité</h4>
+                        <p>Formation simple et directe, naturelle pour les locuteurs natifs.</p>
+                    </div>
+                </div>
+
+                <div class="comparison-divider">
+                    <div class="vs-circle">VS</div>
+                </div>
+
+                <div class="comparison-column right">
+                    <h3 style="color: var(--color-coral);">Passé de l'Impératif</h3>
+                    
+                    <div class="comparison-item">
+                        <h4>Fréquence d'usage</h4>
+                        <p>Très rare, presque littéraire ou administratif, peu utilisé à l'oral spontané.</p>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h4>Perspective temporelle</h4>
+                        <p>Action qui doit être achevée avant un moment futur spécifié.</p>
+                        <div class="exemple-comparison">« Aie fini ton travail avant 18h. »</div>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h4>Registre</h4>
+                        <p>Soutenu, formel, littéraire ou très précis.</p>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h4>Aspect</h4>
+                        <p>Accompli — L'action doit être terminée, achevée au moment de référence.</p>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h4>Complexité</h4>
+                        <p>Formation composée nécessitant auxiliaire + participe passé, moins spontanée.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOTES IMPORTANTES -->
+        <div class="notes-section">
+            <h3>Points Essentiels à Retenir</h3>
+
+            <div class="note-item">
+                <h4>🎯 Le présent domine largement</h4>
+                <p>
+                    Dans 99% des cas, vous utiliserez le présent de l'impératif. Il couvre l'immense majorité des situations de communication, de l'ordre direct au conseil amical. Le passé reste une forme d'exception.
+                </p>
+            </div>
+
+            <div class="note-item">
+                <h4>⏰ Le passé nécessite un repère temporel</h4>
+                <p>
+                    Le passé de l'impératif ne fonctionne jamais seul : il a besoin d'un point de référence dans le futur (« avant mon retour », « quand je rentrerai », « à 18h »). Sans ce repère, la phrase perd son sens.
+                </p>
+            </div>
+
+            <div class="note-item">
+                <h4>🔄 Alternatives au passé de l'impératif</h4>
+                <p>
+                    En français courant, on préfère souvent reformuler : au lieu de « Aie terminé tes devoirs avant mon retour », on dira « Termine tes devoirs avant mon retour » ou « Il faut que tu aies terminé tes devoirs avant mon retour ».
+                </p>
+            </div>
+
+            <div class="note-item">
+                <h4>📚 Usage littéraire et formel</h4>
+                <p>
+                    Le passé de l'impératif appartient surtout aux registres soutenus : littérature classique, correspondance administrative, instructions officielles. À l'oral spontané, il surprendrait l'interlocuteur par son caractère inhabituel.
+                </p>
+            </div>
+
+            <div class="note-item">
+                <h4>⚡ Valeur d'antériorité stricte</h4>
+                <p>
+                    Le passé de l'impératif exprime toujours une antériorité par rapport à un événement futur. C'est cette nuance temporelle précise qui justifie son existence, même rare, dans la langue française.
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-logo">Língua Academy</div>
+            <div class="footer-text">Excellence en enseignement du français • Maîtrise grammaticale</div>
+        </footer>
+    </div>
+
+    <script>
+        // Générer des étoiles aléatoires pour le fond
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.opacity = Math.random() * 0.7 + 0.3;
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

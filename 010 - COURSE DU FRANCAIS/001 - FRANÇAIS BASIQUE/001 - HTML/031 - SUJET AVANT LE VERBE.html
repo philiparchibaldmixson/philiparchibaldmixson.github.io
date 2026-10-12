@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Sujet Avant le Verbe et sa Reprise | Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0575e6 0%, #021b79 50%, #00f2fe 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #002395 0%, #FFFFFF 50%, #ED2939 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        h1 {
+            font-size: 3.2em;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            color: #002395;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            color: #002395;
+            font-weight: 600;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #ffdde1 100%);
+            padding: 35px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border-left: 8px solid #ff6b9d;
+            animation: slideInLeft 0.8s ease-out;
+            box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            color: #002395;
+            font-size: 2.2em;
+            margin: 45px 0 25px 0;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #ED2939;
+            display: inline-block;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: #0575e6;
+            animation: expandWidth 1.5s ease-out forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        .section {
+            margin-bottom: 45px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .rule-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 4px solid #00d2ff;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.2);
+        }
+
+        .rule-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4);
+        }
+
+        .rule-box h3 {
+            color: #01579b;
+            font-size: 1.7em;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .rule-box h3::before {
+            content: '✨';
+            margin-right: 12px;
+            font-size: 1.3em;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.2); }
+        }
+
+        .example-container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 18px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .example {
+            padding: 18px;
+            margin: 12px 0;
+            border-radius: 10px;
+            font-size: 1.15em;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .example::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .example:hover::before {
+            left: 100%;
+        }
+
+        .example:hover {
+            transform: scale(1.03);
+        }
+
+        .example-normal {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 5px solid #4caf50;
+        }
+
+        .example-reprise {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 5px solid #ff9800;
+        }
+
+        .example-structure {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 5px solid #9c27b0;
+        }
+
+        .highlight-subject {
+            background: linear-gradient(135deg, #ffccbc 0%, #ffab91 100%);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #d84315;
+            box-shadow: 0 2px 5px rgba(216, 67, 21, 0.3);
+        }
+
+        .highlight-verb {
+            background: linear-gradient(135deg, #b3e5fc 0%, #81d4fa 100%);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #01579b;
+            box-shadow: 0 2px 5px rgba(1, 87, 155, 0.3);
+        }
+
+        .highlight-pronom {
+            background: linear-gradient(135deg, #c5e1a5 0%, #aed581 100%);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #33691e;
+            box-shadow: 0 2px 5px rgba(51, 105, 30, 0.3);
+        }
+
+        .schema {
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #01579b;
+            border: 4px solid #0288d1;
+            box-shadow: 0 8px 20px rgba(2, 136, 209, 0.3);
+        }
+
+        .schema-arrow {
+            font-size: 2em;
+            color: #ED2939;
+            margin: 0 15px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+
+        .attention-box {
+            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 4px dashed #f57c00;
+            margin: 30px 0;
+            box-shadow: 0 6px 18px rgba(245, 124, 0, 0.3);
+        }
+
+        .attention-box h3 {
+            color: #e65100;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .attention-box h3::before {
+            content: '💡';
+            margin-right: 12px;
+            font-size: 1.4em;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.5); }
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 6px solid #c62828;
+            margin: 30px 0;
+            box-shadow: 0 6px 18px rgba(198, 40, 40, 0.3);
+        }
+
+        .important-box h3 {
+            color: #c62828;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .important-box h3::before {
+            content: '⚠️';
+            margin-right: 12px;
+        }
+
+        .numero {
+            display: inline-block;
+            background: linear-gradient(135deg, #ED2939 0%, #c41230 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 12px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(237, 41, 57, 0.5);
+            font-size: 1.1em;
+        }
+
+        .liste-regles {
+            list-style: none;
+            padding: 0;
+        }
+
+        .liste-regles li {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 18px;
+            margin: 12px 0;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .liste-regles li:hover {
+            background: linear-gradient(135deg, #e8eaff 0%, #d8daff 100%);
+            transform: translateX(8px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 3px solid #1976d2;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(25, 118, 210, 0.4);
+        }
+
+        .comparison-card h4 {
+            color: #0d47a1;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            text-align: center;
+            padding: 35px;
+            font-size: 1.1em;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        .logo {
+            font-weight: bold;
+            color: #ffd700;
+            font-size: 1.3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            header {
+                padding: 40px 20px;
+            }
+
+            .comparison-table {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇫🇷 Le Sujet Avant le Verbe</h1>
+            <p class="subtitle">Position Normale et Reprise par un Pronom</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <p><strong>📌 Règle Fondamentale</strong></p>
+                <p>En français, l'ordre normal de la phrase est : <strong>SUJET + VERBE + COMPLÉMENTS</strong></p>
+                <p>Le sujet se place donc <strong>avant le verbe</strong>, sauf dans certains cas particuliers (questions, inversions stylistiques).</p>
+                <p>Parfois, pour mettre en valeur le sujet ou créer un effet d'insistance, on utilise une <strong>reprise par un pronom</strong>.</p>
+            </div>
+
+            <div class="schema">
+                <span class="highlight-subject">SUJET</span>
+                <span class="schema-arrow">→</span>
+                <span class="highlight-verb">VERBE</span>
+                <span class="schema-arrow">→</span>
+                COMPLÉMENTS
+            </div>
+
+            <div class="section">
+                <h2>Position Normale du Sujet</h2>
+
+                <div class="rule-box">
+                    <h3>Le Sujet Précède le Verbe</h3>
+                    <p>C'est la structure de base de la phrase française :</p>
+                    
+                    <div class="example-container">
+                        <div class="example example-normal">
+                            <span class="highlight-subject">Marie</span> <span class="highlight-verb">parle</span> français.
+                        </div>
+                        <div class="example example-normal">
+                            <span class="highlight-subject">Les enfants</span> <span class="highlight-verb">jouent</span> dans le jardin.
+                        </div>
+                        <div class="example example-normal">
+                            <span class="highlight-subject">Mon professeur</span> <span class="highlight-verb">explique</span> la leçon.
+                        </div>
+                        <div class="example example-normal">
+                            <span class="highlight-subject">Nous</span> <span class="highlight-verb">aimons</span> beaucoup ce film.
+                        </div>
+                        <div class="example example-normal">
+                            <span class="highlight-subject">Le chat</span> <span class="highlight-verb">dort</span> sur le canapé.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rule-box">
+                    <h3>Types de Sujets</h3>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-card">
+                            <h4>Sujet Nom</h4>
+                            <div class="example example-structure">
+                                <span class="highlight-subject">Pierre</span> <span class="highlight-verb">travaille</span> ici.
+                            </div>
+                            <div class="example example-structure">
+                                <span class="highlight-subject">La maison</span> <span class="highlight-verb">est</span> grande.
+                            </div>
+                            <div class="example example-structure">
+                                <span class="highlight-subject">Mes amis</span> <span class="highlight-verb">arrivent</span> demain.
+                            </div>
+                        </div>
+
+                        <div class="comparison-card">
+                            <h4>Sujet Pronom</h4>
+                            <div class="example example-structure">
+                                <span class="highlight-subject">Il</span> <span class="highlight-verb">travaille</span> ici.
+                            </div>
+                            <div class="example example-structure">
+                                <span class="highlight-subject">Elle</span> <span class="highlight-verb">est</span> grande.
+                            </div>
+                            <div class="example example-structure">
+                                <span class="highlight-subject">Ils</span> <span class="highlight-verb">arrivent</span> demain.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>La Reprise du Sujet par un Pronom</h2>
+
+                <div class="intro">
+                    <p><strong>🎯 Qu'est-ce que c'est ?</strong></p>
+                    <p>On reprend le sujet nominal par un pronom personnel pour créer un effet d'<strong>emphase</strong> ou d'<strong>insistance</strong>. Cette construction est très courante à l'oral.</p>
+                </div>
+
+                <div class="schema">
+                    <span class="highlight-subject">SUJET NOM</span>
+                    <span class="schema-arrow">+</span>
+                    <span class="highlight-pronom">PRONOM</span>
+                    <span class="schema-arrow">+</span>
+                    <span class="highlight-verb">VERBE</span>
+                </div>
+
+                <div class="rule-box">
+                    <h3><span class="numero">1</span>Reprise Simple du Sujet</h3>
+                    <p>Le sujet nominal est repris par un pronom sujet :</p>
+                    
+                    <div class="example-container">
+                        <div class="example example-reprise">
+                            <span class="highlight-subject">Marie</span>, <span class="highlight-pronom">elle</span> <span class="highlight-verb">parle</span> très bien français.
+                        </div>
+                        <div class="example example-reprise">
+                            <span class="highlight-subject">Mon frère</span>, <span class="highlight-pronom">il</span> <span class="highlight-verb">habite</span> à Paris.
+                        </div>
+                        <div class="example example-reprise">
+                            <span class="highlight-subject">Les professeurs</span>, <span class="highlight-pronom">ils</span> <span class="highlight-verb">sont</span> toujours en retard.
+                        </div>
+                        <div class="example example-reprise">
+                            <span class="highlight-subject">Ta sœur</span>, <span class="highlight-pronom">elle</span> <span class="highlight-verb">a</span> réussi son examen ?
+                        </div>
+                        <div class="example example-reprise">
+                            <span class="highlight-subject">Ces livres</span>, <span class="highlight-pronom">ils</span> <span class="highlight-verb">coûtent</span> très cher.
+                        </div>
+                    </div>
+
+                    <div class="attention-box">
+                        <h3>Pourquoi utiliser cette structure ?</h3>
+                        <p>✓ Pour <strong>insister</strong> sur le sujet</p>
+                        <p>✓ Pour <strong>mettre en valeur</strong> qui fait l'action</p>
+                        <p>✓ Style <strong>conversationnel et oral</strong></p>
+                        <p>✓ Pour créer un <strong>contraste</strong> avec d'autres personnes</p>
+                    </div>
+                </div>
+
+                <div class="rule-box">
+                    <h3><span class="numero">2</span>Reprise avec Virgule</h3>
+                    <p>À l'écrit, on sépare le sujet et le pronom par une virgule :</p>
+                    
+                    <div class="example-container">
+                        <div class="example example-reprise">
+                            <span class="highlight-subject">Paul</span>, <span class="highlight-pronom">il</span> <span class="highlight-verb">viendra</span> demain.
+                        </div>
+                        <div class="example example-reprise">
+                            <span class="highlight-subject">Cette fille</span>, <span class="highlight-pronom">elle</span> <span class="highlight-verb">est</span> très intelligente.
+                        </div>
+                        <div class="example example-reprise">
+                            <span class="highlight-subject">Mes parents</span>, <span class="highlight-pronom">ils</span> <span class="highlight-verb">voyagent</span> beaucoup.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rule-box">
+                    <h3><span class="numero">3</span>Reprise pour Contraster</h3>
+                    <p>On utilise souvent la reprise pour opposer différents sujets :</p>
+                    
+                    <div class="example-container">
+                        <div class="example example-reprise">
+                            <span class="highlight-subject">Moi</span>, <span class="highlight-pronom">je</span> <span class="highlight-verb">préfère</span> le thé, mais <span class="highlight-subject">lui</span>, <span class="highlight-pronom">il</span> <span class="highlight-verb">aime</span> le café.
+                        </div>
+                        <div class="example example-reprise">
+                            <span class="highlight-subject">Les filles</span>, <span class="highlight-pronom">elles</span> <span class="highlight-verb">étudient</span>, mais <span class="highlight-subject">les garçons</span>, <span class="highlight-pronom">ils</span> <span class="highlight-verb">jouent</span>.
+                        </div>
+                        <div class="example example-reprise">
+                            <span class="highlight-subject">Toi</span>, <span class="highlight-pronom">tu</span> <span class="highlight-verb">restes</span> ici ; <span class="highlight-subject">nous</span>, <span class="highlight-pronom">nous</span> <span class="highlight-verb">partons</span>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rule-box">
+                    <h3><span class="numero">4</span>Reprise Familière (Oral)</h3>
+                    <p>À l'oral familier, cette structure est très fréquente :</p>
+                    
+                    <div class="example-container">
+                        <div class="example example-reprise">
+                            <span class="highlight-subject">Ta voiture</span>, <span class="highlight-pronom">elle</span> <span class="highlight-verb">marche</span> bien ?
+                        </div>
+                        <div class="example example-reprise">
+                            <span class="highlight-subject">Le patron</span>, <span class="highlight-pronom">il</span> <span class="highlight-verb">a dit</span> quoi ?
+                        </div>
+                        <div class="example example-reprise">
+                            <span class="highlight-subject">Tes amis</span>, <span class="highlight-pronom">ils</span> <span class="highlight-verb">viennent</span> ce soir ?
+                        </div>
+                        <div class="example example-reprise">
+                            <span class="highlight-subject">Ce film</span>, <span class="highlight-pronom">il</span> <span class="highlight-verb">est</span> bien ?
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Tableau de Correspondance</h2>
+
+                <div class="comparison-table">
+                    <div class="comparison-card">
+                        <h4>Sujet Nominal</h4>
+                        <div class="example example-structure">
+                            Pierre<br>
+                            Marie<br>
+                            Mon père<br>
+                            Les enfants<br>
+                            Mes sœurs<br>
+                            Le chat<br>
+                            Cette maison
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h4>Pronom de Reprise</h4>
+                        <div class="example example-structure">
+                            → il<br>
+                            → elle<br>
+                            → il<br>
+                            → ils<br>
+                            → elles<br>
+                            → il<br>
+                            → elle
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Comparaison des Deux Structures</h2>
+
+                <div class="comparison-table">
+                    <div class="comparison-card">
+                        <h4>✅ Sans Reprise (Neutre)</h4>
+                        <div class="example example-normal">
+                            Marie parle français.
+                        </div>
+                        <div class="example example-normal">
+                            Les enfants jouent dehors.
+                        </div>
+                        <div class="example example-normal">
+                            Mon frère habite à Lyon.
+                        </div>
+                        <p style="margin-top: 15px; color: #0d47a1;"><strong>Usage :</strong> Formel, écrit, neutre</p>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h4>💬 Avec Reprise (Emphatique)</h4>
+                        <div class="example example-reprise">
+                            Marie, elle parle français.
+                        </div>
+                        <div class="example example-reprise">
+                            Les enfants, ils jouent dehors.
+                        </div>
+                        <div class="example example-reprise">
+                            Mon frère, il habite à Lyon.
+                        </div>
+                        <p style="margin-top: 15px; color: #0d47a1;"><strong>Usage :</strong> Oral, familier, emphatique</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="important-box">
+                <h3>Attention aux Registres de Langue !</h3>
+                <ul class="liste-regles">
+                    <li><strong>🎓 Registre soutenu/écrit :</strong> Évitez la reprise → "Pierre travaille ici."</li>
+                    <li><strong>💼 Registre standard :</strong> Reprise acceptable pour l'emphase → "Pierre, il travaille vraiment dur."</li>
+                    <li><strong>💬 Registre familier/oral :</strong> Reprise très courante → "Pierre, il est où ?"</li>
+                    <li><strong>📝 Dans un texte formel :</strong> N'utilisez pas la reprise, sauf pour un effet stylistique précis</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Règles Importantes</h2>
+                
+                <ul class="liste-regles">
+                    <li>✨ <strong>Accord du pronom :</strong> Le pronom de reprise doit s'accorder en genre et en nombre avec le sujet nominal</li>
+                    <li>✨ <strong>Virgule à l'écrit :</strong> Toujours mettre une virgule entre le sujet et le pronom de reprise</li>
+                    <li>✨ <strong>Position fixe :</strong> Le sujet nominal vient toujours en premier, puis le pronom</li>
+                    <li>✨ <strong>Emphase :</strong> Cette structure met l'accent sur QUI fait l'action</li>
+                    <li>✨ <strong>Oral vs Écrit :</strong> Beaucoup plus fréquent à l'oral qu'à l'écrit formel</li>
+                    <li>✨ <strong>Contraste :</strong> Très utile pour opposer différents sujets dans la même phrase</li>
+                </ul>
+            </div>
+
+            <div class="attention-box">
+                <h3>Astuce Pratique</h3>
+                <p>La reprise du sujet par un pronom est comme mettre un projecteur sur le sujet ! C'est dire : "Attention, c'est LUI/ELLE qui fait ça !"</p>
+                <div class="example example-reprise" style="margin-top: 15px;">
+                    <strong>Sans emphase :</strong> Pierre a gagné le match.<br>
+                    <strong>Avec emphase :</strong> Pierre, il a gagné le match ! (sous-entendu : c'est lui et pas un autre)
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p class="logo">🎓 Língua Academy</p>
+            <p>Maîtrisez la grammaire française avec excellence</p>
+            <p>© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

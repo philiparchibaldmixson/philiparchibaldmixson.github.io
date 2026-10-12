@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Accord de l'Adjectif avec Plusieurs Noms - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px),
+                radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+            animation: moveBackground 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.3em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        h1 {
+            color: white;
+            font-size: 3em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 3px 3px 6px rgba(0,0,0,0.3); }
+            to { text-shadow: 3px 3px 20px rgba(255,255,255,0.6); }
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.5em;
+            font-style: italic;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #f093fb);
+            background-size: 200% 100%;
+            animation: gradientMove 3s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #f093fb;
+            position: relative;
+        }
+
+        h2::after {
+            content: '✨';
+            margin-left: 15px;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin: 35px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3::before {
+            content: '📌';
+            font-size: 1.2em;
+        }
+
+        .rule-box {
+            background: linear-gradient(135deg, #667eea15, #f093fb15);
+            border-left: 6px solid #667eea;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .rule-title {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .rule-title::before {
+            content: '▶';
+            color: #f093fb;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #4ecdc415, #45b7d115);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #4ecdc4;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.2);
+        }
+
+        .example {
+            color: #2d3748;
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .example::before {
+            content: '💬';
+            position: absolute;
+            left: 0;
+            font-size: 1.1em;
+        }
+
+        .correct {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .incorrect {
+            color: #e74c3c;
+            font-weight: bold;
+            text-decoration: line-through;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffeb3b50 0%, #ffc10750 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #c0392b;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #ff6b6b15, #ff8e5315);
+            border: 3px dashed #ff6b6b;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .note-box::before {
+            content: '💡 À NOTER';
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .note-box p {
+            margin-top: 15px;
+            color: #2d3748;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .schema-box {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 3px solid #667eea;
+        }
+
+        .schema-title {
+            text-align: center;
+            color: #667eea;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .schema-title::before,
+        .schema-title::after {
+            content: '═══';
+            color: #f093fb;
+        }
+
+        .schema-content {
+            display: grid;
+            gap: 20px;
+        }
+
+        .schema-item {
+            background: linear-gradient(135deg, #667eea10, #f093fb10);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #764ba2;
+            transition: all 0.3s ease;
+        }
+
+        .schema-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .schema-item strong {
+            color: #667eea;
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        footer p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .emoji-decoration {
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.6em;
+            }
+            
+            h3 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🎓 Língua Academy</div>
+            <h1>L'Accord de l'Adjectif</h1>
+            <p class="subtitle">Avec Plusieurs Noms</p>
+        </header>
+
+        <div class="content-card">
+            <h2>Principe Général</h2>
+            <p style="font-size: 1.2em; line-height: 1.8; color: #2d3748; margin-bottom: 20px;">
+                Lorsqu'un adjectif qualifie <strong style="color: #667eea;">plusieurs noms</strong>, son accord dépend de plusieurs facteurs : 
+                la position des noms, leur genre, et parfois même le sens de la phrase. Découvrons ensemble toutes les règles !
+            </p>
+
+            <h3>Règle 1 : Noms de Même Genre</h3>
+            <div class="rule-box">
+                <div class="rule-title">Masculin + Masculin = Adjectif Masculin Pluriel</div>
+                <div class="example-box">
+                    <div class="example">
+                        Un <span class="highlight">livre</span> et un <span class="highlight">cahier</span> <span class="correct">neufs</span>
+                    </div>
+                    <div class="example">
+                        Mon <span class="highlight">père</span> et mon <span class="highlight">frère</span> sont <span class="correct">contents</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <div class="rule-title">Féminin + Féminin = Adjectif Féminin Pluriel</div>
+                <div class="example-box">
+                    <div class="example">
+                        Une <span class="highlight">robe</span> et une <span class="highlight">jupe</span> <span class="correct">neuves</span>
+                    </div>
+                    <div class="example">
+                        La <span class="highlight">mer</span> et la <span class="highlight">montagne</span> sont <span class="correct">belles</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Règle 2 : Noms de Genres Différents</h3>
+            <div class="rule-box">
+                <div class="rule-title">Masculin + Féminin = Adjectif Masculin Pluriel</div>
+                <p style="margin: 15px 0; font-size: 1.1em; color: #555;">
+                    Le masculin l'emporte sur le féminin (accord grammatical traditionnel).
+                </p>
+                <div class="example-box">
+                    <div class="example">
+                        Un <span class="highlight">garçon</span> et une <span class="highlight">fille</span> <span class="correct">intelligents</span>
+                    </div>
+                    <div class="example">
+                        Le <span class="highlight">chien</span> et la <span class="highlight">chatte</span> sont <span class="correct">noirs</span>
+                    </div>
+                    <div class="example">
+                        <span class="incorrect">Un garçon et une fille intelligentes</span> ❌
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>Évolution contemporaine :</strong> Dans certains contextes, notamment dans l'écriture inclusive, 
+                    on peut accorder avec le nom le plus proche ou utiliser des formulations alternatives. Cependant, 
+                    la règle grammaticale standard reste l'accord au masculin pluriel.
+                </p>
+            </div>
+
+            <h3>Règle 3 : Position de l'Adjectif</h3>
+            <div class="rule-box">
+                <div class="rule-title">Adjectif Placé AVANT les Noms</div>
+                <p style="margin: 15px 0; font-size: 1.1em; color: #555;">
+                    L'adjectif peut s'accorder avec le nom le plus proche ou avec l'ensemble des noms.
+                </p>
+                <div class="example-box">
+                    <div class="example">
+                        De <span class="correct">magnifiques</span> <span class="highlight">roses</span> et <span class="highlight">tulipes</span>
+                    </div>
+                    <div class="example">
+                        Un <span class="correct">grand</span> <span class="highlight">courage</span> et <span class="highlight">patience</span>
+                    </div>
+                    <div class="example">
+                        De <span class="correct">belles</span> <span class="highlight">fleurs</span> et <span class="highlight">arbres</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <div class="rule-title">Adjectif Placé APRÈS les Noms</div>
+                <p style="margin: 15px 0; font-size: 1.1em; color: #555;">
+                    L'adjectif s'accorde obligatoirement avec l'ensemble des noms (pluriel).
+                </p>
+                <div class="example-box">
+                    <div class="example">
+                        Des <span class="highlight">roses</span> et des <span class="highlight">tulipes</span> <span class="correct">magnifiques</span>
+                    </div>
+                    <div class="example">
+                        Un <span class="highlight">courage</span> et une <span class="highlight">patience</span> <span class="correct">admirables</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Règle 4 : Noms de Sens Proche ou Synonymes</h3>
+            <div class="rule-box">
+                <div class="rule-title">Accord au Singulier Possible</div>
+                <p style="margin: 15px 0; font-size: 1.1em; color: #555;">
+                    Quand les noms sont synonymes ou très proches en sens, l'adjectif peut rester au singulier.
+                </p>
+                <div class="example-box">
+                    <div class="example">
+                        Une <span class="highlight">joie</span> et un <span class="highlight">bonheur</span> <span class="correct">immense</span>
+                    </div>
+                    <div class="example">
+                        Une <span class="highlight">douleur</span> et une <span class="highlight">souffrance</span> <span class="correct">terrible</span>
+                    </div>
+                    <div class="example">
+                        Le <span class="highlight">calme</span> et la <span class="highlight">sérénité</span> <span class="correct">parfaite</span> (ou <span class="correct">parfaits</span>)
+                    </div>
+                </div>
+            </div>
+
+            <h3>Règle 5 : Noms Coordonnés par « ou »</h3>
+            <div class="rule-box">
+                <div class="rule-title">Accord Selon le Sens</div>
+                <div class="example-box">
+                    <div class="example">
+                        <strong>Exclusion (un seul choix) :</strong><br>
+                        Un <span class="highlight">thé</span> ou un <span class="highlight">café</span> <span class="correct">chaud</span> (singulier, car un seul sera choisi)
+                    </div>
+                    <div class="example">
+                        <strong>Inclusion (les deux) :</strong><br>
+                        Le <span class="highlight">père</span> ou la <span class="highlight">mère</span> sont <span class="correct">responsables</span> (pluriel, car les deux le sont)
+                    </div>
+                </div>
+            </div>
+
+            <h3>Règle 6 : Plusieurs Adjectifs pour Un Nom</h3>
+            <div class="rule-box">
+                <div class="rule-title">Accord de Chaque Adjectif</div>
+                <div class="example-box">
+                    <div class="example">
+                        Les littératures <span class="correct">française</span> et <span class="correct">anglaise</span>
+                    </div>
+                    <div class="example">
+                        Les langues <span class="correct">chinoise</span>, <span class="correct">japonaise</span> et <span class="correct">coréenne</span>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Schéma Récapitulatif</h2>
+            <div class="schema-box">
+                <div class="schema-title">Guide Pratique d'Accord</div>
+                <div class="schema-content">
+                    <div class="schema-item">
+                        <strong>🔵 Même genre</strong>
+                        Masculin + Masculin → Masculin pluriel<br>
+                        Féminin + Féminin → Féminin pluriel
+                    </div>
+                    <div class="schema-item">
+                        <strong>🔵 Genres différents</strong>
+                        Masculin + Féminin → Masculin pluriel
+                    </div>
+                    <div class="schema-item">
+                        <strong>🔵 Adjectif avant</strong>
+                        Accord possible avec le nom le plus proche
+                    </div>
+                    <div class="schema-item">
+                        <strong>🔵 Adjectif après</strong>
+                        Accord obligatoire au pluriel avec tous les noms
+                    </div>
+                    <div class="schema-item">
+                        <strong>🔵 Synonymes</strong>
+                        Accord au singulier possible (sens collectif)
+                    </div>
+                    <div class="schema-item">
+                        <strong>🔵 Coordonnés par « ou »</strong>
+                        Accord selon le sens (exclusion ou inclusion)
+                    </div>
+                </div>
+            </div>
+
+            <h2>Exercices Pratiques</h2>
+            <div class="example-box">
+                <h4 style="color: #667eea; font-size: 1.4em; margin-bottom: 15px;">Accordez correctement les adjectifs :</h4>
+                <div class="example">1. Une table et une chaise (neuf) ___________</div>
+                <div class="example">2. Le courage et la patience (admirable) ___________</div>
+                <div class="example">3. De (beau) ___________ jardins et parcs</div>
+                <div class="example">4. Un livre ou un film (intéressant) ___________</div>
+                <div class="example">5. Les cuisines (français) ___________ et (italien) ___________</div>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>💡 Conseil pratique :</strong> En cas de doute, identifiez d'abord le genre et le nombre 
+                    de chaque nom, puis appliquez la règle correspondante à la situation. L'accord au masculin pluriel 
+                    pour des noms de genres différents reste la règle la plus courante !
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p><span class="emoji-decoration">🎓</span> <strong>Língua Academy</strong> <span class="emoji-decoration">🎓</span></p>
+            <p>Maîtrisez la grammaire française avec style !</p>
+            <p style="font-size: 0.9em; opacity: 0.8; margin-top: 15px;">© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

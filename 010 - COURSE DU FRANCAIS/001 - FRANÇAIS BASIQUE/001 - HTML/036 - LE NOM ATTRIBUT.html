@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Nom Attribut | Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 35px;
+            box-shadow: 0 35px 100px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #002395 0%, #FFFFFF 50%, #ED2939 100%);
+            color: white;
+            padding: 75px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🎓';
+            position: absolute;
+            font-size: 30em;
+            opacity: 0.06;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            animation: rotate 50s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+            color: #002395;
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            color: #002395;
+            font-weight: 600;
+        }
+
+        .content {
+            padding: 60px 50px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 42px;
+            border-radius: 22px;
+            margin-bottom: 50px;
+            border-left: 12px solid #e17055;
+            animation: slideInLeft 0.9s ease-out;
+            box-shadow: 0 12px 35px rgba(225, 112, 85, 0.3);
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-80px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .intro p {
+            font-size: 1.3em;
+            color: #2d3436;
+            margin-bottom: 15px;
+        }
+
+        .intro strong {
+            color: #d63031;
+        }
+
+        h2 {
+            color: #002395;
+            font-size: 2.7em;
+            margin: 55px 0 32px 0;
+            padding-bottom: 20px;
+            border-bottom: 6px solid #ED2939;
+            display: inline-block;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #f093fb);
+            animation: expandWidth 2s ease-out forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        .section {
+            margin-bottom: 55px;
+            animation: fadeInUp 0.9s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 42px;
+            border-radius: 22px;
+            margin: 38px 0;
+            border: 6px solid #00d2ff;
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.3);
+        }
+
+        .definition-box h3 {
+            color: #01579b;
+            font-size: 2.3em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        .definition-box h3::before {
+            content: '📖';
+            margin-right: 18px;
+            font-size: 1.5em;
+        }
+
+        .definition-box p {
+            font-size: 1.25em;
+            color: #2d3436;
+            line-height: 1.9;
+        }
+
+        .schema-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 35px 0;
+            text-align: center;
+            border: 5px solid #4338ca;
+            box-shadow: 0 12px 35px rgba(103, 126, 234, 0.5);
+        }
+
+        .schema-content {
+            font-size: 1.6em;
+            font-weight: bold;
+            line-height: 2.3;
+        }
+
+        .arrow {
+            font-size: 2.5em;
+            margin: 0 20px;
+            animation: bounce 2.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .rule-card {
+            background: linear-gradient(135d, #e0f7fa 0%, #b2ebf2 100%);
+            padding: 42px;
+            border-radius: 22px;
+            margin: 38px 0;
+            border-left: 10px solid #00acc1;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 172, 193, 0.3);
+        }
+
+        .rule-card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 25px 60px rgba(0, 172, 193, 0.5);
+        }
+
+        .rule-card h3 {
+            color: #006064;
+            font-size: 2.2em;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+        }
+
+        .rule-card h3 .icon {
+            font-size: 1.7em;
+            margin-right: 18px;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .numero {
+            display: inline-block;
+            background: linear-gradient(135deg, #ED2939 0%, #c41230 100%);
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 55px;
+            margin-right: 18px;
+            font-weight: bold;
+            box-shadow: 0 6px 20px rgba(237, 41, 57, 0.6);
+            font-size: 1.4em;
+        }
+
+        .example-container {
+            background: white;
+            padding: 32px;
+            border-radius: 18px;
+            margin: 28px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .example {
+            padding: 24px;
+            margin: 18px 0;
+            border-radius: 14px;
+            font-size: 1.3em;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .example::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .example:hover::before {
+            left: 100%;
+        }
+
+        .example:hover {
+            transform: scale(1.05);
+        }
+
+        .example-attribut {
+            background: linear-gradient(135deg, #c3fdff 0%, #89f7fe 100%);
+            border-left: 7px solid #00bcd4;
+        }
+
+        .example-type {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-left: 7px solid #e17055;
+        }
+
+        .highlight-sujet {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            padding: 5px 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 3px 10px rgba(196, 69, 105, 0.5);
+        }
+
+        .highlight-verbe {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            padding: 5px 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 3px 10px rgba(108, 92, 231, 0.5);
+        }
+
+        .highlight-attribut {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            padding: 5px 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 3px 10px rgba(9, 132, 227, 0.5);
+        }
+
+        .verbes-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 35px;
+            border-radius: 18px;
+            margin: 35px 0;
+            border: 5px solid #9c27b0;
+            box-shadow: 0 10px 30px rgba(156, 39, 176, 0.3);
+        }
+
+        .verbes-box h4 {
+            color: #4a148c;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .verbes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .verbe-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #4a148c;
+            border: 3px solid #9c27b0;
+            transition: all 0.3s ease;
+        }
+
+        .verbe-item:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(156, 39, 176, 0.4);
+        }
+
+        .attention-box {
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe066 100%);
+            padding: 35px;
+            border-radius: 18px;
+            border: 5px dashed #f39c12;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(243, 156, 18, 0.3);
+        }
+
+        .attention-box h3 {
+            color: #d35400;
+            font-size: 1.9em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .attention-box h3::before {
+            content: '💡';
+            margin-right: 18px;
+            font-size: 1.6em;
+            animation: glow 2.5s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { 
+                filter: brightness(1) drop-shadow(0 0 12px gold); 
+                transform: scale(1);
+            }
+            50% { 
+                filter: brightness(1.6) drop-shadow(0 0 30px gold); 
+                transform: scale(1.2);
+            }
+        }
+
+        .comparison-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+            margin: 35px 0;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 32px;
+            border-radius: 18px;
+            border: 5px solid #1976d2;
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 20px rgba(25, 118, 210, 0.2);
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(25, 118, 210, 0.5);
+        }
+
+        .comparison-card h4 {
+            color: #0d47a1;
+            font-size: 1.6em;
+            margin-bottom: 22px;
+            text-align: center;
+            border-bottom: 4px solid #1976d2;
+            padding-bottom: 15px;
+        }
+
+        .liste-regles {
+            list-style: none;
+            padding: 0;
+        }
+
+        .liste-regles li {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            padding: 24px;
+            margin: 20px 0;
+            border-radius: 14px;
+            border-left: 7px solid #667eea;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-size: 1.2em;
+        }
+
+        .liste-regles li:hover {
+            background: linear-gradient(135deg, #e8eaff 0%, #d8daff 100%);
+            transform: translateX(15px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        .question-box {
+            background: linear-gradient(135deg, #ffecb3 0%, #ffe082 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 6px solid #ffa000;
+            font-size: 1.2em;
+            color: #e65100;
+        }
+
+        .question-box::before {
+            content: '❓ ';
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .answer-box {
+            background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+            padding: 22px;
+            border-radius: 12px;
+            margin: 18px 0;
+            border-left: 6px solid #388e3c;
+            font-size: 1.2em;
+            color: #1b5e20;
+        }
+
+        .answer-box::before {
+            content: '✅ ';
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            padding: 35px;
+            border-radius: 18px;
+            border-left: 10px solid #e53935;
+            margin: 38px 0;
+            box-shadow: 0 10px 30px rgba(229, 57, 53, 0.3);
+        }
+
+        .important-box h3 {
+            color: #c62828;
+            font-size: 1.9em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .important-box h3::before {
+            content: '⚠️';
+            margin-right: 18px;
+            font-size: 1.5em;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            text-align: center;
+            padding: 48px;
+            font-size: 1.2em;
+        }
+
+        footer p {
+            margin: 12px 0;
+        }
+
+        .logo {
+            font-weight: bold;
+            color: #ffd700;
+            font-size: 1.6em;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .content {
+                padding: 40px 25px;
+            }
+
+            header {
+                padding: 50px 25px;
+            }
+
+            .comparison-table {
+                grid-template-columns: 1fr;
+            }
+
+            .verbes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇫🇷 Le Nom Attribut</h1>
+            <p class="subtitle">Attribut du Sujet et Attribut du COD</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <p><strong>🎯 Qu'est-ce qu'un attribut ?</strong></p>
+                <p>L'attribut est un mot ou un groupe de mots qui <strong>exprime une qualité, une caractéristique ou une manière d'être</strong> attribuée au sujet (ou au COD).</p>
+                <p>Quand l'attribut est un <strong>nom</strong>, on l'appelle <strong>nom attribut</strong>. Il se distingue de l'adjectif attribut.</p>
+            </div>
+
+            <div class="section">
+                <h2>Le Nom Attribut du Sujet</h2>
+
+                <div class="definition-box">
+                    <h3>Définition</h3>
+                    <p>Le <strong>nom attribut du sujet</strong> est un nom qui caractérise ou identifie le sujet par l'intermédiaire d'un verbe d'état (être, paraître, sembler, devenir, rester, etc.).</p>
+                    <p style="margin-top: 15px;">Il fait partie du <strong>groupe verbal</strong> et ne peut pas être supprimé sans rendre la phrase incorrecte.</p>
+                </div>
+
+                <div class="schema-box">
+                    <div class="schema-content">
+                        <span class="highlight-sujet">SUJET</span>
+                        <span class="arrow">+</span>
+                        <span class="highlight-verbe">VERBE D'ÉTAT</span>
+                        <span class="arrow">+</span>
+                        <span class="highlight-attribut">NOM ATTRIBUT</span>
+                    </div>
+                </div>
+
+                <div class="rule-card">
+                    <h3><span class="numero">1</span><span class="icon">✨</span>Structure avec Verbe ÊTRE</h3>
+                    
+                    <p style="font-size: 1.25em; margin-bottom: 25px; color: #006064;">
+                        Le verbe <strong>être</strong> est le verbe d'état le plus courant. Il établit une égalité ou une identification entre le sujet et l'attribut.
+                    </p>
+
+                    <div class="example-container">
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Pierre</span> <span class="highlight-verbe">est</span> <span class="highlight-attribut">médecin</span>.
+                        </div>
+                        <div class="question-box">
+                            Pierre est quoi ? → médecin (nom attribut du sujet)
+                        </div>
+
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Marie</span> <span class="highlight-verbe">est</span> <span class="highlight-attribut">professeure</span>.
+                        </div>
+
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Mon père</span> <span class="highlight-verbe">est</span> <span class="highlight-attribut">ingénieur</span>.
+                        </div>
+
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Cette ville</span> <span class="highlight-verbe">est</span> <span class="highlight-attribut">la capitale</span>.
+                        </div>
+
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Le chat</span> <span class="highlight-verbe">est</span> <span class="highlight-attribut">un animal domestique</span>.
+                        </div>
+
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Paris</span> <span class="highlight-verbe">est</span> <span class="highlight-attribut">la ville lumière</span>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rule-card">
+                    <h3><span class="numero">2</span><span class="icon">🔄</span>Avec Autres Verbes d'État</h3>
+                    
+                    <p style="font-size: 1.25em; margin-bottom: 25px; color: #006064;">
+                        D'autres verbes peuvent introduire un nom attribut : <strong>devenir, rester, demeurer, paraître, sembler, avoir l'air, passer pour</strong>, etc.
+                    </p>
+
+                    <div class="example-container">
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Il</span> <span class="highlight-verbe">est devenu</span> <span class="highlight-attribut">président</span>.
+                        </div>
+                        <div class="answer-box">
+                            Le verbe "devenir" introduit le nom attribut "président"
+                        </div>
+
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Elle</span> <span class="highlight-verbe">reste</span> <span class="highlight-attribut">ma meilleure amie</span>.
+                        </div>
+
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Tu</span> <span class="highlight-verbe">sembles</span> <span class="highlight-attribut">un bon élève</span>.
+                        </div>
+
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Nous</span> <span class="highlight-verbe">demeurons</span> <span class="highlight-attribut">des citoyens responsables</span>.
+                        </div>
+
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Elle</span> <span class="highlight-verbe">a l'air</span> <span class="highlight-attribut">d'une princesse</span>.
+                        </div>
+
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Il</span> <span class="highlight-verbe">passe pour</span> <span class="highlight-attribut">un expert</span>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="verbes-box">
+                    <h4>🎯 Verbes d'État Introduisant un Nom Attribut</h4>
+                    
+                    <div class="verbes-grid">
+                        <div class="verbe-item">être</div>
+                        <div class="verbe-item">devenir</div>
+                        <div class="verbe-item">rester</div>
+                        <div class="verbe-item">demeurer</div>
+                        <div class="verbe-item">paraître</div>
+                        <div class="verbe-item">sembler</div>
+                        <div class="verbe-item">avoir l'air</div>
+                        <div class="verbe-item">passer pour</div>
+                        <div class="verbe-item">se révéler</div>
+                        <div class="verbe-item">se montrer</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Le Nom Attribut du COD</h2>
+
+                <div class="definition-box">
+                    <h3>Définition</h3>
+                    <p>Le <strong>nom attribut du COD</strong> est un nom qui caractérise le complément d'objet direct. Il est introduit par certains verbes comme <strong>appeler, nommer, élire, juger, estimer, trouver, rendre</strong>, etc.</p>
+                    <p style="margin-top: 15px;">Structure : SUJET + VERBE + COD + <strong>NOM ATTRIBUT DU COD</strong></p>
+                </div>
+
+                <div class="schema-box">
+                    <div class="schema-content">
+                        <span class="highlight-sujet">SUJET</span>
+                        <span class="arrow">+</span>
+                        <span class="highlight-verbe">VERBE</span>
+                        <span class="arrow">+</span>
+                        <span style="background: linear-gradient(135deg, #55efc4 0%, #00b894 100%); padding: 5px 14px; border-radius: 8px; color: white;">COD</span>
+                        <span class="arrow">+</span>
+                        <span class="highlight-attribut">ATTRIBUT DU COD</span>
+                    </div>
+                </div>
+
+                <div class="rule-card">
+                    <h3><span class="numero">3</span><span class="icon">👑</span>Verbes avec Attribut du COD</h3>
+
+                    <div class="example-container">
+                        <div class="example example-type">
+                            <span class="highlight-sujet">On</span> <span class="highlight-verbe">a élu</span> <span style="color: #00b894; font-weight: bold;">Pierre</span> <span class="highlight-attribut">président</span>.
+                        </div>
+                        <div class="question-box">
+                            On a élu Pierre (COD) quoi ? → président (attribut du COD Pierre)
+                        </div>
+
+                        <div class="example example-type">
+                            <span class="highlight-sujet">Ils</span> <span class="highlight-verbe">ont nommé</span> <span style="color: #00b894; font-weight: bold;">Marie</span> <span class="highlight-attribut">directrice</span>.
+                        </div>
+
+                        <div class="example example-type">
+                            <span class="highlight-sujet">Je</span> <span class="highlight-verbe">trouve</span> <span style="color: #00b894; font-weight: bold;">cette solution</span> <span class="highlight-attribut">un miracle</span>.
+                        </div>
+
+                        <div class="example example-type">
+                            <span class="highlight-sujet">On</span> <span class="highlight-verbe">l'appelle</span> <span class="highlight-attribut">le roi des forêts</span>.
+                        </div>
+
+                        <div class="example example-type">
+                            <span class="highlight-sujet">Nous</span> <span class="highlight-verbe">considérons</span> <span style="color: #00b894; font-weight: bold;">Paul</span> <span class="highlight-attribut">un ami</span>.
+                        </div>
+
+                        <div class="example example-type">
+                            <span class="highlight-sujet">Elle</span> <span class="highlight-verbe">traite</span> <span style="color: #00b894; font-weight: bold;">son chien</span> <span class="highlight-attribut">un membre de la famille</span>.
+                        </div>
+                    </div>
+
+                    <div class="verbes-box">
+                        <h4>🎯 Verbes avec Attribut du COD</h4>
+                        
+                        <div class="verbes-grid">
+                            <div class="verbe-item">appeler</div>
+                            <div class="verbe-item">nommer</div>
+                            <div class="verbe-item">élire</div>
+                            <div class="verbe-item">juger</div>
+                            <div class="verbe-item">estimer</div>
+                            <div class="verbe-item">trouver</div>
+                            <div class="verbe-item">rendre</div>
+                            <div class="verbe-item">considérer</div>
+                            <div class="verbe-item">traiter</div>
+                            <div class="verbe-item">faire</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Caractéristiques du Nom Attribut</h2>
+
+                <div class="rule-card">
+                    <h3><span class="numero">4</span><span class="icon">📋</span>Propriétés Importantes</h3>
+
+                    <ul class="liste-regles">
+                        <li>🔹 <strong>Ne peut pas être supprimé :</strong> L'attribut fait partie intégrante du groupe verbal</li>
+                        <li>🔹 <strong>Caractérise le sujet ou le COD :</strong> Il exprime une qualité, une identité, une fonction</li>
+                        <li>🔹 <strong>Introduit par un verbe d'état :</strong> être, devenir, paraître, sembler, rester, etc.</li>
+                        <li>🔹 <strong>Peut être précédé d'un article :</strong> Il est médecin / Il est un médecin réputé</li>
+                        <li>🔹 <strong>Accord possible :</strong> Selon le contexte, peut s'accorder avec le sujet/COD</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-table">
+                    <div class="comparison-card">
+                        <h4>✅ Phrase Correcte</h4>
+                        <div class="example example-attribut">
+                            Pierre <strong>est</strong> médecin.
+                        </div>
+                        <p style="margin-top: 15px; color: #0d47a1;">L'attribut "médecin" est nécessaire pour donner un sens à la phrase.</p>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h4>❌ Phrase Incorrecte</h4>
+                        <div class="example" style="background: #ffcccc; border-left: 7px solid #c0392b;">
+                            Pierre <strong>est</strong>. ❌
+                        </div>
+                        <p style="margin-top: 15px; color: #c62828;">Sans attribut, la phrase n'a pas de sens complet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Nom Attribut vs Autres Fonctions</h2>
+
+                <div class="comparison-table">
+                    <div class="comparison-card">
+                        <h4>Nom Attribut</h4>
+                        <div class="example example-attribut">
+                            Pierre <strong>est</strong> médecin.
+                        </div>
+                        <p style="margin-top: 15px; color: #0d47a1;">
+                            • Avec verbe d'état<br>
+                            • Caractérise le sujet<br>
+                            • Ne peut être supprimé
+                        </p>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h4>COD</h4>
+                        <div class="example example-type">
+                            Pierre <strong>voit</strong> le médecin.
+                        </div>
+                        <p style="margin-top: 15px; color: #0d47a1;">
+                            • Avec verbe d'action<br>
+                            • Complète le verbe<br>
+                            • Répond à "quoi ?"
+                        </p>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h4>Apposition</h4>
+                        <div class="example example-type">
+                            Pierre, <strong>médecin</strong>, travaille ici.
+                        </div>
+                        <p style="margin-top: 15px; color: #0d47a1;">
+                            • Sans verbe<br>
+                            • Entre virgules<br>
+                            • Peut être supprimé
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Accord du Nom Attribut</h2>
+
+                <div class="rule-card">
+                    <h3><span class="numero">5</span><span class="icon">⚖️</span>Règles d'Accord</h3>
+
+                    <div class="example-container">
+                        <h4 style="color: #006064; margin-bottom: 20px; font-size: 1.5em;">Accord en genre :</h4>
+                        
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Marie</span> <span class="highlight-verbe">est</span> <span class="highlight-attribut">médecin</span>. (ou médecine)
+                        </div>
+
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Elle</span> <span class="highlight-verbe">est</span> <span class="highlight-attribut">professeure</span>. (féminin de professeur)
+                        </div>
+
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Sophie</span> <span class="highlight-verbe">est devenue</span> <span class="highlight-attribut">directrice</span>.
+                        </div>
+                    </div>
+
+                    <div class="example-container">
+                        <h4 style="color: #006064; margin-bottom: 20px; font-size: 1.5em;">Accord en nombre :</h4>
+                        
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Ils</span> <span class="highlight-verbe">sont</span> <span class="highlight-attribut">médecins</span>.
+                        </div>
+
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Elles</span> <span class="highlight-verbe">sont</span> <span class="highlight-attribut">professeures</span>.
+                        </div>
+
+                        <div class="example example-attribut">
+                            <span class="highlight-sujet">Mes amis</span> <span class="highlight-verbe">sont devenus</span> <span class="highlight-attribut">ingénieurs</span>.
+                        </div>
+                    </div>
+
+                    <div class="attention-box">
+                        <h3>Note Importante</h3>
+                        <p style="font-size: 1.2em; line-height: 1.9;">
+                            L'accord du nom attribut dépend du contexte :<br><br>
+                            • Certains noms de profession s'accordent : professeur → professeure<br>
+                            • D'autres restent invariables : médecin (pour les deux genres)<br>
+                            • En nombre, l'accord se fait généralement avec le sujet
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Comment Identifier un Nom Attribut ?</h2>
+
+                <div class="important-box">
+                    <h3>Tests d'Identification</h3>
+                    
+                    <ul class="liste-regles" style="margin-top: 20px;">
+                        <li>
+                            <strong>Test 1 : Chercher le verbe d'état</strong><br>
+                            Y a-t-il un verbe comme être, devenir, paraître, sembler, rester ?
+                        </li>
+                        <li>
+                            <strong>Test 2 : Question "Qu'est-ce que... ?"</strong><br>
+                            Pierre est médecin → Qu'est-ce que Pierre ? → médecin (attribut)
+                        </li>
+                        <li>
+                            <strong>Test 3 : Peut-on supprimer ?</strong><br>
+                            Si non, c'est probablement un attribut (partie essentielle)
+                        </li>
+                        <li>
+                            <strong>Test 4 : Remplacer par un adjectif</strong><br>
+                            Pierre est médecin → Pierre est intelligent (attribut aussi)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Exemples Récapitulatifs</h2>
+
+                <div class="example-container">
+                    <h4 style="color: #01579b; margin-bottom: 20px; font-size: 1.5em;">Attribut du Sujet :</h4>
+                    
+                    <div class="example example-attribut">
+                        Mon frère <strong>est</strong> <span class="highlight-attribut">avocat</span>.
+                    </div>
+
+                    <div class="example example-attribut">
+                        Cette femme <strong>est devenue</strong> <span class="highlight-attribut">une star</span>.
+                    </div>
+
+                    <div class="example example-attribut">
+                        Il <strong>reste</strong> <span class="highlight-attribut">mon meilleur ami</span>.
+                    </div>
+
+                    <div class="example example-attribut">
+                        Paris <strong>demeure</strong> <span class="highlight-attribut">la capitale de la mode</span>.
+                    </div>
+                </div>
+
+                <div class="example-container">
+                    <h4 style="color: #01579b; margin-bottom: 20px; font-size: 1.5em;">Attribut du COD :</h4>
+                    
+                    <div class="example example-type">
+                        On <strong>a élu</strong> Marie <span class="highlight-attribut">présidente</span>.
+                    </div>
+
+                    <div class="example example-type">
+                        Je <strong>trouve</strong> cette idée <span class="highlight-attribut">une solution brillante</span>.
+                    </div>
+
+                    <div class="example example-type">
+                        Tout le monde <strong>l'appelle</strong> <span class="highlight-attribut">le champion</span>.
+                    </div>
+
+                    <div class="example example-type">
+                        Nous <strong>considérons</strong> Paul <span class="highlight-attribut">un expert</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="attention-box">
+                <h3>Astuce Pratique</h3>
+                <p style="font-size: 1.25em; line-height: 2;">
+                    Pour reconnaître un nom attribut :<br><br>
+                    ✨ Cherchez un <strong>verbe d'état</strong> (être, devenir, paraître...)<br>
+                    ✨ Le nom après ce verbe <strong>caractérise</strong> le sujet<br>
+                    ✨ Il ne peut pas être <strong>supprimé</strong> sans détruire le sens<br>
+                    ✨ Il fait partie du <strong>groupe verbal</strong>
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p class="logo">🎓 Língua Academy</p>
+            <p>Maîtrisez la grammaire française avec excellence</p>
+            <p>© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concordância Nominal em Português</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* CSS EXATO do ARQUIVO 004 - ORTOGRAFIA */
+        body {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E7D6E 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #2E7D6E; /* Cor principal adaptada do tema */
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #4ECDC4;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #44A08D; /* Cor secundária adaptada do tema */
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+            min-height: 350px;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores adaptadas do tema 004 */
+        .tipo-card.regra-geral {
+            background: linear-gradient(135deg, #FF6B6B, #EE5A5A); /* Vermelho/Regra Geral */
+        }
+
+        .tipo-card.um-nome {
+            background: linear-gradient(135deg, #8338EC, #6C23D6); /* Roxo/Um nome */
+        }
+
+        .tipo-card.dois-nomes {
+            background: linear-gradient(135deg, #FFC300, #FFAD00); /* Amarelo/Dois Nomes */
+            color: #333;
+        }
+
+        .tipo-card.expressoes {
+            background: linear-gradient(135deg, #00B4D8, #00A6CC); /* Azul/Expressões */
+        }
+
+        .tipo-card.palavras {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D); /* Verde Água/Palavras-Chave */
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+        
+        /* Ajuste de contraste para o card amarelo */
+        .tipo-card.dois-nomes .exemplos {
+            background: rgba(0,0,0,0.1); 
+            color: #333;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .dicas-box {
+            /* Cor adaptada do arquivo 004 */
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "💡"; /* Ícone adaptado */
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚖️ Concordância Nominal ⚖️</h1>
+        <p class="subtitle">A harmonia obrigatória entre o Nome e seus determinantes em gênero e número!</p>
+
+        <div class="section">
+            <h2>🎯 Princípio Geral</h2>
+            <p class="intro-text">
+                A **Concordância Nominal** é a relação de dependência em que os determinantes do nome (Artigo, Adjetivo, Pronome Adjetivo, Numeral Adjetivo) ajustam-se a ele em **gênero (masculino/feminino)** e **número (singular/plural)**.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card regra-geral" style="min-height: auto;">
+                    <h3>1. Regra Básica</h3>
+                    <div class="definicao">
+                        O adjetivo concorda em gênero e número com o substantivo a que se refere.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **A** casa **nova**.<br>
+                        • **Os** carros **velhos**.
+                    </div>
+                </div>
+
+                <div class="tipo-card um-nome">
+                    <h3>2. Adjetivo Antes de Vários Nomes</h3>
+                    <div class="definicao">
+                        O adjetivo antes de vários substantivos concorda com o substantivo **mais próximo** ou com o primeiro.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Encontramos **velho** carro e moto. (Concorda com *carro*)<br>
+                        • Encontramos **velha** moto e carro. (Concorda com *moto*)
+                    </div>
+                </div>
+
+                <div class="tipo-card dois-nomes">
+                    <h3>3. Adjetivo Depois de Vários Nomes</h3>
+                    <div class="definicao">
+                        O adjetivo que qualifica vários substantivos deve ir para o **plural** e concordar:<br>
+                        a) No masculino (se houver pelo menos um nome masculino).<br>
+                        b) No gênero do nome mais próximo (facultativo, mas menos usual).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Ele tinha **carro e moto velhos**.<br>
+                        • Ele tinha **moto e carro velhos**.<br>
+                        • Ela vestia **blusa e saia azuis**.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚨 Casos Específicos e Irregulares</h2>
+            <p class="intro-text">
+                Certos termos (adjetivos, numerais ou advérbios) possuem regras de concordância próprias ou são invariáveis.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card expressoes">
+                    <h3>4. Expressões de Quantidade</h3>
+                    <div class="definicao">
+                        As expressões **É PROIBIDO, É BOM, É NECESSÁRIO, É PRECISO** são **invariáveis** quando o sujeito não é determinado por artigo.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **É proibido** entrada. (Sem artigo)<br>
+                        • **A entrada é proibida**. (Com artigo, concorda)<br>
+                        • Maçã **é bom**. / **A maçã é boa**.
+                    </div>
+                </div>
+
+                <div class="tipo-card palavras">
+                    <h3>5. Palavras Invariáveis</h3>
+                    <div class="definicao">
+                        Palavras que funcionam como advérbios ou que já são invariáveis e **não variam** em gênero nem número.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Invariáveis:</strong><br>
+                        • **Meio** (advérbio): Ela está **meio** tonta.<br>
+                        • **Bastante** (advérbio): Eles estudaram **bastante**.<br>
+                        • **Menos**: Ela tinha **menos** dinheiro. (Nunca *menas*).<br>
+                        • **Alerta**: Os soldados estavam **alerta**.
+                    </div>
+                </div>
+
+                <div class="tipo-card palavras" style="background: linear-gradient(135deg, #FF6B6B, #EE5A5A);">
+                    <h3>6. Palavras Variáveis</h3>
+                    <div class="definicao">
+                        Palavras que funcionam como adjetivos, pronomes ou numerais e **devem concordar** com o nome.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Variáveis:</strong><br>
+                        • **Meio** (numeral/adjetivo): Comi **meia** maçã.<br>
+                        • **Bastante** (adjetivo): Havia **bastantes** pessoas.<br>
+                        • **Anexo/Incluso**: Os documentos seguem **anexos/inclusos**.<br>
+                        • **Próprio**: Elas **próprias** farão isso.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 Dicas de Ouro</h2>
+            
+            <div class="dicas-box">
+                <h4>Erros Mais Comuns de Concordância Nominal:</h4>
+                <ul>
+                    <li>**Obrigado(a):** Quem agradece diz **obrigado** (homem) ou **obrigada** (mulher).</li>
+                    <li>**Quite:** O adjetivo **quite** (livre de dívida) deve concordar com o sujeito: Os alunos estão **quites**. Eu estou **quite**.</li>
+                    <li>**Possível:** Na expressão *o mais possível*, o adjetivo **possível** é invariável. Ex: Fizeram as tarefas o mais rapidamente **possível**.</li>
+                    <li>**Concordância Lógica:** Se houver dúvida, geralmente concorda-se com o termo mais próximo ou, no caso de nomes de gêneros diferentes, o masculino plural prevalece.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

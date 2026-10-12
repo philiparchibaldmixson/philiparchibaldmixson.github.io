@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ortografia em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E7D6E 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #4ECDC4;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #4ECDC4;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #44A08D;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .regras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .regra-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .regra-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .regra-card.uso-s {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+        }
+
+        .regra-card.uso-z {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .regra-card.uso-x {
+            background: linear-gradient(135deg, #F7DC6F, #F39C12);
+        }
+
+        .regra-card.uso-ch {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+        }
+
+        .regra-card.uso-g {
+            background: linear-gradient(135deg, #BB8FCE, #9B59B6);
+        }
+
+        .regra-card.uso-j {
+            background: linear-gradient(135deg, #E91E63, #D81159);
+        }
+
+        .regra-card.uso-c {
+            background: linear-gradient(135deg, #52B788, #2D6A4F);
+        }
+
+        .regra-card.uso-ss {
+            background: linear-gradient(135deg, #FF6B9D, #E91E63);
+        }
+
+        .regra-card h3 {
+            color: white;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .regra-card p {
+            color: white;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .regra-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            color: white;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        .regra-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
+        .tabela-ortografia {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tabela-ortografia thead {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            color: white;
+        }
+
+        .tabela-ortografia th {
+            padding: 20px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        .tabela-ortografia td {
+            padding: 18px 20px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        .tabela-ortografia tr:hover {
+            background: #f5f5f5;
+        }
+
+        .tabela-ortografia .correto {
+            color: #2D6A4F;
+            font-weight: bold;
+        }
+
+        .tabela-ortografia .incorreto {
+            color: #D81159;
+            font-weight: bold;
+            text-decoration: line-through;
+        }
+
+        .comparacao-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .comparacao-item {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .comparacao-item.correto {
+            background: linear-gradient(135deg, #52B788, #2D6A4F);
+        }
+
+        .comparacao-item.incorreto {
+            background: linear-gradient(135deg, #E91E63, #D81159);
+        }
+
+        .comparacao-item h4 {
+            color: white;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .comparacao-item .lista {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            font-size: 1.2em;
+            line-height: 2;
+        }
+
+        .dicas-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "💡";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        .acentuacao-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .acento-card {
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            color: white;
+        }
+
+        .acento-card.agudo {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+        }
+
+        .acento-card.circunflexo {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .acento-card.til {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+        }
+
+        .acento-card.crase {
+            background: linear-gradient(135deg, #F7DC6F, #F39C12);
+        }
+
+        .acento-card h4 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .acento-card p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .acento-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .hifen-box {
+            background: linear-gradient(135deg, #E91E63, #D81159);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .hifen-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .hifen-box .regra-item {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .hifen-box .regra-item h5 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .hifen-box .regra-item p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .quiz-box {
+            background: linear-gradient(135deg, #BB8FCE, #9B59B6);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .quiz-box h4 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .quiz-item {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-item .pergunta {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .quiz-item .opcoes {
+            font-size: 1.1em;
+            line-height: 2;
+            padding-left: 20px;
+        }
+
+        .quiz-item .resposta {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E7D6E 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .regra-card, .destaque, .dicas-box, .acento-card,
+            .hifen-box, .quiz-box, .comparacao-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .comparacao-box {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✍️ Ortografia em Português Brasileiro ✍️</h1>
+        <p class="subtitle">Aprenda a escrever corretamente em português!</p>
+
+        <div class="section">
+            <h2>📖 O que é Ortografia?</h2>
+            <p class="intro-text">
+                <strong>Ortografia</strong> é o conjunto de regras que estabelece a forma correta de escrever as palavras 
+                de uma língua. Em português brasileiro, seguimos as normas do Acordo Ortográfico de 1990, 
+                que unificou a ortografia dos países de língua portuguesa.
+            </p>
+
+            <div class="destaque">
+                <strong>🎯 Importante:</strong> Escrever corretamente é fundamental para a comunicação eficaz! 
+                A ortografia garante que todos entendam a mesma coisa quando leem um texto.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔤 Uso do S, Z, X e CH</h2>
+            <p class="intro-text">
+                Uma das maiores dúvidas em português é quando usar S, Z, X ou CH. Veja as principais regras:
+            </p>
+
+            <div class="regras-grid">
+                <div class="regra-card uso-s">
+                    <h3>Letra S</h3>
+                    <p>Usamos S em:</p>
+                    <div class="exemplos">
+                        <strong>Sufixos -oso, -osa:</strong>
+                        gostoso, formosa, carinhoso
+                        <br><br>
+                        <strong>Após ditongos:</strong>
+                        coisa, causa, lousa
+                        <br><br>
+                        <strong>Verbos pôr e querer:</strong>
+                        pus, quis, quisesse
+                    </div>
+                </div>
+
+                <div class="regra-card uso-z">
+                    <h3>Letra Z</h3>
+                    <p>Usamos Z em:</p>
+                    <div class="exemplos">
+                        <strong>Sufixos -ez, -eza:</strong>
+                        honradez, beleza, pobreza
+                        <br><br>
+                        <strong>Sufixos -izar:</strong>
+                        organizar, realizar, fiscalizar
+                        <br><br>
+                        <strong>Derivados:</strong>
+                        feliz → felizmente
+                    </div>
+                </div>
+
+                <div class="regra-card uso-x">
+                    <h3>Letra X</h3>
+                    <p>Usamos X em:</p>
+                    <div class="exemplos">
+                        <strong>Após ditongos:</strong>
+                        caixa, frouxo, peixe
+                        <br><br>
+                        <strong>Após "en":</strong>
+                        enxame, enxugar, enxergar
+                        <br><br>
+                        <strong>Exceções:</strong>
+                        encher, enchente (com CH)
+                    </div>
+                </div>
+
+                <div class="regra-card uso-ch">
+                    <h3>Dígrafo CH</h3>
+                    <p>Usamos CH em:</p>
+                    <div class="exemplos">
+                        <strong>Palavras comuns:</strong>
+                        chave, chuva, achar, machado
+                        <br><br>
+                        <strong>Diminutivos:</strong>
+                        chapéu → chapeuzinho
+                        <br><br>
+                        <strong>Exceção "en":</strong>
+                        encher, enchente, encharcado
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎭 Uso do G e J</h2>
+            <p class="intro-text">
+                O G e o J podem causar confusão porque às vezes têm o mesmo som. Veja quando usar cada um:
+            </p>
+
+            <div class="regras-grid">
+                <div class="regra-card uso-g">
+                    <h3>Letra G</h3>
+                    <p>Usamos G antes de E e I em:</p>
+                    <div class="exemplos">
+                        <strong>Terminações -agem, -igem, -ugem:</strong>
+                        viagem, origem, ferrugem
+                        <br><br>
+                        <strong>Verbos em -ger, -gir:</strong>
+                        proteger, fingir, agir
+                        <br><br>
+                        <strong>Exceções:</strong>
+                        pajem, lambujem, lajem
+                    </div>
+                </div>
+
+                <div class="regra-card uso-j">
+                    <h3>Letra J</h3>
+                    <p>Usamos J em:</p>
+                    <div class="exemplos">
+                        <strong>Palavras de origem tupi/africana:</strong>
+                        jiboia, pajé, canjica
+                        <br><br>
+                        <strong>Derivadas de palavras com J:</strong>
+                        loja → lojista, varejo → varejista
+                        <br><br>
+                        <strong>Formas verbais:</strong>
+                        viajar → viajem (verbo)
+                    </div>
+                </div>
+            </div>
+
+            <div class="destaque" style="margin-top: 30px;">
+                <strong>⚠️ Atenção:</strong> "Viagem" (substantivo) se escreve com G, mas "viajem" (verbo) se escreve com J!
+                <br><br>
+                <strong>Exemplo:</strong> "Eles fazem uma viagem" / "Espero que eles viajem amanhã"
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⚡ Uso do SS, Ç, C e SC</h2>
+            <p class="intro-text">
+                Estas letras e dígrafos representam o som de "s" (em palavras como caçar, cedo, nascer, passo):
+            </p>
+
+            <div class="regras-grid">
+                <div class="regra-card uso-ss">
+                    <h3>SS</h3>
+                    <p>Usamos SS entre vogais:</p>
+                    <div class="exemplos">
+                        <strong>Palavras comuns:</strong>
+                        passo, osso, russo, professor
+                        <br><br>
+                        <strong>Derivadas:</strong>
+                        agredir → agressão
+                        imprimir → impressora
+                    </div>
+                </div>
+
+                <div class="regra-card uso-c">
+                    <h3>Ç (Cedilha)</h3>
+                    <p>Usamos Ç antes de A, O, U:</p>
+                    <div class="exemplos">
+                        <strong>Palavras comuns:</strong>
+                        caça, açúcar, cabeça, açougue
+                        <br><br>
+                        <strong>Nunca antes de E ou I!</strong>
+                        (usa-se C: cedo, cidade)
+                    </div>
+                </div>
+
+                <div class="regra-card uso-c">
+                    <h3>C</h3>
+                    <p>Usamos C antes de E e I:</p>
+                    <div class="exemplos">
+                        <strong>Som de S:</strong>
+                        cedo, cidade, cenoura, cinema
+                        <br><br>
+                        <strong>Sufixo -ência:</strong>
+                        paciência, ciência, violência
+                    </div>
+                </div>
+
+                <div class="regra-card uso-c">
+                    <h3>SC, SÇ, XC</h3>
+                    <p>Dígrafos especiais:</p>
+                    <div class="exemplos">
+                        <strong>SC:</strong>
+                        nascer, crescer, piscina
+                        <br><br>
+                        <strong>SÇ:</strong>
+                        nasça, cresça, desça
+                        <br><br>
+                        <strong>XC:</strong>
+                        exceção, exceto, excelente
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Palavras Escritas Juntas ou Separadas</h2>
+            <p class="intro-text">
+                Muitas dúvidas surgem sobre quando escrever junto ou separado. Veja os casos mais comuns:
+            </p>
+
+            <div class="comparacao-box">
+                <div class="comparacao-item correto">
+                    <h4>✓ ESCREVER JUNTO</h4>
+                    <div class="lista">
+                        <strong>abaixo</strong> (embaixo)<br>
+                        <strong>acima</strong> (em cima de)<br>
+                        <strong>afim</strong> (semelhante)<br>
+                        <strong>apesar</strong> (embora)<br>
+                        <strong>através</strong> (por meio de)<br>
+                        <strong>depressa</strong> (rapidamente)<br>
+                        <strong>devagar</strong> (lentamente)<br>
+                        <strong>embaixo</strong> (sob)<br>
+                        <strong>enfim</strong> (finalmente)<br>
+                        <strong>entretanto</strong> (porém)<br>
+                        <strong>inclusive</strong> (até mesmo)<br>
+                        <strong>porém</strong> (mas)<br>
+                        <strong>portanto</strong> (logo)<br>
+                        <strong>sobretudo</strong> (principalmente)<br>
+                        <strong>tampouco</strong> (também não)
+                    </div>
+                </div>
+
+                <div class="comparacao-item incorreto">
+                    <h4>✓ ESCREVER SEPARADO</h4>
+                    <div class="lista">
+                        <strong>a fim de</strong> (para)<br>
+                        <strong>a par</strong> (ciente)<br>
+                        <strong>ao invés de</strong> (ao contrário)<br>
+                        <strong>de repente</strong> (subitamente)<br>
+                        <strong>em cima</strong> (sobre)<br>
+                        <strong>ou seja</strong> (isto é)<br>
+                        <strong>por isso</strong> (portanto)<br>
+                        <strong>por que</strong> (interrogativo)<br>
+                        <strong>sem dúvida</strong> (certamente)<br>
+                        <strong>tal vez</strong> (quiçá)<br>
+                        <strong>toda hora</strong> (sempre)<br>
+                        <strong>todo mundo</strong> (todos)<br>
+                        <strong>a respeito de</strong> (sobre)<br>
+                        <strong>de vez em quando</strong> (às vezes)<br>
+                        <strong>com certeza</strong> (certamente)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Acentuação Gráfica</h2>
+            <p class="intro-text">
+                Os acentos gráficos indicam a pronúncia correta das palavras. Conheça os principais:
+            </p>
+
+            <div class="acentuacao-grid">
+                <div class="acento-card agudo">
+                    <h4>Acento Agudo (´)</h4>
+                    <p>Indica vogal tônica aberta</p>
+                    <div class="exemplos">
+                        café • está • após • útil • ótimo • pé • só
+                    </div>
+                </div>
+
+                <div class="acento-card circunflexo">
+                    <h4>Acento Circunflexo (^)</h4>
+                    <p>Indica vogal tônica fechada</p>
+                    <div class="exemplos">
+                        você • avô • três • inglês • português
+                    </div>
+                </div>
+
+                <div class="acento-card til">
+                    <h4>Til (~)</h4>
+                    <p>Indica nasalização</p>
+                    <div class="exemplos">
+                        mãe • pão • irmã • alemão • põe • órgão
+                    </div>
+                </div>
+
+                <div class="acento-card crase">
+                    <h4>Crase (`)</h4>
+                    <p>Fusão de A + A (preposição + artigo)</p>
+                    <div class="exemplos">
+                        Vou à escola • Refiro-me à professora
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>➖ Uso do Hífen</h2>
+            <p class="intro-text">
+                O hífen une palavras ou separa sílabas. Após o Acordo Ortográfico, muitas regras mudaram:
+            </p>
+
+            <div class="hifen-box">
+                <h4>Principais Regras do Hífen</h4>
+                
+                <div class="regra-item">
+                    <h5>✓ USA-SE HÍFEN:</h5>
+                    <p>
+                        • Em palavras compostas: guarda-chuva, segunda-feira, beija-flor<br>
+                        • Prefixo + palavra iniciada com H: anti-higiênico, super-homem<br>
+                        • Prefixo termina com vogal + palavra começa com mesma vogal: micro-ondas, anti-inflamatório<br>
+                        • Com prefixos além, aquém, recém, sem, vice: além-mar, recém-nascido, vice-presidente<br>
+                        • Com sufixos -açu, -guaçu, -mirim: capim-açu, amoré-guaçu
+                    </p>
+                </div>
+
+                <div class="regra-item">
+                    <h5>✗ NÃO USA HÍFEN:</h5>
+                    <p>
+                        • Vogais diferentes: autoescola, extraoficial, agroindustrial<br>
+                        • Prefixo + consoante diferente: supersônico, intermunicipal<br>
+                        • Prefixo termina em vogal + R ou S: ultrassom, minissaia, antirrugas<br>
+                        • Palavras que perderam noção de composição: paraquedas, mandachuva
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Palavras Que Causam Dúvidas</h2>
+            
+            <div class="tabela-wrapper">
+                <table class="tabela-ortografia">
+                    <thead>
+                        <tr>
+                            <th>Correto ✓</th>
+                            <th>Incorreto ✗</th>
+                            <th>Explicação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="correto">beneficente</td>
+                            <td class="incorreto">beneficiente</td>
+                            <td>Vem de "beneficência"</td>
+                        </tr>
+                        <tr>
+                            <td class="correto">exceção</td>
+                            <td class="incorreto">excessão</td>
+                            <td>Vem do latim "exceptio"</td>
+                        </tr>
+                        <tr>
+                            <td class="correto">privilégio</td>
+                            <td class="incorreto">previlégio</td>
+                            <td>Vem de "privar"</td>
+                        </tr>
+                        <tr>
+                            <td class="correto">pneu</td>
+                            <td class="incorreto">peneu</td>
+                            <td>Palavra de origem grega</td>
+                        </tr>
+                        <tr>
+                            <td class="correto">mendigo</td>
+                            <td class="incorreto">mendingo</td>
+                            <td>Vem de "mendigar"</td>
+                        </tr>
+                        <tr>
+                            <td class="correto">extensão</td>
+                            <td class="incorreto">extenção</td>
+                            <td>Relacionado a "extenso"</td>
+                        </tr>
+                        <tr>
+                            <td class="correto">empecilho</td>
+                            <td class="incorreto">impecilho</td>
+                            <td>Vem de "empecer" (atrapalhar)</td>
+                        </tr>
+                        <tr>
+                            <td class="correto">descarrilhar</td>
+                            <td class="incorreto">descarrilar</td>
+                            <td>Vem de "carrilho" (trilho)</td>
+                        </tr>
+                        <tr>
+                            <td class="correto">jiló</td>
+                            <td class="incorreto">jilho</td>
+                            <td>Palavra de origem tupi</td>
+                        </tr>
+                        <tr>
+                            <td class="correto">berinjela</td>
+                            <td class="incorreto">beringela</td>
+                            <td>Palavra de origem árabe</td>
+                        </tr>
+                        <tr>
+                            <td class="correto">manteiga</td>
+                            <td class="incorreto">mantega</td>
+                            <td>Mantém o "i" na escrita</td>
+                        </tr>
+                        <tr>
+                            <td class="correto">asterisco</td>
+                            <td class="incorreto">asterístico</td>
+                            <td>Não tem "t" no meio</td>
+                        </tr>
+                        <tr>
+                            <td class="correto">reivindicar</td>
+                            <td class="incorreto">reinvidicar</td>
+                            <td>Vem de "vindicar"</td>
+                        </tr>
+                        <tr>
+                            <td class="correto">meritíssimo</td>
+                            <td class="incorreto">meretíssimo</td>
+                            <td>Vem de "mérito"</td>
+                        </tr>
+                        <tr>
+                            <td class="correto">paralelepípedo</td>
+                            <td class="incorreto">paralelipípedo</td>
+                            <td>Palavra de origem grega</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 Dicas Práticas de Ortografia</h2>
+            
+            <div class="dicas-box">
+                <h4>Dicas Para Nunca Mais Errar:</h4>
+                <ul>
+                    <li><strong>Leia muito!</strong> A leitura é a melhor forma de fixar a ortografia correta das palavras.</li>
+                    <li><strong>Consulte o dicionário</strong> sempre que tiver dúvidas sobre a grafia de uma palavra.</li>
+                    <li><strong>Faça listas</strong> de palavras que você costuma errar e revise-as frequentemente.</li>
+                    <li><strong>Preste atenção</strong> na origem das palavras - muitas vezes ela explica a ortografia.</li>
+                    <li><strong>Use recursos mnemônicos</strong> - crie frases ou associações para lembrar da grafia correta.</li>
+                    <li><strong>Pratique a escrita</strong> - quanto mais você escreve, mais natural fica a ortografia correta.</li>
+                    <li><strong>Revise seus textos</strong> sempre antes de enviar ou publicar algo.</li>
+                    <li><strong>Aprenda as regras</strong> de formação de palavras - prefixos, sufixos, radicais.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎪 Homônimos e Parônimos</h2>
+            <p class="intro-text">
+                <strong>Homônimos</strong> têm mesma pronúncia mas significados diferentes. 
+                <strong>Parônimos</strong> têm grafia e pronúncia parecidas mas significados diferentes.
+            </p>
+
+            <h3>Homônimos Comuns</h3>
+            <div class="tabela-wrapper">
+                <table class="tabela-ortografia">
+                    <thead>
+                        <tr>
+                            <th>Palavra</th>
+                            <th>Significado</th>
+                            <th>Exemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>São</strong></td>
+                            <td>Verbo ser / Santo / Saudável</td>
+                            <td>Eles são alunos / São Pedro / São e salvo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cela / Sela</strong></td>
+                            <td>Quarto pequeno / Assento de cavalo</td>
+                            <td>Cela da prisão / Sela do cavalo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cerrar / Serrar</strong></td>
+                            <td>Fechar / Cortar com serra</td>
+                            <td>Cerrar os olhos / Serrar madeira</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cinto / Sinto</strong></td>
+                            <td>Acessório / Verbo sentir</td>
+                            <td>Cinto de couro / Eu sinto falta</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Coser / Cozer</strong></td>
+                            <td>Costurar / Cozinhar</td>
+                            <td>Coser roupa / Cozer alimentos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Parônimos Comuns</h3>
+            <div class="tabela-wrapper">
+                <table class="tabela-ortografia">
+                    <thead>
+                        <tr>
+                            <th>Palavra</th>
+                            <th>Significado</th>
+                            <th>Exemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Absolver / Absorver</strong></td>
+                            <td>Perdoar / Sugar</td>
+                            <td>O juiz absolveu / Absorver conhecimento</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cavaleiro / Cavalheiro</strong></td>
+                            <td>Que anda a cavalo / Homem educado</td>
+                            <td>Cavaleiro medieval / Homem cavalheiro</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Comprimento / Cumprimento</strong></td>
+                            <td>Tamanho / Saudação</td>
+                            <td>Comprimento da sala / Dar cumprimento</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Emergir / Imergir</strong></td>
+                            <td>Vir à tona / Mergulhar</td>
+                            <td>Emergir das águas / Imergir no oceano</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Eminente / Iminente</strong></td>
+                            <td>Notável / Prestes a acontecer</td>
+                            <td>Médico eminente / Perigo iminente</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ratificar / Retificar</strong></td>
+                            <td>Confirmar / Corrigir</td>
+                            <td>Ratificar contrato / Retificar erro</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tráfego / Tráfico</strong></td>
+                            <td>Trânsito / Comércio ilegal</td>
+                            <td>Tráfego intenso / Tráfico de drogas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔍 Por que / Por quê / Porque / Porquê</h2>
+            <p class="intro-text">
+                Esta é uma das maiores dúvidas da língua portuguesa! Veja quando usar cada forma:
+            </p>
+
+            <div class="regras-grid">
+                <div class="regra-card uso-s">
+                    <h3>POR QUE</h3>
+                    <p>Separado e sem acento</p>
+                    <div class="exemplos">
+                        <strong>1. Em perguntas:</strong><br>
+                        Por que você não veio?<br><br>
+                        <strong>2. Equivale a "por qual razão":</strong><br>
+                        Não sei por que ele saiu.<br><br>
+                        <strong>3. Equivale a "pelo qual":</strong><br>
+                        O caminho por que passamos.
+                    </div>
+                </div>
+
+                <div class="regra-card uso-z">
+                    <h3>POR QUÊ</h3>
+                    <p>Separado e com acento</p>
+                    <div class="exemplos">
+                        <strong>No final de frases:</strong><br>
+                        Você está triste por quê?<br><br>
+                        Ele não veio e não sei por quê.<br><br>
+                        Está chorando por quê?
+                    </div>
+                </div>
+
+                <div class="regra-card uso-x">
+                    <h3>PORQUE</h3>
+                    <p>Junto e sem acento</p>
+                    <div class="exemplos">
+                        <strong>Em respostas (causa):</strong><br>
+                        Estou feliz porque passei!<br><br>
+                        Não fui porque estava doente.<br><br>
+                        Chove porque há nuvens.
+                    </div>
+                </div>
+
+                <div class="regra-card uso-ch">
+                    <h3>PORQUÊ</h3>
+                    <p>Junto e com acento</p>
+                    <div class="exemplos">
+                        <strong>É um substantivo (= motivo):</strong><br>
+                        Quero saber o porquê.<br><br>
+                        Não entendo o porquê disso.<br><br>
+                        Cada coisa tem seu porquê.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📋 Abreviações e Siglas</h2>
+            <p class="intro-text">
+                Saiba como escrever corretamente abreviações e siglas:
+            </p>
+
+            <div class="dicas-box" style="background: linear-gradient(135deg, #52B788, #2D6A4F);">
+                <h4>Regras de Abreviações:</h4>
+                <ul>
+                    <li><strong>Abreviações comuns:</strong> Sr. (senhor), Sra. (senhora), Dr. (doutor), pág. (página), etc. (et cetera)</li>
+                    <li><strong>Plural de abreviações:</strong> Duplica-se a letra: pp. (páginas), Srs. (senhores)</li>
+                    <li><strong>Siglas até 3 letras:</strong> Tudo maiúsculo: USP, ONU, CPF</li>
+                    <li><strong>Siglas acima de 3 letras:</strong> Só a primeira maiúscula se pronunciável: Unicef, Embrapa</li>
+                    <li><strong>Siglas não pronunciáveis:</strong> Tudo maiúsculo: INSS, FGTS, CNPJ</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Exercícios Práticos</h2>
+            
+            <div class="quiz-box">
+                <h4>Teste seus conhecimentos!</h4>
+
+                <div class="quiz-item">
+                    <div class="pergunta">1. Qual é a forma correta?</div>
+                    <div class="opcoes">
+                        a) Eu quiz fazer o trabalho<br>
+                        b) Eu quis fazer o trabalho
+                    </div>
+                    <div class="resposta">
+                        <strong>Resposta:</strong> b) Eu quis fazer o trabalho<br>
+                        <em>O verbo "querer" no passado se escreve com S.</em>
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">2. Complete: "Vou _____ escola todos os dias"</div>
+                    <div class="opcoes">
+                        a) a<br>
+                        b) à
+                    </div>
+                    <div class="resposta">
+                        <strong>Resposta:</strong> b) à (com crase)<br>
+                        <em>Há fusão de preposição + artigo: Vou a + a escola = Vou à escola</em>
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">3. Qual está correta?</div>
+                    <div class="opcoes">
+                        a) Houveram muitas festas<br>
+                        b) Houve muitas festas
+                    </div>
+                    <div class="resposta">
+                        <strong>Resposta:</strong> b) Houve muitas festas<br>
+                        <em>O verbo "haver" no sentido de "existir" é impessoal (não varia).</em>
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">4. Como se escreve?</div>
+                    <div class="opcoes">
+                        a) Excessão<br>
+                        b) Exceção
+                    </div>
+                    <div class="resposta">
+                        <strong>Resposta:</strong> b) Exceção<br>
+                        <em>Vem do latim "exceptio", por isso é com XC.</em>
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">5. Qual a diferença?</div>
+                    <div class="opcoes">
+                        a) Viagem (substantivo) / Viajem (verbo)<br>
+                        b) As duas são iguais
+                    </div>
+                    <div class="resposta">
+                        <strong>Resposta:</strong> a) São diferentes!<br>
+                        <em>"Boa viagem!" (substantivo) / "Que eles viajem bem!" (verbo)</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✨ Principais Mudanças do Novo Acordo Ortográfico</h2>
+            <p class="intro-text">
+                O Acordo Ortográfico de 1990 trouxe mudanças importantes. Conheça as principais:
+            </p>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-ortografia">
+                    <thead>
+                        <tr>
+                            <th>Antes</th>
+                            <th>Depois</th>
+                            <th>Mudança</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="incorreto">idéia</td>
+                            <td class="correto">ideia</td>
+                            <td>Caiu o acento dos ditongos ei, oi</td>
+                        </tr>
+                        <tr>
+                            <td class="incorreto">vôo</td>
+                            <td class="correto">voo</td>
+                            <td>Caiu o acento do hiato oo</td>
+                        </tr>
+                        <tr>
+                            <td class="incorreto">pára (verbo)</td>
+                            <td class="correto">para</td>
+                            <td>Caiu o acento diferencial</td>
+                        </tr>
+                        <tr>
+                            <td class="incorreto">anti-inflamatório</td>
+                            <td class="correto">antiinflamatório</td>
+                            <td>Caiu hífen (vogais diferentes)</td>
+                        </tr>
+                        <tr>
+                            <td class="incorreto">auto-escola</td>
+                            <td class="correto">autoescola</td>
+                            <td>Caiu hífen (vogais diferentes)</td>
+                        </tr>
+                        <tr>
+                            <td class="incorreto">anti-higiênico</td>
+                            <td class="correto">anti-higiênico</td>
+                            <td>Mantém hífen (+ H)</td>
+                        </tr>
+                        <tr>
+                            <td class="incorreto">microondas</td>
+                            <td class="correto">micro-ondas</td>
+                            <td>Usa hífen (vogais iguais)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="destaque" style="margin-top: 30px;">
+                <strong>📌 Lembre-se:</strong> Algumas palavras mantiveram o acento diferencial para evitar confusão:<br><br>
+                <strong>pôr</strong> (verbo) ≠ por (preposição)<br>
+                <strong>pôde</strong> (passado) ≠ pode (presente)<br>
+                <strong>têm</strong> (plural) ≠ tem (singular)<br>
+                <strong>vêm</strong> (plural) ≠ vem (singular)
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏆 Resumo Final</h2>
+            <div class="dicas-box" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+                <h4>Pontos-Chave da Ortografia:</h4>
+                <ul>
+                    <li><strong>Ortografia</strong> é o conjunto de regras para escrever corretamente as palavras.</li>
+                    <li><strong>Atenção ao S e Z:</strong> Cada um tem suas regras específicas de uso.</li>
+                    <li><strong>G e J:</strong> Cuidado com as terminações -agem, -igem e derivações.</li>
+                    <li><strong>Hífen:</strong> Mudou muito com o Novo Acordo - consulte as regras!</li>
+                    <li><strong>Por que/Porque:</strong> Aprenda os 4 casos e nunca mais erre!</li>
+                    <li><strong>Acentuação:</strong> Fundamental para a pronúncia correta.</li>
+                    <li><strong>Leia muito:</strong> A leitura é a melhor professora de ortografia!</li>
+                    <li><strong>Consulte o dicionário:</strong> Na dúvida, sempre verifique!</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

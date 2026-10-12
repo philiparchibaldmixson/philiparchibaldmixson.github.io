@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Preposizioni Italiane - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            animation: pulse 2s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .intro-box {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .intro-box h2 {
+            color: #fff;
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .intro-box p {
+            color: #fff;
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 35px;
+            margin-bottom: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+            animation: slideInUp 1s ease;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .section h2 {
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            border-radius: 2px;
+        }
+
+        .preposizioni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .prep-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: bounceIn 0.8s ease;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .prep-card:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .prep-card.green {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .prep-card.yellow {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .prep-card.blue {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .prep-card.orange {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .prep-card.purple {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .prep-card.pink {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #333;
+        }
+
+        .prep-card.red {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+        }
+
+        .example-box {
+            background: rgba(255, 255, 255, 0.4);
+            border-left: 5px solid #FFD700;
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: 10px;
+            animation: fadeInLeft 1s ease;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .example-box h3 {
+            color: #fff;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .example-box ul {
+            list-style: none;
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        .example-box li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .example-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .locuzioni-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .locuzione-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            animation: zoomIn 0.6s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .locuzione-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .locuzione-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #FFD700;
+        }
+
+        .locuzione-card p {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #333;
+            padding: 25px;
+            border-radius: 20px;
+            margin-top: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            animation: wiggle 2s ease infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(2deg); }
+            75% { transform: rotate(-2deg); }
+        }
+
+        .tip-box h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .tip-box p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #fff;
+            font-size: 1.1em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-top: 50px;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            display: inline-block;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .section h2 { font-size: 2em; }
+            .preposizioni-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+            .prep-card { font-size: 1.2em; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Le Preposizioni Italiane 🎨</h1>
+            <p class="subtitle">Impara le preposizioni in modo colorato e divertente!</p>
+        </header>
+
+        <div class="intro-box">
+            <h2>🔍 Cosa sono le Preposizioni?</h2>
+            <p>Le preposizioni sono parole invariabili che collegano tra loro due elementi di una frase, stabilendo un rapporto di dipendenza. Sono fondamentali per costruire frasi corrette e comprensibili in italiano!</p>
+        </div>
+
+        <!-- PREPOSIZIONI PROPRIE -->
+        <div class="section">
+            <h2>📚 Preposizioni Proprie (Semplici)</h2>
+            <p style="color: #fff; font-size: 1.2em; text-align: center; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">
+                Le preposizioni proprie sono 9 e sono le più importanti della lingua italiana!
+            </p>
+            
+            <div class="preposizioni-grid">
+                <div class="prep-card green">DI</div>
+                <div class="prep-card yellow">A</div>
+                <div class="prep-card blue">DA</div>
+                <div class="prep-card orange">IN</div>
+                <div class="prep-card purple">CON</div>
+                <div class="prep-card pink">SU</div>
+                <div class="prep-card red">PER</div>
+                <div class="prep-card green">TRA</div>
+                <div class="prep-card blue">FRA</div>
+            </div>
+
+            <div class="example-box">
+                <h3>💡 Esempi di utilizzo:</h3>
+                <ul>
+                    <li><strong>DI:</strong> Il libro <strong>di</strong> Marco è interessante</li>
+                    <li><strong>A:</strong> Vado <strong>a</strong> Roma domani</li>
+                    <li><strong>DA:</strong> Vengo <strong>da</strong> Milano</li>
+                    <li><strong>IN:</strong> Abito <strong>in</strong> Italia</li>
+                    <li><strong>CON:</strong> Parlo <strong>con</strong> Maria</li>
+                    <li><strong>SU:</strong> Il gatto è <strong>su</strong> l tavolo</li>
+                    <li><strong>PER:</strong> Questo regalo è <strong>per</strong> te</li>
+                    <li><strong>TRA/FRA:</strong> Arrivo <strong>tra</strong> dieci minuti</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PREPOSIZIONI ARTICOLATE -->
+        <div class="section">
+            <h2>🎯 Preposizioni Articolate</h2>
+            <p style="color: #fff; font-size: 1.2em; text-align: center; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">
+                Quando le preposizioni proprie si uniscono agli articoli determinativi!
+            </p>
+            
+            <div class="example-box">
+                <h3>🔗 Combinazioni più comuni:</h3>
+                <ul>
+                    <li><strong>DI + IL = DEL:</strong> Il colore <strong>del</strong> cielo</li>
+                    <li><strong>A + IL = AL:</strong> Vado <strong>al</strong> cinema</li>
+                    <li><strong>DA + IL = DAL:</strong> Vengo <strong>dal</strong> medico</li>
+                    <li><strong>IN + IL = NEL:</strong> <strong>Nel</strong> giardino ci sono fiori</li>
+                    <li><strong>SU + IL = SUL:</strong> <strong>Sul</strong> tavolo c'è un libro</li>
+                    <li><strong>DI + LA = DELLA:</strong> La casa <strong>della</strong> nonna</li>
+                    <li><strong>A + LA = ALLA:</strong> Vado <strong>alla</strong> stazione</li>
+                    <li><strong>DA + LA = DALLA:</strong> Arrivo <strong>dalla</strong> scuola</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PREPOSIZIONI IMPROPRIE -->
+        <div class="section">
+            <h2>⭐ Preposizioni Improprie</h2>
+            <p style="color: #fff; font-size: 1.2em; text-align: center; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">
+                Parole che possono funzionare come preposizioni ma anche come avverbi o aggettivi!
+            </p>
+            
+            <div class="preposizioni-grid">
+                <div class="prep-card yellow">DAVANTI</div>
+                <div class="prep-card blue">DIETRO</div>
+                <div class="prep-card orange">DOPO</div>
+                <div class="prep-card purple">PRIMA</div>
+                <div class="prep-card green">SOTTO</div>
+                <div class="prep-card pink">SOPRA</div>
+                <div class="prep-card red">DENTRO</div>
+                <div class="prep-card blue">FUORI</div>
+                <div class="prep-card green">LUNGO</div>
+                <div class="prep-card yellow">VICINO</div>
+                <div class="prep-card orange">LONTANO</div>
+                <div class="prep-card purple">CONTRO</div>
+                <div class="prep-card pink">VERSO</div>
+                <div class="prep-card red">SECONDO</div>
+                <div class="prep-card blue">DURANTE</div>
+                <div class="prep-card green">MEDIANTE</div>
+                <div class="prep-card yellow">NONOSTANTE</div>
+                <div class="prep-card orange">ATTRAVERSO</div>
+            </div>
+
+            <div class="example-box">
+                <h3>💡 Esempi di utilizzo:</h3>
+                <ul>
+                    <li><strong>DAVANTI:</strong> Aspettami <strong>davanti</strong> alla scuola</li>
+                    <li><strong>DIETRO:</strong> Il gatto è <strong>dietro</strong> la porta</li>
+                    <li><strong>DOPO:</strong> <strong>Dopo</strong> cena andiamo al cinema</li>
+                    <li><strong>PRIMA:</strong> Arrivo <strong>prima</strong> delle otto</li>
+                    <li><strong>SOTTO:</strong> Il cane dorme <strong>sotto</strong> il tavolo</li>
+                    <li><strong>SOPRA:</strong> L'uccello vola <strong>sopra</strong> la casa</li>
+                    <li><strong>DENTRO:</strong> <strong>Dentro</strong> la scatola ci sono regali</li>
+                    <li><strong>DURANTE:</strong> <strong>Durante</strong> la lezione studiamo</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- LOCUZIONI PREPOSIZIONALI -->
+        <div class="section">
+            <h2>🌟 Locuzioni Preposizionali</h2>
+            <p style="color: #fff; font-size: 1.2em; text-align: center; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">
+                Gruppi di parole che insieme funzionano come una preposizione!
+            </p>
+            
+            <div class="locuzioni-container">
+                <div class="locuzione-card">
+                    <h4>A CAUSA DI</h4>
+                    <p><strong>A causa</strong> della pioggia, resto a casa</p>
+                </div>
+                <div class="locuzione-card">
+                    <h4>IN MEZZO A</h4>
+                    <p>La fontana è <strong>in mezzo</strong> alla piazza</p>
+                </div>
+                <div class="locuzione-card">
+                    <h4>DI FRONTE A</h4>
+                    <p>La banca è <strong>di fronte</strong> alla chiesa</p>
+                </div>
+                <div class="locuzione-card">
+                    <h4>INSIEME A</h4>
+                    <p>Vado al mare <strong>insieme</strong> ai miei amici</p>
+                </div>
+                <div class="locuzione-card">
+                    <h4>A FAVORE DI</h4>
+                    <p>Sono <strong>a favore</strong> di questa proposta</p>
+                </div>
+                <div class="locuzione-card">
+                    <h4>INVECE DI</h4>
+                    <p><strong>Invece</strong> di studiare, gioca</p>
+                </div>
+                <div class="locuzione-card">
+                    <h4>PER MEZZO DI</h4>
+                    <p>Comunico <strong>per mezzo</strong> di email</p>
+                </div>
+                <div class="locuzione-card">
+                    <h4>IN CIMA A</h4>
+                    <p>La bandiera è <strong>in cima</strong> alla torre</p>
+                </div>
+                <div class="locuzione-card">
+                    <h4>AL DI LÀ DI</h4>
+                    <p><strong>Al di là</strong> delle montagne</p>
+                </div>
+                <div class="locuzione-card">
+                    <h4>ACCANTO A</h4>
+                    <p>Siediti <strong>accanto</strong> a me</p>
+                </div>
+                <div class="locuzione-card">
+                    <h4>IN QUANTO A</h4>
+                    <p><strong>In quanto</strong> a studi, è bravissimo</p>
+                </div>
+                <div class="locuzione-card">
+                    <h4>GRAZIE A</h4>
+                    <p><strong>Grazie</strong> al tuo aiuto ho finito</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <h3>💎 Consiglio d'Oro!</h3>
+                <p>Le locuzioni preposizionali sono formate da due o più parole che insieme svolgono la funzione di una preposizione. Sono molto usate nella lingua italiana parlata e scritta!</p>
+            </div>
+        </div>
+
+        <!-- QUANDO USARE LE PREPOSIZIONI -->
+        <div class="section">
+            <h2>🎪 Quando Usare le Preposizioni?</h2>
+            
+            <div class="example-box">
+                <h3>🏠 LUOGO (dove?)</h3>
+                <ul>
+                    <li>Vado <strong>a</strong> scuola</li>
+                    <li>Abito <strong>in</strong> Italia</li>
+                    <li>Il libro è <strong>sul</strong> tavolo</li>
+                    <li>Vengo <strong>da</strong> Roma</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h3>⏰ TEMPO (quando?)</h3>
+                <ul>
+                    <li>Arrivo <strong>tra</strong> un'ora</li>
+                    <li><strong>Durante</strong> l'estate fa caldo</li>
+                    <li><strong>Prima</strong> di cena studio</li>
+                    <li><strong>Dopo</strong> la scuola gioco</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h3>🎯 MODO (come?)</h3>
+                <ul>
+                    <li>Viaggio <strong>con</strong> l'aereo</li>
+                    <li>Scrivo <strong>a</strong> penna</li>
+                    <li>Parlo <strong>senza</strong> paura</li>
+                    <li>Lavoro <strong>con</strong> passione</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h3>❓ CAUSA (perché?)</h3>
+                <ul>
+                    <li><strong>Per</strong> la pioggia non esco</li>
+                    <li><strong>A causa</strong> del traffico sono in ritardo</li>
+                    <li><strong>Grazie</strong> al tuo aiuto ho capito</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p><span class="emoji">📚</span> Língua Academy - Impara l'italiano con passione! <span class="emoji">🇮🇹</span></p>
+            <p style="margin-top: 15px; font-size: 0.9em;">Le preposizioni sono la chiave per parlare italiano correttamente!</p>
+        </footer>
+    </div>
+</body>
+</html>

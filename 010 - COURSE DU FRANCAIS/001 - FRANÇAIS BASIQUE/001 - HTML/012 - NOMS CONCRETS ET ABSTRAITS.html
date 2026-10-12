@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noms Concrets et Noms Abstraits</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+            padding: 50px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 6px solid #ff6b6b;
+        }
+
+        .intro p {
+            line-height: 1.9;
+            color: #2d3436;
+            font-size: 1.15em;
+        }
+
+        .dual-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .dual-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .type-card {
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .type-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .type-card.concret {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .type-card.abstrait {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .type-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .type-icon {
+            font-size: 4em;
+            margin-bottom: 10px;
+        }
+
+        .type-title {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .type-definition {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            color: #2d3436;
+            font-size: 1.1em;
+            line-height: 1.7;
+            border-left: 5px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .caracteristiques {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .caracteristiques h4 {
+            color: #2d3436;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .caracteristiques ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .caracteristiques li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .caracteristiques li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .exemples-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .exemples-box h4 {
+            color: #e74c3c;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .exemple-item {
+            background: white;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            font-size: 1.05em;
+            color: #2d3436;
+        }
+
+        .exemple-item strong {
+            color: #e74c3c;
+            font-size: 1.1em;
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 2.5em;
+            margin: 50px 0 30px 0;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #ff6b6b;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparaison-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 35px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparaison-box h3 {
+            color: #2d3436;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .comp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .comp-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .comp-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .comp-item h4 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .comp-item p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+
+        .tableau-box {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.2em;
+        }
+
+        td {
+            padding: 18px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 1.05em;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            color: #43e97b;
+        }
+
+        td:last-child {
+            color: #fa709a;
+            font-weight: bold;
+        }
+
+        .astuce-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-left: 6px solid #e17055;
+        }
+
+        .astuce-box h3 {
+            color: #d63031;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .astuce-box p {
+            color: #2d3436;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .exercice-box {
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .exercice-box h3 {
+            color: #2d3436;
+            font-size: 1.9em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .exercice-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .exercice-item p {
+            color: #2d3436;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .mot-liste {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .mot-tag {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+
+        .mot-tag.concret {
+            background: #43e97b;
+            color: white;
+        }
+
+        .mot-tag.abstrait {
+            background: #fa709a;
+            color: white;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 6px solid #e74c3c;
+        }
+
+        .info-box h4 {
+            color: #c23616;
+            font-size: 1.5em;
+            margin-bottom: 12px;
+        }
+
+        .info-box p {
+            color: #2d3436;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .citation {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 6px solid #ff6b6b;
+            font-style: italic;
+            font-size: 1.2em;
+            color: #2d3436;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            font-size: 1.1em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .derivation-box {
+            background: linear-gradient(135deg, #a8ff78 0%, #78ffd6 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .derivation-box h3 {
+            color: #2d3436;
+            font-size: 1.9em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .derivation-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #27ae60;
+        }
+
+        .derivation-item .fleche {
+            display: inline-block;
+            color: #e74c3c;
+            font-size: 1.5em;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Les Noms</h1>
+            <p class="subtitle">Noms Concrets et Noms Abstraits</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <p>
+                    En grammaire française, les <strong>noms communs</strong> se divisent en deux grandes catégories : 
+                    les <strong>noms concrets</strong> et les <strong>noms abstraits</strong>. Cette distinction repose 
+                    sur la nature de ce qu'ils désignent : quelque chose de matériel et palpable, ou une idée, 
+                    un sentiment, une qualité ? Découvrons ensemble ces deux types de noms ! ✨
+                </p>
+            </div>
+
+            <h2 class="section-title">Les Deux Types de Noms</h2>
+
+            <div class="dual-section">
+                <div class="type-card concret">
+                    <div class="type-header">
+                        <div class="type-icon">🏠</div>
+                        <div class="type-title">Noms Concrets</div>
+                    </div>
+
+                    <div class="type-definition">
+                        <strong>Définition :</strong> Un nom concret désigne quelque chose de <strong>matériel</strong>, 
+                        que l'on peut percevoir par les <strong>cinq sens</strong> (vue, ouïe, toucher, goût, odorat). 
+                        Ce sont des réalités tangibles, physiques.
+                    </div>
+
+                    <div class="caracteristiques">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Désigne un être vivant ou un objet matériel</li>
+                            <li>Peut être vu, touché, entendu, senti ou goûté</li>
+                            <li>A une existence physique dans le monde réel</li>
+                            <li>Possède une forme, une taille, une couleur...</li>
+                        </ul>
+                    </div>
+
+                    <div class="exemples-box">
+                        <h4>🔹 Exemples :</h4>
+                        <div class="exemple-item">
+                            <strong>Personnes :</strong> enfant, professeur, médecin, Marie
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Animaux :</strong> chat, chien, oiseau, lion
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Objets :</strong> table, livre, voiture, téléphone
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Lieux :</strong> maison, école, Paris, montagne
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Aliments :</strong> pomme, pain, eau, chocolat
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Végétaux :</strong> arbre, fleur, rose, forêt
+                        </div>
+                    </div>
+                </div>
+
+                <div class="type-card abstrait">
+                    <div class="type-header">
+                        <div class="type-icon">💭</div>
+                        <div class="type-title">Noms Abstraits</div>
+                    </div>
+
+                    <div class="type-definition">
+                        <strong>Définition :</strong> Un nom abstrait désigne quelque chose d'<strong>immatériel</strong>, 
+                        que l'on ne peut pas percevoir par les sens. Ce sont des <strong>concepts, idées, sentiments, 
+                        qualités</strong> qui n'ont pas d'existence physique.
+                    </div>
+
+                    <div class="caracteristiques">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Désigne une idée, un sentiment, une qualité</li>
+                            <li>Ne peut pas être perçu par les cinq sens</li>
+                            <li>N'a pas d'existence physique ou matérielle</li>
+                            <li>Relève du domaine de la pensée, de l'émotion</li>
+                        </ul>
+                    </div>
+
+                    <div class="exemples-box">
+                        <h4>🔹 Exemples :</h4>
+                        <div class="exemple-item">
+                            <strong>Sentiments :</strong> amour, joie, tristesse, peur
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Qualités :</strong> beauté, gentillesse, courage, intelligence
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Idées :</strong> liberté, justice, vérité, paix
+                        </div>
+                        <div class="exemple-item">
+                            <strong>États :</strong> santé, jeunesse, vieillesse, fatigue
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Actions :</strong> danse, lecture, écriture, réflexion
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Concepts :</strong> temps, espace, science, philosophie
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Comment les Distinguer ?</h2>
+
+            <div class="astuce-box">
+                <h3>💡 La Méthode Simple</h3>
+                <p>
+                    <strong>Posez-vous la question :</strong> « Est-ce que je peux le voir, le toucher, le sentir, 
+                    l'entendre ou le goûter ? »<br><br>
+                    
+                    ✅ <strong>OUI</strong> → C'est un <span class="highlight">nom concret</span><br>
+                    ❌ <strong>NON</strong> → C'est un <span class="highlight">nom abstrait</span><br><br>
+                    
+                    <strong>Exemples :</strong><br>
+                    • Puis-je toucher une <strong>table</strong> ? OUI → nom concret<br>
+                    • Puis-je toucher la <strong>gentillesse</strong> ? NON → nom abstrait
+                </p>
+            </div>
+
+            <div class="comparaison-box">
+                <h3>⚖️ Comparaisons</h3>
+                <div class="comp-grid">
+                    <div class="comp-item">
+                        <h4>🏠 Nom Concret</h4>
+                        <p>
+                            Le <strong>chien</strong> aboie dans le jardin.<br>
+                            → On peut voir et entendre le chien
+                        </p>
+                    </div>
+                    <div class="comp-item">
+                        <h4>💭 Nom Abstrait</h4>
+                        <p>
+                            La <strong>fidélité</strong> est une belle qualité.<br>
+                            → On ne peut pas toucher la fidélité
+                        </p>
+                    </div>
+                    <div class="comp-item">
+                        <h4>🏠 Nom Concret</h4>
+                        <p>
+                            Cette <strong>fleur</strong> sent bon.<br>
+                            → On peut voir et sentir la fleur
+                        </p>
+                    </div>
+                    <div class="comp-item">
+                        <h4>💭 Nom Abstrait</h4>
+                        <p>
+                            Son <strong>bonheur</strong> est visible.<br>
+                            → Le bonheur est un sentiment
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Tableau Récapitulatif</h2>
+
+            <div class="tableau-box">
+                <table>
+                    <tr>
+                        <th>Catégorie</th>
+                        <th>Noms Concrets</th>
+                        <th>Noms Abstraits</th>
+                    </tr>
+                    <tr>
+                        <td>Êtres vivants</td>
+                        <td>homme, femme, enfant, chat</td>
+                        <td>humanité, enfance, jeunesse</td>
+                    </tr>
+                    <tr>
+                        <td>Objets / Concepts</td>
+                        <td>livre, stylo, ordinateur</td>
+                        <td>connaissance, science, culture</td>
+                    </tr>
+                    <tr>
+                        <td>Nature</td>
+                        <td>arbre, montagne, rivière, soleil</td>
+                        <td>nature, immensité, beauté</td>
+                    </tr>
+                    <tr>
+                        <td>Émotions</td>
+                        <td>larme, sourire, rire</td>
+                        <td>tristesse, joie, amusement</td>
+                    </tr>
+                    <tr>
+                        <td>Lieux</td>
+                        <td>maison, ville, école, parc</td>
+                        <td>espace, distance, lieu (concept)</td>
+                    </tr>
+                    <tr>
+                        <td>Actions</td>
+                        <td>marteau (outil), pinceau</td>
+                        <td>travail, création, art</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2 class="section-title">Formation des Noms Abstraits</h2>
+
+            <div class="derivation-box">
+                <h3>🔄 Dérivation : d'un mot à l'autre</h3>
+                
+                <div class="derivation-item">
+                    <p>
+                        <strong>À partir d'un adjectif :</strong><br>
+                        beau <span class="fleche">→</span> beauté<br>
+                        gentil <span class="fleche">→</span> gentillesse<br>
+                        intelligent <span class="fleche">→</span> intelligence<br>
+                        libre <span class="fleche">→</span> liberté
+                    </p>
+                </div>
+
+                <div class="derivation-item">
+                    <p>
+                        <strong>À partir d'un verbe :</strong><br>
+                        lire <span class="fleche">→</span> lecture<br>
+                        écrire <span class="fleche">→</span> écriture<br>
+                        danser <span class="fleche">→</span> danse<br>
+                        réfléchir <span class="fleche">→</span> réflexion
+                    </p>
+                </div>
+
+                <div class="derivation-item">
+                    <p>
+                        <strong>À partir d'un nom concret :</strong><br>
+                        enfant <span class="fleche">→</span> enfance<br>
+                        ami <span class="fleche">→</span> amitié<br>
+                        homme <span class="fleche">→</span> humanité<br>
+                        esclave <span class="fleche">→</span> esclavage
+                    </p>
+                </div>
+            </div>
+
+            <h2 class="section-title">Exercice Pratique</h2>
+
+            <div class="exercice-box">
+                <h3>🎯 Classez ces noms</h3>
+                
+                <div class="exercice-item">
+                    <p>Identifiez si ces noms sont concrets ou abstraits :</p>
+                    <div class="mot-liste">
+                        <span class="mot-tag concret">pomme</span>
+                        <span class="mot-tag abstrait">courage</span>
+                        <span class="mot-tag concret">voiture</span>
+                        <span class="mot-tag abstrait">liberté</span>
+                        <span class="mot-tag concret">chien</span>
+                        <span class="mot-tag abstrait">amour</span>
+                        <span class="mot-tag concret">livre</span>
+                        <span class="mot-tag abstrait">patience</span>
+                        <span class="mot-tag concret">montagne</span>
+                        <span class="mot-tag abstrait">tristesse</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>⚠️ Attention aux Cas Particuliers</h4>
+                <p>
+                    Certains noms peuvent être concrets dans un contexte et abstraits dans un autre :<br><br>
+                    
+                    • <strong>Jeunesse</strong> : « La jeunesse est en fête » (période de vie = abstrait) 
+                    VS « La jeunesse du quartier » (les jeunes gens = concret)<br><br>
+                    
+                    • <strong>Beauté</strong> : « La beauté de l'âme » (qualité = abstrait) 
+                    VS « Cette beauté m'a séduit » (belle personne = concret)<br><br>
+                    
+                    Le contexte est essentiel !
+                </p>
+            </div>
+
+            <div class="citation">
+                « Les noms concrets nous ancrent dans le réel, les noms abstraits nous élèvent vers l'idéal. 
+                Ensemble, ils donnent toute sa richesse à notre langue ! » 📖✨
+            </div>
+        </div>
+
+        <footer>
+            <p>🎨 Maîtrisez la distinction entre concret et abstrait pour enrichir votre expression ! 🎨</p>
+        </footer>
+    </div>
+</body>
+</html>

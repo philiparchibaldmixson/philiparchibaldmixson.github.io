@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronúncia Correta em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #FF6B6B 0%, #E91E63 50%, #9C27B0 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #FF6B6B;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #FF6B6B;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #E91E63;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #FF6B6B, #E91E63);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
+        .tabela-pronuncia {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tabela-pronuncia thead {
+            background: linear-gradient(135deg, #FF6B6B, #E91E63);
+            color: white;
+        }
+
+        .tabela-pronuncia th {
+            padding: 20px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        .tabela-pronuncia td {
+            padding: 18px 20px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        .tabela-pronuncia tr:hover {
+            background: #f5f5f5;
+        }
+
+        .tabela-pronuncia .correto {
+            color: #2D6A4F;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .tabela-pronuncia .incorreto {
+            color: #D81159;
+            font-weight: bold;
+            text-decoration: line-through;
+            font-size: 1.3em;
+        }
+
+        .tabela-pronuncia .fonetica {
+            color: #667eea;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+
+        .palavra-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #FF6B6B;
+        }
+
+        .palavra-card .palavra-titulo {
+            font-size: 2.2em;
+            color: #FF6B6B;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .palavra-card .silabacao {
+            font-size: 1.5em;
+            color: #E91E63;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .palavra-card .tonica {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .palavra-card .explicacao {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .erros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .erro-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .erro-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .erro-card.tipo1 {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+        }
+
+        .erro-card.tipo2 {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .erro-card.tipo3 {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+        }
+
+        .erro-card.tipo4 {
+            background: linear-gradient(135deg, #F7DC6F, #F39C12);
+        }
+
+        .erro-card.tipo5 {
+            background: linear-gradient(135deg, #BB8FCE, #9B59B6);
+        }
+
+        .erro-card.tipo6 {
+            background: linear-gradient(135deg, #E91E63, #D81159);
+        }
+
+        .erro-card h4 {
+            color: white;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .erro-card .errado {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .erro-card .certo {
+            background: rgba(255,255,255,0.3);
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .erro-card .label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .dicas-box {
+            background: linear-gradient(135deg, #52B788, #2D6A4F);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "🎤";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        .sotaques-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .sotaque-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 18px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .sotaque-card:hover {
+            transform: scale(1.05);
+        }
+
+        .sotaque-card .regiao {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .sotaque-card .caracteristica {
+            font-size: 1.1em;
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            line-height: 1.5;
+        }
+
+        .comparacao-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .comparacao-item {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .comparacao-item.pt-br {
+            background: linear-gradient(135deg, #52B788, #2D6A4F);
+        }
+
+        .comparacao-item.pt-pt {
+            background: linear-gradient(135deg, #E91E63, #D81159);
+        }
+
+        .comparacao-item h4 {
+            color: white;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .comparacao-item .lista {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            font-size: 1.1em;
+            line-height: 2;
+        }
+
+        .fonetica-box {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .fonetica-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .fonetica-item {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .fonetica-item .som {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .fonetica-item .descricao {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #FF6B6B 0%, #E91E63 50%, #9C27B0 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .erro-card, .destaque, .dicas-box, .sotaque-card,
+            .fonetica-box, .comparacao-item, .palavra-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .comparacao-box {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎤 Pronúncia Correta em Português 🎤</h1>
+        <p class="subtitle">Aprenda a falar corretamente em português brasileiro!</p>
+
+        <div class="section">
+            <h2>📖 O que é Pronúncia?</h2>
+            <p class="intro-text">
+                <strong>Pronúncia</strong> é o ato de articular e emitir os sons das palavras de acordo com as normas 
+                da língua. Uma pronúncia correta facilita a comunicação e demonstra domínio do idioma. 
+                No português brasileiro, temos características próprias que nos diferenciam de outras 
+                variantes da língua portuguesa.
+            </p>
+
+            <div class="destaque">
+                <strong>🎯 Importante:</strong> Não existe um único "sotaque correto" no Brasil! 
+                Nosso país é rico em variações regionais. O que importa é a clareza na comunicação 
+                e o respeito às regras de pronúncia padrão da língua.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>❌ Erros Mais Comuns de Pronúncia</h2>
+            <p class="intro-text">
+                Conheça os erros de pronúncia mais frequentes no português brasileiro:
+            </p>
+
+            <div class="erros-grid">
+                <div class="erro-card tipo1">
+                    <h4>Mendigo</h4>
+                    <div class="errado">
+                        <div class="label">❌ ERRADO:</div>
+                        men-din-go
+                    </div>
+                    <div class="certo">
+                        <div class="label">✓ CORRETO:</div>
+                        men-di-go
+                    </div>
+                </div>
+
+                <div class="erro-card tipo2">
+                    <h4>Beneficente</h4>
+                    <div class="errado">
+                        <div class="label">❌ ERRADO:</div>
+                        be-ne-fi-ci-en-te
+                    </div>
+                    <div class="certo">
+                        <div class="label">✓ CORRETO:</div>
+                        be-ne-fi-cen-te
+                    </div>
+                </div>
+
+                <div class="erro-card tipo3">
+                    <h4>Asterisco</h4>
+                    <div class="errado">
+                        <div class="label">❌ ERRADO:</div>
+                        as-te-rís-ti-co
+                    </div>
+                    <div class="certo">
+                        <div class="label">✓ CORRETO:</div>
+                        as-te-ris-co
+                    </div>
+                </div>
+
+                <div class="erro-card tipo4">
+                    <h4>Meteorologia</h4>
+                    <div class="errado">
+                        <div class="label">❌ ERRADO:</div>
+                        me-teo-ro-lo-gia
+                    </div>
+                    <div class="certo">
+                        <div class="label">✓ CORRETO:</div>
+                        me-te-o-ro-lo-gi-a
+                    </div>
+                </div>
+
+                <div class="erro-card tipo5">
+                    <h4>Problema</h4>
+                    <div class="errado">
+                        <div class="label">❌ ERRADO:</div>
+                        po-bre-ma / pro-ble-ma
+                    </div>
+                    <div class="certo">
+                        <div class="label">✓ CORRETO:</div>
+                        pro-ble-ma
+                    </div>
+                </div>
+
+                <div class="erro-card tipo6">
+                    <h4>Rubrica</h4>
+                    <div class="errado">
+                        <div class="label">❌ ERRADO:</div>
+                        ru-brí-ca
+                    </div>
+                    <div class="certo">
+                        <div class="label">✓ CORRETO:</div>
+                        rú-bri-ca
+                    </div>
+                </div>
+
+                <div class="erro-card tipo1">
+                    <h4>Gratuito</h4>
+                    <div class="errado">
+                        <div class="label">❌ ERRADO:</div>
+                        gra-tuí-to
+                    </div>
+                    <div class="certo">
+                        <div class="label">✓ CORRETO:</div>
+                        gra-tui-to
+                    </div>
+                </div>
+
+                <div class="erro-card tipo2">
+                    <h4>Próprio</h4>
+                    <div class="errado">
+                        <div class="label">❌ ERRADO:</div>
+                        pró-pi-o
+                    </div>
+                    <div class="certo">
+                        <div class="label">✓ CORRETO:</div>
+                        pró-pri-o
+                    </div>
+                </div>
+
+                <div class="erro-card tipo3">
+                    <h4>Chipanzé</h4>
+                    <div class="errado">
+                        <div class="label">❌ ERRADO:</div>
+                        chi-pan-zé
+                    </div>
+                    <div class="certo">
+                        <div class="label">✓ CORRETO:</div>
+                        chim-pan-zé
+                    </div>
+                </div>
+
+                <div class="erro-card tipo4">
+                    <h4>Privilégio</h4>
+                    <div class="errado">
+                        <div class="label">❌ ERRADO:</div>
+                        pre-vi-lé-gio
+                    </div>
+                    <div class="certo">
+                        <div class="label">✓ CORRETO:</div>
+                        pri-vi-lé-gio
+                    </div>
+                </div>
+
+                <div class="erro-card tipo5">
+                    <h4>Sobrancelha</h4>
+                    <div class="errado">
+                        <div class="label">❌ ERRADO:</div>
+                        som-bran-ce-lha
+                    </div>
+                    <div class="certo">
+                        <div class="label">✓ CORRETO:</div>
+                        so-bran-ce-lha
+                    </div>
+                </div>
+
+                <div class="erro-card tipo6">
+                    <h4>Abdômen</h4>
+                    <div class="errado">
+                        <div class="label">❌ ERRADO:</div>
+                        ab-dô-mi-ni
+                    </div>
+                    <div class="certo">
+                        <div class="label">✓ CORRETO:</div>
+                        ab-dô-men
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📋 Palavras Com Pronúncia Difícil</h2>
+            <p class="intro-text">
+                Algumas palavras causam dúvida até para falantes nativos. Veja a forma correta:
+            </p>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-pronuncia">
+                    <thead>
+                        <tr>
+                            <th>Palavra</th>
+                            <th>Pronúncia Correta</th>
+                            <th>Sílaba Tônica</th>
+                            <th>Observação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ibero</strong></td>
+                            <td class="correto">i-be-ro</td>
+                            <td class="fonetica">be (paroxítona)</td>
+                            <td>Não é "í-bero"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nobel</strong></td>
+                            <td class="correto">no-bél</td>
+                            <td class="fonetica">bél (oxítona)</td>
+                            <td>Não é "nó-bel"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Recorde</strong></td>
+                            <td class="correto">re-cór-de</td>
+                            <td class="fonetica">cór (paroxítona)</td>
+                            <td>Como substantivo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pudico</strong></td>
+                            <td class="correto">pu-di-co</td>
+                            <td class="fonetica">di (paroxítona)</td>
+                            <td>Não é "pú-dico"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ínterim</strong></td>
+                            <td class="correto">ín-te-rim</td>
+                            <td class="fonetica">ín (proparoxítona)</td>
+                            <td>Sempre proparoxítona</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Avaro</strong></td>
+                            <td class="correto">a-va-ro</td>
+                            <td class="fonetica">va (paroxítona)</td>
+                            <td>Não é "á-varo"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Circuito</strong></td>
+                            <td class="correto">cir-cui-to</td>
+                            <td class="fonetica">cui (paroxítona)</td>
+                            <td>Não é "cir-cuí-to"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Filantropo</strong></td>
+                            <td class="correto">fi-lan-tro-po</td>
+                            <td class="fonetica">tro (paroxítona)</td>
+                            <td>Não é "fi-lân-tro-po"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fortuito</strong></td>
+                            <td class="correto">for-tui-to</td>
+                            <td class="fonetica">tui (paroxítona)</td>
+                            <td>Não é "for-tuí-to"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sutil</strong></td>
+                            <td class="correto">su-til</td>
+                            <td class="fonetica">til (oxítona)</td>
+                            <td>Pronuncia-se o "l"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔊 Detalhes de Pronúncia Importantes</h2>
+
+            <div class="palavra-card">
+                <div class="palavra-titulo">RUBRICA</div>
+                <div class="silabacao">rú-bri-ca</div>
+                <div class="tonica">Sílaba tônica: RÚ</div>
+                <div class="explicacao">
+                    Esta é uma das palavras mais pronunciadas erroneamente no Brasil. A forma correta é 
+                    <strong>RÚ-bri-ca</strong> (proparoxítona), e não "ru-BRÍ-ca". O erro é tão comum que 
+                    muitas pessoas ficam surpresas ao descobrir a pronúncia correta!
+                </div>
+            </div>
+
+            <div class="palavra-card">
+                <div class="palavra-titulo">GRATUITO</div>
+                <div class="silabacao">gra-tui-to</div>
+                <div class="tonica">Sílaba tônica: TUI</div>
+                <div class="explicacao">
+                    Pronuncia-se <strong>gra-TUI-to</strong> (paroxítona), sem acento no "i". 
+                    O erro comum é falar "gra-tuí-to" (proparoxítona), mas essa forma está incorreta.
+                    A palavra forma um ditongo decrescente "ui".
+                </div>
+            </div>
+
+            <div class="palavra-card">
+                <div class="palavra-titulo">NOBEL</div>
+                <div class="silabacao">no-bél</div>
+                <div class="tonica">Sílaba tônica: BÉL</div>
+                <div class="explicacao">
+                    O Prêmio Nobel tem pronúncia oxítona: <strong>no-BÉL</strong>. Muitas pessoas 
+                    pronunciam incorretamente como "NÓ-bel" (paroxítona), mas o correto é com a 
+                    tônica na última sílaba, respeitando a origem sueca do nome.
+                </div>
+            </div>
+
+            <div class="palavra-card">
+                <div class="palavra-titulo">RECORDE</div>
+                <div class="silabacao">re-cór-de</div>
+                <div class="tonica">Sílaba tônica: CÓR</div>
+                <div class="explicacao">
+                    Como substantivo (quebrar um recorde), a pronúncia é <strong>re-CÓR-de</strong> (paroxítona). 
+                    Já como verbo (que eu recorde), mantém-se a mesma pronúncia. Não confunda com o inglês "record"!
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🗣️ Sons Difíceis do Português</h2>
+            <p class="intro-text">
+                Alguns sons do português brasileiro são desafiadores até para falantes nativos:
+            </p>
+
+            <div class="fonetica-box">
+                <h4>Principais Desafios Fonéticos</h4>
+
+                <div class="fonetica-item">
+                    <div class="som">LH</div>
+                    <div class="descricao">
+                        <strong>Som:</strong> Como em "filho", "olho", "trabalho"<br>
+                        <strong>Dica:</strong> Coloque a língua no céu da boca e force o ar pelas laterais. 
+                        Não confunda com "li" nem com "lio".
+                    </div>
+                </div>
+
+                <div class="fonetica-item">
+                    <div class="som">NH</div>
+                    <div class="descricao">
+                        <strong>Som:</strong> Como em "ninho", "sonho", "vinho"<br>
+                        <strong>Dica:</strong> Som nasal, parecido com "ni" mas com ar saindo pelo nariz. 
+                        Semelhante ao "ñ" do espanhol.
+                    </div>
+                </div>
+
+                <div class="fonetica-item">
+                    <div class="som">R Inicial</div>
+                    <div class="descricao">
+                        <strong>Som:</strong> Como em "rato", "rua", "rio"<br>
+                        <strong>Dica:</strong> R forte, pode ser gutural (carioca) ou vibrante (caipira). 
+                        Varia muito por região.
+                    </div>
+                </div>
+
+                <div class="fonetica-item">
+                    <div class="som">Ã, Õ (Nasais)</div>
+                    <div class="descricao">
+                        <strong>Som:</strong> Como em "mãe", "pão", "irmã"<br>
+                        <strong>Dica:</strong> Deixe o ar sair pelo nariz ao pronunciar a vogal. 
+                        Característica marcante do português.
+                    </div>
+                </div>
+
+                <div class="fonetica-item">
+                    <div class="som">Ç (Cedilha)</div>
+                    <div class="descricao">
+                        <strong>Som:</strong> Como em "caça", "açúcar", "paçoca"<br>
+                        <strong>Dica:</strong> Som de "ss" - sempre com som de S surdo. 
+                        Nunca soa como Z.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🌎 Variações Regionais do Brasil</h2>
+            <p class="intro-text">
+                O Brasil é imenso e cada região tem suas características de pronúncia:
+            </p>
+
+            <div class="sotaques-grid">
+                <div class="sotaque-card">
+                    <div class="regiao">🏖️ Rio de Janeiro</div>
+                    <div class="caracteristica">
+                        R gutural (som de gargarejo)<br>
+                        S chiado no final de sílabas<br>
+                        Vogais abertas<br>
+                        Ex: "porta" = "pórta"
+                    </div>
+                </div>
+
+                <div class="sotaque-card">
+                    <div class="regiao">🏙️ São Paulo</div>
+                    <div class="caracteristica">
+                        R caipira retroflexo<br>
+                        Ritmo mais rápido<br>
+                        Vogais mais fechadas<br>
+                        Ex: "porta" = "pôrta"
+                    </div>
+                </div>
+
+                <div class="sotaque-card">
+                    <div class="regiao">🌴 Nordeste</div>
+                    <div class="caracteristica">
+                        Pronúncia mais próxima da escrita<br>
+                        Preservação de sons finais<br>
+                        Ritmo mais melódico<br>
+                        Ex: "menino" = "me-ni-no"
+                    </div>
+                </div>
+
+                <div class="sotaque-card">
+                    <div class="regiao">🌾 Sul</div>
+                    <div class="caracteristica">
+                        Influência italiana e alemã<br>
+                        Chiado em "s" e "z"<br>
+                        Entonação cantada<br>
+                        Ex: pronúncia do "e" final
+                    </div>
+                </div>
+
+                <div class="sotaque-card">
+                    <div class="regiao">🌳 Norte</div>
+                    <div class="caracteristica">
+                        Vocabulário indígena<br>
+                        Vogais abertas<br>
+                        Ritmo mais pausado<br>
+                        Influências amazônicas
+                    </div>
+                </div>
+
+                <div class="sotaque-card">
+                    <div class="regiao">🏞️ Centro-Oeste</div>
+                    <div class="caracteristica">
+                        Mistura de sotaques<br>
+                        R caipira em algumas regiões<br>
+                        Influência do interior<br>
+                        Variação por migração
+                    </div>
+                </div>
+            </div>
+
+            <div class="destaque" style="margin-top: 30px;">
+                <strong>🌟 Lembre-se:</strong> Todas as variações regionais são válidas e ricas! 
+                A diversidade de sotaques é uma característica cultural importante do Brasil. 
+                O importante é manter a clareza na comunicação.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🇧🇷 Português Brasileiro vs Português Europeu</h2>
+            <p class="intro-text">
+                O português falado no Brasil tem diferenças significativas do falado em Portugal:
+            </p>
+
+            <div class="comparacao-box">
+                <div class="comparacao-item pt-br">
+                    <h4>🇧🇷 Brasil</h4>
+                    <div class="lista">
+                        <strong>Vogais abertas e claras</strong><br>
+                        Pronúncia do "e" e "o" finais<br>
+                        "leite" = "lei-te"<br>
+                        "pote" = "pó-te"<br><br>
+                        
+                        <strong>T e D antes de I</strong><br>
+                        Som de "tch" e "dj"<br>
+                        "tia" = "tchia"<br>
+                        "dia" = "djia"<br><br>
+                        
+                        <strong>Ritmo mais lento</strong><br>
+                        Pronúncia de todas as sílabas<br>
+                        Pausas mais longas<br><br>
+                        
+                        <strong>R mais suave</strong><br>
+                        Varia por região<br>
+                        Pode ser gutural ou vibrante
+                    </div>
+                </div>
+
+                <div class="comparacao-item pt-pt">
+                    <h4>🇵🇹 Portugal</h4>
+                    <div class="lista">
+                        <strong>Vogais fechadas</strong><br>
+                        Omissão de sons finais<br>
+                        "leite" = "leit"<br>
+                        "pote" = "pót"<br><br>
+                        
+                        <strong>T e D sempre duros</strong><br>
+                        Nunca palatalizam<br>
+                        "tia" = "tia" (t puro)<br>
+                        "dia" = "dia" (d puro)<br><br>
+                        
+                        <strong>Ritmo mais rápido</strong><br>
+                        "Engole" algumas sílabas<br>
+                        Fala mais compacta<br><br>
+                        
+                        <strong>R sempre vibrante</strong><br>
+                        Som mais forte<br>
+                        Rola a língua
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Palavras com Múltiplas Pronúncias Aceitas</h2>
+            <p class="intro-text">
+                Algumas palavras têm mais de uma pronúncia considerada correta:
+            </p>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-pronuncia">
+                    <thead>
+                        <tr>
+                            <th>Palavra</th>
+                            <th>Pronúncia 1</th>
+                            <th>Pronúncia 2</th>
+                            <th>Observação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Projétil</strong></td>
+                            <td class="correto">pro-jé-til</td>
+                            <td class="correto">pro-je-til</td>
+                            <td>Ambas aceitas</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Réptil</strong></td>
+                            <td class="correto">rép-til</td>
+                            <td class="correto">rep-til</td>
+                            <td>Ambas aceitas</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Abdômen</strong></td>
+                            <td class="correto">ab-dô-men</td>
+                            <td class="correto">ab-do-men</td>
+                            <td>Preferível: ab-dô-men</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Acróbata</strong></td>
+                            <td class="correto">a-cró-ba-ta</td>
+                            <td class="correto">a-cro-ba-ta</td>
+                            <td>Preferível: a-cró-ba-ta</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Xerox</strong></td>
+                            <td class="correto">ché-rox</td>
+                            <td class="correto">zé-rox</td>
+                            <td>Marca comercial</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Boêmia</strong></td>
+                            <td class="correto">bo-ê-mi-a</td>
+                            <td class="correto">bo-e-mi-a</td>
+                            <td>Ambas aceitas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Dicas Para Melhorar Sua Pronúncia</h2>
+            
+            <div class="dicas-box">
+                <h4>Práticas Recomendadas:</h4>
+                <ul>
+                    <li><strong>Ouça bastante:</strong> Preste atenção em como falantes nativos pronunciam as palavras em noticiários, podcasts e vídeos.</li>
+                    <li><strong>Leia em voz alta:</strong> Pratique a leitura oral diariamente para treinar a articulação e o ritmo.</li>
+                    <li><strong>Grave-se falando:</strong> Ouça sua própria voz para identificar pontos de melhoria.</li>
+                    <li><strong>Consulte dicionários com áudio:</strong> Muitos dicionários online têm pronúncia em áudio.</li>
+                    <li><strong>Pratique sons difíceis:</strong> Dedique tempo aos sons que você tem mais dificuldade (LH, NH, R).</li>
+                    <li><strong>Exercite a dicção:</strong> Trava-línguas são ótimos para treinar articulação.</li>
+                    <li><strong>Mantenha um ritmo adequado:</strong> Nem muito rápido (atropelando palavras) nem muito lento.</li>
+                    <li><strong>Respire corretamente:</strong> Uma boa respiração ajuda na clareza da fala.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎪 Trava-Línguas Para Praticar</h2>
+            <p class="intro-text">
+                Os trava-línguas são excelentes exercícios de pronúncia e dicção:
+            </p>
+
+            <div class="palavra-card">
+                <div class="palavra-titulo">Para praticar o R</div>
+                <div class="explicacao">
+                    "O rato roeu a roupa do rei de Roma, a rainha com raiva resolveu remendar."<br><br>
+                    "Três pratos de trigo para três tigres tristes."
+                </div>
+            </div>
+
+            <div class="palavra-card">
+                <div class="palavra-titulo">Para praticar S e Z</div>
+                <div class="explicacao">
+                    "O sabiá não sabia que o sábio sabia que o sabiá não sabia assobiar."<br><br>
+                    "Se a liga me ligasse, eu também ligava a liga. Mas a liga não me liga, eu também não ligo a liga."
+                </div>
+            </div>
+
+            <div class="palavra-card">
+                <div class="palavra-titulo">Para praticar L</div>
+                <div class="explicacao">
+                    "A aranha arranha a jarra, a jarra arranha a aranha."<br><br>
+                    "Olha o sapo dentro do saco, o saco com o sapo dentro, o sapo batendo papo e o papo do sapo soltando vento."
+                </div>
+            </div>
+
+            <div class="palavra-card">
+                <div class="palavra-titulo">Para praticar várias consoantes</div>
+                <div class="explicacao">
+                    "Um ninho de mafagafos tinha sete mafagafinhos. Quem desmafagaguifar os sete mafagafinhos bom desmafagaguifador será."<br><br>
+                    "Bagre branco, branco bagre."
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⚠️ Cuidados Especiais</h2>
+            
+            <div class="tabela-wrapper">
+                <table class="tabela-pronuncia">
+                    <thead>
+                        <tr>
+                            <th>Situação</th>
+                            <th>Cuidado</th>
+                            <th>Exemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Estrangeirismos</strong></td>
+                            <td>Adapte ao português</td>
+                            <td>"Mouse" = "mause" (não "máus")</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Siglas</strong></td>
+                            <td>Pronuncie letra por letra ou como palavra</td>
+                            <td>"FGTS" = "éfe-gê-tê-ésse"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Números</strong></td>
+                            <td>Atenção aos ordinais</td>
+                            <td>"Primeiro", não "primero"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gerúndio</strong></td>
+                            <td>Evite o "gerundismo"</td>
+                            <td>"Vou enviar" (não "vou estar enviando")</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Plural</strong></td>
+                            <td>Marque bem o plural</td>
+                            <td>"Os meninos" (não "os menino")</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔤 Alfabeto Fonético Simplificado</h2>
+            <p class="intro-text">
+                Representação aproximada dos sons do português brasileiro:
+            </p>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-pronuncia">
+                    <thead>
+                        <tr>
+                            <th>Vogal/Som</th>
+                            <th>Como em</th>
+                            <th>Exemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>a</strong></td>
+                            <td>aberto</td>
+                            <td>casa, fama, lata</td>
+                        </tr>
+                        <tr>
+                            <td><strong>e</strong></td>
+                            <td>aberto / fechado</td>
+                            <td>pé (aberto), você (fechado)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>i</strong></td>
+                            <td>fechado</td>
+                            <td>vida, time, pimenta</td>
+                        </tr>
+                        <tr>
+                            <td><strong>o</strong></td>
+                            <td>aberto / fechado</td>
+                            <td>pó (aberto), ovo (fechado)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>u</strong></td>
+                            <td>fechado</td>
+                            <td>uva, luta, urubu</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ã</strong></td>
+                            <td>nasal</td>
+                            <td>mãe, cãibra, irmã</td>
+                        </tr>
+                        <tr>
+                            <td><strong>õ</strong></td>
+                            <td>nasal</td>
+                            <td>pão, põe, limões</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ch</strong></td>
+                            <td>como "x"</td>
+                            <td>chuva, chave, bicho</td>
+                        </tr>
+                        <tr>
+                            <td><strong>lh</strong></td>
+                            <td>lateral palatal</td>
+                            <td>filho, milho, velho</td>
+                        </tr>
+                        <tr>
+                            <td><strong>nh</strong></td>
+                            <td>nasal palatal</td>
+                            <td>ninho, sonho, linha</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📱 Recursos Para Praticar Pronúncia</h2>
+            
+            <div class="dicas-box" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                <h4>Ferramentas Úteis:</h4>
+                <ul>
+                    <li><strong>Dicionários online:</strong> Michaelis, Aurélio e Priberam têm pronúncia em áudio.</li>
+                    <li><strong>Aplicativos de idiomas:</strong> Muitos apps focam em pronúncia e têm reconhecimento de voz.</li>
+                    <li><strong>YouTube:</strong> Busque por "pronúncia português brasileiro" para encontrar tutoriais.</li>
+                    <li><strong>Podcasts:</strong> Ouça programas brasileiros para se familiarizar com diferentes sotaques.</li>
+                    <li><strong>Audiolivros:</strong> Acompanhe a leitura enquanto ouve a narração.</li>
+                    <li><strong>Noticiários:</strong> Apresentadores de TV têm dicção clara e pronúncia padrão.</li>
+                    <li><strong>Músicas brasileiras:</strong> Ajudam a treinar o ritmo e a entonação do português.</li>
+                    <li><strong>Conversação:</strong> Nada substitui a prática com falantes nativos!</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎓 Erros de Conjugação que Afetam a Pronúncia</h2>
+            <p class="intro-text">
+                Alguns erros de conjugação são tão comuns que afetam a forma como as pessoas falam:
+            </p>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-pronuncia">
+                    <thead>
+                        <tr>
+                            <th>Incorreto</th>
+                            <th>Correto</th>
+                            <th>Explicação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="incorreto">Nós vai</td>
+                            <td class="correto">Nós vamos</td>
+                            <td>Concordância verbal</td>
+                        </tr>
+                        <tr>
+                            <td class="incorreto">Fazem 3 anos</td>
+                            <td class="correto">Faz 3 anos</td>
+                            <td>Verbo impessoal (tempo)</td>
+                        </tr>
+                        <tr>
+                            <td class="incorreto">Se eu vir amanhã</td>
+                            <td class="correto">Se eu vier amanhã</td>
+                            <td>Futuro do subjuntivo de "vir"</td>
+                        </tr>
+                        <tr>
+                            <td class="incorreto">Quando ele vir</td>
+                            <td class="correto">Quando ele ver</td>
+                            <td>Futuro do subjuntivo de "ver"</td>
+                        </tr>
+                        <tr>
+                            <td class="incorreto">Eu intervim</td>
+                            <td class="correto">Eu intervim</td>
+                            <td>Pretérito perfeito de "intervir"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✨ Curiosidades Sobre Pronúncia</h2>
+            
+            <div class="palavra-card">
+                <div class="palavra-titulo">🌍 Por que brasileiros e portugueses falam tão diferente?</div>
+                <div class="explicacao">
+                    A colonização portuguesa trouxe o idioma, mas o Brasil desenvolveu suas próprias características 
+                    por influência de línguas indígenas, africanas e de imigrantes. O isolamento geográfico e 
+                    a grande extensão territorial também contribuíram para as diferenças.
+                </div>
+            </div>
+
+            <div class="palavra-card">
+                <div class="palavra-titulo">🎵 A música da fala brasileira</div>
+                <div class="explicacao">
+                    O português brasileiro é considerado mais "cantado" que o europeu. Temos maior variação de 
+                    entonação e ritmo mais lento, o que torna nossa fala mais melódica. Isso é especialmente 
+                    notável nos sotaques nordestinos.
+                </div>
+            </div>
+
+            <div class="palavra-card">
+                <div class="palavra-titulo">📚 Palavras sem rima em português</div>
+                <div class="explicacao">
+                    Algumas palavras não têm rima perfeita em português: "sangue", "túnel", "círculo", "lâmina", 
+                    "rápido". Isso acontece porque suas terminações são únicas ou muito raras no idioma.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏆 Resumo Final</h2>
+            <div class="dicas-box" style="background: linear-gradient(135deg, #FF6B6B, #E91E63);">
+                <h4>Pontos-Chave da Pronúncia:</h4>
+                <ul>
+                    <li><strong>Pronúncia correta</strong> facilita a comunicação e demonstra domínio do idioma.</li>
+                    <li><strong>Rubrica, gratuito, Nobel:</strong> Palavras campeãs de erro - memorize a forma correta!</li>
+                    <li><strong>Sotaques regionais</strong> são válidos e enriquecem nossa cultura.</li>
+                    <li><strong>Português brasileiro</strong> é diferente do português europeu - ambos corretos!</li>
+                    <li><strong>Pratique regularmente:</strong> Leia em voz alta, grave-se, use trava-línguas.</li>
+                    <li><strong>Sons difíceis:</strong> LH, NH e R exigem prática específica.</li>
+                    <li><strong>Consulte dicionários:</strong> Na dúvida sobre pronúncia, sempre verifique!</li>
+                    <li><strong>Ouça falantes nativos:</strong> A exposição constante melhora naturalmente sua pronúncia.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

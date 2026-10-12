@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Article Devant le Superlatif Relatif - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 20%, #f093fb 40%, #4facfe 60%, #00f2fe 80%, #667eea 100%);
+            background-size: 600% 600%;
+            animation: articleGradient 35s ease infinite;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes articleGradient {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 100%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 0%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.18) 0%, transparent 35%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.18) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.12) 0%, transparent 50%);
+            animation: articleFloat 22s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes articleFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+            50% { transform: translate(35px, -35px) scale(1.12); opacity: 0.85; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.3em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+            animation: articlePulse 3.5s ease-in-out infinite;
+        }
+
+        @keyframes articlePulse {
+            0%, 100% { 
+                box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 20px 65px rgba(118, 75, 162, 0.95);
+                transform: scale(1.12);
+            }
+        }
+
+        h1 {
+            color: white;
+            font-size: 3.5em;
+            text-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+            animation: articleGlow 4.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes articleGlow {
+            from { 
+                text-shadow: 5px 5px 15px rgba(102, 126, 234, 0.7);
+                filter: drop-shadow(0 0 30px rgba(102, 126, 234, 0.6));
+            }
+            to { 
+                text-shadow: 5px 5px 30px rgba(0, 242, 254, 1);
+                filter: drop-shadow(0 0 55px rgba(0, 242, 254, 0.85));
+            }
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.8em;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #4facfe, #00f2fe, #667eea);
+            background-size: 400% 100%;
+            animation: borderArticle 12s ease infinite;
+        }
+
+        @keyframes borderArticle {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.6em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 5px solid #f093fb;
+            position: relative;
+        }
+
+        h2::after {
+            content: '📝';
+            margin-left: 15px;
+            animation: writing 2.5s ease-in-out infinite;
+        }
+
+        @keyframes writing {
+            0%, 100% { 
+                transform: scale(1) translateY(0); 
+                opacity: 1;
+            }
+            50% { 
+                transform: scale(1.3) translateY(-5px); 
+                opacity: 0.75;
+            }
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 2em;
+            margin: 35px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3::before {
+            content: '🔤';
+            font-size: 1.3em;
+            animation: letters 3s ease-in-out infinite;
+        }
+
+        @keyframes letters {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(15deg) scale(1.2); }
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #667eea15, #f093fb15);
+            border-left: 6px solid #667eea;
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            font-size: 1.25em;
+            line-height: 1.9;
+            color: #2d3748;
+        }
+
+        .rule-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.15);
+            border-top: 6px solid;
+            transition: all 0.3s ease;
+        }
+
+        .rule-card:nth-child(odd) { border-top-color: #667eea; }
+        .rule-card:nth-child(even) { border-top-color: #f093fb; }
+
+        .rule-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(102, 126, 234, 0.3);
+        }
+
+        .rule-title {
+            color: #667eea;
+            font-size: 1.9em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .rule-title::before {
+            content: '📌';
+            font-size: 1.4em;
+            animation: pin 3s ease-in-out infinite;
+        }
+
+        @keyframes pin {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(10deg); }
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #4facfe15, #00f2fe15);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #4facfe;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 35px rgba(79, 172, 254, 0.2);
+        }
+
+        .example {
+            color: #2d3748;
+            font-size: 1.25em;
+            line-height: 2.2;
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .example::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+            color: #43e97b;
+            font-weight: bold;
+        }
+
+        .wrong-example {
+            color: #e74c3c;
+            font-size: 1.25em;
+            line-height: 2.2;
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .wrong-example::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .article-highlight {
+            background: linear-gradient(120deg, #667eea60 0%, #764ba260 100%);
+            padding: 5px 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #4c51bf;
+            font-size: 1.1em;
+        }
+
+        .adjective-highlight {
+            background: linear-gradient(120deg, #f093fb50 0%, #f5576c50 100%);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #c0392b;
+        }
+
+        .noun-highlight {
+            background: linear-gradient(120deg, #4facfe50 0%, #00f2fe50 100%);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #2c5aa0;
+        }
+
+        .position-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .position-item {
+            background: linear-gradient(135deg, #667eea10, #f093fb10);
+            padding: 30px;
+            border-radius: 15px;
+            border: 3px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .position-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 45px rgba(102, 126, 234, 0.25);
+        }
+
+        .position-item h4 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .schema-visual {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .schema-visual h5 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .schema-text {
+            font-size: 1.4em;
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #f093fb10, #4facfe10);
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffd43b15, #ff8c4215);
+            border: 3px solid #ffd43b;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .warning-box::before {
+            content: '⚠️ ATTENTION';
+            position: absolute;
+            top: -15px;
+            left: 35px;
+            background: linear-gradient(135deg, #ffd43b, #ff8c42);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.95em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .warning-box p {
+            margin-top: 15px;
+            color: #2d3748;
+            line-height: 1.9;
+            font-size: 1.15em;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #43e97b15, #38f9d715);
+            border: 3px dashed #43e97b;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .note-box::before {
+            content: '💡 BON À SAVOIR';
+            position: absolute;
+            top: -15px;
+            left: 35px;
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.95em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .note-box p {
+            margin-top: 15px;
+            color: #2d3748;
+            line-height: 1.9;
+            font-size: 1.15em;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        th {
+            padding: 18px;
+            text-align: left;
+            font-size: 1.15em;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, #667eea10, #f093fb10);
+        }
+
+        .schema-box {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.18);
+            border: 4px solid #667eea;
+        }
+
+        .schema-title {
+            text-align: center;
+            color: #667eea;
+            font-size: 1.7em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .schema-title::before,
+        .schema-title::after {
+            content: '═══';
+            color: #f093fb;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #f093fb20, #f5576c20);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 3px solid #f093fb;
+        }
+
+        .tip-box h4 {
+            color: #f093fb;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tip-box h4::before {
+            content: '🎯';
+            font-size: 1.3em;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        footer p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .emoji-decoration {
+            display: inline-block;
+            animation: swing 4s ease-in-out infinite;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(15deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-15deg); }
+        }
+
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            h2 {
+                font-size: 1.9em;
+            }
+            
+            h3 {
+                font-size: 1.6em;
+            }
+
+            .position-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🎓 Língua Academy</div>
+            <h1>L'Article Devant le</h1>
+            <p class="subtitle">Superlatif Relatif</p>
+        </header>
+
+        <div class="content-card">
+            <h2>Rappel : Le Superlatif Relatif</h2>
+            <div class="intro-box">
+                Le superlatif relatif exprime le <strong style="color: #667eea;">degré le plus élevé</strong> ou 
+                <strong style="color: #f093fb;">le plus faible</strong> d'une qualité en comparant un élément à un 
+                groupe. Il utilise obligatoirement un <strong style="color: #4facfe;">article défini</strong> 
+                (le/la/les) devant « plus » ou « moins ». L'utilisation correcte de cet article est 
+                <strong>cruciale</strong> et dépend de la position de l'adjectif !
+            </div>
+
+            <div class="schema-visual">
+                <h5>Structure Générale</h5>
+                <div class="schema-text">
+                    <span class="article-highlight">ARTICLE DÉFINI</span> + plus/moins + 
+                    <span class="adjective-highlight">ADJECTIF</span> + (de + groupe)
+                </div>
+                <p style="text-align: center; color: #555; margin-top: 15px; font-size: 1.1em;">
+                    Exemple : <span class="article-highlight">Le</span> plus <span class="adjective-highlight">grand</span> de la classe
+                </p>
+            </div>
+
+            <h2>Les Deux Cas Principaux</h2>
+
+            <h3>Cas 1 : Adjectif Placé AVANT le Nom</h3>
+            <div class="rule-card">
+                <div class="rule-title">Un Seul Article</div>
+                
+                <p style="margin: 20px 0; font-size: 1.2em; color: #555;">
+                    Quand l'adjectif se place <strong>normalement avant le nom</strong>, l'article défini n'apparaît 
+                    qu'<strong>une seule fois</strong>, au début du groupe nominal.
+                </p>
+
+                <div class="position-grid">
+                    <div class="position-item">
+                        <h4>Structure</h4>
+                        <div class="schema-visual">
+                            <div class="schema-text">
+                                <span class="article-highlight">Article</span> + plus/moins + adj. + <span class="noun-highlight">NOM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="position-item">
+                        <h4>Exemples Types</h4>
+                        <div style="line-height: 2; color: #2d3748; margin-top: 15px;">
+                            • Un <strong>beau</strong> château<br>
+                            • Un <strong>grand</strong> livre<br>
+                            • Une <strong>petite</strong> maison<br>
+                            • Un <strong>bon</strong> restaurant
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4 style="color: #4facfe; font-size: 1.3em; margin-bottom: 15px;">✓ Exemples CORRECTS :</h4>
+                    <div class="example">
+                        <span class="article-highlight">Le</span> plus <span class="adjective-highlight">beau</span> <span class="noun-highlight">château</span> de France
+                    </div>
+                    <div class="example">
+                        <span class="article-highlight">La</span> plus <span class="adjective-highlight">grande</span> <span class="noun-highlight">ville</span> du monde
+                    </div>
+                    <div class="example">
+                        <span class="article-highlight">Les</span> plus <span class="adjective-highlight">petites</span> <span class="noun-highlight">maisons</span> du village
+                    </div>
+                    <div class="example">
+                        <span class="article-highlight">Le</span> <span class="adjective-highlight">meilleur</span> <span class="noun-highlight">restaurant</span> de la ville
+                    </div>
+                    <div class="example">
+                        <span class="article-highlight">La</span> moins <span class="adjective-highlight">longue</span> <span class="noun-highlight">route</span>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <p>
+                        <strong>Ne répétez PAS l'article !</strong><br><br>
+                        ❌ <del>Le plus le beau château</del><br>
+                        ✓ <strong>Le</strong> plus beau château<br><br>
+                        ❌ <del>La plus la grande ville</del><br>
+                        ✓ <strong>La</strong> plus grande ville
+                    </p>
+                </div>
+
+                <div class="note-box">
+                    <p>
+                        <strong>Liste des adjectifs courants placés AVANT le nom :</strong><br><br>
+                        • Adjectifs de taille : <strong>grand, petit, gros, long, court</strong><br>
+                        • Adjectifs d'âge : <strong>jeune, vieux, nouveau</strong><br>
+                        • Adjectifs de beauté : <strong>beau, joli</strong><br>
+                        • Adjectifs de qualité : <strong>bon, mauvais, meilleur, pire</strong><br>
+                        • Autres : <strong>autre, même, dernier, premier</strong>
+                    </p>
+                </div>
+            </div>
+
+            <h3>Cas 2 : Adjectif Placé APRÈS le Nom</h3>
+            <div class="rule-card">
+                <div class="rule-title">Répétition de l'Article</div>
+                
+                <p style="margin: 20px 0; font-size: 1.2em; color: #555;">
+                    Quand l'adjectif se place <strong>normalement après le nom</strong>, l'article défini est 
+                    <strong>répété</strong> : une fois devant le nom et une fois devant « plus/moins ».
+                </p>
+
+                <div class="position-grid">
+                    <div class="position-item">
+                        <h4>Structure</h4>
+                        <div class="schema-visual">
+                            <div class="schema-text">
+                                <span class="article-highlight">Article</span> + <span class="noun-highlight">NOM</span> + 
+                                <span class="article-highlight">Article</span> + plus/moins + adj.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="position-item">
+                        <h4>Exemples Types</h4>
+                        <div style="line-height: 2; color: #2d3748; margin-top: 15px;">
+                            • Un livre <strong>intéressant</strong><br>
+                            • Une maison <strong>moderne</strong><br>
+                            • Un film <strong>amusant</strong><br>
+                            • Une ville <strong>peuplée</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4 style="color: #4facfe; font-size: 1.3em; margin-bottom: 15px;">✓ Exemples CORRECTS :</h4>
+                    <div class="example">
+                        <span class="article-highlight">Le</span> <span class="noun-highlight">livre</span> 
+                        <span class="article-highlight">le</span> plus <span class="adjective-highlight">intéressant</span>
+                    </div>
+                    <div class="example">
+                        <span class="article-highlight">La</span> <span class="noun-highlight">maison</span> 
+                        <span class="article-highlight">la</span> plus <span class="adjective-highlight">moderne</span>
+                    </div>
+                    <div class="example">
+                        <span class="article-highlight">Les</span> <span class="noun-highlight">films</span> 
+                        <span class="article-highlight">les</span> plus <span class="adjective-highlight">amusants</span>
+                    </div>
+                    <div class="example">
+                        <span class="article-highlight">La</span> <span class="noun-highlight">ville</span> 
+                        <span class="article-highlight">la</span> moins <span class="adjective-highlight">peuplée</span>
+                    </div>
+                    <div class="example">
+                        <span class="article-highlight">Le</span> <span class="noun-highlight">problème</span> 
+                        <span class="article-highlight">le</span> plus <span class="adjective-highlight">difficile</span>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <p>
+                        <strong>OUBLI FRÉQUENT : N'oubliez pas le second article !</strong><br><br>
+                        ❌ <del>Le livre plus intéressant</del><br>
+                        ✓ Le livre <strong>le</strong> plus intéressant<br><br>
+                        ❌ <del>La maison plus moderne</del><br>
+                        ✓ La maison <strong>la</strong> plus moderne<br><br>
+                        ❌ <del>Les films plus amusants</del><br>
+                        ✓ Les films <strong>les</strong> plus amusants
+                    </p>
+                </div>
+            </div>
+
+            <h2>Accord de l'Article Répété</h2>
+            <div class="schema-box">
+                <div class="schema-title">Règle d'Accord Importante</div>
+                
+                <div style="background: linear-gradient(135deg, #667eea10, #f093fb10); padding: 30px; border-radius: 15px; margin: 20px 0;">
+                    <p style="line-height: 2; color: #2d3748; font-size: 1.2em;">
+                        L'article répété (le second) s'accorde en <strong style="color: #667eea;">genre et en nombre</strong> 
+                        avec le <strong style="color: #f093fb;">nom</strong> qu'il qualifie.
+                    </p>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Genre/Nombre</th>
+                                <th>Premier Article</th>
+                                <th>Nom</th>
+                                <th>Second Article</th>
+                                <th>Exemple Complet</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: #667eea10;">
+                                <td><strong>Masc. Sing.</strong></td>
+                                <td><span class="article-highlight">le</span></td>
+                                <td>livre</td>
+                                <td><span class="article-highlight">le</span></td>
+                                <td>le livre le plus intéressant</td>
+                            </tr>
+                            <tr style="background: #f093fb10;">
+                                <td><strong>Fém. Sing.</strong></td>
+                                <td><span class="article-highlight">la</span></td>
+                                <td>maison</td>
+                                <td><span class="article-highlight">la</span></td>
+                                <td>la maison la plus belle</td>
+                            </tr>
+                            <tr style="background: #4facfe10;">
+                                <td><strong>Masc. Plur.</strong></td>
+                                <td><span class="article-highlight">les</span></td>
+                                <td>films</td>
+                                <td><span class="article-highlight">les</span></td>
+                                <td>les films les plus drôles</td>
+                            </tr>
+                            <tr style="background: #43e97b10;">
+                                <td><strong>Fém. Plur.</strong></td>
+                                <td><span class="article-highlight">les</span></td>
+                                <td>idées</td>
+                                <td><span class="article-highlight">les</span></td>
+                                <td>les idées les plus originales</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h2>Cas Particuliers et Subtilités</h2>
+
+            <div class="rule-card">
+                <div class="rule-title">Avec un Possessif ou un Démonstratif</div>
+                
+                <p style="margin: 20px 0; font-size: 1.15em; color: #555;">
+                    Quand le nom est précédé d'un <strong>possessif</strong> (mon, ton, son...) ou d'un 
+                    <strong>démonstratif</strong> (ce, cet, cette...), seul l'article du superlatif est utilisé.
+                </p>
+
+                <div class="example-box">
+                    <h4 style="color: #4facfe; font-size: 1.3em; margin-bottom: 15px;">✓ Avec Possessif :</h4>
+                    <div class="example">
+                        <strong>Mon</strong> livre <span class="article-highlight">le</span> plus cher
+                    </div>
+                    <div class="example">
+                        <strong>Sa</strong> voiture <span class="article-highlight">la</span> plus rapide
+                    </div>
+                    <div class="example">
+                        <strong>Nos</strong> amis <span class="article-highlight">les</span> plus fidèles
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4 style="color: #f093fb; font-size: 1.3em; margin-bottom: 15px;">✓ Avec Démonstratif :</h4>
+                    <div class="example">
+                        <strong>Ce</strong> film <span class="article-highlight">le</span> plus drôle
+                    </div>
+                    <div class="example">
+                        <strong>Cette</strong> maison <span class="article-highlight">la</span> plus belle
+                    </div>
+                    <div class="example">
+                        <strong>Ces</strong> livres <span class="article-highlight">les</span> plus intéressants
+                    </div>
+                </div>
+
+                <div class="note-box">
+                    <p>
+                        <strong>Pourquoi ?</strong> Le possessif ou le démonstratif remplace déjà l'article défini 
+                        devant le nom. On ne met donc que l'article du superlatif.
+                    </p>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-title">Avec les Formes Irrégulières</div>
+                
+                <p style="margin: 20px 0; font-size: 1.15em; color: #555;">
+                    Les superlatifs irréguliers suivent les <strong>mêmes règles</strong> de répétition d'article.
+                </p>
+
+                <div class="example-box">
+                    <h4 style="color: #43e97b; font-size: 1.3em; margin-bottom: 15px;">✓ Meilleur (avant le nom) :</h4>
+                    <div class="example">
+                        <span class="article-highlight">Le</span> <span class="adjective-highlight">meilleur</span> <span class="noun-highlight">restaurant</span> (un seul article)
+                    </div>
+                    <div class="example">
+                        <span class="article-highlight">La</span> <span class="adjective-highlight">meilleure</span> <span class="noun-highlight">amie</span>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4 style="color: #ffd43b; font-size: 1.3em; margin-bottom: 15px;">✓ Pire (généralement après) :</h4>
+                    <div class="example">
+                        <span class="article-highlight">Le</span> <span class="noun-highlight">film</span> 
+                        <span class="article-highlight">le</span> <span class="adjective-highlight">pire</span> (répétition)
+                    </div>
+                    <div class="example">
+                        <span class="article-highlight">La</span> <span class="noun-highlight">situation</span> 
+                        <span class="article-highlight">la</span> <span class="adjective-highlight">pire</span>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Tableau Récapitulatif</h2>
+            <div class="schema-box">
+                <div class="schema-title">Synthèse des Règles</div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Position de l'Adjectif</th>
+                                <th>Nombre d'Articles</th>
+                                <th>Structure</th>
+                                <th>Exemple</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>AVANT le nom</strong></td>
+                                <td style="color: #667eea; font-weight: bold;">UN SEUL</td>
+                                <td>Article + plus/moins + adj. + nom</td>
+                                <td><strong>Le</strong> plus beau château</td>
+                            </tr>
+                            <tr>
+                                <td><strong>APRÈS le nom</strong></td>
+                                <td style="color: #f093fb; font-weight: bold;">DEUX (répétition)</td>
+                                <td>Article + nom + article + plus/moins + adj.</td>
+                                <td><strong>Le</strong> livre <strong>le</strong> plus intéressant</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Avec possessif/démonstratif</strong></td>
+                                <td style="color: #4facfe; font-weight: bold;">UN SEUL</td>
+                                <td>Possessif/Dém. + nom + article + plus/moins + adj.</td>
+                                <td><strong>Mon</strong> livre <strong>le</strong> plus cher</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h2>Exercices Pratiques</h2>
+            <div class="example-box">
+                <h4 style="color: #667eea; font-size: 1.4em; margin-bottom: 15px;">Complétez avec l'article approprié :</h4>
+                <div class="example">1. ___ plus beau jardin du quartier</div>
+                <div class="example">2. ___ maison ___ plus moderne de la ville</div>
+                <div class="example">3. ___ meilleur restaurant de Paris</div>
+                <div class="example">4. ___ film ___ plus drôle de l'année</div>
+                <div class="example">5. ___ plus grande ville du monde</div>
+                <div class="example">6. Mon livre ___ plus cher</div>
+                <div class="example">7. ___ idées ___ plus originales</div>
+                <div class="example">8. Cette voiture ___ plus rapide</div>
+                <div class="example">9. ___ moins long chemin</div>
+                <div class="example">10. ___ problème ___ plus difficile à résoudre</div>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #f093fb; font-size: 1.4em; margin-bottom: 15px;">Corrigez les erreurs :</h4>
+                <div class="wrong-example">1. Le plus le beau château → ___________</div>
+                <div class="wrong-example">2. La maison plus moderne → ___________</div>
+                <div class="wrong-example">3. Le film le plus le drôle → ___________</div>
+                <div class="wrong-example">4. Les livres plus intéressants → ___________</div>
+                <div class="wrong-example">5. La plus la grande ville → ___________</div>
+            </div>
+
+            <div class="tip-box">
+                <h4>Méthode Simple pour Réussir</h4>
+                <p style="line-height: 2; color: #2d3748;">
+                    <strong>Étape 1 :</strong> Identifiez où se place normalement l'adjectif<br>
+                    • AVANT le nom ? (beau, grand, bon...) → <strong>UN SEUL</strong> article<br>
+                    • APRÈS le nom ? (intéressant, moderne...) → <strong>DEUX</strong> articles<br><br>
+                    
+                    <strong>Étape 2 :</strong> Vérifiez le genre et le nombre du nom<br>
+                    • Masculin singulier → <strong>le</strong><br>
+                    • Féminin singulier → <strong>la</strong><br>
+                    • Pluriel → <strong>les</strong><br><br>
+                    
+                    <strong>Étape 3 :</strong> Appliquez la règle !<br>
+                    • Si AVANT : Article + plus + adjectif + nom<br>
+                    • Si APRÈS : Article + nom + article + plus + adjectif 📝
+                </p>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>En résumé :</strong> L'article devant le superlatif relatif est un point de grammaire 
+                    délicat mais crucial. Retenez bien : <strong>UN seul article</strong> si l'adjectif est avant le nom, 
+                    <strong>DEUX articles</strong> (répétition) si l'adjectif est après le nom. Cette distinction 
+                    marque la différence entre un français correct et un français approximatif. Pratiquez régulièrement 
+                    pour maîtriser cette subtilité ! 🎯
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p><span class="emoji-decoration">🎓</span> <strong>Língua Academy</strong> <span class="emoji-decoration">🎓</span></p>
+            <p>Maîtrisez les subtilités grammaticales du français !</p>
+            <p style="font-size: 0.9em; opacity: 0.8; margin-top: 15px;">© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

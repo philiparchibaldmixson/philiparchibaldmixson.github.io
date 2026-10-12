@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quelqu'un · Quelques-uns · Tel | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --marine: #0a2540;
+            --bleu-ciel: #4a90e2;
+            --rouge-paris: #e63946;
+            --ivoire: #fdfbf7;
+            --gris-doux: #f4f4f6;
+            --gris-fonce: #333333;
+            --accent-or: #f4a261;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--ivoire);
+            color: var(--gris-fonce);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .floating-accent {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.08;
+            filter: blur(60px);
+        }
+
+        .accent-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--bleu-ciel);
+            top: -100px;
+            right: -100px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .accent-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--rouge-paris);
+            bottom: -150px;
+            left: -150px;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 50px) scale(1.1); }
+        }
+
+        header {
+            background: linear-gradient(165deg, var(--marine) 0%, #1a4d7a 100%);
+            color: white;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.03) 49%, rgba(255,255,255,0.03) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255,255,255,0.03) 49%, rgba(255,255,255,0.03) 51%, transparent 52%);
+            background-size: 60px 60px;
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+            max-width: 1100px;
+            padding: 3rem 2rem;
+            width: 100%;
+        }
+
+        .brand {
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-or);
+            margin-bottom: 2rem;
+            font-weight: 600;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-or);
+            animation: slideInLeft 0.8s ease both;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: slideInLeft 0.8s ease 0.2s both;
+        }
+
+        h1 .highlight {
+            color: var(--accent-or);
+            display: block;
+            font-size: 3rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .header-description {
+            font-size: 1.2rem;
+            max-width: 600px;
+            line-height: 1.8;
+            opacity: 0.9;
+            font-weight: 300;
+            animation: slideInLeft 0.8s ease 0.4s both;
+        }
+
+        .geometric-decoration {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 350px;
+            height: 350px;
+            animation: rotate 30s linear infinite;
+        }
+
+        .geometric-decoration::before,
+        .geometric-decoration::after {
+            content: '';
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .geometric-decoration::before {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .geometric-decoration::after {
+            width: 70%;
+            height: 70%;
+            top: 15%;
+            left: 15%;
+            transform: rotate(45deg);
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes rotate {
+            from { transform: translateY(-50%) rotate(0deg); }
+            to { transform: translateY(-50%) rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.05); opacity: 0.15; }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -100px auto 0;
+            padding: 0 2rem 4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .intro-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-bottom: 4rem;
+            border-left: 6px solid var(--bleu-ciel);
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .intro-card p {
+            font-size: 1.15rem;
+            color: var(--marine);
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .section {
+            margin-bottom: 5rem;
+            animation: fadeInUp 0.8s ease both;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.8s; }
+        .section:nth-child(3) { animation-delay: 1s; }
+        .section:nth-child(4) { animation-delay: 1.2s; }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 3rem;
+            gap: 2rem;
+        }
+
+        .section-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--rouge-paris);
+            opacity: 0.15;
+            line-height: 1;
+        }
+
+        .section-title-wrapper {
+            flex: 1;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--marine);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--bleu-ciel);
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--bleu-ciel), var(--rouge-paris));
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--marine);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .card-content {
+            color: var(--gris-fonce);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .rule-block {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--rouge-paris);
+        }
+
+        .rule-block strong {
+            color: var(--marine);
+            font-weight: 600;
+        }
+
+        .example {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+            position: relative;
+            padding-left: 3.5rem;
+        }
+
+        .example::before {
+            content: '→';
+            position: absolute;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--bleu-ciel);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .example-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--marine);
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .example-note {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .emphasis {
+            color: var(--rouge-paris);
+            font-weight: 600;
+            background: linear-gradient(180deg, transparent 60%, rgba(230, 57, 70, 0.15) 60%);
+            padding: 0 0.2rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--bleu-ciel);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            letter-spacing: 0.5px;
+        }
+
+        .tag.red {
+            background: var(--rouge-paris);
+        }
+
+        .tag.gold {
+            background: var(--accent-or);
+        }
+
+        .comparison-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            margin: 2rem 0;
+        }
+
+        .comparison-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--marine);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .comparison-item {
+            padding: 1.5rem;
+            background: var(--gris-doux);
+            border-radius: 8px;
+            border-top: 3px solid var(--bleu-ciel);
+        }
+
+        .comparison-item.variant {
+            border-top-color: var(--rouge-paris);
+        }
+
+        .comparison-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--marine);
+            margin-bottom: 1rem;
+        }
+
+        .table-wrapper {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--marine) 0%, #1a4d7a 100%);
+            color: white;
+        }
+
+        th {
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1.2rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .alert-box {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+            border-left: 6px solid var(--accent-or);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .alert-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 1.2rem;
+        }
+
+        .alert-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--marine);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .full-width-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            margin: 2rem 0;
+        }
+
+        footer {
+            background: var(--marine);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            margin-top: 6rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--bleu-ciel), var(--rouge-paris), var(--accent-or));
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            h1 .highlight {
+                font-size: 2rem;
+            }
+
+            .geometric-decoration {
+                display: none;
+            }
+
+            .content-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section-number {
+                font-size: 3rem;
+            }
+
+            .container {
+                margin-top: -50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-accent accent-1"></div>
+    <div class="floating-accent accent-2"></div>
+
+    <header>
+        <div class="geometric-decoration"></div>
+        <div class="header-content">
+            <div class="brand">Língua Academy</div>
+            <h1>
+                Pronoms & Adjectifs Indéfinis
+                <span class="highlight">Emplois Particuliers</span>
+            </h1>
+            <p class="header-description">
+                Maîtrisez les subtilités de <strong>quelqu'un(e)</strong>, <strong>quelques-un(e)s</strong> et <strong>tel</strong> 
+                pour une expression française précise et nuancée.
+            </p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="intro-card">
+            <p>
+                Ces pronoms et adjectifs indéfinis présentent des particularités d'emploi et d'accord qu'il est 
+                important de connaître. Leur maîtrise permet d'exprimer avec précision des notions de quantité 
+                indéterminée, de comparaison et d'identité.
+            </p>
+        </div>
+
+        <!-- SECTION 1: QUELQU'UN(E) -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">01</div>
+                <div class="section-title-wrapper">
+                    <h2 class="section-title">Quelqu'un(e)</h2>
+                    <p class="section-subtitle">Pronom indéfini singulier</p>
+                </div>
+            </div>
+
+            <div class="rule-block">
+                <p>
+                    <strong>Quelqu'un(e)</strong> est un <strong>pronom indéfini singulier</strong> qui désigne 
+                    une personne indéterminée. Il peut s'accorder en genre selon le contexte.
+                </p>
+            </div>
+
+            <div class="content-grid">
+                <div class="card">
+                    <h3 class="card-title">Forme masculine (courant)</h3>
+                    <div class="card-content">
+                        <p>La forme la plus utilisée, même pour désigner un groupe mixte ou indéterminé.</p>
+                        <div class="example">
+                            <div class="example-text"><span class="emphasis">Quelqu'un</span> est venu te chercher.</div>
+                            <div class="example-note">Genre indéterminé ou masculin</div>
+                        </div>
+                        <div class="example">
+                            <div class="example-text">Y a-t-il <span class="emphasis">quelqu'un</span> dans la salle ?</div>
+                            <div class="example-note">Interrogation générale</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Forme féminine (rare)</h3>
+                    <div class="card-content">
+                        <p>On utilise <strong>quelqu'une</strong> quand on sait que la personne est une femme.</p>
+                        <div class="example">
+                            <div class="example-text"><span class="emphasis">Quelqu'une</span> de mes amies viendra.</div>
+                            <div class="example-note">Précision du genre féminin</div>
+                        </div>
+                        <div class="example">
+                            <div class="example-text">C'est <span class="emphasis">quelqu'une</span> de très intelligent.</div>
+                            <div class="example-note">Féminin déterminé</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="full-width-card">
+                <h3 class="card-title">Emplois particuliers</h3>
+                <span class="tag">Avec DE</span>
+                <div class="example">
+                    <div class="example-text"><span class="emphasis">Quelqu'un de</span> compétent pourra vous aider.</div>
+                    <div class="example-note">Quelqu'un + de + adjectif masculin singulier</div>
+                </div>
+                <div class="example">
+                    <div class="example-text">Je cherche <span class="emphasis">quelqu'un d'</span>expérimenté.</div>
+                    <div class="example-note">D' devant une voyelle</div>
+                </div>
+
+                <span class="tag red">Sens = une personne importante</span>
+                <div class="example">
+                    <div class="example-text">Il se prend pour <span class="emphasis">quelqu'un</span> !</div>
+                    <div class="example-note">Familier : une personne importante/prétentieuse</div>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <div class="alert-title">Attention à l'accord de l'adjectif</div>
+                <p style="text-align: center;">
+                    Après <strong>quelqu'un de</strong>, l'adjectif reste toujours au <strong>masculin singulier</strong>, 
+                    même si « quelqu'un » désigne une femme :<br>
+                    <em>Quelqu'une de fort</em> (et non <s>forte</s>)
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 2: QUELQUES-UN(E)S -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">02</div>
+                <div class="section-title-wrapper">
+                    <h2 class="section-title">Quelques-un(e)s</h2>
+                    <p class="section-subtitle">Pronom indéfini pluriel</p>
+                </div>
+            </div>
+
+            <div class="rule-block">
+                <p>
+                    <strong>Quelques-un(e)s</strong> est le <strong>pluriel</strong> de quelqu'un(e). 
+                    Il désigne un petit nombre indéterminé de personnes ou de choses. Il s'accorde en genre et en nombre.
+                </p>
+            </div>
+
+            <div class="comparison-box">
+                <h3 class="comparison-title">Accord en genre et nombre</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h4>Masculin pluriel</h4>
+                        <div class="example">
+                            <div class="example-text"><span class="emphasis">Quelques-uns</span> sont arrivés en retard.</div>
+                            <div class="example-note">Personnes ou objets masculins</div>
+                        </div>
+                        <div class="example">
+                            <div class="example-text">J'ai lu <span class="emphasis">quelques-uns</span> de ces livres.</div>
+                            <div class="example-note">Complément avec « de »</div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-item variant">
+                        <h4>Féminin pluriel</h4>
+                        <div class="example">
+                            <div class="example-text"><span class="emphasis">Quelques-unes</span> de mes collègues partent.</div>
+                            <div class="example-note">Personnes ou objets féminins</div>
+                        </div>
+                        <div class="example">
+                            <div class="example-text">Parmi ces photos, <span class="emphasis">quelques-unes</span> sont floues.</div>
+                            <div class="example-note">Genre féminin déterminé</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="full-width-card">
+                <h3 class="card-title">Construction avec DE</h3>
+                <p style="margin-bottom: 1.5rem;">
+                    <strong>Quelques-un(e)s</strong> est souvent suivi de <strong>de + article + nom</strong> 
+                    pour préciser l'ensemble dont on parle.
+                </p>
+
+                <div class="example">
+                    <div class="example-text"><span class="emphasis">Quelques-uns des</span> invités sont déjà partis.</div>
+                    <div class="example-note">De + les = des (contraction)</div>
+                </div>
+                <div class="example">
+                    <div class="example-text"><span class="emphasis">Quelques-unes de mes</span> amies viendront.</div>
+                    <div class="example-note">De + adjectif possessif</div>
+                </div>
+                <div class="example">
+                    <div class="example-text">J'en ai vu <span class="emphasis">quelques-uns</span>.</div>
+                    <div class="example-note">Sans complément (référence implicite)</div>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Genre/Nombre</th>
+                            <th>Forme</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Masculin singulier</strong></td>
+                            <td>quelqu'un</td>
+                            <td><em>Quelqu'un a appelé</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Féminin singulier</strong></td>
+                            <td>quelqu'une</td>
+                            <td><em>Quelqu'une de mes sœurs</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Masculin pluriel</strong></td>
+                            <td>quelques-uns</td>
+                            <td><em>Quelques-uns sont venus</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Féminin pluriel</strong></td>
+                            <td>quelques-unes</td>
+                            <td><em>Quelques-unes des étudiantes</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="alert-box">
+                <div class="alert-title">Ne pas confondre</div>
+                <p style="text-align: center;">
+                    <strong>Quelques</strong> (adjectif) : J'ai <em>quelques</em> livres (= plusieurs livres)<br>
+                    <strong>Quelques-uns</strong> (pronom) : J'en ai lu <em>quelques-uns</em> (= certains d'entre eux)
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 3: TEL -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">03</div>
+                <div class="section-title-wrapper">
+                    <h2 class="section-title">Tel</h2>
+                    <p class="section-subtitle">Adjectif et pronom à fonctions multiples</p>
+                </div>
+            </div>
+
+            <div class="rule-block">
+                <p>
+                    <strong>Tel</strong> peut être <strong>adjectif</strong> ou <strong>pronom</strong> indéfini. 
+                    Il exprime la ressemblance, l'intensité ou l'indétermination. Il s'accorde toujours en genre et en nombre.
+                </p>
+            </div>
+
+            <div class="full-width-card">
+                <h3 class="card-title">Formes de TEL</h3>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem;">
+                    <div style="text-align: center; padding: 1rem; background: var(--gris-doux); border-radius: 8px;">
+                        <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--marine); margin-bottom: 0.5rem;">tel</div>
+                        <div style="font-size: 0.85rem; color: #666;">masculin singulier</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: var(--gris-doux); border-radius: 8px;">
+                        <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--marine); margin-bottom: 0.5rem;">telle</div>
+                        <div style="font-size: 0.85rem; color: #666;">féminin singulier</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: var(--gris-doux); border-radius: 8px;">
+                        <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--marine); margin-bottom: 0.5rem;">tels</div>
+                        <div style="font-size: 0.85rem; color: #666;">masculin pluriel</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: var(--gris-doux); border-radius: 8px;">
+                        <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--marine); margin-bottom: 0.5rem;">telles</div>
+                        <div style="font-size: 0.85rem; color: #666;">féminin pluriel</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="card">
+                    <h3 class="card-title">TEL adjectif</h3>
+                    <div class="card-content">
+                        <span class="tag">Sens 1 : Comparaison (= comme, semblable à)</span>
+                        <div class="example">
+                            <div class="example-text"><span class="emphasis">Tel</span> père, <span class="emphasis">tel</span> fils.</div>
+                            <div class="example-note">Expression figée : comme le père, comme le fils</div>
+                        </div>
+                        <div class="example">
+                            <div class="example-text">Un homme <span class="emphasis">tel que</span> lui est rare.</div>
+                            <div class="example-note">Tel que = semblable à</div>
+                        </div>
+
+                        <span class="tag red">Sens 2 : Intensité (= si grand, si fort)</span>
+                        <div class="example">
+                            <div class="example-text">Une <span class="emphasis">telle</span> beauté m'émerveille.</div>
+                            <div class="example-note">Telle = si grande</div>
+                        </div>
+                        <div class="example">
+                            <div class="example-text">Je n'ai jamais vu un <span class="emphasis">tel</span> spectacle.</div>
+                            <div class="example-note">Tel = aussi extraordinaire</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">TEL pronom</h3>
+                    <div class="card-content">
+                        <span class="tag gold">Sens : Quelqu'un (indétermination)</span>
+                        <div class="example">
+                            <div class="example-text"><span class="emphasis">Tel</span> est pris qui croyait prendre.</div>
+                            <div class="example-note">Proverbe : certaines personnes</div>
+                        </div>
+                        <div class="example">
+                            <div class="example-text"><span class="emphasis">Tel</span> qui rit vendredi pleurera dimanche.</div>
+                            <div class="example-note">Celui qui, certains</div>
+                        </div>
+
+                        <span class="tag">Usage administratif</span>
+                        <div class="example">
+                            <div class="example-text">Monsieur <span class="emphasis">Tel</span> ou <span class="emphasis">Tel</span>.</div>
+                            <div class="example-note">= une personne non nommée</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="full-width-card">
+                <h3 class="card-title">Locutions importantes avec TEL</h3>
+                
+                <span class="tag">TEL QUEL</span>
+                <p style="margin: 1rem 0;">
+                    Signifie "dans l'état où il est, sans changement". S'accorde avec le nom auquel il se rapporte.
+                </p>
+                <div class="example">
+                    <div class="example-text">Laissez les choses <span class="emphasis">telles quelles</span>.</div>
+                    <div class="example-note">Accord avec « les choses » (féminin pluriel)</div>
+                </div>
+                <div class="example">
+                    <div class="example-text">Je prends ce livre <span class="emphasis">tel quel</span>.</div>
+                    <div class="example-note">Accord avec « ce livre » (masculin singulier)</div>
+                </div>
+
+                <span class="tag red">TEL QUE</span>
+                <p style="margin: 1rem 0;">
+                    Exprime la comparaison ou donne un exemple. S'accorde avec le nom qui précède.
+                </p>
+                <div class="example">
+                    <div class="example-text">Des fruits <span class="emphasis">tels que</span> les pommes et les poires.</div>
+                    <div class="example-note">Tel que introduit des exemples</div>
+                </div>
+                <div class="example">
+                    <div class="example-text">Je le vois <span class="emphasis">tel qu'</span>il est.</div>
+                    <div class="example-note">Tel que = comme, dans son état réel</div>
+                </div>
+
+                <span class="tag gold">UN TEL / UNE TELLE</span>
+                <p style="margin: 1rem 0;">
+                    Désigne une personne dont on ne veut ou ne peut pas dire le nom.
+                </p>
+                <div class="example">
+                    <div class="example-text">J'ai rencontré <span class="emphasis">un tel</span> qui m'a parlé de toi.</div>
+                    <div class="example-note">Un tel = une certaine personne</div>
+                </div>
+                <div class="example">
+                    <div class="example-text">Madame <span class="emphasis">Unetelle</span> a téléphoné.</div>
+                    <div class="example-note">Usage fictif du nom</div>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--marine); margin-bottom: 1.5rem;">Règles d'accord de TEL</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Construction</th>
+                            <th>Accord</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Tel + nom</strong></td>
+                            <td>Avec le nom qui suit</td>
+                            <td><em>Telle est ma décision</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tel que</strong></td>
+                            <td>Avec le nom qui précède</td>
+                            <td><em>Des villes telles que Paris</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tel quel</strong></td>
+                            <td>Avec le nom auquel il se rapporte</td>
+                            <td><em>Des maisons telles quelles</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Un tel / Une telle</strong></td>
+                            <td>Selon le genre de la personne</td>
+                            <td><em>Une telle m'a dit...</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="alert-box">
+                <div class="alert-title">Erreur fréquente</div>
+                <p style="text-align: center;">
+                    ❌ <s>Comme tel</s> → ✅ <strong>En tant que tel</strong><br>
+                    <em>En tant que directeur, il a certaines responsabilités.</em><br><br>
+                    ❌ <s>Tel comme</s> → ✅ <strong>Tel que</strong><br>
+                    <em>Des langues telles que le français et l'espagnol.</em>
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION BONUS: Récapitulatif -->
+        <section class="section">
+            <div class="comparison-box" style="background: linear-gradient(135deg, var(--marine) 0%, #1a4d7a 100%); color: white;">
+                <h3 class="comparison-title" style="color: var(--accent-or);">Récapitulatif rapide</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
+                    <div style="padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 8px; backdrop-filter: blur(10px);">
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent-or);">Quelqu'un(e)</h4>
+                        <p style="font-size: 0.95rem; line-height: 1.6;">
+                            • Pronom singulier<br>
+                            • Désigne une personne<br>
+                            • Accord en genre rare<br>
+                            • <em>+ de + adjectif masculin</em>
+                        </p>
+                    </div>
+                    <div style="padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 8px; backdrop-filter: blur(10px);">
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent-or);">Quelques-un(e)s</h4>
+                        <p style="font-size: 0.95rem; line-height: 1.6;">
+                            • Pronom pluriel<br>
+                            • Accord en genre et nombre<br>
+                            • Souvent + de + nom<br>
+                            • <em>≠ quelques (adjectif)</em>
+                        </p>
+                    </div>
+                    <div style="padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 8px; backdrop-filter: blur(10px);">
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent-or);">Tel</h4>
+                        <p style="font-size: 0.95rem; line-height: 1.6;">
+                            • Adjectif ou pronom<br>
+                            • Accord variable<br>
+                            • Comparaison/intensité<br>
+                            • <em>tel quel, tel que, un tel</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-brand">Língua Academy</div>
+        <p class="footer-tagline">L'excellence en apprentissage du français</p>
+        <p class="footer-tagline" style="font-size: 0.8rem; margin-top: 1rem; opacity: 0.6;">
+            © 2024 • Grammaire Française • Ressources Pédagogiques
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Aspects Verbaux | Grammaire Française</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0A0A0A;
+            --white: #FAFAFA;
+            --red: #E63946;
+            --yellow: #F4A261;
+            --blue: #457B9D;
+            --gray: #6C757D;
+            --off-white: #F8F9FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Strong geometric background */
+        .background-grid {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: 
+                linear-gradient(var(--black) 1px, transparent 1px),
+                linear-gradient(90deg, var(--black) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Accent blocks */
+        .accent-block {
+            position: fixed;
+            z-index: -1;
+        }
+
+        .accent-red {
+            width: 200px;
+            height: 200px;
+            background: var(--red);
+            top: 100px;
+            right: -100px;
+            transform: rotate(45deg);
+            opacity: 0.1;
+        }
+
+        .accent-yellow {
+            width: 150px;
+            height: 150px;
+            background: var(--yellow);
+            bottom: 200px;
+            left: -75px;
+            transform: rotate(30deg);
+            opacity: 0.1;
+        }
+
+        /* Container */
+        .wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        /* Bold header */
+        header {
+            padding: 120px 0 100px;
+            position: relative;
+        }
+
+        .brand {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            padding: 8px 24px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 7rem;
+            font-weight: 900;
+            color: var(--black);
+            line-height: 0.9;
+            margin-bottom: 30px;
+            animation: slideIn 0.8s ease-out 0.2s backwards;
+            text-transform: uppercase;
+        }
+
+        .title-line {
+            display: block;
+        }
+
+        .title-highlight {
+            color: var(--red);
+            position: relative;
+            display: inline-block;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--gray);
+            max-width: 800px;
+            font-weight: 400;
+            line-height: 1.8;
+            animation: slideIn 0.8s ease-out 0.4s backwards;
+        }
+
+        /* Strong intro card */
+        .intro-section {
+            background: var(--black);
+            color: var(--white);
+            padding: 80px;
+            margin: 80px 0;
+            position: relative;
+            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .intro-section::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 40px;
+            width: 100px;
+            height: 15px;
+            background: var(--red);
+        }
+
+        .intro-section h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .intro-section p {
+            font-size: 1.2rem;
+            line-height: 2;
+            max-width: 1100px;
+        }
+
+        .intro-highlight {
+            color: var(--yellow);
+            font-weight: 700;
+        }
+
+        /* Section with strong typography */
+        .content-section {
+            margin: 100px 0;
+            animation: fadeIn 1s ease-out backwards;
+        }
+
+        .content-section:nth-child(4) { animation-delay: 0.8s; }
+        .content-section:nth-child(5) { animation-delay: 1s; }
+        .content-section:nth-child(6) { animation-delay: 1.2s; }
+        .content-section:nth-child(7) { animation-delay: 1.4s; }
+
+        .section-header {
+            margin-bottom: 60px;
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .section-number {
+            font-family: 'Fraunces', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--red);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .section-header-content h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--black);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* Aspect cards with bold colors */
+        .aspect-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .aspect-card {
+            background: var(--off-white);
+            padding: 50px;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .aspect-card:hover {
+            border-color: var(--black);
+            transform: translateY(-5px);
+        }
+
+        .aspect-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: var(--red);
+        }
+
+        .aspect-card:nth-child(even)::before {
+            background: var(--yellow);
+        }
+
+        .aspect-title {
+            font-family: 'Fraunces', serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--black);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .aspect-definition {
+            font-size: 1.05rem;
+            color: var(--black);
+            line-height: 1.85;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .examples-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .example-box {
+            background: white;
+            padding: 20px 25px;
+            border-left: 4px solid var(--black);
+            font-family: 'Fraunces', serif;
+            font-size: 1.15rem;
+            color: var(--black);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            border-left-color: var(--red);
+            padding-left: 35px;
+        }
+
+        .verb-emphasis {
+            color: var(--red);
+            font-weight: 900;
+        }
+
+        /* Comparison section */
+        .comparison-block {
+            background: var(--black);
+            color: var(--white);
+            padding: 70px;
+            margin: 80px 0;
+            position: relative;
+        }
+
+        .comparison-block::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 40px;
+            width: 100px;
+            height: 15px;
+            background: var(--yellow);
+        }
+
+        .comparison-title {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .comparison-column h4 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            color: var(--yellow);
+        }
+
+        .comparison-point {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 1.05rem;
+        }
+
+        .comparison-point:last-child {
+            border-bottom: none;
+        }
+
+        .bullet {
+            color: var(--red);
+            font-weight: 900;
+            margin-right: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Info box with strong contrast */
+        .info-box {
+            background: var(--off-white);
+            padding: 50px;
+            margin: 60px 0;
+            border: 4px solid var(--black);
+            position: relative;
+        }
+
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 30px;
+            width: 150px;
+            height: 4px;
+            background: var(--red);
+        }
+
+        .info-box-title {
+            font-family: 'Fraunces', serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--black);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .info-box-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--black);
+        }
+
+        .info-box-content ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .info-box-content li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .info-box-content li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            color: var(--red);
+            font-size: 0.8rem;
+        }
+
+        .info-box-content strong {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        /* Timeline visual */
+        .timeline-section {
+            background: white;
+            padding: 60px;
+            margin: 80px 0;
+            border: 3px solid var(--black);
+        }
+
+        .timeline-title {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--black);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            grid-column: 1;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 2;
+        }
+
+        .timeline-point {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--red);
+            border: 4px solid var(--white);
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background: var(--off-white);
+            padding: 30px;
+            border: 2px solid var(--black);
+        }
+
+        .timeline-content h5 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .timeline-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+
+        /* Table with strong lines */
+        .aspect-table {
+            background: white;
+            padding: 60px;
+            margin: 80px 0;
+            border: 4px solid var(--black);
+        }
+
+        .table-title {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .table-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border: 3px solid var(--black);
+        }
+
+        .table-cell {
+            padding: 25px;
+            border: 1px solid var(--black);
+            transition: all 0.3s ease;
+        }
+
+        .table-cell:hover {
+            background: var(--off-white);
+        }
+
+        .table-header {
+            background: var(--black);
+            color: var(--white);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .table-cell-content {
+            font-size: 1rem;
+        }
+
+        .table-cell-example {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            color: var(--red);
+            margin-top: 8px;
+        }
+
+        /* Footer with bold style */
+        footer {
+            margin-top: 150px;
+            padding: 80px 0;
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 8px;
+            background: var(--red);
+        }
+
+        .footer-logo {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .wrapper {
+                padding: 0 40px;
+            }
+
+            .aspect-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-point {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                grid-column: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .wrapper {
+                padding: 0 25px;
+            }
+
+            h1 {
+                font-size: 4rem;
+            }
+
+            .intro-section,
+            .comparison-block,
+            .info-box,
+            .timeline-section,
+            .aspect-table {
+                padding: 40px 25px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section-number {
+                font-size: 3rem;
+            }
+
+            .section-header-content h3 {
+                font-size: 2.5rem;
+            }
+
+            .table-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .aspect-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-grid"></div>
+    <div class="accent-block accent-red"></div>
+    <div class="accent-block accent-yellow"></div>
+
+    <div class="wrapper">
+        <header>
+            <div class="brand">Língua Academy</div>
+            <h1>
+                <span class="title-line">Les</span>
+                <span class="title-line"><span class="title-highlight">Aspects</span></span>
+                <span class="title-line">Verbaux</span>
+            </h1>
+            <p class="subtitle">
+                Comprendre comment la grammaire française exprime la manière dont une action se déroule dans le temps : accomplie ou non, répétée ou unique, terminée ou en cours
+            </p>
+        </header>
+
+        <div class="intro-section">
+            <h2>Qu'est-ce que l'aspect ?</h2>
+            <p>
+                L'<span class="intro-highlight">aspect verbal</span> est une catégorie grammaticale qui indique la manière dont le locuteur envisage le déroulement de l'action dans le temps. Contrairement au temps qui situe l'action sur l'axe chronologique (passé, présent, futur), l'aspect précise si l'action est <span class="intro-highlight">accomplie ou non accomplie</span>, <span class="intro-highlight">ponctuelle ou durative</span>, <span class="intro-highlight">unique ou répétée</span>. C'est une dimension essentielle du système verbal français, souvent exprimée par le choix entre temps simples et temps composés, ou entre différents temps du passé.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-number">01</div>
+                <div class="section-header-content">
+                    <h3>Aspect Accompli vs Non Accompli</h3>
+                    <p class="section-description">
+                        La distinction fondamentale entre une action achevée, terminée (aspect accompli) et une action en cours, non terminée (aspect non accompli). Cette opposition structure tout le système des temps en français.
+                    </p>
+                </div>
+            </div>
+
+            <div class="aspect-grid">
+                <div class="aspect-card">
+                    <h4 class="aspect-title">Aspect Non Accompli</h4>
+                    <p class="aspect-definition">
+                        L'action est présentée dans son déroulement, sans considération de son début ou de sa fin. Le procès est saisi de l'intérieur. Exprimé par les temps simples.
+                    </p>
+                    <div class="examples-list">
+                        <div class="example-box">
+                            Je <span class="verb-emphasis">mange</span> une pomme
+                        </div>
+                        <div class="example-box">
+                            Il <span class="verb-emphasis">travaillait</span> quand je suis arrivé
+                        </div>
+                        <div class="example-box">
+                            Nous <span class="verb-emphasis">partirons</span> demain
+                        </div>
+                        <div class="example-box">
+                            Elle <span class="verb-emphasis">lisait</span> un roman
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aspect-card">
+                    <h4 class="aspect-title">Aspect Accompli</h4>
+                    <p class="aspect-definition">
+                        L'action est présentée comme achevée, terminée, avec ses limites clairement définies. Le procès est vu de l'extérieur, comme un tout. Exprimé par les temps composés.
+                    </p>
+                    <div class="examples-list">
+                        <div class="example-box">
+                            J'<span class="verb-emphasis">ai mangé</span> une pomme
+                        </div>
+                        <div class="example-box">
+                            Il <span class="verb-emphasis">avait travaillé</span> toute la journée
+                        </div>
+                        <div class="example-box">
+                            Nous <span class="verb-emphasis">serons partis</span> avant midi
+                        </div>
+                        <div class="example-box">
+                            Elle <span class="verb-emphasis">avait lu</span> le roman
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3 class="info-box-title">Règle Fondamentale</h3>
+                <div class="info-box-content">
+                    <p>
+                        <strong>Temps simples = aspect non accompli</strong> : l'action est en cours, en train de se faire<br>
+                        <strong>Temps composés = aspect accompli</strong> : l'action est achevée, terminée
+                    </p>
+                    <ul>
+                        <li>Présent (mange) → Passé composé (a mangé)</li>
+                        <li>Imparfait (mangeait) → Plus-que-parfait (avait mangé)</li>
+                        <li>Futur simple (mangera) → Futur antérieur (aura mangé)</li>
+                        <li>Passé simple (mangea) → Passé antérieur (eut mangé)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-number">02</div>
+                <div class="section-header-content">
+                    <h3>Aspect Perfectif vs Imperfectif</h3>
+                    <p class="section-description">
+                        Opposition entre une action vue dans sa globalité, avec un début et une fin (perfectif), et une action vue dans sa durée, sans limite précise (imperfectif). Distinction clé entre passé composé et imparfait.
+                    </p>
+                </div>
+            </div>
+
+            <div class="comparison-block">
+                <h3 class="comparison-title">Perfectif vs Imperfectif</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-column">
+                        <h4>Perfectif</h4>
+                        <div class="comparison-point">
+                            <span class="bullet">▸</span> Action globale, complète
+                        </div>
+                        <div class="comparison-point">
+                            <span class="bullet">▸</span> Bornes temporelles définies
+                        </div>
+                        <div class="comparison-point">
+                            <span class="bullet">▸</span> Action ponctuelle, événement
+                        </div>
+                        <div class="comparison-point">
+                            <span class="bullet">▸</span> Premier plan du récit
+                        </div>
+                        <div class="comparison-point">
+                            <span class="bullet">▸</span> Passé composé, passé simple
+                        </div>
+                        <div class="comparison-point">
+                            <span class="bullet">▸</span> "Hier, j'ai lu ce livre"
+                        </div>
+                        <div class="comparison-point">
+                            <span class="bullet">▸</span> Vue externe de l'action
+                        </div>
+                    </div>
+
+                    <div class="comparison-column">
+                        <h4>Imperfectif</h4>
+                        <div class="comparison-point">
+                            <span class="bullet">▸</span> Action dans sa durée
+                        </div>
+                        <div class="comparison-point">
+                            <span class="bullet">▸</span> Limites temporelles floues
+                        </div>
+                        <div class="comparison-point">
+                            <span class="bullet">▸</span> Action continue, état
+                        </div>
+                        <div class="comparison-point">
+                            <span class="bullet">▸</span> Arrière-plan du récit
+                        </div>
+                        <div class="comparison-point">
+                            <span class="bullet">▸</span> Imparfait
+                        </div>
+                        <div class="comparison-point">
+                            <span class="bullet">▸</span> "Avant, je lisais beaucoup"
+                        </div>
+                        <div class="comparison-point">
+                            <span class="bullet">▸</span> Vue interne de l'action
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aspect-grid">
+                <div class="aspect-card">
+                    <h4 class="aspect-title">Passé Composé (Perfectif)</h4>
+                    <p class="aspect-definition">
+                        Présente l'action comme un événement global, achevé, avec un début et une fin. L'action est vue comme un bloc indivisible.
+                    </p>
+                    <div class="examples-list">
+                        <div class="example-box">
+                            Hier, j'<span class="verb-emphasis">ai travaillé</span> 8 heures
+                        </div>
+                        <div class="example-box">
+                            Il <span class="verb-emphasis">est tombé</span> soudainement
+                        </div>
+                        <div class="example-box">
+                            Elle <span class="verb-emphasis">a vécu</span> à Paris 3 ans
+                        </div>
+                        <div class="example-box">
+                            Nous <span class="verb-emphasis">avons mangé</span> à midi
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aspect-card">
+                    <h4 class="aspect-title">Imparfait (Imperfectif)</h4>
+                    <p class="aspect-definition">
+                        Présente l'action dans sa durée, sans indication précise de début ou de fin. L'action est vue de l'intérieur, comme un processus.
+                    </p>
+                    <div class="examples-list">
+                        <div class="example-box">
+                            Avant, je <span class="verb-emphasis">travaillais</span> beaucoup
+                        </div>
+                        <div class="example-box">
+                            Il <span class="verb-emphasis">tombait</span> sans cesse
+                        </div>
+                        <div class="example-box">
+                            Elle <span class="verb-emphasis">vivait</span> à Paris
+                        </div>
+                        <div class="example-box">
+                            Nous <span class="verb-emphasis">mangions</span> en discutant
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-number">03</div>
+                <div class="section-header-content">
+                    <h3>Aspect Itératif vs Semelfactif</h3>
+                    <p class="section-description">
+                        Distinction entre une action répétée, habituelle (itératif) et une action unique, ponctuelle (semelfactif). Cette opposition modifie profondément le sens de la phrase.
+                    </p>
+                </div>
+            </div>
+
+            <div class="aspect-grid">
+                <div class="aspect-card">
+                    <h4 class="aspect-title">Aspect Semelfactif</h4>
+                    <p class="aspect-definition">
+                        L'action est présentée comme unique, ponctuelle, ne se produisant qu'une seule fois. C'est un événement isolé dans le temps.
+                    </p>
+                    <div class="examples-list">
+                        <div class="example-box">
+                            Hier, j'<span class="verb-emphasis">ai rencontré</span> Paul
+                        </div>
+                        <div class="example-box">
+                            Il <span class="verb-emphasis">a frappé</span> à la porte
+                        </div>
+                        <div class="example-box">
+                            Elle <span class="verb-emphasis">est venue</span> une fois
+                        </div>
+                        <div class="example-box">
+                            Le téléphone <span class="verb-emphasis">a sonné</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aspect-card">
+                    <h4 class="aspect-title">Aspect Itératif</h4>
+                    <p class="aspect-definition">
+                        L'action est présentée comme répétée, habituelle, se produisant plusieurs fois. C'est une série d'événements ou une habitude.
+                    </p>
+                    <div class="examples-list">
+                        <div class="example-box">
+                            Avant, je <span class="verb-emphasis">rencontrais</span> Paul chaque jour
+                        </div>
+                        <div class="example-box">
+                            Il <span class="verb-emphasis">frappait</span> toujours trois fois
+                        </div>
+                        <div class="example-box">
+                            Elle <span class="verb-emphasis">venait</span> tous les lundis
+                        </div>
+                        <div class="example-box">
+                            Le téléphone <span class="verb-emphasis">sonnait</span> sans cesse
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3 class="info-box-title">Marqueurs Linguistiques</h3>
+                <div class="info-box-content">
+                    <p><strong>Aspect semelfactif</strong> : indiqué par des adverbes de temps ponctuel</p>
+                    <ul>
+                        <li>hier, un jour, soudain, tout à coup, une fois</li>
+                        <li>à ce moment-là, brusquement, immédiatement</li>
+                    </ul>
+                    <p style="margin-top: 20px;"><strong>Aspect itératif</strong> : indiqué par des adverbes de fréquence</p>
+                    <ul>
+                        <li>souvent, toujours, chaque jour, régulièrement</li>
+                        <li>tous les lundis, habituellement, parfois, sans cesse</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-number">04</div>
+                <div class="section-header-content">
+                    <h3>Aspect Inchoatif, Duratif et Terminatif</h3>
+                    <p class="section-description">
+                        Ces aspects focalisent sur une phase particulière de l'action : son commencement (inchoatif), son déroulement (duratif), ou sa fin (terminatif). Ils affinent la manière dont on envisage le processus.
+                    </p>
+                </div>
+            </div>
+
+            <div class="aspect-table">
+                <h3 class="table-title">Les Phases de l'Action</h3>
+                <div class="table-grid">
+                    <div class="table-cell table-header">Aspect</div>
+                    <div class="table-cell table-header">Signification</div>
+                    <div class="table-cell table-header">Exemples</div>
+
+                    <div class="table-cell">
+                        <div class="table-cell-content"><strong>Inchoatif</strong></div>
+                    </div>
+                    <div class="table-cell">
+                        <div class="table-cell-content">Début de l'action, entrée dans l'état</div>
+                    </div>
+                    <div class="table-cell">
+                        <div class="table-cell-example">Il s'endort</div>
+                        <div class="table-cell-example">Elle commence à travailler</div>
+                        <div class="table-cell-example">Je me mets à courir</div>
+                    </div>
+
+                    <div class="table-cell">
+                        <div class="table-cell-content"><strong>Duratif</strong></div>
+                    </div>
+                    <div class="table-cell">
+                        <div class="table-cell-content">Déroulement de l'action, durée</div>
+                    </div>
+                    <div class="table-cell">
+                        <div class="table-cell-example">Il dort profondément</div>
+                        <div class="table-cell-example">Elle travaille depuis 2h</div>
+                        <div class="table-cell-example">Je continue à courir</div>
+                    </div>
+
+                    <div class="table-cell">
+                        <div class="table-cell-content"><strong>Terminatif</strong></div>
+                    </div>
+                    <div class="table-cell">
+                        <div class="table-cell-content">Fin de l'action, sortie de l'état</div>
+                    </div>
+                    <div class="table-cell">
+                        <div class="table-cell-example">Il se réveille</div>
+                        <div class="table-cell-example">Elle finit de travailler</div>
+                        <div class="table-cell-example">J'arrête de courir</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3 class="info-box-title">Périphrases Aspectuelles</h3>
+                <div class="info-box-content">
+                    <p>Le français utilise des périphrases verbales pour exprimer ces nuances aspectuelles :</p>
+                    <ul>
+                        <li><strong>Aspect inchoatif :</strong> commencer à, se mettre à, entrer en</li>
+                        <li><strong>Aspect duratif :</strong> être en train de, continuer à/de, ne pas cesser de</li>
+                        <li><strong>Aspect terminatif :</strong> finir de, cesser de, arrêter de, achever de</li>
+                        <li><strong>Aspect imminent :</strong> être sur le point de, aller + infinitif</li>
+                        <li><strong>Aspect récent :</strong> venir de + infinitif</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-number">05</div>
+                <div class="section-header-content">
+                    <h3>Aspect Progressif et Prospectif</h3>
+                    <p class="section-description">
+                        Ces aspects situent l'action dans son rapport au moment présent : action en cours de réalisation (progressif) ou action sur le point de se réaliser (prospectif).
+                    </p>
+                </div>
+            </div>
+
+            <div class="aspect-grid">
+                <div class="aspect-card">
+                    <h4 class="aspect-title">Aspect Progressif</h4>
+                    <p class="aspect-definition">
+                        L'action est présentée comme étant en cours de réalisation au moment considéré. Exprimé par la périphrase "être en train de + infinitif".
+                    </p>
+                    <div class="examples-list">
+                        <div class="example-box">
+                            Je <span class="verb-emphasis">suis en train de manger</span>
+                        </div>
+                        <div class="example-box">
+                            Elle <span class="verb-emphasis">était en train de travailler</span>
+                        </div>
+                        <div class="example-box">
+                            Ils <span class="verb-emphasis">sont en train de partir</span>
+                        </div>
+                        <div class="example-box">
+                            Nous <span class="verb-emphasis">étions en train de discuter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aspect-card">
+                    <h4 class="aspect-title">Aspect Prospectif</h4>
+                    <p class="aspect-definition">
+                        L'action est présentée comme imminente, sur le point de se réaliser. Exprimé par "aller + infinitif" (futur proche) ou "être sur le point de".
+                    </p>
+                    <div class="examples-list">
+                        <div class="example-box">
+                            Je <span class="verb-emphasis">vais manger</span>
+                        </div>
+                        <div class="example-box">
+                            Elle <span class="verb-emphasis">est sur le point de partir</span>
+                        </div>
+                        <div class="example-box">
+                            Il <span class="verb-emphasis">allait tomber</span>
+                        </div>
+                        <div class="example-box">
+                            Nous <span class="verb-emphasis">sommes sur le point de réussir</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-section">
+            <h3 class="timeline-title">L'Action et ses Phases</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <h5>Phase Pré-initiale</h5>
+                        <p><strong>Aspect prospectif :</strong> L'action est sur le point de commencer. "Je vais partir", "Il est sur le point de pleuvoir"</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <h5>Phase Initiale</h5>
+                        <p><strong>Aspect inchoatif :</strong> Début de l'action. "Je commence à travailler", "Il se met à pleuvoir", "Elle s'endort"</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <h5>Phase Médiane</h5>
+                        <p><strong>Aspect duratif/progressif :</strong> Déroulement de l'action. "Je suis en train de travailler", "Il pleut", "Elle dort"</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <h5>Phase Finale</h5>
+                        <p><strong>Aspect terminatif :</strong> Fin de l'action. "Je finis de travailler", "Il cesse de pleuvoir", "Elle se réveille"</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <h5>Phase Post-finale</h5>
+                        <p><strong>Aspect accompli :</strong> Action achevée avec résultat présent. "J'ai travaillé", "Il a plu", "Elle s'est réveillée"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-block">
+            <h3 class="comparison-title">Synthèse des Aspects</h3>
+            <div class="comparison-grid">
+                <div class="comparison-column">
+                    <h4>Selon l'Accomplissement</h4>
+                    <div class="comparison-point">
+                        <span class="bullet">■</span> Non accompli (temps simples)
+                    </div>
+                    <div class="comparison-point">
+                        <span class="bullet">■</span> Accompli (temps composés)
+                    </div>
+                </div>
+
+                <div class="comparison-column">
+                    <h4>Selon la Globalité</h4>
+                    <div class="comparison-point">
+                        <span class="bullet">■</span> Perfectif (action globale)
+                    </div>
+                    <div class="comparison-point">
+                        <span class="bullet">■</span> Imperfectif (action durative)
+                    </div>
+                </div>
+
+                <div class="comparison-column">
+                    <h4>Selon la Répétition</h4>
+                    <div class="comparison-point">
+                        <span class="bullet">■</span> Semelfactif (action unique)
+                    </div>
+                    <div class="comparison-point">
+                        <span class="bullet">■</span> Itératif (action répétée)
+                    </div>
+                </div>
+
+                <div class="comparison-column">
+                    <h4>Selon la Phase</h4>
+                    <div class="comparison-point">
+                        <span class="bullet">■</span> Inchoatif (début)
+                    </div>
+                    <div class="comparison-point">
+                        <span class="bullet">■</span> Duratif (milieu)
+                    </div>
+                    <div class="comparison-point">
+                        <span class="bullet">■</span> Terminatif (fin)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box" style="margin: 80px 0;">
+            <h3 class="info-box-title">Points Essentiels</h3>
+            <div class="info-box-content">
+                <ul>
+                    <li>L'<strong>aspect</strong> indique la manière dont le procès se déroule, le <strong>temps</strong> indique quand il se déroule</li>
+                    <li>Distinction fondamentale : <strong>temps simples = non accompli</strong>, <strong>temps composés = accompli</strong></li>
+                    <li>Le <strong>passé composé</strong> (perfectif) s'oppose à l'<strong>imparfait</strong> (imperfectif) pour les actions passées</li>
+                    <li>Les <strong>périphrases verbales</strong> permettent d'exprimer des nuances aspectuelles précises</li>
+                    <li>L'aspect peut changer le <strong>sens profond</strong> d'une phrase même si le temps reste identique</li>
+                    <li>La maîtrise des aspects est essentielle pour une <strong>expression précise et nuancée</strong> en français</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-logo">Língua Academy</div>
+            <p class="footer-text">Maîtrisez les subtilités de la langue française</p>
+        </footer>
+    </div>
+</body>
+</html>

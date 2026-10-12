@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Article Indéfini et ses Emplois - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #EF4135 0%, #a29bfe 50%, #0055A4 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #EF4135 0%, #c0392b 100%);
+            color: white;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 3.2em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.4em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid #EF4135;
+            animation: slideInLeft 0.8s ease-out;
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.3);
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .intro h2 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+        .section:nth-child(7) { animation-delay: 0.7s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            color: #0055A4;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #EF4135;
+            display: inline-block;
+        }
+
+        .section h3 {
+            color: #EF4135;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #0055A4;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #ff7675 0%, #EF4135 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(239, 65, 53, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .definition-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(239, 65, 53, 0.4);
+        }
+
+        .definition-box strong {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .article-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .article-item {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .article-item:hover::before {
+            opacity: 1;
+        }
+
+        .article-item:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 15px 40px rgba(108, 92, 231, 0.5);
+        }
+
+        .article-word {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .article-desc {
+            font-size: 1.1em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .usage-card {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #EF4135;
+            transition: all 0.3s ease;
+        }
+
+        .usage-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(239, 65, 53, 0.2);
+        }
+
+        .usage-card h4 {
+            color: #EF4135;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.5em;
+        }
+
+        .example-box {
+            background: #fff;
+            border: 2px solid #a29bfe;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            background: #f5f3ff;
+            border-color: #EF4135;
+            box-shadow: 0 5px 15px rgba(162, 155, 254, 0.2);
+        }
+
+        .example {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .example::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #EF4135;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: #6c5ce7;
+            font-weight: bold;
+            font-style: italic;
+            background: rgba(108, 92, 231, 0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #EF4135 0%, #c0392b 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 15px 18px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        tr:hover {
+            background: #fff5f5;
+            transition: background 0.3s ease;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #e17055;
+            box-shadow: 0 5px 15px rgba(253, 203, 110, 0.3);
+        }
+
+        .note-box strong {
+            color: #d63031;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0, 85, 164, 0.3);
+        }
+
+        .important-box strong {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .grid-item {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(9, 132, 227, 0.3);
+        }
+
+        .grid-item h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .list-style {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-style li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+        }
+
+        .list-style li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .comparison-card {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .comparison-defini {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+        }
+
+        .comparison-indefini {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+        }
+
+        .negation-demo {
+            background: linear-gradient(135deg, #dfe6e9 0%, #b2bec3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .negation-example {
+            display: inline-block;
+            background: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .arrow {
+            display: inline-block;
+            color: #EF4135;
+            font-size: 2em;
+            margin: 0 10px;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .section h2 {
+                font-size: 1.8em;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-showcase {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: #6c5ce7;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        .badge-red {
+            background: #EF4135;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .special-box {
+            background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(225, 112, 85, 0.3);
+        }
+
+        .special-box strong {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .difference-table {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📋 L'Article Indéfini et ses Emplois</h1>
+            <p>Maîtrisez l'utilisation de l'article indéfini en français</p>
+            <div class="logo">🎓 LÍNGUA ACADEMY</div>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <h2>🎯 Introduction</h2>
+                <p>L'<strong>article indéfini</strong> est un déterminant qui précède un nom pour désigner un être, une chose ou une notion de manière <strong>non déterminée</strong>, <strong>indéterminée</strong> ou <strong>imprécise</strong>. Il s'utilise pour introduire quelque chose de nouveau, d'inconnu ou dont on ne précise pas l'identité exacte. L'article indéfini s'accorde en genre (masculin/féminin) et en nombre (singulier/pluriel) avec le nom qu'il détermine.</p>
+            </div>
+
+            <div class="definition-box pulse">
+                <strong>📖 Définition</strong>
+                <p>L'article indéfini introduit un nom de manière imprécise, sans le déterminer avec exactitude. Il désigne un élément quelconque d'une catégorie, sans le distinguer particulièrement des autres. Les formes de l'article indéfini sont : <strong>un</strong> (masculin singulier), <strong>une</strong> (féminin singulier) et <strong>des</strong> (pluriel masculin et féminin).</p>
+            </div>
+
+            <section class="section">
+                <h2>1️⃣ Les Formes de l'Article Indéfini</h2>
+
+                <div class="article-showcase">
+                    <div class="article-item">
+                        <div class="article-word">UN</div>
+                        <div class="article-desc">Masculin singulier</div>
+                    </div>
+                    <div class="article-item">
+                        <div class="article-word">UNE</div>
+                        <div class="article-desc">Féminin singulier</div>
+                    </div>
+                    <div class="article-item">
+                        <div class="article-word">DES</div>
+                        <div class="article-desc">Pluriel (m. et f.)</div>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Article</th>
+                            <th>Genre et Nombre</th>
+                            <th>Exemples</th>
+                        </tr>
+                        <tr>
+                            <td><strong>UN</strong></td>
+                            <td>Masculin singulier</td>
+                            <td><span class="highlight">Un</span> livre, <span class="highlight">un</span> garçon, <span class="highlight">un</span> chat</td>
+                        </tr>
+                        <tr>
+                            <td><strong>UNE</strong></td>
+                            <td>Féminin singulier</td>
+                            <td><span class="highlight">Une</span> maison, <span class="highlight">une</span> fille, <span class="highlight">une</span> table</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DES</strong></td>
+                            <td>Pluriel (masculin et féminin)</td>
+                            <td><span class="highlight">Des</span> livres, <span class="highlight">des</span> maisons, <span class="highlight">des</span> enfants</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 Pas d'élision</strong>
+                    <p>Contrairement à l'article défini, l'article indéfini ne s'élide jamais devant une voyelle ou un h muet :<br>
+                    → <span class="highlight">Un</span> arbre (pas "un'arbre")<br>
+                    → <span class="highlight">Une</span> école (pas "un'école")<br>
+                    → <span class="highlight">Un</span> homme (pas "un'homme")</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>2️⃣ Emploi n°1 : Introduire quelque chose de Nouveau</h2>
+
+                <div class="usage-card">
+                    <h4><span class="icon">🆕</span> Pour présenter un élément pour la première fois</h4>
+                    <p>L'article indéfini s'utilise pour introduire dans le discours un être, un objet ou une notion mentionnés pour la première fois, inconnus de l'interlocuteur.</p>
+                    
+                    <div class="example-box">
+                        <p><strong>Exemples :</strong></p>
+                        <div class="example">Il y a <span class="highlight">un</span> homme dans le jardin. (on ne sait pas qui)</div>
+                        <div class="example">J'ai vu <span class="highlight">une</span> voiture rouge. (voiture non identifiée)</div>
+                        <div class="example"><span class="highlight">Un</span> oiseau chante dans l'arbre. (oiseau quelconque)</div>
+                        <div class="example"><span class="highlight">Des</span> enfants jouent dans la rue. (enfants non spécifiés)</div>
+                    </div>
+                </div>
+
+                <div class="special-box">
+                    <strong>💡 Première mention</strong>
+                    <p>Après avoir introduit quelque chose avec l'article indéfini, on utilise ensuite l'article défini pour y faire référence :<br><br>
+                    → J'ai acheté <span class="highlight">un</span> livre hier. <strong>Le</strong> livre est très intéressant.<br>
+                    → Il y a <span class="highlight">une</span> femme dehors. <strong>La</strong> femme attend le bus.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>3️⃣ Emploi n°2 : Désigner un Élément Quelconque</h2>
+
+                <div class="usage-card">
+                    <h4><span class="icon">🎲</span> Pour parler d'un élément indéterminé d'une catégorie</h4>
+                    <p>L'article indéfini désigne un élément parmi d'autres de la même catégorie, sans préciser lequel exactement.</p>
+                    
+                    <div class="example-box">
+                        <p><strong>Exemples :</strong></p>
+                        <div class="example">Prends <span class="highlight">un</span> stylo sur la table. (n'importe lequel)</div>
+                        <div class="example">J'ai besoin d'<span class="highlight">une</span> chaise. (pas une chaise particulière)</div>
+                        <div class="example">Achète <span class="highlight">des</span> pommes au marché. (des pommes quelconques)</div>
+                        <div class="example">Il cherche <span class="highlight">un</span> appartement. (un appartement, peu importe lequel)</div>
+                    </div>
+                </div>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card comparison-defini">
+                        <h4>Article DÉFINI</h4>
+                        <p style="margin: 15px 0;"><strong>= Élément spécifique</strong></p>
+                        <div class="example" style="color: white;">Prends <strong>le</strong> stylo (celui-là en particulier)</div>
+                        <div class="example" style="color: white;">J'aime <strong>la</strong> robe (robe spécifique connue)</div>
+                    </div>
+                    <div class="comparison-card comparison-indefini">
+                        <h4>Article INDÉFINI</h4>
+                        <p style="margin: 15px 0;"><strong>= Élément quelconque</strong></p>
+                        <div class="example" style="color: white;">Prends <strong>un</strong> stylo (n'importe lequel)</div>
+                        <div class="example" style="color: white;">J'aime <strong>une</strong> robe (une robe non spécifiée)</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>4️⃣ Emploi n°3 : Exprimer l'Existence</h2>
+
+                <div class="usage-card">
+                    <h4><span class="icon">✨</span> Avec "il y a" et les verbes d'existence</h4>
+                    <p>L'article indéfini s'utilise avec les expressions qui indiquent l'existence ou la présence de quelque chose.</p>
+                    
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <h4>IL Y A</h4>
+                            <ul class="list-style">
+                                <li>Il y a <span class="highlight">un</span> problème</li>
+                                <li>Il y a <span class="highlight">une</span> solution</li>
+                                <li>Il y a <span class="highlight">des</span> nuages</li>
+                                <li>Il y a <span class="highlight">un</span> chat dehors</li>
+                            </ul>
+                        </div>
+                        <div class="grid-item">
+                            <h4>VOICI / VOILÀ</h4>
+                            <ul class="list-style">
+                                <li>Voici <span class="highlight">un</span> exemple</li>
+                                <li>Voilà <span class="highlight">une</span> idée</li>
+                                <li>Voici <span class="highlight">des</span> photos</li>
+                                <li>Voilà <span class="highlight">un</span> cadeau</li>
+                            </ul>
+                        </div>
+                        <div class="grid-item">
+                            <h4>VERBES D'EXISTENCE</h4>
+                            <ul class="list-style">
+                                <li>Il existe <span class="highlight">une</span> loi</li>
+                                <li>Il reste <span class="highlight">un</span> gâteau</li>
+                                <li>Il manque <span class="highlight">des</span> livres</li>
+                                <li>Il arrive <span class="highlight">un</span> train</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>5️⃣ Emploi n°4 : Après C'EST / CE SONT</h2>
+
+                <div class="usage-card">
+                    <h4><span class="icon">👉</span> Pour identifier ou définir</h4>
+                    <p>L'article indéfini s'emploie après "c'est" et "ce sont" pour présenter ou identifier quelque chose.</p>
+                    
+                    <div class="example-box">
+                        <p><strong>Exemples :</strong></p>
+                        <div class="example">C'est <span class="highlight">un</span> médecin. (profession)</div>
+                        <div class="example">C'est <span class="highlight">une</span> bonne idée. (appréciation)</div>
+                        <div class="example">C'est <span class="highlight">un</span> problème sérieux. (qualification)</div>
+                        <div class="example">Ce sont <span class="highlight">des</span> amis. (identification)</div>
+                        <div class="example">C'est <span class="highlight">une</span> opportunité. (présentation)</div>
+                    </div>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 C'est vs Il est</strong>
+                    <p><strong>C'EST + article indéfini + nom</strong> :<br>
+                    → C'est <span class="highlight">un</span> professeur.<br><br>
+                    <strong>IL EST + adjectif ou profession sans article</strong> :<br>
+                    → Il est professeur. (pas d'article)<br>
+                    → Il est intelligent.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>6️⃣ Emploi n°5 : Dans les Comparaisons et Métaphores</h2>
+
+                <div class="usage-card">
+                    <h4><span class="icon">🔀</span> Pour établir des comparaisons</h4>
+                    <p>L'article indéfini s'utilise dans les comparaisons, les métaphores et les expressions figurées.</p>
+                    
+                    <div class="example-box">
+                        <p><strong>Exemples :</strong></p>
+                        <div class="example">Il court comme <span class="highlight">un</span> lapin. (comparaison)</div>
+                        <div class="example">Elle chante comme <span class="highlight">un</span> ange.</div>
+                        <div class="example">C'est <span class="highlight">un</span> lion au combat. (métaphore)</div>
+                        <div class="example">Il travaille comme <span class="highlight">une</span> fourmi.</div>
+                        <div class="example">Tu dors comme <span class="highlight">un</span> bébé.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>7️⃣ Emploi n°6 : Avec Certains Verbes</h2>
+
+                <div class="usage-card">
+                    <h4><span class="icon">🔤</span> Verbes suivis de l'article indéfini</h4>
+                    <p>Certains verbes sont généralement suivis d'un complément avec article indéfini.</p>
+                    
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <h4>AVOIR</h4>
+                            <ul class="list-style">
+                                <li>J'ai <span class="highlight">un</span> chat</li>
+                                <li>Elle a <span class="highlight">une</span> voiture</li>
+                                <li>Ils ont <span class="highlight">des</span> enfants</li>
+                                <li>Nous avons <span class="highlight">un</span> projet</li>
+                            </ul>
+                        </div>
+                        <div class="grid-item">
+                            <h4>CHERCHER / TROUVER</h4>
+                            <ul class="list-style">
+                                <li>Je cherche <span class="highlight">un</span> emploi</li>
+                                <li>Il a trouvé <span class="highlight">une</span> solution</li>
+                                <li>Nous cherchons <span class="highlight">des</span> idées</li>
+                                <li>Elle trouve <span class="highlight">un</span> appartement</li>
+                            </ul>
+                        </div>
+                        <div class="grid-item">
+                            <h4>ACHETER / VENDRE</h4>
+                            <ul class="list-style">
+                                <li>J'achète <span class="highlight">un</span> livre</li>
+                                <li>Il vend <span class="highlight">une</span> maison</li>
+                                <li>Nous achetons <span class="highlight">des</span> fruits</li>
+                                <li>Elle achète <span class="highlight">une</span> robe</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>8️⃣ La Règle de la Négation</h2>
+
+                <div class="important-box">
+                    <strong>🔑 RÈGLE FONDAMENTALE</strong>
+                    <p>À la forme négative, les articles indéfinis <strong>UN, UNE, DES</strong> deviennent <strong>DE</strong> ou <strong>D'</strong> (devant voyelle).</p>
+                </div>
+
+                <div class="negation-demo">
+                    <p><strong>Transformation à la négation :</strong></p>
+                    <div style="margin: 20px 0;">
+                        <div class="negation-example" style="color: #6c5ce7;">J'ai UN chat</div>
+                        <span class="arrow">→</span>
+                        <div class="negation-example" style="color: #EF4135;">Je n'ai pas DE chat</div>
+                    </div>
+                    <div style="margin: 20px 0;">
+                        <div class="negation-example" style="color: #6c5ce7;">Il y a UNE solution</div>
+                        <span class="arrow">→</span>
+                        <div class="negation-example" style="color: #EF4135;">Il n'y a pas DE solution</div>
+                    </div>
+                    <div style="margin: 20px 0;">
+                        <div class="negation-example" style="color: #6c5ce7;">Nous avons DES amis</div>
+                        <span class="arrow">→</span>
+                        <div class="negation-example" style="color: #EF4135;">Nous n'avons pas D'amis</div>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Plus d'exemples :</strong></p>
+                    <div class="example">J'ai <span class="highlight">une</span> voiture. → Je n'ai pas <strong>de</strong> voiture.</div>
+                    <div class="example">Il a <span class="highlight">un</span> problème. → Il n'a pas <strong>de</strong> problème.</div>
+                    <div class="example">Elle mange <span class="highlight">des</span> légumes. → Elle ne mange pas <strong>de</strong> légumes.</div>
+                    <div class="example">Nous avons <span class="highlight">un</span> ordinateur. → Nous n'avons pas <strong>d'</strong>ordinateur.</div>
+                </div>
+
+                <div class="special-box">
+                    <strong>⚠️ EXCEPTION : Avec le verbe ÊTRE</strong>
+                    <p>Avec le verbe ÊTRE, l'article indéfini ne change PAS à la négation :<br><br>
+                    → C'est <span class="highlight">un</span> problème. → Ce n'est pas <strong>un</strong> problème.<br>
+                    → C'est <span class="highlight">une</span> solution. → Ce n'est pas <strong>une</strong> solution.<br>
+                    → Ce sont <span class="highlight">des</span> amis. → Ce ne sont pas <strong>des</strong> amis.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>9️⃣ Article Défini vs Article Indéfini</h2>
+
+                <div class="difference-table">
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Quand utiliser l'un ou l'autre ?</h3>
+                    
+                    <div class="comparison-grid">
+                        <div class="comparison-card comparison-defini">
+                            <h4>📘 ARTICLE DÉFINI</h4>
+                            <p style="margin: 15px 0;"><strong>= Précis, connu, spécifique</strong></p>
+                            <ul class="list-style">
+                                <li>Chose déjà mentionnée</li>
+                                <li>Élément unique ou spécifique</li>
+                                <li>Généralisation (toute une catégorie)</li>
+                                <li>Noms abstraits</li>
+                                <li>Après les verbes de préférence</li>
+                            </ul>
+                            <div style="margin-top: 20px;">
+                                <div class="example" style="color: white;"><strong>Le</strong> chat de Marie (spécifique)</div>
+                                <div class="example" style="color: white;">J'aime <strong>le</strong> chocolat (en général)</div>
+                            </div>
+                        </div>
+                        <div class="comparison-card comparison-indefini">
+                            <h4>📋 ARTICLE INDÉFINI</h4>
+                            <p style="margin: 15px 0;"><strong>= Imprécis, nouveau, quelconque</strong></p>
+                            <ul class="list-style">
+                                <li>Première mention</li>
+                                <li>Élément non identifié</li>
+                                <li>Un parmi d'autres</li>
+                                <li>Avec "il y a"</li>
+                                <li>Après "c'est" / "ce sont"</li>
+                            </ul>
+                            <div style="margin-top: 20px;">
+                                <div class="example" style="color: white;"><strong>Un</strong> chat (chat quelconque)</div>
+                                <div class="example" style="color: white;">J'ai acheté <strong>un</strong> chocolat (un en particulier)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Comparaisons directes :</strong></p>
+                    <div class="example"><strong>LE</strong> livre est sur la table. (livre spécifique) ≠ J'ai acheté <strong>UN</strong> livre. (livre quelconque)</div>
+                    <div class="example"><strong>LA</strong> voiture est en panne. (voiture connue) ≠ Il cherche <strong>UNE</strong> voiture. (voiture non spécifiée)</div>
+                    <div class="example">J'aime <strong>LES</strong> chiens. (tous les chiens) ≠ Il y a <strong>DES</strong> chiens dans le parc. (quelques chiens)</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>🔟 Cas Particuliers</h2>
+
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h4>Adjectif avant le Nom</h4>
+                        <p>Quand un adjectif précède un nom pluriel, <strong>DES</strong> devient <strong>DE</strong> :</p>
+                        <div class="example" style="color: white; margin-top: 10px;">J'ai vu <strong>de</strong> belles fleurs.<br>(pas "des belles")</div>
+                        <div class="example" style="color: white;">Il y a <strong>de</strong> grands arbres.<br>(pas "des grands")</div>
+                    </div>
+
+                    <div class="grid-item">
+                        <h4>Expressions de Quantité</h4>
+                        <p>Après une expression de quantité, on utilise <strong>DE</strong> (pas d'article) :</p>
+                        <div class="example" style="color: white; margin-top: 10px;">Beaucoup <strong>de</strong> livres</div>
+                        <div class="example" style="color: white;">Un peu <strong>de</strong> patience</div>
+                        <div class="example" style="color: white;">Trop <strong>de</strong> bruit</div>
+                    </div>
+
+                    <div class="grid-item">
+                        <h4>Professions</h4>
+                        <p>Après les verbes ÊTRE, DEVENIR, RESTER + profession :</p>
+                        <div class="example" style="color: white; margin-top: 10px;">Il est professeur. (sans article)</div>
+                        <div class="example" style="color: white;">MAIS : C'est <strong>un</strong> professeur. (avec article)</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>📊 Tableau Récapitulatif</h2>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Emploi</th>
+                            <th>Quand l'utiliser</th>
+                            <th>Exemple</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Première mention</strong></td>
+                            <td>Introduire quelque chose de nouveau</td>
+                            <td>J'ai vu <span class="highlight">un</span> film hier</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Élément quelconque</strong></td>
+                            <td>Un parmi d'autres, non spécifié</td>
+                            <td>Prends <span class="highlight">une</span> chaise</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Existence</strong></td>
+                            <td>Avec "il y a", "voici", "voilà"</td>
+                            <td>Il y a <span class="highlight">un</span> problème</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Identification</strong></td>
+                            <td>Après "c'est" / "ce sont"</td>
+                            <td>C'est <span class="highlight">une</span> bonne idée</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Comparaisons</strong></td>
+                            <td>Métaphores et comparaisons</td>
+                            <td>Il court comme <span class="highlight">un</span> lapin</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Possession</strong></td>
+                            <td>Avec le verbe "avoir"</td>
+                            <td>J'ai <span class="highlight">un</span> chat</td>
+                        </tr>
+                        <tr>
+                            <td><strong>À la négation</strong></td>
+                            <td>UN, UNE, DES → DE / D'</td>
+                            <td>Je n'ai pas <strong>de</strong> voiture</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>✨ Points Clés à Retenir</h2>
+                
+                <div class="important-box">
+                    <strong>🎯 Synthèse Finale</strong>
+                    <p>
+                    <strong>1.</strong> L'article indéfini désigne quelque chose d'imprécis, de nouveau ou de non identifié.<br><br>
+                    <strong>2.</strong> Il s'utilise pour introduire un élément pour la première fois dans le discours.<br><br>
+                    <strong>3.</strong> Il désigne un élément quelconque parmi d'autres de la même catégorie.<br><br>
+                    <strong>4.</strong> Obligatoire avec "il y a" et les expressions d'existence.<br><br>
+                    <strong>5.</strong> À la négation : UN, UNE, DES → DE ou D' (sauf avec ÊTRE).<br><br>
+                    <strong>6.</strong> Pas d'élision : on écrit toujours "un arbre", "une école" (jamais "un'arbre").<br><br>
+                    <strong>7.</strong> Avec un adjectif avant le nom pluriel : DES → DE (de belles fleurs).<br><br>
+                    <strong>8.</strong> Différence clé : DÉFINI = spécifique / INDÉFINI = non spécifique.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <div class="footer">
+            <p><strong>📚 LÍNGUA ACADEMY</strong></p>
+            <p>Excellence en Enseignement des Langues</p>
+            <p style="font-size: 0.9em; margin-top: 15px;">© 2024 Língua Academy - Tous droits réservés</p>
+        </div>
+    </div>
+</body>
+</html>

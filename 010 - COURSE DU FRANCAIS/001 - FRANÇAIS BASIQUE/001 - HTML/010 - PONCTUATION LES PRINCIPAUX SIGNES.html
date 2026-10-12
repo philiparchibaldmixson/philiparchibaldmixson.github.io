@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Ponctuation - Les Principaux Signes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 50px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 6px solid #ff6b6b;
+        }
+
+        .intro p {
+            line-height: 1.9;
+            color: #333;
+            font-size: 1.15em;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .signe-card {
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .signe-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .signe-card.point {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .signe-card.virgule {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            color: white;
+        }
+
+        .signe-card.point-virgule {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .signe-card.deux-points {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .signe-card.interrogation {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .signe-card.exclamation {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+        }
+
+        .signe-card.points-suspension {
+            background: linear-gradient(135deg, #a8ff78 0%, #78ffd6 100%);
+        }
+
+        .signe-card.guillemets {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .signe-card.parentheses {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+        }
+
+        .signe-card.tirets {
+            background: linear-gradient(135deg, #a29bfe 0%, #fd79a8 100%);
+            color: white;
+        }
+
+        .signe-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+            padding-bottom: 15px;
+        }
+
+        .signe-symbole {
+            font-size: 4em;
+            font-weight: bold;
+            margin-right: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .signe-nom {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .signe-usage {
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .exemple {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            color: #333;
+            font-style: italic;
+            border-left: 4px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .exemple strong {
+            color: #e74c3c;
+            font-style: normal;
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 2.5em;
+            margin: 50px 0 30px 0;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #4facfe;
+            text-align: center;
+        }
+
+        .regles-box {
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .regles-box h3 {
+            color: #2d3436;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .regle-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .regle-item h4 {
+            color: #e74c3c;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .regle-item p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+
+        .astuce-box {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .astuce-box h3 {
+            color: #d63031;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        .astuce-box p {
+            color: #2d3436;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .tableau-espaces {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.2em;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 1.05em;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.8em;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            font-size: 1.1em;
+        }
+
+        .citation {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 6px solid #e17055;
+            font-style: italic;
+            font-size: 1.15em;
+            color: #2d3436;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 La Ponctuation</h1>
+            <p class="subtitle">Guide complet des principaux signes de ponctuation</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <p>
+                    <strong>La ponctuation</strong> est essentielle à l'écrit ! Elle structure les phrases, 
+                    facilite la lecture et précise le sens des propos. Sans ponctuation, un texte devient 
+                    difficile à comprendre. Chaque signe a sa fonction et ses règles d'utilisation. 
+                    Maîtrisons-les ensemble ! ✨
+                </p>
+            </div>
+
+            <h2 class="section-title">Les Signes de Ponctuation</h2>
+
+            <div class="grid">
+                <div class="signe-card point">
+                    <div class="signe-header">
+                        <div class="signe-symbole">.</div>
+                        <div class="signe-nom">Le Point</div>
+                    </div>
+                    <div class="signe-usage">
+                        <strong>Usage :</strong> Marque la fin d'une phrase déclarative.
+                    </div>
+                    <div class="exemple">
+                        <strong>Exemple :</strong> La ponctuation est importante<strong>.</strong>
+                    </div>
+                    <div class="exemple">
+                        Je vais au marché<strong>.</strong> Ensuite, je rentrerai chez moi<strong>.</strong>
+                    </div>
+                </div>
+
+                <div class="signe-card virgule">
+                    <div class="signe-header">
+                        <div class="signe-symbole">,</div>
+                        <div class="signe-nom">La Virgule</div>
+                    </div>
+                    <div class="signe-usage">
+                        <strong>Usage :</strong> Sépare des éléments, marque une courte pause.
+                    </div>
+                    <div class="exemple">
+                        <strong>Exemple :</strong> Je mange des pommes<strong>,</strong> des poires<strong>,</strong> des bananes et des oranges.
+                    </div>
+                    <div class="exemple">
+                        Marie<strong>,</strong> ma meilleure amie<strong>,</strong> arrive demain.
+                    </div>
+                </div>
+
+                <div class="signe-card point-virgule">
+                    <div class="signe-header">
+                        <div class="signe-symbole">;</div>
+                        <div class="signe-nom">Le Point-virgule</div>
+                    </div>
+                    <div class="signe-usage">
+                        <strong>Usage :</strong> Sépare deux propositions liées mais autonomes.
+                    </div>
+                    <div class="exemple">
+                        <strong>Exemple :</strong> Il fait beau<strong>;</strong> nous irons à la plage.
+                    </div>
+                    <div class="exemple">
+                        J'aime lire<strong>;</strong> mon frère préfère le sport.
+                    </div>
+                </div>
+
+                <div class="signe-card deux-points">
+                    <div class="signe-header">
+                        <div class="signe-symbole">:</div>
+                        <div class="signe-nom">Les Deux-points</div>
+                    </div>
+                    <div class="signe-usage">
+                        <strong>Usage :</strong> Annonce une énumération, une citation, une explication.
+                    </div>
+                    <div class="exemple">
+                        <strong>Exemple :</strong> J'ai trois passions<strong>:</strong> lire, écrire et voyager.
+                    </div>
+                    <div class="exemple">
+                        Il dit<strong>:</strong> « Je reviendrai demain. »
+                    </div>
+                </div>
+
+                <div class="signe-card interrogation">
+                    <div class="signe-header">
+                        <div class="signe-symbole">?</div>
+                        <div class="signe-nom">Le Point d'interrogation</div>
+                    </div>
+                    <div class="signe-usage">
+                        <strong>Usage :</strong> Termine une phrase interrogative (question).
+                    </div>
+                    <div class="exemple">
+                        <strong>Exemple :</strong> Comment allez-vous<strong>?</strong>
+                    </div>
+                    <div class="exemple">
+                        Quelle heure est-il<strong>?</strong>
+                    </div>
+                </div>
+
+                <div class="signe-card exclamation">
+                    <div class="signe-header">
+                        <div class="signe-symbole">!</div>
+                        <div class="signe-nom">Le Point d'exclamation</div>
+                    </div>
+                    <div class="signe-usage">
+                        <strong>Usage :</strong> Exprime une émotion forte (joie, surprise, colère).
+                    </div>
+                    <div class="exemple">
+                        <strong>Exemple :</strong> Quelle belle journée<strong>!</strong>
+                    </div>
+                    <div class="exemple">
+                        Attention<strong>!</strong> Ne touche pas à ça<strong>!</strong>
+                    </div>
+                </div>
+
+                <div class="signe-card points-suspension">
+                    <div class="signe-header">
+                        <div class="signe-symbole">...</div>
+                        <div class="signe-nom">Les Points de suspension</div>
+                    </div>
+                    <div class="signe-usage">
+                        <strong>Usage :</strong> Marque une interruption, une hésitation, un sous-entendu.
+                    </div>
+                    <div class="exemple">
+                        <strong>Exemple :</strong> Je ne sais pas trop<strong>...</strong>
+                    </div>
+                    <div class="exemple">
+                        Si tu continues ainsi<strong>...</strong>
+                    </div>
+                </div>
+
+                <div class="signe-card guillemets">
+                    <div class="signe-header">
+                        <div class="signe-symbole">« »</div>
+                        <div class="signe-nom">Les Guillemets</div>
+                    </div>
+                    <div class="signe-usage">
+                        <strong>Usage :</strong> Encadrent une citation, un dialogue, un titre.
+                    </div>
+                    <div class="exemple">
+                        <strong>Exemple :</strong> Il a dit <strong>«</strong> Je viendrai demain <strong>»</strong>.
+                    </div>
+                    <div class="exemple">
+                        J'ai lu <strong>«</strong> Le Petit Prince <strong>»</strong>.
+                    </div>
+                </div>
+
+                <div class="signe-card parentheses">
+                    <div class="signe-header">
+                        <div class="signe-symbole">( )</div>
+                        <div class="signe-nom">Les Parenthèses</div>
+                    </div>
+                    <div class="signe-usage">
+                        <strong>Usage :</strong> Ajoutent une information secondaire, une précision.
+                    </div>
+                    <div class="exemple">
+                        <strong>Exemple :</strong> Victor Hugo <strong>(</strong>1802-1885<strong>)</strong> est un grand écrivain.
+                    </div>
+                    <div class="exemple">
+                        J'habite à Paris <strong>(</strong>capitale de la France<strong>)</strong>.
+                    </div>
+                </div>
+
+                <div class="signe-card tirets">
+                    <div class="signe-header">
+                        <div class="signe-symbole">–</div>
+                        <div class="signe-nom">Les Tirets</div>
+                    </div>
+                    <div class="signe-usage">
+                        <strong>Usage :</strong> Marquent un dialogue ou isolent une incise.
+                    </div>
+                    <div class="exemple">
+                        <strong>Exemple :</strong> <strong>–</strong> Bonjour ! Comment vas-tu ?
+                    </div>
+                    <div class="exemple">
+                        Mon ami <strong>–</strong> le plus fidèle <strong>–</strong> arrive ce soir.
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Règles Typographiques</h2>
+
+            <div class="tableau-espaces">
+                <h3 style="color: #2d3436; margin-bottom: 20px; font-size: 1.8em;">Espaces avant et après</h3>
+                <table>
+                    <tr>
+                        <th>Signe</th>
+                        <th>Avant</th>
+                        <th>Après</th>
+                        <th>Exemple</th>
+                    </tr>
+                    <tr>
+                        <td>.</td>
+                        <td>Pas d'espace</td>
+                        <td>1 espace</td>
+                        <td>Voilà. C'est fini.</td>
+                    </tr>
+                    <tr>
+                        <td>,</td>
+                        <td>Pas d'espace</td>
+                        <td>1 espace</td>
+                        <td>Oui, d'accord.</td>
+                    </tr>
+                    <tr>
+                        <td>;</td>
+                        <td>1 espace</td>
+                        <td>1 espace</td>
+                        <td>Peut-être ; je ne sais pas.</td>
+                    </tr>
+                    <tr>
+                        <td>:</td>
+                        <td>1 espace</td>
+                        <td>1 espace</td>
+                        <td>Attention : danger !</td>
+                    </tr>
+                    <tr>
+                        <td>?</td>
+                        <td>1 espace</td>
+                        <td>1 espace</td>
+                        <td>Comment ? Vraiment ?</td>
+                    </tr>
+                    <tr>
+                        <td>!</td>
+                        <td>1 espace</td>
+                        <td>1 espace</td>
+                        <td>Super ! Génial !</td>
+                    </tr>
+                    <tr>
+                        <td>...</td>
+                        <td>Pas d'espace</td>
+                        <td>1 espace</td>
+                        <td>Peut-être... On verra.</td>
+                    </tr>
+                    <tr>
+                        <td>« »</td>
+                        <td>1 espace / Pas d'espace</td>
+                        <td>Pas d'espace / 1 espace</td>
+                        <td>Il dit « bonjour » à tous.</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="regles-box">
+                <h3>📚 Règles Importantes</h3>
+                
+                <div class="regle-item">
+                    <h4>1. La virgule ne sépare JAMAIS le sujet du verbe</h4>
+                    <p>
+                        ❌ Incorrect : Mon ami, arrive demain.<br>
+                        ✅ Correct : Mon ami arrive demain.
+                    </p>
+                </div>
+
+                <div class="regle-item">
+                    <h4>2. Pas de virgule avant « et » dans une énumération simple</h4>
+                    <p>
+                        ❌ Incorrect : J'aime les pommes, les poires, et les oranges.<br>
+                        ✅ Correct : J'aime les pommes, les poires et les oranges.
+                    </p>
+                </div>
+
+                <div class="regle-item">
+                    <h4>3. Les points de suspension sont toujours au nombre de TROIS</h4>
+                    <p>
+                        ❌ Incorrect : Je ne sais pas..... ou Je pense..<br>
+                        ✅ Correct : Je ne sais pas... ou Je pense...
+                    </p>
+                </div>
+
+                <div class="regle-item">
+                    <h4>4. Pas de double ponctuation</h4>
+                    <p>
+                        ❌ Incorrect : Vraiment ?!<br>
+                        ✅ Correct : Vraiment ? ou Vraiment !
+                    </p>
+                </div>
+            </div>
+
+            <div class="astuce-box">
+                <h3>💡 Astuce de Pro</h3>
+                <p>
+                    Pour savoir où placer une virgule, lisez votre phrase à voix haute. 
+                    Les virgules correspondent souvent aux endroits où vous faites naturellement 
+                    une petite pause en parlant. Mais attention : toutes les pauses orales ne 
+                    correspondent pas à des virgules écrites !
+                </p>
+            </div>
+
+            <div class="citation">
+                « La ponctuation est la politesse de l'écrivain. » – Proverbe<br><br>
+                Une bonne ponctuation rend votre texte clair, agréable à lire et évite les malentendus. 
+                N'oubliez jamais : un signe mal placé peut changer complètement le sens d'une phrase !
+            </div>
+        </div>
+
+        <footer>
+            <p>✨ Maîtrisez la ponctuation pour écrire avec clarté et élégance ! ✨</p>
+        </footer>
+    </div>
+</body>
+</html>

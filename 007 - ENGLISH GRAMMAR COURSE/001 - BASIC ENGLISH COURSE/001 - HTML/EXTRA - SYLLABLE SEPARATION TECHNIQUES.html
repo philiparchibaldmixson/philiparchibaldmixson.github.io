@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Syllable Separation Techniques</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 30px;
+            padding: 60px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            padding: 25px;
+            border-radius: 15px;
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            border-left: 5px solid #667eea;
+        }
+
+        .rule-section {
+            margin-bottom: 60px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .rule-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 15px 15px 0 0;
+            font-size: 2em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .rule-number {
+            background: rgba(255, 255, 255, 0.3);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .rule-content {
+            background: white;
+            padding: 30px;
+            border-radius: 0 0 15px 15px;
+            border: 3px solid #667eea;
+            border-top: none;
+        }
+
+        .rule-explanation {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            font-size: 1.15em;
+            color: #444;
+            border-left: 5px solid #ffd700;
+        }
+
+        .pattern-name {
+            display: inline-block;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .example-card {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .example-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            border-color: #667eea;
+        }
+
+        .example-card.vc-cv {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .example-card.v-cv {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .example-card.vc-v {
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+        }
+
+        .example-card.consonant-le {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .example-card.vccv {
+            background: linear-gradient(135deg, #fdcbf1 0%, #e6dee9 100%);
+        }
+
+        .example-card.vcccv {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .word {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .syllables {
+            font-size: 2.2em;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 3px;
+        }
+
+        .separator {
+            color: #ff6b6b;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+
+        .pronunciation {
+            color: #555;
+            font-style: italic;
+            font-size: 1.05em;
+            margin-top: 10px;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #fff9c4 0%, #ffe082 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 5px solid #ffa726;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tip-title {
+            font-weight: bold;
+            color: #e65100;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .key-point {
+            background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-weight: 600;
+            color: #1b5e20;
+            border-left: 4px solid #2e7d32;
+        }
+
+        .visual-diagram {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px dashed #667eea;
+            text-align: center;
+        }
+
+        .diagram-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .vowel-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            min-width: 60px;
+        }
+
+        .consonant-box {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            min-width: 60px;
+        }
+
+        .divider-line {
+            width: 3px;
+            height: 60px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            margin: 0 10px;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+        }
+
+        .legend-color {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+        }
+
+        .steps-container {
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .step {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 5px solid #00acc1;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #00acc1 0%, #0097a7 100%);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 3px solid #e0e0e0;
+            color: #666;
+        }
+
+        .footer-emoji {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .rule-header {
+                font-size: 1.5em;
+                padding: 15px 20px;
+            }
+
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .diagram-row {
+                flex-wrap: wrap;
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 English Syllable Separation Techniques 📚</h1>
+            <p class="subtitle">Master the art of breaking words into syllables</p>
+        </header>
+
+        <div class="intro-box">
+            <strong>What is syllabification?</strong> Syllabification (or syllable separation) is the process of dividing words into syllables. Understanding these techniques improves pronunciation, spelling, and reading fluency. Each syllable contains one vowel sound and is pronounced as a single unit.
+        </div>
+
+        <!-- Rule 1: VC/CV Pattern -->
+        <div class="rule-section">
+            <div class="rule-header">
+                <div class="rule-number">1</div>
+                <div>VC/CV Pattern - Divide Between Two Consonants</div>
+            </div>
+            <div class="rule-content">
+                <span class="pattern-name">VC/CV</span>
+                <div class="rule-explanation">
+                    <strong>Rule:</strong> When two consonants appear between two vowels, divide between the consonants.
+                    <br><strong>Pattern:</strong> Vowel + Consonant / Consonant + Vowel
+                </div>
+
+                <div class="visual-diagram">
+                    <div class="diagram-row">
+                        <div class="vowel-box">V</div>
+                        <div class="consonant-box">C</div>
+                        <div class="divider-line"></div>
+                        <div class="consonant-box">C</div>
+                        <div class="vowel-box">V</div>
+                    </div>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color vowel-box" style="width: 30px; height: 30px;"></div>
+                            <span>V = Vowel</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color consonant-box" style="width: 30px; height: 30px;"></div>
+                            <span>C = Consonant</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples-grid">
+                    <div class="example-card vc-cv">
+                        <div class="word">napkin</div>
+                        <div class="syllables">nap<span class="separator">•</span>kin</div>
+                        <div class="pronunciation">Divide between p and k</div>
+                    </div>
+                    <div class="example-card vc-cv">
+                        <div class="word">basket</div>
+                        <div class="syllables">bas<span class="separator">•</span>ket</div>
+                        <div class="pronunciation">Divide between s and k</div>
+                    </div>
+                    <div class="example-card vc-cv">
+                        <div class="word">pencil</div>
+                        <div class="syllables">pen<span class="separator">•</span>cil</div>
+                        <div class="pronunciation">Divide between n and c</div>
+                    </div>
+                    <div class="example-card vc-cv">
+                        <div class="word">winter</div>
+                        <div class="syllables">win<span class="separator">•</span>ter</div>
+                        <div class="pronunciation">Divide between n and t</div>
+                    </div>
+                    <div class="example-card vc-cv">
+                        <div class="word">problem</div>
+                        <div class="syllables">prob<span class="separator">•</span>lem</div>
+                        <div class="pronunciation">Divide between b and l</div>
+                    </div>
+                    <div class="example-card vc-cv">
+                        <div class="word">number</div>
+                        <div class="syllables">num<span class="separator">•</span>ber</div>
+                        <div class="pronunciation">Divide between m and b</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rule 2: V/CV Pattern -->
+        <div class="rule-section">
+            <div class="rule-header">
+                <div class="rule-number">2</div>
+                <div>V/CV Pattern - Divide Before the Consonant</div>
+            </div>
+            <div class="rule-content">
+                <span class="pattern-name">V/CV</span>
+                <div class="rule-explanation">
+                    <strong>Rule:</strong> When a single consonant appears between two vowels, try dividing BEFORE the consonant first (this creates an open syllable with a long vowel sound).
+                    <br><strong>Pattern:</strong> Vowel / Consonant + Vowel
+                </div>
+
+                <div class="key-point">
+                    💡 This creates an "open syllable" - the first syllable ends with a vowel and typically has a LONG vowel sound.
+                </div>
+
+                <div class="examples-grid">
+                    <div class="example-card v-cv">
+                        <div class="word">tiger</div>
+                        <div class="syllables">ti<span class="separator">•</span>ger</div>
+                        <div class="pronunciation">Long "i" sound: TI-ger</div>
+                    </div>
+                    <div class="example-card v-cv">
+                        <div class="word">robot</div>
+                        <div class="syllables">ro<span class="separator">•</span>bot</div>
+                        <div class="pronunciation">Long "o" sound: RO-bot</div>
+                    </div>
+                    <div class="example-card v-cv">
+                        <div class="word">music</div>
+                        <div class="syllables">mu<span class="separator">•</span>sic</div>
+                        <div class="pronunciation">Long "u" sound: MU-sic</div>
+                    </div>
+                    <div class="example-card v-cv">
+                        <div class="word">hotel</div>
+                        <div class="syllables">ho<span class="separator">•</span>tel</div>
+                        <div class="pronunciation">Long "o" sound: HO-tel</div>
+                    </div>
+                    <div class="example-card v-cv">
+                        <div class="word">moment</div>
+                        <div class="syllables">mo<span class="separator">•</span>ment</div>
+                        <div class="pronunciation">Long "o" sound: MO-ment</div>
+                    </div>
+                    <div class="example-card v-cv">
+                        <div class="word">paper</div>
+                        <div class="syllables">pa<span class="separator">•</span>per</div>
+                        <div class="pronunciation">Long "a" sound: PA-per</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rule 3: VC/V Pattern -->
+        <div class="rule-section">
+            <div class="rule-header">
+                <div class="rule-number">3</div>
+                <div>VC/V Pattern - Divide After the Consonant</div>
+            </div>
+            <div class="rule-content">
+                <span class="pattern-name">VC/V</span>
+                <div class="rule-explanation">
+                    <strong>Rule:</strong> If V/CV doesn't sound right, try dividing AFTER the consonant (this creates a closed syllable with a short vowel sound).
+                    <br><strong>Pattern:</strong> Vowel + Consonant / Vowel
+                </div>
+
+                <div class="key-point">
+                    💡 This creates a "closed syllable" - the first syllable ends with a consonant and typically has a SHORT vowel sound.
+                </div>
+
+                <div class="examples-grid">
+                    <div class="example-card vc-v">
+                        <div class="word">planet</div>
+                        <div class="syllables">plan<span class="separator">•</span>et</div>
+                        <div class="pronunciation">Short "a" sound: PLAN-et</div>
+                    </div>
+                    <div class="example-card vc-v">
+                        <div class="word">habit</div>
+                        <div class="syllables">hab<span class="separator">•</span>it</div>
+                        <div class="pronunciation">Short "a" sound: HAB-it</div>
+                    </div>
+                    <div class="example-card vc-v">
+                        <div class="word">lemon</div>
+                        <div class="syllables">lem<span class="separator">•</span>on</div>
+                        <div class="pronunciation">Short "e" sound: LEM-on</div>
+                    </div>
+                    <div class="example-card vc-v">
+                        <div class="word">visit</div>
+                        <div class="syllables">vis<span class="separator">•</span>it</div>
+                        <div class="pronunciation">Short "i" sound: VIS-it</div>
+                    </div>
+                    <div class="example-card vc-v">
+                        <div class="word">seven</div>
+                        <div class="syllables">sev<span class="separator">•</span>en</div>
+                        <div class="pronunciation">Short "e" sound: SEV-en</div>
+                    </div>
+                    <div class="example-card vc-v">
+                        <div class="word">comet</div>
+                        <div class="syllables">com<span class="separator">•</span>et</div>
+                        <div class="pronunciation">Short "o" sound: COM-et</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rule 4: Consonant + LE -->
+        <div class="rule-section">
+            <div class="rule-header">
+                <div class="rule-number">4</div>
+                <div>C+LE Pattern - Consonant + LE at the End</div>
+            </div>
+            <div class="rule-content">
+                <span class="pattern-name">C+LE</span>
+                <div class="rule-explanation">
+                    <strong>Rule:</strong> When a word ends with a consonant + "le", divide before that consonant. The "le" forms its own syllable.
+                    <br><strong>Pattern:</strong> ... / Consonant + LE
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Pro Tip</div>
+                    The "le" at the end creates a syllable that sounds like "uhl" (unstressed schwa + l sound).
+                </div>
+
+                <div class="examples-grid">
+                    <div class="example-card consonant-le">
+                        <div class="word">table</div>
+                        <div class="syllables">ta<span class="separator">•</span>ble</div>
+                        <div class="pronunciation">TA-buhl</div>
+                    </div>
+                    <div class="example-card consonant-le">
+                        <div class="word">apple</div>
+                        <div class="syllables">ap<span class="separator">•</span>ple</div>
+                        <div class="pronunciation">AP-puhl</div>
+                    </div>
+                    <div class="example-card consonant-le">
+                        <div class="word">candle</div>
+                        <div class="syllables">can<span class="separator">•</span>dle</div>
+                        <div class="pronunciation">CAN-duhl</div>
+                    </div>
+                    <div class="example-card consonant-le">
+                        <div class="word">purple</div>
+                        <div class="syllables">pur<span class="separator">•</span>ple</div>
+                        <div class="pronunciation">PUR-puhl</div>
+                    </div>
+                    <div class="example-card consonant-le">
+                        <div class="word">gentle</div>
+                        <div class="syllables">gen<span class="separator">•</span>tle</div>
+                        <div class="pronunciation">GEN-tuhl</div>
+                    </div>
+                    <div class="example-card consonant-le">
+                        <div class="word">simple</div>
+                        <div class="syllables">sim<span class="separator">•</span>ple</div>
+                        <div class="pronunciation">SIM-puhl</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rule 5: Compound Words -->
+        <div class="rule-section">
+            <div class="rule-header">
+                <div class="rule-number">5</div>
+                <div>Compound Words - Divide Between Base Words</div>
+            </div>
+            <div class="rule-content">
+                <span class="pattern-name">COMPOUND</span>
+                <div class="rule-explanation">
+                    <strong>Rule:</strong> Compound words (two words joined together) are divided between the two base words.
+                </div>
+
+                <div class="examples-grid">
+                    <div class="example-card vccv">
+                        <div class="word">sunflower</div>
+                        <div class="syllables">sun<span class="separator">•</span>flow<span class="separator">•</span>er</div>
+                        <div class="pronunciation">sun + flower</div>
+                    </div>
+                    <div class="example-card vccv">
+                        <div class="word">baseball</div>
+                        <div class="syllables">base<span class="separator">•</span>ball</div>
+                        <div class="pronunciation">base + ball</div>
+                    </div>
+                    <div class="example-card vccv">
+                        <div class="word">rainbow</div>
+                        <div class="syllables">rain<span class="separator">•</span>bow</div>
+                        <div class="pronunciation">rain + bow</div>
+                    </div>
+                    <div class="example-card vccv">
+                        <div class="word">cupcake</div>
+                        <div class="syllables">cup<span class="separator">•</span>cake</div>
+                        <div class="pronunciation">cup + cake</div>
+                    </div>
+                    <div class="example-card vccv">
+                        <div class="word">butterfly</div>
+                        <div class="syllables">but<span class="separator">•</span>ter<span class="separator">•</span>fly</div>
+                        <div class="pronunciation">butter + fly</div>
+                    </div>
+                    <div class="example-card vccv">
+                        <div class="word">bookmark</div>
+                        <div class="syllables">book<span class="separator">•</span>mark</div>
+                        <div class="pronunciation">book + mark</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rule 6: Prefixes and Suffixes -->
+        <div class="rule-section">
+            <div class="rule-header">
+                <div class="rule-number">6</div>
+                <div>Affixes - Divide Between Base Word and Affix</div>
+            </div>
+            <div class="rule-content">
+                <span class="pattern-name">PREFIX/SUFFIX</span>
+                <div class="rule-explanation">
+                    <strong>Rule:</strong> Divide between the base word and its prefix or suffix.
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Common Prefixes</div>
+                    un-, re-, pre-, dis-, mis-, in-, non-
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Common Suffixes</div>
+                    -ing, -ed, -er, -est, -ly, -ness, -ful, -less
+                </div>
+
+                <div class="examples-grid">
+                    <div class="example-card vcccv">
+                        <div class="word">unhappy</div>
+                        <div class="syllables">un<span class="separator">•</span>hap<span class="separator">•</span>py</div>
+                        <div class="pronunciation">prefix: un-</div>
+                    </div>
+                    <div class="example-card vcccv">
+                        <div class="word">replay</div>
+                        <div class="syllables">re<span class="separator">•</span>play</div>
+                        <div class="pronunciation">prefix: re-</div>
+                    </div>
+                    <div class="example-card vcccv">
+                        <div class="word">kindness</div>
+                        <div class="syllables">kind<span class="separator">•</span>ness</div>
+                        <div class="pronunciation">suffix: -ness</div>
+                    </div>
+                    <div class="example-card vcccv">
+                        <div class="word">quickly</div>
+                        <div class="syllables">quick<span class="separator">•</span>ly</div>
+                        <div class="pronunciation">suffix: -ly</div>
+                    </div>
+                    <div class="example-card vcccv">
+                        <div class="word">teacher</div>
+                        <div class="syllables">teach<span class="separator">•</span>er</div>
+                        <div class="pronunciation">suffix: -er</div>
+                    </div>
+                    <div class="example-card vcccv">
+                        <div class="word">preschool</div>
+                        <div class="syllables">pre<span class="separator">•</span>school</div>
+                        <div class="pronunciation">prefix: pre-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step-by-Step Guide -->
+        <div class="rule-section">
+            <div class="rule-header">
+                <div class="rule-number">📋</div>
+                <div>Step-by-Step Syllable Division Process</div>
+            </div>
+            <div class="rule-content">
+                <div class="steps-container">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Count the vowels</strong> - Each syllable has ONE vowel sound (remember: silent e doesn't count)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Check for compound words</strong> - Divide between the two base words first
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Look for prefixes and suffixes</strong> - Divide between the base word and affixes
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Check for consonant + LE</strong> - If the word ends in CLE, divide before the consonant
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Apply VC/CV rule</strong> - If there are two consonants between vowels, divide between them
+                    </div>
+                    <div class="step">
+                        <span class="step-number">6</span>
+                        <strong>Try V/CV first</strong> - For single consonant between vowels, divide before the consonant
+                    </div>
+                    <div class="step">
+                        <span class="step-number">7</span>
+                        <strong>If needed, try VC/V</strong> - If V/CV doesn't sound right, divide after the consonant
+                    </div>
+                </div>
+
+                <div class="key-point">
+                    🎯 Remember: Pronunciation is key! If your division doesn't sound right when you say it out loud, try the alternative pattern.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-emoji">🎓✨📖</div>
+            <h3>Master these syllable separation techniques for better reading and pronunciation!</h3>
+            <p style="margin-top: 15px; color: #999;">Practice makes perfect - try dividing your favorite words into syllables!</p>
+        </div>
+    </div>
+</body>
+</html>

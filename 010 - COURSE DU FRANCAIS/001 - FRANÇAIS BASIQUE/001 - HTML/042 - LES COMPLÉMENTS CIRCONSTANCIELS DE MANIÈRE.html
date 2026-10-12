@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Compléments Circonstanciels de Manière - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateY(0) scaleY(1); }
+            50% { transform: translateY(-5px) scaleY(1.1); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #002395 0%, #ffffff 50%, #ED2939 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(237, 41, 57, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0, 35, 149, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background: linear-gradient(135deg, #002395, #0035b8, #002395);
+            background-size: 200% 200%;
+            animation: gradientFlow 8s ease infinite;
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 35, 149, 0.4);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .logo {
+            font-size: 1.3em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            opacity: 0.95;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 20px 0;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-top: 15px;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            border: 3px solid rgba(0, 35, 149, 0.2);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .intro-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .intro-section h2::before {
+            content: '🎭';
+            font-size: 1.2em;
+            animation: swing 2s ease-in-out infinite;
+        }
+
+        .intro-section p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.15em;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 6px solid #002395;
+            margin: 25px 0;
+            font-size: 1.1em;
+            line-height: 1.7;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .definition-box strong {
+            color: #ED2939;
+            font-size: 1.1em;
+        }
+
+        .questions-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .questions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .question-box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #ED2939;
+            transition: all 0.3s ease;
+        }
+
+        .question-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(0, 35, 149, 0.2);
+        }
+
+        .question-title {
+            color: #ED2939;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .question-examples {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .cc-highlight {
+            color: #ED2939;
+            background: rgba(237, 41, 57, 0.1);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .constructions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .construction-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .construction-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #002395, #ED2939);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .construction-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 35, 149, 0.3);
+            border-color: #002395;
+        }
+
+        .construction-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .construction-card h3 {
+            color: #002395;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .construction-icon {
+            font-size: 1.3em;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .construction-type {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(237, 41, 57, 0.3);
+        }
+
+        .construction-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .example-item {
+            background: rgba(237, 41, 57, 0.05);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border-left: 4px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .example-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-sentence {
+            color: #222;
+            font-size: 1.05em;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .adverbs-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 1.8s ease;
+        }
+
+        .adverbs-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .adverbs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .adverb-category {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 35, 149, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .adverb-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 35, 149, 0.15);
+        }
+
+        .adverb-category h3 {
+            color: #002395;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .adverb-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .adverb-tag {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(0, 35, 149, 0.2);
+            transition: all 0.3s ease;
+            animation: slideIn 0.5s ease;
+        }
+
+        .adverb-tag:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 35, 149, 0.4);
+        }
+
+        .special-section {
+            background: linear-gradient(135deg, #002395 0%, #0041c9 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 35, 149, 0.4);
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 2s ease;
+        }
+
+        .special-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .special-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .special-section p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .tip-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .comparison-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 2.2s ease;
+        }
+
+        .comparison-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .comparison-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #ED2939;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 35, 149, 0.2);
+        }
+
+        .comparison-title {
+            color: #ED2939;
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .comparison-content {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .table-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 2.4s ease;
+        }
+
+        .table-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+        }
+
+        th {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        th:first-child {
+            border-top-left-radius: 15px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 15px;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid rgba(0, 35, 149, 0.1);
+            font-size: 1.05em;
+            color: #333;
+        }
+
+        tr:hover {
+            background: rgba(0, 35, 149, 0.05);
+        }
+
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 15px;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 15px;
+        }
+
+        .formation-highlight {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #002395, #ED2939);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 2.6s ease;
+        }
+
+        .footer-content {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo {
+            font-size: 2em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .constructions-grid, .comparison-grid, .adverbs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 30px;
+            }
+
+            .intro-section, .special-section, .adverbs-section {
+                padding: 25px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">⚜️ Língua Academy ⚜️</div>
+            <h1>Les Compléments Circonstanciels de Manière</h1>
+            <div class="subtitle">🎭 Comment ? De quelle manière ? De quelle façon ? 🎭</div>
+        </header>
+
+        <div class="intro-section">
+            <h2>Qu'est-ce qu'un CC de Manière ?</h2>
+            <p>
+                Le <strong>complément circonstanciel de manière</strong> (CC de manière) est un complément de phrase qui indique 
+                <strong>comment se déroule l'action</strong>, de quelle façon elle est réalisée, dans quelles circonstances ou conditions.
+            </p>
+            
+            <div class="definition-box">
+                🎭 <strong>Définition :</strong> Le CC de manière précise la façon dont l'action est accomplie. 
+                Il répond aux questions : <strong>Comment ? De quelle manière ? De quelle façon ? Dans quelles conditions ?</strong>
+            </div>
+
+            <p>
+                Le CC de manière est <strong>supprimable</strong> et généralement <strong>déplaçable</strong> dans la phrase. 
+                Il enrichit la description de l'action sans être indispensable à la structure de base de la phrase.
+            </p>
+        </div>
+
+        <div class="questions-section">
+            <h2>❓ Les Questions pour Identifier le CC de Manière</h2>
+            
+            <div class="question-box">
+                <div class="question-title">
+                    💭 Comment ? / De quelle manière ?
+                </div>
+                <div class="question-examples">
+                    <strong>La question la plus courante pour identifier le CC de manière :</strong><br><br>
+                    • Elle parle <span class="cc-highlight">doucement</span>. → <em>Comment parle-t-elle ?</em><br>
+                    • Il travaille <span class="cc-highlight">avec soin</span>. → <em>Comment travaille-t-il ?</em><br>
+                    • Nous avançons <span class="cc-highlight">lentement</span>. → <em>Comment avançons-nous ?</em><br>
+                    • Ils agissent <span class="cc-highlight">sans réfléchir</span>. → <em>Comment agissent-ils ?</em>
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="question-title">
+                    🎯 De quelle façon ?
+                </div>
+                <div class="question-examples">
+                    <strong>Variante pour exprimer la manière :</strong><br><br>
+                    • Il explique <span class="cc-highlight">de façon claire</span>. → <em>De quelle façon explique-t-il ?</em><br>
+                    • Elle répond <span class="cc-highlight">de manière polie</span>. → <em>De quelle manière répond-elle ?</em><br>
+                    • Nous procédons <span class="cc-highlight">de cette façon</span>. → <em>De quelle façon procédons-nous ?</em>
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="question-title">
+                    ⚙️ Dans quelles conditions ?
+                </div>
+                <div class="question-examples">
+                    <strong>Pour les circonstances ou conditions de l'action :</strong><br><br>
+                    • Il travaille <span class="cc-highlight">dans de bonnes conditions</span>. → <em>Dans quelles conditions ?</em><br>
+                    • Elle réussit <span class="cc-highlight">malgré les difficultés</span>. → <em>Dans quelles circonstances ?</em><br>
+                    • Nous agissons <span class="cc-highlight">en toute sécurité</span>. → <em>Dans quelles conditions ?</em>
+                </div>
+            </div>
+        </div>
+
+        <div class="constructions-grid">
+            <div class="construction-card">
+                <h3><span class="construction-icon">⚡</span> Adverbe de Manière</h3>
+                <div class="construction-type">Construction la plus fréquente</div>
+                <div class="construction-description">
+                    Le CC de manière est très souvent un <strong>adverbe de manière</strong>, généralement formé 
+                    en ajoutant <strong>-ment</strong> à un adjectif (féminin).
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Elle chante <span class="cc-highlight">magnifiquement</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Il parle <span class="cc-highlight">lentement</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Nous travaillons <span class="cc-highlight">sérieusement</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Ils écoutent <span class="cc-highlight">attentivement</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Tu conduis <span class="cc-highlight">prudemment</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-card">
+                <h3><span class="construction-icon">📦</span> GN avec Préposition</h3>
+                <div class="construction-type">Très courant</div>
+                <div class="construction-description">
+                    Le CC de manière est introduit par une préposition (<strong>avec, sans, à, de, en, par, etc.</strong>) 
+                    suivie d'un groupe nominal.
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Il parle <span class="cc-highlight">avec enthousiasme</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Elle travaille <span class="cc-highlight">sans effort</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Nous agissons <span class="cc-highlight">à la légère</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Ils avancent <span class="cc-highlight">en silence</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Tu réponds <span class="cc-highlight">de manière polie</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-card">
+                <h3><span class="construction-icon">✨</span> Gérondif</h3>
+                <div class="construction-type">Construction courante</div>
+                <div class="construction-description">
+                    Le <strong>gérondif</strong> (en + participe présent) exprime très souvent la manière 
+                    dont se déroule l'action principale.
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Elle travaille <span class="cc-highlight">en chantant</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Il répond <span class="cc-highlight">en souriant</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Nous avançons <span class="cc-highlight">en courant</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Elle apprend <span class="cc-highlight">en pratiquant</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Tu réussis <span class="cc-highlight">en persévérant</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-card">
+                <h3><span class="construction-icon">🎯</span> Adjectif (rare)</h3>
+                <div class="construction-type">Moins fréquent</div>
+                <div class="construction-description">
+                    Parfois, un <strong>adjectif</strong> peut fonctionner comme CC de manière, 
+                    souvent détaché par des virgules.
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Il marche, <span class="cc-highlight">fier</span>, vers la scène.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Elle répond, <span class="cc-highlight">calme</span>, à ses questions.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Nous avançons, <span class="cc-highlight">confiants</span>, vers l'objectif.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Ils travaillent, <span class="cc-highlight">concentrés</span>, sur leur projet.
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-card">
+                <h3><span class="construction-icon">🔗</span> Proposition Subordonnée</h3>
+                <div class="construction-type">Assez rare</div>
+                <div class="construction-description">
+                    Le CC de manière peut être une proposition subordonnée introduite par 
+                    <strong>comme, comme si, ainsi que, selon que, sans que, etc.</strong>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Il agit <span class="cc-highlight">comme s'il était le chef</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Elle parle <span class="cc-highlight">comme tu le lui as appris</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Nous procédons <span class="cc-highlight">ainsi que prévu</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Il est parti <span class="cc-highlight">sans que personne le sache</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-card">
+                <h3><span class="construction-icon">🎪</span> Locution Adverbiale</h3>
+                <div class="construction-type">Fréquent</div>
+                <div class="construction-description">
+                    Des <strong>locutions adverbiales figées</strong> expriment la manière 
+                    (à la hâte, à tort, en vain, par hasard, etc.).
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Il mange <span class="cc-highlight">à la hâte</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Elle agit <span class="cc-highlight">à tort</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Nous cherchons <span class="cc-highlight">en vain</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Ils se sont rencontrés <span class="cc-highlight">par hasard</span>.
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-sentence">
+                        Tu travailles <span class="cc-highlight">d'arrache-pied</span>.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="adverbs-section">
+            <h2>📚 Adverbes de Manière Courants</h2>
+            
+            <div class="adverbs-grid">
+                <div class="adverb-category">
+                    <h3>✅ Manière Positive</h3>
+                    <div class="adverb-list">
+                        <span class="adverb-tag">bien</span>
+                        <span class="adverb-tag">correctement</span>
+                        <span class="adverb-tag">parfaitement</span>
+                        <span class="adverb-tag">admirablement</span>
+                        <span class="adverb-tag">excellemment</span>
+                        <span class="adverb-tag">magnifiquement</span>
+                        <span class="adverb-tag">merveilleusement</span>
+                        <span class="adverb-tag">brillamment</span>
+                    </div>
+                </div>
+
+                <div class="adverb-category">
+                    <h3>❌ Manière Négative</h3>
+                    <div class="adverb-list">
+                        <span class="adverb-tag">mal</span>
+                        <span class="adverb-tag">incorrectement</span>
+                        <span class="adverb-tag">maladroitement</span>
+                        <span class="adverb-tag">difficilement</span>
+                        <span class="adverb-tag">péniblement</span>
+                        <span class="adverb-tag">médiocrement</span>
+                        <span class="adverb-tag">lamentablement</span>
+                    </div>
+                </div>
+
+                <div class="adverb-category">
+                    <h3>⚡ Vitesse</h3>
+                    <div class="adverb-list">
+                        <span class="adverb-tag">vite</span>
+                        <span class="adverb-tag">rapidement</span>
+                        <span class="adverb-tag">lentement</span>
+                        <span class="adverb-tag">doucement</span>
+                        <span class="adverb-tag">promptement</span>
+                        <span class="adverb-tag">prestement</span>
+                        <span class="adverb-tag">hâtivement</span>
+                    </div>
+                </div>
+
+                <div class="adverb-category">
+                    <h3>🎯 Précision</h3>
+                    <div class="adverb-list">
+                        <span class="adverb-tag">précisément</span>
+                        <span class="adverb-tag">exactement</span>
+                        <span class="adverb-tag">soigneusement</span>
+                        <span class="adverb-tag">minutieusement</span>
+                        <span class="adverb-tag">attentivement</span>
+                        <span class="adverb-tag">rigoureusement</span>
+                    </div>
+                </div>
+
+                <div class="adverb-category">
+                    <h3>🔊 Intensité</h3>
+                    <div class="adverb-list">
+                        <span class="adverb-tag">fortement</span>
+                        <span class="adverb-tag">faiblement</span>
+                        <span class="adverb-tag">violemment</span>
+                        <span class="adverb-tag">énergiquement</span>
+                        <span class="adverb-tag">vigoureusement</span>
+                        <span class="adverb-tag">mollement</span>
+                    </div>
+                </div>
+
+                <div class="adverb-category">
+                    <h3>😊 Attitude</h3>
+                    <div class="adverb-list">
+                        <span class="adverb-tag">gentiment</span>
+                        <span class="adverb-tag">poliment</span>
+                        <span class="adverb-tag">aimablement</span>
+                        <span class="adverb-tag">froidement</span>
+                        <span class="adverb-tag">sèchement</span>
+                        <span class="adverb-tag">chaleureusement</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-section">
+            <h2>🔤 Formation des Adverbes en -MENT</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Règle</th>
+                        <th>Formation</th>
+                        <th>Exemples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="formation-highlight">Adjectif féminin + -ment</span></td>
+                        <td>Adjectif au féminin → ajouter -ment</td>
+                        <td>lent<strong>e</strong> → lente<strong>ment</strong><br>doux/douc<strong>e</strong> → douce<strong>ment</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="formation-highlight">Adjectif masculin -ent/-ant</span></td>
+                        <td>Remplacer -ent par -emment<br>Remplacer -ant par -amment</td>
+                        <td>prud<strong>ent</strong> → prud<strong>emment</strong><br>const<strong>ant</strong> → const<strong>amment</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="formation-highlight">Adjectif en -é, -i, -u</span></td>
+                        <td>Masculin + -ment directement</td>
+                        <td>vra<strong>i</strong> → vraiment<br>absol<strong>u</strong> → absolument</td>
+                    </tr>
+                    <tr>
+                        <td><span class="formation-highlight">Cas particuliers</span></td>
+                        <td>Formes irrégulières</td>
+                        <td>bref → brièvement<br>gentil → gentiment<br>bon → bien<br>mauvais → mal</td>
+                    </tr>
+                    <tr>
+                        <td><span class="formation-highlight">Accent ajouté</span></td>
+                        <td>Ajout d'un accent sur le e</td>
+                        <td>énorm<strong>e</strong> → énorm<strong>é</strong>ment<br>profond<strong>e</strong> → profond<strong>é</strong>ment</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="comparison-section">
+            <h2>⚖️ CC de Manière vs Autres Compléments</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-title">
+                        🎭 CC de Manière
+                    </div>
+                    <div class="comparison-content">
+                        <strong>Comment ?</strong><br>
+                        Répond à la question "comment ?"<br><br>
+                        <em>Exemple :</em><br>
+                        "Il travaille <strong>sérieusement</strong>."<br>
+                        → <em>Comment travaille-t-il ?</em><br><br>
+                        <strong>Supprimable :</strong> "Il travaille." ✅
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-title">
+                        🔧 CC de Moyen
+                    </div>
+                    <div class="comparison-content">
+                        <strong>Avec quoi ? Par quel moyen ?</strong><br>
+                        Répond à "avec quoi ?" ou "au moyen de quoi ?"<br><br>
+                        <em>Exemple :</em><br>
+                        "Il coupe le pain <strong>avec un couteau</strong>."<br>
+                        → <em>Avec quoi ?</em><br><br>
+                        Introduit souvent par <strong>avec, par, au moyen de</strong>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-title">
+                        👥 CC d'Accompagnement
+                    </div>
+                    <div class="comparison-content">
+                        <strong>Avec qui ?</strong><br>
+                        Indique la personne qui accompagne<br><br>
+                        <em>Exemple :</em><br>
+                        "Elle voyage <strong>avec ses amis</strong>."<br>
+                        → <em>Avec qui ?</em><br><br>
+                        Introduit par <strong>avec, sans</strong> + personne(s)
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 25px; background: white; border-radius: 15px;">
+                <h3 style="color: #002395; margin-bottom: 15px; font-size: 1.4em;">⚠️ Distinction importante</h3>
+                <p style="color: #555; line-height: 1.8; margin-bottom: 10px;">
+                    <strong>AVEC + objet</strong> = CC de moyen → <em>"Il écrit <strong>avec un stylo</strong>"</em> (moyen)
+                </p>
+                <p style="color: #555; line-height: 1.8; margin-bottom: 10px;">
+                    <strong>AVEC + sentiment/qualité</strong> = CC de manière → <em>"Il parle <strong>avec respect</strong>"</em> (manière)
+                </p>
+                <p style="color: #555; line-height: 1.8;">
+                    <strong>AVEC + personne</strong> = CC d'accompagnement → <em>"Il part <strong>avec Marie</strong>"</em> (accompagnement)
+                </p>
+            </div>
+        </div>
+
+        <div class="special-section">
+            <h2>💡 Conseils pour Identifier le CC de Manière</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>❓ Posez la question "Comment ?"</h4>
+                    <p>
+                        Pour identifier un CC de manière, posez toujours la question <strong>"Comment ?"</strong> 
+                        ou <strong>"De quelle manière ?"</strong> après le verbe.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔍 Repérez les adverbes en -ment</h4>
+                    <p>
+                        La plupart des adverbes terminant par <strong>-ment</strong> sont des CC de manière : 
+                        lentement, rapidement, gentiment, etc.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>✨ Cherchez le gérondif</h4>
+                    <p>
+                        La structure <strong>"en + -ant"</strong> forme souvent un CC de manière : 
+                        "en courant", "en chantant", "en souriant"...
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔄 Testez la mobilité</h4>
+                    <p>
+                        Le CC de manière est généralement <strong>déplaçable</strong> : 
+                        "Lentement, il marche" = "Il marche lentement"
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>✂️ Testez la suppression</h4>
+                    <p>
+                        Le CC de manière est <strong>supprimable</strong>. La phrase reste correcte : 
+                        "Il parle doucement" → "Il parle" ✅
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>⚠️ Attention aux confusions</h4>
+                    <p>
+                        Ne confondez pas "avec + nom abstrait" (manière) et "avec + objet" (moyen). 
+                        Avec joie ≠ Avec un marteau
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="intro-section">
+            <h2>🎯 Points Importants à Retenir</h2>
+            <p>
+                ✅ <strong>Le CC de manière répond à la question "Comment ?" :</strong>
+                <br>• Il exprime la façon dont l'action est réalisée, la manière de faire
+            </p>
+            <p>
+                ✅ <strong>Constructions principales :</strong>
+                <br>• Adverbes en -ment (lentement, rapidement)
+                <br>• GN avec préposition (avec soin, sans effort)
+                <br>• Gérondif (en courant, en souriant)
+                <br>• Locutions adverbiales (à la hâte, en vain)
+            </p>
+            <p>
+                ✅ <strong>Formation des adverbes en -ment :</strong>
+                <br>• Règle générale : adjectif féminin + -ment → lent<strong>e</strong> → lente<strong>ment</strong>
+                <br>• Exceptions : prudent → prud<strong>emment</strong> / constant → const<strong>amment</strong>
+            </p>
+            <p>
+                ✅ <strong>Le gérondif est presque toujours un CC de manière :</strong>
+                <br>• "Il travaille en chantant" → <em>Comment travaille-t-il ?</em>
+            </p>
+            <p>
+                ✅ <strong>Distinction AVEC + nom :</strong>
+                <br>• Objet concret = moyen : "écrire <strong>avec un stylo</strong>"
+                <br>• Sentiment/qualité = manière : "parler <strong>avec respect</strong>"
+                <br>• Personne = accompagnement : "partir <strong>avec Marie</strong>"
+            </p>
+            <p>
+                ✅ <strong>Le CC de manière est supprimable et déplaçable :</strong>
+                <br>• "Il marche lentement" → "Il marche" (suppression) ✅
+                <br>• "Il marche lentement" = "Lentement, il marche" (déplacement) ✅
+            </p>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                Maîtrisez les compléments circonstanciels de manière 
+                pour enrichir vos descriptions d'actions ! 🇫🇷 🎭
+            </div>
+            <div class="footer-logo">⚜️ LÍNGUA ACADEMY ⚜️</div>
+        </footer>
+    </div>
+</body>
+</html>

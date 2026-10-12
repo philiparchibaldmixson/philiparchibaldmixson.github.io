@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Come si Formano le Parole - Guida Interattiva</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            color: #f093fb;
+            margin: 25px 0 15px 0;
+            padding: 10px;
+            background: linear-gradient(90deg, rgba(240, 147, 251, 0.2), transparent);
+            border-left: 5px solid #f093fb;
+            border-radius: 5px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .morph-box {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(238, 90, 111, 0.4);
+            animation: slideInLeft 1s ease;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .example-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .example-card {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: bounceIn 1s ease;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .example-card:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.6);
+        }
+
+        .word-part {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: transform 0.3s ease;
+        }
+
+        .word-part:hover {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .prefix {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .root {
+            background: #4ecdc4;
+            color: white;
+        }
+
+        .suffix {
+            background: #feca57;
+            color: #333;
+        }
+
+        .composition-box {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            animation: slideInRight 1s ease;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .composition-example {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 15px 0;
+            font-size: 1.3em;
+        }
+
+        .plus-sign {
+            font-size: 2em;
+            color: #667eea;
+            margin: 0 15px;
+            font-weight: bold;
+            animation: rotate 2s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .equals-sign {
+            font-size: 2em;
+            color: #f093fb;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, #ffd89b, #19547b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .interactive-word {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .interactive-word:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .color-box {
+            padding: 20px;
+            border-radius: 15px;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .color-box:hover {
+            transform: scale(1.05);
+        }
+
+        .purple-box { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .pink-box { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .blue-box { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .green-box { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+        .orange-box { background: linear-gradient(135deg, #fa709a, #fee140); }
+        .teal-box { background: linear-gradient(135deg, #30cfd0, #330867); }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 40px;
+            color: white;
+            font-size: 1.2em;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            .grid-2col { grid-template-columns: 1fr; }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="floating">
+            <h1>🎨 Come si Formano le Parole 🎨</h1>
+            <p class="subtitle">Un Viaggio Colorato nella Morfologia Italiana</p>
+        </header>
+
+        <!-- INTRODUZIONE -->
+        <div class="section">
+            <h2>📚 Introduzione alla Formazione delle Parole</h2>
+            <p>Le parole non nascono per caso! Ogni parola ha una <span class="highlight">struttura</span> e può essere scomposta in parti più piccole chiamate <span class="highlight">morfemi</span>. Scopriamo insieme come si formano le parole nella lingua italiana!</p>
+            <div class="morph-box">
+                <h3 style="color: white; border: none; background: none;">💡 Cos'è un Morfema?</h3>
+                <p style="color: white;">Un <strong>morfema</strong> è la più piccola unità linguistica dotata di significato. È come un mattoncino LEGO con cui costruiamo le parole!</p>
+            </div>
+        </div>
+
+        <!-- DERIVAZIONE -->
+        <div class="section">
+            <h2>🌱 Derivazione: Aggiungere Prefissi e Suffissi</h2>
+            <p>La <span class="highlight">derivazione</span> è il processo di formazione di nuove parole aggiungendo <strong>prefissi</strong> (all'inizio) o <strong>suffissi</strong> (alla fine) a una parola base chiamata <strong>radice</strong>.</p>
+            
+            <h3>Struttura della Parola Derivata:</h3>
+            <div class="composition-example">
+                <span class="word-part prefix">PREFISSO</span>
+                <span class="plus-sign">+</span>
+                <span class="word-part root">RADICE</span>
+                <span class="plus-sign">+</span>
+                <span class="word-part suffix">SUFFISSO</span>
+                <span class="equals-sign">=</span>
+                <span class="interactive-word">PAROLA NUOVA</span>
+            </div>
+
+            <div class="example-container">
+                <div class="example-card">
+                    <h3 style="color: white; margin: 0 0 15px 0;">Esempio con Prefisso</h3>
+                    <div style="text-align: center;">
+                        <span class="word-part prefix">RI-</span>
+                        <span class="word-part root">FARE</span>
+                        <span class="equals-sign">=</span>
+                        <span class="word-part" style="background: #48c774;">RIFARE</span>
+                    </div>
+                    <p style="color: white; margin-top: 15px;">Il prefisso "ri-" significa "di nuovo"</p>
+                </div>
+
+                <div class="example-card">
+                    <h3 style="color: white; margin: 0 0 15px 0;">Esempio con Suffisso</h3>
+                    <div style="text-align: center;">
+                        <span class="word-part root">GIOCARE</span>
+                        <span class="word-part suffix">-TORE</span>
+                        <span class="equals-sign">=</span>
+                        <span class="word-part" style="background: #48c774;">GIOCATORE</span>
+                    </div>
+                    <p style="color: white; margin-top: 15px;">Il suffisso "-tore" indica chi compie l'azione</p>
+                </div>
+
+                <div class="example-card">
+                    <h3 style="color: white; margin: 0 0 15px 0;">Prefisso + Suffisso</h3>
+                    <div style="text-align: center;">
+                        <span class="word-part prefix">IN-</span>
+                        <span class="word-part root">FELICE</span>
+                        <span class="word-part suffix">-MENTE</span>
+                    </div>
+                    <p style="color: white; margin-top: 15px;">= <strong>INFELICEMENTE</strong></p>
+                </div>
+            </div>
+
+            <div class="grid-2col">
+                <div class="color-box purple-box">
+                    <h3 style="color: white; margin: 0 0 10px 0;">Prefissi Comuni</h3>
+                    <p>• IN- (negazione): incredibile<br>
+                    • PRE- (prima): preavviso<br>
+                    • ANTI- (contro): antibatterico<br>
+                    • DIS- (negazione): disfare</p>
+                </div>
+                <div class="color-box pink-box">
+                    <h3 style="color: white; margin: 0 0 10px 0;">Suffissi Comuni</h3>
+                    <p>• -ZIONE (azione): creazione<br>
+                    • -MENTE (avverbio): velocemente<br>
+                    • -ISTA (professione): pianista<br>
+                    • -EZZA (qualità): bellezza</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPOSIZIONE -->
+        <div class="section">
+            <h2>🧩 Composizione: Unire Due Parole</h2>
+            <p>La <span class="highlight">composizione</span> crea nuove parole unendo due o più parole esistenti. È come mettere insieme due pezzi di un puzzle!</p>
+            
+            <div class="composition-box">
+                <h3 style="color: #333;">Tipi di Parole Composte:</h3>
+                
+                <div class="composition-example">
+                    <span class="word-part" style="background: #e74c3c;">NOME</span>
+                    <span class="plus-sign">+</span>
+                    <span class="word-part" style="background: #3498db;">NOME</span>
+                    <span class="equals-sign">=</span>
+                    <span class="interactive-word">CAPOSTAZIONE</span>
+                </div>
+
+                <div class="composition-example">
+                    <span class="word-part" style="background: #e67e22;">VERBO</span>
+                    <span class="plus-sign">+</span>
+                    <span class="word-part" style="background: #e74c3c;">NOME</span>
+                    <span class="equals-sign">=</span>
+                    <span class="interactive-word">PORTAFOGLIO</span>
+                </div>
+
+                <div class="composition-example">
+                    <span class="word-part" style="background: #9b59b6;">AGGETTIVO</span>
+                    <span class="plus-sign">+</span>
+                    <span class="word-part" style="background: #e74c3c;">NOME</span>
+                    <span class="equals-sign">=</span>
+                    <span class="interactive-word">PIANOFORTE</span>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <div class="example-card">
+                    <h3 style="color: white;">🚗 AUTOMOBILI</h3>
+                    <p><strong>AUTO</strong> + <strong>MOBILI</strong></p>
+                    <p>(che si muove da sola)</p>
+                </div>
+                <div class="example-card">
+                    <h3 style="color: white;">🌞 GIRASOLE</h3>
+                    <p><strong>GIRA</strong> + <strong>SOLE</strong></p>
+                    <p>(gira verso il sole)</p>
+                </div>
+                <div class="example-card">
+                    <h3 style="color: white;">🏃 PASSATEMPO</h3>
+                    <p><strong>PASSA</strong> + <strong>TEMPO</strong></p>
+                    <p>(per passare il tempo)</p>
+                </div>
+                <div class="example-card">
+                    <h3 style="color: white;">🏠 CASSAFORTE</h3>
+                    <p><strong>CASSA</strong> + <strong>FORTE</strong></p>
+                    <p>(cassa molto resistente)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ALTERAZIONE -->
+        <div class="section">
+            <h2>🎭 Alterazione: Modificare il Significato</h2>
+            <p>L'<span class="highlight">alterazione</span> modifica leggermente il significato di una parola base aggiungendo suffissi speciali che esprimono dimensione, affetto o disprezzo.</p>
+
+            <div class="grid-2col">
+                <div class="color-box blue-box">
+                    <h3 style="color: white; margin: 0 0 15px 0;">DIMINUTIVI</h3>
+                    <p>Indicano qualcosa di piccolo</p>
+                    <p><strong>-INO, -ETTO, -ELLO</strong></p>
+                    <p>Gatto → <em>Gattino</em><br>
+                    Casa → <em>Casetta</em><br>
+                    Albero → <em>Alberello</em></p>
+                </div>
+                <div class="color-box green-box">
+                    <h3 style="color: white; margin: 0 0 15px 0;">ACCRESCITIVI</h3>
+                    <p>Indicano qualcosa di grande</p>
+                    <p><strong>-ONE, -OTTO</strong></p>
+                    <p>Libro → <em>Librone</em><br>
+                    Ragazzo → <em>Ragazzone</em><br>
+                    Casa → <em>Casotto</em></p>
+                </div>
+                <div class="color-box orange-box">
+                    <h3 style="color: white; margin: 0 0 15px 0;">VEZZEGGIATIVI</h3>
+                    <p>Esprimono affetto</p>
+                    <p><strong>-UCCIO, -UZZO</strong></p>
+                    <p>Cane → <em>Cagnolino</em><br>
+                    Bambino → <em>Bambinuccio</em><br>
+                    Casa → <em>Casuccia</em></p>
+                </div>
+                <div class="color-box teal-box">
+                    <h3 style="color: white; margin: 0 0 15px 0;">PEGGIORATIVI</h3>
+                    <p>Esprimono disprezzo</p>
+                    <p><strong>-ACCIO, -ASTRO</strong></p>
+                    <p>Tempo → <em>Tempaccio</em><br>
+                    Poeta → <em>Poetastro</em><br>
+                    Parola → <em>Parolaccia</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PARASINTESI -->
+        <div class="section">
+            <h2>⚡ Parasintesi: Prefisso + Radice + Suffisso</h2>
+            <p>La <span class="highlight">parasintesi</span> è un processo speciale dove aggiungiamo contemporaneamente un prefisso e un suffisso a una parola base. Entrambi sono necessari!</p>
+            
+            <div class="morph-box">
+                <div class="composition-example">
+                    <span class="word-part prefix">IN-</span>
+                    <span class="plus-sign">+</span>
+                    <span class="word-part root">GIALLO</span>
+                    <span class="plus-sign">+</span>
+                    <span class="word-part suffix">-IRE</span>
+                    <span class="equals-sign">=</span>
+                    <span class="interactive-word">INGIALLIRE</span>
+                </div>
+                <p style="color: white; text-align: center; margin-top: 15px;">Non esiste "*ingiallo" né "*giallire" da soli!</p>
+            </div>
+
+            <div class="example-container">
+                <div class="example-card">
+                    <h3 style="color: white;">ARROSSIRE</h3>
+                    <p><strong>A-</strong> + rosso + <strong>-IRE</strong></p>
+                    <p>Diventare rosso</p>
+                </div>
+                <div class="example-card">
+                    <h3 style="color: white;">ABBELLIRE</h3>
+                    <p><strong>AB-</strong> + bello + <strong>-IRE</strong></p>
+                    <p>Rendere bello</p>
+                </div>
+                <div class="example-card">
+                    <h3 style="color: white;">IMPAZZIRE</h3>
+                    <p><strong>IM-</strong> + pazzo + <strong>-IRE</strong></p>
+                    <p>Diventare pazzo</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIEPILOGO -->
+        <div class="section">
+            <h2>🎯 Riepilogo: I 4 Modi di Formare Parole</h2>
+            
+            <div class="example-container">
+                <div class="example-card" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    <h3 style="color: white; margin: 0 0 10px 0;">1️⃣ DERIVAZIONE</h3>
+                    <p>Aggiungere prefissi o suffissi</p>
+                    <p><em>felice → infelice</em></p>
+                </div>
+                <div class="example-card" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                    <h3 style="color: white; margin: 0 0 10px 0;">2️⃣ COMPOSIZIONE</h3>
+                    <p>Unire due parole</p>
+                    <p><em>porta + fogli → portafogli</em></p>
+                </div>
+                <div class="example-card" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                    <h3 style="color: white; margin: 0 0 10px 0;">3️⃣ ALTERAZIONE</h3>
+                    <p>Modificare con suffissi speciali</p>
+                    <p><em>gatto → gattino</em></p>
+                </div>
+                <div class="example-card" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+                    <h3 style="color: white; margin: 0 0 10px 0;">4️⃣ PARASINTESI</h3>
+                    <p>Prefisso + radice + suffisso insieme</p>
+                    <p><em>in + terra + are → interrare</em></p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="floating">
+            <p>🌟 Ora conosci tutti i segreti della formazione delle parole! 🌟</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Continua a esplorare il meraviglioso mondo della lingua italiana!</p>
+        </footer>
+    </div>
+</body>
+</html>

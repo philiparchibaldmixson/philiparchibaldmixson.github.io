@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Auxiliaires de Mode et de Temps | Grammaire Française</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --electric-blue: #00D9FF;
+            --hot-pink: #FF006E;
+            --lime-green: #CCFF00;
+            --sunshine-yellow: #FFBE0B;
+            --purple-pop: #8338EC;
+            --orange-bright: #FB5607;
+            --cream: #FFF5E6;
+            --black: #1A1A1A;
+            --gray: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--cream);
+            color: var(--black);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        /* Memphis geometric shapes */
+        .memphis-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .geo-shape {
+            position: absolute;
+            opacity: 0.15;
+        }
+
+        .shape-1 {
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 260px solid var(--hot-pink);
+            top: 8%;
+            right: 10%;
+            animation: rotate360 20s linear infinite;
+        }
+
+        @keyframes rotate360 {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, var(--electric-blue), var(--purple-pop));
+            bottom: 15%;
+            left: 5%;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        .shape-3 {
+            width: 180px;
+            height: 180px;
+            background: var(--lime-green);
+            border-radius: 50%;
+            top: 45%;
+            right: 8%;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .shape-4 {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 200px 200px;
+            border-color: transparent transparent var(--orange-bright) transparent;
+            top: 70%;
+            left: 20%;
+            animation: wiggle 12s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            75% { transform: rotate(-10deg); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        /* Memphis header */
+        header {
+            padding: 100px 0 90px;
+            position: relative;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: var(--hot-pink);
+            color: white;
+            padding: 12px 35px;
+            font-size: 0.75rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transform: rotate(-2deg);
+            box-shadow: 
+                4px 4px 0 var(--black),
+                8px 8px 0 var(--electric-blue);
+            animation: bounceIn 0.8s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: rotate(-2deg) scale(0.5);
+            }
+            60% {
+                transform: rotate(-2deg) scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: rotate(-2deg) scale(1);
+            }
+        }
+
+        h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 6.5rem;
+            color: var(--black);
+            line-height: 0.95;
+            margin: 35px 0 30px;
+            text-transform: uppercase;
+            animation: slideInBig 1s ease-out 0.2s backwards;
+            text-shadow: 
+                4px 4px 0 var(--hot-pink),
+                8px 8px 0 var(--electric-blue);
+        }
+
+        @keyframes slideInBig {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .title-word {
+            display: block;
+        }
+
+        .title-highlight {
+            color: var(--hot-pink);
+            text-shadow: 
+                4px 4px 0 var(--black),
+                8px 8px 0 var(--lime-green);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--gray);
+            font-weight: 700;
+            max-width: 900px;
+            animation: slideInBig 1s ease-out 0.4s backwards;
+        }
+
+        /* Memphis intro box */
+        .intro-box {
+            background: white;
+            padding: 60px;
+            margin: 80px 0;
+            border: 6px solid var(--black);
+            box-shadow: 
+                12px 12px 0 var(--sunshine-yellow),
+                24px 24px 0 var(--black);
+            animation: popUp 1s ease-out 0.6s backwards;
+            position: relative;
+        }
+
+        @keyframes popUp {
+            from {
+                opacity: 0;
+                transform: scale(0.8) rotate(-3deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .intro-box::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--electric-blue);
+            top: -30px;
+            right: 80px;
+            transform: rotate(45deg);
+            border: 4px solid var(--black);
+        }
+
+        .intro-box::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: var(--hot-pink);
+            border-radius: 50%;
+            bottom: -25px;
+            left: 70px;
+            border: 4px solid var(--black);
+        }
+
+        .intro-box h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3rem;
+            color: var(--black);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .intro-box p {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        .highlight-word {
+            background: var(--lime-green);
+            color: var(--black);
+            padding: 2px 8px;
+            font-weight: 900;
+            border: 2px solid var(--black);
+        }
+
+        /* Section with bold numbers */
+        .content-section {
+            margin: 100px 0;
+            animation: popUp 1s ease-out backwards;
+        }
+
+        .content-section:nth-child(4) { animation-delay: 0.8s; }
+        .content-section:nth-child(5) { animation-delay: 1s; }
+        .content-section:nth-child(6) { animation-delay: 1.2s; }
+        .content-section:nth-child(7) { animation-delay: 1.4s; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .section-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 7rem;
+            background: linear-gradient(135deg, var(--hot-pink), var(--purple-pop));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            text-shadow: 
+                4px 4px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3.5rem;
+            color: var(--black);
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .section-intro {
+            font-size: 1.15rem;
+            color: var(--gray);
+            font-weight: 700;
+            margin-bottom: 50px;
+            line-height: 1.9;
+        }
+
+        /* Memphis cards */
+        .auxiliary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 45px;
+            margin: 60px 0;
+        }
+
+        .auxiliary-card {
+            background: white;
+            padding: 50px;
+            border: 6px solid var(--black);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .auxiliary-card:hover {
+            transform: translate(-8px, -8px);
+        }
+
+        .auxiliary-card::before {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border: 6px solid var(--black);
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+
+        .auxiliary-card:hover::before {
+            transform: translate(16px, 16px);
+        }
+
+        .auxiliary-card:nth-child(1) {
+            box-shadow: 12px 12px 0 var(--electric-blue);
+        }
+
+        .auxiliary-card:nth-child(2) {
+            box-shadow: 12px 12px 0 var(--hot-pink);
+        }
+
+        .auxiliary-card:nth-child(3) {
+            box-shadow: 12px 12px 0 var(--lime-green);
+        }
+
+        .auxiliary-card:nth-child(4) {
+            box-shadow: 12px 12px 0 var(--sunshine-yellow);
+        }
+
+        .auxiliary-card:nth-child(5) {
+            box-shadow: 12px 12px 0 var(--purple-pop);
+        }
+
+        .auxiliary-card:nth-child(6) {
+            box-shadow: 12px 12px 0 var(--orange-bright);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--electric-blue);
+            border: 5px solid var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2rem;
+            color: var(--black);
+            margin-bottom: 25px;
+            transform: rotate(-5deg);
+        }
+
+        .auxiliary-card:nth-child(2) .card-icon {
+            background: var(--hot-pink);
+            color: white;
+        }
+
+        .auxiliary-card:nth-child(3) .card-icon {
+            background: var(--lime-green);
+        }
+
+        .auxiliary-card:nth-child(4) .card-icon {
+            background: var(--sunshine-yellow);
+        }
+
+        .auxiliary-card:nth-child(5) .card-icon {
+            background: var(--purple-pop);
+            color: white;
+        }
+
+        .auxiliary-card:nth-child(6) .card-icon {
+            background: var(--orange-bright);
+            color: white;
+        }
+
+        .card-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2rem;
+            color: var(--black);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .card-formula {
+            background: var(--cream);
+            border: 4px solid var(--black);
+            padding: 20px;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.3rem;
+            color: var(--hot-pink);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .card-description {
+            font-size: 1.05rem;
+            color: var(--black);
+            font-weight: 600;
+            line-height: 1.85;
+            margin-bottom: 25px;
+        }
+
+        .card-examples {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .example-item {
+            background: var(--cream);
+            padding: 15px 20px;
+            border-left: 6px solid var(--electric-blue);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--black);
+            position: relative;
+        }
+
+        .auxiliary-card:nth-child(2) .example-item {
+            border-left-color: var(--hot-pink);
+        }
+
+        .auxiliary-card:nth-child(3) .example-item {
+            border-left-color: var(--lime-green);
+        }
+
+        .auxiliary-card:nth-child(4) .example-item {
+            border-left-color: var(--sunshine-yellow);
+        }
+
+        .auxiliary-card:nth-child(5) .example-item {
+            border-left-color: var(--purple-pop);
+        }
+
+        .auxiliary-card:nth-child(6) .example-item {
+            border-left-color: var(--orange-bright);
+        }
+
+        /* Modal verbs section */
+        .modal-section {
+            background: var(--purple-pop);
+            color: white;
+            padding: 70px;
+            margin: 80px 0;
+            border: 8px solid var(--black);
+            box-shadow: 
+                16px 16px 0 var(--sunshine-yellow),
+                32px 32px 0 var(--black);
+            position: relative;
+        }
+
+        .modal-section::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: var(--hot-pink);
+            top: -50px;
+            left: 80px;
+            border: 6px solid var(--black);
+            transform: rotate(45deg);
+        }
+
+        .modal-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .modal-intro {
+            font-size: 1.25rem;
+            line-height: 2;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+        }
+
+        .modal-card {
+            background: white;
+            color: var(--black);
+            padding: 40px;
+            border: 5px solid var(--black);
+        }
+
+        .modal-card h4 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: var(--purple-pop);
+        }
+
+        .modal-card p {
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+
+        .modal-examples {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .modal-example {
+            background: var(--cream);
+            padding: 12px 18px;
+            border-left: 5px solid var(--purple-pop);
+            font-weight: 700;
+        }
+
+        /* Comparison table */
+        .comparison-section {
+            background: white;
+            padding: 60px;
+            margin: 80px 0;
+            border: 8px solid var(--black);
+            box-shadow: 
+                16px 16px 0 var(--electric-blue),
+                32px 32px 0 var(--black);
+        }
+
+        .comparison-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .comparison-table {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border: 5px solid var(--black);
+        }
+
+        .table-cell {
+            padding: 25px;
+            border: 2px solid var(--black);
+            font-weight: 700;
+        }
+
+        .table-header {
+            background: var(--hot-pink);
+            color: white;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .table-content {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Info boxes */
+        .info-box {
+            background: var(--lime-green);
+            padding: 60px;
+            margin: 70px 0;
+            border: 8px solid var(--black);
+            box-shadow: 
+                16px 16px 0 var(--hot-pink),
+                32px 32px 0 var(--black);
+        }
+
+        .info-box h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3rem;
+            color: var(--black);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .info-box-content {
+            font-size: 1.15rem;
+            line-height: 2;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .info-box-content ul {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .info-box-content li {
+            padding: 15px 0;
+            padding-left: 35px;
+            position: relative;
+            border-bottom: 3px solid var(--black);
+        }
+
+        .info-box-content li:last-child {
+            border-bottom: none;
+        }
+
+        .info-box-content li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--hot-pink);
+            font-size: 1.2rem;
+        }
+
+        .info-box-content strong {
+            background: var(--black);
+            color: var(--lime-green);
+            padding: 2px 6px;
+        }
+
+        /* Usage examples showcase */
+        .usage-showcase {
+            background: white;
+            padding: 60px;
+            margin: 80px 0;
+            border: 8px solid var(--black);
+            box-shadow: 16px 16px 0 var(--orange-bright);
+        }
+
+        .usage-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .usage-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .usage-row {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .usage-label {
+            background: var(--electric-blue);
+            color: white;
+            padding: 20px;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.2rem;
+            text-align: center;
+            border: 5px solid var(--black);
+            text-transform: uppercase;
+        }
+
+        .usage-row:nth-child(even) .usage-label {
+            background: var(--hot-pink);
+        }
+
+        .usage-examples {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .usage-example {
+            background: var(--cream);
+            padding: 18px 25px;
+            border-left: 6px solid var(--electric-blue);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .usage-row:nth-child(even) .usage-example {
+            border-left-color: var(--hot-pink);
+        }
+
+        /* Footer Memphis */
+        footer {
+            margin-top: 120px;
+            padding: 70px 0;
+            background: var(--black);
+            color: white;
+            text-align: center;
+            border-top: 12px solid var(--hot-pink);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: var(--sunshine-yellow);
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            border: 6px solid var(--black);
+        }
+
+        .footer-logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-shadow: 
+                3px 3px 0 var(--hot-pink),
+                6px 6px 0 var(--electric-blue);
+        }
+
+        .footer-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 40px;
+            }
+
+            .auxiliary-grid,
+            .modal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px;
+            }
+
+            h1 {
+                font-size: 4rem;
+                text-shadow: 
+                    3px 3px 0 var(--hot-pink),
+                    6px 6px 0 var(--electric-blue);
+            }
+
+            .title-highlight {
+                text-shadow: 
+                    3px 3px 0 var(--black),
+                    6px 6px 0 var(--lime-green);
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section-number {
+                font-size: 4rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .intro-box,
+            .modal-section,
+            .comparison-section,
+            .info-box,
+            .usage-showcase {
+                padding: 40px 25px;
+            }
+
+            .usage-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="memphis-bg">
+        <div class="geo-shape shape-1"></div>
+        <div class="geo-shape shape-2"></div>
+        <div class="geo-shape shape-3"></div>
+        <div class="geo-shape shape-4"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="header-badge">Língua Academy</div>
+            <h1>
+                <span class="title-word">Auxiliaires</span>
+                <span class="title-word">de <span class="title-highlight">Mode</span></span>
+                <span class="title-word">& de <span class="title-highlight">Temps</span></span>
+            </h1>
+            <p class="subtitle">
+                Les semi-auxiliaires qui ajoutent des nuances de temps, d'aspect ou de modalité au verbe principal : futur proche, passé récent, progressif, et bien plus encore
+            </p>
+        </header>
+
+        <div class="intro-box">
+            <h2>Qu'est-ce qu'un Semi-Auxiliaire ?</h2>
+            <p>
+                Les <span class="highlight-word">semi-auxiliaires</span> (aussi appelés <span class="highlight-word">auxiliaires de mode ou de temps</span>) sont des verbes qui se combinent avec l'infinitif d'un autre verbe pour former des <span class="highlight-word">périphrases verbales</span>. Contrairement aux auxiliaires AVOIR et ÊTRE qui servent uniquement à former les temps composés, les semi-auxiliaires conservent une partie de leur sens lexical tout en apportant des nuances temporelles, aspectuelles ou modales. Ils enrichissent considérablement les possibilités d'expression du français.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-number">01</div>
+                <h3 class="section-title">Les Auxiliaires Temporels</h3>
+            </div>
+            <p class="section-intro">
+                Ces semi-auxiliaires permettent d'exprimer des nuances temporelles précises : futur imminent, passé récent, action en cours. Ils sont essentiels pour parler du présent élargi.
+            </p>
+
+            <div class="auxiliary-grid">
+                <div class="auxiliary-card">
+                    <div class="card-icon">→</div>
+                    <h4 class="card-title">ALLER + Infinitif</h4>
+                    <div class="card-formula">ALLER (conjugué) + INFINITIF</div>
+                    <p class="card-description">
+                        Exprime le futur proche ou imminent. L'action va se produire dans un avenir très rapproché, quasi immédiat. C'est la périphrase du futur la plus utilisée à l'oral.
+                    </p>
+                    <div class="card-examples">
+                        <div class="example-item">Je vais partir dans 5 minutes</div>
+                        <div class="example-item">Il va pleuvoir bientôt</div>
+                        <div class="example-item">Nous allons manger ensemble</div>
+                        <div class="example-item">Tu vas comprendre tout de suite</div>
+                    </div>
+                </div>
+
+                <div class="auxiliary-card">
+                    <div class="card-icon">←</div>
+                    <h4 class="card-title">VENIR DE + Infinitif</h4>
+                    <div class="card-formula">VENIR DE (conjugué) + INFINITIF</div>
+                    <p class="card-description">
+                        Exprime le passé récent ou immédiat. L'action s'est produite il y a très peu de temps. C'est l'équivalent du futur proche mais dans le passé.
+                    </p>
+                    <div class="card-examples">
+                        <div class="example-item">Je viens de finir mon travail</div>
+                        <div class="example-item">Elle vient de partir à l'instant</div>
+                        <div class="example-item">Nous venons d'arriver</div>
+                        <div class="example-item">Il vient de téléphoner</div>
+                    </div>
+                </div>
+
+                <div class="auxiliary-card">
+                    <div class="card-icon">⟳</div>
+                    <h4 class="card-title">ÊTRE EN TRAIN DE + Infinitif</h4>
+                    <div class="card-formula">ÊTRE EN TRAIN DE + INFINITIF</div>
+                    <p class="card-description">
+                        Exprime l'aspect progressif ou duratif. L'action est en cours de réalisation au moment où l'on parle. Insiste sur le déroulement de l'action.
+                    </p>
+                    <div class="card-examples">
+                        <div class="example-item">Je suis en train de travailler</div>
+                        <div class="example-item">Il est en train de manger</div>
+                        <div class="example-item">Nous sommes en train de réfléchir</div>
+                        <div class="example-item">Elle était en train de dormir</div>
+                    </div>
+                </div>
+
+                <div class="auxiliary-card">
+                    <div class="card-icon">⚡</div>
+                    <h4 class="card-title">ÊTRE SUR LE POINT DE + Infinitif</h4>
+                    <div class="card-formula">ÊTRE SUR LE POINT DE + INFINITIF</div>
+                    <p class="card-description">
+                        Exprime l'imminence absolue. L'action va se produire dans quelques secondes. Plus imminent encore que "aller + infinitif".
+                    </p>
+                    <div class="card-examples">
+                        <div class="example-item">Je suis sur le point de partir</div>
+                        <div class="example-item">Il est sur le point d'exploser</div>
+                        <div class="example-item">Nous sommes sur le point de réussir</div>
+                        <div class="example-item">Le film est sur le point de commencer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-section">
+            <h3 class="modal-title">Les Auxiliaires Modaux</h3>
+            <p class="modal-intro">
+                Ces semi-auxiliaires expriment la modalité : capacité, obligation, permission, volonté. Ils modifient le sens du verbe en ajoutant une nuance sur l'attitude du sujet face à l'action.
+            </p>
+            <div class="modal-grid">
+                <div class="modal-card">
+                    <h4>DEVOIR + Infinitif</h4>
+                    <p>
+                        Exprime l'obligation, la nécessité, la probabilité ou le conseil. C'est le modal de l'obligation par excellence.
+                    </p>
+                    <div class="modal-examples">
+                        <div class="modal-example">Je dois partir (obligation)</div>
+                        <div class="modal-example">Il doit être malade (probabilité)</div>
+                        <div class="modal-example">Tu dois essayer (conseil)</div>
+                        <div class="modal-example">Nous devons réussir (nécessité)</div>
+                    </div>
+                </div>
+
+                <div class="modal-card">
+                    <h4>POUVOIR + Infinitif</h4>
+                    <p>
+                        Exprime la capacité, la possibilité, la permission ou l'éventualité. Modal de la possibilité sous toutes ses formes.
+                    </p>
+                    <div class="modal-examples">
+                        <div class="modal-example">Je peux nager (capacité)</div>
+                        <div class="modal-example">Il peut pleuvoir (éventualité)</div>
+                        <div class="modal-example">Tu peux partir (permission)</div>
+                        <div class="modal-example">Nous pouvons gagner (possibilité)</div>
+                    </div>
+                </div>
+
+                <div class="modal-card">
+                    <h4>VOULOIR + Infinitif</h4>
+                    <p>
+                        Exprime la volonté, le désir, l'intention. Modal qui exprime ce que le sujet souhaite faire.
+                    </p>
+                    <div class="modal-examples">
+                        <div class="modal-example">Je veux partir maintenant</div>
+                        <div class="modal-example">Elle veut réussir son examen</div>
+                        <div class="modal-example">Nous voulons comprendre</div>
+                        <div class="modal-example">Ils veulent voyager</div>
+                    </div>
+                </div>
+
+                <div class="modal-card">
+                    <h4>SAVOIR + Infinitif</h4>
+                    <p>
+                        Exprime la capacité acquise, le savoir-faire, la compétence. Différent de POUVOIR qui indique la possibilité.
+                    </p>
+                    <div class="modal-examples">
+                        <div class="modal-example">Je sais nager (compétence)</div>
+                        <div class="modal-example">Elle sait conduire (savoir-faire)</div>
+                        <div class="modal-example">Il sait parler anglais (capacité acquise)</div>
+                        <div class="modal-example">Nous savons cuisiner</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-number">02</div>
+                <h3 class="section-title">Les Auxiliaires Factitifs</h3>
+            </div>
+            <p class="section-intro">
+                Ces semi-auxiliaires expriment qu'on fait faire une action par quelqu'un d'autre. Le sujet n'effectue pas directement l'action, il la fait effectuer.
+            </p>
+
+            <div class="auxiliary-grid">
+                <div class="auxiliary-card">
+                    <div class="card-icon">⚙</div>
+                    <h4 class="card-title">FAIRE + Infinitif</h4>
+                    <div class="card-formula">FAIRE (conjugué) + INFINITIF</div>
+                    <p class="card-description">
+                        Exprime le factitif : on fait faire l'action par quelqu'un d'autre. Le sujet n'agit pas directement mais provoque l'action.
+                    </p>
+                    <div class="card-examples">
+                        <div class="example-item">Je fais réparer ma voiture</div>
+                        <div class="example-item">Elle fait construire une maison</div>
+                        <div class="example-item">Il me fait rire</div>
+                        <div class="example-item">Nous faisons travailler les élèves</div>
+                    </div>
+                </div>
+
+                <div class="auxiliary-card">
+                    <div class="card-icon">✓</div>
+                    <h4 class="card-title">LAISSER + Infinitif</h4>
+                    <div class="card-formula">LAISSER (conjugué) + INFINITIF</div>
+                    <p class="card-description">
+                        Exprime la permission, l'autorisation de faire. On laisse quelqu'un faire quelque chose, on ne l'empêche pas.
+                    </p>
+                    <div class="card-examples">
+                        <div class="example-item">Je laisse partir mon fils</div>
+                        <div class="example-item">Elle laisse entrer le chat</div>
+                        <div class="example-item">Il me laisse dormir</div>
+                        <div class="example-item">Laissez-moi réfléchir</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <h3 class="comparison-title">Tableau Récapitulatif</h3>
+            <div class="comparison-table">
+                <div class="table-cell table-header">Semi-Auxiliaire</div>
+                <div class="table-cell table-header">Nuance Exprimée</div>
+                <div class="table-cell table-header">Exemple</div>
+
+                <div class="table-cell table-content">Aller + inf.</div>
+                <div class="table-cell table-content">Futur proche</div>
+                <div class="table-cell table-content">Je vais partir</div>
+
+                <div class="table-cell table-content">Venir de + inf.</div>
+                <div class="table-cell table-content">Passé récent</div>
+                <div class="table-cell table-content">Je viens d'arriver</div>
+
+                <div class="table-cell table-content">Être en train de + inf.</div>
+                <div class="table-cell table-content">Aspect progressif</div>
+                <div class="table-cell table-content">Je suis en train de manger</div>
+
+                <div class="table-cell table-content">Devoir + inf.</div>
+                <div class="table-cell table-content">Obligation, probabilité</div>
+                <div class="table-cell table-content">Je dois partir</div>
+
+                <div class="table-cell table-content">Pouvoir + inf.</div>
+                <div class="table-cell table-content">Possibilité, permission</div>
+                <div class="table-cell table-content">Je peux venir</div>
+
+                <div class="table-cell table-content">Vouloir + inf.</div>
+                <div class="table-cell table-content">Volonté, désir</div>
+                <div class="table-cell table-content">Je veux réussir</div>
+
+                <div class="table-cell table-content">Savoir + inf.</div>
+                <div class="table-cell table-content">Capacité acquise</div>
+                <div class="table-cell table-content">Je sais nager</div>
+
+                <div class="table-cell table-content">Faire + inf.</div>
+                <div class="table-cell table-content">Factitif</div>
+                <div class="table-cell table-content">Je fais réparer</div>
+
+                <div class="table-cell table-content">Laisser + inf.</div>
+                <div class="table-cell table-content">Permission</div>
+                <div class="table-cell table-content">Je laisse entrer</div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>Différences Clés</h3>
+            <div class="info-box-content">
+                <ul>
+                    <li><strong>ALLER + infinitif</strong> (futur proche) vs <strong>futur simple</strong> : "Je vais partir" (imminent) vs "Je partirai" (futur indéterminé)</li>
+                    <li><strong>POUVOIR</strong> (possibilité générale) vs <strong>SAVOIR</strong> (capacité acquise) : "Je peux nager" (c'est possible) vs "Je sais nager" (j'ai appris)</li>
+                    <li><strong>DEVOIR</strong> (obligation) vs <strong>FALLOIR</strong> (nécessité impersonnelle) : "Je dois partir" vs "Il faut partir"</li>
+                    <li><strong>FAIRE + infinitif</strong> (faire faire) vs <strong>LAISSER + infinitif</strong> (laisser faire) : causer l'action vs permettre l'action</li>
+                    <li><strong>ÊTRE EN TRAIN DE</strong> insiste sur le déroulement, alors que le présent simple peut exprimer une habitude</li>
+                    <li><strong>VENIR DE + infinitif</strong> est l'équivalent exact du futur proche mais dans le passé</li>
+                    <li>Les semi-auxiliaires <strong>conservent leur sens propre</strong> contrairement aux auxiliaires AVOIR et ÊTRE</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="usage-showcase">
+            <h3 class="usage-title">Exemples d'Usage en Contexte</h3>
+            <div class="usage-grid">
+                <div class="usage-row">
+                    <div class="usage-label">Temporalité</div>
+                    <div class="usage-examples">
+                        <div class="usage-example">Il vient de terminer son repas (passé immédiat)</div>
+                        <div class="usage-example">Je suis en train de lire un livre (présent progressif)</div>
+                        <div class="usage-example">Nous allons commencer dans 2 minutes (futur imminent)</div>
+                    </div>
+                </div>
+
+                <div class="usage-row">
+                    <div class="usage-label">Modalité</div>
+                    <div class="usage-examples">
+                        <div class="usage-example">Tu dois respecter les règles (obligation)</div>
+                        <div class="usage-example">Elle peut sortir ce soir (permission)</div>
+                        <div class="usage-example">Je veux apprendre le français (volonté)</div>
+                    </div>
+                </div>
+
+                <div class="usage-row">
+                    <div class="usage-label">Causatif</div>
+                    <div class="usage-examples">
+                        <div class="usage-example">Je fais réparer mon ordinateur (factitif)</div>
+                        <div class="usage-example">Il me fait comprendre la leçon (causer la compréhension)</div>
+                        <div class="usage-example">Elle laisse jouer les enfants (permettre le jeu)</div>
+                    </div>
+                </div>
+
+                <div class="usage-row">
+                    <div class="usage-label">Capacité</div>
+                    <div class="usage-examples">
+                        <div class="usage-example">Je sais parler trois langues (compétence acquise)</div>
+                        <div class="usage-example">Il peut soulever 100 kilos (capacité physique)</div>
+                        <div class="usage-example">Nous savons cuisiner des plats français (savoir-faire)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="intro-box" style="margin: 80px 0;">
+            <h2>En Résumé</h2>
+            <p>
+                Les <span class="highlight-word">semi-auxiliaires</span> ou <span class="highlight-word">auxiliaires de mode et de temps</span> enrichissent considérablement l'expression en français. Ils permettent d'exprimer des <span class="highlight-word">nuances temporelles</span> (futur proche, passé récent, progressif), des <span class="highlight-word">modalités</span> (obligation, possibilité, volonté, capacité), et des <span class="highlight-word">relations causatives</span> (faire faire, laisser faire). Contrairement aux auxiliaires AVOIR et ÊTRE qui perdent leur sens propre, les semi-auxiliaires conservent une partie de leur signification lexicale. Leur maîtrise est essentielle pour s'exprimer avec précision et nuance en français, particulièrement à l'oral où ils sont très fréquents.
+            </p>
+        </div>
+
+        <footer>
+            <div class="footer-logo">Língua Academy</div>
+            <p class="footer-text">Explorez toutes les nuances de la langue française !</p>
+        </footer>
+    </div>
+</body>
+</html>

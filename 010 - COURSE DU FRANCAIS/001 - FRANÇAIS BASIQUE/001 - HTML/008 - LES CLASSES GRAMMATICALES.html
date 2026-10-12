@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Classes Grammaticales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3em;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .category-card {
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .category-card p {
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+
+        .variable {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .invariable {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .class-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .class-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .class-nom { border-top-color: #4facfe; }
+        .class-determinant { border-top-color: #43e97b; }
+        .class-adjectif { border-top-color: #fa709a; }
+        .class-pronom { border-top-color: #667eea; }
+        .class-verbe { border-top-color: #f093fb; }
+        .class-adverbe { border-top-color: #fda085; }
+        .class-preposition { border-top-color: #96fbc4; }
+        .class-conjonction { border-top-color: #fbc2eb; }
+        .class-interjection { border-top-color: #8ec5fc; }
+
+        .class-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .class-icon {
+            font-size: 2.5em;
+        }
+
+        .class-title {
+            font-size: 1.6em;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .class-definition {
+            color: #666;
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .class-examples {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .examples-title {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .example-item {
+            padding: 8px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 5px;
+            font-size: 1.05em;
+        }
+
+        .highlight {
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: white;
+        }
+
+        .hl-nom { background: #4facfe; }
+        .hl-det { background: #43e97b; }
+        .hl-adj { background: #fa709a; }
+        .hl-pro { background: #667eea; }
+        .hl-verb { background: #f093fb; }
+        .hl-adv { background: #fda085; }
+        .hl-prep { background: #96fbc4; }
+        .hl-conj { background: #fbc2eb; }
+        .hl-int { background: #8ec5fc; }
+
+        .phrase-analyse {
+            background: linear-gradient(135deg, #feada6 0%, #f5efef 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .phrase-analyse h3 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .phrase-text {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            font-size: 1.4em;
+            line-height: 2;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.95em;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+        }
+
+        .astuce-box {
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+            color: white;
+        }
+
+        .astuce-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .astuce-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            color: #333;
+            font-size: 1.05em;
+        }
+
+        .astuce-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: white;
+            font-size: 0.9em;
+            opacity: 0.9;
+            padding-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+            
+            .class-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .phrase-text {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Les Classes Grammaticales</h1>
+            <p class="subtitle">Les 9 natures de mots en français</p>
+        </header>
+
+        <!-- Introduction -->
+        <div class="section">
+            <h2 class="section-title">💡 Qu'est-ce qu'une classe grammaticale ?</h2>
+            <div class="intro-box">
+                La classe grammaticale (ou nature) d'un mot indique sa catégorie. Elle ne change jamais, même si le mot change de forme. Il existe 9 classes grammaticales en français.
+            </div>
+        </div>
+
+        <!-- Catégories Variables/Invariables -->
+        <div class="section">
+            <h2 class="section-title">🔀 Les Deux Grandes Catégories</h2>
+            <div class="categories">
+                <div class="category-card variable">
+                    <h3>🔄 Mots Variables</h3>
+                    <p><strong>5 classes</strong></p>
+                    <p style="margin-top: 10px;">Ces mots peuvent changer de forme (genre, nombre, personne, temps...)</p>
+                    <p style="margin-top: 10px; font-size: 1.2em;">📌 Nom • Déterminant • Adjectif • Pronom • Verbe</p>
+                </div>
+
+                <div class="category-card invariable">
+                    <h3>🔒 Mots Invariables</h3>
+                    <p><strong>4 classes</strong></p>
+                    <p style="margin-top: 10px;">Ces mots ne changent jamais de forme</p>
+                    <p style="margin-top: 10px; font-size: 1.2em;">📌 Adverbe • Préposition • Conjonction • Interjection</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Les 5 Mots Variables -->
+        <div class="section">
+            <h2 class="section-title">🔄 Les 5 Classes Variables</h2>
+            <div class="class-grid">
+                <!-- Nom -->
+                <div class="class-card class-nom">
+                    <div class="class-header">
+                        <div class="class-icon">🏷️</div>
+                        <div class="class-title">Le Nom</div>
+                    </div>
+                    <div class="class-definition">
+                        Mot qui désigne une personne, un animal, un objet, un lieu, une idée ou un sentiment. Il a un genre (masculin/féminin) et un nombre (singulier/pluriel).
+                    </div>
+                    <div class="class-examples">
+                        <div class="examples-title">✨ Exemples :</div>
+                        <div class="example-item">• Nom commun : <span class="highlight hl-nom">chat</span>, <span class="highlight hl-nom">table</span>, <span class="highlight hl-nom">bonheur</span></div>
+                        <div class="example-item">• Nom propre : <span class="highlight hl-nom">Paris</span>, <span class="highlight hl-nom">Marie</span>, <span class="highlight hl-nom">France</span></div>
+                    </div>
+                </div>
+
+                <!-- Déterminant -->
+                <div class="class-card class-determinant">
+                    <div class="class-header">
+                        <div class="class-icon">🎯</div>
+                        <div class="class-title">Le Déterminant</div>
+                    </div>
+                    <div class="class-definition">
+                        Mot qui se place devant le nom pour le préciser. Il s'accorde en genre et en nombre avec le nom qu'il accompagne.
+                    </div>
+                    <div class="class-examples">
+                        <div class="examples-title">✨ Exemples :</div>
+                        <div class="example-item">• Articles : <span class="highlight hl-det">le</span>, <span class="highlight hl-det">la</span>, <span class="highlight hl-det">un</span>, <span class="highlight hl-det">des</span></div>
+                        <div class="example-item">• Possessifs : <span class="highlight hl-det">mon</span>, <span class="highlight hl-det">ta</span>, <span class="highlight hl-det">ses</span>, <span class="highlight hl-det">notre</span></div>
+                        <div class="example-item">• Démonstratifs : <span class="highlight hl-det">ce</span>, <span class="highlight hl-det">cette</span>, <span class="highlight hl-det">ces</span></div>
+                    </div>
+                </div>
+
+                <!-- Adjectif -->
+                <div class="class-card class-adjectif">
+                    <div class="class-header">
+                        <div class="class-icon">🎨</div>
+                        <div class="class-title">L'Adjectif</div>
+                    </div>
+                    <div class="class-definition">
+                        Mot qui qualifie ou précise le nom. Il s'accorde en genre et en nombre avec le nom qu'il qualifie.
+                    </div>
+                    <div class="class-examples">
+                        <div class="examples-title">✨ Exemples :</div>
+                        <div class="example-item">• Qualificatifs : <span class="highlight hl-adj">beau</span>, <span class="highlight hl-adj">grand</span>, <span class="highlight hl-adj">joyeux</span></div>
+                        <div class="example-item">• Dans une phrase : Un <span class="highlight hl-adj">petit</span> chat <span class="highlight hl-adj">noir</span></div>
+                    </div>
+                </div>
+
+                <!-- Pronom -->
+                <div class="class-card class-pronom">
+                    <div class="class-header">
+                        <div class="class-icon">👤</div>
+                        <div class="class-title">Le Pronom</div>
+                    </div>
+                    <div class="class-definition">
+                        Mot qui remplace un nom ou un groupe nominal pour éviter les répétitions. Il varie selon la personne, le genre et le nombre.
+                    </div>
+                    <div class="class-examples">
+                        <div class="examples-title">✨ Exemples :</div>
+                        <div class="example-item">• Personnels : <span class="highlight hl-pro">je</span>, <span class="highlight hl-pro">tu</span>, <span class="highlight hl-pro">il</span>, <span class="highlight hl-pro">nous</span></div>
+                        <div class="example-item">• Possessifs : <span class="highlight hl-pro">le mien</span>, <span class="highlight hl-pro">la tienne</span></div>
+                        <div class="example-item">• Démonstratifs : <span class="highlight hl-pro">celui-ci</span>, <span class="highlight hl-pro">cela</span></div>
+                    </div>
+                </div>
+
+                <!-- Verbe -->
+                <div class="class-card class-verbe">
+                    <div class="class-header">
+                        <div class="class-icon">⚡</div>
+                        <div class="class-title">Le Verbe</div>
+                    </div>
+                    <div class="class-definition">
+                        Mot qui exprime une action ou un état. Il se conjugue selon le mode, le temps, la personne et le nombre. C'est le noyau de la phrase.
+                    </div>
+                    <div class="class-examples">
+                        <div class="examples-title">✨ Exemples :</div>
+                        <div class="example-item">• Action : <span class="highlight hl-verb">manger</span>, <span class="highlight hl-verb">courir</span>, <span class="highlight hl-verb">chanter</span></div>
+                        <div class="example-item">• État : <span class="highlight hl-verb">être</span>, <span class="highlight hl-verb">sembler</span>, <span class="highlight hl-verb">paraître</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Les 4 Mots Invariables -->
+        <div class="section">
+            <h2 class="section-title">🔒 Les 4 Classes Invariables</h2>
+            <div class="class-grid">
+                <!-- Adverbe -->
+                <div class="class-card class-adverbe">
+                    <div class="class-header">
+                        <div class="class-icon">💫</div>
+                        <div class="class-title">L'Adverbe</div>
+                    </div>
+                    <div class="class-definition">
+                        Mot invariable qui modifie ou précise le sens d'un verbe, d'un adjectif ou d'un autre adverbe. Il apporte des informations sur le lieu, le temps, la manière, la quantité...
+                    </div>
+                    <div class="class-examples">
+                        <div class="examples-title">✨ Exemples :</div>
+                        <div class="example-item">• Manière : <span class="highlight hl-adv">doucement</span>, <span class="highlight hl-adv">vite</span></div>
+                        <div class="example-item">• Temps : <span class="highlight hl-adv">hier</span>, <span class="highlight hl-adv">demain</span>, <span class="highlight hl-adv">maintenant</span></div>
+                        <div class="example-item">• Lieu : <span class="highlight hl-adv">ici</span>, <span class="highlight hl-adv">là-bas</span>, <span class="highlight hl-adv">partout</span></div>
+                    </div>
+                </div>
+
+                <!-- Préposition -->
+                <div class="class-card class-preposition">
+                    <div class="class-header">
+                        <div class="class-icon">🔗</div>
+                        <div class="class-title">La Préposition</div>
+                    </div>
+                    <div class="class-definition">
+                        Mot invariable qui introduit un complément et établit un lien entre deux mots ou groupes de mots.
+                    </div>
+                    <div class="class-examples">
+                        <div class="examples-title">✨ Exemples :</div>
+                        <div class="example-item"><span class="highlight hl-prep">à</span>, <span class="highlight hl-prep">de</span>, <span class="highlight hl-prep">par</span>, <span class="highlight hl-prep">pour</span>, <span class="highlight hl-prep">sans</span></div>
+                        <div class="example-item"><span class="highlight hl-prep">dans</span>, <span class="highlight hl-prep">sur</span>, <span class="highlight hl-prep">sous</span>, <span class="highlight hl-prep">avec</span>, <span class="highlight hl-prep">chez</span></div>
+                    </div>
+                </div>
+
+                <!-- Conjonction -->
+                <div class="class-card class-conjonction">
+                    <div class="class-header">
+                        <div class="class-icon">🌉</div>
+                        <div class="class-title">La Conjonction</div>
+                    </div>
+                    <div class="class-definition">
+                        Mot invariable qui relie deux mots, groupes de mots ou propositions. On distingue les conjonctions de coordination et de subordination.
+                    </div>
+                    <div class="class-examples">
+                        <div class="examples-title">✨ Exemples :</div>
+                        <div class="example-item">• Coordination : <span class="highlight hl-conj">mais</span>, <span class="highlight hl-conj">ou</span>, <span class="highlight hl-conj">et</span>, <span class="highlight hl-conj">donc</span></div>
+                        <div class="example-item">• Subordination : <span class="highlight hl-conj">que</span>, <span class="highlight hl-conj">quand</span>, <span class="highlight hl-conj">si</span>, <span class="highlight hl-conj">parce que</span></div>
+                    </div>
+                </div>
+
+                <!-- Interjection -->
+                <div class="class-card class-interjection">
+                    <div class="class-header">
+                        <div class="class-icon">❗</div>
+                        <div class="class-title">L'Interjection</div>
+                    </div>
+                    <div class="class-definition">
+                        Mot invariable qui exprime une émotion vive, un sentiment soudain. Elle est souvent suivie d'un point d'exclamation.
+                    </div>
+                    <div class="class-examples">
+                        <div class="examples-title">✨ Exemples :</div>
+                        <div class="example-item"><span class="highlight hl-int">Ah !</span>, <span class="highlight hl-int">Oh !</span>, <span class="highlight hl-int">Hélas !</span></div>
+                        <div class="example-item"><span class="highlight hl-int">Bravo !</span>, <span class="highlight hl-int">Aïe !</span>, <span class="highlight hl-int">Chut !</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phrase analysée -->
+        <div class="section">
+            <h2 class="section-title">🔍 Analyse d'une Phrase Complète</h2>
+            <div class="phrase-analyse">
+                <h3>Identifiez les classes grammaticales</h3>
+                <div class="phrase-text">
+                    <span class="highlight hl-int">Ah !</span>
+                    <span class="highlight hl-det">Le</span>
+                    <span class="highlight hl-adj">petit</span>
+                    <span class="highlight hl-nom">chat</span>
+                    <span class="highlight hl-verb">joue</span>
+                    <span class="highlight hl-adv">joyeusement</span>
+                    <span class="highlight hl-prep">dans</span>
+                    <span class="highlight hl-det">le</span>
+                    <span class="highlight hl-nom">jardin</span>
+                    <span class="highlight hl-conj">et</span>
+                    <span class="highlight hl-pro">il</span>
+                    <span class="highlight hl-verb">court</span>
+                    <span class="highlight hl-adv">vite</span>.
+                </div>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color hl-int"></div>
+                        <span>Interjection</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color hl-det"></div>
+                        <span>Déterminant</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color hl-adj"></div>
+                        <span>Adjectif</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color hl-nom"></div>
+                        <span>Nom</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color hl-verb"></div>
+                        <span>Verbe</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color hl-adv"></div>
+                        <span>Adverbe</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color hl-prep"></div>
+                        <span>Préposition</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color hl-conj"></div>
+                        <span>Conjonction</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color hl-pro"></div>
+                        <span>Pronom</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Astuces -->
+        <div class="section">
+            <h2 class="section-title">💡 Astuces pour Identifier les Classes</h2>
+            <div class="astuce-box">
+                <h3>🎯 Méthodes Pratiques</h3>
+                <div class="astuce-item">
+                    <span class="astuce-number">1</span>
+                    <strong>Le NOM</strong> : Peut être précédé d'un déterminant (le, un, mon...)
+                </div>
+                <div class="astuce-item">
+                    <span class="astuce-number">2</span>
+                    <strong>Le VERBE</strong> : Peut être conjugué, essayez de changer le temps
+                </div>
+                <div class="astuce-item">
+                    <span class="astuce-number">3</span>
+                    <strong>L'ADJECTIF</strong> : Répond aux questions "Comment est...?" ou "Quel genre de...?"
+                </div>
+                <div class="astuce-item">
+                    <span class="astuce-number">4</span>
+                    <strong>L'ADVERBE</strong> : Souvent terminé par -ment, modifie le verbe
+                </div>
+                <div class="astuce-item">
+                    <span class="astuce-number">5</span>
+                    <strong>La PRÉPOSITION</strong> : Introduit un complément (à Paris, de Marie, pour toi)
+                </div>
+                <div class="astuce-item">
+                    <span class="astuce-number">6</span>
+                    <strong>Le PRONOM</strong> : Remplace un nom (il = le chat, elle = Marie)
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>✨ Maîtrisez les 9 classes grammaticales pour bien analyser les phrases ! ✨</p>
+        </footer>
+    </div>
+</body>
+</html>

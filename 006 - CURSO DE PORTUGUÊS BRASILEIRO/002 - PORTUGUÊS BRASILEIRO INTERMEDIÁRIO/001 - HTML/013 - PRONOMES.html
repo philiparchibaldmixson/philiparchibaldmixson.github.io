@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronomes em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #E67E22;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #E67E22;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #F39C12;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .classes-grid, .tipos-grid, .flexao-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .classe-card, .tipo-card, .flexao-item {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+        }
+
+        .classe-card:hover, .tipo-card:hover, .flexao-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores Adaptadas/Reutilizadas do 008 - CLASSES DE PALAVRAS */
+        .tipo-card.pessoal {
+            background: linear-gradient(135deg, #2ECC71, #27AE60); /* Pessoal (Caso Reto) */
+        }
+
+        .tipo-card.possessivo {
+            background: linear-gradient(135deg, #3498DB, #2980B9); /* Possessivo */
+        }
+
+        .tipo-card.demonstrativo {
+            background: linear-gradient(135deg, #E74C3C, #C0392B); /* Demonstrativo */
+        }
+
+        .tipo-card.indefinido {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD); /* Indefinido */
+        }
+
+        .tipo-card.interrogativo {
+            background: linear-gradient(135deg, #F1C40F, #F39C12); /* Interrogativo */
+            color: #333;
+        }
+        
+        .tipo-card.relativo {
+            background: linear-gradient(135deg, #1ABC9C, #16A085); /* Relativo */
+        }
+
+
+        .classe-card h3, .tipo-card h3, .flexao-item h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .classe-card .definicao, .tipo-card .definicao, .flexao-item .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .classe-card .exemplo, .tipo-card .exemplos, .flexao-item .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .classe-card .exemplo strong, .tipo-card .exemplos strong, .flexao-item .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .exemplo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #E67E22;
+        }
+
+        .exemplo-card .titulo-exemplo {
+            font-size: 2em;
+            color: #E67E22;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .conteudo-exemplo {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
+        .tabela-substantivos {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tabela-substantivos thead {
+            background: linear-gradient(135deg, #E67E22, #F39C12);
+            color: white;
+        }
+
+        .tabela-substantivos th {
+            padding: 20px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        .tabela-substantivos td {
+            padding: 18px 20px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        .tabela-substantivos tr:hover {
+            background: #fff8e8;
+        }
+
+        .tabela-substantivos .destaque-col {
+            color: #E67E22;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .dicas-box {
+            background: linear-gradient(135deg, #1ABC9C, #16A085);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .classe-card, .tipo-card, .destaque, .dicas-box, .exemplo-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .classes-grid, .tipos-grid, .flexao-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗣️ Pronomes 🗣️</h1>
+        <p class="subtitle">A classe de palavras que substitui ou acompanha o substantivo!</p>
+
+        <div class="section">
+            <h2>🎯 O que é Pronome?</h2>
+            <p class="intro-text">
+                O **Pronome** é a classe de palavras variável que tem duas funções principais: 
+                <br>
+                1. **Substituir** o substantivo (função substantiva).<br>
+                2. **Acompanhar** o substantivo, modificando-o (função adjetiva).<br><br>
+                Eles são essenciais para evitar repetição e estabelecer a coesão textual, fazendo referência às 
+                três pessoas do discurso.
+            </p>
+
+            <div class="destaque">
+                <strong>💡 O Referencial:</strong> O pronome é a classe que referencia os participantes da 
+                comunicação: 1ª pessoa (quem fala), 2ª pessoa (quem ouve) e 3ª pessoa (de quem/do que se fala).
+            </div>
+
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">Pronome Substantivo vs. Pronome Adjetivo</div>
+                <div class="conteudo-exemplo">
+                    • Pronome <span style="font-weight: bold; color: #E67E22;">Substantivo</span>: <span style="font-weight: bold; color: #E74C3C;">Ele</span> viajou para Paris. (Substitui o substantivo "João")<br>
+                    • Pronome <span style="font-weight: bold; color: #E67E22;">Adjetivo</span>: <span style="font-weight: bold; color: #E74C3C;">Meu</span> carro quebrou. (Acompanha o substantivo "carro")
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Classificação dos Pronomes</h2>
+            <p class="intro-text">
+                Os pronomes são divididos em seis tipos principais.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card pessoal">
+                    <h3>1. Pessoais</h3>
+                    <div class="definicao">
+                        Substituem ou representam as pessoas do discurso. Dividem-se em Reto (função de sujeito) e Oblíquo (função de complemento).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Retos:</strong> eu, tu, ele, nós, vós, eles.<br>
+                        <strong>Oblíquos Tônicos:</strong> mim, ti, ele, nós, vós, eles (precedidos de preposição).<br>
+                        <strong>Oblíquos Átonos:</strong> me, te, se, o, a, lhe, nos, vos, os, as, lhes.
+                    </div>
+                </div>
+
+                <div class="tipo-card possessivo">
+                    <h3>2. Possessivos</h3>
+                    <div class="definicao">
+                        Indicam posse em relação às pessoas do discurso (meu, teu, seu, nosso, vosso).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Formas:</strong> meu, minha, meus, minhas, teu, tua, seus, suas, nosso, nossa, vossos, vossas.<br>
+                        <span style="font-weight: bold;">Ex:</span> <span style="font-weight: bold;">Nossa</span> casa é antiga.
+                    </div>
+                </div>
+
+                <div class="tipo-card demonstrativo">
+                    <h3>3. Demonstrativos</h3>
+                    <div class="definicao">
+                        Indicam a posição dos seres no espaço, no tempo ou no texto (este, esse, aquele).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Pessoa:</strong> este(a) (perto de quem fala); esse(a) (perto de quem ouve); aquele(a) (longe de ambos).<br>
+                        <span style="font-weight: bold;">Tempo:</span> este(a) (presente); esse(a) (passado/futuro próximo); aquele(a) (passado distante).
+                    </div>
+                </div>
+
+                <div class="tipo-card indefinido">
+                    <h3>4. Indefinidos</h3>
+                    <div class="definicao">
+                        Referem-se à 3ª pessoa do discurso de forma vaga ou indeterminada (alguém, tudo, certo).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Variáveis:</strong> algum(a), nenhum(a), todo(a), muito(a), outro(a), certo(a).<br>
+                        <strong>Invariáveis:</strong> algo, alguém, ninguém, tudo, nada, outrem.
+                    </div>
+                </div>
+
+                <div class="tipo-card relativo">
+                    <h3>5. Relativos</h3>
+                    <div class="definicao">
+                        Retomam um termo anterior (antecedente) e iniciam uma oração subordinada adjetiva.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Variáveis:</strong> o qual, a qual, cujo, cuja, quanto.<br>
+                        <strong>Invariáveis:</strong> que, quem, onde.<br>
+                        <span style="font-weight: bold;">Ex:</span> O livro <span style="font-weight: bold;">que</span> comprei é ótimo.
+                    </div>
+                </div>
+
+                <div class="tipo-card interrogativo">
+                    <h3>6. Interrogativos</h3>
+                    <div class="definicao">
+                        Usados na formulação de perguntas diretas ou indiretas.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Formas:</strong> que, quem, qual, quanto.<br>
+                        <span style="font-weight: bold;">Ex:</span> <span style="font-weight: bold;">Quem</span> ligou? (Direta)<br>
+                        Quero saber <span style="font-weight: bold;">qual</span> é o seu nome. (Indireta)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Tabela de Pronomes Pessoais</h2>
+            <p class="intro-text">
+                A classe de pronomes mais complexa, essencial para a colocação pronominal.
+            </p>
+            
+            <div class="tabela-wrapper">
+                <table class="tabela-substantivos">
+                    <thead>
+                        <tr>
+                            <th>Pessoa</th>
+                            <th>Pronome Reto (Sujeito)</th>
+                            <th>Pronome Oblíquo Átono (Objeto)</th>
+                            <th>Pronome Oblíquo Tônico (Objeto com Prep.)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="destaque-col">1ª Singular</td>
+                            <td>eu</td>
+                            <td>me</td>
+                            <td>mim, comigo</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">2ª Singular</td>
+                            <td>tu</td>
+                            <td>te</td>
+                            <td>ti, contigo</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">3ª Singular</td>
+                            <td>ele/ela</td>
+                            <td>o, a, lhe, se</td>
+                            <td>ele, ela, si, consigo</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">1ª Plural</td>
+                            <td>nós</td>
+                            <td>nos</td>
+                            <td>nós, conosco</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">2ª Plural</td>
+                            <td>vós</td>
+                            <td>vos</td>
+                            <td>vós, convosco</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">3ª Plural</td>
+                            <td>eles/elas</td>
+                            <td>os, as, lhes, se</td>
+                            <td>eles, elas, si, consigo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="destaque" style="margin-top: 25px;">
+                <strong>⚠️ Cuidado com EU e MIM:</strong><br>
+                • **EU** é sempre sujeito: "Ela pediu para **eu** fazer o trabalho."<br>
+                • **MIM** é sempre objeto: "O trabalho é para **mim**." (Não conjuga verbo!)
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Dicas de Ouro</h2>
+            
+            <div class="dicas-box">
+                <h4>Erros Comuns com Pronomes:</h4>
+                <ul>
+                    <li>**SEU/SUA:** O pronome possessivo *seu* pode causar ambiguidade (Pode ser dele, dela, seu, etc.). Use o pronome *dele/dela* para clareza.</li>
+                    <li>**Uso de LHE:** O pronome *lhe* é sempre objeto indireto (liga-se com preposição 'a') e equivale a "a ele", "a ela". Nunca substitui objetos diretos (*o/a*).</li>
+                    <li>**Onde/Aonde:** **Onde** indica lugar fixo (estar, morar); **Aonde** indica movimento (ir, chegar, que exige a preposição *a*).</li>
+                    <li>**Colocação Pronominal:** O **eu** e o **tu** não podem ser usados como complemento de um verbo, mesmo com preposição. Ex: Não é "É para mim fazer", e sim "**É para eu fazer**".</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

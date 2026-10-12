@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronoms et Adjectifs Indéfinis | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --noir: #1a1a1a;
+            --ivoire: #f8f6f1;
+            --or: #d4a574;
+            --cuivre: #b87333;
+            --bronze: #8b6f47;
+            --bleu-nuit: #2c3e50;
+            --accent: #c9a961;
+            --ombre: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--ivoire) 0%, #ede8df 100%);
+            color: var(--noir);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .decorative-corner {
+            position: fixed;
+            width: 200px;
+            height: 200px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .decorative-corner.top-left {
+            top: 0;
+            left: 0;
+            border-top: 3px solid var(--or);
+            border-left: 3px solid var(--or);
+            opacity: 0.3;
+        }
+
+        .decorative-corner.top-left::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            top: -2px;
+            left: -2px;
+            border-top: 2px solid var(--cuivre);
+            border-left: 2px solid var(--cuivre);
+        }
+
+        .decorative-corner.bottom-right {
+            bottom: 0;
+            right: 0;
+            border-bottom: 3px solid var(--or);
+            border-right: 3px solid var(--or);
+            opacity: 0.3;
+        }
+
+        .decorative-corner.bottom-right::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            bottom: -2px;
+            right: -2px;
+            border-bottom: 2px solid var(--cuivre);
+            border-right: 2px solid var(--cuivre);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--bleu-nuit) 0%, #34495e 100%);
+            color: var(--ivoire);
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                rgba(212, 165, 116, 0.03) 20px,
+                rgba(212, 165, 116, 0.03) 40px
+            );
+            pointer-events: none;
+        }
+
+        .academy-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--or);
+            border: 1px solid var(--or);
+            padding: 0.5rem 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+            font-weight: 500;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease 0.2s both;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--or);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease 0.4s both;
+            font-style: italic;
+        }
+
+        .header-divider {
+            width: 100px;
+            height: 2px;
+            background: var(--or);
+            margin: 1.5rem auto;
+            position: relative;
+            z-index: 2;
+            animation: expandWidth 1s ease 0.6s both;
+        }
+
+        .header-divider::before,
+        .header-divider::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--or);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .header-divider::before {
+            left: -20px;
+        }
+
+        .header-divider::after {
+            right: -20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro-section {
+            background: white;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border-radius: 2px;
+            box-shadow: 0 5px 30px var(--ombre);
+            border-top: 4px solid var(--or);
+            position: relative;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .intro-section::before {
+            content: '§';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--or);
+            background: var(--ivoire);
+            padding: 0 1rem;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            text-align: center;
+            color: var(--bleu-nuit);
+            font-weight: 300;
+        }
+
+        .section-card {
+            background: white;
+            margin-bottom: 3rem;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px var(--ombre);
+            animation: fadeInUp 1s ease both;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-card:nth-child(1) { animation-delay: 1s; }
+        .section-card:nth-child(2) { animation-delay: 1.1s; }
+        .section-card:nth-child(3) { animation-delay: 1.2s; }
+
+        .section-header {
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--cuivre) 100%);
+            color: white;
+            padding: 2rem 3rem;
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid var(--cuivre);
+        }
+
+        .section-number {
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            opacity: 0.3;
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            line-height: 1;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .section-content {
+            padding: 3rem;
+        }
+
+        .subsection {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+        }
+
+        .subsection:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .subsection-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--bronze);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .subsection-title::before {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 2px;
+            background: var(--or);
+            margin-right: 1rem;
+        }
+
+        .rule-box {
+            background: linear-gradient(135deg, #faf8f4 0%, #f5f2eb 100%);
+            border-left: 4px solid var(--or);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .rule-box::before {
+            content: '✓';
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--or);
+            opacity: 0.3;
+        }
+
+        .rule-box strong {
+            color: var(--bronze);
+            font-weight: 600;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-item {
+            background: white;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            padding: 1.5rem;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .example-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--or);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .example-item:hover {
+            transform: translateX(5px);
+            box-shadow: -5px 5px 15px var(--ombre);
+        }
+
+        .example-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .example-fr {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: var(--bleu-nuit);
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .example-note {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .highlight-word {
+            color: var(--cuivre);
+            font-weight: 600;
+            border-bottom: 2px solid rgba(212, 165, 116, 0.3);
+            padding-bottom: 2px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            margin: 2rem 0;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            border-radius: 2px;
+            box-shadow: 0 2px 15px var(--ombre);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--cuivre) 100%);
+            color: white;
+            padding: 1.2rem;
+            text-align: left;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 1.2rem;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+            background: white;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:hover td {
+            background: #faf8f4;
+        }
+
+        .attention-box {
+            background: linear-gradient(135deg, #fff8e7 0%, #ffefd5 100%);
+            border: 2px solid var(--or);
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .attention-box::before {
+            content: '⚠';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--or);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .attention-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--bronze);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .note-badge {
+            display: inline-block;
+            background: var(--or);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 2px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--bleu-nuit) 0%, #34495e 100%);
+            color: var(--ivoire);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--or) 50%, transparent);
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--or);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes expandWidth {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.4rem;
+            }
+
+            .section-content {
+                padding: 2rem;
+            }
+
+            .example-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .decorative-corner {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="decorative-corner top-left"></div>
+    <div class="decorative-corner bottom-right"></div>
+
+    <header>
+        <div class="academy-badge">Língua Academy</div>
+        <h1>Les Pronoms et Adjectifs Indéfinis</h1>
+        <div class="subtitle">Emplois Particuliers</div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="container">
+        <div class="intro-section">
+            <p>
+                Les pronoms et adjectifs indéfinis expriment une quantité, une qualité ou une identité de manière 
+                non précise. Certains d'entre eux présentent des emplois particuliers qu'il est essentiel de maîtriser 
+                pour une expression française correcte et nuancée.
+            </p>
+        </div>
+
+        <!-- Section 1: PERSONNE et RIEN -->
+        <div class="section-card">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">Personne & Rien</h2>
+                <p class="section-subtitle">Pronoms négatifs à double emploi</p>
+            </div>
+            <div class="section-content">
+                <div class="subsection">
+                    <h3 class="subsection-title">Emploi négatif (avec NE)</h3>
+                    
+                    <div class="rule-box">
+                        <p><strong>Personne</strong> et <strong>rien</strong> sont généralement employés avec <strong>ne</strong> pour exprimer une négation totale.</p>
+                    </div>
+
+                    <div class="example-grid">
+                        <div class="example-item">
+                            <div class="example-fr">Je ne vois <span class="highlight-word">personne</span> dans la salle.</div>
+                            <div class="example-note">Négation concernant les personnes</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr">Il n'a <span class="highlight-word">rien</span> dit durant la réunion.</div>
+                            <div class="example-note">Négation concernant les choses</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr"><span class="highlight-word">Personne</span> ne comprend cette théorie.</div>
+                            <div class="example-note">Personne en position de sujet</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr"><span class="highlight-word">Rien</span> ne m'intéresse dans ce catalogue.</div>
+                            <div class="example-note">Rien en position de sujet</div>
+                        </div>
+                    </div>
+
+                    <div class="attention-box">
+                        <div class="attention-title">Position de « ne »</div>
+                        <p>Lorsque <strong>personne</strong> ou <strong>rien</strong> sont sujets, le « ne » se place après le pronom : 
+                        <em>Personne ne vient</em> / <em>Rien ne bouge</em>.</p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Emploi positif (sans NE)</h3>
+                    
+                    <div class="rule-box">
+                        <p><strong>Personne</strong> et <strong>rien</strong> peuvent s'employer <strong>sans négation</strong> avec un sens positif dans certains contextes spécifiques.</p>
+                    </div>
+
+                    <span class="note-badge">Après une préposition</span>
+                    <div class="example-grid">
+                        <div class="example-item">
+                            <div class="example-fr">Il part sans <span class="highlight-word">rien</span> emporter.</div>
+                            <div class="example-note">= sans aucune chose</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr">Elle y va sans <span class="highlight-word">personne</span>.</div>
+                            <div class="example-note">= sans aucune personne</div>
+                        </div>
+                    </div>
+
+                    <span class="note-badge">Après une interrogation</span>
+                    <div class="example-grid">
+                        <div class="example-item">
+                            <div class="example-fr">Y a-t-il <span class="highlight-word">rien</span> de plus beau ?</div>
+                            <div class="example-note">Interrogation rhétorique</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr">As-tu jamais vu <span class="highlight-word">personne</span> d'aussi talentueux ?</div>
+                            <div class="example-note">Question avec sens positif</div>
+                        </div>
+                    </div>
+
+                    <span class="note-badge">Sens littéral ancien</span>
+                    <div class="example-grid">
+                        <div class="example-item">
+                            <div class="example-fr">C'est une <span class="highlight-word">personne</span> charmante.</div>
+                            <div class="example-note">Sens = un être humain (usage courant)</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr">Un <span class="highlight-word">rien</span> l'effraie.</div>
+                            <div class="example-note">Sens = une chose insignifiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Complément avec DE</h3>
+                    
+                    <div class="rule-box">
+                        <p>Quand ils sont suivis d'un adjectif, <strong>personne</strong> et <strong>rien</strong> sont reliés par la préposition <strong>de</strong>.</p>
+                    </div>
+
+                    <div class="example-grid">
+                        <div class="example-item">
+                            <div class="example-fr">Je ne connais <span class="highlight-word">personne de</span> sympathique ici.</div>
+                            <div class="example-note">Personne + de + adjectif</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr">Il n'y a <span class="highlight-word">rien de</span> nouveau.</div>
+                            <div class="example-note">Rien + de + adjectif</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr"><span class="highlight-word">Rien de</span> grave n'est arrivé.</div>
+                            <div class="example-note">Construction en position de sujet</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: QUELCONQUE et QUICONQUE -->
+        <div class="section-card">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Quelconque & Quiconque</h2>
+                <p class="section-subtitle">Deux mots distincts à ne pas confondre</p>
+            </div>
+            <div class="section-content">
+                <div class="subsection">
+                    <h3 class="subsection-title">QUELCONQUE - Adjectif indéfini</h3>
+                    
+                    <div class="rule-box">
+                        <p><strong>Quelconque</strong> est un <strong>adjectif indéfini</strong> qui signifie "n'importe quel" ou "ordinaire, médiocre".</p>
+                    </div>
+
+                    <span class="note-badge">Sens 1 : N'importe quel (toujours après le nom)</span>
+                    <div class="example-grid">
+                        <div class="example-item">
+                            <div class="example-fr">Pour un motif <span class="highlight-word">quelconque</span>, il a refusé.</div>
+                            <div class="example-note">= pour n'importe quel motif</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr">Trois points <span class="highlight-word">quelconques</span> forment un plan.</div>
+                            <div class="example-note">Usage mathématique : n'importe lesquels</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr">À un moment <span class="highlight-word">quelconque</span> de la journée.</div>
+                            <div class="example-note">= à n'importe quel moment</div>
+                        </div>
+                    </div>
+
+                    <span class="note-badge">Sens 2 : Ordinaire, médiocre (après le nom)</span>
+                    <div class="example-grid">
+                        <div class="example-item">
+                            <div class="example-fr">C'est un film assez <span class="highlight-word">quelconque</span>.</div>
+                            <div class="example-note">= ordinaire, sans intérêt particulier</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr">Son travail est vraiment <span class="highlight-word">quelconque</span>.</div>
+                            <div class="example-note">= médiocre, banal</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">QUICONQUE - Pronom indéfini</h3>
+                    
+                    <div class="rule-box">
+                        <p><strong>Quiconque</strong> est un <strong>pronom indéfini</strong> qui signifie "n'importe qui" ou "toute personne qui".</p>
+                    </div>
+
+                    <span class="note-badge">Emploi 1 : N'importe qui (dans une proposition)</span>
+                    <div class="example-grid">
+                        <div class="example-item">
+                            <div class="example-fr"><span class="highlight-word">Quiconque</span> enfreint la loi sera puni.</div>
+                            <div class="example-note">= toute personne qui enfreint</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr">Je le sais mieux que <span class="highlight-word">quiconque</span>.</div>
+                            <div class="example-note">= mieux que n'importe qui</div>
+                        </div>
+                    </div>
+
+                    <span class="note-badge">Emploi 2 : Pronom relatif (littéraire)</span>
+                    <div class="example-grid">
+                        <div class="example-item">
+                            <div class="example-fr"><span class="highlight-word">Quiconque</span> viendra sera le bienvenu.</div>
+                            <div class="example-note">= toute personne qui viendra</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr">Défense à <span class="highlight-word">quiconque</span> d'entrer.</div>
+                            <div class="example-note">= à n'importe qui</div>
+                        </div>
+                    </div>
+
+                    <div class="attention-box">
+                        <div class="attention-title">Ne pas confondre !</div>
+                        <p><strong>Quelconque</strong> = adjectif (qualifie un nom) → <em>un jour quelconque</em><br>
+                        <strong>Quiconque</strong> = pronom (remplace une personne) → <em>quiconque viendra</em></p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Tableau comparatif</h3>
+                    
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Quelconque</th>
+                                <th>Quiconque</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Nature</strong></td>
+                                <td>Adjectif indéfini</td>
+                                <td>Pronom indéfini</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fonction</strong></td>
+                                <td>Qualifie un nom</td>
+                                <td>Remplace une personne</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Position</strong></td>
+                                <td>Toujours après le nom</td>
+                                <td>Sujet ou complément</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Genre/Nombre</strong></td>
+                                <td>Variable (quelconques)</td>
+                                <td>Invariable</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Exemple</strong></td>
+                                <td>Un livre quelconque</td>
+                                <td>Quiconque le souhaite</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: QUELQUE -->
+        <div class="section-card">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Quelque</h2>
+                <p class="section-subtitle">Adjectif, adverbe et emplois variés</p>
+            </div>
+            <div class="section-content">
+                <div class="subsection">
+                    <h3 class="subsection-title">QUELQUE - Adjectif indéfini</h3>
+                    
+                    <div class="rule-box">
+                        <p>Comme <strong>adjectif</strong>, <strong>quelque</strong> s'accorde en nombre avec le nom qu'il accompagne.</p>
+                    </div>
+
+                    <span class="note-badge">Sens : Un certain nombre de / un certain</span>
+                    <div class="example-grid">
+                        <div class="example-item">
+                            <div class="example-fr">Il reste <span class="highlight-word">quelque</span> espoir.</div>
+                            <div class="example-note">Singulier : un certain espoir</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr">J'ai acheté <span class="highlight-word">quelques</span> livres.</div>
+                            <div class="example-note">Pluriel : un certain nombre de livres</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr">Dans <span class="highlight-word">quelques</span> jours, nous partirons.</div>
+                            <div class="example-note">= dans un petit nombre de jours</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr">Il a <span class="highlight-word">quelque</span> deux cents euros.</div>
+                            <div class="example-note">= environ, à peu près</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">QUELQUE - Adverbe</h3>
+                    
+                    <div class="rule-box">
+                        <p>Comme <strong>adverbe</strong>, <strong>quelque</strong> reste <strong>invariable</strong> et signifie "environ" ou "si... que".</p>
+                    </div>
+
+                    <span class="note-badge">Sens 1 : Environ, à peu près (devant un nombre)</span>
+                    <div class="example-grid">
+                        <div class="example-item">
+                            <div class="example-fr">Il y a <span class="highlight-word">quelque</span> cent personnes.</div>
+                            <div class="example-note">Invariable = environ cent personnes</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr">Cela coûte <span class="highlight-word">quelque</span> mille euros.</div>
+                            <div class="example-note">Invariable = environ mille euros</div>
+                        </div>
+                    </div>
+
+                    <span class="note-badge">Sens 2 : Si... que, aussi... que (dans une concession)</span>
+                    <div class="example-grid">
+                        <div class="example-item">
+                            <div class="example-fr"><span class="highlight-word">Quelque</span> riches qu'ils soient, ils ne sont pas heureux.</div>
+                            <div class="example-note">= Si riches qu'ils soient (littéraire)</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr"><span class="highlight-word">Quelque</span> effort que tu fasses, tu réussiras.</div>
+                            <div class="example-note">= Quel que soit l'effort que tu fasses</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Expressions courantes avec QUELQUE</h3>
+                    
+                    <div class="example-grid">
+                        <div class="example-item">
+                            <div class="example-fr"><span class="highlight-word">Quelque chose</span> d'étrange s'est produit.</div>
+                            <div class="example-note">Pronom indéfini composé</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr"><span class="highlight-word">Quelque part</span>, il a raison.</div>
+                            <div class="example-note">Locution adverbiale = d'une certaine façon</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr">En <span class="highlight-word">quelque sorte</span>, c'est un aveu.</div>
+                            <div class="example-note">Locution = pour ainsi dire</div>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-fr"><span class="highlight-word">Quelquefois</span>, je pense à toi.</div>
+                            <div class="example-note">Adverbe = parfois (en un seul mot)</div>
+                        </div>
+                    </div>
+
+                    <div class="attention-box">
+                        <div class="attention-title">Accord de QUELQUE</div>
+                        <p><strong>Variable (adjectif)</strong> : <em>quelques amis</em> (= certains amis)<br>
+                        <strong>Invariable (adverbe)</strong> : <em>quelque cent ans</em> (= environ cent ans)<br>
+                        <strong>Astuce</strong> : Devant un nombre, quelque = invariable !</p>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Tableau récapitulatif</h3>
+                    
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Nature</th>
+                                <th>Accord</th>
+                                <th>Exemple</th>
+                                <th>Signification</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Adjectif</strong></td>
+                                <td>Variable</td>
+                                <td><em>quelques livres</em></td>
+                                <td>un certain nombre de</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Adverbe</strong></td>
+                                <td>Invariable</td>
+                                <td><em>quelque cent ans</em></td>
+                                <td>environ</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Adverbe</strong></td>
+                                <td>Invariable</td>
+                                <td><em>quelque grands qu'ils soient</em></td>
+                                <td>si... que</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Locution</strong></td>
+                                <td>Fixe</td>
+                                <td><em>quelque chose</em></td>
+                                <td>une chose indéterminée</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">Língua Academy</div>
+        <div class="header-divider" style="margin: 1rem auto;"></div>
+        <p class="footer-text">Excellence en apprentissage des langues | Grammaire française</p>
+        <p class="footer-text" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2024 - Ressource pédagogique</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Temps du Subjonctif dans les Subordonnées</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Raleway:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+            color: #2d3436;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(72, 219, 251, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(253, 203, 110, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 100px;
+            animation: fadeInScale 1.2s ease;
+        }
+        
+        .header-decoration {
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff6b6b, #4ecdc4, #ffe66d, transparent);
+            margin: 0 auto 40px;
+            border-radius: 2px;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #ffe66d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+        
+        .subtitle {
+            font-size: 1.4em;
+            color: #b8c5d6;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+        
+        .main-content {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 40px;
+            padding: 80px;
+            box-shadow: 
+                0 30px 90px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.6);
+            backdrop-filter: blur(20px);
+        }
+        
+        section {
+            margin-bottom: 80px;
+            animation: slideInUp 0.8s ease;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2em;
+            color: #2d3436;
+            margin-bottom: 40px;
+            position: relative;
+            padding-left: 30px;
+            font-weight: 700;
+        }
+        
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 80%;
+            background: linear-gradient(180deg, #ff6b6b, #4ecdc4);
+            border-radius: 4px;
+        }
+        
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: #ff6b6b;
+            margin: 40px 0 25px 0;
+            font-weight: 600;
+        }
+        
+        p {
+            font-size: 1.15em;
+            margin-bottom: 25px;
+            color: #2d3436;
+            line-height: 1.9;
+        }
+        
+        .intro-panel {
+            background: linear-gradient(135deg, #ff6b6b10, #4ecdc410);
+            padding: 50px;
+            border-radius: 25px;
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro-panel::before {
+            content: '⏰';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 5em;
+            opacity: 0.1;
+        }
+        
+        .intro-panel p {
+            font-size: 1.25em;
+            line-height: 2;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .time-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            margin: 40px 0;
+        }
+        
+        .time-card {
+            background: #ffffff;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .time-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #ffe66d);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .time-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .time-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(78, 205, 196, 0.25);
+            border-color: #4ecdc4;
+        }
+        
+        .time-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .time-icon {
+            font-size: 1.2em;
+        }
+        
+        .time-description {
+            font-size: 1.05em;
+            color: #636e72;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        .formation-box {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border-left: 4px solid #4ecdc4;
+        }
+        
+        .formation-title {
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .formation-text {
+            color: #636e72;
+            line-height: 1.7;
+        }
+        
+        .conjugation-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 35px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .conjugation-table thead {
+            background: linear-gradient(135deg, #2d3436, #414d5a);
+        }
+        
+        .conjugation-table th {
+            color: white;
+            padding: 25px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
+            font-weight: 600;
+            text-align: left;
+        }
+        
+        .conjugation-table td {
+            padding: 20px 25px;
+            border-bottom: 1px solid #e9ecef;
+            background: #ffffff;
+        }
+        
+        .conjugation-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .conjugation-table tbody tr:hover td {
+            background: linear-gradient(90deg, #ff6b6b05, #4ecdc405);
+        }
+        
+        .pronoun {
+            font-weight: 600;
+            color: #ff6b6b;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15em;
+        }
+        
+        .verb-form {
+            color: #2d3436;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        
+        .example-container {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            border-left: 5px solid #ffe66d;
+            position: relative;
+        }
+        
+        .example-container::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 8em;
+            color: #ffe66d20;
+            font-family: 'Playfair Display', serif;
+            line-height: 0.8;
+        }
+        
+        .example-fr {
+            font-size: 1.25em;
+            color: #2d3436;
+            margin-bottom: 15px;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .highlight {
+            color: #ff6b6b;
+            font-weight: 700;
+            background: linear-gradient(180deg, transparent 60%, rgba(255, 107, 107, 0.2) 60%);
+        }
+        
+        .example-pt {
+            font-size: 1.05em;
+            color: #636e72;
+            font-style: italic;
+        }
+        
+        .timeline-section {
+            position: relative;
+            padding-left: 60px;
+            margin: 50px 0;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #ff6b6b, #4ecdc4, #ffe66d);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -48px;
+            top: 10px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #ff6b6b;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3);
+        }
+        
+        .timeline-item:nth-child(2) .timeline-dot {
+            background: #4ecdc4;
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.3);
+        }
+        
+        .timeline-item:nth-child(3) .timeline-dot {
+            background: #ffe66d;
+            box-shadow: 0 0 0 3px rgba(255, 230, 109, 0.3);
+        }
+        
+        .concordance-card {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .concordance-card:hover {
+            border-color: #4ecdc4;
+            box-shadow: 0 15px 40px rgba(78, 205, 196, 0.2);
+        }
+        
+        .concordance-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: #2d3436;
+            margin-bottom: 25px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .rule-box {
+            background: linear-gradient(135deg, #4ecdc410, #ffe66d10);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #4ecdc4;
+        }
+        
+        .rule-box strong {
+            color: #ff6b6b;
+            font-size: 1.15em;
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .comparison-box {
+            padding: 35px;
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .comparison-box.main-clause {
+            background: linear-gradient(135deg, #ff6b6b15, #ff6b6b05);
+            border: 2px solid #ff6b6b40;
+        }
+        
+        .comparison-box.sub-clause {
+            background: linear-gradient(135deg, #4ecdc415, #4ecdc405);
+            border: 2px solid #4ecdc440;
+        }
+        
+        .comparison-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .comparison-box.main-clause .comparison-label {
+            color: #ff6b6b;
+        }
+        
+        .comparison-box.sub-clause .comparison-label {
+            color: #4ecdc4;
+        }
+        
+        .alert-box {
+            background: linear-gradient(135deg, #ff6b6b, #ff8787);
+            color: white;
+            padding: 45px;
+            border-radius: 25px;
+            margin: 50px 0;
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .alert-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 6em;
+            opacity: 0.2;
+        }
+        
+        .alert-box h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 2.2em;
+        }
+        
+        .alert-box p {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.2em;
+            line-height: 1.9;
+        }
+        
+        .tip-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffe66d, #ffd93d);
+            color: #2d3436;
+            padding: 30px 40px;
+            border-radius: 20px;
+            margin: 30px 0;
+            font-size: 1.15em;
+            box-shadow: 0 10px 30px rgba(255, 230, 109, 0.3);
+            border: 2px solid rgba(255, 230, 109, 0.5);
+        }
+        
+        .tip-badge strong {
+            font-size: 1.3em;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .usage-item {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 18px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .usage-item:hover {
+            border-color: #ff6b6b;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.15);
+        }
+        
+        .usage-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .usage-title {
+            font-weight: 700;
+            color: #2d3436;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+        }
+        
+        .usage-description {
+            color: #636e72;
+            line-height: 1.7;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 50px;
+            border-top: 3px solid rgba(78, 205, 196, 0.3);
+        }
+        
+        .footer-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 3.5em;
+            }
+            
+            .main-content {
+                padding: 50px;
+            }
+            
+            .time-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            h2 {
+                font-size: 2.2em;
+            }
+            
+            .main-content {
+                padding: 30px;
+                border-radius: 25px;
+            }
+            
+            .usage-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-decoration"></div>
+            <h1>Les Temps du Subjonctif</h1>
+            <div class="subtitle">Dans les Subordonnées</div>
+        </header>
+        
+        <div class="main-content">
+            <section>
+                <h2>Introduction aux Temps du Subjonctif</h2>
+                
+                <div class="intro-panel">
+                    <p>Le subjonctif possède <strong>quatre temps</strong> en français : deux temps simples (présent et imparfait) et deux temps composés (passé et plus-que-parfait). Cependant, dans le français contemporain, on utilise principalement le <strong>subjonctif présent</strong> et le <strong>subjonctif passé</strong>. L'imparfait et le plus-que-parfait du subjonctif sont considérés comme littéraires et très rares à l'oral.</p>
+                </div>
+                
+                <div class="time-grid">
+                    <div class="time-card">
+                        <div class="time-label">
+                            <span class="time-icon">📅</span>
+                            Subjonctif Présent
+                        </div>
+                        <div class="time-description">
+                            Le temps le plus utilisé du subjonctif. Il exprime une action simultanée ou future par rapport au verbe principal.
+                        </div>
+                        <div class="formation-box">
+                            <div class="formation-title">Formation :</div>
+                            <div class="formation-text">
+                                Radical de la 3ᵉ personne du pluriel (ils/elles) au présent + terminaisons : <strong>-e, -es, -e, -ions, -iez, -ent</strong>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-card">
+                        <div class="time-label">
+                            <span class="time-icon">✅</span>
+                            Subjonctif Passé
+                        </div>
+                        <div class="time-description">
+                            Exprime une action antérieure (passée) par rapport au verbe principal. Très utilisé dans le français contemporain.
+                        </div>
+                        <div class="formation-box">
+                            <div class="formation-title">Formation :</div>
+                            <div class="formation-text">
+                                Auxiliaire <strong>avoir</strong> ou <strong>être</strong> au subjonctif présent + participe passé du verbe
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-card">
+                        <div class="time-label">
+                            <span class="time-icon">📖</span>
+                            Subjonctif Imparfait
+                        </div>
+                        <div class="time-description">
+                            Temps littéraire rarement utilisé à l'oral. On le trouve dans la littérature classique et les textes formels.
+                        </div>
+                        <div class="formation-box">
+                            <div class="formation-title">Formation :</div>
+                            <div class="formation-text">
+                                Radical du passé simple + terminaisons : <strong>-asse, -asses, -ât, -assions, -assiez, -assent</strong> (pour les verbes en -er)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-card">
+                        <div class="time-label">
+                            <span class="time-icon">📚</span>
+                            Subjonctif Plus-que-parfait
+                        </div>
+                        <div class="time-description">
+                            Temps littéraire très rare. Exprime une action antérieure dans un contexte littéraire ou très formel.
+                        </div>
+                        <div class="formation-box">
+                            <div class="formation-title">Formation :</div>
+                            <div class="formation-text">
+                                Auxiliaire <strong>avoir</strong> ou <strong>être</strong> au subjonctif imparfait + participe passé
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Subjonctif Présent - Détails</h2>
+                
+                <h3>Conjugaison Complète : FINIR</h3>
+                
+                <table class="conjugation-table">
+                    <thead>
+                        <tr>
+                            <th>Pronom</th>
+                            <th>Conjugaison</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="pronoun">que je</td>
+                            <td class="verb-form">finisse</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">que tu</td>
+                            <td class="verb-form">finisses</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">qu'il/elle/on</td>
+                            <td class="verb-form">finisse</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">que nous</td>
+                            <td class="verb-form">finissions</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">que vous</td>
+                            <td class="verb-form">finissiez</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">qu'ils/elles</td>
+                            <td class="verb-form">finissent</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Emploi du Subjonctif Présent</h3>
+                
+                <div class="usage-grid">
+                    <div class="usage-item">
+                        <div class="usage-icon">⏰</div>
+                        <div class="usage-title">Action Simultanée</div>
+                        <div class="usage-description">L'action de la subordonnée se passe en même temps que l'action principale.</div>
+                    </div>
+                    
+                    <div class="usage-item">
+                        <div class="usage-icon">⏭️</div>
+                        <div class="usage-title">Action Future</div>
+                        <div class="usage-description">L'action de la subordonnée se passera après l'action principale.</div>
+                    </div>
+                </div>
+                
+                <div class="example-container">
+                    <div class="example-fr">Je veux que tu <span class="highlight">viennes</span> maintenant. (action simultanée)</div>
+                    <div class="example-pt">Eu quero que você venha agora. (ação simultânea)</div>
+                </div>
+                
+                <div class="example-container">
+                    <div class="example-fr">Il faut que nous <span class="highlight">partions</span> demain. (action future)</div>
+                    <div class="example-pt">É preciso que partamos amanhã. (ação futura)</div>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Subjonctif Passé - Détails</h2>
+                
+                <h3>Conjugaison Complète : FINIR (avec avoir)</h3>
+                
+                <table class="conjugation-table">
+                    <thead>
+                        <tr>
+                            <th>Pronom</th>
+                            <th>Conjugaison</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="pronoun">que j'</td>
+                            <td class="verb-form">aie fini</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">que tu</td>
+                            <td class="verb-form">aies fini</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">qu'il/elle/on</td>
+                            <td class="verb-form">ait fini</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">que nous</td>
+                            <td class="verb-form">ayons fini</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">que vous</td>
+                            <td class="verb-form">ayez fini</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">qu'ils/elles</td>
+                            <td class="verb-form">aient fini</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Conjugaison Complète : PARTIR (avec être)</h3>
+                
+                <table class="conjugation-table">
+                    <thead>
+                        <tr>
+                            <th>Pronom</th>
+                            <th>Conjugaison</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="pronoun">que je</td>
+                            <td class="verb-form">sois parti(e)</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">que tu</td>
+                            <td class="verb-form">sois parti(e)</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">qu'il/elle/on</td>
+                            <td class="verb-form">soit parti(e)</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">que nous</td>
+                            <td class="verb-form">soyons parti(e)s</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">que vous</td>
+                            <td class="verb-form">soyez parti(e)(s)</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">qu'ils/elles</td>
+                            <td class="verb-form">soient parti(e)s</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Emploi du Subjonctif Passé</h3>
+                
+                <div class="rule-box">
+                    <strong>📍 Règle principale :</strong>
+                    Le subjonctif passé exprime une action qui s'est déroulée <strong>AVANT</strong> l'action du verbe principal. Il marque l'antériorité.
+                </div>
+                
+                <div class="example-container">
+                    <div class="example-fr">Je suis content que tu <span class="highlight">aies réussi</span> ton examen. (tu as réussi avant que je sois content)</div>
+                    <div class="example-pt">Estou feliz que você tenha passado no exame.</div>
+                </div>
+                
+                <div class="example-container">
+                    <div class="example-fr">Il est possible qu'elle <span class="highlight">soit partie</span> hier. (elle est partie avant maintenant)</div>
+                    <div class="example-pt">É possível que ela tenha partido ontem.</div>
+                </div>
+                
+                <div class="example-container">
+                    <div class="example-fr">Je doute qu'ils <span class="highlight">aient fini</span> à temps. (finir avant un moment précis)</div>
+                    <div class="example-pt">Duvido que tenham terminado a tempo.</div>
+                </div>
+            </section>
+            
+            <section>
+                <h2>La Concordance des Temps</h2>
+                
+                <div class="concordance-card">
+                    <div class="concordance-title">
+                        🎯 Règle Générale (Français Contemporain)
+                    </div>
+                    <p>Dans le français moderne, la concordance des temps avec le subjonctif est simple :</p>
+                    <div class="comparison-grid">
+                        <div class="comparison-box main-clause">
+                            <div class="comparison-label">Proposition Principale</div>
+                            <p><strong>N'importe quel temps</strong></p>
+                            <p>Présent, Futur, Passé composé, Imparfait, etc.</p>
+                        </div>
+                        <div class="comparison-box sub-clause">
+                            <div class="comparison-label">Proposition Subordonnée</div>
+                            <p><strong>Subjonctif Présent</strong><br>(action simultanée ou future)</p>
+                            <p><strong>Subjonctif Passé</strong><br>(action antérieure)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Exemples avec le Subjonctif Présent</h3>
+                
+                <div class="timeline-section">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="example-container">
+                            <div class="example-fr">Je veux (présent) qu'il <span class="highlight">vienne</span> demain.</div>
+                            <div class="example-pt">Eu quero que ele venha amanhã.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="example-container">
+                            <div class="example-fr">Je voulais (imparfait) qu'il <span class="highlight">vienne</span> le lendemain.</div>
+                            <div class="example-pt">Eu queria que ele viesse no dia seguinte.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="example-container">
+                            <div class="example-fr">J'ai voulu (passé composé) qu'il <span class="highlight">vienne</span> avec moi.</div>
+                            <div class="example-pt">Eu quis que ele viesse comigo.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Exemples avec le Subjonctif Passé</h3>
+                
+                <div class="timeline-section">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="example-container">
+                            <div class="example-fr">Je suis content (présent) qu'il <span class="highlight">soit venu</span> hier.</div>
+                            <div class="example-pt">Estou feliz que ele tenha vindo ontem.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="example-container">
+                            <div class="example-fr">J'étais content (imparfait) qu'il <span class="highlight">soit venu</span> la veille.</div>
+                            <div class="example-pt">Eu estava feliz que ele tivesse vindo na véspera.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="example-container">
+                            <div class="example-fr">Je serai heureux (futur) qu'elle <span class="highlight">ait réussi</span> son examen.</div>
+                            <div class="example-pt">Ficarei feliz que ela tenha passado no exame.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Choisir entre Subjonctif Présent et Passé</h2>
+                
+                <div class="tip-badge">
+                    <strong>💡 Question Clé :</strong>
+                    L'action de la subordonnée se passe AVANT ou APRÈS/EN MÊME TEMPS que l'action principale ?
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-box main-clause">
+                        <div class="comparison-label">Action Antérieure → PASSÉ</div>
+                        <div class="example-container">
+                            <div class="example-fr">Je doute qu'il <span class="highlight">ait compris</span> la leçon d'hier.</div>
+                            <div class="example-pt">Duvido que ele tenha entendido a lição de ontem.</div>
+                        </div>
+                        <p style="margin-top: 15px; color: #636e72;">L'action de comprendre est antérieure au doute.</p>
+                    </div>
+                    
+                    <div class="comparison-box sub-clause">
+                        <div class="comparison-label">Action Simultanée/Future → PRÉSENT</div>
+                        <div class="example-container">
+                            <div class="example-fr">Je doute qu'il <span class="highlight">comprenne</span> cette leçon.</div>
+                            <div class="example-pt">Duvido que ele entenda esta lição.</div>
+                        </div>
+                        <p style="margin-top: 15px; color: #636e72;">L'action de comprendre est simultanée ou future par rapport au doute.</p>
+                    </div>
+                </div>
+                
+                <h3>Exemples Contrastifs</h3>
+                
+                <div class="concordance-card">
+                    <h3>Cas 1 : Émotions</h3>
+                    
+                    <div class="example-container">
+                        <div class="example-fr">Je suis triste que tu <span class="highlight">partes</span> demain. (présent - futur)</div>
+                        <div class="example-pt">Estou triste que você parta amanhã.</div>
+                    </div>
+                    
+                    <div class="example-container">
+                        <div class="example-fr">Je suis triste que tu <span class="highlight">sois parti</span> hier. (passé - antérieur)</div>
+                        <div class="example-pt">Estou triste que você tenha partido ontem.</div>
+                    </div>
+                </div>
+                
+                <div class="concordance-card">
+                    <h3>Cas 2 : Nécessité</h3>
+                    
+                    <div class="example-container">
+                        <div class="example-fr">Il faut que vous <span class="highlight">fassiez</span> vos devoirs. (présent - à faire)</div>
+                        <div class="example-pt">É preciso que vocês façam os deveres.</div>
+                    </div>
+                    
+                    <div class="example-container">
+                        <div class="example-fr">Il fallait que vous <span class="highlight">ayez fini</span> vos devoirs avant 18h. (passé - avant un moment précis)</div>
+                        <div class="example-pt">Era preciso que vocês tivessem terminado os deveres antes das 18h.</div>
+                    </div>
+                </div>
+                
+                <div class="concordance-card">
+                    <h3>Cas 3 : Doute</h3>
+                    
+                    <div class="example-container">
+                        <div class="example-fr">Je doute qu'elle <span class="highlight">vienne</span> à la fête ce soir. (présent - futur)</div>
+                        <div class="example-pt">Duvido que ela venha à festa esta noite.</div>
+                    </div>
+                    
+                    <div class="example-container">
+                        <div class="example-fr">Je doute qu'elle <span class="highlight">soit venue</span> à la fête hier. (passé - antérieur)</div>
+                        <div class="example-pt">Duvido que ela tenha vindo à festa ontem.</div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="alert-box">
+                <h3>⚠️ Attention : Erreur Fréquente !</h3>
+                <p>Ne confondez pas le <strong>subjonctif passé</strong> avec le <strong>passé composé de l'indicatif</strong> !</p>
+                <div style="margin-top: 25px; background: rgba(255,255,255,0.2); padding: 20px; border-radius: 15px;">
+                    <p><strong>✅ Correct (subjonctif passé) :</strong></p>
+                    <p>Je doute qu'il <strong>soit venu</strong>. (subjonctif → être au subjonctif présent)</p>
+                    <p style="margin-top: 15px;"><strong>❌ Incorrect (passé composé) :</strong></p>
+                    <p>Je doute qu'il <strong>est venu</strong>. (indicatif - ERREUR !)</p>
+                </div>
+            </div>
+            
+            <section>
+                <h2>Subjonctif Imparfait et Plus-que-parfait (Littéraire)</h2>
+                
+                <div class="intro-panel">
+                    <p>Ces deux temps sont principalement utilisés dans la littérature classique, les textes juridiques ou les discours très formels. Dans le français parlé et même écrit contemporain, on les remplace par le subjonctif présent ou passé.</p>
+                </div>
+                
+                <h3>Subjonctif Imparfait - Formation</h3>
+                
+                <table class="conjugation-table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">PARLER (verbes en -er)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="pronoun">que je</td>
+                            <td class="verb-form">parlasse</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">que tu</td>
+                            <td class="verb-form">parlasses</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">qu'il/elle</td>
+                            <td class="verb-form">parlât</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">que nous</td>
+                            <td class="verb-form">parlassions</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">que vous</td>
+                            <td class="verb-form">parlassiez</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">qu'ils/elles</td>
+                            <td class="verb-form">parlassent</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="example-container">
+                    <div class="example-fr">Je voulais qu'il <span class="highlight">parlât</span> plus fort. (style littéraire)</div>
+                    <div class="example-pt">Eu queria que ele falasse mais alto.</div>
+                </div>
+                
+                <div class="example-container">
+                    <div class="example-fr">Je voulais qu'il <span class="highlight">parle</span> plus fort. (français contemporain)</div>
+                    <div class="example-pt">Eu queria que ele falasse mais alto.</div>
+                </div>
+                
+                <h3>Subjonctif Plus-que-parfait - Formation</h3>
+                
+                <table class="conjugation-table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">PARLER (auxiliaire avoir à l'imparfait du subjonctif + participe passé)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="pronoun">que j'</td>
+                            <td class="verb-form">eusse parlé</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">que tu</td>
+                            <td class="verb-form">eusses parlé</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">qu'il/elle</td>
+                            <td class="verb-form">eût parlé</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">que nous</td>
+                            <td class="verb-form">eussions parlé</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">que vous</td>
+                            <td class="verb-form">eussiez parlé</td>
+                        </tr>
+                        <tr>
+                            <td class="pronoun">qu'ils/elles</td>
+                            <td class="verb-form">eussent parlé</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="rule-box">
+                    <strong>📚 Pour les apprenants :</strong>
+                    Il n'est PAS nécessaire de maîtriser ces temps littéraires pour parler français couramment. Concentrez-vous sur le subjonctif présent et passé !
+                </div>
+            </section>
+            
+            <section>
+                <h2>Récapitulatif Pratique</h2>
+                
+                <div class="concordance-card">
+                    <div class="concordance-title">
+                        ✨ Schéma de Décision
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; margin-top: 20px;">
+                        <p style="font-size: 1.2em; font-weight: 600; margin-bottom: 20px;">1️⃣ L'action de la subordonnée est-elle passée/antérieure ?</p>
+                        <p style="margin-left: 30px; color: #636e72;">→ OUI : <strong style="color: #4ecdc4;">Subjonctif PASSÉ</strong></p>
+                        <p style="margin-left: 30px; color: #636e72; margin-bottom: 30px;">→ NON : passez à la question 2</p>
+                        
+                        <p style="font-size: 1.2em; font-weight: 600; margin-bottom: 20px;">2️⃣ L'action est simultanée ou future ?</p>
+                        <p style="margin-left: 30px; color: #636e72;">→ <strong style="color: #ff6b6b;">Subjonctif PRÉSENT</strong></p>
+                    </div>
+                </div>
+                
+                <div class="tip-badge" style="display: block; width: 100%;">
+                    <strong>🎯 Conseil Final</strong>
+                    Dans le doute, posez-vous la question : "L'action s'est-elle déjà produite ?" Si oui → passé. Si non → présent. C'est aussi simple que ça !
+                </div>
+            </section>
+            
+            <div class="footer">
+                <p class="footer-text">Maîtrisez les temps du subjonctif pour exprimer toutes les nuances temporelles !</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

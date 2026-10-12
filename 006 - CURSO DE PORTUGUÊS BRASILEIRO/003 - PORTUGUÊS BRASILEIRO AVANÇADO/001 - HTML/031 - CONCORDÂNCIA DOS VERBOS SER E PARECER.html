@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concordância dos Verbos SER e PARECER</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* CSS EXATO do ARQUIVO 004 - ORTOGRAFIA */
+        body {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E7D6E 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #2E7D6E; /* Cor principal adaptada do tema */
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #4ECDC4;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #44A08D; /* Cor secundária adaptada do tema */
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+            min-height: 350px;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores adaptadas do tema 004 */
+        .tipo-card.regra-ser {
+            background: linear-gradient(135deg, #FF6B6B, #EE5A5A); /* SER - Sujeito x Predicativo */
+        }
+
+        .tipo-card.ser-tempo {
+            background: linear-gradient(135deg, #8338EC, #6C23D6); /* SER - Tempo/Data */
+        }
+
+        .tipo-card.ser-quantidade {
+            background: linear-gradient(135deg, #FFC300, #FFAD00); /* SER - Quantidade/Distância */
+            color: #333;
+        }
+
+        .tipo-card.parecer {
+            background: linear-gradient(135deg, #00B4D8, #00A6CC); /* PARECER */
+        }
+
+        .tipo-card.ser-pronomes {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D); /* SER - Pronomes */
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+        
+        /* Ajuste de contraste para o card amarelo */
+        .tipo-card.ser-quantidade .exemplos {
+            background: rgba(0,0,0,0.1); 
+            color: #333;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .dicas-box {
+            /* Cor adaptada do arquivo 004 */
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "💡"; /* Ícone adaptado */
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⏰ Concordância dos Verbos SER e PARECER 💭</h1>
+        <p class="subtitle">Regras de flexão para dois dos verbos mais complexos da língua portuguesa!</p>
+
+        <div class="section">
+            <h2>🎯 Regras Específicas do Verbo SER</h2>
+            <p class="intro-text">
+                O verbo **SER** (principalmente como verbo de ligação) possui regras de concordância que, muitas vezes, o fazem concordar com o **Predicativo do Sujeito** em vez do Sujeito.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card regra-ser">
+                    <h3>1. Sujeito e Predicativo: Pessoas Diferentes</h3>
+                    <div class="definicao">
+                        Se o Sujeito e o Predicativo forem pessoas diferentes, o verbo **SER** concorda, preferencialmente, com o **Pronome Pessoal** (eu, tu, nós, vós).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • O culpado **sou** eu. (O verbo *SER* concorda com *eu*)<br>
+                        • **Nós** *somos* a maioria. (O verbo *SER* concorda com *nós*)
+                    </div>
+                </div>
+
+                <div class="tipo-card ser-tempo">
+                    <h3>2. Indicações de Tempo (Horas, Datas, Dias)</h3>
+                    <div class="definicao">
+                        O verbo **SER** concorda com o termo que especifica a hora, o dia ou a data (o predicativo).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **É** uma hora. (**São** duas horas.)<br>
+                        • Hoje **são** vinte e três de setembro.<br>
+                        • Hoje **é** dia vinte e três de setembro. (Concorda com *dia*)
+                    </div>
+                </div>
+
+                <div class="tipo-card ser-quantidade">
+                    <h3>3. Expressões de Quantidade, Distância e Preço</h3>
+                    <div class="definicao">
+                        O verbo **SER** fica no **singular** se a expressão indicar medida, peso, distância, preço ou quantidade aproximada.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Dez quilos **é** muito para mim.<br>
+                        • Quinze reais **é** o bastante.<br>
+                        • Dois metros **é** pouco.
+                    </div>
+                </div>
+                
+                <div class="tipo-card ser-pronomes">
+                    <h3>4. Sujeito é Pronome Neutro (Tudo, Nada, Isto, Isso)</h3>
+                    <div class="definicao">
+                        Se o Sujeito for um pronome neutro (*tudo, nada, isto, aquilo*), o verbo **SER** concorda com o **Predicativo do Sujeito**.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **Tudo** *são* flores.<br>
+                        • **Isto** *eram* boatos.<br>
+                        • **A vida** *é* lutas. (Sujeito é *vida*, mas o verbo concorda com o plural *lutas*).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🧠 Concordância do Verbo PARECER</h2>
+            <p class="intro-text">
+                O verbo **PARECER** é o único verbo de ligação que, quando seguido de infinitivo, possui uma regra de concordância dupla, afetando o verbo principal (parecer) e o verbo auxiliar (infinitivo).
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card parecer">
+                    <h3>5. PARECER + Infinitivo (Dupla Concordância)</h3>
+                    <div class="definicao">
+                        1. O verbo **PARECER** pode flexionar-se, e o infinitivo permanece no singular. **(Mais Comum)**<br>
+                        2. O verbo **PARECER** pode permanecer no singular (3ª pessoa), e o infinitivo flexiona-se no plural.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Os alunos **parecem** *estar* cansados. (Opção 1)<br>
+                        • Os alunos **parece** *estarem* cansados. (Opção 2)
+                    </div>
+                </div>
+                
+                <div class="tipo-card parecer" style="background: linear-gradient(135deg, #FF6B6B, #EE5A5A);">
+                    <h3>6. PARECER (Isolado)</h3>
+                    <div class="definicao">
+                        Quando o verbo **PARECER** não está ligado a um infinitivo, ele segue a regra geral: concorda com o **Sujeito**.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • As crianças *parecem* felizes. (Concorda com *crianças*)<br>
+                        • Ele *parece* inteligente. (Concorda com *ele*)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 Dicas de Ouro</h2>
+            
+            <div class="dicas-box">
+                <h4>Sumário da Concordância SER:</h4>
+                <ul>
+                    <li>**Sujeito (NOME) vs. Predicativo (PRONOME):** SER concorda com o pronome. Ex: Aquela casa *era* **eu**.</li>
+                    <li>**Sujeito (PRONOME PESSOAL) vs. Predicativo (NOME):** SER concorda com o pronome pessoal. Ex: **Nós** *somos* o problema.</li>
+                    <li>**Indicações Impessoais (Medidas/Datas):** SER concorda com o **elemento numérico** (o predicativo). Ex: Hoje *são* 25. Cinco quilos *é* suficiente.</li>
+                    <li>**Tudo/Isto/Aquilo:** SER concorda com o Predicativo. Ex: **Tudo** *foram* enganos.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

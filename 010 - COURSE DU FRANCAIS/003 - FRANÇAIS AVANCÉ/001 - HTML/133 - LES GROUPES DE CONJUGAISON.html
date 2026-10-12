@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Groupes de Conjugaison | Língua Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1a2332;
+            --secondary-blue: #2c4563;
+            --accent-gold: #d4af37;
+            --accent-burgundy: #8b2f47;
+            --accent-sage: #8ba888;
+            --light-cream: #f8f6f1;
+            --warm-white: #fefdfb;
+            --soft-gray: #a8a8a8;
+            --highlight-peach: #f4e5d3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--light-cream) 0%, var(--warm-white) 100%);
+            color: var(--primary-navy);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Decorative Background Elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -20%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .academy-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--secondary-blue);
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Introduction Card */
+        .intro-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem auto;
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--accent-gold);
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 1s ease-out 0.6s both;
+        }
+
+        .intro-card::before {
+            content: '«';
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-size: 6rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-gold);
+            opacity: 0.15;
+            line-height: 1;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .intro-card p {
+            font-size: 1.1rem;
+            color: var(--secondary-blue);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Group Cards */
+        .groups-section {
+            margin: 5rem auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--primary-navy);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        .group-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: cardReveal 0.8s ease-out forwards;
+        }
+
+        .group-card:nth-child(1) { animation-delay: 0.2s; }
+        .group-card:nth-child(2) { animation-delay: 0.4s; }
+        .group-card:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes cardReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .group-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+        }
+
+        .group-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-burgundy));
+        }
+
+        .group-card.groupe-1::before {
+            background: linear-gradient(90deg, #d4af37, #f4e5d3);
+        }
+
+        .group-card.groupe-2::before {
+            background: linear-gradient(90deg, #8b2f47, #d4af37);
+        }
+
+        .group-card.groupe-3::before {
+            background: linear-gradient(90deg, #2c4563, #8ba888);
+        }
+
+        .group-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .group-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-burgundy));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            min-width: 100px;
+        }
+
+        .groupe-1 .group-number {
+            background: linear-gradient(135deg, #d4af37, #f4c242);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .groupe-2 .group-number {
+            background: linear-gradient(135deg, #8b2f47, #c94663);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .groupe-3 .group-number {
+            background: linear-gradient(135deg, #2c4563, #4a7ba7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .group-title {
+            flex: 1;
+        }
+
+        .group-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .group-title .ending {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        .group-description {
+            font-size: 1.1rem;
+            color: var(--secondary-blue);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* Characteristics Box */
+        .characteristics {
+            background: var(--light-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .characteristics h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+        }
+
+        .characteristics ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .characteristics li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--secondary-blue);
+        }
+
+        .characteristics li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        /* Examples Grid */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .example-item {
+            background: var(--warm-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 2px solid var(--light-cream);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .example-item:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .example-infinitive {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .example-meaning {
+            font-size: 0.95rem;
+            color: var(--soft-gray);
+            font-style: italic;
+        }
+
+        /* Conjugation Table */
+        .conjugation-table {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .conjugation-row {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--light-cream);
+            align-items: center;
+        }
+
+        .conjugation-row:last-child {
+            border-bottom: none;
+        }
+
+        .pronoun {
+            font-weight: 600;
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+        }
+
+        .verb-form {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--primary-navy);
+        }
+
+        /* Special Notes Box */
+        .special-notes {
+            background: linear-gradient(135deg, #fff9f0 0%, #fef6ed 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid var(--highlight-peach);
+            position: relative;
+        }
+
+        .special-notes::before {
+            content: '✦';
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 2rem;
+            color: var(--accent-gold);
+            opacity: 0.3;
+        }
+
+        .special-notes h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-burgundy);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .special-notes p {
+            color: var(--secondary-blue);
+            line-height: 1.8;
+        }
+
+        /* Summary Section */
+        .summary-section {
+            background: linear-gradient(135deg, var(--primary-navy), var(--secondary-blue));
+            color: white;
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            margin: 5rem auto;
+            max-width: 1000px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+        }
+
+        .summary-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .summary-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .summary-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .summary-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--soft-gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            header {
+                padding: 3rem 1rem 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .intro-card,
+            .group-card {
+                padding: 2rem;
+            }
+
+            .group-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .group-number {
+                font-size: 3.5rem;
+            }
+
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .conjugation-row {
+                grid-template-columns: 100px 1fr;
+                gap: 1rem;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Interactive Hover Effects */
+        .interactive {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .interactive::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .interactive:hover::after {
+            width: 100%;
+        }
+
+        /* Scroll Animation Observer */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="academy-badge">Língua Academy</div>
+        <h1>Les Groupes de Conjugaison</h1>
+        <p class="subtitle">La structure fondamentale des verbes français</p>
+    </header>
+
+    <div class="container">
+        <div class="intro-card">
+            <p>
+                En français, les verbes sont classés en <strong>trois groupes</strong> selon leur infinitif et leurs particularités de conjugaison. Cette classification facilite l'apprentissage et permet de reconnaître rapidement les modèles de conjugaison. Chaque groupe possède ses propres caractéristiques, terminaisons et irrégularités qui définissent la richesse du système verbal français.
+            </p>
+        </div>
+
+        <section class="groups-section">
+            <h2 class="section-title">Les Trois Groupes Verbaux</h2>
+
+            <!-- PREMIER GROUPE -->
+            <div class="group-card groupe-1 fade-in-section">
+                <div class="group-header">
+                    <div class="group-number">1er</div>
+                    <div class="group-title">
+                        <h2>Premier Groupe</h2>
+                        <p class="ending">Verbes en -ER</p>
+                    </div>
+                </div>
+
+                <p class="group-description">
+                    Le premier groupe est le plus important et le plus régulier. Il comprend environ <strong>90% de tous les verbes français</strong> et constitue le modèle pour les nouveaux verbes qui entrent dans la langue. Ces verbes suivent un modèle de conjugaison très régulier, ce qui les rend relativement faciles à apprendre.
+                </p>
+
+                <div class="characteristics">
+                    <h3>Caractéristiques principales</h3>
+                    <ul>
+                        <li>Infinitif terminé par <strong>-ER</strong></li>
+                        <li>Conjugaison très régulière et prévisible</li>
+                        <li>Le modèle de référence : <em>aimer, parler, chanter</em></li>
+                        <li>Tous les nouveaux verbes adoptent ce modèle</li>
+                        <li>Quelques variations orthographiques (verbes en -cer, -ger, -yer)</li>
+                    </ul>
+                </div>
+
+                <div class="conjugation-table">
+                    <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1.5rem; color: var(--primary-navy);">Exemple : PARLER (présent)</h3>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Je</span>
+                        <span class="verb-form">parle</span>
+                    </div>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Tu</span>
+                        <span class="verb-form">parles</span>
+                    </div>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Il/Elle/On</span>
+                        <span class="verb-form">parle</span>
+                    </div>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Nous</span>
+                        <span class="verb-form">parlons</span>
+                    </div>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Vous</span>
+                        <span class="verb-form">parlez</span>
+                    </div>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Ils/Elles</span>
+                        <span class="verb-form">parlent</span>
+                    </div>
+                </div>
+
+                <div class="examples-grid">
+                    <div class="example-item">
+                        <div class="example-infinitive">chanter</div>
+                        <div class="example-meaning">to sing</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">danser</div>
+                        <div class="example-meaning">to dance</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">aimer</div>
+                        <div class="example-meaning">to love</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">travailler</div>
+                        <div class="example-meaning">to work</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">regarder</div>
+                        <div class="example-meaning">to watch</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">marcher</div>
+                        <div class="example-meaning">to walk</div>
+                    </div>
+                </div>
+
+                <div class="special-notes">
+                    <h4>Particularités orthographiques</h4>
+                    <p>
+                        Certains verbes en -ER présentent des modifications orthographiques pour maintenir la prononciation : les verbes en <strong>-cer</strong> prennent une cédille devant A et O (je commence, nous commençons), les verbes en <strong>-ger</strong> ajoutent un E devant A et O (je mange, nous mangeons), et les verbes en <strong>-yer</strong> peuvent changer le Y en I (je paie ou je paye).
+                    </p>
+                </div>
+            </div>
+
+            <!-- DEUXIÈME GROUPE -->
+            <div class="group-card groupe-2 fade-in-section">
+                <div class="group-header">
+                    <div class="group-number">2e</div>
+                    <div class="group-title">
+                        <h2>Deuxième Groupe</h2>
+                        <p class="ending">Verbes en -IR (réguliers)</p>
+                    </div>
+                </div>
+
+                <p class="group-description">
+                    Le deuxième groupe comprend environ <strong>300 verbes</strong> qui se terminent par -IR et suivent un modèle de conjugaison régulier. Ces verbes sont facilement reconnaissables car ils ajoutent <strong>-iss-</strong> entre le radical et la terminaison aux personnes du pluriel (nous, vous, ils/elles).
+                </p>
+
+                <div class="characteristics">
+                    <h3>Caractéristiques principales</h3>
+                    <ul>
+                        <li>Infinitif terminé par <strong>-IR</strong></li>
+                        <li>Insertion de <strong>-iss-</strong> au pluriel du présent</li>
+                        <li>Le modèle de référence : <em>finir, choisir, réussir</em></li>
+                        <li>Conjugaison régulière et prévisible</li>
+                        <li>Participe présent en <strong>-issant</strong></li>
+                    </ul>
+                </div>
+
+                <div class="conjugation-table">
+                    <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1.5rem; color: var(--primary-navy);">Exemple : FINIR (présent)</h3>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Je</span>
+                        <span class="verb-form">finis</span>
+                    </div>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Tu</span>
+                        <span class="verb-form">finis</span>
+                    </div>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Il/Elle/On</span>
+                        <span class="verb-form">finit</span>
+                    </div>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Nous</span>
+                        <span class="verb-form">finissons</span>
+                    </div>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Vous</span>
+                        <span class="verb-form">finissez</span>
+                    </div>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Ils/Elles</span>
+                        <span class="verb-form">finissent</span>
+                    </div>
+                </div>
+
+                <div class="examples-grid">
+                    <div class="example-item">
+                        <div class="example-infinitive">choisir</div>
+                        <div class="example-meaning">to choose</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">réussir</div>
+                        <div class="example-meaning">to succeed</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">grandir</div>
+                        <div class="example-meaning">to grow</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">réfléchir</div>
+                        <div class="example-meaning">to think/reflect</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">obéir</div>
+                        <div class="example-meaning">to obey</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">établir</div>
+                        <div class="example-meaning">to establish</div>
+                    </div>
+                </div>
+
+                <div class="special-notes">
+                    <h4>Comment les reconnaître ?</h4>
+                    <p>
+                        Pour vérifier qu'un verbe en -IR appartient bien au 2e groupe, conjuguez-le au présent à la première personne du pluriel (nous). Si vous entendez et écrivez le suffixe <strong>-issons</strong>, c'est un verbe du 2e groupe. Par exemple : nous finissons, nous choisissons, nous réfléchissons.
+                    </p>
+                </div>
+            </div>
+
+            <!-- TROISIÈME GROUPE -->
+            <div class="group-card groupe-3 fade-in-section">
+                <div class="group-header">
+                    <div class="group-number">3e</div>
+                    <div class="group-title">
+                        <h2>Troisième Groupe</h2>
+                        <p class="ending">Verbes irréguliers</p>
+                    </div>
+                </div>
+
+                <p class="group-description">
+                    Le troisième groupe rassemble tous les autres verbes français, soit environ <strong>350 verbes</strong>. C'est le groupe des verbes irréguliers, qui comprend les verbes en -IR (sans -iss-), les verbes en -OIR, les verbes en -RE, et quelques verbes en -ER (aller). Ces verbes présentent de nombreuses irrégularités et doivent être appris individuellement.
+                </p>
+
+                <div class="characteristics">
+                    <h3>Caractéristiques principales</h3>
+                    <ul>
+                        <li>Tous les verbes qui ne sont pas du 1er ou 2e groupe</li>
+                        <li>Terminaisons variées : <strong>-IR, -OIR, -RE</strong></li>
+                        <li>Conjugaisons très irrégulières</li>
+                        <li>Comprend les verbes les plus fréquents : être, avoir, aller, faire</li>
+                        <li>Nombreux modèles de conjugaison différents</li>
+                    </ul>
+                </div>
+
+                <div class="conjugation-table">
+                    <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1.5rem; color: var(--primary-navy);">Exemple : PRENDRE (présent)</h3>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Je</span>
+                        <span class="verb-form">prends</span>
+                    </div>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Tu</span>
+                        <span class="verb-form">prends</span>
+                    </div>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Il/Elle/On</span>
+                        <span class="verb-form">prend</span>
+                    </div>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Nous</span>
+                        <span class="verb-form">prenons</span>
+                    </div>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Vous</span>
+                        <span class="verb-form">prenez</span>
+                    </div>
+                    <div class="conjugation-row">
+                        <span class="pronoun">Ils/Elles</span>
+                        <span class="verb-form">prennent</span>
+                    </div>
+                </div>
+
+                <div class="examples-grid">
+                    <div class="example-item">
+                        <div class="example-infinitive">être</div>
+                        <div class="example-meaning">to be</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">avoir</div>
+                        <div class="example-meaning">to have</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">aller</div>
+                        <div class="example-meaning">to go</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">faire</div>
+                        <div class="example-meaning">to do/make</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">venir</div>
+                        <div class="example-meaning">to come</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">pouvoir</div>
+                        <div class="example-meaning">can/to be able</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">vouloir</div>
+                        <div class="example-meaning">to want</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">voir</div>
+                        <div class="example-meaning">to see</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">savoir</div>
+                        <div class="example-meaning">to know</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">mettre</div>
+                        <div class="example-meaning">to put</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">dire</div>
+                        <div class="example-meaning">to say</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-infinitive">boire</div>
+                        <div class="example-meaning">to drink</div>
+                    </div>
+                </div>
+
+                <div class="special-notes">
+                    <h4>Sous-catégories importantes</h4>
+                    <p>
+                        Le 3e groupe se divise en plusieurs sous-catégories : les verbes en <strong>-IR</strong> sans -iss- (partir, sortir, dormir), les verbes en <strong>-OIR</strong> (voir, pouvoir, vouloir, savoir), les verbes en <strong>-RE</strong> (prendre, mettre, faire, dire), et le verbe <strong>ALLER</strong> qui, bien qu'en -ER, est irrégulier. Chaque sous-catégorie a ses propres particularités de conjugaison.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary Section -->
+        <section class="summary-section fade-in-section">
+            <h2>Récapitulatif des Groupes</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>1er Groupe</h3>
+                    <p><strong>~4000 verbes</strong></p>
+                    <p>Infinitif en -ER</p>
+                    <p>Conjugaison régulière</p>
+                    <p>Modèle : parler, aimer</p>
+                </div>
+                <div class="summary-card">
+                    <h3>2e Groupe</h3>
+                    <p><strong>~300 verbes</strong></p>
+                    <p>Infinitif en -IR</p>
+                    <p>-iss- au pluriel</p>
+                    <p>Modèle : finir, choisir</p>
+                </div>
+                <div class="summary-card">
+                    <h3>3e Groupe</h3>
+                    <p><strong>~350 verbes</strong></p>
+                    <p>Verbes irréguliers</p>
+                    <p>-IR, -OIR, -RE, aller</p>
+                    <p>Très fréquents en usage</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-logo">Língua Academy</div>
+        <p>Excellence dans l'enseignement du français</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in sections
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add interactive hover effect to example items
+        document.querySelectorAll('.example-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

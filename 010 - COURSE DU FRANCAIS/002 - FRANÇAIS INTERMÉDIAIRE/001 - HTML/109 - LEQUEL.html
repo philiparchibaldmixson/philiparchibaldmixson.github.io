@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEQUEL - Emplois Particuliers | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Raleway:wght@300;400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --or-noble: #D4AF37;
+            --noir-profond: #0F0F0F;
+            --creme-ivoire: #FAF6F0;
+            --cuivre-antique: #B87333;
+            --bronze-fonce: #8B6914;
+            --blanc-nacre: #FFFEF7;
+            --champagne: #F7E7CE;
+            --ebene: #1C1C1C;
+            --ambre: #FFBF00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--creme-ivoire) 0%, var(--champagne) 100%);
+            color: var(--noir-profond);
+            line-height: 2;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Art Deco geometric pattern background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(212, 175, 55, 0.03) 35px, rgba(212, 175, 55, 0.03) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(139, 105, 20, 0.03) 35px, rgba(139, 105, 20, 0.03) 70px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Art Deco sunburst rays */
+        .sunburst {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2000px;
+            height: 600px;
+            background: radial-gradient(ellipse at top, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+            animation: sunburstPulse 20s ease-in-out infinite;
+        }
+
+        @keyframes sunburstPulse {
+            0%, 100% {
+                opacity: 0.6;
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
+
+        /* Floating gold particles */
+        .gold-particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: var(--or-noble);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: particleFloat 15s linear infinite;
+            box-shadow: 0 0 8px var(--or-noble);
+        }
+
+        .particle-1 {
+            top: 10%;
+            left: 15%;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+
+        .particle-2 {
+            top: 30%;
+            left: 35%;
+            animation-delay: 3s;
+            animation-duration: 22s;
+        }
+
+        .particle-3 {
+            top: 50%;
+            left: 55%;
+            animation-delay: 6s;
+            animation-duration: 20s;
+        }
+
+        .particle-4 {
+            top: 70%;
+            left: 75%;
+            animation-delay: 9s;
+            animation-duration: 24s;
+        }
+
+        .particle-5 {
+            top: 20%;
+            left: 85%;
+            animation-delay: 12s;
+            animation-duration: 19s;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Art Deco Header */
+        header {
+            background: linear-gradient(160deg, var(--noir-profond) 0%, var(--ebene) 40%, var(--bronze-fonce) 100%);
+            padding: 110px 0 130px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 55px 130px rgba(15, 15, 15, 0.7);
+            clip-path: polygon(0 0, 100% 0, 100% 92%, 50% 100%, 0 92%);
+        }
+
+        /* Art Deco geometric decoration */
+        .deco-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0.15;
+            background-image: 
+                radial-gradient(circle at 20% 30%, var(--or-noble) 2px, transparent 2px),
+                radial-gradient(circle at 80% 70%, var(--cuivre-antique) 2px, transparent 2px);
+            background-size: 100px 100px;
+            animation: decoShimmer 25s linear infinite;
+        }
+
+        @keyframes decoShimmer {
+            0%, 100% {
+                opacity: 0.15;
+            }
+            50% {
+                opacity: 0.25;
+            }
+        }
+
+        /* Luxury Brand */
+        .luxury-brand {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 70px;
+            animation: luxuryAppear 2.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        @keyframes luxuryAppear {
+            from {
+                opacity: 0;
+                transform: translateY(-100px) scale(0.85);
+                filter: blur(35px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .crown-emblem {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 40px;
+            background: radial-gradient(circle, var(--or-noble) 0%, var(--bronze-fonce) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: crownRotate 6s ease-in-out infinite;
+            box-shadow: 
+                0 25px 70px rgba(212, 175, 55, 0.7),
+                inset 0 0 40px rgba(255, 255, 255, 0.4);
+            border: 6px solid rgba(255, 255, 255, 0.6);
+        }
+
+        @keyframes crownRotate {
+            0%, 100% {
+                transform: rotate(-8deg) scale(1);
+                box-shadow: 0 25px 70px rgba(212, 175, 55, 0.7), inset 0 0 40px rgba(255, 255, 255, 0.4);
+            }
+            50% {
+                transform: rotate(8deg) scale(1.1);
+                box-shadow: 0 35px 90px rgba(212, 175, 55, 1), inset 0 0 50px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        .crown-inner {
+            font-size: 5.5rem;
+            color: var(--noir-profond);
+            text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.6);
+        }
+
+        .brand-luxury {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            color: var(--or-noble);
+            font-weight: 900;
+            letter-spacing: 20px;
+            margin-bottom: 28px;
+            text-shadow: 
+                7px 7px 18px rgba(0, 0, 0, 0.8),
+                0 0 70px rgba(212, 175, 55, 0.7);
+            text-transform: uppercase;
+        }
+
+        .brand-tagline {
+            color: rgba(255, 255, 255, 0.94);
+            font-size: 1.3rem;
+            letter-spacing: 8px;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        /* Majestic Title */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 7.5rem;
+            color: var(--blanc-nacre);
+            text-align: center;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-top: 70px;
+            position: relative;
+            z-index: 2;
+            animation: luxuryAppear 2.4s cubic-bezier(0.23, 1, 0.32, 1) 0.3s backwards;
+            text-shadow: 
+                9px 9px 22px rgba(0, 0, 0, 0.9),
+                0 0 90px rgba(255, 255, 255, 0.5);
+            letter-spacing: 8px;
+        }
+
+        .deco-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.97);
+            font-size: 2.4rem;
+            margin-top: 45px;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+            animation: luxuryAppear 2.4s cubic-bezier(0.23, 1, 0.32, 1) 0.6s backwards;
+            font-style: italic;
+            letter-spacing: 3px;
+        }
+
+        /* Art Deco divider */
+        .deco-divider {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 6px;
+            background: linear-gradient(90deg, transparent, var(--or-noble), transparent);
+            z-index: 3;
+        }
+
+        .deco-divider::before,
+        .deco-divider::after {
+            content: '◆';
+            position: absolute;
+            top: -15px;
+            color: var(--or-noble);
+            font-size: 2.5rem;
+            animation: diamondSparkle 4s ease-in-out infinite;
+        }
+
+        .deco-divider::before {
+            left: -40px;
+        }
+
+        .deco-divider::after {
+            right: -40px;
+        }
+
+        @keyframes diamondSparkle {
+            0%, 100% {
+                opacity: 0.6;
+                text-shadow: 0 0 15px var(--or-noble);
+            }
+            50% {
+                opacity: 1;
+                text-shadow: 0 0 35px var(--or-noble);
+            }
+        }
+
+        /* Main Content */
+        main {
+            padding: 160px 0;
+        }
+
+        /* Elegant Introduction */
+        .intro-elegant {
+            background: linear-gradient(135deg, var(--blanc-nacre) 0%, var(--creme-ivoire) 100%);
+            padding: 100px;
+            border-radius: 55px;
+            box-shadow: 
+                0 45px 110px rgba(15, 15, 15, 0.3),
+                inset 0 3px 0 rgba(212, 175, 55, 0.3);
+            margin-bottom: 130px;
+            position: relative;
+            overflow: hidden;
+            border: 6px solid rgba(212, 175, 55, 0.3);
+            animation: elegantReveal 2s ease-out 2.4s backwards;
+        }
+
+        @keyframes elegantReveal {
+            from {
+                opacity: 0;
+                transform: translateY(130px) scale(0.88);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .intro-elegant::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(90deg, var(--noir-profond), var(--or-noble), var(--cuivre-antique), var(--noir-profond));
+            border-radius: 55px 55px 0 0;
+        }
+
+        .intro-elegant::after {
+            content: '♔';
+            position: absolute;
+            top: -65px;
+            left: 100px;
+            font-size: 9rem;
+            background: var(--blanc-nacre);
+            width: 155px;
+            height: 155px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            color: var(--or-noble);
+            animation: crownBounce 4s ease-in-out infinite;
+        }
+
+        @keyframes crownBounce {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(15deg);
+            }
+        }
+
+        .elegant-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            color: var(--noir-profond);
+            margin-bottom: 70px;
+            font-weight: 900;
+            position: relative;
+            padding-bottom: 40px;
+        }
+
+        .elegant-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 260px;
+            height: 10px;
+            background: linear-gradient(90deg, var(--or-noble), var(--bronze-fonce));
+            border-radius: 5px;
+            box-shadow: 0 6px 22px rgba(212, 175, 55, 0.5);
+        }
+
+        .elegant-text {
+            font-size: 1.7rem;
+            line-height: 2.8;
+            color: var(--noir-profond);
+            margin-bottom: 45px;
+            text-align: justify;
+        }
+
+        /* Luxury Feature Cards */
+        .luxury-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(720px, 1fr));
+            gap: 80px;
+            margin: 130px 0;
+        }
+
+        .luxury-card {
+            background: linear-gradient(135deg, var(--blanc-nacre) 0%, var(--creme-ivoire) 100%);
+            padding: 90px;
+            border-radius: 50px;
+            box-shadow: 
+                0 35px 100px rgba(15, 15, 15, 0.3),
+                inset 0 3px 0 rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+            border: 5px solid rgba(212, 175, 55, 0.3);
+            animation: elegantReveal 2s ease-out backwards;
+        }
+
+        .luxury-card:nth-child(1) { animation-delay: 2.6s; }
+        .luxury-card:nth-child(2) { animation-delay: 2.8s; }
+
+        .luxury-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--or-noble), var(--bronze-fonce));
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .luxury-card:hover {
+            transform: translateY(-35px) scale(1.02);
+            box-shadow: 
+                0 55px 140px rgba(15, 15, 15, 0.45),
+                inset 0 3px 0 rgba(212, 175, 55, 0.5);
+        }
+
+        .luxury-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .luxury-icon {
+            font-size: 7rem;
+            margin-bottom: 55px;
+            display: inline-block;
+            filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.2));
+            animation: iconLevitate 7s ease-in-out infinite;
+        }
+
+        @keyframes iconLevitate {
+            0%, 100% {
+                transform: translateY(0) rotate(-8deg);
+            }
+            50% {
+                transform: translateY(-45px) rotate(8deg);
+            }
+        }
+
+        .luxury-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            color: var(--noir-profond);
+            margin-bottom: 45px;
+            font-weight: 700;
+        }
+
+        .luxury-description {
+            font-size: 1.6rem;
+            line-height: 2.7;
+            color: var(--noir-profond);
+        }
+
+        /* Refined Examples Section */
+        .examples-refined {
+            background: var(--blanc-nacre);
+            padding: 95px;
+            border-radius: 50px;
+            box-shadow: 0 35px 100px rgba(15, 15, 15, 0.3);
+            margin: 95px 0;
+            animation: elegantReveal 2s ease-out 3s backwards;
+        }
+
+        .refined-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.3rem;
+            color: var(--noir-profond);
+            margin-bottom: 75px;
+            font-weight: 900;
+            text-align: center;
+            position: relative;
+            padding-bottom: 55px;
+        }
+
+        .refined-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 9px;
+            background: linear-gradient(90deg, transparent, var(--or-noble), transparent);
+            border-radius: 5px;
+        }
+
+        /* Art Deco Example Box */
+        .example-deco {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(184, 115, 51, 0.06) 100%);
+            padding: 70px 75px;
+            border-radius: 35px;
+            margin: 65px 0;
+            border-left: 16px solid var(--or-noble);
+            position: relative;
+            transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+        }
+
+        .example-deco:hover {
+            transform: translateX(35px);
+            border-left-width: 22px;
+            box-shadow: -22px 22px 60px rgba(212, 175, 55, 0.5);
+        }
+
+        .example-label {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.45rem;
+            color: var(--bronze-fonce);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 7px;
+            margin-bottom: 30px;
+        }
+
+        .sentence-deco {
+            font-size: 2.1rem;
+            font-weight: 600;
+            color: var(--ebene);
+            margin: 45px 0;
+            padding: 45px;
+            background: var(--blanc-nacre);
+            border-radius: 25px;
+            box-shadow: 0 14px 45px rgba(0, 0, 0, 0.18);
+            line-height: 2.7;
+            font-style: italic;
+            border: 4px solid rgba(212, 175, 55, 0.25);
+        }
+
+        .analysis-deco {
+            font-size: 1.55rem;
+            line-height: 2.7;
+            color: var(--noir-profond);
+            margin-top: 40px;
+            padding-left: 55px;
+            border-left: 14px solid rgba(212, 175, 55, 0.35);
+        }
+
+        .pronoun-gold {
+            color: var(--bronze-fonce);
+            font-weight: 700;
+            background: rgba(212, 175, 55, 0.2);
+            padding: 9px 20px;
+            border-radius: 12px;
+            border-bottom: 6px solid var(--or-noble);
+            text-decoration: none;
+        }
+
+        .function-emphasis {
+            color: var(--cuivre-antique);
+            font-weight: 600;
+            font-style: italic;
+            background: rgba(184, 115, 51, 0.18);
+            padding: 8px 18px;
+            border-radius: 9px;
+        }
+
+        /* Golden Rule Box */
+        .rule-golden {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(212, 175, 55, 0.15) 100%);
+            border: 7px solid var(--or-noble);
+            padding: 75px 80px;
+            border-radius: 40px;
+            margin: 80px 0;
+            position: relative;
+            animation: elegantReveal 2s ease-out 3.2s backwards;
+            box-shadow: 0 25px 80px rgba(212, 175, 55, 0.4);
+        }
+
+        .rule-golden::before {
+            content: '✦';
+            position: absolute;
+            top: -55px;
+            left: 75px;
+            background: var(--blanc-nacre);
+            padding: 25px 42px;
+            border-radius: 50%;
+            font-size: 4rem;
+            box-shadow: 0 14px 45px rgba(0, 0, 0, 0.28);
+            border: 7px solid var(--or-noble);
+            color: var(--or-noble);
+        }
+
+        .rule-heading-gold {
+            font-family: 'Playfair Display', serif;
+            color: var(--noir-profond);
+            font-size: 3.5rem;
+            margin-bottom: 45px;
+            font-weight: 700;
+        }
+
+        .rule-content {
+            font-size: 1.58rem;
+            line-height: 2.8;
+            color: var(--noir-profond);
+        }
+
+        .rule-list {
+            list-style: none;
+            margin: 55px 0;
+        }
+
+        .rule-list li {
+            padding: 40px 0 40px 90px;
+            position: relative;
+            font-size: 1.58rem;
+            line-height: 2.6;
+            border-bottom: 4px dashed rgba(212, 175, 55, 0.3);
+        }
+
+        .rule-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rule-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 28px;
+            color: var(--or-noble);
+            font-size: 3.2rem;
+            animation: goldShimmer 7s ease-in-out infinite;
+        }
+
+        @keyframes goldShimmer {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.7;
+                text-shadow: 0 0 22px var(--or-noble);
+            }
+            50% {
+                transform: scale(1.7) rotate(90deg);
+                opacity: 1;
+                text-shadow: 0 0 45px var(--or-noble);
+            }
+        }
+
+        /* Prestige Table */
+        .table-prestige {
+            background: var(--blanc-nacre);
+            padding: 90px;
+            border-radius: 45px;
+            box-shadow: 0 35px 100px rgba(15, 15, 15, 0.3);
+            margin: 90px 0;
+            overflow-x: auto;
+            animation: elegantReveal 2s ease-out 3.4s backwards;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 60px 0;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--noir-profond) 0%, var(--ebene) 100%);
+        }
+
+        th {
+            color: var(--or-noble);
+            padding: 45px 38px;
+            text-align: left;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        th:first-child {
+            border-radius: 30px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 30px 0 0;
+        }
+
+        td {
+            padding: 42px 38px;
+            border-bottom: 4px solid rgba(212, 175, 55, 0.18);
+            font-size: 1.55rem;
+            line-height: 2.6;
+        }
+
+        tbody tr {
+            transition: all 0.7s ease;
+            background: var(--blanc-nacre);
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(184, 115, 51, 0.08) 100%);
+            transform: translateX(25px);
+        }
+
+        tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 30px;
+        }
+
+        tbody tr:last-child td:last-child {
+            border-radius: 0 0 30px 0;
+        }
+
+        .table-pronoun-form {
+            font-weight: 700;
+            color: var(--bronze-fonce);
+            font-size: 1.75rem;
+        }
+
+        /* Bronze Warning */
+        .warning-bronze {
+            background: linear-gradient(135deg, rgba(184, 115, 51, 0.25) 0%, rgba(184, 115, 51, 0.15) 100%);
+            border: 7px solid var(--cuivre-antique);
+            padding: 75px 80px;
+            border-radius: 40px;
+            margin: 80px 0;
+            position: relative;
+            animation: elegantReveal 2s ease-out 3.6s backwards;
+            box-shadow: 0 25px 80px rgba(184, 115, 51, 0.4);
+        }
+
+        .warning-bronze::before {
+            content: '⚜';
+            position: absolute;
+            top: -55px;
+            left: 75px;
+            background: var(--blanc-nacre);
+            padding: 25px 42px;
+            border-radius: 50%;
+            font-size: 4rem;
+            box-shadow: 0 14px 45px rgba(0, 0, 0, 0.28);
+            border: 7px solid var(--cuivre-antique);
+            color: var(--cuivre-antique);
+        }
+
+        .warning-heading {
+            font-family: 'Playfair Display', serif;
+            color: var(--cuivre-antique);
+            font-size: 3.5rem;
+            margin-bottom: 45px;
+            font-weight: 700;
+        }
+
+        .warning-content {
+            font-size: 1.58rem;
+            line-height: 2.8;
+            color: var(--noir-profond);
+        }
+
+        /* Elegant Tip */
+        .tip-elegant {
+            background: linear-gradient(135deg, rgba(15, 15, 15, 0.25) 0%, rgba(15, 15, 15, 0.15) 100%);
+            border-left: 18px solid var(--noir-profond);
+            padding: 72px 80px;
+            border-radius: 32px;
+            margin: 75px 0;
+            position: relative;
+            animation: elegantReveal 2s ease-out 3.8s backwards;
+        }
+
+        .tip-elegant::before {
+            content: '💎';
+            position: absolute;
+            top: -42px;
+            left: 75px;
+            background: var(--blanc-nacre);
+            padding: 22px 38px;
+            border-radius: 55px;
+            font-size: 3.2rem;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+            border: 6px solid var(--noir-profond);
+        }
+
+        .tip-heading {
+            font-family: 'Playfair Display', serif;
+            color: var(--noir-profond);
+            font-size: 3.3rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .tip-content {
+            font-size: 1.55rem;
+            line-height: 2.7;
+            color: var(--noir-profond);
+        }
+
+        /* Opulent Panel */
+        .opulent-panel {
+            background: linear-gradient(135deg, var(--noir-profond) 0%, var(--ebene) 100%);
+            padding: 105px;
+            border-radius: 55px;
+            margin: 100px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 50px 120px rgba(15, 15, 15, 0.8),
+                inset 0 3px 0 rgba(212, 175, 55, 0.2);
+            animation: elegantReveal 2s ease-out 4s backwards;
+        }
+
+        .opulent-panel::before {
+            content: '';
+            position: absolute;
+            top: -220px;
+            right: -220px;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.6) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: opulentGlow 18s ease-in-out infinite;
+        }
+
+        .opulent-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -200px;
+            left: -200px;
+            width: 650px;
+            height: 650px;
+            background: radial-gradient(circle, rgba(184, 115, 51, 0.55) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: opulentGlow 22s ease-in-out infinite reverse;
+        }
+
+        @keyframes opulentGlow {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.8) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        .opulent-panel h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--or-noble);
+            font-size: 4.6rem;
+            margin-bottom: 65px;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
+            text-shadow: 
+                8px 8px 18px rgba(0, 0, 0, 0.8),
+                0 0 55px rgba(212, 175, 55, 0.8);
+            letter-spacing: 6px;
+        }
+
+        .opulent-panel p {
+            color: rgba(255, 255, 255, 0.98);
+            font-size: 1.7rem;
+            line-height: 2.9;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 40px;
+        }
+
+        .opulent-list {
+            list-style: none;
+            margin: 60px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .opulent-list li {
+            color: rgba(255, 255, 255, 0.98);
+            font-size: 1.62rem;
+            padding: 42px 0 42px 90px;
+            position: relative;
+            line-height: 2.8;
+        }
+
+        .opulent-list li::before {
+            content: '◈';
+            position: absolute;
+            left: 28px;
+            color: var(--or-noble);
+            font-size: 3.2rem;
+            animation: luxuryPulse 9s ease-in-out infinite;
+        }
+
+        @keyframes luxuryPulse {
+            0%, 100% {
+                opacity: 0.7;
+                transform: scale(1) rotate(0deg);
+                text-shadow: 0 0 28px var(--or-noble);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.9) rotate(45deg);
+                text-shadow: 0 0 55px var(--or-noble);
+            }
+        }
+
+        /* Prestige Footer */
+        footer {
+            background: linear-gradient(135deg, var(--noir-profond) 0%, var(--ebene) 100%);
+            color: var(--blanc-nacre);
+            padding: 95px 0;
+            text-align: center;
+            margin-top: 160px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 42% 50%, rgba(212, 175, 55, 0.32) 0%, transparent 50%),
+                radial-gradient(circle at 58% 50%, rgba(184, 115, 51, 0.32) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        footer p {
+            font-size: 1.6rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 2.5px;
+            margin: 25px 0;
+        }
+
+        .footer-prestige {
+            font-family: 'Playfair Display', serif;
+            color: var(--or-noble);
+            font-weight: 900;
+            font-size: 2.8rem;
+            margin-top: 35px;
+            letter-spacing: 10px;
+            text-shadow: 0 0 45px rgba(212, 175, 55, 0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 60px;
+            }
+
+            h1 {
+                font-size: 5.2rem;
+            }
+
+            .deco-subtitle {
+                font-size: 2rem;
+            }
+
+            .luxury-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-elegant,
+            .examples-refined,
+            .table-prestige,
+            .opulent-panel {
+                padding: 70px;
+            }
+
+            table {
+                font-size: 1.3rem;
+            }
+
+            th, td {
+                padding: 32px 28px;
+            }
+        }
+
+        /* Luxury Scrollbar */
+        ::-webkit-scrollbar {
+            width: 28px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--creme-ivoire);
+            border-left: 6px solid rgba(212, 175, 55, 0.2);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--or-noble), var(--bronze-fonce));
+            border-radius: 14px;
+            border: 9px solid var(--creme-ivoire);
+            box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--ambre), var(--cuivre-antique));
+        }
+    </style>
+</head>
+<body>
+    <!-- Sunburst -->
+    <div class="sunburst"></div>
+
+    <!-- Gold particles -->
+    <div class="gold-particle particle-1"></div>
+    <div class="gold-particle particle-2"></div>
+    <div class="gold-particle particle-3"></div>
+    <div class="gold-particle particle-4"></div>
+    <div class="gold-particle particle-5"></div>
+
+    <header>
+        <div class="deco-pattern"></div>
+        
+        <div class="container">
+            <div class="luxury-brand">
+                <div class="crown-emblem">
+                    <div class="crown-inner">♔</div>
+                </div>
+                <div class="brand-luxury">Língua Academy</div>
+                <div class="brand-tagline">L'Art de l'Excellence Grammaticale</div>
+            </div>
+            <h1>LEQUEL</h1>
+            <p class="deco-subtitle">Emplois Particuliers et Sophistication</p>
+        </div>
+        <div class="deco-divider"></div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Introduction Elegant -->
+            <section class="intro-elegant">
+                <h2 class="elegant-heading">Présentation Générale</h2>
+                <p class="elegant-text">
+                    Le pronom relatif <strong>LEQUEL</strong> et ses variantes constituent une famille sophistiquée de 
+                    pronoms qui se distinguent par leur capacité à s'accorder en genre et en nombre avec leur antécédent. 
+                    Cette famille comprend quatre formes de base : <strong>lequel</strong> (masculin singulier), 
+                    <strong>laquelle</strong> (féminin singulier), <strong>lesquels</strong> (masculin pluriel), et 
+                    <strong>lesquelles</strong> (féminin pluriel). Ces formes s'emploient principalement après une 
+                    préposition, offrant une alternative plus précise aux pronoms simples "qui" ou "que", et sont 
+                    particulièrement indispensables dans certaines constructions grammaticales spécifiques.
+                </p>
+                <p class="elegant-text">
+                    La particularité remarquable de "lequel" réside dans ses <strong>formes contractées</strong> qui 
+                    résultent de la fusion avec les prépositions "à" et "de". Avec la préposition "à", on obtient : 
+                    <strong>auquel</strong>, <strong>à laquelle</strong>, <strong>auxquels</strong>, <strong>auxquelles</strong>. 
+                    Avec la préposition "de", on forme : <strong>duquel</strong>, <strong>de laquelle</strong>, 
+                    <strong>desquels</strong>, <strong>desquelles</strong>. Ces contractions sont obligatoires au masculin 
+                    singulier et au pluriel (auquel, auxquels, duquel, desquels), mais restent facultatives au féminin 
+                    (à laquelle ou "à la quelle", de laquelle ou "de la quelle" - bien que la forme contractée soit 
+                    largement préférée).
+                </p>
+                <p class="elegant-text">
+                    L'emploi de "lequel" n'est pas facultatif dans tous les contextes. Il existe des situations où son 
+                    usage est <strong>obligatoire</strong> : après une locution prépositive (à côté de, près de, au sujet de, 
+                    etc.) où "dont" ne peut pas être utilisé ; pour désigner des choses après une préposition (avec, pour, 
+                    sans, etc.) où "qui" ne convient pas ; et dans certaines constructions formelles où la clarté exige 
+                    l'accord visible. Dans d'autres cas, "lequel" entre en concurrence avec d'autres pronoms relatifs 
+                    ("qui", "dont", "où"), et le choix dépend alors du registre de langue, du degré de formalité souhaité, 
+                    et de la précision recherchée dans l'expression.
+                </p>
+            </section>
+
+            <!-- Luxury Grid -->
+            <div class="luxury-grid">
+                <div class="luxury-card">
+                    <span class="luxury-icon">⚜️</span>
+                    <h3 class="luxury-title">Formes et Contractions</h3>
+                    <p class="luxury-description">
+                        <strong>LEQUEL</strong> se décline en quatre formes de base qui s'accordent avec l'antécédent : 
+                        lequel (m.sg.), laquelle (f.sg.), lesquels (m.pl.), lesquelles (f.pl.). Avec la préposition 
+                        <strong>À</strong>, les formes contractent obligatoirement : auquel, à laquelle, auxquels, 
+                        auxquelles. Avec la préposition <strong>DE</strong> : duquel, de laquelle, desquels, desquelles. 
+                        Les autres prépositions (avec, pour, sans, par, etc.) ne contractent pas et s'utilisent telles 
+                        quelles avec les formes de base : "avec lequel", "pour laquelle", "sans lesquels". La contraction 
+                        est une règle stricte en français standard et ne peut être omise pour les formes masculines et 
+                        plurielles. Cette flexibilité morphologique permet une grande précision référentielle.
+                    </p>
+                </div>
+
+                <div class="luxury-card">
+                    <span class="luxury-icon">👑</span>
+                    <h3 class="luxury-title">Emplois Obligatoires</h3>
+                    <p class="luxury-description">
+                        <strong>LEQUEL</strong> devient obligatoire dans plusieurs contextes précis : (1) Après une 
+                        <strong>locution prépositive</strong> composée (à côté de, près de, au sujet de, à cause de, 
+                        grâce à, en face de, etc.) où "dont" est impossible : "La maison à côté de laquelle j'habite". 
+                        (2) Pour désigner des <strong>choses après préposition</strong> où "qui" ne peut pas être utilisé 
+                        (qui est réservé aux personnes) : "L'outil avec lequel je travaille" (jamais "avec qui"). 
+                        (3) Après certaines <strong>prépositions</strong> comme parmi, entre : "Les livres parmi lesquels 
+                        j'ai choisi". (4) Pour éviter toute <strong>ambiguïté</strong> quand plusieurs antécédents sont 
+                        possibles, l'accord de "lequel" clarifie la référence : "J'ai rencontré la sœur de mon ami, 
+                        laquelle (= la sœur, non l'ami) m'a parlé de toi."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Examples Refined -->
+            <section class="examples-refined">
+                <h2 class="refined-title">Exemples Détaillés et Applications</h2>
+
+                <div class="example-deco">
+                    <div class="example-label">LEQUEL - Après Préposition Simple</div>
+                    <div class="sentence-deco">
+                        L'outil <span class="pronoun-gold">avec lequel</span> je travaille est très précis.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Construction :</strong> <span class="function-emphasis">Préposition "avec" + lequel (chose)</span><br>
+                        → <strong>Antécédent :</strong> "L'outil" (chose, masculin singulier)<br>
+                        → <strong>Accord :</strong> "Lequel" s'accorde avec "outil" → masculin singulier<br>
+                        → <strong>Remarque :</strong> "Qui" est impossible ici car l'antécédent est une chose
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">AUQUEL - Contraction avec À</div>
+                    <div class="sentence-deco">
+                        Le problème <span class="pronoun-gold">auquel</span> je pense est complexe.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Contraction :</strong> <span class="function-emphasis">à + lequel = auquel</span><br>
+                        → <strong>Verbe :</strong> "Penser à" → nécessite la préposition "à"<br>
+                        → <strong>Antécédent :</strong> "Le problème" (masculin singulier)<br>
+                        → <strong>Erreur à éviter :</strong> ❌ "à lequel" (non contracté) est incorrect
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">DUQUEL - Après Locution Prépositive</div>
+                    <div class="sentence-deco">
+                        La maison à côté <span class="pronoun-gold">de laquelle</span> j'habite est à vendre.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Locution :</strong> <span class="function-emphasis">"À côté de" (locution prépositive à 3 mots)</span><br>
+                        → <strong>Règle :</strong> Après locution prépositive → obligatoirement "duquel/de laquelle"<br>
+                        → <strong>Antécédent :</strong> "La maison" (féminin singulier) → "de laquelle"<br>
+                        → <strong>Impossible :</strong> ❌ "à côté dont" (erreur grave)
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">LAQUELLE - Féminin Singulier</div>
+                    <div class="sentence-deco">
+                        La situation <span class="pronoun-gold">dans laquelle</span> nous nous trouvons est délicate.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Accord :</strong> <span class="function-emphasis">"Laquelle" féminin singulier</span><br>
+                        → <strong>Antécédent :</strong> "La situation" (féminin singulier)<br>
+                        → <strong>Préposition :</strong> "Dans" ne contracte pas, reste "dans laquelle"<br>
+                        → <strong>Alternative :</strong> "Où nous nous trouvons" (plus courant à l'oral)
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">LESQUELS - Masculin Pluriel</div>
+                    <div class="sentence-deco">
+                        Les projets <span class="pronoun-gold">pour lesquels</span> nous travaillons sont ambitieux.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Accord :</strong> <span class="function-emphasis">"Lesquels" masculin pluriel</span><br>
+                        → <strong>Antécédent :</strong> "Les projets" (masculin pluriel)<br>
+                        → <strong>Préposition :</strong> "Pour" + lesquels (pas de contraction)<br>
+                        → <strong>Usage :</strong> "Lesquels" marque clairement le pluriel
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">AUXQUELLES - Contraction Féminin Pluriel</div>
+                    <div class="sentence-deco">
+                        Les questions <span class="pronoun-gold">auxquelles</span> je réponds sont importantes.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Contraction :</strong> <span class="function-emphasis">à + lesquelles = auxquelles</span><br>
+                        → <strong>Verbe :</strong> "Répondre à" → nécessite "à"<br>
+                        → <strong>Antécédent :</strong> "Les questions" (féminin pluriel)<br>
+                        → <strong>Accord complet :</strong> Féminin pluriel visible dans la forme
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">LEQUEL - Clarification d'Ambiguïté</div>
+                    <div class="sentence-deco">
+                        J'ai rencontré le frère de Marie, <span class="pronoun-gold">lequel</span> m'a parlé de son voyage.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Ambiguïté évitée :</strong> <span class="function-emphasis">"Lequel" (masculin) = le frère, non Marie</span><br>
+                        → <strong>Fonction :</strong> L'accord en genre clarifie l'antécédent<br>
+                        → <strong>Alternative ambiguë :</strong> "qui m'a parlé" ne précise pas qui (frère ou Marie)<br>
+                        → <strong>Usage :</strong> "Lequel" apporte la précision nécessaire
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">LEQUEL vs QUI - Chose vs Personne</div>
+                    <div class="sentence-deco">
+                        L'ami <span style="color: var(--bronze-fonce); font-weight: 700;">avec qui</span> je voyage. / Le sac <span class="pronoun-gold">avec lequel</span> je voyage.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Personne :</strong> <span class="function-emphasis">Préposition + "qui" pour les personnes</span><br>
+                        → <strong>Chose :</strong> <span class="function-emphasis">Préposition + "lequel" pour les choses</span><br>
+                        → <strong>Règle :</strong> Après préposition, "qui" (personne) ou "lequel" (chose)<br>
+                        → <strong>Erreur :</strong> ❌ "le sac avec qui" (incorrect pour une chose)
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">DESQUELS - Après Locution avec DE</div>
+                    <div class="sentence-deco">
+                        Les étudiants au sujet <span class="pronoun-gold">desquels</span> nous discutons sont brillants.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Locution :</strong> <span class="function-emphasis">"Au sujet de" → de + lesquels = desquels</span><br>
+                        → <strong>Contraction :</strong> "De" + "lesquels" obligatoirement contracté<br>
+                        → <strong>Antécédent :</strong> "Les étudiants" (masculin pluriel)<br>
+                        → <strong>Impossible :</strong> ❌ "au sujet dont" (erreur)
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">LEQUEL - Après PARMI</div>
+                    <div class="sentence-deco">
+                        Les livres <span class="pronoun-gold">parmi lesquels</span> j'ai choisi sont des classiques.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Préposition :</strong> <span class="function-emphasis">"Parmi" + lequel obligatoire</span><br>
+                        → <strong>Signification :</strong> Parmi ces livres, j'en ai choisi certains<br>
+                        → <strong>Usage :</strong> "Parmi" exige toujours "lequel" (jamais "qui" ou "dont")<br>
+                        → <strong>Accord :</strong> "Lesquels" (masculin pluriel) avec "livres"
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">LEQUEL - Après ENTRE</div>
+                    <div class="sentence-deco">
+                        Les deux solutions <span class="pronoun-gold">entre lesquelles</span> je dois choisir sont valables.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Préposition :</strong> <span class="function-emphasis">"Entre" + lequel obligatoire</span><br>
+                        → <strong>Antécédent :</strong> "Les deux solutions" (féminin pluriel)<br>
+                        → <strong>Accord :</strong> "Lesquelles" marque le féminin pluriel<br>
+                        → <strong>Construction :</strong> "Entre" exige "lequel", pas d'autre option
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">LEQUEL - Registre Soutenu</div>
+                    <div class="sentence-deco">
+                        La ville <span class="pronoun-gold">dans laquelle</span> je vis. / <span style="color: var(--emeraude); font-weight: 700;">Plus courant :</span> La ville <span style="color: var(--bronze-fonce); font-weight: 700;">où</span> je vis.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Registre :</strong> <span class="function-emphasis">"Dans laquelle" est plus formel que "où"</span><br>
+                        → <strong>Équivalence :</strong> "Dans laquelle" = "où" pour les lieux<br>
+                        → <strong>Usage :</strong> "Où" est préféré à l'oral et dans l'écrit courant<br>
+                        → <strong>Contexte :</strong> "Dans laquelle" marque un style plus littéraire
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">LEQUEL - Antécédent Éloigné</div>
+                    <div class="sentence-deco">
+                        Il a évoqué un problème important, <span class="pronoun-gold">lequel</span> mérite notre attention.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Usage :</strong> <span class="function-emphasis">"Lequel" reprend un antécédent éloigné</span><br>
+                        → <strong>Fonction :</strong> Clarté quand l'antécédent est séparé par d'autres mots<br>
+                        → <strong>Alternative :</strong> "Qui" serait possible mais moins clair<br>
+                        → <strong>Style :</strong> "Lequel" apporte formalité et précision
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">LEQUEL - Avec Superlatif</div>
+                    <div class="sentence-deco">
+                        C'est le meilleur outil <span class="pronoun-gold">avec lequel</span> on puisse travailler.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Construction :</strong> <span class="function-emphasis">Superlatif + préposition + lequel + subjonctif</span><br>
+                        → <strong>Mode :</strong> Subjonctif après superlatif ("puisse")<br>
+                        → <strong>Antécédent :</strong> "L'outil" (masculin singulier)<br>
+                        → <strong>Remarque :</strong> "Lequel" obligatoire après préposition avec chose
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">LEQUEL - Phrases Interrogatives</div>
+                    <div class="sentence-deco">
+                        <span class="pronoun-gold">Auquel</span> de ces projets participez-vous ?
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Usage interrogatif :</strong> <span class="function-emphasis">"Auquel" peut servir dans les questions</span><br>
+                        → <strong>Signification :</strong> À quel projet parmi ceux-ci ?<br>
+                        → <strong>Construction :</strong> Auquel + de + nom pluriel<br>
+                        → <strong>Remarque :</strong> Forme élégante et précise pour interroger
+                    </p>
+                </div>
+            </section>
+
+            <!-- Rule Golden -->
+            <div class="rule-golden">
+                <h3 class="rule-heading-gold">Règles Fondamentales de LEQUEL</h3>
+                <div class="rule-content">
+                    <ul class="rule-list">
+                        <li>
+                            <strong>Accord obligatoire :</strong> "Lequel" s'accorde TOUJOURS en genre et en nombre avec 
+                            son antécédent. Lequel (m.sg.), laquelle (f.sg.), lesquels (m.pl.), lesquelles (f.pl.). 
+                            Cet accord permet de clarifier la référence, surtout quand plusieurs antécédents sont possibles.
+                        </li>
+                        <li>
+                            <strong>Contractions avec À et DE :</strong> La contraction est obligatoire au masculin et 
+                            au pluriel. À + lequel = auquel, à + lesquels = auxquels, à + lesquelles = auxquelles. 
+                            De + lequel = duquel, de + lesquels = desquels, de + lesquelles = desquelles. Au féminin 
+                            singulier : à laquelle, de laquelle (pas de contraction car "la" ne contracte pas avec à/de).
+                        </li>
+                        <li>
+                            <strong>Emploi obligatoire après locutions :</strong> Après une locution prépositive (à côté de, 
+                            près de, au sujet de, à cause de, grâce à, loin de, en face de, etc.), on utilise OBLIGATOIREMENT 
+                            "duquel/de laquelle". "Dont" est impossible dans ce contexte. Exemple : "La maison près de laquelle" 
+                            (jamais "près dont").
+                        </li>
+                        <li>
+                            <strong>Choses après préposition :</strong> Pour désigner des CHOSES après une préposition 
+                            (avec, pour, sans, par, sur, sous, etc.), utilisez "lequel" et ses variantes. "Qui" est réservé 
+                            aux PERSONNES. Exemple : "L'outil avec lequel" (chose), "L'ami avec qui" (personne).
+                        </li>
+                        <li>
+                            <strong>LEQUEL vs OÙ :</strong> Pour les lieux, "où" est généralement préféré dans la langue 
+                            courante : "La ville où je vis" (courant) vs "La ville dans laquelle je vis" (soutenu). 
+                            "Lequel" marque un registre plus formel et littéraire. Les deux sont corrects grammaticalement.
+                        </li>
+                        <li>
+                            <strong>Prépositions PARMI et ENTRE :</strong> Ces deux prépositions exigent toujours "lequel" 
+                            et ses variantes, jamais "qui" ni "dont". "Parmi lesquels", "entre lesquelles" sont les seules 
+                            constructions possibles. Cette règle ne souffre aucune exception.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Table Prestige -->
+            <section class="table-prestige">
+                <h2 class="elegant-heading">Tableau Complet des Formes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Genre/Nombre</th>
+                            <th>Forme de Base</th>
+                            <th>Avec À (contraction)</th>
+                            <th>Avec DE (contraction)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-pronoun-form">Masculin Singulier</td>
+                            <td><em>lequel</em></td>
+                            <td><em>auquel</em></td>
+                            <td><em>duquel</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-form">Féminin Singulier</td>
+                            <td><em>laquelle</em></td>
+                            <td><em>à laquelle</em></td>
+                            <td><em>de laquelle</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-form">Masculin Pluriel</td>
+                            <td><em>lesquels</em></td>
+                            <td><em>auxquels</em></td>
+                            <td><em>desquels</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-form">Féminin Pluriel</td>
+                            <td><em>lesquelles</em></td>
+                            <td><em>auxquelles</em></td>
+                            <td><em>desquelles</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 class="elegant-heading" style="margin-top: 80px;">Prépositions Courantes avec LEQUEL</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Préposition</th>
+                            <th>Construction</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-pronoun-form">avec</td>
+                            <td>avec + lequel (pas de contraction)</td>
+                            <td><em>L'outil avec lequel je travaille</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-form">pour</td>
+                            <td>pour + lequel (pas de contraction)</td>
+                            <td><em>Les raisons pour lesquelles</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-form">sans</td>
+                            <td>sans + lequel (pas de contraction)</td>
+                            <td><em>Le projet sans lequel</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-form">dans</td>
+                            <td>dans + lequel (pas de contraction)</td>
+                            <td><em>La situation dans laquelle</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-form">sur</td>
+                            <td>sur + lequel (pas de contraction)</td>
+                            <td><em>Le sujet sur lequel</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-form">parmi</td>
+                            <td>parmi + lequel (obligatoire)</td>
+                            <td><em>Les options parmi lesquelles</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-form">entre</td>
+                            <td>entre + lequel (obligatoire)</td>
+                            <td><em>Les choix entre lesquels</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Warning Bronze -->
+            <div class="warning-bronze">
+                <h3 class="warning-heading">Erreurs Courantes et Pièges</h3>
+                <div class="warning-content">
+                    <p style="margin-bottom: 38px;">
+                        <strong>Erreur n°1 : Oublier la contraction obligatoire</strong><br>
+                        ❌ <em>"Le problème à lequel je pense"</em> (incorrect au masculin singulier)<br>
+                        ✅ <em>"Le problème <strong>auquel</strong> je pense"</em> (correct)<br>
+                        → La contraction est OBLIGATOIRE : à + lequel = auquel (non "à lequel")
+                    </p>
+                    
+                    <p style="margin-bottom: 38px;">
+                        <strong>Erreur n°2 : Utiliser "dont" après locution prépositive</strong><br>
+                        ❌ <em>"La maison à côté dont j'habite"</em> (incorrect)<br>
+                        ✅ <em>"La maison à côté <strong>de laquelle</strong> j'habite"</em> (correct)<br>
+                        → Après locution prépositive → "duquel/de laquelle", jamais "dont"
+                    </p>
+                    
+                    <p style="margin-bottom: 38px;">
+                        <strong>Erreur n°3 : Utiliser "qui" pour une chose</strong><br>
+                        ❌ <em>"L'outil avec qui je travaille"</em> (incorrect)<br>
+                        ✅ <em>"L'outil <strong>avec lequel</strong> je travaille"</em> (correct)<br>
+                        → Après préposition : "qui" pour personnes, "lequel" pour choses
+                    </p>
+                    
+                    <p style="margin-bottom: 38px;">
+                        <strong>Erreur n°4 : Mauvais accord en genre/nombre</strong><br>
+                        ❌ <em>"Les questions auquel je réponds"</em> (incorrect)<br>
+                        ✅ <em>"Les questions <strong>auxquelles</strong> je réponds"</em> (correct)<br>
+                        → "Lequel" s'accorde avec "questions" (féminin pluriel) → auxquelles
+                    </p>
+                    
+                    <p>
+                        <strong>Erreur n°5 : Confusion entre registres</strong><br>
+                        Acceptable mais lourd : <em>"La ville dans laquelle je vis"</em><br>
+                        Préférable : <em>"La ville <strong>où</strong> je vis"</em><br>
+                        → Pour les lieux, privilégier "où" dans le langage courant (plus naturel)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tip Elegant -->
+            <div class="tip-elegant">
+                <h3 class="tip-heading">Méthode de Choix et Application</h3>
+                <div class="tip-content">
+                    <p style="margin-bottom: 30px;">
+                        <strong>Comment choisir entre LEQUEL et les autres pronoms :</strong>
+                    </p>
+                    
+                    <p style="margin-bottom: 28px;">
+                        <strong>Étape 1 :</strong> Y a-t-il une préposition ?<br>
+                        → Si NON : utilisez "qui" (sujet) ou "que" (COD), jamais "lequel"<br>
+                        → Si OUI : passez à l'étape 2
+                    </p>
+                    
+                    <p style="margin-bottom: 28px;">
+                        <strong>Étape 2 :</strong> La préposition est-elle "DE" simple ?<br>
+                        → Si OUI et pas de locution : utilisez "dont" (plus simple)<br>
+                        → Si la préposition est composée (à côté de, près de) : "duquel/de laquelle" obligatoire
+                    </p>
+                    
+                    <p style="margin-bottom: 28px;">
+                        <strong>Étape 3 :</strong> L'antécédent est-il une personne ou une chose ?<br>
+                        → PERSONNE après préposition : "qui" est possible ("avec qui", "pour qui")<br>
+                        → CHOSE après préposition : "lequel" est OBLIGATOIRE ("avec lequel", "pour lequel")
+                    </p>
+                    
+                    <p style="margin-bottom: 28px;">
+                        <strong>Étape 4 :</strong> Est-ce un lieu ou un temps ?<br>
+                        → Si OUI : "où" est généralement préféré (plus naturel)<br>
+                        → "Dans lequel/laquelle" reste correct mais plus formel
+                    </p>
+                    
+                    <p style="margin-bottom: 28px;">
+                        <strong>Cas particuliers obligatoires :</strong><br>
+                        • Après "parmi" → toujours "parmi lesquels/lesquelles"<br>
+                        • Après "entre" → toujours "entre lesquels/lesquelles"<br>
+                        • Après locution prépositive → toujours "duquel/de laquelle"
+                    </p>
+                    
+                    <p>
+                        <strong>Astuce de style :</strong><br>
+                        "Lequel" marque un registre plus soutenu. Dans le doute pour un texte formel, 
+                        "lequel" est toujours acceptable. Pour l'oral courant, préférez les alternatives 
+                        plus simples quand elles existent (qui, dont, où).
+                    </p>
+                </div>
+            </div>
+
+            <!-- More Examples -->
+            <section class="examples-refined">
+                <h2 class="refined-title">Cas Particuliers et Nuances</h2>
+
+                <div class="example-deco">
+                    <div class="example-label">LEQUEL - Succession de Relatives</div>
+                    <div class="sentence-deco">
+                        Un projet <span class="pronoun-gold">auquel</span> je participe et <span class="pronoun-gold">dans lequel</span> je crois.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Coordination :</strong> <span class="function-emphasis">Deux relatives coordonnées avec "lequel"</span><br>
+                        → <strong>Première :</strong> "auquel je participe" (à + lequel)<br>
+                        → <strong>Seconde :</strong> "dans lequel je crois" (dans + lequel)<br>
+                        → <strong>Style :</strong> Construction élégante mais formelle
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">LEQUEL - Valeur Démonstrative</div>
+                    <div class="sentence-deco">
+                        Il a présenté trois arguments, <span class="pronoun-gold">lesquels</span> m'ont convaincu.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Valeur :</strong> <span class="function-emphasis">"Lesquels" = et ces arguments (valeur démonstrative)</span><br>
+                        → <strong>Fonction :</strong> Reprend l'antécédent avec insistance<br>
+                        → <strong>Registre :</strong> Très soutenu, littéraire<br>
+                        → <strong>Alternative :</strong> "qui m'ont convaincu" (plus simple)
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">LEQUEL - Avec Complément du Nom</div>
+                    <div class="sentence-deco">
+                        Les documents <span class="pronoun-gold">dont</span> j'ai besoin. / Les documents sans <span class="pronoun-gold">lesquels</span> je ne peux travailler.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Avec "de" :</strong> <span class="function-emphasis">"Dont" est plus simple (avoir besoin de)</span><br>
+                        → <strong>Avec "sans" :</strong> <span class="function-emphasis">"Lequel" obligatoire (sans lesquels)</span><br>
+                        → <strong>Comparaison :</strong> Choisir selon la préposition utilisée<br>
+                        → <strong>Règle :</strong> "Dont" seulement avec "de", sinon "lequel"
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">LEQUEL - Dans Propositions Incises</div>
+                    <div class="sentence-deco">
+                        Ce problème, <span class="pronoun-gold">lequel</span> me préoccupe beaucoup, doit être résolu.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Incise :</strong> <span class="function-emphasis">Proposition entre virgules, valeur explicative</span><br>
+                        → <strong>Fonction :</strong> Apporte une information supplémentaire sur l'antécédent<br>
+                        → <strong>Style :</strong> Registre très formel, littéraire<br>
+                        → <strong>Alternative :</strong> "qui me préoccupe" (plus courant)
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">LEQUEL - Éviter Répétition</div>
+                    <div class="sentence-deco">
+                        La méthode <span class="pronoun-gold">grâce à laquelle</span> j'ai réussi est efficace.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Locution :</strong> <span class="function-emphasis">"Grâce à" + laquelle (obligatoire)</span><br>
+                        → <strong>Impossible :</strong> ❌ "grâce à qui" ou "grâce dont"<br>
+                        → <strong>Structure :</strong> Locution prépositive → de laquelle/duquel<br>
+                        → <strong>Usage :</strong> Construction courante avec locutions
+                    </p>
+                </div>
+
+                <div class="example-deco">
+                    <div class="example-label">LEQUEL - Choix Stylistique</div>
+                    <div class="sentence-deco">
+                        Le moment <span class="pronoun-gold">auquel</span> je pensais est arrivé. / Le moment <span style="color: var(--bronze-fonce); font-weight: 700;">où</span> je pensais est arrivé.
+                    </div>
+                    <p class="analysis-deco">
+                        → <strong>Les deux corrects :</strong> <span class="function-emphasis">"Auquel" (soutenu) vs "où" (courant)</span><br>
+                        → <strong>Différence :</strong> Niveau de langue uniquement<br>
+                        → <strong>Contexte :</strong> "Auquel" pour texte formel, "où" pour conversation<br>
+                        → <strong>Remarque :</strong> Selon le style recherché
+                    </p>
+                </div>
+            </section>
+
+            <!-- Opulent Panel -->
+            <section class="opulent-panel">
+                <h2>Synthèse Complète et Maîtrise Parfaite</h2>
+                <ul class="opulent-list">
+                    <li>
+                        <strong>LEQUEL - Système complet et sophistiqué :</strong> "Lequel" constitue une famille de 
+                        pronoms relatifs qui s'accordent en genre et en nombre avec leur antécédent, offrant ainsi 
+                        quatre formes de base (lequel, laquelle, lesquels, lesquelles) et leurs variantes contractées 
+                        avec les prépositions "à" et "de". Cette richesse morphologique permet une précision référentielle 
+                        incomparable dans la langue française et distingue le français de nombreuses autres langues romanes.
+                    </li>
+                    <li>
+                        <strong>Contractions obligatoires et systématiques :</strong> La fusion de "lequel" avec les 
+                        prépositions "à" et "de" produit des formes contractées strictement obligatoires en français 
+                        standard : auquel, auxquels, auxquelles (avec "à") et duquel, desquels, desquelles (avec "de"). 
+                        Au féminin singulier, les formes "à laquelle" et "de laquelle" ne contractent pas car l'article 
+                        "la" ne fusionne pas avec ces prépositions. L'oubli de ces contractions constitue une faute grave.
+                    </li>
+                    <li>
+                        <strong>Emplois obligatoires non négociables :</strong> Certains contextes exigent impérativement 
+                        l'usage de "lequel" sans alternative possible : (1) après les locutions prépositives composées 
+                        (à côté de, près de, loin de, au sujet de, etc.) où "dont" est grammaticalement impossible ; 
+                        (2) pour désigner des choses après une préposition où "qui" ne peut s'employer ; (3) après les 
+                        prépositions "parmi" et "entre" qui excluent tout autre pronom relatif.
+                    </li>
+                    <li>
+                        <strong>Distinction personne/chose après préposition :</strong> Après une préposition, le choix 
+                        entre "qui" et "lequel" dépend de la nature de l'antécédent. Pour les PERSONNES, "qui" est 
+                        possible et même préféré dans la langue courante ("l'ami avec qui je travaille"). Pour les CHOSES, 
+                        "lequel" est obligatoire ("l'outil avec lequel je travaille"). Cette distinction est absolue et 
+                        ne souffre aucune exception.
+                    </li>
+                    <li>
+                        <strong>Registre et variation stylistique :</strong> "Lequel" appartient généralement à un 
+                        registre plus soutenu que ses alternatives ("qui", "dont", "où"). Dans la langue littéraire et 
+                        administrative, il est fréquent et apprécié pour sa précision. Dans la langue orale courante, 
+                        on lui préfère souvent les pronoms plus simples quand ils sont disponibles. "La ville dans 
+                        laquelle je vis" (soutenu) devient "la ville où je vis" (courant).
+                    </li>
+                    <li>
+                        <strong>Fonction de clarification référentielle :</strong> Grâce à son accord en genre et en 
+                        nombre, "lequel" peut lever des ambiguïtés quand plusieurs antécédents sont possibles. "J'ai 
+                        rencontré le frère de Marie, lequel (= le frère, masculin) m'a parlé" vs "laquelle (= Marie, 
+                        féminin)". Cette capacité distinctive fait de "lequel" un outil précieux dans les phrases 
+                        complexes où la référence doit être absolument claire.
+                    </li>
+                    <li>
+                        <strong>Interaction avec autres pronoms relatifs :</strong> "Lequel" entre en concurrence avec 
+                        "dont" (pour "de"), "où" (pour les lieux et temps), et "qui" (pour les personnes après préposition). 
+                        Le choix dépend du contexte grammatical (certains cas sont obligatoires), du registre de langue 
+                        (formel vs courant), et de la clarté recherchée. Comprendre ces interactions permet d'utiliser 
+                        "lequel" à bon escient sans tomber dans la lourdeur stylistique.
+                    </li>
+                    <li>
+                        <strong>Maîtrise complète et usage idiomatique :</strong> La maîtrise parfaite de "lequel" et 
+                        de toutes ses formes est un marqueur de compétence linguistique avancée en français. Savoir 
+                        quand "lequel" est obligatoire, quand il est optionnel mais préférable, et quand il alourdit 
+                        inutilement la phrase distingue le locuteur averti du francophone moyen. Cette compétence 
+                        s'acquiert par la lecture de textes formels, l'observation des constructions natives, et une 
+                        pratique réfléchie dans des contextes variés.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Final Tip -->
+            <div class="tip-elegant">
+                <h3 class="tip-heading">Récapitulatif pour Excellence</h3>
+                <div class="tip-content">
+                    <p style="margin-bottom: 30px;">
+                        <strong>🏆 Les 5 principes d'or pour maîtriser LEQUEL :</strong>
+                    </p>
+                    
+                    <p style="margin-bottom: 28px;">
+                        <strong>1. Accord systématique :</strong> "Lequel" s'accorde TOUJOURS avec son antécédent en 
+                        genre et nombre. Vérifiez que vous utilisez la bonne forme : lequel (m.sg.), laquelle (f.sg.), 
+                        lesquels (m.pl.), lesquelles (f.pl.).
+                    </p>
+                    
+                    <p style="margin-bottom: 28px;">
+                        <strong>2. Contractions obligatoires :</strong> Avec "à" et "de", la contraction est impérative 
+                        sauf au féminin singulier. À + lequel = auquel (jamais "à lequel"). De + lequel = duquel 
+                        (jamais "de lequel").
+                    </p>
+                    
+                    <p style="margin-bottom: 28px;">
+                        <strong>3. Après locution = LEQUEL obligatoire :</strong> Toute locution prépositive (à côté de, 
+                        près de, au sujet de, loin de, etc.) exige "duquel/de laquelle". "Dont" est impossible.
+                    </p>
+                    
+                    <p style="margin-bottom: 28px;">
+                        <strong>4. Chose + préposition = LEQUEL :</strong> Pour désigner une chose après une préposition, 
+                        "lequel" est obligatoire. "Qui" est réservé aux personnes. "Avec lequel" (chose) vs "avec qui" 
+                        (personne).
+                    </p>
+                    
+                    <p>
+                        <strong>5. Privilégier la simplicité quand possible :</strong> Dans la langue courante, préférez 
+                        "où" pour les lieux, "dont" pour "de" simple, "qui" pour les personnes. Utilisez "lequel" 
+                        quand il est obligatoire ou pour un registre formel.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Língua Academy · Tous droits réservés</p>
+            <p class="footer-prestige">LÍNGUA ACADEMY</p>
+            <p>L'Élégance et la Précision au Service du Français</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Advanced Intersection Observer
+        const observerOptions = {
+            threshold: 0.22,
+            rootMargin: '0px 0px -170px 0px'
+        };
+
+        const luxuryObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe example boxes
+        document.querySelectorAll('.example-deco').forEach(box => {
+            box.style.opacity = '0';
+            box.style.transform = 'translateY(60px)';
+            box.style.transition = 'opacity 1.4s ease, transform 1.4s ease';
+            luxuryObserver.observe(box);
+        });
+
+        // Luxury card hover effects
+        document.querySelectorAll('.luxury-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.luxury-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(1.8) rotate(40deg)';
+                    icon.style.transition = 'transform 0.95s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                }
+            });
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.luxury-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                }
+            });
+        });
+
+        // Animate table rows with luxury stagger
+        document.querySelectorAll('tbody tr').forEach((row, index) => {
+            row.style.opacity = '0';
+            row.style.transform = 'translateX(-85px)';
+            row.style.transition = `opacity 1.2s ease ${index * 0.13}s, transform 1.2s ease ${index * 0.13}s`;
+            
+            luxuryObserver.observe(row);
+        });
+
+        // Crown emblem enhancement on hover
+        const crownEmblem = document.querySelector('.crown-emblem');
+        if (crownEmblem) {
+            crownEmblem.addEventListener('mouseenter', function() {
+                this.style.transform = 'rotate(20deg) scale(1.2)';
+                this.style.boxShadow = '0 35px 100px rgba(212, 175, 55, 1)';
+            });
+            crownEmblem.addEventListener('mouseleave', function() {
+                this.style.transform = 'rotate(0deg) scale(1)';
+                this.style.boxShadow = '0 25px 70px rgba(212, 175, 55, 0.7)';
+            });
+        }
+
+        // Create additional gold particles dynamically
+        function createGoldParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'gold-particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDuration = Math.random() * 10 + 15 + 's';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 30000);
+        }
+
+        // Add new particles periodically
+        setInterval(createGoldParticle, 6000);
+
+        // Parallax effect for sunburst
+        document.addEventListener('mousemove', function(e) {
+            const sunburst = document.querySelector('.sunburst');
+            if (sunburst) {
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+                const moveX = (mouseX - 0.5) * 30;
+                const moveY = (mouseY - 0.5) * 30;
+                sunburst.style.transform = `translateX(calc(-50% + ${moveX}px)) translateY(${moveY}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

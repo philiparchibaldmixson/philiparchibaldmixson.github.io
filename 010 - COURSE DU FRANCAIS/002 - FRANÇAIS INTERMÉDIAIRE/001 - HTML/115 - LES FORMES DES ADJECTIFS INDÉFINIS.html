@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adjectifs Indéfinis - Formes | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Trajan+Pro:wght@400;700&family=Garamond:ital,wght@0,400;0,700;1,400&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --vert-sapin: #1B4332;
+            --vert-foret: #2D6A4F;
+            --or-mat: #B8860B;
+            --ivoire-creme: #FFF8E7;
+            --beige-galerie: #F5F5DC;
+            --bordeaux-discret: #800020;
+            --sepia: #704214;
+            --bronze: #CD7F32;
+            --gris-musee: #8B8680;
+            --blanc-marbre: #FFFAF0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--beige-galerie) 0%, var(--ivoire-creme) 50%, #FFF9E8 100%);
+            color: var(--sepia);
+            line-height: 2;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Texture toile */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(112, 66, 20, 0.02) 4px, rgba(112, 66, 20, 0.02) 8px),
+                repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(112, 66, 20, 0.02) 4px, rgba(112, 66, 20, 0.02) 8px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        /* Cadre doré principal */
+        .golden-frame {
+            position: fixed;
+            pointer-events: none;
+            z-index: 5;
+            background: linear-gradient(135deg, var(--or-mat) 0%, var(--bronze) 50%, var(--or-mat) 100%);
+            box-shadow: 
+                inset 0 0 20px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(184, 134, 11, 0.4);
+        }
+
+        .frame-top, .frame-bottom {
+            left: 20px;
+            right: 20px;
+            height: 40px;
+        }
+
+        .frame-top {
+            top: 20px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .frame-bottom {
+            bottom: 20px;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .frame-left, .frame-right {
+            top: 60px;
+            bottom: 60px;
+            width: 40px;
+        }
+
+        .frame-left {
+            left: 20px;
+        }
+
+        .frame-right {
+            right: 20px;
+        }
+
+        /* Coins décoratifs dorés */
+        .frame-corner {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            pointer-events: none;
+            z-index: 6;
+            background: radial-gradient(circle, var(--or-mat) 0%, var(--bronze) 100%);
+            box-shadow: 
+                0 0 40px rgba(184, 134, 11, 0.6),
+                inset 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .corner-tl {
+            top: 20px;
+            left: 20px;
+            border-radius: 8px 0 0 0;
+        }
+
+        .corner-tr {
+            top: 20px;
+            right: 20px;
+            border-radius: 0 8px 0 0;
+        }
+
+        .corner-bl {
+            bottom: 20px;
+            left: 20px;
+            border-radius: 0 0 0 8px;
+        }
+
+        .corner-br {
+            bottom: 20px;
+            right: 20px;
+            border-radius: 0 0 8px 0;
+        }
+
+        /* Motif ornement */
+        .corner::before {
+            content: '❖';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: var(--ivoire-creme);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            max-width: 1700px;
+            margin: 0 auto;
+            padding: 0 150px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* En-tête galerie */
+        header {
+            background: linear-gradient(160deg, var(--vert-sapin) 0%, var(--vert-foret) 60%, #40916C 100%);
+            padding: 115px 0 140px;
+            position: relative;
+            overflow: hidden;
+            margin: 70px 70px 0 70px;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 
+                0 60px 145px rgba(27, 67, 50, 0.6),
+                inset 0 0 120px rgba(184, 134, 11, 0.12);
+            border: 8px solid var(--or-mat);
+        }
+
+        /* Motif damier subtil */
+        .checkered-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: 
+                linear-gradient(45deg, rgba(184, 134, 11, 0.05) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(184, 134, 11, 0.05) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(184, 134, 11, 0.05) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(184, 134, 11, 0.05) 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+            pointer-events: none;
+        }
+
+        /* Marque galerie */
+        .gallery-brand {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 75px;
+            animation: galleryFadeIn 2.4s ease-out;
+        }
+
+        @keyframes galleryFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-95px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .museum-emblem {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 48px;
+            background: 
+                radial-gradient(circle, var(--or-mat) 0%, var(--bronze) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 
+                0 35px 90px rgba(0, 0, 0, 0.7),
+                inset 0 0 65px rgba(255, 255, 255, 0.25);
+            border: 7px solid var(--ivoire-creme);
+        }
+
+        .museum-emblem::before {
+            content: '';
+            position: absolute;
+            width: 205px;
+            height: 205px;
+            border: 4px solid var(--or-mat);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .emblem-symbol {
+            font-size: 6.5rem;
+            color: var(--ivoire-creme);
+            text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
+        }
+
+        .brand-gallery {
+            font-family: 'Cinzel', serif;
+            font-size: 5rem;
+            color: var(--or-mat);
+            font-weight: 900;
+            letter-spacing: 20px;
+            margin-bottom: 30px;
+            text-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.9),
+                0 0 65px rgba(184, 134, 11, 0.5);
+            text-transform: uppercase;
+        }
+
+        .brand-tagline {
+            color: var(--ivoire-creme);
+            font-size: 1.4rem;
+            letter-spacing: 8.5px;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'Quattrocento', serif;
+            opacity: 0.95;
+        }
+
+        /* Titre exposition */
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 7.8rem;
+            color: var(--or-mat);
+            text-align: center;
+            font-weight: 900;
+            line-height: 1.5;
+            margin-top: 75px;
+            position: relative;
+            z-index: 2;
+            animation: galleryFadeIn 2.4s ease-out 0.3s backwards;
+            text-shadow: 
+                8px 8px 20px rgba(0, 0, 0, 0.9),
+                0 0 85px rgba(184, 134, 11, 0.4);
+            letter-spacing: 9px;
+        }
+
+        .gallery-subtitle {
+            text-align: center;
+            color: var(--ivoire-creme);
+            font-size: 2.6rem;
+            margin-top: 50px;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+            animation: galleryFadeIn 2.4s ease-out 0.6s backwards;
+            font-style: italic;
+            letter-spacing: 4px;
+            font-family: 'Garamond', serif;
+        }
+
+        /* Ornement séparateur */
+        .ornament-separator {
+            text-align: center;
+            margin: 70px 0;
+            font-size: 2.8rem;
+            color: var(--or-mat);
+            position: relative;
+        }
+
+        .ornament-separator::before,
+        .ornament-separator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 220px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--or-mat), transparent);
+        }
+
+        .ornament-separator::before {
+            right: calc(50% + 90px);
+        }
+
+        .ornament-separator::after {
+            left: calc(50% + 90px);
+        }
+
+        /* Contenu principal */
+        main {
+            padding: 120px 0;
+            margin: 0 70px;
+            background: var(--blanc-marbre);
+            box-shadow: 
+                0 50px 125px rgba(0, 0, 0, 0.28),
+                inset 0 0 100px rgba(184, 134, 11, 0.08);
+            border-left: 8px solid var(--or-mat);
+            border-right: 8px solid var(--or-mat);
+        }
+
+        /* Introduction galerie */
+        .intro-gallery {
+            background: linear-gradient(135deg, rgba(245, 245, 220, 0.95) 0%, rgba(255, 248, 231, 0.95) 100%);
+            padding: 100px;
+            border-radius: 28px;
+            box-shadow: 
+                0 40px 95px rgba(0, 0, 0, 0.22),
+                inset 0 0 75px rgba(27, 67, 50, 0.1);
+            margin-bottom: 140px;
+            position: relative;
+            border: 5px solid var(--vert-foret);
+            animation: exhibitFadeIn 2.1s ease-out 2.4s backwards;
+        }
+
+        @keyframes exhibitFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(110px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-gallery::before {
+            content: '🖼';
+            position: absolute;
+            top: -58px;
+            left: 95px;
+            font-size: 8rem;
+            color: var(--vert-sapin);
+            background: var(--blanc-marbre);
+            padding: 16px 38px;
+            border-radius: 50%;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+            border: 5px solid var(--vert-foret);
+        }
+
+        .gallery-heading {
+            font-family: 'Cinzel', serif;
+            font-size: 4.8rem;
+            color: var(--vert-sapin);
+            margin-bottom: 72px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 42px;
+        }
+
+        .gallery-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 300px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--vert-sapin), var(--or-mat));
+            border-radius: 3px;
+        }
+
+        .gallery-text {
+            font-size: 1.8rem;
+            line-height: 2.9;
+            color: var(--sepia);
+            margin-bottom: 45px;
+            text-align: justify;
+            text-indent: 3em;
+        }
+
+        .gallery-text:first-of-type::first-letter {
+            font-family: 'Cinzel', serif;
+            font-size: 5.8rem;
+            font-weight: 700;
+            float: left;
+            line-height: 0.9;
+            margin: 12px 16px 0 0;
+            color: var(--vert-sapin);
+        }
+
+        /* Cartes exposition */
+        .exhibit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(720px, 1fr));
+            gap: 85px;
+            margin: 140px 0;
+        }
+
+        .exhibit-card {
+            background: linear-gradient(135deg, rgba(245, 245, 220, 0.98) 0%, rgba(255, 250, 240, 0.98) 100%);
+            padding: 90px;
+            border-radius: 26px;
+            box-shadow: 
+                0 35px 90px rgba(0, 0, 0, 0.24),
+                inset 0 0 75px rgba(27, 67, 50, 0.12);
+            position: relative;
+            transition: all 1s ease;
+            border: 4px solid var(--vert-foret);
+            animation: exhibitFadeIn 2.1s ease-out backwards;
+        }
+
+        .exhibit-card:nth-child(1) { animation-delay: 2.6s; }
+        .exhibit-card:nth-child(2) { animation-delay: 2.8s; }
+        .exhibit-card:nth-child(3) { animation-delay: 3.0s; }
+        .exhibit-card:nth-child(4) { animation-delay: 3.2s; }
+
+        .exhibit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: linear-gradient(90deg, var(--vert-sapin), var(--or-mat), var(--vert-sapin));
+            border-radius: 26px 26px 0 0;
+        }
+
+        .exhibit-card:hover {
+            transform: translateY(-38px) scale(1.02);
+            box-shadow: 
+                0 55px 130px rgba(0, 0, 0, 0.35),
+                inset 0 0 95px rgba(27, 67, 50, 0.18);
+        }
+
+        .exhibit-icon {
+            font-size: 7.5rem;
+            margin-bottom: 58px;
+            display: inline-block;
+            filter: drop-shadow(0 20px 42px rgba(0, 0, 0, 0.4));
+        }
+
+        .exhibit-title {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            color: var(--vert-sapin);
+            margin-bottom: 48px;
+            font-weight: 700;
+        }
+
+        .exhibit-description {
+            font-size: 1.7rem;
+            line-height: 2.8;
+            color: var(--sepia);
+        }
+
+        /* Section exemples */
+        .examples-gallery {
+            background: linear-gradient(135deg, rgba(238, 240, 235, 0.98) 0%, rgba(245, 245, 220, 0.98) 100%);
+            padding: 95px;
+            border-radius: 26px;
+            box-shadow: 
+                0 35px 90px rgba(0, 0, 0, 0.24),
+                inset 0 0 75px rgba(27, 67, 50, 0.1);
+            margin: 95px 0;
+            animation: exhibitFadeIn 2.1s ease-out 3.4s backwards;
+            border: 4px solid var(--gris-musee);
+        }
+
+        .section-display {
+            font-family: 'Cinzel', serif;
+            font-size: 5rem;
+            color: var(--vert-sapin);
+            margin-bottom: 75px;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            padding-bottom: 55px;
+        }
+
+        .section-display::after {
+            content: '❖';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            color: var(--or-mat);
+        }
+
+        /* Cadre exemple */
+        .example-frame {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 250, 240, 0.95) 100%);
+            padding: 68px 75px;
+            border-radius: 22px;
+            margin: 65px 0;
+            border-left: 16px solid var(--vert-sapin);
+            position: relative;
+            transition: all 0.9s ease;
+            box-shadow: 0 18px 52px rgba(0, 0, 0, 0.2);
+        }
+
+        .example-frame:hover {
+            transform: translateX(36px);
+            border-left-width: 24px;
+            box-shadow: -18px 22px 62px rgba(27, 67, 50, 0.38);
+        }
+
+        .example-label {
+            font-family: 'Quattrocento', serif;
+            font-size: 1.5rem;
+            color: var(--vert-sapin);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 35px;
+        }
+
+        .sentence-exhibit {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--sepia);
+            margin: 45px 0;
+            padding: 48px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 18px;
+            box-shadow: 
+                0 12px 42px rgba(0, 0, 0, 0.14),
+                inset 0 0 42px rgba(27, 67, 50, 0.1);
+            line-height: 2.7;
+            font-style: italic;
+            border: 3px solid rgba(27, 67, 50, 0.18);
+        }
+
+        .analysis-exhibit {
+            font-size: 1.6rem;
+            line-height: 2.8;
+            color: var(--sepia);
+            margin-top: 42px;
+            padding-left: 58px;
+            border-left: 12px solid rgba(27, 67, 50, 0.28);
+        }
+
+        .adjective-highlight {
+            color: var(--vert-sapin);
+            font-weight: 700;
+            background: rgba(27, 67, 50, 0.14);
+            padding: 8px 18px;
+            border-radius: 11px;
+            border-bottom: 6px solid var(--vert-sapin);
+            text-decoration: none;
+        }
+
+        .form-detail {
+            color: var(--vert-foret);
+            font-weight: 600;
+            font-style: italic;
+            background: rgba(45, 106, 79, 0.15);
+            padding: 7px 17px;
+            border-radius: 10px;
+        }
+
+        /* Boîte règle */
+        .rule-frame {
+            background: linear-gradient(135deg, rgba(27, 67, 50, 0.2) 0%, rgba(27, 67, 50, 0.1) 100%);
+            border: 8px solid var(--vert-sapin);
+            padding: 80px 88px;
+            border-radius: 24px;
+            margin: 88px 0;
+            position: relative;
+            animation: exhibitFadeIn 2.1s ease-out 3.6s backwards;
+            box-shadow: 0 32px 85px rgba(27, 67, 50, 0.4);
+        }
+
+        .rule-frame::before {
+            content: '§';
+            position: absolute;
+            top: -58px;
+            left: 80px;
+            background: var(--blanc-marbre);
+            padding: 25px 42px;
+            border-radius: 50%;
+            font-size: 4.5rem;
+            box-shadow: 0 15px 48px rgba(0, 0, 0, 0.4);
+            border: 8px solid var(--vert-sapin);
+            color: var(--vert-sapin);
+            font-family: 'Cinzel', serif;
+        }
+
+        .rule-title {
+            font-family: 'Cinzel', serif;
+            color: var(--vert-sapin);
+            font-size: 4.2rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .rule-body {
+            font-size: 1.7rem;
+            line-height: 3;
+            color: var(--sepia);
+        }
+
+        .rule-list {
+            list-style: none;
+            margin: 60px 0;
+        }
+
+        .rule-list li {
+            padding: 45px 0 45px 95px;
+            position: relative;
+            font-size: 1.7rem;
+            line-height: 2.8;
+            border-bottom: 4px dashed rgba(27, 67, 50, 0.2);
+        }
+
+        .rule-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rule-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 30px;
+            color: var(--or-mat);
+            font-size: 3.8rem;
+        }
+
+        /* Tableau galerie */
+        .table-gallery {
+            background: linear-gradient(135deg, rgba(245, 245, 220, 0.98) 0%, rgba(255, 250, 240, 0.98) 100%);
+            padding: 92px;
+            border-radius: 24px;
+            box-shadow: 0 35px 90px rgba(0, 0, 0, 0.24);
+            margin: 95px 0;
+            overflow-x: auto;
+            animation: exhibitFadeIn 2.1s ease-out 3.8s backwards;
+            border: 4px solid var(--vert-foret);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 60px 0;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--vert-sapin) 0%, var(--vert-foret) 100%);
+        }
+
+        th {
+            color: var(--ivoire-creme);
+            padding: 45px 38px;
+            text-align: left;
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        th:first-child {
+            border-radius: 30px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 30px 0 0;
+        }
+
+        td {
+            padding: 40px 38px;
+            border-bottom: 4px solid rgba(27, 67, 50, 0.14);
+            font-size: 1.65rem;
+            line-height: 2.7;
+            color: var(--sepia);
+        }
+
+        tbody tr {
+            transition: all 0.8s ease;
+            background: rgba(255, 250, 240, 0.6);
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.18) 0%, rgba(245, 245, 220, 0.35) 100%);
+            transform: translateX(26px);
+            box-shadow: 0 0 42px rgba(184, 134, 11, 0.35);
+        }
+
+        tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 30px;
+        }
+
+        tbody tr:last-child td:last-child {
+            border-radius: 0 0 30px 0;
+        }
+
+        .table-adjective {
+            font-weight: 700;
+            color: var(--vert-sapin);
+            font-size: 1.8rem;
+        }
+
+        /* Avertissement */
+        .warning-frame {
+            background: linear-gradient(135deg, rgba(128, 0, 32, 0.2) 0%, rgba(128, 0, 32, 0.1) 100%);
+            border: 8px solid var(--bordeaux-discret);
+            padding: 80px 88px;
+            border-radius: 24px;
+            margin: 88px 0;
+            position: relative;
+            animation: exhibitFadeIn 2.1s ease-out 4.0s backwards;
+            box-shadow: 0 32px 85px rgba(128, 0, 32, 0.35);
+        }
+
+        .warning-frame::before {
+            content: '⚠';
+            position: absolute;
+            top: -58px;
+            left: 80px;
+            background: var(--blanc-marbre);
+            padding: 25px 42px;
+            border-radius: 50%;
+            font-size: 4.5rem;
+            box-shadow: 0 15px 48px rgba(0, 0, 0, 0.4);
+            border: 8px solid var(--bordeaux-discret);
+            color: var(--bordeaux-discret);
+        }
+
+        .warning-title {
+            font-family: 'Cinzel', serif;
+            color: var(--bordeaux-discret);
+            font-size: 4.2rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .warning-body {
+            font-size: 1.7rem;
+            line-height: 3;
+            color: var(--sepia);
+        }
+
+        /* Conseil */
+        .tip-frame {
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.2) 0%, rgba(184, 134, 11, 0.1) 100%);
+            border-left: 18px solid var(--or-mat);
+            padding: 75px 82px;
+            border-radius: 20px;
+            margin: 82px 0;
+            position: relative;
+            animation: exhibitFadeIn 2.1s ease-out 4.2s backwards;
+            box-shadow: 0 28px 72px rgba(184, 134, 11, 0.3);
+        }
+
+        .tip-frame::before {
+            content: '✒';
+            position: absolute;
+            top: -50px;
+            left: 75px;
+            background: var(--blanc-marbre);
+            padding: 22px 38px;
+            border-radius: 55px;
+            font-size: 4.2rem;
+            box-shadow: 0 12px 42px rgba(0, 0, 0, 0.4);
+            border: 7px solid var(--or-mat);
+            color: var(--or-mat);
+        }
+
+        .tip-title {
+            font-family: 'Cinzel', serif;
+            color: var(--or-mat);
+            font-size: 4rem;
+            margin-bottom: 48px;
+            font-weight: 700;
+        }
+
+        .tip-body {
+            font-size: 1.65rem;
+            line-height: 2.9;
+            color: var(--sepia);
+        }
+
+        /* Panneau synthèse */
+        .synthesis-panel {
+            background: linear-gradient(135deg, var(--vert-sapin) 0%, var(--vert-foret) 100%);
+            padding: 105px;
+            border-radius: 28px;
+            margin: 100px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 52px 125px rgba(27, 67, 50, 0.55);
+            animation: exhibitFadeIn 2.1s ease-out 4.4s backwards;
+            border: 5px solid var(--or-mat);
+        }
+
+        .synthesis-panel::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(184, 134, 11, 0.28) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .synthesis-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -185px;
+            left: -185px;
+            width: 680px;
+            height: 680px;
+            background: radial-gradient(circle, rgba(184, 134, 11, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .synthesis-panel h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--or-mat);
+            font-size: 5.2rem;
+            margin-bottom: 70px;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
+            text-shadow: 5px 5px 14px rgba(0, 0, 0, 0.8);
+        }
+
+        .synthesis-panel p {
+            color: var(--ivoire-creme);
+            font-size: 1.8rem;
+            line-height: 3.1;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 45px;
+        }
+
+        .synthesis-list {
+            list-style: none;
+            margin: 68px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .synthesis-list li {
+            color: var(--ivoire-creme);
+            font-size: 1.75rem;
+            padding: 48px 0 48px 95px;
+            position: relative;
+            line-height: 3;
+        }
+
+        .synthesis-list li::before {
+            content: '❖';
+            position: absolute;
+            left: 28px;
+            color: var(--or-mat);
+            font-size: 4rem;
+        }
+
+        /* Pied de page */
+        footer {
+            background: linear-gradient(135deg, var(--vert-sapin) 0%, var(--vert-foret) 100%);
+            color: var(--ivoire-creme);
+            padding: 95px 0;
+            text-align: center;
+            margin: 0 70px 70px 70px;
+            border-radius: 0 0 15px 15px;
+            position: relative;
+            overflow: hidden;
+            border: 8px solid var(--or-mat);
+            border-top: none;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 40% 50%, rgba(184, 134, 11, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 60% 50%, rgba(184, 134, 11, 0.18) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        footer p {
+            font-size: 1.65rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 2.5px;
+            margin: 28px 0;
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            color: var(--or-mat);
+            font-weight: 700;
+            font-size: 3.2rem;
+            margin-top: 38px;
+            letter-spacing: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 60px;
+            }
+
+            h1 {
+                font-size: 5.8rem;
+            }
+
+            .gallery-subtitle {
+                font-size: 2rem;
+            }
+
+            .exhibit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-gallery,
+            .examples-gallery,
+            .table-gallery,
+            .synthesis-panel {
+                padding: 70px;
+            }
+
+            table {
+                font-size: 1.4rem;
+            }
+
+            th, td {
+                padding: 35px 28px;
+            }
+        }
+
+        /* Scrollbar galerie */
+        ::-webkit-scrollbar {
+            width: 28px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--beige-galerie);
+            border-left: 6px solid rgba(27, 67, 50, 0.14);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--vert-sapin), var(--or-mat), var(--vert-sapin));
+            border-radius: 14px;
+            border: 9px solid var(--beige-galerie);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--or-mat), var(--vert-sapin), var(--or-mat));
+            box-shadow: inset 0 0 26px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cadre doré -->
+    <div class="golden-frame frame-top"></div>
+    <div class="golden-frame frame-bottom"></div>
+    <div class="golden-frame frame-left"></div>
+    <div class="golden-frame frame-right"></div>
+
+    <!-- Coins dorés -->
+    <div class="frame-corner corner-tl"></div>
+    <div class="frame-corner corner-tr"></div>
+    <div class="frame-corner corner-bl"></div>
+    <div class="frame-corner corner-br"></div>
+
+    <header>
+        <div class="checkered-pattern"></div>
+        
+        <div class="container">
+            <div class="gallery-brand">
+                <div class="museum-emblem">
+                    <div class="emblem-symbol">🎨</div>
+                </div>
+                <div class="brand-gallery">Língua Academy</div>
+                <div class="brand-tagline">Galerie d'Art Grammatical</div>
+            </div>
+            <h1>ADJECTIFS INDÉFINIS</h1>
+            <p class="gallery-subtitle">Formes et Morphologie Complète</p>
+            <div class="ornament-separator">❖</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Introduction galerie -->
+            <section class="intro-gallery">
+                <h2 class="gallery-heading">Nature et Caractéristiques</h2>
+                <p class="gallery-text">
+                    Les <strong>adjectifs indéfinis</strong> constituent une catégorie grammaticale distincte des pronoms 
+                    indéfinis, bien qu'ils partagent avec ces derniers la caractéristique commune de l'indétermination. 
+                    Contrairement aux pronoms qui <em>remplacent</em> un nom, les adjectifs indéfinis <em>accompagnent</em> 
+                    et <em>déterminent</em> un nom en exprimant une idée de quantité imprécise, de distribution, de 
+                    ressemblance, de différence, ou d'indétermination générale. Ils se placent obligatoirement devant 
+                    le nom qu'ils déterminent et forment avec lui un groupe nominal. Cette position antéposée les 
+                    distingue nettement des adjectifs qualificatifs qui peuvent occuper diverses positions. Les adjectifs 
+                    indéfinis expriment des notions variées : la quantité indéterminée ("quelques livres", "plusieurs 
+                    personnes"), la totalité ("tout le monde", "chaque jour"), la négation ("aucun espoir", "nul besoin"), 
+                    la ressemblance ("le même problème"), la différence ("d'autres solutions"), la distribution ("chaque 
+                    élève"), etc.
+                </p>
+                <p class="gallery-text">
+                    La morphologie des adjectifs indéfinis présente une diversité remarquable en termes de variation et 
+                    d'accord. Certains adjectifs indéfinis sont <strong>totalement invariables</strong> et conservent une 
+                    forme unique quelle que soit la nature du nom qu'ils déterminent : "chaque" reste toujours identique 
+                    ("chaque homme", "chaque femme", "chaque jour"). D'autres sont <strong>variables en nombre uniquement</strong>, 
+                    présentant une forme différente au singulier et au pluriel mais restant identiques au masculin et au 
+                    féminin : "quelque/quelques", "même/mêmes", "autre/autres". Certains adjectifs indéfinis sont 
+                    <strong>variables en genre uniquement</strong>, s'accordant avec le genre du nom mais restant au 
+                    singulier : "aucun/aucune", "nul/nulle", "chacun/chacune" (employés comme adjectifs archaïques). 
+                    Enfin, plusieurs adjectifs indéfinis présentent un <strong>accord complet en genre et en nombre</strong>, 
+                    offrant quatre formes distinctes selon le genre et le nombre du nom : "tout/toute/tous/toutes", 
+                    "tel/telle/tels/telles", "certain/certaine/certains/certaines", "différent/différente/différents/différentes".
+                </p>
+                <p class="gallery-text">
+                    La distinction entre adjectif indéfini et pronom indéfini repose sur un critère syntaxique fondamental : 
+                    <strong>l'adjectif accompagne toujours un nom</strong> et ne peut exister seul, tandis que le pronom 
+                    remplace un nom et fonctionne de manière autonome. Cette différence entraîne des conséquences 
+                    morphologiques importantes : certains mots peuvent être à la fois adjectifs indéfinis et pronoms 
+                    indéfinis avec des formes identiques ("tous les livres" vs "tous sont venus"), d'autres présentent 
+                    des formes différentes selon leur emploi ("quelque argent" adjectif vs "quelqu'un" pronom), et 
+                    certains n'existent que comme adjectifs ("chaque", "plusieurs" adjectif pluriel). L'étude systématique 
+                    des formes des adjectifs indéfinis permet de maîtriser leurs variations morphologiques, d'effectuer 
+                    les accords corrects avec les noms qu'ils déterminent, et de comprendre les nuances sémantiques que 
+                    chaque forme véhicule dans le discours.
+                </p>
+            </section>
+
+            <!-- Grille exposition -->
+            <div class="exhibit-grid">
+                <div class="exhibit-card">
+                    <span class="exhibit-icon">📐</span>
+                    <h3 class="exhibit-title">Adjectifs Invariables</h3>
+                    <p class="exhibit-description">
+                        Les <strong>adjectifs indéfinis invariables</strong> conservent une forme unique quelle que soit 
+                        la nature du nom déterminé (genre, nombre). Principal exemple : <strong>CHAQUE</strong> (toujours 
+                        identique et toujours singulier) : "chaque homme", "chaque femme", "chaque livre", "chaque idée". 
+                        "Chaque" exprime la distribution individuelle et ne s'emploie qu'au singulier car il désigne 
+                        chaque élément pris un par un. Autre exemple : <strong>PLUSIEURS</strong> (employé comme adjectif, 
+                        toujours pluriel, invariable en genre) : "plusieurs hommes", "plusieurs femmes", "plusieurs 
+                        livres", "plusieurs idées". "Plusieurs" indique une quantité indéterminée supérieure à deux et 
+                        ne varie jamais en genre. Ces adjectifs invariables simplifient l'accord puisqu'ils ne changent 
+                        jamais de forme, mais imposent des contraintes de nombre : "chaque" toujours singulier, "plusieurs" 
+                        toujours pluriel. L'invariabilité de ces adjectifs reflète leur nature sémantique particulière : 
+                        "chaque" insiste sur l'individualité distributive, "plusieurs" sur la pluralité indéterminée.
+                    </p>
+                </div>
+
+                <div class="exhibit-card">
+                    <span class="exhibit-icon">⚖</span>
+                    <h3 class="exhibit-title">Variables en Nombre</h3>
+                    <p class="exhibit-description">
+                        Les <strong>adjectifs indéfinis variables en nombre uniquement</strong> présentent deux formes : 
+                        une au singulier, une au pluriel, mais restent identiques au masculin et au féminin. 
+                        <strong>QUELQUE/QUELQUES</strong> (quantité imprécise) : "quelque temps" (m.sg.), "quelque idée" 
+                        (f.sg.), "quelques hommes" (m.pl.), "quelques femmes" (f.pl.). "Quelque" singulier est rare et 
+                        littéraire, "quelques" pluriel est très courant. <strong>MÊME/MÊMES</strong> (identité, similitude) : 
+                        "le même livre" (m.sg.), "la même idée" (f.sg.), "les mêmes livres" (m.pl.), "les mêmes idées" 
+                        (f.pl.). Attention : "même" peut aussi être adverbe invariable ("même les experts"). 
+                        <strong>AUTRE/AUTRES</strong> (différence, altérité) : "un autre problème" (m.sg.), "une autre 
+                        solution" (f.sg.), "d'autres problèmes" (m.pl.), "d'autres solutions" (f.pl.). Ces adjectifs 
+                        s'accordent en nombre avec le nom qu'ils déterminent mais restent invariables en genre, ce qui 
+                        facilite leur emploi tout en permettant de marquer la distinction singulier/pluriel essentielle 
+                        pour le sens.
+                    </p>
+                </div>
+
+                <div class="exhibit-card">
+                    <span class="exhibit-icon">⚡</span>
+                    <h3 class="exhibit-title">Variables en Genre</h3>
+                    <p class="exhibit-description">
+                        Les <strong>adjectifs indéfinis variables en genre uniquement</strong> s'accordent avec le genre 
+                        du nom mais restent toujours au singulier. <strong>AUCUN/AUCUNE</strong> (négation totale, pas 
+                        un seul) : "aucun homme" (masculin), "aucune femme" (féminin). "Aucun" ne s'emploie pratiquement 
+                        jamais au pluriel sauf avec des noms qui n'ont pas de singulier ("aucunes funérailles"). 
+                        <strong>NUL/NULLE</strong> (négation totale, synonyme littéraire de "aucun") : "nul besoin" 
+                        (masculin), "nulle envie" (féminin). "Nul" est de registre soutenu et ne s'emploie qu'au singulier. 
+                        Ces adjectifs indéfinis à valeur négative accompagnent toujours le nom au singulier car ils 
+                        expriment l'absence totale ("pas un seul"). Ils nécessitent la particule négative "ne" dans la 
+                        phrase : "Il n'a aucun espoir", "Nulle trace n'a été retrouvée". L'accord en genre est obligatoire 
+                        et visible à l'écrit (ajout du -e au féminin) et parfois audible à l'oral (liaison). Ces formes 
+                        sont courantes dans les registres soutenu et juridique pour exprimer une négation catégorique et 
+                        absolue.
+                    </p>
+                </div>
+
+                <div class="exhibit-card">
+                    <span class="exhibit-icon">✦</span>
+                    <h3 class="exhibit-title">Variables Complets</h3>
+                    <p class="exhibit-description">
+                        Les <strong>adjectifs indéfinis à variation complète</strong> s'accordent en genre ET en nombre, 
+                        présentant quatre formes distinctes. <strong>TOUT/TOUTE/TOUS/TOUTES</strong> (totalité) : "tout 
+                        le travail" (m.sg.), "toute la journée" (f.sg.), "tous les livres" (m.pl.), "toutes les idées" 
+                        (f.pl.). "Tout" est l'adjectif indéfini le plus fréquent, exprimant la totalité sans exception. 
+                        <strong>TEL/TELLE/TELS/TELLES</strong> (similitude, intensité) : "tel homme" (m.sg.), "telle femme" 
+                        (f.sg.), "tels comportements" (m.pl.), "telles réactions" (f.pl.). "Tel" peut exprimer la 
+                        comparaison ou l'intensité. <strong>CERTAIN/CERTAINE/CERTAINS/CERTAINES</strong> (quantité 
+                        indéterminée) : "un certain temps" (m.sg.), "une certaine idée" (f.sg.), "certains jours" (m.pl.), 
+                        "certaines personnes" (f.pl.). Au pluriel, "certains/certaines" signifie "quelques". 
+                        <strong>DIFFÉRENT/DIVERS</strong> (variété, pluralité) : accord complet en genre et nombre. Ces 
+                        adjectifs variables complets suivent les règles d'accord régulières du français : -e pour le 
+                        féminin, -s pour le pluriel, permettant une concordance parfaite avec le nom déterminé.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section exemples -->
+            <section class="examples-gallery">
+                <h2 class="section-display">Formes Détaillées et Exemples</h2>
+
+                <div class="example-frame">
+                    <div class="example-label">CHAQUE — Invariable Singulier</div>
+                    <div class="sentence-exhibit">
+                        <span class="adjective-highlight">Chaque</span> étudiant doit présenter son travail.
+                    </div>
+                    <p class="analysis-exhibit">
+                        → <strong>Forme unique :</strong> <span class="form-detail">CHAQUE (invariable)</span><br>
+                        → <strong>Genre :</strong> Identique au masculin et au féminin<br>
+                        → <strong>Nombre :</strong> TOUJOURS singulier, jamais pluriel<br>
+                        → <strong>Sens :</strong> Distribution individuelle, chaque élément pris séparément<br>
+                        → <strong>Emploi :</strong> Très fréquent, tous registres<br>
+                        → <strong>Test :</strong> "Chaque homme", "chaque femme" (forme identique)<br>
+                        → <strong>Remarque :</strong> Impossible au pluriel (*chaque étudiants = incorrect)
+                    </p>
+                </div>
+
+                <div class="example-frame">
+                    <div class="example-label">PLUSIEURS — Invariable Pluriel</div>
+                    <div class="sentence-exhibit">
+                        <span class="adjective-highlight">Plusieurs</span> solutions ont été proposées.
+                    </div>
+                    <p class="analysis-exhibit">
+                        → <strong>Forme unique :</strong> <span class="form-detail">PLUSIEURS (invariable, toujours pluriel)</span><br>
+                        → <strong>Genre :</strong> Identique au masculin et au féminin<br>
+                        → <strong>Nombre :</strong> TOUJOURS pluriel, jamais singulier<br>
+                        → <strong>Sens :</strong> Quantité indéterminée supérieure à deux<br>
+                        → <strong>Emploi :</strong> Très courant, registre neutre<br>
+                        → <strong>Test :</strong> "Plusieurs hommes", "plusieurs femmes" (forme identique)<br>
+                        → <strong>Remarque :</strong> Impossible au singulier (*plusieurs solution = incorrect)
+                    </p>
+                </div>
+
+                <div class="example-frame">
+                    <div class="example-label">QUELQUE / QUELQUES — Variable Nombre</div>
+                    <div class="sentence-exhibit">
+                        Il reste <span class="adjective-highlight">quelque</span> espoir. / J'ai <span class="adjective-highlight">quelques</span> idées.
+                    </div>
+                    <p class="analysis-exhibit">
+                        → <strong>Formes :</strong> <span class="form-detail">QUELQUE (singulier) / QUELQUES (pluriel)</span><br>
+                        → <strong>Genre :</strong> Invariable (même forme masculin/féminin)<br>
+                        → <strong>Nombre :</strong> Variable (quelque sg. / quelques pl.)<br>
+                        → <strong>Singulier :</strong> "Quelque temps", "quelque idée" (rare, littéraire)<br>
+                        → <strong>Pluriel :</strong> "Quelques jours", "quelques personnes" (courant)<br>
+                        → <strong>Sens :</strong> Quantité imprécise, peu nombreuse<br>
+                        → <strong>Remarque :</strong> Ne pas confondre avec "quelque" adverbe (= environ)
+                    </p>
+                </div>
+
+                <div class="example-frame">
+                    <div class="example-label">MÊME / MÊMES — Variable Nombre</div>
+                    <div class="sentence-exhibit">
+                        C'est la <span class="adjective-highlight">même</span> histoire. / Ce sont les <span class="adjective-highlight">mêmes</span> problèmes.
+                    </div>
+                    <p class="analysis-exhibit">
+                        → <strong>Formes :</strong> <span class="form-detail">MÊME (singulier) / MÊMES (pluriel)</span><br>
+                        → <strong>Genre :</strong> Invariable (même forme masculin/féminin)<br>
+                        → <strong>Nombre :</strong> Variable (même sg. / mêmes pl.)<br>
+                        → <strong>Singulier :</strong> "Le même livre", "la même idée"<br>
+                        → <strong>Pluriel :</strong> "Les mêmes livres", "les mêmes idées"<br>
+                        → <strong>Sens :</strong> Identité, similitude, caractère identique<br>
+                        → <strong>Distinction :</strong> Adjectif (variable) vs adverbe "même" (invariable)
+                    </p>
+                </div>
+
+                <div class="example-frame">
+                    <div class="example-label">AUTRE / AUTRES — Variable Nombre</div>
+                    <div class="sentence-exhibit">
+                        Trouvons une <span class="adjective-highlight">autre</span> solution. / Il y a d'<span class="adjective-highlight">autres</span> possibilités.
+                    </div>
+                    <p class="analysis-exhibit">
+                        → <strong>Formes :</strong> <span class="form-detail">AUTRE (singulier) / AUTRES (pluriel)</span><br>
+                        → <strong>Genre :</strong> Invariable (même forme masculin/féminin)<br>
+                        → <strong>Nombre :</strong> Variable (autre sg. / autres pl.)<br>
+                        → <strong>Singulier :</strong> "Un autre problème", "une autre idée"<br>
+                        → <strong>Pluriel :</strong> "D'autres problèmes", "d'autres idées"<br>
+                        → <strong>Sens :</strong> Différence, altérité, caractère distinct<br>
+                        → <strong>Emploi :</strong> Très fréquent, exprime la distinction ou l'addition
+                    </p>
+                </div>
+
+                <div class="example-frame">
+                    <div class="example-label">AUCUN / AUCUNE — Variable Genre</div>
+                    <div class="sentence-exhibit">
+                        Il n'a <span class="adjective-highlight">aucun</span> espoir. / Elle n'a <span class="adjective-highlight">aucune</span> idée.
+                    </div>
+                    <p class="analysis-exhibit">
+                        → <strong>Formes :</strong> <span class="form-detail">AUCUN (masculin) / AUCUNE (féminin)</span><br>
+                        → <strong>Genre :</strong> Variable (aucun m. / aucune f.)<br>
+                        → <strong>Nombre :</strong> Pratiquement toujours singulier<br>
+                        → <strong>Accord :</strong> S'accorde en genre avec le nom déterminé<br>
+                        → <strong>Négation :</strong> Toujours avec "ne" : "n'a aucun"<br>
+                        → <strong>Sens :</strong> Négation totale, pas un seul<br>
+                        → <strong>Remarque :</strong> Pluriel rarissime (noms sans singulier uniquement)
+                    </p>
+                </div>
+
+                <div class="example-frame">
+                    <div class="example-label">NUL / NULLE — Variable Genre</div>
+                    <div class="sentence-exhibit">
+                        <span class="adjective-highlight">Nul</span> besoin de s'inquiéter. / <span class="adjective-highlight">Nulle</span> trace n'a été trouvée.
+                    </div>
+                    <p class="analysis-exhibit">
+                        → <strong>Formes :</strong> <span class="form-detail">NUL (masculin) / NULLE (féminin)</span><br>
+                        → <strong>Genre :</strong> Variable (nul m. / nulle f.)<br>
+                        → <strong>Nombre :</strong> Toujours singulier<br>
+                        → <strong>Accord :</strong> S'accorde en genre avec le nom<br>
+                        → <strong>Registre :</strong> Soutenu, littéraire, juridique<br>
+                        → <strong>Sens :</strong> Négation totale, synonyme de "aucun"<br>
+                        → <strong>Emploi :</strong> "Nul doute", "nulle part" (expressions figées)
+                    </p>
+                </div>
+
+                <div class="example-frame">
+                    <div class="example-label">TOUT / TOUTE / TOUS / TOUTES — Variable Complet</div>
+                    <div class="sentence-exhibit">
+                        <span class="adjective-highlight">Tout</span> le monde est là. / <span class="adjective-highlight">Toutes</span> les personnes sont venues.
+                    </div>
+                    <p class="analysis-exhibit">
+                        → <strong>Formes :</strong> <span class="form-detail">TOUT (m.sg.) / TOUTE (f.sg.) / TOUS (m.pl.) / TOUTES (f.pl.)</span><br>
+                        → <strong>Accord complet :</strong> Genre ET nombre<br>
+                        → <strong>Masculin sg. :</strong> "Tout le travail", "tout le monde"<br>
+                        → <strong>Féminin sg. :</strong> "Toute la journée", "toute la classe"<br>
+                        → <strong>Masculin pl. :</strong> "Tous les livres", "tous les jours"<br>
+                        → <strong>Féminin pl. :</strong> "Toutes les idées", "toutes les fois"<br>
+                        → <strong>Sens :</strong> Totalité sans exception, intégralité<br>
+                        → <strong>Emploi :</strong> Adjectif indéfini le plus fréquent
+                    </p>
+                </div>
+
+                <div class="example-frame">
+                    <div class="example-label">TEL / TELLE / TELS / TELLES — Variable Complet</div>
+                    <div class="sentence-exhibit">
+                        Un <span class="adjective-highlight">tel</span> comportement est inacceptable. / De <span class="adjective-highlight">telles</span> paroles sont blessantes.
+                    </div>
+                    <p class="analysis-exhibit">
+                        → <strong>Formes :</strong> <span class="form-detail">TEL (m.sg.) / TELLE (f.sg.) / TELS (m.pl.) / TELLES (f.pl.)</span><br>
+                        → <strong>Accord complet :</strong> Genre ET nombre<br>
+                        → <strong>Masculin sg. :</strong> "Tel homme", "un tel cas"<br>
+                        → <strong>Féminin sg. :</strong> "Telle femme", "une telle idée"<br>
+                        → <strong>Masculin pl. :</strong> "Tels comportements", "de tels résultats"<br>
+                        → <strong>Féminin pl. :</strong> "Telles paroles", "de telles situations"<br>
+                        → <strong>Sens :</strong> Similitude, comparaison, ou intensité<br>
+                        → <strong>Usage :</strong> Registre plutôt soutenu
+                    </p>
+                </div>
+
+                <div class="example-frame">
+                    <div class="example-label">CERTAIN / CERTAINE / CERTAINS / CERTAINES — Variable Complet</div>
+                    <div class="sentence-exhibit">
+                        Un <span class="adjective-highlight">certain</span> temps a passé. / <span class="adjective-highlight">Certaines</span> personnes pensent ainsi.
+                    </div>
+                    <p class="analysis-exhibit">
+                        → <strong>Formes :</strong> <span class="form-detail">CERTAIN (m.sg.) / CERTAINE (f.sg.) / CERTAINS (m.pl.) / CERTAINES (f.pl.)</span><br>
+                        → <strong>Accord complet :</strong> Genre ET nombre<br>
+                        → <strong>Singulier :</strong> "Un certain temps", "une certaine idée" (sens : "un certain")<br>
+                        → <strong>Pluriel :</strong> "Certains jours", "certaines personnes" (sens : "quelques")<br>
+                        → <strong>Distinction :</strong> Sg. avec article indéfini / Pl. sans article<br>
+                        → <strong>Sens sg. :</strong> Imprécision, indétermination<br>
+                        → <strong>Sens pl. :</strong> Quantité indéterminée, quelques
+                    </p>
+                </div>
+
+                <div class="example-frame">
+                    <div class="example-label">DIFFÉRENT / DIFFÉRENTE / DIFFÉRENTS / DIFFÉRENTES</div>
+                    <div class="sentence-exhibit">
+                        Ils ont des <span class="adjective-highlight">différents</span> points de vue sur <span class="adjective-highlight">différentes</span> questions.
+                    </div>
+                    <p class="analysis-exhibit">
+                        → <strong>Formes :</strong> <span class="form-detail">DIFFÉRENT (m.sg.) / DIFFÉRENTE (f.sg.) / DIFFÉRENTS (m.pl.) / DIFFÉRENTES (f.pl.)</span><br>
+                        → <strong>Accord complet :</strong> Genre ET nombre<br>
+                        → <strong>Position :</strong> Toujours AVANT le nom (adjectif indéfini)<br>
+                        → <strong>Sens :</strong> Variété, pluralité, divers<br>
+                        → <strong>Usage :</strong> Surtout au pluriel<br>
+                        → <strong>Distinction :</strong> Adjectif indéfini (avant nom) ≠ adjectif qualificatif (après nom)<br>
+                        → <strong>Remarque :</strong> "Différents avis" (indéfini) vs "des avis différents" (qualificatif)
+                    </p>
+                </div>
+
+                <div class="example-frame">
+                    <div class="example-label">DIVERS / DIVERSE / DIVERS / DIVERSES</div>
+                    <div class="sentence-exhibit">
+                        Pour <span class="adjective-highlight">diverses</span> raisons, le projet a été reporté.
+                    </div>
+                    <p class="analysis-exhibit">
+                        → <strong>Formes :</strong> <span class="form-detail">DIVERS (m.sg./pl.) / DIVERSE (f.sg.) / DIVERSES (f.pl.)</span><br>
+                        → <strong>Accord complet :</strong> Genre ET nombre<br>
+                        → <strong>Position :</strong> Toujours AVANT le nom (adjectif indéfini)<br>
+                        → <strong>Sens :</strong> Variété, pluralité, plusieurs<br>
+                        → <strong>Usage :</strong> Surtout au pluriel, registre plutôt soutenu<br>
+                        → <strong>Synonyme :</strong> "Différents", "plusieurs"<br>
+                        → <strong>Distinction :</strong> Adjectif indéfini (avant) ≠ adjectif qualificatif (après)
+                    </p>
+                </div>
+
+                <div class="example-frame">
+                    <div class="example-label">MAINT / MAINTE / MAINTS / MAINTES — Archaïque</div>
+                    <div class="sentence-exhibit">
+                        En <span class="adjective-highlight">maintes</span> occasions, il a prouvé sa valeur.
+                    </div>
+                    <p class="analysis-exhibit">
+                        → <strong>Formes :</strong> <span class="form-detail">MAINT (m.sg.) / MAINTE (f.sg.) / MAINTS (m.pl.) / MAINTES (f.pl.)</span><br>
+                        → <strong>Accord complet :</strong> Genre ET nombre<br>
+                        → <strong>Registre :</strong> Archaïque, littéraire, très rare aujourd'hui<br>
+                        → <strong>Sens :</strong> "Plusieurs", "nombreux"<br>
+                        → <strong>Usage moderne :</strong> Expressions figées ("maintes fois", "maintes reprises")<br>
+                        → <strong>Remarque :</strong> Rarement utilisé en français contemporain<br>
+                        → <strong>Remplacement :</strong> "Nombreux", "plusieurs" (plus courants)
+                    </p>
+                </div>
+            </section>
+
+            <!-- Règle -->
+            <div class="rule-frame">
+                <h3 class="rule-title">Principes d'Accord Fondamentaux</h3>
+                <div class="rule-body">
+                    <ul class="rule-list">
+                        <li>
+                            <strong>Accord obligatoire avec le nom déterminé :</strong> Tout adjectif indéfini variable 
+                            doit s'accorder en genre et/ou en nombre avec le nom qu'il détermine. Les adjectifs à 
+                            variation complète (tout, tel, certain, différent, divers) présentent quatre formes et 
+                            s'accordent comme les adjectifs qualificatifs réguliers : ajout de -e pour le féminin, ajout 
+                            de -s pour le pluriel.
+                        </li>
+                        <li>
+                            <strong>Position fixe avant le nom :</strong> Les adjectifs indéfinis se placent TOUJOURS 
+                            avant le nom qu'ils déterminent, contrairement aux adjectifs qualificatifs qui peuvent occuper 
+                            diverses positions. Cette antéposition obligatoire est un critère distinctif majeur. Structure : 
+                            "adjectif indéfini + nom" ("chaque livre", "quelques idées", "tous les jours").
+                        </li>
+                        <li>
+                            <strong>Distinction adjectif/pronom :</strong> Un même mot peut être adjectif indéfini (accompagne 
+                            un nom) ou pronom indéfini (remplace un nom). ADJECTIF : "Tous les élèves" (détermine "élèves"). 
+                            PRONOM : "Tous sont venus" (remplace un nom). Certains mots existent uniquement comme adjectifs 
+                            ("chaque", "plusieurs" adjectif), d'autres uniquement comme pronoms ("personne", "rien").
+                        </li>
+                        <li>
+                            <strong>Contraintes de nombre spécifiques :</strong> Certains adjectifs indéfinis imposent le 
+                            singulier ("chaque" toujours singulier, "aucun/nul" pratiquement toujours singuliers), d'autres 
+                            imposent le pluriel ("plusieurs" toujours pluriel), d'autres encore varient librement ("quelque/quelques", 
+                            "autre/autres", "tout/tous").
+                        </li>
+                        <li>
+                            <strong>Adjectifs indéfinis invariables :</strong> "Chaque" et "plusieurs" (employé comme 
+                            adjectif) ne varient jamais en genre. "Chaque" reste toujours au singulier. "Plusieurs" reste 
+                            toujours au pluriel. Leur forme unique simplifie l'emploi mais impose des contraintes strictes 
+                            de nombre.
+                        </li>
+                        <li>
+                            <strong>Différence adjectif indéfini / adjectif qualificatif :</strong> Les adjectifs indéfinis 
+                            "différent" et "divers" placés AVANT le nom sont indéfinis (sens : "plusieurs", "variés"). 
+                            Placés APRÈS le nom, ce sont des adjectifs qualificatifs (sens : "qui diffère", "varié"). 
+                            "Différents avis" (indéfini = plusieurs avis) vs "Des avis différents" (qualificatif = qui 
+                            diffèrent entre eux).
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tableau -->
+            <section class="table-gallery">
+                <h2 class="gallery-heading">Tableau Récapitulatif des Formes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Adjectif</th>
+                            <th>Masculin Singulier</th>
+                            <th>Féminin Singulier</th>
+                            <th>Masculin Pluriel</th>
+                            <th>Féminin Pluriel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-adjective">CHAQUE</td>
+                            <td colspan="4" style="text-align: center;"><em>chaque (invariable, toujours singulier)</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-adjective">PLUSIEURS</td>
+                            <td colspan="4" style="text-align: center;"><em>plusieurs (invariable, toujours pluriel)</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-adjective">QUELQUE</td>
+                            <td colspan="2"><em>quelque</em></td>
+                            <td colspan="2"><em>quelques</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-adjective">MÊME</td>
+                            <td colspan="2"><em>même</em></td>
+                            <td colspan="2"><em>mêmes</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-adjective">AUTRE</td>
+                            <td colspan="2"><em>autre</em></td>
+                            <td colspan="2"><em>autres</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-adjective">AUCUN</td>
+                            <td><em>aucun</em></td>
+                            <td><em>aucune</em></td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td class="table-adjective">NUL</td>
+                            <td><em>nul</em></td>
+                            <td><em>nulle</em></td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td class="table-adjective">TOUT</td>
+                            <td><em>tout</em></td>
+                            <td><em>toute</em></td>
+                            <td><em>tous</em></td>
+                            <td><em>toutes</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-adjective">TEL</td>
+                            <td><em>tel</em></td>
+                            <td><em>telle</em></td>
+                            <td><em>tels</em></td>
+                            <td><em>telles</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-adjective">CERTAIN</td>
+                            <td><em>certain</em></td>
+                            <td><em>certaine</em></td>
+                            <td><em>certains</em></td>
+                            <td><em>certaines</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-adjective">DIFFÉRENT</td>
+                            <td><em>différent</em></td>
+                            <td><em>différente</em></td>
+                            <td><em>différents</em></td>
+                            <td><em>différentes</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-adjective">DIVERS</td>
+                            <td><em>divers</em></td>
+                            <td><em>diverse</em></td>
+                            <td><em>divers</em></td>
+                            <td><em>diverses</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-adjective">MAINT</td>
+                            <td><em>maint</em></td>
+                            <td><em>mainte</em></td>
+                            <td><em>maints</em></td>
+                            <td><em>maintes</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 class="gallery-heading" style="margin-top: 100px;">Classification par Type de Variation</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type de Variation</th>
+                            <th>Adjectifs</th>
+                            <th>Nombre de Formes</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-adjective">Invariables</td>
+                            <td>chaque, plusieurs</td>
+                            <td>1 forme</td>
+                            <td><em>chaque livre / chaque idée</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-adjective">Variables en Nombre</td>
+                            <td>quelque, même, autre</td>
+                            <td>2 formes</td>
+                            <td><em>quelque / quelques</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-adjective">Variables en Genre</td>
+                            <td>aucun, nul</td>
+                            <td>2 formes</td>
+                            <td><em>aucun / aucune</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-adjective">Variables Complets</td>
+                            <td>tout, tel, certain, différent, divers, maint</td>
+                            <td>4 formes</td>
+                            <td><em>tout / toute / tous / toutes</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Avertissement -->
+            <div class="warning-frame">
+                <h3 class="warning-title">Erreurs Fréquentes d'Accord</h3>
+                <div class="warning-body">
+                    <p style="margin-bottom: 42px;">
+                        <strong>Erreur n°1 : Pluriel avec "chaque"</strong><br>
+                        ❌ <em>"Chaque étudiants doivent..."</em> (pluriel impossible)<br>
+                        ✅ <em>"Chaque étudiant doit..."</em> (toujours singulier)<br>
+                        → "Chaque" impose TOUJOURS le singulier, jamais le pluriel
+                    </p>
+                    
+                    <p style="margin-bottom: 42px;">
+                        <strong>Erreur n°2 : Singulier avec "plusieurs"</strong><br>
+                        ❌ <em>"Plusieurs solution a été trouvée"</em> (singulier impossible)<br>
+                        ✅ <em>"Plusieurs solutions ont été trouvées"</em> (toujours pluriel)<br>
+                        → "Plusieurs" impose TOUJOURS le pluriel, jamais le singulier
+                    </p>
+                    
+                    <p style="margin-bottom: 42px;">
+                        <strong>Erreur n°3 : Mauvais accord en genre</strong><br>
+                        ❌ <em>"Aucun idée n'a été retenue"</em> (masculin + nom féminin)<br>
+                        ✅ <em>"Aucune idée n'a été retenue"</em> (accord féminin)<br>
+                        → Les adjectifs variables doivent s'accorder en genre avec le nom
+                    </p>
+                    
+                    <p style="margin-bottom: 42px;">
+                        <strong>Erreur n°4 : Confusion "quelque" vs "quelques"</strong><br>
+                        ❌ <em>"Quelque livres sont intéressants"</em> (singulier + nom pluriel)<br>
+                        ✅ <em>"Quelques livres sont intéressants"</em> (accord pluriel)<br>
+                        → "Quelque" singulier / "Quelques" pluriel (marque du -s obligatoire)
+                    </p>
+                    
+                    <p>
+                        <strong>Erreur n°5 : Position après le nom</strong><br>
+                        ❌ <em>"Les livres chaque sont importants"</em> (position incorrecte)<br>
+                        ✅ <em>"Chaque livre est important"</em> (position avant le nom)<br>
+                        → Les adjectifs indéfinis se placent TOUJOURS avant le nom
+                    </p>
+                </div>
+            </div>
+
+            <!-- Conseil -->
+            <div class="tip-frame">
+                <h3 class="tip-title">Guide Pratique d'Utilisation</h3>
+                <div class="tip-body">
+                    <p style="margin-bottom: 35px;">
+                        <strong>Méthode pour maîtriser les accords :</strong>
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>Étape 1 :</strong> Identifiez le type de variation de l'adjectif.<br>
+                        → INVARIABLE (chaque, plusieurs) : aucun changement<br>
+                        → VARIABLE NOMBRE (quelque, même, autre) : vérifier singulier/pluriel<br>
+                        → VARIABLE GENRE (aucun, nul) : vérifier masculin/féminin<br>
+                        → VARIABLE COMPLET (tout, tel, certain, etc.) : vérifier genre ET nombre
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>Étape 2 :</strong> Déterminez le genre et le nombre du nom.<br>
+                        → Masculin ou féminin ? (le/un → masculin ; la/une → féminin)<br>
+                        → Singulier ou pluriel ? (présence du -s, -x à la fin)<br>
+                        → Exemples : "livre" (m.sg.), "idées" (f.pl.), "temps" (m.sg.)
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>Étape 3 :</strong> Accordez l'adjectif avec le nom.<br>
+                        → Genre : ajoutez -e au féminin si l'adjectif varie en genre<br>
+                        → Nombre : ajoutez -s au pluriel si l'adjectif varie en nombre<br>
+                        → Exemple : "tout" + "idées" (f.pl.) → "toutes idées"
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>Étape 4 :</strong> Vérifiez les contraintes de nombre.<br>
+                        → "Chaque" → TOUJOURS singulier (jamais *chaque livres)<br>
+                        → "Plusieurs" → TOUJOURS pluriel (jamais *plusieurs livre)<br>
+                        → "Aucun/Nul" → Pratiquement toujours singulier
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>Étape 5 :</strong> Placez l'adjectif AVANT le nom.<br>
+                        → Structure obligatoire : Adjectif indéfini + Nom<br>
+                        → "Chaque livre", "quelques idées", "tous les jours"<br>
+                        → Jamais après le nom (*livre chaque = incorrect)
+                    </p>
+                    
+                    <p>
+                        <strong>Mémo rapide :</strong> Les adjectifs indéfinis se placent toujours AVANT le nom. 
+                        "Chaque" = singulier obligatoire. "Plusieurs" = pluriel obligatoire. "Tout/Tel/Certain/Différent/Divers" 
+                        = accord complet (4 formes). "Quelque/Même/Autre" = variable en nombre uniquement. 
+                        "Aucun/Nul" = variable en genre uniquement.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Synthèse -->
+            <section class="synthesis-panel">
+                <h2>Synthèse des Formes Morphologiques</h2>
+                <ul class="synthesis-list">
+                    <li>
+                        <strong>Distinction fonctionnelle adjectif/pronom :</strong> Les adjectifs indéfinis ACCOMPAGNENT 
+                        et DÉTERMINENT un nom, se plaçant obligatoirement avant lui, tandis que les pronoms indéfinis 
+                        REMPLACENT un nom et fonctionnent de manière autonome. Cette distinction syntaxique fondamentale 
+                        entraîne parfois des différences morphologiques : "quelque argent" (adjectif) vs "quelqu'un" 
+                        (pronom), "chaque livre" (adjectif) vs impossibilité de "chaque" pronom, "plusieurs livres" 
+                        (adjectif) vs "plusieurs" (pronom identique).
+                    </li>
+                    <li>
+                        <strong>Quatre catégories de variation morphologique :</strong> Les adjectifs indéfinis se 
+                        répartissent en quatre catégories selon leur type de variation. INVARIABLES : chaque, plusieurs 
+                        (forme unique). VARIABLES EN NOMBRE : quelque/quelques, même/mêmes, autre/autres (deux formes). 
+                        VARIABLES EN GENRE : aucun/aucune, nul/nulle (deux formes). VARIABLES COMPLETS : tout/toute/tous/toutes, 
+                        tel/telle/tels/telles, certain/certaine/certains/certaines, différent/différente/différents/différentes, 
+                        divers/diverse/divers/diverses, maint/mainte/maints/maintes (quatre formes).
+                    </li>
+                    <li>
+                        <strong>Contraintes de nombre spécifiques :</strong> Certains adjectifs indéfinis imposent des 
+                        contraintes strictes de nombre indépendamment de leur variation morphologique. "Chaque" est 
+                        toujours et exclusivement singulier, exprimant la distribution individuelle. "Plusieurs" est 
+                        toujours et exclusivement pluriel, indiquant une quantité supérieure à deux. "Aucun" et "nul" 
+                        sont pratiquement toujours singuliers, n'acceptant le pluriel que dans de rares cas avec des 
+                        noms dépourvus de singulier.
+                    </li>
+                    <li>
+                        <strong>Règles d'accord systématiques :</strong> Les adjectifs indéfinis variables s'accordent 
+                        avec le nom qu'ils déterminent selon les règles générales d'accord du français. Genre : ajout 
+                        de -e pour le féminin. Nombre : ajout de -s pour le pluriel. Les adjectifs à variation complète 
+                        combinent ces deux marques, produisant quatre formes distinctes (masculin singulier, féminin 
+                        singulier, masculin pluriel, féminin pluriel) qui permettent une concordance parfaite avec tous 
+                        les types de noms.
+                    </li>
+                    <li>
+                        <strong>Position antéposée obligatoire :</strong> Contrairement aux adjectifs qualificatifs qui 
+                        peuvent se placer avant ou après le nom, les adjectifs indéfinis occupent TOUJOURS la position 
+                        antéposée, c'est-à-dire avant le nom qu'ils déterminent. Cette antéposition systématique constitue 
+                        un critère distinctif majeur et permet de différencier les adjectifs indéfinis des adjectifs 
+                        qualificatifs homophones mais positionnés différemment.
+                    </li>
+                    <li>
+                        <strong>Cas particuliers "différent" et "divers" :</strong> Les adjectifs "différent" et "divers" 
+                        présentent une double nature selon leur position. Placés AVANT le nom, ce sont des adjectifs 
+                        indéfinis exprimant la pluralité et la variété ("différents avis" = plusieurs avis variés). Placés 
+                        APRÈS le nom, ce sont des adjectifs qualificatifs exprimant la différence et la diversité ("des 
+                        avis différents" = des avis qui diffèrent entre eux). La position détermine donc la nature et le 
+                        sens de ces adjectifs.
+                    </li>
+                    <li>
+                        <strong>Formes archaïques et registres de langue :</strong> Certains adjectifs indéfinis relèvent 
+                        de registres spécifiques. "Nul" appartient au registre soutenu, littéraire et juridique. "Maint" 
+                        est archaïque et ne subsiste que dans quelques expressions figées ("maintes fois", "à maintes 
+                        reprises"). "Quelque" singulier est rare et littéraire, "quelques" pluriel étant nettement plus 
+                        courant. La connaissance de ces variations de registre permet d'adapter l'emploi des adjectifs 
+                        indéfinis au contexte approprié.
+                    </li>
+                    <li>
+                        <strong>Maîtrise et compétence linguistique :</strong> La connaissance approfondie des formes des 
+                        adjectifs indéfinis, de leurs variations morphologiques, de leurs contraintes d'emploi et de leurs 
+                        règles d'accord constitue un élément fondamental de la compétence grammaticale en français. Cette 
+                        maîtrise s'acquiert par l'étude systématique des différentes catégories, la mémorisation des 
+                        formes, la pratique régulière des accords, et l'observation attentive des emplois corrects dans 
+                        des contextes variés, permettant ainsi d'éviter les erreurs fréquentes et de produire un français 
+                        grammaticalement impeccable.
+                    </li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Língua Academy · Tous droits réservés</p>
+            <p class="footer-brand">LÍNGUA ACADEMY</p>
+            <p>Collection Permanente de Grammaire Française</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer pour animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -145px 0px'
+        };
+
+        const fadeObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer les cadres d'exemples
+        document.querySelectorAll('.example-frame').forEach(frame => {
+            frame.style.opacity = '0';
+            frame.style.transform = 'translateY(58px)';
+            frame.style.transition = 'opacity 1.35s ease, transform 1.35s ease';
+            fadeObserver.observe(frame);
+        });
+
+        // Animer les rangées de tableau
+        document.querySelectorAll('tbody tr').forEach((row, index) => {
+            row.style.opacity = '0';
+            row.style.transform = 'translateX(-78px)';
+            row.style.transition = `opacity 1.15s ease ${index * 0.12}s, transform 1.15s ease ${index * 0.12}s`;
+            
+            fadeObserver.observe(row);
+        });
+
+        // Effet hover sur les cartes d'exposition
+        document.querySelectorAll('.exhibit-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.exhibit-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(1.75) rotate(24deg)';
+                    icon.style.transition = 'transform 0.88s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                }
+            });
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.exhibit-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

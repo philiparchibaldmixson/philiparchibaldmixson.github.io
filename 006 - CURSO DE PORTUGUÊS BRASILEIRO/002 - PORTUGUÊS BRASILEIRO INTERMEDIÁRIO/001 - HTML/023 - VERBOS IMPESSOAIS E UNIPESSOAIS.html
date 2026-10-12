@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verbos Impessoais e Unipessoais</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #E67E22;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #E67E22;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #F39C12;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+            min-height: 300px; /* Altura mínima para uniformidade */
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores Adaptadas/Reutilizadas do 008 - CLASSES DE PALAVRAS */
+        .tipo-card.impessoal {
+            background: linear-gradient(135deg, #E74C3C, #C0392B); /* Impessoal */
+        }
+
+        .tipo-card.unipessoal {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD); /* Unipessoal */
+        }
+
+        .tipo-card.fenomeno {
+            background: linear-gradient(135deg, #3498DB, #2980B9); /* Fenômeno */
+        }
+
+        .tipo-card.haver {
+            background: linear-gradient(135deg, #2ECC71, #16A085); /* Haver/Fazer */
+        }
+        
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .exemplo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #E67E22;
+        }
+
+        .exemplo-card .titulo-exemplo {
+            font-size: 2em;
+            color: #E67E22;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .conteudo-exemplo {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .dicas-box {
+            background: linear-gradient(135deg, #1ABC9C, #16A085);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .tipo-card, .destaque, .dicas-box, .exemplo-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>👤 Verbos Impessoais e Unipessoais 👤</h1>
+        <p class="subtitle">Os verbos que têm restrições quanto à pessoa gramatical do sujeito!</p>
+
+        <div class="section">
+            <h2>🎯 Verbos Impessoais (Falta de Sujeito)</h2>
+            <p class="intro-text">
+                Verbos **Impessoais** são aqueles que **não possuem sujeito** e, por isso, são conjugados sempre na **3ª pessoa do singular**. Eles constituem orações sem sujeito (ou sujeito inexistente).
+            </p>
+
+            <div class="destaque">
+                <strong>💡 Regra de Ouro:</strong> Se um verbo é impessoal, ele **nunca** pode ir para o plural, mesmo que haja um termo plural após ele.
+            </div>
+
+            <div class="tipos-grid">
+                <div class="tipo-card impessoal">
+                    <h3>1. Verbo HAVER</h3>
+                    <div class="definicao">
+                        É impessoal quando tem o sentido de **existir**, **acontecer** ou indica **tempo decorrido**.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **Há** muitos livros na estante. (*=Existem*)<br>
+                        • **Houve** acidentes na pista. (*=Aconteceram*)<br>
+                        • Ele chegou **há** duas horas. (*=Tempo decorrido*)
+                    </div>
+                </div>
+
+                <div class="tipo-card fenomeno">
+                    <h3>2. Verbos de Fenômenos Naturais</h3>
+                    <div class="definicao">
+                        Verbos que indicam fenômenos climáticos ou da natureza.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **Choveu** muito ontem.<br>
+                        • **Nevava** na serra.<br>
+                        • **Ventou** forte no sul.<br>
+                        *(Exceção: Quando usados em sentido figurado, admitem sujeito: *Choveram críticas*).*
+                    </div>
+                </div>
+
+                <div class="tipo-card haver">
+                    <h3>3. Verbo FAZER (Tempo) e SER (Tempo)</h3>
+                    <div class="definicao">
+                        São impessoais quando indicam **tempo decorrido** ou **clima**.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **Faz** dez anos que me formei. (Tempo decorrido)<br>
+                        • **Faz** calor em Salvador. (Clima)<br>
+                        • **Era** manhã. (Tempo)
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🧩 Verbos Unipessoais (Sujeito Determinado)</h2>
+            <p class="intro-text">
+                Verbos **Unipessoais** são aqueles que, por uma questão semântica (de sentido), são conjugados apenas na **3ª pessoa do singular** ou **do plural**. Diferentemente dos impessoais, eles **possuem sujeito**.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card unipessoal">
+                    <h3>Verbos que Denotam Vozes de Animais</h3>
+                    <div class="definicao">
+                        São frequentemente usados apenas na 3ª pessoa, pois o sujeito é a própria coisa ou animal.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • O cão **latia**.<br>
+                        • A cabra **berrava**.<br>
+                        • O pinto **pia**.<br>
+                        *(Conjugados na 1ª ou 2ª pessoa, têm sentido figurado: "Eu lato de raiva").*
+                    </div>
+                </div>
+
+                <div class="tipo-card unipessoal" style="min-height: 300px;">
+                    <h3>Verbos com Restrição Semântica</h3>
+                    <div class="definicao">
+                        Verbos que se referem a fatos, acontecimentos, ou que exprimem necessidade.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **Ocorrer, Acontecer, Suceder:** Sempre com um sujeito explícito (*O jogo ocorreu*).<br>
+                        • **Custar, Convir, Urgir:** Exprimem necessidade ou conveniência (*Urge providências*).<br>
+                        • **Bastar, Importar:** (*Basta-me o silêncio*).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Dicas de Ouro</h2>
+            
+            <div class="dicas-box">
+                <h4>Erros Mais Comuns com Impessoais:</h4>
+                <ul>
+                    <li>**HAJA ou HAJAM?** Se for no sentido de *existir*, a forma correta é sempre o singular: **Haja** paz na Terra. (Nunca *Hajam*).</li>
+                    <li>**FAZ ou FAZEM?** Indicando tempo, é sempre singular: **Faz** duas semanas que não o vejo. (Nunca *Fazem*).</li>
+                    <li>**EXISTIR é o oposto:** O verbo EXISTIR tem sujeito e concorda com ele: **Existem** dez alunos na sala. (O verbo HAVER impessoal é o substituto de existir, não o contrário).</li>
+                    <li>**Locução Verbal:** Se o verbo principal for impessoal, o auxiliar também fica no singular: **Vai haver** muitas festas. (Nunca *Vão haver*).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

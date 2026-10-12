@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Accentuation en Français - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 35px;
+            box-shadow: 0 50px 120px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            animation: containerSlideIn 1.6s ease-out;
+        }
+
+        @keyframes containerSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-250px) scale(0.7) rotateX(30deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotateX(0deg);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0055A4 0%, #FFFFFF 15%, #EF4135 30%, #FFFFFF 45%, #0055A4 60%, #EF4135 75%, #FFFFFF 90%, #0055A4 100%);
+            padding: 80px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            width: 500%;
+            height: 500%;
+            top: -200%;
+            left: -200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 40px,
+                rgba(255, 255, 255, 0.08) 40px,
+                rgba(255, 255, 255, 0.08) 80px
+            );
+            animation: headerMove 50s linear infinite;
+        }
+
+        @keyframes headerMove {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(80px, 80px) rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 5em;
+            margin-bottom: 28px;
+            text-shadow: 7px 7px 20px rgba(0, 0, 0, 0.45);
+            position: relative;
+            z-index: 1;
+            color: #0055A4;
+            animation: titleFloat 7s ease-in-out infinite;
+        }
+
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.06); }
+        }
+
+        .subtitle {
+            font-size: 2.2em;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            color: #2d3436;
+        }
+
+        .content {
+            padding: 70px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 60px;
+            border-radius: 30px;
+            margin-bottom: 65px;
+            font-size: 1.45em;
+            box-shadow: 0 25px 70px rgba(106, 17, 203, 0.6);
+            animation: introReveal 1.5s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes introReveal {
+            from {
+                opacity: 0;
+                transform: scale(0.6) translateX(-250px) rotateY(-20deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateX(0) rotateY(0deg);
+            }
+        }
+
+        .intro::after {
+            content: '´ ` ¨ ^ ç';
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 10em;
+            opacity: 0.12;
+            animation: accentsPulse 5s ease-in-out infinite;
+            letter-spacing: 20px;
+        }
+
+        @keyframes accentsPulse {
+            0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.12; }
+            50% { transform: translateY(-50%) scale(1.3); opacity: 0.2; }
+        }
+
+        .section {
+            margin-bottom: 65px;
+            padding: 60px;
+            background: linear-gradient(to bottom right, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 30px;
+            border-left: 15px solid #EF4135;
+            transition: all 0.6s ease;
+            animation: sectionAppear 1.2s ease-out;
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes sectionAppear {
+            from { opacity: 0; transform: translateY(90px) rotateX(12deg); }
+            to { opacity: 1; transform: translateY(0) rotateX(0deg); }
+        }
+
+        .section:hover {
+            transform: translateX(25px) scale(1.02);
+            box-shadow: 0 35px 90px rgba(0, 0, 0, 0.18);
+            border-left-color: #0055A4;
+        }
+
+        h2 {
+            color: #0055A4;
+            font-size: 3.2em;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .icon {
+            width: 85px;
+            height: 85px;
+            background: linear-gradient(135deg, #EF4135 0%, #ff6b6b 50%, #0055A4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 2.4em;
+            animation: iconDance 8s ease-in-out infinite;
+            box-shadow: 0 16px 50px rgba(239, 65, 53, 0.7);
+        }
+
+        @keyframes iconDance {
+            0%, 100% { transform: scale(1) rotate(0deg) translateY(0); }
+            25% { transform: scale(1.4) rotate(-30deg) translateY(-12px); }
+            75% { transform: scale(1.4) rotate(30deg) translateY(-12px); }
+        }
+
+        .accents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 45px;
+        }
+
+        .accent-card {
+            background: white;
+            padding: 45px;
+            border-radius: 25px;
+            border: 6px solid #0055A4;
+            box-shadow: 0 16px 50px rgba(0, 85, 164, 0.18);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .accent-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(239, 65, 53, 0.15), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .accent-card:hover::before {
+            left: 100%;
+        }
+
+        .accent-card:hover {
+            transform: translateY(-22px) scale(1.08);
+            box-shadow: 0 30px 85px rgba(0, 85, 164, 0.35);
+            border-color: #EF4135;
+        }
+
+        .accent-symbol {
+            font-size: 8em;
+            color: #EF4135;
+            text-align: center;
+            margin-bottom: 25px;
+            animation: symbolBounce 3s ease-in-out infinite;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes symbolBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.15); }
+        }
+
+        .accent-name {
+            color: #0055A4;
+            font-size: 2.2em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .accent-description {
+            font-size: 1.2em;
+            color: #636e72;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .examples-list {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+            padding: 25px;
+            border-radius: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .example-item {
+            padding: 15px;
+            margin: 12px 0;
+            background: white;
+            border-radius: 10px;
+            font-size: 1.3em;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .example-item:hover {
+            transform: translateX(15px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .accented-letter {
+            color: #EF4135;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 55px;
+            border-radius: 28px;
+            margin: 50px 0;
+            box-shadow: 0 20px 65px rgba(0, 85, 164, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .definition-box::after {
+            content: '';
+            position: absolute;
+            top: -70%;
+            right: -70%;
+            width: 300%;
+            height: 300%;
+            background: repeating-radial-gradient(
+                circle,
+                transparent,
+                transparent 30px,
+                rgba(255, 255, 255, 0.05) 30px,
+                rgba(255, 255, 255, 0.05) 60px
+            );
+            animation: circlesRotate 30s linear infinite;
+        }
+
+        @keyframes circlesRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .definition-title {
+            font-size: 2.6em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .definition-title::before {
+            content: '📖';
+            font-size: 2.2em;
+        }
+
+        .definition-content {
+            font-size: 1.4em;
+            line-height: 2.2;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 35px;
+            margin-top: 45px;
+        }
+
+        .rule-card {
+            background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%);
+            padding: 40px;
+            border-radius: 22px;
+            border: 5px solid #0055A4;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.12), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .rule-card:hover::before {
+            left: 100%;
+        }
+
+        .rule-card:hover {
+            transform: translateY(-20px) scale(1.06);
+            box-shadow: 0 25px 75px rgba(0, 85, 164, 0.32);
+            border-color: #EF4135;
+        }
+
+        .rule-title {
+            color: #EF4135;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rule-title::before {
+            content: '▸';
+            color: #0055A4;
+            font-size: 1.8em;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 45px 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 35px;
+            font-size: 1.7em;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 35px;
+            border-bottom: 4px solid #e9ecef;
+            font-size: 1.3em;
+        }
+
+        .comparison-table tr:hover {
+            background: linear-gradient(to right, #f8f9fa 0%, #e8f4f8 100%);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 50px;
+            border-radius: 25px;
+            margin: 50px 0;
+            border-left: 12px solid #f39c12;
+            box-shadow: 0 16px 45px rgba(243, 156, 18, 0.5);
+        }
+
+        .highlight-title {
+            font-size: 1.9em;
+            font-weight: bold;
+            color: #d35400;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .highlight-title::before {
+            content: '💡';
+            font-size: 2.6em;
+            animation: lightFlash 4s infinite;
+        }
+
+        @keyframes lightFlash {
+            0%, 100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+            50% { opacity: 0.6; transform: scale(1.4); filter: brightness(2.2); }
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-left: 12px solid #f44336;
+            padding: 45px;
+            border-radius: 25px;
+            margin: 45px 0;
+        }
+
+        .warning-title {
+            font-weight: bold;
+            color: #c62828;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            font-size: 1.8em;
+        }
+
+        .warning-title::before {
+            content: '⚠';
+            font-size: 3em;
+            animation: warningShake 3s infinite;
+        }
+
+        @keyframes warningShake {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% { transform: rotate(-28deg) scale(1.3); }
+            10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90% { transform: rotate(28deg) scale(1.3); }
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 65px;
+            border-radius: 32px;
+            margin: 65px 0;
+            box-shadow: 0 25px 85px rgba(102, 126, 234, 0.7);
+        }
+
+        .summary-title {
+            font-size: 3em;
+            margin-bottom: 45px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .summary-title::before {
+            content: '📋';
+            font-size: 2.6em;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .summary-list li {
+            padding: 26px 0;
+            padding-left: 60px;
+            position: relative;
+            font-size: 1.4em;
+        }
+
+        .summary-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ffd93d;
+            font-weight: bold;
+            font-size: 2.2em;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: white;
+            text-align: center;
+            padding: 65px;
+            font-size: 1em;
+        }
+
+        .footer-logo {
+            font-size: 3.2em;
+            font-weight: bold;
+            margin-bottom: 28px;
+            background: linear-gradient(135deg, #EF4135 0%, #0055A4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: logoGlow 8s infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { opacity: 1; transform: scale(1) translateY(0) rotate(0deg); }
+            50% { opacity: 0.9; transform: scale(1.12) translateY(-12px) rotate(8deg); }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3.2em;
+            }
+
+            .content {
+                padding: 50px;
+            }
+
+            h2 {
+                font-size: 2.6em;
+            }
+
+            .accents-grid,
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇫🇷 L'Accentuation en Français</h1>
+            <p class="subtitle">Guide Complet des Accents Français</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <strong>✨ Introduction :</strong> L'accentuation est un élément fondamental de l'orthographe française. Les accents ne sont pas de simples décorations : ils modifient la prononciation, distinguent des mots homonymes et facilitent la compréhension. Maîtriser les accents, c'est maîtriser le français !
+            </div>
+
+            <!-- Section 1 : Les Cinq Accents -->
+            <div class="section">
+                <h2><span class="icon">1</span>Les Cinq Accents Français</h2>
+                
+                <div class="definition-box">
+                    <div class="definition-title">Les Accents du Français</div>
+                    <div class="definition-content">
+                        Le français utilise <strong>cinq types d'accents</strong> : l'accent aigu, l'accent grave, l'accent circonflexe, le tréma et la cédille. Chacun a des règles d'utilisation spécifiques et des fonctions précises.
+                    </div>
+                </div>
+
+                <div class="accents-grid">
+                    <div class="accent-card">
+                        <div class="accent-symbol">´</div>
+                        <div class="accent-name">Accent Aigu</div>
+                        <div class="accent-description">
+                            Se place uniquement sur le <strong>E</strong> et indique un son fermé [é]. C'est l'accent le plus fréquent en français.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="accented-letter">é</span>lève
+                            </div>
+                            <div class="example-item">
+                                caf<span class="accented-letter">é</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="accented-letter">é</span>t<span class="accented-letter">é</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="accented-letter">é</span>cole
+                            </div>
+                            <div class="example-item">
+                                r<span class="accented-letter">é</span>alit<span class="accented-letter">é</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accent-card">
+                        <div class="accent-symbol">`</div>
+                        <div class="accent-name">Accent Grave</div>
+                        <div class="accent-description">
+                            Se place sur <strong>E, A, U</strong>. Sur le E, indique un son ouvert [è]. Sur A et U, distingue des homonymes.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                p<span class="accented-letter">è</span>re
+                            </div>
+                            <div class="example-item">
+                                <span class="accented-letter">à</span> Paris (≠ a)
+                            </div>
+                            <div class="example-item">
+                                o<span class="accented-letter">ù</span> ? (≠ ou)
+                            </div>
+                            <div class="example-item">
+                                <span class="accented-letter">è</span>ve
+                            </div>
+                            <div class="example-item">
+                                d<span class="accented-letter">è</span>j<span class="accented-letter">à</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accent-card">
+                        <div class="accent-symbol">^</div>
+                        <div class="accent-name">Accent Circonflexe</div>
+                        <div class="accent-description">
+                            Se place sur <strong>A, E, I, O, U</strong>. Indique souvent une lettre disparue (généralement un S). Modifie parfois la prononciation.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                ch<span class="accented-letter">â</span>teau
+                            </div>
+                            <div class="example-item">
+                                t<span class="accented-letter">ê</span>te
+                            </div>
+                            <div class="example-item">
+                                <span class="accented-letter">î</span>le
+                            </div>
+                            <div class="example-item">
+                                h<span class="accented-letter">ô</span>tel
+                            </div>
+                            <div class="example-item">
+                                s<span class="accented-letter">û</span>r (≠ sur)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accent-card">
+                        <div class="accent-symbol">¨</div>
+                        <div class="accent-name">Tréma</div>
+                        <div class="accent-description">
+                            Se place sur <strong>E, I, U, Y</strong>. Indique que la voyelle doit être prononcée séparément de celle qui précède.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                na<span class="accented-letter">ï</span>f
+                            </div>
+                            <div class="example-item">
+                                No<span class="accented-letter">ë</span>l
+                            </div>
+                            <div class="example-item">
+                                ma<span class="accented-letter">ï</span>s
+                            </div>
+                            <div class="example-item">
+                                ambigu<span class="accented-letter">ë</span>
+                            </div>
+                            <div class="example-item">
+                                ca<span class="accented-letter">ï</span>man
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accent-card">
+                        <div class="accent-symbol">¸</div>
+                        <div class="accent-name">Cédille</div>
+                        <div class="accent-description">
+                            Se place uniquement sous le <strong>C</strong> devant A, O, U pour donner le son [s] au lieu de [k].
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="accented-letter">ç</span>a
+                            </div>
+                            <div class="example-item">
+                                gar<span class="accented-letter">ç</span>on
+                            </div>
+                            <div class="example-item">
+                                re<span class="accented-letter">ç</span>u
+                            </div>
+                            <div class="example-item">
+                                fran<span class="accented-letter">ç</span>ais
+                            </div>
+                            <div class="example-item">
+                                fa<span class="accented-letter">ç</span>ade
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2 : Règles de l'Accent Aigu -->
+            <div class="section">
+                <h2><span class="icon">2</span>L'Accent Aigu (´)</h2>
+                
+                <div class="rules-grid">
+                    <div class="rule-card">
+                        <div class="rule-title">Règle 1 : E en syllabe ouverte</div>
+                        <div class="accent-description">
+                            On met un accent aigu sur le E quand la syllabe se termine par ce E (syllabe ouverte).
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="accented-letter">é</span>-co-le
+                            </div>
+                            <div class="example-item">
+                                ca-f<span class="accented-letter">é</span>
+                            </div>
+                            <div class="example-item">
+                                <span class="accented-letter">é</span>-t<span class="accented-letter">é</span>
+                            </div>
+                            <div class="example-item">
+                                v<span class="accented-letter">é</span>-ri-t<span class="accented-letter">é</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rule-card">
+                        <div class="rule-title">Règle 2 : Début de mot</div>
+                        <div class="accent-description">
+                            Le E en début de mot prend souvent un accent aigu.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="accented-letter">é</span>lève
+                            </div>
+                            <div class="example-item">
+                                <span class="accented-letter">é</span>cran
+                            </div>
+                            <div class="example-item">
+                                <span class="accented-letter">é</span>poque
+                            </div>
+                            <div class="example-item">
+                                <span class="accented-letter">é</span>tude
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rule-card">
+                        <div class="rule-title">Règle 3 : Participes passés</div>
+                        <div class="accent-description">
+                            Les participes passés des verbes en -er prennent un accent aigu.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                mang<span class="accented-letter">é</span>
+                            </div>
+                            <div class="example-item">
+                                parl<span class="accented-letter">é</span>
+                            </div>
+                            <div class="example-item">
+                                donn<span class="accented-letter">é</span>
+                            </div>
+                            <div class="example-item">
+                                aim<span class="accented-letter">é</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rule-card">
+                        <div class="rule-title">Exception : E + consonne double</div>
+                        <div class="accent-description">
+                            Pas d'accent aigu si le E est suivi d'une consonne double.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <strong>essence</strong> (pas d'accent)
+                            </div>
+                            <div class="example-item">
+                                <strong>effort</strong> (pas d'accent)
+                            </div>
+                            <div class="example-item">
+                                <strong>effet</strong> (pas d'accent)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 : Règles de l'Accent Grave -->
+            <div class="section">
+                <h2><span class="icon">3</span>L'Accent Grave (`)</h2>
+                
+                <div class="rules-grid">
+                    <div class="rule-card">
+                        <div class="rule-title">Sur le E : Syllabe fermée</div>
+                        <div class="accent-description">
+                            On met un accent grave sur le E en syllabe fermée (se terminant par une consonne).
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                p<span class="accented-letter">è</span>re
+                            </div>
+                            <div class="example-item">
+                                m<span class="accented-letter">è</span>re
+                            </div>
+                            <div class="example-item">
+                                <span class="accented-letter">è</span>ve
+                            </div>
+                            <div class="example-item">
+                                pi<span class="accented-letter">è</span>ce
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rule-card">
+                        <div class="rule-title">Sur le E : Devant S final</div>
+                        <div class="accent-description">
+                            Le E prend un accent grave devant un S final muet.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                apr<span class="accented-letter">è</span>s
+                            </div>
+                            <div class="example-item">
+                                pr<span class="accented-letter">è</span>s
+                            </div>
+                            <div class="example-item">
+                                succ<span class="accented-letter">è</span>s
+                            </div>
+                            <div class="example-item">
+                                proc<span class="accented-letter">è</span>s
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rule-card">
+                        <div class="rule-title">Sur A : Distinction</div>
+                        <div class="accent-description">
+                            L'accent grave sur A distingue la préposition "à" du verbe "a".
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="accented-letter">à</span> Paris (préposition)
+                            </div>
+                            <div class="example-item">
+                                Il <strong>a</strong> un chat (verbe avoir)
+                            </div>
+                            <div class="example-item">
+                                d<span class="accented-letter">è</span>j<span class="accented-letter">à</span>
+                            </div>
+                            <div class="example-item">
+                                l<span class="accented-letter">à</span> (≠ la)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rule-card">
+                        <div class="rule-title">Sur U : Distinction</div>
+                        <div class="accent-description">
+                            L'accent grave sur U distingue "où" (lieu/interrogation) de "ou" (alternative).
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <span class="accented-letter">Où</span> vas-tu ? (lieu)
+                            </div>
+                            <div class="example-item">
+                                Thé <strong>ou</strong> café ? (alternative)
+                            </div>
+                            <div class="example-item">
+                                L'endroit <span class="accented-letter">où</span> je vis
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4 : L'Accent Circonflexe -->
+            <div class="section">
+                <h2><span class="icon">4</span>L'Accent Circonflexe (^)</h2>
+                
+                <div class="highlight-box">
+                    <div class="highlight-title">Origine historique</div>
+                    <p style="font-size: 1.3em;">L'accent circonflexe indique souvent la disparition d'une lettre, généralement un <strong>S</strong> qui existait en ancien français.</p>
+                </div>
+
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Mot Moderne</th>
+                                <th>Ancien Français</th>
+                                <th>Explication</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>forêt</strong></td>
+                                <td>forest</td>
+                                <td>Le S a disparu → accent circonflexe</td>
+                            </tr>
+                            <tr>
+                                <td><strong>hôpital</strong></td>
+                                <td>hospital</td>
+                                <td>Le S a disparu → accent circonflexe</td>
+                            </tr>
+                            <tr>
+                                <td><strong>château</strong></td>
+                                <td>chastel</td>
+                                <td>Le S a disparu → accent circonflexe</td>
+                            </tr>
+                            <tr>
+                                <td><strong>être</strong></td>
+                                <td>estre</td>
+                                <td>Le S a disparu → accent circonflexe</td>
+                            </tr>
+                            <tr>
+                                <td><strong>île</strong></td>
+                                <td>isle</td>
+                                <td>Le S a disparu → accent circonflexe</td>
+                            </tr>
+                            <tr>
+                                <td><strong>pâte</strong></td>
+                                <td>paste</td>
+                                <td>Le S a disparu → accent circonflexe</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="rules-grid">
+                    <div class="rule-card">
+                        <div class="rule-title">Distinction de sens</div>
+                        <div class="accent-description">
+                            L'accent circonflexe distingue certains homonymes.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                s<span class="accented-letter">û</span>r (certain) ≠ <strong>sur</strong> (préposition)
+                            </div>
+                            <div class="example-item">
+                                d<span class="accented-letter">û</span> (verbe devoir) ≠ <strong>du</strong> (article)
+                            </div>
+                            <div class="example-item">
+                                m<span class="accented-letter">û</span>r (adjectif) ≠ <strong>mur</strong> (nom)
+                            </div>
+                            <div class="example-item">
+                                t<span class="accented-letter">â</span>che (travail) ≠ <strong>tache</strong> (salissure)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rule-card">
+                        <div class="rule-title">Conjugaison</div>
+                        <div class="accent-description">
+                            Certaines formes verbales prennent un accent circonflexe.
+                        </div>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                Passé simple : il f<span class="accented-letter">û</span>t, nous f<span class="accented-letter">û</span>mes
+                            </div>
+                            <div class="example-item">
+                                Subjonctif imparfait : qu'il f<span class="accented-letter">û</span>t
+                            </div>
+                            <div class="example-item">
+                                Impératif : so<span class="accented-letter">î</span>s (être)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5 : Le Tréma -->
+            <div class="section">
+                <h2><span class="icon">5</span>Le Tréma (¨)</h2>
+                
+                <div class="definition-box">
+                    <div class="definition-title">Fonction du tréma</div>
+                    <div class="definition-content">
+                        Le tréma indique qu'une voyelle doit être prononcée <strong>séparément</strong> de la voyelle qui la précède, et non en formant une seule sonorité.
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Sans Tréma</th>
+                                <th>Avec Tréma</th>
+                                <th>Prononciation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>mais [mɛ]</td>
+                                <td>maïs [ma-is]</td>
+                                <td>Deux syllabes distinctes</td>
+                            </tr>
+                            <tr>
+                                <td>heros [eʁo]</td>
+                                <td>héroïque [e-ʁo-ik]</td>
+                                <td>Le ï se prononce séparément</td>
+                            </tr>
+                            <tr>
+                                <td>noel</td>
+                                <td>Noël [no-ɛl]</td>
+                                <td>Deux syllabes : no-ël</td>
+                            </tr>
+                            <tr>
+                                <td>naif</td>
+                                <td>naïf [na-if]</td>
+                                <td>Deux syllabes : na-if</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="examples-list">
+                    <div class="example-item">
+                        Na<span class="accented-letter">ï</span>f, na<span class="accented-letter">ï</span>ve
+                    </div>
+                    <div class="example-item">
+                        No<span class="accented-letter">ë</span>l
+                    </div>
+                    <div class="example-item">
+                        H<span class="accented-letter">é</span>ro<span class="accented-letter">ï</span>que
+                    </div>
+                    <div class="example-item">
+                        Ambigu<span class="accented-letter">ë</span> (féminin d'ambigu)
+                    </div>
+                    <div class="example-item">
+                        Ca<span class="accented-letter">ï</span>man
+                    </div>
+                    <div class="example-item">
+                        Mo<span class="accented-letter">ï</span>se
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6 : La Cédille -->
+            <div class="section">
+                <h2><span class="icon">6</span>La Cédille (¸)</h2>
+                
+                <div class="definition-box">
+                    <div class="definition-title">Fonction de la cédille</div>
+                    <div class="definition-content">
+                        La cédille se place sous le <strong>C</strong> devant A, O, U pour transformer le son [k] en son [s]. Sans cédille, le C devant ces voyelles se prononce [k].
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Sans Cédille</th>
+                                <th>Avec Cédille</th>
+                                <th>Son</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ca [ka]</td>
+                                <td>ça [sa]</td>
+                                <td>[k] → [s]</td>
+                            </tr>
+                            <tr>
+                                <td>con [kɔ̃]</td>
+                                <td>leçon [lə-sɔ̃]</td>
+                                <td>[k] → [s]</td>
+                            </tr>
+                            <tr>
+                                <td>cu [ky]</td>
+                                <td>reçu [ʁə-sy]</td>
+                                <td>[k] → [s]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="warning-box">
+                    <div class="warning-title">Attention !</div>
+                    <p style="font-size: 1.3em;">La cédille ne s'utilise <strong>JAMAIS</strong> devant E, I, Y car le C se prononce déjà [s] devant ces lettres.</p>
+                    <div class="examples-list">
+                        <div class="example-item">
+                            ✅ <strong>cerise</strong> (pas de cédille devant E)
+                        </div>
+                        <div class="example-item">
+                            ✅ <strong>cinéma</strong> (pas de cédille devant I)
+                        </div>
+                        <div class="example-item">
+                            ✅ <strong>français</strong> (cédille devant A)
+                        </div>
+                        <div class="example-item">
+                            ✅ <strong>garçon</strong> (cédille devant O)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="examples-list">
+                    <div class="example-item">
+                        <span class="accented-letter">Ç</span>a va bien !
+                    </div>
+                    <div class="example-item">
+                        Un gar<span class="accented-letter">ç</span>on
+                    </div>
+                    <div class="example-item">
+                        J'ai re<span class="accented-letter">ç</span>u une lettre
+                    </div>
+                    <div class="example-item">
+                        Le fran<span class="accented-letter">ç</span>ais
+                    </div>
+                    <div class="example-item">
+                        Une fa<span class="accented-letter">ç</span>ade
+                    </div>
+                    <div class="example-item">
+                        Une le<span class="accented-letter">ç</span>on
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 7 : Majuscules et Accents -->
+            <div class="section">
+                <h2><span class="icon">7</span>Les Accents sur les Majuscules</h2>
+                
+                <div class="highlight-box">
+                    <div class="highlight-title">Règle importante</div>
+                    <p style="font-size: 1.35em;">Les majuscules <strong>DOIVENT</strong> être accentuées en français ! C'est une règle de l'Académie française. Les accents ne sont pas optionnels sur les majuscules.</p>
+                </div>
+
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>❌ Incorrect</th>
+                                <th>✅ Correct</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ECOLE</td>
+                                <td>ÉCOLE</td>
+                            </tr>
+                            <tr>
+                                <td>ETE</td>
+                                <td>ÉTÉ</td>
+                            </tr>
+                            <tr>
+                                <td>A PARIS</td>
+                                <td>À PARIS</td>
+                            </tr>
+                            <tr>
+                                <td>ELEVE</td>
+                                <td>ÉLÈVE</td>
+                            </tr>
+                            <tr>
+                                <td>CHATEAU</td>
+                                <td>CHÂTEAU</td>
+                            </tr>
+                            <tr>
+                                <td>NOEL</td>
+                                <td>NOËL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="warning-box">
+                    <div class="warning-title">Pourquoi c'est important</div>
+                    <p style="font-size: 1.25em;">Ne pas mettre d'accent sur les majuscules peut changer le sens :</p>
+                    <div class="examples-list">
+                        <div class="example-item">
+                            <strong>UN ASSASSIN TUE</strong> (ambigu : tué ou tue ?)
+                        </div>
+                        <div class="example-item">
+                            <strong>UN ASSASSIN TUÉ</strong> (clair : il a été tué)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 8 : Résumé -->
+            <div class="summary-box">
+                <div class="summary-title">Points clés à retenir</div>
+                <ul class="summary-list">
+                    <li>Le français utilise 5 accents : aigu (´), grave (`), circonflexe (^), tréma (¨), cédille (¸)</li>
+                    <li>L'accent aigu se place uniquement sur le E et indique un son fermé [é]</li>
+                    <li>L'accent grave se place sur E, A, U - sur E pour un son ouvert [è]</li>
+                    <li>L'accent circonflexe marque souvent la disparition d'un S ancien</li>
+                    <li>Le tréma indique que deux voyelles se prononcent séparément</li>
+                    <li>La cédille transforme le son [k] en [s] devant A, O, U</li>
+                    <li>Les majuscules DOIVENT être accentuées en français</li>
+                    <li>Les accents ne sont pas décoratifs : ils modifient la prononciation et le sens</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="footer-logo">Língua Academy</div>
+            <p>Maîtrisez l'accentuation française avec perfection et élégance ✨</p>
+            <p>© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

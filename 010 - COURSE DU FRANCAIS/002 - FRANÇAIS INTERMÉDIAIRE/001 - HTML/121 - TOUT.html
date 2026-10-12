@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOUT · Maîtriser ses Emplois | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --emerald: #047857;
+            --emerald-light: #10b981;
+            --emerald-dark: #065f46;
+            --cream: #fffef9;
+            --beige: #f5f1e8;
+            --noir: #1f2937;
+            --gris: #6b7280;
+            --accent-coral: #ff6b6b;
+            --accent-gold: #fbbf24;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--cream);
+            color: var(--noir);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .organic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: morph 15s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--emerald-light);
+            top: -200px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-coral);
+            bottom: -150px;
+            left: -100px;
+            animation-delay: 5s;
+        }
+
+        .blob-3 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-gold);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 10s;
+        }
+
+        @keyframes morph {
+            0%, 100% {
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+                transform: translate(20px, -20px) rotate(90deg);
+            }
+            50% {
+                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+                transform: translate(-20px, 20px) rotate(180deg);
+            }
+            75% {
+                border-radius: 70% 30% 50% 50% / 30% 50% 50% 70%;
+                transform: translate(20px, 20px) rotate(270deg);
+            }
+        }
+
+        header {
+            position: relative;
+            z-index: 10;
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            background: transparent;
+        }
+
+        .logo {
+            font-size: 0.75rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--emerald);
+            font-weight: 600;
+            margin-bottom: 3rem;
+            display: inline-block;
+            position: relative;
+            animation: fadeInDown 1s ease both;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--emerald);
+        }
+
+        h1 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--emerald-dark);
+            margin-bottom: 1.5rem;
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+            animation: fadeInUp 1s ease 0.2s both;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::before {
+            content: '«';
+            position: absolute;
+            left: -80px;
+            top: 0;
+            font-size: 6rem;
+            color: var(--accent-coral);
+            opacity: 0.3;
+        }
+
+        h1::after {
+            content: '»';
+            position: absolute;
+            right: -80px;
+            top: 0;
+            font-size: 6rem;
+            color: var(--accent-coral);
+            opacity: 0.3;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--gris);
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--emerald);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gris);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .intro-banner {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            margin-bottom: 5rem;
+            border-left: 8px solid var(--emerald);
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .intro-banner p {
+            font-size: 1.25rem;
+            color: var(--noir);
+            line-height: 2;
+            font-weight: 400;
+        }
+
+        .intro-banner strong {
+            color: var(--emerald);
+            font-weight: 600;
+        }
+
+        .section {
+            margin-bottom: 6rem;
+            animation: fadeInUp 1s ease both;
+        }
+
+        .section:nth-child(2) { animation-delay: 1s; }
+        .section:nth-child(3) { animation-delay: 1.1s; }
+        .section:nth-child(4) { animation-delay: 1.2s; }
+        .section:nth-child(5) { animation-delay: 1.3s; }
+
+        .section-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-number {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(4, 120, 87, 0.3);
+        }
+
+        .section-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 3rem;
+            color: var(--emerald-dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--gris);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--emerald), var(--emerald-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.6rem;
+            color: var(--emerald-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--emerald-light), var(--emerald));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .card-content p {
+            color: var(--noir);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, var(--beige) 0%, #f9f7f0 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--emerald);
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            border-left-color: var(--accent-coral);
+            transform: translateX(5px);
+        }
+
+        .example-text {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.15rem;
+            color: var(--noir);
+            margin-bottom: 0.5rem;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .example-note {
+            font-size: 0.9rem;
+            color: var(--gris);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .example-note::before {
+            content: '→';
+            color: var(--emerald);
+            font-weight: 700;
+        }
+
+        .highlight {
+            color: var(--emerald);
+            font-weight: 600;
+            background: linear-gradient(180deg, transparent 70%, rgba(16, 185, 129, 0.2) 70%);
+            padding: 0 0.2rem;
+        }
+
+        .highlight-coral {
+            color: var(--accent-coral);
+            font-weight: 600;
+            background: linear-gradient(180deg, transparent 70%, rgba(255, 107, 107, 0.2) 70%);
+            padding: 0 0.2rem;
+        }
+
+        .rule-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            margin: 2rem 0;
+            border-top: 6px solid var(--emerald);
+        }
+
+        .rule-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.5rem;
+            color: var(--emerald-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .rule-title::before {
+            content: '✓';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: var(--emerald);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(4, 120, 87, 0.3);
+        }
+
+        .tag.coral {
+            background: linear-gradient(135deg, var(--accent-coral) 0%, #ff8787 100%);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .tag.gold {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #fcd34d 100%);
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+        }
+
+        .table-container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            margin: 3rem 0;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--emerald) 100%);
+            color: white;
+        }
+
+        th {
+            padding: 1.5rem 1.2rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        th:first-child {
+            border-radius: 12px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 12px 0 0;
+        }
+
+        td {
+            padding: 1.2rem;
+            border-bottom: 1px solid var(--beige);
+            font-size: 1rem;
+        }
+
+        tbody tr {
+            transition: background 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background: var(--beige);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 12px;
+        }
+
+        tbody tr:last-child td:last-child {
+            border-radius: 0 0 12px 0;
+        }
+
+        .alert-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+            border-left: 6px solid var(--accent-gold);
+            box-shadow: 0 10px 40px rgba(251, 191, 36, 0.2);
+            position: relative;
+        }
+
+        .alert-icon {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 20px rgba(251, 191, 36, 0.4);
+        }
+
+        .alert-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.6rem;
+            color: var(--noir);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .alert-content {
+            text-align: center;
+            color: var(--noir);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .comparison-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-side {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            border-top: 5px solid var(--emerald);
+        }
+
+        .comparison-side.wrong {
+            border-top-color: var(--accent-coral);
+        }
+
+        .comparison-side h4 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--emerald-dark);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .comparison-side.wrong h4 {
+            color: var(--accent-coral);
+        }
+
+        .comparison-side h4::before {
+            content: '✓';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: var(--emerald);
+            color: white;
+            border-radius: 50%;
+            font-size: 1rem;
+        }
+
+        .comparison-side.wrong h4::before {
+            content: '✗';
+            background: var(--accent-coral);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--emerald) 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            margin-top: 8rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-coral), var(--accent-gold));
+            border-radius: 0 0 5px 5px;
+        }
+
+        .footer-brand {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 4rem;
+            }
+
+            h1::before,
+            h1::after {
+                display: none;
+            }
+
+            .stat-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-box {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="organic-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <header>
+        <div class="logo">Língua Academy</div>
+        <h1>TOUT</h1>
+        <p class="subtitle">Adjectif • Pronom • Adverbe — Maîtrisez tous ses emplois</p>
+        
+        <div class="stat-grid">
+            <div class="stat-item">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Natures</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Formes</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Expressions</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="intro-banner">
+            <p>
+                <strong>TOUT</strong> est l'un des mots les plus complexes de la langue française. 
+                Il peut être <strong>adjectif</strong>, <strong>pronom</strong> ou <strong>adverbe</strong>, 
+                avec des règles d'accord qui varient selon sa nature et son emploi. Comprendre ces nuances 
+                est essentiel pour une expression française irréprochable.
+            </p>
+        </div>
+
+        <!-- SECTION 1: TOUT ADJECTIF -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number" style="margin: 0 auto;">1</div>
+                <h2 class="section-title">TOUT Adjectif Indéfini</h2>
+                <p class="section-description">
+                    Quand TOUT accompagne un nom, il est adjectif et s'accorde en genre et en nombre.
+                </p>
+            </div>
+
+            <div class="rule-box">
+                <h3 class="rule-title">Règle d'accord</h3>
+                <p>
+                    TOUT adjectif s'accorde toujours avec le nom qu'il qualifie : 
+                    <strong>tout</strong> (m.s.), <strong>toute</strong> (f.s.), 
+                    <strong>tous</strong> (m.pl.), <strong>toutes</strong> (f.pl.).
+                </p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">MS</span>
+                        Masculin Singulier
+                    </h3>
+                    <div class="card-content">
+                        <div class="tag-group">
+                            <span class="tag">Sens : Entier, complet</span>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tout</span> le monde est là.</div>
+                            <div class="example-note">Le monde entier</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text">J'ai lu <span class="highlight">tout</span> le livre.</div>
+                            <div class="example-note">Le livre en entier</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tout</span> homme est mortel.</div>
+                            <div class="example-note">Chaque homme, n'importe quel homme</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">FS</span>
+                        Féminin Singulier
+                    </h3>
+                    <div class="card-content">
+                        <div class="tag-group">
+                            <span class="tag coral">Sens : Entière, complète</span>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight-coral">Toute</span> la journée, j'ai travaillé.</div>
+                            <div class="example-note">La journée entière</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight-coral">Toute</span> vérité n'est pas bonne à dire.</div>
+                            <div class="example-note">N'importe quelle vérité</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text">J'ai mangé <span class="highlight-coral">toute</span> la tarte.</div>
+                            <div class="example-note">La tarte complète</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">MP</span>
+                        Masculin Pluriel
+                    </h3>
+                    <div class="card-content">
+                        <div class="tag-group">
+                            <span class="tag">Sens : Tous sans exception</span>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tous</span> les étudiants sont présents.</div>
+                            <div class="example-note">La totalité des étudiants</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tous</span> mes amis viendront.</div>
+                            <div class="example-note">Chacun de mes amis</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text">À <span class="highlight">tous</span> égards, c'est parfait.</div>
+                            <div class="example-note">Sous tous les aspects</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">FP</span>
+                        Féminin Pluriel
+                    </h3>
+                    <div class="card-content">
+                        <div class="tag-group">
+                            <span class="tag coral">Sens : Toutes sans exception</span>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight-coral">Toutes</span> les fenêtres sont ouvertes.</div>
+                            <div class="example-note">L'ensemble des fenêtres</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight-coral">Toutes</span> sortes de fleurs poussent ici.</div>
+                            <div class="example-note">Toutes les variétés</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text">De <span class="highlight-coral">toutes</span> parts, on entend des cris.</div>
+                            <div class="example-note">De partout</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <div class="alert-icon">💡</div>
+                <h3 class="alert-title">Distinction importante</h3>
+                <div class="alert-content">
+                    <strong>TOUT + article/déterminant + nom</strong> = sens collectif (la totalité)<br>
+                    <em>Tout le village dort</em> = le village entier<br><br>
+                    <strong>TOUT + nom (sans article)</strong> = sens distributif (chaque, n'importe quel)<br>
+                    <em>Tout élève doit réussir</em> = chaque élève, n'importe quel élève
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: TOUT PRONOM -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number" style="margin: 0 auto;">2</div>
+                <h2 class="section-title">TOUT Pronom Indéfini</h2>
+                <p class="section-description">
+                    Quand TOUT remplace un nom, il est pronom et peut être invariable ou variable selon le contexte.
+                </p>
+            </div>
+
+            <div class="rule-box">
+                <h3 class="rule-title">Règles d'accord du pronom</h3>
+                <p>
+                    <strong>TOUT</strong> pronom peut être au singulier (invariable) ou au pluriel (variable en genre).
+                    Il remplace un nom déjà mentionné ou sous-entendu.
+                </p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">∅</span>
+                        TOUT (neutre singulier)
+                    </h3>
+                    <div class="card-content">
+                        <div class="tag-group">
+                            <span class="tag gold">Invariable</span>
+                        </div>
+                        <p>Représente un ensemble indéterminé ou une idée générale.</p>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tout</span> est prêt pour la fête.</div>
+                            <div class="example-note">Toute chose est prête</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tout</span> m'indiffère maintenant.</div>
+                            <div class="example-note">Toute chose m'indiffère</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text">Il a <span class="highlight">tout</span> compris.</div>
+                            <div class="example-note">La totalité des choses</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">PL</span>
+                        TOUS / TOUTES (pluriel)
+                    </h3>
+                    <div class="card-content">
+                        <div class="tag-group">
+                            <span class="tag">Variable en genre</span>
+                        </div>
+                        <p>Représente plusieurs personnes ou choses identifiées.</p>
+                        <div class="example-box">
+                            <div class="example-text">Mes amis sont là, <span class="highlight">tous</span> sans exception.</div>
+                            <div class="example-note">Prononce [tus] - le S final se prononce</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text">Les étudiantes sont venues, <span class="highlight-coral">toutes</span> motivées.</div>
+                            <div class="example-note">Féminin pluriel</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text">Ils sont <span class="highlight">tous</span> partis tôt.</div>
+                            <div class="example-note">Pronom sujet</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <div class="alert-icon">🔊</div>
+                <h3 class="alert-title">Prononciation essentielle</h3>
+                <div class="alert-content">
+                    Quand TOUS est <strong>pronom</strong>, le S final se prononce : [tus]<br>
+                    <em>Ils sont tous là</em> → prononcez [tus]<br><br>
+                    Quand TOUS est <strong>adjectif</strong>, le S ne se prononce pas : [tu]<br>
+                    <em>Tous les jours</em> → prononcez [tu]
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fonction</th>
+                            <th>Forme</th>
+                            <th>Exemple</th>
+                            <th>Prononciation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pronom neutre</strong></td>
+                            <td>tout (invariable)</td>
+                            <td><em>Tout va bien</em></td>
+                            <td>[tu]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pronom masculin pluriel</strong></td>
+                            <td>tous</td>
+                            <td><em>Ils sont tous venus</em></td>
+                            <td>[tus]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pronom féminin pluriel</strong></td>
+                            <td>toutes</td>
+                            <td><em>Elles sont toutes là</em></td>
+                            <td>[tut]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adjectif masculin pluriel</strong></td>
+                            <td>tous</td>
+                            <td><em>Tous les livres</em></td>
+                            <td>[tu]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION 3: TOUT ADVERBE -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number" style="margin: 0 auto;">3</div>
+                <h2 class="section-title">TOUT Adverbe</h2>
+                <p class="section-description">
+                    Quand TOUT modifie un adjectif ou un autre adverbe, il est adverbe et généralement invariable.
+                </p>
+            </div>
+
+            <div class="rule-box">
+                <h3 class="rule-title">Règle générale : INVARIABLE</h3>
+                <p>
+                    TOUT adverbe signifie "très", "tout à fait", "complètement". 
+                    Il est <strong>généralement invariable</strong>, sauf devant un adjectif féminin commençant 
+                    par une consonne ou un h aspiré.
+                </p>
+            </div>
+
+            <div class="comparison-box">
+                <div class="comparison-side">
+                    <h4>Invariable (le plus fréquent)</h4>
+                    <div class="example-box">
+                        <div class="example-text">Elle est <span class="highlight">tout</span> heureuse.</div>
+                        <div class="example-note">Devant voyelle ou h muet → invariable</div>
+                    </div>
+                    <div class="example-box">
+                        <div class="example-text">Ils sont <span class="highlight">tout</span> petits.</div>
+                        <div class="example-note">Devant adjectif masculin → invariable</div>
+                    </div>
+                    <div class="example-box">
+                        <div class="example-text">Elles marchent <span class="highlight">tout</span> doucement.</div>
+                        <div class="example-note">Devant adverbe → invariable</div>
+                    </div>
+                    <div class="example-box">
+                        <div class="example-text">Elle est <span class="highlight">tout</span> étonnée.</div>
+                        <div class="example-note">Féminin commençant par voyelle → invariable</div>
+                    </div>
+                </div>
+
+                <div class="comparison-side wrong">
+                    <h4>Variable (exception)</h4>
+                    <div class="example-box">
+                        <div class="example-text">Elle est <span class="highlight-coral">toute</span> petite.</div>
+                        <div class="example-note">Féminin + consonne → s'accorde !</div>
+                    </div>
+                    <div class="example-box">
+                        <div class="example-text">Elles sont <span class="highlight-coral">toutes</span> honteuses.</div>
+                        <div class="example-note">Féminin pluriel + h aspiré → s'accorde !</div>
+                    </div>
+                    <div class="example-box">
+                        <div class="example-text">Elle est <span class="highlight-coral">toute</span> confuse.</div>
+                        <div class="example-note">Féminin + consonne → s'accorde !</div>
+                    </div>
+                    <div class="example-box">
+                        <div class="example-text">Des maisons <span class="highlight-coral">toutes</span> neuves.</div>
+                        <div class="example-note">Féminin pluriel + consonne → s'accorde !</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <div class="alert-icon">⚠️</div>
+                <h3 class="alert-title">La règle d'euphonie</h3>
+                <div class="alert-content">
+                    TOUT adverbe s'accorde devant un adjectif <strong>féminin</strong> commençant par 
+                    <strong>consonne</strong> ou <strong>h aspiré</strong> pour faciliter la prononciation.<br><br>
+                    <strong>INVARIABLE :</strong> tout heureuse, tout étonnée, tout aimable<br>
+                    <strong>VARIABLE :</strong> toute petite, toute honteuse, toute belle
+                </div>
+            </div>
+
+            <div class="table-container">
+                <h3 style="font-family: 'Libre Baskerville', serif; font-size: 1.8rem; color: var(--emerald-dark); margin-bottom: 2rem; text-align: center;">
+                    Tableau récapitulatif : TOUT adverbe
+                </h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Contexte</th>
+                            <th>Accord</th>
+                            <th>Exemple CORRECT</th>
+                            <th>Exemple INCORRECT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Devant adjectif masculin</td>
+                            <td>Invariable</td>
+                            <td><em>Il est tout content</em></td>
+                            <td><s>Il est tous content</s></td>
+                        </tr>
+                        <tr>
+                            <td>Devant adjectif féminin + voyelle</td>
+                            <td>Invariable</td>
+                            <td><em>Elle est tout heureuse</em></td>
+                            <td><s>Elle est toute heureuse</s></td>
+                        </tr>
+                        <tr>
+                            <td>Devant adjectif féminin + h muet</td>
+                            <td>Invariable</td>
+                            <td><em>Elle est tout humble</em></td>
+                            <td><s>Elle est toute humble</s></td>
+                        </tr>
+                        <tr>
+                            <td>Devant adjectif féminin + consonne</td>
+                            <td><strong>Variable</strong></td>
+                            <td><em>Elle est toute petite</em></td>
+                            <td><s>Elle est tout petite</s></td>
+                        </tr>
+                        <tr>
+                            <td>Devant adjectif féminin + h aspiré</td>
+                            <td><strong>Variable</strong></td>
+                            <td><em>Elle est toute honteuse</em></td>
+                            <td><s>Elle est tout honteuse</s></td>
+                        </tr>
+                        <tr>
+                            <td>Devant un adverbe</td>
+                            <td>Invariable</td>
+                            <td><em>Elles marchent tout doucement</em></td>
+                            <td><s>Elles marchent toutes doucement</s></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION 4: EXPRESSIONS -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number" style="margin: 0 auto;">4</div>
+                <h2 class="section-title">Expressions avec TOUT</h2>
+                <p class="section-description">
+                    De nombreuses locutions figées utilisent TOUT avec des nuances de sens particulières.
+                </p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">📝</span>
+                        Locutions courantes
+                    </h3>
+                    <div class="card-content">
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tout à fait</span> d'accord !</div>
+                            <div class="example-note">= complètement, entièrement</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tout de suite</span>, s'il vous plaît.</div>
+                            <div class="example-note">= immédiatement</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text">Je suis <span class="highlight">tout ouïe</span>.</div>
+                            <div class="example-note">= j'écoute attentivement</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tout à coup</span>, il est parti.</div>
+                            <div class="example-note">= soudainement</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">💬</span>
+                        Expressions idiomatiques
+                    </h3>
+                    <div class="card-content">
+                        <div class="example-box">
+                            <div class="example-text">C'est <span class="highlight">tout vu</span> !</div>
+                            <div class="example-note">= c'est décidé</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">En tout cas</span>, je viendrai.</div>
+                            <div class="example-note">= quoi qu'il arrive</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text">Il est <span class="highlight">tout feu tout flamme</span>.</div>
+                            <div class="example-note">= très enthousiaste</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tout compte fait</span>, je reste.</div>
+                            <div class="example-note">= après réflexion</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">🎯</span>
+                        Locutions prépositionnelles
+                    </h3>
+                    <div class="card-content">
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tout au long de</span> la journée.</div>
+                            <div class="example-note">= pendant toute la durée de</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tout autour de</span> la maison.</div>
+                            <div class="example-note">= autour de</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tout au plus</span>, il viendra trois personnes.</div>
+                            <div class="example-note">= au maximum</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tout près de</span> la gare.</div>
+                            <div class="example-note">= très près de</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">⚡</span>
+                        Expressions figées
+                    </h3>
+                    <div class="card-content">
+                        <div class="example-box">
+                            <div class="example-text">C'est <span class="highlight">tout un</span> art.</div>
+                            <div class="example-note">= c'est complexe, difficile</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tout le monde</span> est content.</div>
+                            <div class="example-note">= toutes les personnes</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text">C'est <span class="highlight">tout dire</span> !</div>
+                            <div class="example-note">= cela en dit long</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tout bien considéré</span>...</div>
+                            <div class="example-note">= après mûre réflexion</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <h3 class="rule-title">Distinction importante</h3>
+                <div class="comparison-box" style="margin-top: 2rem;">
+                    <div class="comparison-side">
+                        <h4>TOUT À COUP</h4>
+                        <p style="margin-bottom: 1rem;">= soudainement, de manière inattendue</p>
+                        <div class="example-box">
+                            <div class="example-text"><span class="highlight">Tout à coup</span>, il a commencé à pleuvoir.</div>
+                            <div class="example-note">Événement soudain et imprévu</div>
+                        </div>
+                    </div>
+                    <div class="comparison-side">
+                        <h4>TOUT D'UN COUP</h4>
+                        <p style="margin-bottom: 1rem;">= en une seule fois, simultanément</p>
+                        <div class="example-box">
+                            <div class="example-text">Ils sont arrivés <span class="highlight">tout d'un coup</span>.</div>
+                            <div class="example-note">Tous ensemble, en même temps</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION RÉCAPITULATIF -->
+        <section class="section">
+            <div class="rule-box" style="background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--emerald) 100%); color: white; border: none;">
+                <h3 style="font-family: 'Libre Baskerville', serif; font-size: 2rem; color: white; margin-bottom: 2rem; text-align: center;">
+                    🎯 Récapitulatif Complet
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px; backdrop-filter: blur(10px);">
+                        <h4 style="font-family: 'Libre Baskerville', serif; font-size: 1.4rem; margin-bottom: 1rem; color: var(--accent-gold);">
+                            ADJECTIF
+                        </h4>
+                        <p style="font-size: 0.95rem; line-height: 1.7;">
+                            <strong>Toujours variable</strong><br>
+                            • tout, toute, tous, toutes<br>
+                            • Accompagne un nom<br>
+                            • <em>Tous les jours</em> [tu]<br>
+                            • <em>Toute la nuit</em>
+                        </p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px; backdrop-filter: blur(10px);">
+                        <h4 style="font-family: 'Libre Baskerville', serif; font-size: 1.4rem; margin-bottom: 1rem; color: var(--accent-gold);">
+                            PRONOM
+                        </h4>
+                        <p style="font-size: 0.95rem; line-height: 1.7;">
+                            <strong>Variable au pluriel</strong><br>
+                            • tout (neutre invariable)<br>
+                            • tous, toutes (pluriel)<br>
+                            • Remplace un nom<br>
+                            • <em>Ils sont tous là</em> [tus]<br>
+                            • <em>Tout va bien</em>
+                        </p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px; backdrop-filter: blur(10px);">
+                        <h4 style="font-family: 'Libre Baskerville', serif; font-size: 1.4rem; margin-bottom: 1rem; color: var(--accent-gold);">
+                            ADVERBE
+                        </h4>
+                        <p style="font-size: 0.95rem; line-height: 1.7;">
+                            <strong>Généralement invariable</strong><br>
+                            • Sauf fém. + consonne/h aspiré<br>
+                            • Modifie adjectif/adverbe<br>
+                            • <em>Elle est tout heureuse</em><br>
+                            • <em>Elle est toute petite</em>
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 2rem; background: rgba(255,255,255,0.15); border-radius: 12px; text-align: center;">
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        <strong>Méthode rapide :</strong> Identifiez d'abord la <strong>nature</strong> de TOUT 
+                        (adjectif, pronom ou adverbe), puis appliquez les <strong>règles d'accord</strong> 
+                        correspondantes. En cas de doute, privilégiez la forme qui facilite la prononciation.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-brand">Língua Academy</div>
+        <p class="footer-tagline">Maîtrisez la langue française avec excellence</p>
+        <p class="footer-tagline" style="font-size: 0.85rem; margin-top: 1rem; opacity: 0.7;">
+            © 2024 • Grammaire Française • Pronoms & Adjectifs Indéfinis
+        </p>
+    </footer>
+</body>
+</html>

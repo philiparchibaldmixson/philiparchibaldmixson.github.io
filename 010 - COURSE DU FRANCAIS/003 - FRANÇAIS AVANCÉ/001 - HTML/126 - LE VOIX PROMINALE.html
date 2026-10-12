@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Voix Pronominale | Grammaire Française</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --emerald: #2D6A4F;
+            --sage-green: #52B788;
+            --mint: #95D5B2;
+            --rose-dust: #D8A7B1;
+            --peach: #FFCBB4;
+            --cream: #FFF5EB;
+            --warm-beige: #F4E8D8;
+            --deep-brown: #3E2723;
+            --soft-gray: #8D8B87;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--cream);
+            color: var(--deep-brown);
+            line-height: 1.75;
+            overflow-x: hidden;
+        }
+
+        /* Organic background shapes */
+        .organic-background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            opacity: 0.6;
+            animation: blobMove 25s infinite ease-in-out;
+        }
+
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(82, 183, 136, 0.15), transparent);
+            top: -200px;
+            right: -150px;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(216, 167, 177, 0.12), transparent);
+            bottom: -150px;
+            left: -100px;
+            animation-delay: -8s;
+        }
+
+        .blob-3 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 203, 180, 0.1), transparent);
+            top: 40%;
+            left: 30%;
+            animation-delay: -15s;
+        }
+
+        @keyframes blobMove {
+            0%, 100% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            }
+            25% {
+                transform: translate(30px, -30px) scale(1.1) rotate(5deg);
+                border-radius: 50% 50% 60% 40% / 50% 60% 40% 50%;
+            }
+            50% {
+                transform: translate(-20px, 20px) scale(0.95) rotate(-5deg);
+                border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%;
+            }
+            75% {
+                transform: translate(20px, 30px) scale(1.05) rotate(3deg);
+                border-radius: 45% 55% 45% 55% / 55% 45% 55% 45%;
+            }
+        }
+
+        /* Container */
+        .wrapper {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+
+        /* Header with flowing design */
+        header {
+            padding: 100px 0 80px;
+            position: relative;
+        }
+
+        .header-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(45, 106, 79, 0.15);
+            margin-bottom: 35px;
+            animation: floatIn 0.8s ease-out;
+        }
+
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-dot {
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(135deg, var(--emerald), var(--sage-green));
+            border-radius: 50%;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .logo-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--emerald);
+        }
+
+        h1 {
+            font-family: 'Lora', serif;
+            font-size: 6.5rem;
+            font-weight: 700;
+            color: var(--emerald);
+            line-height: 1;
+            margin-bottom: 25px;
+            animation: floatIn 1s ease-out 0.2s backwards;
+        }
+
+        .title-word {
+            display: inline-block;
+        }
+
+        .title-accent {
+            background: linear-gradient(135deg, var(--sage-green), var(--mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .subtitle {
+            font-size: 1.35rem;
+            color: var(--soft-gray);
+            max-width: 750px;
+            font-weight: 400;
+            animation: floatIn 1s ease-out 0.4s backwards;
+        }
+
+        /* Flowing definition card */
+        .intro-card {
+            background: white;
+            padding: 65px;
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(45, 106, 79, 0.1);
+            margin: 70px 0;
+            position: relative;
+            overflow: hidden;
+            animation: scaleIn 1s ease-out 0.6s backwards;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .intro-card::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(82, 183, 136, 0.1), transparent);
+            border-radius: 50%;
+        }
+
+        .intro-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--emerald), var(--sage-green), var(--mint));
+            border-radius: 0 0 40px 40px;
+        }
+
+        .intro-card h2 {
+            font-family: 'Lora', serif;
+            font-size: 2.8rem;
+            color: var(--emerald);
+            margin-bottom: 25px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro-card p {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--deep-brown);
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-word {
+            color: var(--sage-green);
+            font-weight: 600;
+        }
+
+        /* Section with organic styling */
+        .section {
+            margin: 90px 0;
+            animation: scaleIn 1s ease-out backwards;
+        }
+
+        .section:nth-child(4) { animation-delay: 0.8s; }
+        .section:nth-child(5) { animation-delay: 1s; }
+        .section:nth-child(6) { animation-delay: 1.2s; }
+        .section:nth-child(7) { animation-delay: 1.4s; }
+        .section:nth-child(8) { animation-delay: 1.6s; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .section-icon {
+            width: 85px;
+            height: 85px;
+            background: linear-gradient(135deg, var(--emerald), var(--sage-green));
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 12px 35px rgba(45, 106, 79, 0.3);
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-icon::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateY(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .section:hover .section-icon::before {
+            transform: translateY(0);
+        }
+
+        .section-header h3 {
+            font-family: 'Lora', serif;
+            font-size: 2.7rem;
+            color: var(--emerald);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .section-intro {
+            font-size: 1.15rem;
+            color: var(--deep-brown);
+            margin-bottom: 45px;
+            line-height: 1.9;
+        }
+
+        /* Type cards with soft shadows */
+        .type-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            margin: 50px 0;
+        }
+
+        .type-card {
+            background: white;
+            padding: 45px;
+            border-radius: 30px;
+            box-shadow: 0 15px 45px rgba(45, 106, 79, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--emerald), var(--sage-green));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .type-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(45, 106, 79, 0.15);
+        }
+
+        .type-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .type-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--mint), var(--sage-green));
+            color: white;
+            border-radius: 15px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 20px rgba(82, 183, 136, 0.3);
+        }
+
+        .type-card h4 {
+            font-family: 'Lora', serif;
+            font-size: 1.9rem;
+            color: var(--emerald);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .type-description {
+            font-size: 1.05rem;
+            color: var(--deep-brown);
+            line-height: 1.85;
+            margin-bottom: 25px;
+        }
+
+        /* Examples with soft design */
+        .examples {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .example-item {
+            background: var(--warm-beige);
+            padding: 20px 25px;
+            border-radius: 18px;
+            font-family: 'Lora', serif;
+            font-size: 1.2rem;
+            color: var(--deep-brown);
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .example-item:hover {
+            background: var(--cream);
+            border-left-color: var(--sage-green);
+            transform: translateX(8px);
+        }
+
+        .pronoun {
+            color: var(--rose-dust);
+            font-weight: 700;
+        }
+
+        .verb {
+            color: var(--emerald);
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .complement {
+            color: var(--soft-gray);
+        }
+
+        /* Construction formula */
+        .formula-card {
+            background: linear-gradient(135deg, var(--emerald) 0%, var(--sage-green) 100%);
+            padding: 50px;
+            border-radius: 35px;
+            margin: 50px 0;
+            box-shadow: 0 20px 60px rgba(45, 106, 79, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .formula-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
+            border-radius: 50%;
+        }
+
+        .formula-title {
+            font-family: 'Lora', serif;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 30px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .formula-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 35px;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .formula-content {
+            font-size: 1.8rem;
+            color: var(--emerald);
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .formula-part {
+            padding: 15px 25px;
+            background: var(--warm-beige);
+            border-radius: 15px;
+            font-weight: 700;
+        }
+
+        .formula-operator {
+            color: var(--sage-green);
+            font-size: 2rem;
+        }
+
+        /* Info boxes with organic shapes */
+        .info-box {
+            background: white;
+            padding: 40px 45px;
+            border-radius: 30px;
+            margin: 40px 0;
+            box-shadow: 0 12px 40px rgba(45, 106, 79, 0.1);
+            border-left: 6px solid var(--rose-dust);
+        }
+
+        .info-box-title {
+            font-family: 'Lora', serif;
+            font-size: 1.7rem;
+            color: var(--emerald);
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .info-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--rose-dust), var(--peach));
+            color: white;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .info-box-content {
+            font-size: 1.05rem;
+            color: var(--deep-brown);
+            line-height: 1.9;
+        }
+
+        .info-box-content ul {
+            margin: 20px 0 0 25px;
+        }
+
+        .info-box-content li {
+            margin-bottom: 12px;
+        }
+
+        .info-box-content strong {
+            color: var(--emerald);
+            font-weight: 600;
+        }
+
+        /* Pronoun table */
+        .pronoun-table {
+            background: white;
+            padding: 45px;
+            border-radius: 30px;
+            box-shadow: 0 15px 45px rgba(45, 106, 79, 0.1);
+            margin: 40px 0;
+        }
+
+        .table-title {
+            font-family: 'Lora', serif;
+            font-size: 2rem;
+            color: var(--emerald);
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .table-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .table-cell {
+            background: var(--warm-beige);
+            padding: 25px;
+            border-radius: 18px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .table-cell:hover {
+            background: var(--cream);
+            transform: scale(1.05);
+        }
+
+        .table-person {
+            font-size: 0.9rem;
+            color: var(--soft-gray);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .table-pronoun {
+            font-family: 'Lora', serif;
+            font-size: 1.8rem;
+            color: var(--emerald);
+            font-weight: 700;
+        }
+
+        /* Comparison section */
+        .comparison-section {
+            background: white;
+            padding: 60px;
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(45, 106, 79, 0.1);
+            margin: 70px 0;
+        }
+
+        .comparison-title {
+            font-family: 'Lora', serif;
+            font-size: 2.8rem;
+            color: var(--emerald);
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .comparison-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .comparison-item {
+            padding: 30px;
+            background: var(--warm-beige);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-item:hover {
+            background: var(--cream);
+            transform: translateY(-5px);
+        }
+
+        .comparison-item h5 {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            color: var(--emerald);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .comparison-example {
+            font-size: 1.1rem;
+            color: var(--deep-brown);
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 120px;
+            padding: 70px 0;
+            text-align: center;
+            border-top: 3px solid var(--warm-beige);
+            animation: fadeIn 1s ease-out 1.8s backwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .footer-logo {
+            font-family: 'Lora', serif;
+            font-size: 2.3rem;
+            color: var(--emerald);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-tagline {
+            font-size: 1rem;
+            color: var(--soft-gray);
+            font-weight: 400;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .wrapper {
+                padding: 0 35px;
+            }
+
+            h1 {
+                font-size: 5rem;
+            }
+
+            .type-grid,
+            .comparison-content {
+                grid-template-columns: 1fr;
+            }
+
+            .table-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .wrapper {
+                padding: 0 25px;
+            }
+
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            .intro-card,
+            .comparison-section {
+                padding: 40px 30px;
+            }
+
+            .section-icon {
+                width: 65px;
+                height: 65px;
+                font-size: 2rem;
+            }
+
+            .section-header h3 {
+                font-size: 2rem;
+            }
+
+            .table-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .type-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="organic-background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="wrapper">
+        <header>
+            <div class="header-label">
+                <div class="logo-dot"></div>
+                <span class="logo-text">Língua Academy</span>
+            </div>
+            <h1>
+                <span class="title-word">La Voix</span>
+                <span class="title-word title-accent">Pronominale</span>
+            </h1>
+            <p class="subtitle">
+                Explorez la richesse de la forme pronominale, où le verbe s'accompagne d'un pronom réfléchi qui transforme profondément le sens et la construction de la phrase française.
+            </p>
+        </header>
+
+        <div class="intro-card">
+            <h2>Comprendre la Voix Pronominale</h2>
+            <p>
+                La <span class="highlight-word">voix pronominale</span> (ou forme pronominale) désigne les verbes qui se conjuguent avec un pronom réfléchi de la même personne que le sujet : <span class="highlight-word">me, te, se, nous, vous, se</span>. Cette construction crée une relation particulière entre le sujet et l'action, qui peut être réfléchie, réciproque, ou modifier le sens même du verbe. Aux temps composés, tous les verbes pronominaux se conjuguent avec l'auxiliaire <span class="highlight-word">être</span>.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">1</div>
+                <h3>Structure et Construction</h3>
+            </div>
+            <p class="section-intro">
+                La voix pronominale se reconnaît par la présence d'un pronom réfléchi placé devant le verbe. Ce pronom change selon la personne du sujet et crée une relation spéciale entre le sujet et l'action.
+            </p>
+
+            <div class="formula-card">
+                <h4 class="formula-title">Formule de construction</h4>
+                <div class="formula-box">
+                    <div class="formula-content">
+                        <span class="formula-part">Sujet</span>
+                        <span class="formula-operator">+</span>
+                        <span class="formula-part">Pronom réfléchi</span>
+                        <span class="formula-operator">+</span>
+                        <span class="formula-part">Verbe</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pronoun-table">
+                <h4 class="table-title">Les Pronoms Réfléchis</h4>
+                <div class="table-grid">
+                    <div class="table-cell">
+                        <div class="table-person">1ère personne sing.</div>
+                        <div class="table-pronoun">me</div>
+                    </div>
+                    <div class="table-cell">
+                        <div class="table-person">2ème personne sing.</div>
+                        <div class="table-pronoun">te</div>
+                    </div>
+                    <div class="table-cell">
+                        <div class="table-person">3ème personne sing.</div>
+                        <div class="table-pronoun">se</div>
+                    </div>
+                    <div class="table-cell">
+                        <div class="table-person">1ère personne plur.</div>
+                        <div class="table-pronoun">nous</div>
+                    </div>
+                    <div class="table-cell">
+                        <div class="table-person">2ème personne plur.</div>
+                        <div class="table-pronoun">vous</div>
+                    </div>
+                    <div class="table-cell">
+                        <div class="table-person">3ème personne plur.</div>
+                        <div class="table-pronoun">se</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-badge">!</span>
+                    Points Importants
+                </h4>
+                <div class="info-box-content">
+                    <ul>
+                        <li><strong>Devant une voyelle :</strong> "me", "te", "se" deviennent "m'", "t'", "s'" (Je m'appelle, Tu t'amuses, Il s'endort)</li>
+                        <li><strong>À l'impératif affirmatif :</strong> Le pronom se place après le verbe avec un trait d'union (Lève-toi ! Dépêchons-nous !)</li>
+                        <li><strong>Aux temps composés :</strong> Tous les verbes pronominaux utilisent l'auxiliaire "être" (Je me suis levé, Elle s'est amusée)</li>
+                        <li><strong>Place du pronom :</strong> Toujours entre le sujet et le verbe, sauf à l'impératif affirmatif</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">2</div>
+                <h3>Les Quatre Types de Verbes Pronominaux</h3>
+            </div>
+            <p class="section-intro">
+                On distingue quatre catégories de verbes pronominaux selon le rôle du pronom réfléchi et le sens qu'il apporte au verbe. Chaque catégorie a ses propres caractéristiques et règles d'accord.
+            </p>
+
+            <div class="type-grid">
+                <div class="type-card">
+                    <div class="type-number">1</div>
+                    <h4>Verbes Essentiellement Pronominaux</h4>
+                    <p class="type-description">
+                        Ces verbes n'existent qu'à la forme pronominale. On ne peut pas les conjuguer sans le pronom réfléchi. Le pronom ne peut pas être analysé comme un complément.
+                    </p>
+                    <div class="examples">
+                        <div class="example-item">
+                            Je <span class="pronoun">m'</span><span class="verb">absente</span> <span class="complement">de la réunion</span>
+                        </div>
+                        <div class="example-item">
+                            Elle <span class="pronoun">s'</span><span class="verb">évanouit</span> <span class="complement">sous le choc</span>
+                        </div>
+                        <div class="example-item">
+                            Nous <span class="pronoun">nous</span> <span class="verb">souvenons</span> <span class="complement">de ce jour</span>
+                        </div>
+                        <div class="example-item">
+                            Ils <span class="pronoun">s'</span><span class="verb">enfuient</span> <span class="complement">rapidement</span>
+                        </div>
+                        <div class="example-item">
+                            Tu <span class="pronoun">te</span> <span class="verb">méfies</span> <span class="complement">de cette personne</span>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <h4 class="info-box-title">
+                            <span class="info-badge">✓</span>
+                            Verbes courants
+                        </h4>
+                        <div class="info-box-content">
+                            s'absenter, s'évanouir, se souvenir, s'enfuir, se méfier, s'écrier, se moquer, s'écrouler, se rebeller, s'emparer, se repentir, s'abstenir
+                        </div>
+                    </div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-number">2</div>
+                    <h4>Verbes Pronominaux Réfléchis</h4>
+                    <p class="type-description">
+                        L'action effectuée par le sujet retombe sur lui-même. Le sujet fait l'action sur lui. Le pronom réfléchi peut être COD ou COI.
+                    </p>
+                    <div class="examples">
+                        <div class="example-item">
+                            Je <span class="pronoun">me</span> <span class="verb">lave</span> <span class="complement">les mains</span>
+                        </div>
+                        <div class="example-item">
+                            Elle <span class="pronoun">se</span> <span class="verb">regarde</span> <span class="complement">dans le miroir</span>
+                        </div>
+                        <div class="example-item">
+                            Il <span class="pronoun">se</span> <span class="verb">coiffe</span> <span class="complement">devant la glace</span>
+                        </div>
+                        <div class="example-item">
+                            Tu <span class="pronoun">te</span> <span class="verb">prépares</span> <span class="complement">pour sortir</span>
+                        </div>
+                        <div class="example-item">
+                            Nous <span class="pronoun">nous</span> <span class="verb">habillons</span> <span class="complement">rapidement</span>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <h4 class="info-box-title">
+                            <span class="info-badge">→</span>
+                            Test de reconnaissance
+                        </h4>
+                        <div class="info-box-content">
+                            On peut généralement ajouter "moi-même", "toi-même", etc. : <strong>Je me lave moi-même</strong>, <strong>Elle se regarde elle-même</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-number">3</div>
+                    <h4>Verbes Pronominaux Réciproques</h4>
+                    <p class="type-description">
+                        L'action s'exerce mutuellement entre deux ou plusieurs sujets. Chaque sujet fait l'action sur l'autre. Nécessite au minimum deux personnes (pluriel).
+                    </p>
+                    <div class="examples">
+                        <div class="example-item">
+                            Ils <span class="pronoun">s'</span><span class="verb">aiment</span> <span class="complement">passionnément</span>
+                        </div>
+                        <div class="example-item">
+                            Nous <span class="pronoun">nous</span> <span class="verb">téléphonons</span> <span class="complement">chaque jour</span>
+                        </div>
+                        <div class="example-item">
+                            Elles <span class="pronoun">se</span> <span class="verb">parlent</span> <span class="complement">souvent</span>
+                        </div>
+                        <div class="example-item">
+                            Vous <span class="pronoun">vous</span> <span class="verb">écrivez</span> <span class="complement">régulièrement</span>
+                        </div>
+                        <div class="example-item">
+                            Les enfants <span class="pronoun">se</span> <span class="verb">disputent</span> <span class="complement">parfois</span>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <h4 class="info-box-title">
+                            <span class="info-badge">⇄</span>
+                            Test de reconnaissance
+                        </h4>
+                        <div class="info-box-content">
+                            On peut ajouter "l'un l'autre", "mutuellement", "réciproquement" : <strong>Ils s'aiment l'un l'autre</strong>, <strong>Nous nous téléphonons mutuellement</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-number">4</div>
+                    <h4>Verbes Pronominaux à Sens Passif</h4>
+                    <p class="type-description">
+                        Le sujet subit l'action sans l'accomplir lui-même. Le verbe a un sens passif mais garde la forme pronominale. Souvent utilisé avec des choses.
+                    </p>
+                    <div class="examples">
+                        <div class="example-item">
+                            Ce vin <span class="pronoun">se</span> <span class="verb">boit</span> <span class="complement">frais</span>
+                        </div>
+                        <div class="example-item">
+                            Cette robe <span class="pronoun">se</span> <span class="verb">porte</span> <span class="complement">avec élégance</span>
+                        </div>
+                        <div class="example-item">
+                            Ces livres <span class="pronoun">se</span> <span class="verb">lisent</span> <span class="complement">facilement</span>
+                        </div>
+                        <div class="example-item">
+                            Le français <span class="pronoun">s'</span><span class="verb">apprend</span> <span class="complement">progressivement</span>
+                        </div>
+                        <div class="example-item">
+                            Cette expression <span class="pronoun">se</span> <span class="verb">dit</span> <span class="complement">couramment</span>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <h4 class="info-box-title">
+                            <span class="info-badge">≈</span>
+                            Équivalence passive
+                        </h4>
+                        <div class="info-box-content">
+                            On peut transformer en voix passive : <strong>Ce vin se boit frais</strong> = <strong>Ce vin est bu frais</strong> / <strong>Ces livres se lisent facilement</strong> = <strong>Ces livres sont lus facilement</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">3</div>
+                <h3>Accord du Participe Passé</h3>
+            </div>
+            <p class="section-intro">
+                L'accord du participe passé des verbes pronominaux est l'une des difficultés majeures de la grammaire française. Les règles varient selon le type de verbe pronominal.
+            </p>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-badge">1</span>
+                    Verbes essentiellement pronominaux
+                </h4>
+                <div class="info-box-content">
+                    Le participe passé s'accorde <strong>toujours</strong> avec le sujet.
+                    <div class="examples" style="margin-top: 20px;">
+                        <div class="example-item">
+                            Elle <span class="pronoun">s'</span><span class="verb">est évanouie</span> (accord avec "elle")
+                        </div>
+                        <div class="example-item">
+                            Ils <span class="pronoun">se</span> <span class="verb">sont souvenus</span> de nous (accord avec "ils")
+                        </div>
+                        <div class="example-item">
+                            Elles <span class="pronoun">se</span> <span class="verb">sont enfuies</span> (accord avec "elles")
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-badge">2</span>
+                    Verbes pronominaux réfléchis et réciproques
+                </h4>
+                <div class="info-box-content">
+                    <strong>Si le pronom est COD :</strong> accord avec le sujet<br>
+                    <strong>Si le pronom est COI :</strong> pas d'accord
+                    <div class="examples" style="margin-top: 20px;">
+                        <div class="example-item">
+                            Elle <span class="pronoun">s'</span><span class="verb">est lavée</span> (se = COD → accord)
+                        </div>
+                        <div class="example-item">
+                            Elle <span class="pronoun">s'</span><span class="verb">est lavé</span> les mains (se = COI → pas d'accord)
+                        </div>
+                        <div class="example-item">
+                            Ils <span class="pronoun">se</span> <span class="verb">sont téléphoné</span> (se = COI → pas d'accord)
+                        </div>
+                        <div class="example-item">
+                            Elles <span class="pronoun">se</span> <span class="verb">sont rencontrées</span> (se = COD → accord)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-badge">3</span>
+                    Verbes pronominaux à sens passif
+                </h4>
+                <div class="info-box-content">
+                    Le participe passé s'accorde <strong>toujours</strong> avec le sujet.
+                    <div class="examples" style="margin-top: 20px;">
+                        <div class="example-item">
+                            Ces livres <span class="pronoun">se</span> <span class="verb">sont bien vendus</span> (accord avec "livres")
+                        </div>
+                        <div class="example-item">
+                            La maison <span class="pronoun">s'</span><span class="verb">est vendue</span> rapidement (accord avec "maison")
+                        </div>
+                        <div class="example-item">
+                            Les portes <span class="pronoun">se</span> <span class="verb">sont ouvertes</span> (accord avec "portes")
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-badge">?</span>
+                    Méthode pour déterminer la fonction du pronom
+                </h4>
+                <div class="info-box-content">
+                    <strong>1.</strong> Remplacer le verbe pronominal par sa forme active<br>
+                    <strong>2.</strong> Poser la question "qui/quoi ?" pour le COD ou "à qui/à quoi ?" pour le COI<br>
+                    <strong>Exemple :</strong> "Elle s'est lavée" → "Elle a lavé qui ?" → "Elle-même (se)" → se = COD → accord<br>
+                    <strong>Exemple :</strong> "Elle s'est lavé les mains" → "Elle a lavé quoi ?" → "les mains" (COD) / "à qui ?" → "à elle (se)" → se = COI → pas d'accord
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">4</div>
+                <h3>Changements de Sens</h3>
+            </div>
+            <p class="section-intro">
+                Certains verbes changent complètement de sens lorsqu'ils passent de la forme simple à la forme pronominale. Il est important de connaître ces différences pour éviter les confusions.
+            </p>
+
+            <div class="comparison-section">
+                <h4 class="comparison-title">Verbes avec Sens Différent</h4>
+                <div class="comparison-content">
+                    <div class="comparison-item">
+                        <h5>APERCEVOIR</h5>
+                        <p class="comparison-example">J'aperçois la montagne au loin</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= voir brièvement, distinguer</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h5>S'APERCEVOIR</h5>
+                        <p class="comparison-example">Je m'aperçois de mon erreur</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= se rendre compte, remarquer</p>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h5>ATTENDRE</h5>
+                        <p class="comparison-example">J'attends le bus</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= patienter, rester jusqu'à l'arrivée</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h5>S'ATTENDRE</h5>
+                        <p class="comparison-example">Je m'attends à ce résultat</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= prévoir, anticiper</p>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h5>DOUTER</h5>
+                        <p class="comparison-example">Je doute de sa sincérité</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= ne pas croire, mettre en question</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h5>SE DOUTER</h5>
+                        <p class="comparison-example">Je me doute de la vérité</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= soupçonner, pressentir</p>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h5>ENTENDRE</h5>
+                        <p class="comparison-example">J'entends de la musique</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= percevoir par l'ouïe</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h5>S'ENTENDRE</h5>
+                        <p class="comparison-example">Nous nous entendons bien</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= être en harmonie, s'accorder</p>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h5>METTRE</h5>
+                        <p class="comparison-example">Je mets mon manteau</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= placer, poser</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h5>SE METTRE</h5>
+                        <p class="comparison-example">Je me mets à travailler</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= commencer, débuter</p>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h5>PASSER</h5>
+                        <p class="comparison-example">Je passe l'examen</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= subir un examen</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h5>SE PASSER</h5>
+                        <p class="comparison-example">Que se passe-t-il ?</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= se produire, arriver</p>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h5>PLAINDRE</h5>
+                        <p class="comparison-example">Je plains cette personne</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= avoir pitié de quelqu'un</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h5>SE PLAINDRE</h5>
+                        <p class="comparison-example">Je me plains du bruit</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= protester, exprimer son mécontentement</p>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h5>TROMPER</h5>
+                        <p class="comparison-example">Il trompe sa femme</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= être infidèle</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h5>SE TROMPER</h5>
+                        <p class="comparison-example">Je me trompe d'adresse</p>
+                        <p style="font-size: 0.9rem; color: var(--soft-gray); margin-top: 5px;">= faire une erreur</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">5</div>
+                <h3>Verbes Pronominaux Courants</h3>
+            </div>
+            <p class="section-intro">
+                Voici une sélection de verbes pronominaux fréquemment utilisés dans la langue française, classés par catégorie d'usage.
+            </p>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-badge">☀</span>
+                    Actions quotidiennes
+                </h4>
+                <div class="info-box-content">
+                    se lever, se réveiller, se coucher, se laver, se doucher, se brosser (les dents), se raser, se maquiller, s'habiller, se déshabiller, se préparer, se dépêcher, se reposer
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-badge">❤</span>
+                    Émotions et sentiments
+                </h4>
+                <div class="info-box-content">
+                    s'amuser, s'ennuyer, se réjouir, se fâcher, se mettre en colère, s'inquiéter, se détendre, se calmer, s'exciter, s'énerver, s'impatienter, se sentir
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-badge">💭</span>
+                    Pensées et souvenirs
+                </h4>
+                <div class="info-box-content">
+                    se souvenir, se rappeler, s'imaginer, se demander, se concentrer, se rendre compte, s'apercevoir, se douter
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-badge">↔</span>
+                    Relations et communication
+                </h4>
+                <div class="info-box-content">
+                    se parler, s'écrire, se téléphoner, se voir, se rencontrer, se saluer, s'embrasser, se disputer, se réconcilier, s'entendre, se comprendre, se marier
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-badge">→</span>
+                    Mouvements et déplacements
+                </h4>
+                <div class="info-box-content">
+                    se déplacer, s'approcher, s'éloigner, s'arrêter, se diriger, se promener, se balader, s'enfuir, se sauver, s'échapper
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box" style="margin: 70px 0;">
+            <h4 class="info-box-title">
+                <span class="info-badge">✓</span>
+                En Résumé
+            </h4>
+            <div class="info-box-content">
+                <ul>
+                    <li>La voix pronominale utilise un <strong>pronom réfléchi</strong> (me, te, se, nous, vous, se)</li>
+                    <li>Il existe <strong>quatre types</strong> : essentiellement pronominaux, réfléchis, réciproques, à sens passif</li>
+                    <li>Aux temps composés, on utilise toujours l'auxiliaire <strong>ÊTRE</strong></li>
+                    <li>L'accord du participe passé dépend du <strong>type de verbe</strong> et de la <strong>fonction du pronom</strong></li>
+                    <li>Beaucoup de verbes <strong>changent de sens</strong> à la forme pronominale</li>
+                    <li>À l'impératif affirmatif, le pronom se place <strong>après le verbe</strong> : Lève-toi ! Amusez-vous !</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-logo">Língua Academy</div>
+            <p class="footer-tagline">La beauté de la grammaire française révélée</p>
+        </footer>
+    </div>
+</body>
+</html>

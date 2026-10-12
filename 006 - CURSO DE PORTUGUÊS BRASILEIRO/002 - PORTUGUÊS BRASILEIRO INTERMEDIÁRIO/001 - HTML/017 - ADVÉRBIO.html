@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advérbio em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #E67E22;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #E67E22;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #F39C12;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores Adaptadas/Reutilizadas do 008 - CLASSES DE PALAVRAS */
+        .tipo-card.tempo {
+            background: linear-gradient(135deg, #E74C3C, #C0392B); /* Tempo */
+        }
+
+        .tipo-card.lugar {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD); /* Lugar */
+        }
+
+        .tipo-card.modo {
+            background: linear-gradient(135deg, #3498DB, #2980B9); /* Modo */
+        }
+
+        .tipo-card.intensidade {
+            background: linear-gradient(135deg, #2ECC71, #16A085); /* Intensidade */
+        }
+        
+        .tipo-card.afirmacao {
+            background: linear-gradient(135deg, #F1C40F, #F39C12); /* Afirmação/Negação/Dúvida */
+            color: #333;
+        }
+        
+        .tipo-card.locucao {
+            background: linear-gradient(135deg, #1ABC9C, #16A085); /* Locução */
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .exemplo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #E67E22;
+        }
+
+        .exemplo-card .titulo-exemplo {
+            font-size: 2em;
+            color: #E67E22;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .conteudo-exemplo {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .dicas-box {
+            background: linear-gradient(135deg, #1ABC9C, #16A085);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .tipo-card, .destaque, .dicas-box, .exemplo-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📍 Advérbio 📍</h1>
+        <p class="subtitle">A classe de palavras invariável que modifica o sentido de outras classes!</p>
+
+        <div class="section">
+            <h2>🎯 O que é Advérbio?</h2>
+            <p class="intro-text">
+                O **Advérbio** é a classe de palavras **invariável** (não varia em gênero, número ou grau, exceto grau de intensidade) que tem a função de modificar o sentido de:
+                <br>
+                1. Um **Verbo** (principalmente).
+                2. Um **Adjetivo**.
+                3. Outro **Advérbio**.
+                <br><br>
+                Ele sempre indica uma **circunstância** (tempo, lugar, modo, intensidade, etc.) relacionada ao termo que está modificando.
+            </p>
+
+            <div class="destaque">
+                <strong>💡 Funções de Modificação:</strong><br>
+                • Modificando Verbo: Ele correu <span style="font-weight: bold;">rapidamente</span>.<br>
+                • Modificando Adjetivo: A aula estava <span style="font-weight: bold;">muito</span> difícil.<br>
+                • Modificando Advérbio: Ela chegou <span style="font-weight: bold;">muito</span> tarde.
+            </div>
+
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">Advérbio vs. Adjetivo</div>
+                <div class="conteudo-exemplo">
+                    • <span style="font-weight: bold; color: #E67E22;">Advérbio</span>: A palavra é invariável e modifica o verbo.<br>
+                    Ex: Os garotos **falam** <span style="font-weight: bold; color: #E74C3C;">alto</span>. (Modifica o verbo *falar*).<br>
+                    • <span style="font-weight: bold; color: #E67E22;">Adjetivo</span>: A palavra é variável e modifica o substantivo.<br>
+                    Ex: Os garotos **têm** <span style="font-weight: bold; color: #E74C3C;">vozes altas</span>. (Modifica o substantivo *vozes*).
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Classificação (Circunstância)</h2>
+            <p class="intro-text">
+                Os advérbios são classificados de acordo com a circunstância que expressam.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card tempo">
+                    <h3>1. De Tempo</h3>
+                    <div class="definicao">
+                        Indica o momento em que a ação ocorre.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Hoje, amanhã, ontem, tarde, **cedo**, **sempre**, **jamais**, **agora**.
+                    </div>
+                </div>
+
+                <div class="tipo-card lugar">
+                    <h3>2. De Lugar</h3>
+                    <div class="definicao">
+                        Indica o local onde a ação acontece.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Aqui, ali, lá, cá, **aqui**, **aí**, **perto**, **longe**, **dentro**, **atrás**.
+                    </div>
+                </div>
+
+                <div class="tipo-card modo">
+                    <h3>3. De Modo</h3>
+                    <div class="definicao">
+                        Indica a maneira ou forma como a ação é executada. A maioria termina em -MENTE.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Bem, mal, assim, **rapidamente**, **calmamente**, **lentamente**, **melhor**, **pior**.
+                    </div>
+                </div>
+
+                <div class="tipo-card intensidade">
+                    <h3>4. De Intensidade</h3>
+                    <div class="definicao">
+                        Indica o grau ou a força da ação, adjetivo ou outro advérbio.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Muito, pouco, mais, menos, **bastante**, **demais**, **tão**, **quase**.
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px;">Outras Classificações Comuns</h3>
+            <div class="tipos-grid">
+                <div class="tipo-card afirmacao">
+                    <h3>5. Afirmação, Negação, Dúvida</h3>
+                    <div class="definicao">
+                        Expressam certeza, recusa ou incerteza sobre o fato.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Afirmação:</strong> Sim, certamente, realmente.<br>
+                        <strong>Negação:</strong> Não, nunca, jamais, tampouco.<br>
+                        <strong>Dúvida:</strong> Talvez, possivelmente, quiçá.
+                    </div>
+                </div>
+                
+                <div class="tipo-card locucao">
+                    <h3>Locução Adverbial</h3>
+                    <div class="definicao">
+                        É a união de duas ou mais palavras que, juntas, funcionam como um advérbio (geralmente preposição + substantivo/adjetivo).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • <span style="font-weight: bold;">Às vezes</span> (Tempo)<br>
+                        • <span style="font-weight: bold;">Em silêncio</span> (Modo)<br>
+                        • <span style="font-weight: bold;">De repente</span> (Tempo)<br>
+                        • <span style="font-weight: bold;">Em casa</span> (Lugar)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Flexão e Uso do Advérbio</h2>
+            
+            <div class="destaque">
+                <strong>💡 O Grau do Advérbio:</strong> O advérbio é invariável, mas pode apresentar flexão de grau, geralmente para indicar intensidade.<br>
+                • Grau Comparativo (de igualdade, superioridade, inferioridade).<br>
+                • Grau Superlativo (Sintético: *cedíssimo*; Analítico: *muito cedo*).
+            </div>
+
+            <div class="dicas-box">
+                <h4>Erros Comuns (O Advérbio NÃO Varia!)</h4>
+                <ul>
+                    <li>**Correto:** As duas andaram **rápido**. (Advérbio de modo, invariável)</li>
+                    <li>**Errado:** As duas andaram *rápidas*. (Confundindo com adjetivo)</li>
+                    <li>**Correto:** Elas comeram **bastante**. (Advérbio de intensidade, invariável)</li>
+                    <li>**Errado:** Elas comeram *bastantes* doces. (Neste caso *bastantes* é pronome indefinido, variável, que é outro caso).</li>
+                    <li>O advérbio de modo **mal** opõe-se a **bem**. O adjetivo **mau** opõe-se a **bom**.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

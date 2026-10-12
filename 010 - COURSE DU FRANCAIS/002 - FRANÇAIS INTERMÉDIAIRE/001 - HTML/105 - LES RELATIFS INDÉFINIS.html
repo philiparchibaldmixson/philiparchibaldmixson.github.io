@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Relatifs Indéfinis | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Source+Sans+Pro:wght@300;400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bleu-nuit: #0A1929;
+            --blanc-luxe: #FFFFFF;
+            --rouge-elegant: #B8001F;
+            --or-fin: #D4AF37;
+            --noir-charbon: #0D1117;
+            --creme-royal: #FFFBF5;
+            --bleu-royal: #1A365D;
+            --argent: #C0C0C0;
+            --cuivre-rose: #B76E79;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: linear-gradient(135deg, var(--creme-royal) 0%, #F5F0E8 100%);
+            color: var(--noir-charbon);
+            line-height: 1.85;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Hexagonal pattern background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(10, 25, 41, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(184, 0, 31, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+            animation: bgPulse 20s ease-in-out infinite;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Exclusive Elegant Header */
+        header {
+            background: linear-gradient(170deg, var(--bleu-nuit) 0%, var(--bleu-royal) 55%, var(--argent) 100%);
+            padding: 85px 0 105px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 35px 90px rgba(10, 25, 41, 0.5);
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+        }
+
+        /* Floating orbs decoration */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.2;
+            animation: orbFloat 25s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--rouge-elegant), transparent);
+            top: -150px;
+            right: 5%;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, var(--or-fin), transparent);
+            bottom: -100px;
+            left: 10%;
+            animation-delay: -12s;
+        }
+
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--cuivre-rose), transparent);
+            top: 50%;
+            left: 50%;
+            animation-delay: -6s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(40px, -40px) scale(1.15);
+            }
+            66% {
+                transform: translate(-30px, 30px) scale(0.9);
+            }
+        }
+
+        /* Premium Brand Identity */
+        .brand-identity {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 50px;
+            animation: brandAppear 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        @keyframes brandAppear {
+            from {
+                opacity: 0;
+                transform: translateY(-60px) scale(0.9);
+                filter: blur(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .brand-crest {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--or-fin);
+            font-weight: 900;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            text-shadow: 
+                4px 4px 8px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(212, 175, 55, 0.5);
+            position: relative;
+            display: inline-block;
+        }
+
+        .brand-crest::before {
+            content: '∞';
+            position: absolute;
+            left: -80px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: var(--or-fin);
+            opacity: 0.6;
+        }
+
+        .brand-crest::after {
+            content: '∞';
+            position: absolute;
+            right: -80px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: var(--or-fin);
+            opacity: 0.6;
+        }
+
+        .brand-philosophy {
+            color: rgba(255, 255, 255, 0.93);
+            font-size: 1.3rem;
+            letter-spacing: 4px;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        /* Majestic Title */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem;
+            color: var(--blanc-luxe);
+            text-align: center;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-top: 50px;
+            position: relative;
+            z-index: 2;
+            animation: brandAppear 2s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s backwards;
+            text-shadow: 
+                5px 5px 12px rgba(0, 0, 0, 0.6),
+                0 0 50px rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .regal-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.96);
+            font-size: 1.9rem;
+            margin-top: 32px;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+            animation: brandAppear 2s cubic-bezier(0.165, 0.84, 0.44, 1) 0.6s backwards;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        /* Decorative line */
+        .decorative-line {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--or-fin), transparent);
+            z-index: 3;
+            animation: lineGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes lineGlow {
+            0%, 100% {
+                box-shadow: 0 0 10px var(--or-fin);
+                opacity: 0.6;
+            }
+            50% {
+                box-shadow: 0 0 30px var(--or-fin);
+                opacity: 1;
+            }
+        }
+
+        .decorative-line::before,
+        .decorative-line::after {
+            content: '◆';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--or-fin);
+            font-size: 1.2rem;
+        }
+
+        .decorative-line::before {
+            left: -30px;
+        }
+
+        .decorative-line::after {
+            right: -30px;
+        }
+
+        /* Main Content */
+        main {
+            padding: 120px 0;
+        }
+
+        /* Luxury Introduction */
+        .intro-luxury {
+            background: linear-gradient(135deg, white 0%, rgba(255, 251, 245, 0.99) 100%);
+            padding: 80px;
+            border-radius: 40px;
+            box-shadow: 
+                0 25px 70px rgba(10, 25, 41, 0.18),
+                inset 0 2px 0 rgba(255, 255, 255, 0.9);
+            margin-bottom: 90px;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid rgba(10, 25, 41, 0.08);
+            animation: luxuryReveal 1.4s ease-out 1.6s backwards;
+        }
+
+        @keyframes luxuryReveal {
+            from {
+                opacity: 0;
+                transform: translateY(90px) scale(0.94);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .intro-luxury::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: linear-gradient(90deg, var(--bleu-royal), var(--rouge-elegant), var(--or-fin));
+            border-radius: 40px 40px 0 0;
+        }
+
+        .intro-luxury::after {
+            content: '∞';
+            position: absolute;
+            top: -40px;
+            left: 80px;
+            font-size: 5rem;
+            color: var(--or-fin);
+            background: white;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+            animation: symbolSpin 30s linear infinite;
+        }
+
+        @keyframes symbolSpin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .majestic-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--bleu-royal);
+            margin-bottom: 50px;
+            font-weight: 900;
+            position: relative;
+            padding-bottom: 28px;
+        }
+
+        .majestic-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 180px;
+            height: 7px;
+            background: linear-gradient(90deg, var(--bleu-royal), var(--rouge-elegant));
+            border-radius: 4px;
+            box-shadow: 0 3px 12px rgba(10, 25, 41, 0.4);
+        }
+
+        .luxury-text {
+            font-size: 1.5rem;
+            line-height: 2.4;
+            color: var(--noir-charbon);
+            margin-bottom: 35px;
+            text-align: justify;
+        }
+
+        /* Exclusive Concept Cards */
+        .concept-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(620px, 1fr));
+            gap: 60px;
+            margin: 90px 0;
+        }
+
+        .concept-card {
+            background: linear-gradient(135deg, white 0%, rgba(255, 251, 245, 0.98) 100%);
+            padding: 70px;
+            border-radius: 35px;
+            box-shadow: 
+                0 18px 60px rgba(10, 25, 41, 0.15),
+                inset 0 2px 0 rgba(255, 255, 255, 0.9);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 2px solid rgba(10, 25, 41, 0.08);
+            animation: luxuryReveal 1.2s ease-out backwards;
+        }
+
+        .concept-card:nth-child(1) { animation-delay: 1.8s; }
+        .concept-card:nth-child(2) { animation-delay: 2s; }
+        .concept-card:nth-child(3) { animation-delay: 2.2s; }
+        .concept-card:nth-child(4) { animation-delay: 2.4s; }
+        .concept-card:nth-child(5) { animation-delay: 2.6s; }
+        .concept-card:nth-child(6) { animation-delay: 2.8s; }
+
+        .concept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--bleu-royal), var(--rouge-elegant));
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .concept-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 
+                0 35px 90px rgba(10, 25, 41, 0.25),
+                inset 0 2px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        .concept-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .concept-symbol {
+            font-size: 5rem;
+            margin-bottom: 35px;
+            display: inline-block;
+            filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12));
+            animation: symbolBreathe 5s ease-in-out infinite;
+        }
+
+        @keyframes symbolBreathe {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-25px) scale(1.08);
+            }
+        }
+
+        .concept-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.7rem;
+            color: var(--bleu-royal);
+            margin-bottom: 32px;
+            font-weight: 700;
+        }
+
+        .concept-body {
+            font-size: 1.4rem;
+            line-height: 2.3;
+            color: var(--noir-charbon);
+        }
+
+        /* Premium Examples Section */
+        .examples-premium {
+            background: white;
+            padding: 75px;
+            border-radius: 35px;
+            box-shadow: 0 18px 60px rgba(10, 25, 41, 0.15);
+            margin: 75px 0;
+            animation: luxuryReveal 1.2s ease-out 3s backwards;
+        }
+
+        .examples-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.3rem;
+            color: var(--bleu-royal);
+            margin-bottom: 55px;
+            font-weight: 900;
+            text-align: center;
+            position: relative;
+            padding-bottom: 35px;
+        }
+
+        .examples-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            height: 6px;
+            background: linear-gradient(90deg, transparent, var(--rouge-elegant), transparent);
+            border-radius: 3px;
+        }
+
+        /* Elegant Example Box */
+        .example-elegant {
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.06) 0%, rgba(184, 0, 31, 0.04) 100%);
+            padding: 50px 55px;
+            border-radius: 25px;
+            margin: 45px 0;
+            border-left: 8px solid var(--bleu-royal);
+            position: relative;
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .example-elegant:hover {
+            transform: translateX(20px);
+            border-left-width: 12px;
+            box-shadow: -12px 12px 40px rgba(26, 54, 93, 0.3);
+        }
+
+        .example-category {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1.2rem;
+            color: var(--rouge-elegant);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .sentence-elegant {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: var(--bleu-nuit);
+            margin: 30px 0;
+            padding: 32px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+            line-height: 2.3;
+            font-style: italic;
+        }
+
+        .analysis-elegant {
+            font-size: 1.35rem;
+            line-height: 2.3;
+            color: var(--noir-charbon);
+            margin-top: 28px;
+            padding-left: 35px;
+            border-left: 6px solid rgba(10, 25, 41, 0.2);
+        }
+
+        .relative-highlight {
+            color: var(--rouge-elegant);
+            font-weight: 700;
+            background: rgba(184, 0, 31, 0.13);
+            padding: 5px 12px;
+            border-radius: 7px;
+            border-bottom: 3px solid var(--rouge-elegant);
+            text-decoration: none;
+        }
+
+        .translation-note {
+            color: var(--cuivre-rose);
+            font-weight: 600;
+            font-style: italic;
+            background: rgba(183, 110, 121, 0.1);
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        /* Sophisticated Rule Box */
+        .rule-sophisticated {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.14) 0%, rgba(212, 175, 55, 0.07) 100%);
+            border: 4px solid var(--or-fin);
+            padding: 55px 60px;
+            border-radius: 28px;
+            margin: 60px 0;
+            position: relative;
+            animation: luxuryReveal 1.2s ease-out 3.2s backwards;
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .rule-sophisticated::before {
+            content: '⚜';
+            position: absolute;
+            top: -35px;
+            left: 55px;
+            background: white;
+            padding: 15px 28px;
+            border-radius: 40px;
+            font-size: 2.3rem;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.18);
+            color: var(--or-fin);
+        }
+
+        .rule-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--bleu-royal);
+            font-size: 2.5rem;
+            margin-bottom: 32px;
+            font-weight: 700;
+        }
+
+        .rule-content {
+            font-size: 1.38rem;
+            line-height: 2.4;
+            color: var(--noir-charbon);
+        }
+
+        .rule-enumeration {
+            list-style: none;
+            margin: 35px 0;
+        }
+
+        .rule-enumeration li {
+            padding: 25px 0 25px 70px;
+            position: relative;
+            font-size: 1.38rem;
+            line-height: 2.2;
+            border-bottom: 1px dashed rgba(10, 25, 41, 0.15);
+        }
+
+        .rule-enumeration li:last-child {
+            border-bottom: none;
+        }
+
+        .rule-enumeration li::before {
+            content: '⬥';
+            position: absolute;
+            left: 18px;
+            color: var(--or-fin);
+            font-size: 2.2rem;
+            animation: gemPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes gemPulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.8;
+                text-shadow: 0 0 10px var(--or-fin);
+            }
+            50% {
+                transform: scale(1.3);
+                opacity: 1;
+                text-shadow: 0 0 25px var(--or-fin);
+            }
+        }
+
+        /* Exclusive Table */
+        .table-exclusive {
+            background: white;
+            padding: 70px;
+            border-radius: 32px;
+            box-shadow: 0 18px 60px rgba(10, 25, 41, 0.15);
+            margin: 70px 0;
+            overflow-x: auto;
+            animation: luxuryReveal 1.2s ease-out 3.4s backwards;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 40px 0;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--bleu-royal) 0%, var(--bleu-nuit) 100%);
+        }
+
+        th {
+            color: white;
+            padding: 35px 28px;
+            text-align: left;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        th:first-child {
+            border-radius: 22px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 22px 0 0;
+        }
+
+        td {
+            padding: 32px 28px;
+            border-bottom: 1px solid rgba(10, 25, 41, 0.1);
+            font-size: 1.35rem;
+            line-height: 2.2;
+        }
+
+        tbody tr {
+            transition: all 0.4s ease;
+            background: white;
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.06) 0%, rgba(184, 0, 31, 0.04) 100%);
+            transform: translateX(12px);
+        }
+
+        tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 22px;
+        }
+
+        tbody tr:last-child td:last-child {
+            border-radius: 0 0 22px 0;
+        }
+
+        .table-pronoun {
+            font-weight: 700;
+            color: var(--bleu-royal);
+            font-size: 1.5rem;
+        }
+
+        /* Distinguished Warning */
+        .warning-distinguished {
+            background: linear-gradient(135deg, rgba(184, 0, 31, 0.13) 0%, rgba(184, 0, 31, 0.07) 100%);
+            border: 4px solid var(--rouge-elegant);
+            padding: 55px 60px;
+            border-radius: 28px;
+            margin: 60px 0;
+            position: relative;
+            animation: luxuryReveal 1.2s ease-out 3.6s backwards;
+            box-shadow: 0 12px 40px rgba(184, 0, 31, 0.2);
+        }
+
+        .warning-distinguished::before {
+            content: '⚡';
+            position: absolute;
+            top: -35px;
+            left: 55px;
+            background: white;
+            padding: 15px 28px;
+            border-radius: 40px;
+            font-size: 2.3rem;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.18);
+        }
+
+        .warning-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--rouge-elegant);
+            font-size: 2.5rem;
+            margin-bottom: 32px;
+            font-weight: 700;
+        }
+
+        .warning-content {
+            font-size: 1.38rem;
+            line-height: 2.4;
+            color: var(--noir-charbon);
+        }
+
+        /* Elite Tip */
+        .tip-elite {
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.13) 0%, rgba(26, 54, 93, 0.07) 100%);
+            border-left: 10px solid var(--bleu-royal);
+            padding: 52px 60px;
+            border-radius: 22px;
+            margin: 55px 0;
+            position: relative;
+            animation: luxuryReveal 1.2s ease-out 3.8s backwards;
+        }
+
+        .tip-elite::before {
+            content: '🔮';
+            position: absolute;
+            top: -28px;
+            left: 55px;
+            background: white;
+            padding: 12px 25px;
+            border-radius: 35px;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .tip-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--bleu-royal);
+            font-size: 2.3rem;
+            margin-bottom: 28px;
+            font-weight: 700;
+        }
+
+        .tip-content {
+            font-size: 1.35rem;
+            line-height: 2.3;
+            color: var(--noir-charbon);
+        }
+
+        /* Imperial Panel */
+        .imperial-panel {
+            background: linear-gradient(135deg, var(--bleu-nuit) 0%, var(--bleu-royal) 100%);
+            padding: 85px;
+            border-radius: 40px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 30px 80px rgba(10, 25, 41, 0.5),
+                inset 0 2px 0 rgba(255, 255, 255, 0.12);
+            animation: luxuryReveal 1.2s ease-out 4s backwards;
+        }
+
+        .imperial-panel::before {
+            content: '';
+            position: absolute;
+            top: -140px;
+            right: -140px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(184, 0, 31, 0.4) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: imperialPulse 10s ease-in-out infinite;
+        }
+
+        .imperial-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -120px;
+            left: -120px;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: imperialPulse 12s ease-in-out infinite reverse;
+        }
+
+        @keyframes imperialPulse {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.4) rotate(180deg);
+                opacity: 0.9;
+            }
+        }
+
+        .imperial-panel h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--or-fin);
+            font-size: 3.5rem;
+            margin-bottom: 45px;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
+            text-shadow: 
+                4px 4px 8px rgba(0, 0, 0, 0.5),
+                0 0 35px rgba(212, 175, 55, 0.5);
+            letter-spacing: 3px;
+        }
+
+        .imperial-panel p {
+            color: rgba(255, 255, 255, 0.97);
+            font-size: 1.5rem;
+            line-height: 2.5;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 30px;
+        }
+
+        .imperial-enumeration {
+            list-style: none;
+            margin: 40px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .imperial-enumeration li {
+            color: rgba(255, 255, 255, 0.97);
+            font-size: 1.42rem;
+            padding: 26px 0 26px 70px;
+            position: relative;
+            line-height: 2.4;
+        }
+
+        .imperial-enumeration li::before {
+            content: '◈';
+            position: absolute;
+            left: 18px;
+            color: var(--or-fin);
+            font-size: 2.2rem;
+            animation: crownShine 5s ease-in-out infinite;
+        }
+
+        @keyframes crownShine {
+            0%, 100% {
+                opacity: 0.7;
+                transform: scale(1) rotate(0deg);
+                text-shadow: 0 0 15px var(--or-fin);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.5) rotate(180deg);
+                text-shadow: 0 0 35px var(--or-fin);
+            }
+        }
+
+        /* Aristocratic Footer */
+        footer {
+            background: linear-gradient(135deg, var(--bleu-nuit) 0%, var(--noir-charbon) 100%);
+            color: white;
+            padding: 75px 0;
+            text-align: center;
+            margin-top: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(184, 0, 31, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        footer p {
+            font-size: 1.4rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 1.2px;
+            margin: 15px 0;
+        }
+
+        .footer-crest {
+            font-family: 'Playfair Display', serif;
+            color: var(--or-fin);
+            font-weight: 900;
+            font-size: 2rem;
+            margin-top: 25px;
+            letter-spacing: 5px;
+            text-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 40px;
+            }
+
+            h1 {
+                font-size: 3.8rem;
+            }
+
+            .regal-subtitle {
+                font-size: 1.6rem;
+            }
+
+            .concept-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-luxury,
+            .examples-premium,
+            .table-exclusive,
+            .imperial-panel {
+                padding: 50px;
+            }
+
+            table {
+                font-size: 1.1rem;
+            }
+
+            th, td {
+                padding: 22px 18px;
+            }
+        }
+
+        /* Royal Scrollbar */
+        ::-webkit-scrollbar {
+            width: 20px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--creme-royal);
+            border-left: 2px solid rgba(10, 25, 41, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--bleu-royal), var(--rouge-elegant));
+            border-radius: 10px;
+            border: 5px solid var(--creme-royal);
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--bleu-nuit), var(--rouge-elegant));
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="container">
+            <div class="brand-identity">
+                <div class="brand-crest">Língua Academy</div>
+                <div class="brand-philosophy">La Quintessence de la Grammaire</div>
+            </div>
+            <h1>Les Relatifs Indéfinis</h1>
+            <p class="regal-subtitle">Expressions de Généralité et d'Universalité</p>
+        </div>
+        <div class="decorative-line"></div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Introduction Luxury -->
+            <section class="intro-luxury">
+                <h2 class="majestic-heading">Définition et Nature</h2>
+                <p class="luxury-text">
+                    Les relatifs indéfinis constituent une catégorie particulière de pronoms et d'adjectifs relatifs 
+                    qui n'ont pas d'antécédent clairement exprimé dans la phrase. Contrairement aux pronoms relatifs 
+                    ordinaires qui se rapportent à un nom précis, les relatifs indéfinis expriment une idée de 
+                    <strong>généralité</strong>, d'<strong>universalité</strong> ou d'<strong>indétermination</strong>. 
+                    Ils introduisent des propositions subordonnées relatives sans référence à un antécédent particulier.
+                </p>
+                <p class="luxury-text">
+                    Ces formes spéciales permettent d'exprimer des vérités générales, des possibilités universelles, 
+                    ou des affirmations qui s'appliquent sans restriction à toute personne, toute chose, tout lieu ou 
+                    toute circonstance. Ils sont essentiels pour formuler des maximes, des principes généraux, des 
+                    concessions ou des expressions de l'universalité dans le discours philosophique, juridique ou littéraire.
+                </p>
+                <p class="luxury-text">
+                    Les relatifs indéfinis comprennent plusieurs constructions distinctes : <strong>quiconque</strong> 
+                    (toute personne qui), <strong>qui que</strong> (quelle que soit la personne qui), 
+                    <strong>quoi que</strong> (quelle que soit la chose que), <strong>où que</strong> (quel que soit 
+                    le lieu où), <strong>quel(le)(s) que</strong> (de quelque nature que), et d'autres expressions 
+                    concessives comme <strong>quelque... que, si... que, pour... que, tout... que</strong>.
+                </p>
+            </section>
+
+            <!-- Concept Cards -->
+            <div class="concept-showcase">
+                <div class="concept-card">
+                    <span class="concept-symbol">👤</span>
+                    <h3 class="concept-title">Quiconque</h3>
+                    <p class="concept-body">
+                        <strong>Quiconque</strong> signifie "toute personne qui", "n'importe qui" ou "celui qui". 
+                        Il s'emploie sans antécédent et désigne une personne indéterminée de manière universelle. 
+                        Il peut fonctionner comme sujet ou comme complément. Forme littéraire et soutenue, 
+                        souvent utilisée dans les textes juridiques, philosophiques ou les proverbes pour exprimer 
+                        une vérité générale applicable à tous.
+                    </p>
+                </div>
+
+                <div class="concept-card">
+                    <span class="concept-symbol">🎭</span>
+                    <h3 class="concept-title">Qui que / Quoi que</h3>
+                    <p class="concept-body">
+                        <strong>Qui que</strong> (quelle que soit la personne qui) et <strong>quoi que</strong> 
+                        (quelle que soit la chose que) expriment une concession ou une indifférence totale quant 
+                        à l'identité ou la nature. Ils introduisent des propositions au subjonctif et marquent 
+                        l'universalité sans restriction. "Qui que vous soyez" signifie "peu importe qui vous êtes", 
+                        tandis que "quoi qu'il arrive" signifie "peu importe ce qui arrive".
+                    </p>
+                </div>
+
+                <div class="concept-card">
+                    <span class="concept-symbol">🗺️</span>
+                    <h3 class="concept-title">Où que</h3>
+                    <p class="concept-body">
+                        <strong>Où que</strong> exprime l'indifférence quant au lieu ou à la circonstance. 
+                        Il signifie "quel que soit l'endroit où" ou "en quelque lieu que". Toujours suivi du 
+                        subjonctif, il introduit une proposition concessive portant sur le lieu. Cette construction 
+                        permet d'exprimer qu'une affirmation reste vraie indépendamment du lieu considéré : 
+                        "Où que j'aille, je pense à toi" = en tout lieu où je vais.
+                    </p>
+                </div>
+
+                <div class="concept-card">
+                    <span class="concept-symbol">✨</span>
+                    <h3 class="concept-title">Quel(le)(s) que</h3>
+                    <p class="concept-body">
+                        <strong>Quel(le)(s) que</strong> est un adjectif relatif indéfini qui s'accorde en genre 
+                        et en nombre avec le nom auquel il se rapporte. Il exprime une concession portant sur la 
+                        qualité ou la nature, signifiant "de quelque nature que" ou "peu importe quel/quelle". 
+                        Toujours suivi du subjonctif, il est généralement placé devant le verbe être : 
+                        "Quelles que soient vos raisons" = peu importe quelles sont vos raisons.
+                    </p>
+                </div>
+
+                <div class="concept-card">
+                    <span class="concept-symbol">🌟</span>
+                    <h3 class="concept-title">Quelque... que</h3>
+                    <p class="concept-body">
+                        <strong>Quelque... que</strong> (ou <strong>si... que</strong>, <strong>pour... que</strong>) 
+                        introduit une proposition concessive marquant l'intensité ou le degré. "Quelque" est invariable 
+                        devant un adjectif ou un adverbe. Cette construction exprime qu'un fait reste vrai malgré 
+                        l'intensité d'une qualité : "Quelque riche qu'il soit" = si riche qu'il soit. Registre soutenu, 
+                        fréquent en littérature.
+                    </p>
+                </div>
+
+                <div class="concept-card">
+                    <span class="concept-symbol">🎯</span>
+                    <h3 class="concept-title">Tout... que</h3>
+                    <p class="concept-body">
+                        <strong>Tout... que</strong> exprime une concession intensive, similaire à "quelque... que" 
+                        mais avec une nuance d'emphase. "Tout" varie en genre et nombre devant un adjectif commençant 
+                        par une consonne ou un h aspiré. Cette construction appartient à un registre très soutenu et 
+                        littéraire : "Tout savant qu'il est" = bien qu'il soit savant, malgré tout son savoir. 
+                        Elle souligne le contraste entre deux affirmations.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Examples Premium -->
+            <section class="examples-premium">
+                <h2 class="examples-heading">Exemples Détaillés par Catégorie</h2>
+
+                <div class="example-elegant">
+                    <div class="example-category">Quiconque - Sujet</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Quiconque</span> a visité Paris en garde un souvenir inoubliable.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Signification :</strong> <span class="translation-note">Toute personne qui a visité Paris...</span><br>
+                        → <strong>Fonction :</strong> "Quiconque" est sujet du verbe "a visité"<br>
+                        → <strong>Nature :</strong> Pronom relatif indéfini, pas d'antécédent<br>
+                        → <strong>Remarque :</strong> Exprime une vérité générale applicable à tous
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Quiconque - Complément</div>
+                    <div class="sentence-elegant">
+                        Je parlerai à <span class="relative-highlight">quiconque</span> pourra m'aider.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Signification :</strong> <span class="translation-note">À n'importe qui qui pourra m'aider</span><br>
+                        → <strong>Fonction :</strong> "Quiconque" est COI de "parlerai à"<br>
+                        → <strong>Construction :</strong> Peut être précédé d'une préposition<br>
+                        → <strong>Usage :</strong> Désigne une personne indéterminée de manière générale
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Qui que - Concession personnelle</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Qui que</span> vous soyez, respectez les règles.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Signification :</strong> <span class="translation-note">Quelle que soit votre identité...</span><br>
+                        → <strong>Mode :</strong> Subjonctif obligatoire ("soyez")<br>
+                        → <strong>Valeur :</strong> Concession totale sur l'identité de la personne<br>
+                        → <strong>Équivalent :</strong> "Peu importe qui vous êtes"
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Quoi que - Concession sur les choses</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Quoi que</span> tu fasses, je te soutiendrai.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Signification :</strong> <span class="translation-note">Quelle que soit la chose que tu fasses...</span><br>
+                        → <strong>Mode :</strong> Subjonctif obligatoire ("fasses")<br>
+                        → <strong>Valeur :</strong> Indifférence totale quant à l'action<br>
+                        → <strong>Attention :</strong> Ne pas confondre avec "quoique" (conjonction de subordination)
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Quoi que - Avec négation</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Quoi qu'</span>il en soit, nous devons continuer.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Expression figée :</strong> "Quoi qu'il en soit" = de toute façon, en tout cas<br>
+                        → <strong>Élision :</strong> "Quoi que" s'élide en "quoi qu'" devant "il"<br>
+                        → <strong>Fonction :</strong> Locution adverbiale de concession<br>
+                        → <strong>Usage :</strong> Très fréquent à l'oral et à l'écrit
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Où que - Concession de lieu</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Où que</span> j'aille, je pense à mon pays.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Signification :</strong> <span class="translation-note">En tout lieu où je vais...</span><br>
+                        → <strong>Mode :</strong> Subjonctif obligatoire ("aille")<br>
+                        → <strong>Valeur :</strong> Universalité du lieu, aucune exception<br>
+                        → <strong>Équivalent :</strong> "Quel que soit l'endroit où"
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Quel(le)(s) que - Avec accord</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Quelles que</span> soient vos opinions, je les respecte.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Accord :</strong> "Quelles" s'accorde avec "opinions" (féminin pluriel)<br>
+                        → <strong>Mode :</strong> Subjonctif obligatoire ("soient")<br>
+                        → <strong>Construction :</strong> Généralement avec le verbe "être"<br>
+                        → <strong>Signification :</strong> Peu importe quelles sont vos opinions
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Quel(le)(s) que - Pluriel masculin</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Quels que</span> soient les obstacles, nous réussirons.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Accord :</strong> "Quels" s'accorde avec "obstacles" (masculin pluriel)<br>
+                        → <strong>Structure :</strong> Quel(le)(s) que + subjonctif du verbe être + sujet<br>
+                        → <strong>Valeur :</strong> Concession sur la nature ou la qualité<br>
+                        → <strong>Équivalent :</strong> "Peu importe quels sont les obstacles"
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Quelque... que - Devant adjectif</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Quelque</span> difficile <span class="relative-highlight">que</span> soit la tâche, il la terminera.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Invariabilité :</strong> "Quelque" reste invariable devant un adjectif<br>
+                        → <strong>Mode :</strong> Subjonctif obligatoire ("soit")<br>
+                        → <strong>Signification :</strong> Si difficile que soit la tâche / Quelle que soit la difficulté<br>
+                        → <strong>Registre :</strong> Langue soutenue, littéraire
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Quelque... que - Pluriel</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Quelque</span> nombreux <span class="relative-highlight">que</span> soient les problèmes, nous les résoudrons.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Invariabilité :</strong> "Quelque" invariable même avec un adjectif pluriel<br>
+                        → <strong>Accord de l'adjectif :</strong> "Nombreux" s'accorde avec "problèmes"<br>
+                        → <strong>Mode :</strong> Subjonctif ("soient")<br>
+                        → <strong>Valeur :</strong> Concession portant sur le degré ou l'intensité
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Si... que - Variante de "quelque... que"</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Si</span> intelligent <span class="relative-highlight">qu'</span>il soit, il peut se tromper.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Synonyme :</strong> "Quelque intelligent qu'il soit"<br>
+                        → <strong>Élision :</strong> "Que" devient "qu'" devant "il"<br>
+                        → <strong>Mode :</strong> Subjonctif obligatoire<br>
+                        → <strong>Usage :</strong> Plus courant que "quelque... que" en français moderne
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Pour... que - Concession intensive</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Pour</span> riche <span class="relative-highlight">qu'</span>il soit, il n'est pas heureux.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Signification :</strong> Bien qu'il soit riche, malgré sa richesse<br>
+                        → <strong>Équivalent :</strong> "Si riche qu'il soit" ou "Quelque riche qu'il soit"<br>
+                        → <strong>Mode :</strong> Subjonctif ("soit")<br>
+                        → <strong>Registre :</strong> Très soutenu, littéraire
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Tout... que - Avec accord variable</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Tout</span> savant <span class="relative-highlight">qu'</span>il est, il reste humble.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Accord de "tout" :</strong> Invariable devant voyelle ou h muet<br>
+                        → <strong>Mode :</strong> Indicatif possible (registre encore plus soutenu avec subjonctif)<br>
+                        → <strong>Signification :</strong> Bien qu'il soit très savant<br>
+                        → <strong>Nuance :</strong> Emphase sur le contraste entre deux qualités
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Tout... que - Accord au féminin</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Toute</span> grande <span class="relative-highlight">qu'</span>elle est, la maison semble petite.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Accord :</strong> "Toute" s'accorde devant consonne (f. sg.)<br>
+                        → <strong>Règle :</strong> Tout varie devant adj. fém. commençant par consonne ou h aspiré<br>
+                        → <strong>Construction :</strong> Très littéraire, archaïsante<br>
+                        → <strong>Équivalent moderne :</strong> "Si grande qu'elle soit"
+                    </p>
+                </div>
+            </section>
+
+            <!-- Rules Section -->
+            <div class="rule-sophisticated">
+                <h3 class="rule-title">Règles d'Usage Essentielles</h3>
+                <div class="rule-content">
+                    <ul class="rule-enumeration">
+                        <li>
+                            <strong>Absence d'antécédent :</strong> Par définition, les relatifs indéfinis ne se 
+                            rapportent à aucun nom précis mentionné auparavant. Ils ont une valeur générale, universelle 
+                            ou indéterminée. "Quiconque" désigne toute personne sans exception, "qui que" exprime 
+                            l'indifférence quant à l'identité.
+                        </li>
+                        <li>
+                            <strong>Subjonctif obligatoire :</strong> Les constructions concessives avec "qui que", 
+                            "quoi que", "où que", "quel(le)(s) que", "quelque... que", "si... que", "pour... que" 
+                            exigent le subjonctif. Cette règle est absolue et ne souffre aucune exception. Seul 
+                            "tout... que" peut parfois admettre l'indicatif (très soutenu).
+                        </li>
+                        <li>
+                            <strong>Accords spécifiques :</strong> "Quel(le)(s) que" s'accorde en genre et en nombre 
+                            avec le nom qu'il qualifie. "Quelque" devant un adjectif reste invariable. "Tout" devant 
+                            un adjectif féminin commençant par une consonne ou h aspiré s'accorde (toute, toutes).
+                        </li>
+                        <li>
+                            <strong>Registre de langue :</strong> La plupart de ces constructions appartiennent à un 
+                            registre soutenu ou littéraire. "Quiconque", "quelque... que", "pour... que", "tout... que" 
+                            sont rares à l'oral courant. En revanche, "qui que", "quoi que", "où que" sont plus 
+                            fréquents dans la langue parlée soignée.
+                        </li>
+                        <li>
+                            <strong>Ne pas confondre :</strong> "Quoi que" (en deux mots, relatif indéfini) ≠ "quoique" 
+                            (en un mot, conjonction signifiant "bien que"). "Quelque" (invariable devant adjectif) ≠ 
+                            "quelques" (déterminant pluriel). Ces confusions sont fréquentes et constituent des erreurs 
+                            grammaticales graves.
+                        </li>
+                        <li>
+                            <strong>Position dans la phrase :</strong> Les relatifs indéfinis occupent généralement 
+                            la position initiale de leur proposition. Ils introduisent une subordonnée qui précède 
+                            souvent la principale ou qui s'y insère. L'ordre "relative + principale" est très fréquent 
+                            pour mettre en relief la concession.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Table Section -->
+            <section class="table-exclusive">
+                <h2 class="majestic-heading">Tableau Récapitulatif Complet</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Relatif Indéfini</th>
+                            <th>Signification</th>
+                            <th>Mode Verbal</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-pronoun">QUICONQUE</td>
+                            <td>Toute personne qui / N'importe qui</td>
+                            <td>Indicatif</td>
+                            <td><em>Quiconque ment sera puni</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">QUI QUE</td>
+                            <td>Quelle que soit la personne qui</td>
+                            <td>Subjonctif</td>
+                            <td><em>Qui que vous soyez</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">QUOI QUE</td>
+                            <td>Quelle que soit la chose que</td>
+                            <td>Subjonctif</td>
+                            <td><em>Quoi que tu dises</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">OÙ QUE</td>
+                            <td>Quel que soit le lieu où</td>
+                            <td>Subjonctif</td>
+                            <td><em>Où que tu ailles</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">QUEL(LE)(S) QUE</td>
+                            <td>De quelque nature que (+ être)</td>
+                            <td>Subjonctif</td>
+                            <td><em>Quelles que soient tes raisons</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">QUELQUE... QUE</td>
+                            <td>Si... que / De quelque degré que</td>
+                            <td>Subjonctif</td>
+                            <td><em>Quelque riche qu'il soit</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">SI... QUE</td>
+                            <td>Quelque... que (plus courant)</td>
+                            <td>Subjonctif</td>
+                            <td><em>Si grand qu'il soit</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">POUR... QUE</td>
+                            <td>Bien que / Malgré le fait que</td>
+                            <td>Subjonctif</td>
+                            <td><em>Pour intelligent qu'il soit</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">TOUT... QUE</td>
+                            <td>Bien que / Tout en étant</td>
+                            <td>Indicatif / Subjonctif</td>
+                            <td><em>Tout savant qu'il est</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- More Examples -->
+            <section class="examples-premium">
+                <h2 class="examples-heading">Cas Particuliers et Subtilités</h2>
+
+                <div class="example-elegant">
+                    <div class="example-category">Quiconque - Double fonction</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Quiconque</span> viendra sera le bienvenu.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Double rôle :</strong> "Quiconque" = antécédent + pronom relatif en un seul mot<br>
+                        → <strong>Équivalent :</strong> "Celui qui viendra" ou "Toute personne qui viendra"<br>
+                        → <strong>Usage :</strong> Forme condensée et élégante, privilégiée en style soutenu<br>
+                        → <strong>Remarque :</strong> Plus courant comme sujet que comme complément
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Qui que ce soit - Expression figée</div>
+                    <div class="sentence-elegant">
+                        Je refuse de parler à <span class="relative-highlight">qui que ce soit</span>.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Locution pronominale :</strong> Expression figée signifiant "n'importe qui"<br>
+                        → <strong>Usage :</strong> Généralement dans des contextes négatifs ou interrogatifs<br>
+                        → <strong>Variante :</strong> "Quoi que ce soit" pour les choses<br>
+                        → <strong>Niveau :</strong> Courant à l'oral et à l'écrit
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Quoi que vs Quoique - Distinction essentielle</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Quoi que</span> tu fasses, réussis. / <span class="relative-highlight">Quoique</span> fatigué, il continue.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>"Quoi que" (2 mots) :</strong> Relatif indéfini = quelle que soit la chose que<br>
+                        → <strong>"Quoique" (1 mot) :</strong> Conjonction de subordination = bien que, malgré que<br>
+                        → <strong>Test :</strong> On peut remplacer "quoi que" par "quelle que soit la chose que"<br>
+                        → <strong>Erreur fréquente :</strong> Confondre ces deux formes différentes
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Quel que - Avec autre verbe qu'être</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Quel que</span> puisse être votre avis, écoutez-moi.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Verbe modal :</strong> "Pouvoir être" au lieu de simple "être"<br>
+                        → <strong>Construction rare :</strong> Généralement avec "être" seul<br>
+                        → <strong>Nuance :</strong> Exprime une possibilité même hypothétique<br>
+                        → <strong>Registre :</strong> Très soutenu, littéraire
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Quelque - Devant un nom (variable)</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Quelques</span> efforts <span class="relative-highlight">que</span> vous fassiez, persévérez.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Accord :</strong> "Quelques" s'accorde quand il précède un nom<br>
+                        → <strong>Différence :</strong> "Quelque" invariable devant adjectif, variable devant nom<br>
+                        → <strong>Signification :</strong> Quels que soient les efforts / De quelque nature que soient vos efforts<br>
+                        → <strong>Usage :</strong> Construction courante au subjonctif
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Tout... que - Accord féminin pluriel</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Toutes</span> habiles <span class="relative-highlight">qu'</span>elles sont, elles peuvent échouer.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Accord complet :</strong> "Toutes" féminin pluriel devant consonne<br>
+                        → <strong>Règle :</strong> Accord en genre et nombre si adj. fém. + consonne ou h aspiré<br>
+                        → <strong>Archaïsme :</strong> Construction très littéraire, peu usitée en français moderne<br>
+                        → <strong>Préférer :</strong> "Si habiles qu'elles soient" (plus courant)
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Où que - Sens temporel (rare)</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Où que</span> nous en soyons de nos projets, continuons.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Sens figuré :</strong> "Où" peut avoir un sens temporel ou abstrait<br>
+                        → <strong>Signification :</strong> Quel que soit le point où nous sommes dans nos projets<br>
+                        → <strong>Usage :</strong> Moins fréquent que le sens spatial<br>
+                        → <strong>Variante :</strong> "Où que nous en soyons" = quel que soit l'état d'avancement
+                    </p>
+                </div>
+
+                <div class="example-elegant">
+                    <div class="example-category">Combinaisons multiples</div>
+                    <div class="sentence-elegant">
+                        <span class="relative-highlight">Qui que</span> vous soyez, <span class="relative-highlight">où que</span> vous alliez, soyez prudent.
+                    </div>
+                    <p class="analysis-elegant">
+                        → <strong>Accumulation :</strong> Plusieurs relatifs indéfinis coordonnés<br>
+                        → <strong>Effet stylistique :</strong> Renforcement de l'universalité de l'affirmation<br>
+                        → <strong>Structure :</strong> Chaque relative conserve son subjonctif<br>
+                        → <strong>Usage :</strong> Fréquent pour insister sur le caractère absolu du conseil
+                    </p>
+                </div>
+            </section>
+
+            <!-- Warning Box -->
+            <div class="warning-distinguished">
+                <h3 class="warning-title">Erreurs Courantes à Éviter Absolument</h3>
+                <div class="warning-content">
+                    <p style="margin-bottom: 28px;">
+                        <strong>Erreur n°1 : Confondre "quoi que" et "quoique"</strong><br>
+                        ❌ <em>"Quoique tu fasses, je te soutiendrai."</em> (incorrect)<br>
+                        ✅ <em>"<strong>Quoi que</strong> tu fasses, je te soutiendrai."</em> (correct)<br>
+                        → "Quoi que" (2 mots) = quelle que soit la chose que<br>
+                        → "Quoique" (1 mot) = bien que, malgré que
+                    </p>
+                    
+                    <p style="margin-bottom: 28px;">
+                        <strong>Erreur n°2 : Utiliser l'indicatif au lieu du subjonctif</strong><br>
+                        ❌ <em>"Qui que vous <strong>êtes</strong>, respectez les règles."</em> (incorrect)<br>
+                        ✅ <em>"Qui que vous <strong>soyez</strong>, respectez les règles."</em> (correct)<br>
+                        → Tous les relatifs indéfinis concessifs exigent le subjonctif
+                    </p>
+                    
+                    <p style="margin-bottom: 28px;">
+                        <strong>Erreur n°3 : Mal accorder "quel(le)(s) que"</strong><br>
+                        ❌ <em>"Quel que soient vos raisons..."</em> (incorrect)<br>
+                        ✅ <em>"<strong>Quelles que</strong> soient vos raisons..."</em> (correct)<br>
+                        → "Quel" doit s'accorder avec le nom ("raisons" = féminin pluriel)
+                    </p>
+                    
+                    <p style="margin-bottom: 28px;">
+                        <strong>Erreur n°4 : Confondre "quelque" et "quelques"</strong><br>
+                        ❌ <em>"Quelques grand qu'il soit..."</em> (incorrect)<br>
+                        ✅ <em>"<strong>Quelque</strong> grand qu'il soit..."</em> (correct)<br>
+                        → "Quelque" devant adjectif reste invariable
+                    </p>
+                    
+                    <p>
+                        <strong>Erreur n°5 : Ajouter un antécédent à "quiconque"</strong><br>
+                        ❌ <em>"La personne quiconque viendra..."</em> (incorrect)<br>
+                        ✅ <em>"<strong>Quiconque</strong> viendra..."</em> (correct)<br>
+                        → "Quiconque" contient déjà l'antécédent, pas besoin d'en ajouter un
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tip Box -->
+            <div class="tip-elite">
+                <h3 class="tip-title">Stratégie de Maîtrise</h3>
+                <div class="tip-content">
+                    <p style="margin-bottom: 22px;">
+                        <strong>Pour maîtriser les relatifs indéfinis, suivez cette méthode :</strong>
+                    </p>
+                    
+                    <p style="margin-bottom: 18px;">
+                        <strong>1. Identifiez l'absence d'antécédent :</strong> Si aucun nom précis n'est mentionné 
+                        avant le relatif, il s'agit probablement d'un relatif indéfini exprimant une généralité.
+                    </p>
+                    
+                    <p style="margin-bottom: 18px;">
+                        <strong>2. Repérez la valeur de concession :</strong> La plupart des relatifs indéfinis 
+                        (sauf "quiconque") expriment une concession : "peu importe qui/quoi/où/comment".
+                    </p>
+                    
+                    <p style="margin-bottom: 18px;">
+                        <strong>3. Utilisez le subjonctif :</strong> Avec "qui que", "quoi que", "où que", 
+                        "quel(le)(s) que", "quelque... que", "si... que", "pour... que", le subjonctif est obligatoire.
+                    </p>
+                    
+                    <p style="margin-bottom: 18px;">
+                        <strong>4. Vérifiez les accords :</strong> "Quel(le)(s) que" s'accorde avec le nom, 
+                        "quelque" devant adjectif reste invariable, "tout" devant adj. fém. + consonne s'accorde.
+                    </p>
+                    
+                    <p>
+                        <strong>5. Mémorisez les expressions figées :</strong> "Quoi qu'il en soit", 
+                        "qui que ce soit", "quoi que ce soit" sont des locutions courantes à connaître par cœur.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Imperial Panel -->
+            <section class="imperial-panel">
+                <h2>Synthèse des Principes Fondamentaux</h2>
+                <ul class="imperial-enumeration">
+                    <li>
+                        <strong>Absence d'antécédent exprimé :</strong> Les relatifs indéfinis se distinguent des 
+                        pronoms relatifs ordinaires par l'absence d'un antécédent clairement identifiable dans la 
+                        phrase. Ils portent en eux-mêmes l'idée de généralité, d'universalité ou d'indétermination, 
+                        sans se rapporter à un nom spécifique préalablement mentionné.
+                    </li>
+                    <li>
+                        <strong>Valeur de généralité et d'universalité :</strong> Ces formes permettent d'exprimer 
+                        des vérités générales, des principes universels, ou des affirmations qui s'appliquent sans 
+                        restriction à toute personne ("quiconque", "qui que"), toute chose ("quoi que"), tout lieu 
+                        ("où que"), ou toute qualité ("quel(le)(s) que", "quelque... que").
+                    </li>
+                    <li>
+                        <strong>Fonction concessive dominante :</strong> La majorité des relatifs indéfinis (à 
+                        l'exception de "quiconque") expriment une concession, c'est-à-dire qu'ils marquent 
+                        l'indifférence totale quant à l'identité, la nature, le lieu ou le degré d'une chose. 
+                        Ils signifient "peu importe qui/quoi/où/comment", soulignant que l'affirmation reste vraie 
+                        dans tous les cas possibles.
+                    </li>
+                    <li>
+                        <strong>Subjonctif impératif :</strong> Les constructions concessives avec relatifs indéfinis 
+                        exigent systématiquement le mode subjonctif. Cette règle est absolue pour "qui que", "quoi que", 
+                        "où que", "quel(le)(s) que", "quelque... que", "si... que", "pour... que". Seul "tout... que" 
+                        peut exceptionnellement admettre l'indicatif dans un registre très soutenu.
+                    </li>
+                    <li>
+                        <strong>Accords spécifiques et subtils :</strong> Chaque relatif indéfini suit ses propres 
+                        règles d'accord : "quel(le)(s) que" s'accorde en genre et en nombre avec le nom auquel il se 
+                        rapporte ; "quelque" devant un adjectif reste invariable mais devient "quelques" devant un nom ; 
+                        "tout" varie au féminin devant un adjectif commençant par une consonne ou un h aspiré.
+                    </li>
+                    <li>
+                        <strong>Registre de langue élevé :</strong> La plupart de ces constructions appartiennent à 
+                        un registre soutenu, littéraire ou juridique. "Quiconque", "quelque... que", "pour... que", 
+                        "tout... que" sont rares dans la langue parlée courante. Leur maîtrise caractérise un niveau 
+                        avancé de compétence linguistique et témoigne d'une connaissance approfondie de la grammaire 
+                        française classique.
+                    </li>
+                    <li>
+                        <strong>Distinctions orthographiques cruciales :</strong> Il est essentiel de ne pas confondre 
+                        "quoi que" (en deux mots, relatif indéfini) avec "quoique" (en un mot, conjonction), ni 
+                        "quelque" (invariable devant adjectif) avec "quelques" (déterminant pluriel). Ces confusions, 
+                        très fréquentes, constituent des fautes graves qui altèrent le sens et la correction de la phrase.
+                    </li>
+                    <li>
+                        <strong>Richesse expressive et stylistique :</strong> Les relatifs indéfinis offrent une 
+                        palette nuancée pour exprimer la concession, l'universalité et la généralité. Leur utilisation 
+                        appropriée confère au discours élégance, précision et profondeur philosophique. Ils permettent 
+                        de formuler des maximes, des principes éthiques et des vérités universelles avec concision et 
+                        force rhétorique.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Final Tip -->
+            <div class="tip-elite">
+                <h3 class="tip-title">En Résumé : Les Points Essentiels</h3>
+                <div class="tip-content">
+                    <p style="margin-bottom: 20px;">
+                        <strong>🎯 Ce qu'il faut absolument retenir :</strong>
+                    </p>
+                    
+                    <p style="margin-bottom: 18px;">
+                        <strong>1. Pas d'antécédent :</strong> Les relatifs indéfinis n'ont pas de nom précis auquel 
+                        ils se rapportent. Ils expriment la généralité ou l'universalité.
+                    </p>
+                    
+                    <p style="margin-bottom: 18px;">
+                        <strong>2. Subjonctif obligatoire :</strong> Tous les relatifs indéfinis concessifs (sauf 
+                        "quiconque") exigent le subjonctif sans exception.
+                    </p>
+                    
+                    <p style="margin-bottom: 18px;">
+                        <strong>3. Distinctions orthographiques :</strong> "Quoi que" (2 mots) ≠ "quoique" (1 mot) / 
+                        "Quelque" devant adjectif ≠ "quelques" devant nom
+                    </p>
+                    
+                    <p style="margin-bottom: 18px;">
+                        <strong>4. Accords à maîtriser :</strong> "Quel(le)(s) que" s'accorde / "Quelque" + adjectif 
+                        invariable / "Tout" + adj. fém. + consonne s'accorde
+                    </p>
+                    
+                    <p>
+                        <strong>5. Registre soutenu :</strong> Ces formes appartiennent généralement à la langue 
+                        écrite soignée ou littéraire. Leur usage témoigne d'une excellente maîtrise du français.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Língua Academy · Tous droits réservés</p>
+            <p class="footer-crest">LÍNGUA ACADEMY</p>
+            <p>L'Excellence Absolue de la Langue Française</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Advanced Intersection Observer
+        const observerOptions = {
+            threshold: 0.12,
+            rootMargin: '0px 0px -130px 0px'
+        };
+
+        const luxuryObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe example boxes
+        document.querySelectorAll('.example-elegant').forEach(box => {
+            box.style.opacity = '0';
+            box.style.transform = 'translateY(40px)';
+            box.style.transition = 'opacity 1s ease, transform 1s ease';
+            luxuryObserver.observe(box);
+        });
+
+        // Premium hover effects
+        document.querySelectorAll('.concept-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const symbol = this.querySelector('.concept-symbol');
+                if (symbol) {
+                    symbol.style.transform = 'scale(1.4) rotate(20deg)';
+                    symbol.style.transition = 'transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                }
+            });
+            card.addEventListener('mouseleave', function() {
+                const symbol = this.querySelector('.concept-symbol');
+                if (symbol) {
+                    symbol.style.transform = 'scale(1) rotate(0deg)';
+                }
+            });
+        });
+
+        // Animate table rows with stagger
+        document.querySelectorAll('tbody tr').forEach((row, index) => {
+            row.style.opacity = '0';
+            row.style.transform = 'translateX(-50px)';
+            row.style.transition = `opacity 0.8s ease ${index * 0.09}s, transform 0.8s ease ${index * 0.09}s`;
+            
+            luxuryObserver.observe(row);
+        });
+
+        // Infinity symbol rotation on hover
+        const brandCrest = document.querySelector('.brand-crest');
+        if (brandCrest) {
+            brandCrest.addEventListener('mouseenter', function() {
+                this.style.textShadow = '4px 4px 8px rgba(0, 0, 0, 0.5), 0 0 60px rgba(212, 175, 55, 0.9)';
+                this.style.transform = 'scale(1.08)';
+                this.style.transition = 'all 0.5s ease';
+            });
+            brandCrest.addEventListener('mouseleave', function() {
+                this.style.textShadow = '4px 4px 8px rgba(0, 0, 0, 0.5), 0 0 40px rgba(212, 175, 55, 0.5)';
+                this.style.transform = 'scale(1)';
+            });
+        }
+
+        // Parallax effect for orbs
+        document.addEventListener('mousemove', function(e) {
+            const orbs = document.querySelectorAll('.orb');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            orbs.forEach((orb, index) => {
+                const speed = (index + 1) * 15;
+                const x = (mouseX - 0.5) * speed;
+                const y = (mouseY - 0.5) * speed;
+                orb.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    </script>
+</body>
+</html>

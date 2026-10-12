@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Formes de l'Article - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0055A4 0%, #FFFFFF 50%, #EF4135 100%);
+            color: white;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 3.2em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 1;
+            color: #0055A4;
+        }
+
+        .header p {
+            font-size: 1.4em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .logo {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+            color: #EF4135;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid #EF4135;
+            animation: slideInLeft 0.8s ease-out;
+            box-shadow: 0 10px 30px rgba(253, 203, 110, 0.3);
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .intro h2 {
+            color: #d63031;
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            color: #EF4135;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #0055A4;
+            display: inline-block;
+        }
+
+        .section h3 {
+            color: #0055A4;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #EF4135;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .definition-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .definition-box strong {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .type-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #0055A4;
+            transition: all 0.3s ease;
+        }
+
+        .type-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .type-card h4 {
+            color: #0055A4;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .article-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .article-item {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(9, 132, 227, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .article-item:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 15px 40px rgba(9, 132, 227, 0.5);
+        }
+
+        .article-word {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .article-desc {
+            font-size: 1.1em;
+        }
+
+        .example-box {
+            background: #fff;
+            border: 2px solid #EF4135;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            background: #fff5f5;
+            border-color: #0055A4;
+            box-shadow: 0 5px 15px rgba(239, 65, 53, 0.2);
+        }
+
+        .example {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .example::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #EF4135;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: #EF4135;
+            font-weight: bold;
+            font-style: italic;
+            background: rgba(239, 65, 53, 0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 15px 18px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        tr:hover {
+            background: #e3f2fd;
+            transition: background 0.3s ease;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #e17055;
+            box-shadow: 0 5px 15px rgba(253, 203, 110, 0.3);
+        }
+
+        .note-box strong {
+            color: #d63031;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #EF4135 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(239, 65, 53, 0.3);
+        }
+
+        .important-box strong {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .grid-item {
+            background: linear-gradient(135deg, #a8e6cf 0%, #56ab91 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(86, 171, 145, 0.3);
+        }
+
+        .grid-item h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .list-style {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-style li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+        }
+
+        .list-style li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .comparison-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .comparison-item {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-correct {
+            background: linear-gradient(135deg, #a8e6cf 0%, #56ab91 100%);
+            color: white;
+        }
+
+        .comparison-incorrect {
+            background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);
+            color: white;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .section h2 {
+                font-size: 1.8em;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-box {
+                grid-template-columns: 1fr;
+            }
+
+            .article-showcase {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: #EF4135;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        .badge-blue {
+            background: #0055A4;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .rule-card {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+        }
+
+        .rule-card strong {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .contraction-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .plus-sign {
+            color: #0055A4;
+            font-size: 1.5em;
+        }
+
+        .equals-sign {
+            color: #EF4135;
+            font-size: 1.5em;
+        }
+
+        .contraction-result {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: #d63031;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📰 Les Formes de l'Article</h1>
+            <p>L'Article en Grammaire Française</p>
+            <div class="logo">🎓 LÍNGUA ACADEMY</div>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <h2>🎯 Introduction</h2>
+                <p>L'<strong>article</strong> est un déterminant qui précède le nom et indique son genre (masculin/féminin), son nombre (singulier/pluriel) et son degré de détermination (défini/indéfini). C'est un élément essentiel de la langue française : un nom commun ne peut généralement pas être utilisé seul sans article.</p>
+            </div>
+
+            <div class="definition-box pulse">
+                <strong>📖 Définition Générale</strong>
+                <p>L'article est un mot invariable qui accompagne le nom et qui s'accorde avec lui en genre et en nombre. Il existe trois grandes catégories d'articles : les articles <strong>définis</strong>, les articles <strong>indéfinis</strong> et les articles <strong>partitifs</strong>.</p>
+            </div>
+
+            <section class="section">
+                <h2>1️⃣ Les Articles Définis</h2>
+                <p>Les articles définis désignent un être ou une chose <strong>déterminés</strong>, c'est-à-dire connus du locuteur et de l'interlocuteur, ou dont on a déjà parlé.</p>
+
+                <h3>A. Articles Définis Simples</h3>
+                <div class="type-card">
+                    <h4>Formes et Utilisation</h4>
+                    <p>Les articles définis simples s'utilisent devant un nom dont l'identité est précisée ou connue.</p>
+                    
+                    <div class="article-showcase">
+                        <div class="article-item">
+                            <div class="article-word">LE</div>
+                            <div class="article-desc">Masculin singulier</div>
+                        </div>
+                        <div class="article-item">
+                            <div class="article-word">LA</div>
+                            <div class="article-desc">Féminin singulier</div>
+                        </div>
+                        <div class="article-item">
+                            <div class="article-word">L'</div>
+                            <div class="article-desc">Devant voyelle/H muet</div>
+                        </div>
+                        <div class="article-item">
+                            <div class="article-word">LES</div>
+                            <div class="article-desc">Pluriel (m. et f.)</div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>Article</th>
+                                <th>Genre et Nombre</th>
+                                <th>Exemples</th>
+                            </tr>
+                            <tr>
+                                <td><strong>LE</strong></td>
+                                <td>Masculin singulier</td>
+                                <td><span class="highlight">Le</span> soleil, <span class="highlight">le</span> garçon, <span class="highlight">le</span> livre</td>
+                            </tr>
+                            <tr>
+                                <td><strong>LA</strong></td>
+                                <td>Féminin singulier</td>
+                                <td><span class="highlight">La</span> lune, <span class="highlight">la</span> fille, <span class="highlight">la</span> table</td>
+                            </tr>
+                            <tr>
+                                <td><strong>L'</strong></td>
+                                <td>Sing. devant voyelle ou H muet</td>
+                                <td><span class="highlight">L'</span>arbre, <span class="highlight">l'</span>école, <span class="highlight">l'</span>homme, <span class="highlight">l'</span>eau</td>
+                            </tr>
+                            <tr>
+                                <td><strong>LES</strong></td>
+                                <td>Pluriel (masc. et fém.)</td>
+                                <td><span class="highlight">Les</span> enfants, <span class="highlight">les</span> maisons, <span class="highlight">les</span> arbres</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="example-box">
+                        <p><strong>Exemples en contexte :</strong></p>
+                        <div class="example"><span class="highlight">Le</span> chat dort sur le canapé.</div>
+                        <div class="example"><span class="highlight">La</span> voiture est garée dans la rue.</div>
+                        <div class="example"><span class="highlight">L'</span>histoire que tu racontes est fascinante.</div>
+                        <div class="example"><span class="highlight">Les</span> étudiants travaillent à la bibliothèque.</div>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Quand utiliser les articles définis ?</strong>
+                        <p>
+                        ✓ Pour parler de quelque chose de spécifique et connu<br>
+                        ✓ Pour désigner une catégorie générale (les chats = tous les chats)<br>
+                        ✓ Après les verbes de préférence : aimer, adorer, détester, préférer<br>
+                        ✓ Avec les noms abstraits : le courage, la liberté, l'amour<br>
+                        ✓ Avec les parties du corps : J'ai mal à la tête
+                        </p>
+                    </div>
+                </div>
+
+                <h3>B. Articles Définis Contractés</h3>
+                <div class="type-card">
+                    <h4>Formation et Emploi</h4>
+                    <p>Les articles définis contractés résultent de la fusion de l'article défini avec les prépositions <strong>à</strong> ou <strong>de</strong>.</p>
+                    
+                    <div class="rule-card">
+                        <strong>🔄 Contractions avec À</strong>
+                        <div class="contraction-visual">
+                            <span>à</span>
+                            <span class="plus-sign">+</span>
+                            <span>le</span>
+                            <span class="equals-sign">=</span>
+                            <span class="contraction-result">AU</span>
+                        </div>
+                        <div class="contraction-visual">
+                            <span>à</span>
+                            <span class="plus-sign">+</span>
+                            <span>les</span>
+                            <span class="equals-sign">=</span>
+                            <span class="contraction-result">AUX</span>
+                        </div>
+                    </div>
+
+                    <div class="rule-card">
+                        <strong>🔄 Contractions avec DE</strong>
+                        <div class="contraction-visual">
+                            <span>de</span>
+                            <span class="plus-sign">+</span>
+                            <span>le</span>
+                            <span class="equals-sign">=</span>
+                            <span class="contraction-result">DU</span>
+                        </div>
+                        <div class="contraction-visual">
+                            <span>de</span>
+                            <span class="plus-sign">+</span>
+                            <span>les</span>
+                            <span class="equals-sign">=</span>
+                            <span class="contraction-result">DES</span>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>Article Contracté</th>
+                                <th>Formation</th>
+                                <th>Exemples</th>
+                            </tr>
+                            <tr>
+                                <td><strong>AU</strong></td>
+                                <td>à + le</td>
+                                <td>Je vais <span class="highlight">au</span> cinéma (à + le cinéma)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>AUX</strong></td>
+                                <td>à + les</td>
+                                <td>Il parle <span class="highlight">aux</span> enfants (à + les enfants)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>DU</strong></td>
+                                <td>de + le</td>
+                                <td>Je viens <span class="highlight">du</span> marché (de + le marché)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>DES</strong></td>
+                                <td>de + les</td>
+                                <td>Le livre <span class="highlight">des</span> élèves (de + les élèves)</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="example-box">
+                        <p><strong>Exemples détaillés :</strong></p>
+                        <div class="example">Il va <span class="highlight">au</span> stade pour jouer au football.</div>
+                        <div class="example">Nous parlons <span class="highlight">aux</span> professeurs.</div>
+                        <div class="example">Elle arrive <span class="highlight">du</span> bureau.</div>
+                        <div class="example">C'est le jouet <span class="highlight">des</span> enfants.</div>
+                    </div>
+
+                    <div class="important-box">
+                        <strong>⚠️ PAS de contraction avec À LA, À L', DE LA, DE L' !</strong>
+                        <p>
+                        ✓ Je vais à <span class="highlight">la</span> piscine (pas "à la")<br>
+                        ✓ Il va à <span class="highlight">l'</span>école (pas "à l'")<br>
+                        ✓ Je viens de <span class="highlight">la</span> plage (pas "de la")<br>
+                        ✓ Elle sort de <span class="highlight">l'</span>université (pas "de l'")<br><br>
+                        La contraction ne se fait QU'AVEC LE et LES !
+                        </p>
+                    </div>
+                </div>
+
+                <h3>C. L'Article Défini Élidé</h3>
+                <div class="type-card">
+                    <h4>L'élision de l'article</h4>
+                    <p>Devant un mot commençant par une voyelle (a, e, i, o, u, y) ou un <strong>h muet</strong>, les articles <strong>le</strong> et <strong>la</strong> deviennent <strong>l'</strong>.</p>
+                    
+                    <div class="comparison-box">
+                        <div class="comparison-item comparison-correct">
+                            <h4>✓ Correct</h4>
+                            <ul class="list-style">
+                                <li><span class="highlight">L'</span>arbre</li>
+                                <li><span class="highlight">L'</span>école</li>
+                                <li><span class="highlight">L'</span>homme</li>
+                                <li><span class="highlight">L'</span>histoire</li>
+                                <li><span class="highlight">L'</span>université</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-item comparison-incorrect">
+                            <h4>✗ Incorrect</h4>
+                            <ul class="list-style">
+                                <li>Le arbre</li>
+                                <li>La école</li>
+                                <li>Le homme</li>
+                                <li>La histoire</li>
+                                <li>La université</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 H muet vs H aspiré</strong>
+                        <p><strong>H MUET</strong> → On fait l'élision : <span class="highlight">l'</span>homme, <span class="highlight">l'</span>hôtel, <span class="highlight">l'</span>hiver<br>
+                        <strong>H ASPIRÉ</strong> → On ne fait PAS l'élision : <span class="highlight">le</span> héros, <span class="highlight">la</span> haine, <span class="highlight">le</span> haricot</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>2️⃣ Les Articles Indéfinis</h2>
+                <p>Les articles indéfinis désignent un être ou une chose de manière <strong>indéterminée</strong>, non précisée ou mentionnée pour la première fois.</p>
+
+                <div class="article-showcase">
+                    <div class="article-item" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
+                        <div class="article-word">UN</div>
+                        <div class="article-desc">Masculin singulier</div>
+                    </div>
+                    <div class="article-item" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
+                        <div class="article-word">UNE</div>
+                        <div class="article-desc">Féminin singulier</div>
+                    </div>
+                    <div class="article-item" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
+                        <div class="article-word">DES</div>
+                        <div class="article-desc">Pluriel (m. et f.)</div>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Article</th>
+                            <th>Genre et Nombre</th>
+                            <th>Exemples</th>
+                        </tr>
+                        <tr>
+                            <td><strong>UN</strong></td>
+                            <td>Masculin singulier</td>
+                            <td><span class="highlight">Un</span> chat, <span class="highlight">un</span> livre, <span class="highlight">un</span> garçon</td>
+                        </tr>
+                        <tr>
+                            <td><strong>UNE</strong></td>
+                            <td>Féminin singulier</td>
+                            <td><span class="highlight">Une</span> maison, <span class="highlight">une</span> fille, <span class="highlight">une</span> table</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DES</strong></td>
+                            <td>Pluriel (masc. et fém.)</td>
+                            <td><span class="highlight">Des</span> chats, <span class="highlight">des</span> maisons, <span class="highlight">des</span> enfants</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Exemples en contexte :</strong></p>
+                    <div class="example">J'ai vu <span class="highlight">un</span> oiseau dans le jardin.</div>
+                    <div class="example">Elle a acheté <span class="highlight">une</span> voiture neuve.</div>
+                    <div class="example">Il y a <span class="highlight">des</span> fleurs sur la table.</div>
+                    <div class="example"><span class="highlight">Des</span> étudiants sont arrivés en retard.</div>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 Quand utiliser les articles indéfinis ?</strong>
+                    <p>
+                    ✓ Pour introduire quelque chose de nouveau ou d'inconnu<br>
+                    ✓ Pour parler d'un élément quelconque d'une catégorie<br>
+                    ✓ Quand on ne précise pas de quel élément on parle<br>
+                    ✓ Pour exprimer l'existence de quelque chose<br>
+                    </p>
+                </div>
+
+                <div class="important-box">
+                    <strong>🔑 Règle de la Négation</strong>
+                    <p>À la forme négative, les articles indéfinis <strong>UN, UNE, DES</strong> deviennent <strong>DE</strong> ou <strong>D'</strong> :<br><br>
+                    → J'ai <span class="highlight">un</span> chat. → Je n'ai pas <strong>de</strong> chat.<br>
+                    → Il y a <span class="highlight">une</span> solution. → Il n'y a pas <strong>de</strong> solution.<br>
+                    → Nous avons <span class="highlight">des</span> amis. → Nous n'avons pas <strong>d'</strong>amis.<br><br>
+                    <strong>EXCEPTION :</strong> Avec le verbe ÊTRE, l'article ne change pas :<br>
+                    → C'est un livre. → Ce n'est pas <strong>un</strong> livre.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>3️⃣ Les Articles Partitifs</h2>
+                <p>Les articles partitifs expriment une <strong>quantité indéterminée</strong> ou une <strong>partie d'un tout</strong>. Ils s'emploient avec des noms de choses qu'on ne peut pas compter.</p>
+
+                <div class="article-showcase">
+                    <div class="article-item" style="background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);">
+                        <div class="article-word">DU</div>
+                        <div class="article-desc">Masculin singulier</div>
+                    </div>
+                    <div class="article-item" style="background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);">
+                        <div class="article-word">DE LA</div>
+                        <div class="article-desc">Féminin singulier</div>
+                    </div>
+                    <div class="article-item" style="background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);">
+                        <div class="article-word">DE L'</div>
+                        <div class="article-desc">Voyelle/H muet</div>
+                    </div>
+                    <div class="article-item" style="background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);">
+                        <div class="article-word">DES</div>
+                        <div class="article-desc">Pluriel partitif</div>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Article Partitif</th>
+                            <th>Genre et Nombre</th>
+                            <th>Exemples</th>
+                        </tr>
+                        <tr>
+                            <td><strong>DU</strong></td>
+                            <td>Masculin singulier</td>
+                            <td><span class="highlight">Du</span> pain, <span class="highlight">du</span> lait, <span class="highlight">du</span> courage</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DE LA</strong></td>
+                            <td>Féminin singulier</td>
+                            <td><span class="highlight">De la</span> viande, <span class="highlight">de la</span> musique, <span class="highlight">de la</span> chance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DE L'</strong></td>
+                            <td>Devant voyelle/H muet</td>
+                            <td><span class="highlight">De l'</span>eau, <span class="highlight">de l'</span>huile, <span class="highlight">de l'</span>argent</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DES</strong></td>
+                            <td>Pluriel (sens partitif)</td>
+                            <td><span class="highlight">Des</span> épinards, <span class="highlight">des</span> pâtes, <span class="highlight">des</span> rillettes</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Exemples en contexte :</strong></p>
+                    <div class="example">Je mange <span class="highlight">du</span> pain avec du beurre.</div>
+                    <div class="example">Elle boit <span class="highlight">de la</span> limonade.</div>
+                    <div class="example">Il faut <span class="highlight">de l'</span>huile pour cette recette.</div>
+                    <div class="example">Nous mangeons <span class="highlight">des</span> pâtes ce soir.</div>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 Quand utiliser les articles partitifs ?</strong>
+                    <p>
+                    ✓ Avec des noms de matières : du bois, de la pierre<br>
+                    ✓ Avec des aliments non comptables : du pain, de la confiture<br>
+                    ✓ Avec des boissons : du café, de l'eau, du jus<br>
+                    ✓ Avec des concepts abstraits : du courage, de la patience<br>
+                    ✓ Avec certains noms toujours au pluriel : des épinards, des rillettes
+                    </p>
+                </div>
+
+                <div class="important-box">
+                    <strong>🔑 Règle de la Négation</strong>
+                    <p>À la forme négative, les articles partitifs <strong>DU, DE LA, DE L'</strong> deviennent <strong>DE</strong> ou <strong>D'</strong> :<br><br>
+                    → Je mange <span class="highlight">du</span> pain. → Je ne mange pas <strong>de</strong> pain.<br>
+                    → Il y a <span class="highlight">de la</span> neige. → Il n'y a pas <strong>de</strong> neige.<br>
+                    → Elle boit <span class="highlight">de l'</span>eau. → Elle ne boit pas <strong>d'</strong>eau.<br><br>
+                    <strong>ATTENTION :</strong> Ne pas confondre l'article partitif DU avec l'article contracté DU (de + le)</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>4️⃣ Distinction : DU Article Contracté vs DU Article Partitif</h2>
+
+                <div class="comparison-box">
+                    <div class="comparison-item comparison-correct">
+                        <h4>DU = Article Contracté (de + le)</h4>
+                        <p style="margin-top: 15px;"><strong>Formation :</strong> de + le = du</p>
+                        <p><strong>Sens :</strong> Indique la provenance, l'appartenance</p>
+                        <p><strong>Test :</strong> On peut remplacer par "de le"</p>
+                        <div class="example" style="margin-top: 15px; color: white;">Le livre <span class="highlight">du</span> professeur<br>(= de le professeur)</div>
+                        <div class="example" style="color: white;">Je viens <span class="highlight">du</span> marché<br>(= de le marché)</div>
+                    </div>
+                    <div class="comparison-item comparison-incorrect">
+                        <h4>DU = Article Partitif</h4>
+                        <p style="margin-top: 15px;"><strong>Nature :</strong> Article partitif seul</p>
+                        <p><strong>Sens :</strong> Quantité indéterminée</p>
+                        <p><strong>Test :</strong> On ne peut PAS remplacer par "de le"</p>
+                        <div class="example" style="margin-top: 15px; color: white;">Je mange <span class="highlight">du</span> pain<br>(≠ de le pain)</div>
+                        <div class="example" style="color: white;">Il boit <span class="highlight">du</span> café<br>(≠ de le café)</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>5️⃣ Cas Particuliers et Exceptions</h2>
+
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h4>Absence d'Article</h4>
+                        <ul class="list-style">
+                            <li>Après "de" dans certaines expressions : un verre <strong>de</strong> lait</li>
+                            <li>Avec "sans" : sans <strong>argent</strong></li>
+                            <li>Dans les énumérations</li>
+                            <li>Avec certains verbes : avoir besoin <strong>de</strong>, manquer <strong>de</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="grid-item">
+                        <h4>Adjectif avant le Nom</h4>
+                        <p>Quand un adjectif précède un nom pluriel, <strong>DES</strong> devient <strong>DE</strong> :</p>
+                        <div class="example" style="color: white; margin-top: 10px;">J'ai vu <strong>de</strong> belles fleurs.<br>(pas "des belles")</div>
+                        <div class="example" style="color: white;">Il y a <strong>de</strong> grands arbres.<br>(pas "des grands")</div>
+                    </div>
+
+                    <div class="grid-item">
+                        <h4>Noms Propres</h4>
+                        <ul class="list-style">
+                            <li>Généralement sans article : <strong>Paris</strong>, <strong>Marie</strong></li>
+                            <li>Sauf pays : <strong>la</strong> France, <strong>le</strong> Brésil</li>
+                            <li>Et fleuves : <strong>la</strong> Seine, <strong>le</strong> Nil</li>
+                        </ul>
+                    </div>
+
+                    <div class="grid-item">
+                        <h4>Expressions Figées</h4>
+                        <ul class="list-style">
+                            <li>Avoir <strong>faim</strong> (sans article)</li>
+                            <li>Prendre <strong>froid</strong></li>
+                            <li>Faire <strong>attention</strong></li>
+                            <li>Perdre <strong>patience</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>6️⃣ Tableau Récapitulatif Complet</h2>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Type d'Article</th>
+                            <th>Masculin Singulier</th>
+                            <th>Féminin Singulier</th>
+                            <th>Pluriel</th>
+                            <th>Sens</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Défini</strong></td>
+                            <td>le (l')</td>
+                            <td>la (l')</td>
+                            <td>les</td>
+                            <td>Déterminé, connu</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Indéfini</strong></td>
+                            <td>un</td>
+                            <td>une</td>
+                            <td>des</td>
+                            <td>Indéterminé, nouveau</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Partitif</strong></td>
+                            <td>du (de l')</td>
+                            <td>de la (de l')</td>
+                            <td>des*</td>
+                            <td>Quantité indéterminée</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contracté (à + le/les)</strong></td>
+                            <td>au</td>
+                            <td>à la (à l')</td>
+                            <td>aux</td>
+                            <td>Direction, destination</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contracté (de + le/les)</strong></td>
+                            <td>du</td>
+                            <td>de la (de l')</td>
+                            <td>des</td>
+                            <td>Provenance, appartenance</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 Note :</strong>
+                    <p>* DES peut être article indéfini pluriel ou article partitif selon le contexte.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>✨ Points Clés à Retenir</h2>
+                
+                <div class="important-box">
+                    <strong>🎯 Synthèse Finale</strong>
+                    <p>
+                    <strong>1.</strong> Les articles définis (le, la, l', les) désignent quelque chose de connu ou spécifique.<br><br>
+                    <strong>2.</strong> Les articles indéfinis (un, une, des) introduisent quelque chose de nouveau ou d'indéterminé.<br><br>
+                    <strong>3.</strong> Les articles partitifs (du, de la, de l') expriment une quantité indéterminée.<br><br>
+                    <strong>4.</strong> Les articles contractés se forment avec à ou de + le/les : au, aux, du, des.<br><br>
+                    <strong>5.</strong> L'élision (l') se fait devant voyelle ou h muet pour le et la.<br><br>
+                    <strong>6.</strong> À la forme négative, les articles indéfinis et partitifs deviennent "de" ou "d'".<br><br>
+                    <strong>7.</strong> Un nom commun ne peut généralement pas être utilisé seul sans article en français.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <div class="footer">
+            <p><strong>📚 LÍNGUA ACADEMY</strong></p>
+            <p>Excellence en Enseignement des Langues</p>
+            <p style="font-size: 0.9em; margin-top: 15px;">© 2024 Língua Academy - Tous droits réservés</p>
+        </div>
+    </div>
+</body>
+</html>

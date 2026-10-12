@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Articles: Special Cases</title>
+  <style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        color: #333;
+        background: white;
+    }
+    
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 0 auto;
+        background: white;
+        page-break-after: always;
+    }
+    
+    .header {
+        text-align: center;
+        padding: 35px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+    
+    .header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+        font-size: 18px;
+        opacity: 0.95;
+    }
+    
+    .section {
+        margin: 25px 0;
+        padding: 25px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .section.orange {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+    
+    .section.green {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        color: black;
+    }
+    
+    .section.blue {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .section.pink {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+    
+    .section.purple {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    }
+    
+    .section.teal {
+        background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    }
+    
+    .section.coral {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+    
+    h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    
+    .section.green h2, .section.green h3 {
+        color: white;
+    }
+    
+    h3 {
+        font-size: 22px;
+        margin: 20px 0 10px 0;
+        color: #34495e;
+    }
+    
+    p {
+        margin-bottom: 15px;
+        font-size: 16px;
+        text-align: justify;
+    }
+    
+    .verb-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #667eea;
+        margin: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .verb-title {
+        color: #667eea;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    
+    .verb-form {
+        color: #e74c3c;
+        font-style: italic;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .verb-desc {
+        color: #555;
+        font-size: 16px;
+    }
+    
+    .example-box {
+        background: #fff9e6;
+        border: 2px dashed #f39c12;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .example-title {
+        color: #f39c12;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .tip-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #27ae60;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .tip-box h4 {
+        color: #27ae60;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    
+    ul {
+        margin-left: 30px;
+        margin-bottom: 15px;
+    }
+    
+    li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    
+    .structure-table {
+        width: 100%;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .structure-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .structure-table th {
+        background: #667eea;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+    }
+    
+    .structure-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+    }
+    
+    .structure-table tr:nth-child(even) {
+        background: #f8f9fa;
+    }
+    
+    .structure-label {
+        font-weight: bold;
+        color: #3498db;
+    }
+    
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .form-item {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        border-top: 4px solid #3498db;
+    }
+    
+    .form-type {
+        font-weight: bold;
+        color: #3498db;
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+    
+    .form-text {
+        color: #555;
+        font-size: 15px;
+    }
+    
+    .negative-box {
+        background: #ffe6e6;
+        border: 2px solid #e74c3c;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .negative-title {
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .question-box {
+        background: #e6f3ff;
+        border: 2px solid #3498db;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .question-title {
+        color: #3498db;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .comparison-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #9b59b6;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .comparison-title {
+        color: #9b59b6;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .alternative-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #e67e22;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .alternative-title {
+        color: #e67e22;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .error-box {
+        background: #fff5f5;
+        border: 2px solid #c0392b;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .error-title {
+        color: #c0392b;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    
+    @media print {
+        body {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>🧠 ARTICLES: SPECIAL CASES 🧠</h1>
+      <p>Tricky Situations with “A”, “An” and “The”</p>
+    </div>
+
+    <div class="section orange">
+      <h2>🌟 What Are Special Cases?</h2>
+      <p>Sometimes articles follow special patterns in English. We <strong>omit</strong> or <strong>always use</strong> “the” in certain expressions, places, and activities. These don’t follow the usual rules!</p>
+      <ul>
+        <li>✅ I go to <strong>school</strong> every day. (no article)</li>
+        <li>✅ He plays <strong>the piano</strong>. (with “the”)</li>
+        <li>✅ We arrived on <strong>the same day</strong>. (fixed expression)</li>
+      </ul>
+    </div>
+
+    <div class="section blue">
+      <h2>📋 Common Patterns</h2>
+      <table class="structure-table">
+        <tr>
+          <th>Expression</th>
+          <th>Article?</th>
+          <th>Example</th>
+        </tr>
+        <tr>
+          <td>Go to school / church / bed / work</td>
+          <td>No</td>
+          <td>I go to <strong>school</strong> at 8.</td>
+        </tr>
+        <tr>
+          <td>Play the + instrument</td>
+          <td>Yes</td>
+          <td>She plays <strong>the guitar</strong>.</td>
+        </tr>
+        <tr>
+          <td>In the morning / afternoon / evening</td>
+          <td>Yes</td>
+          <td>We’ll meet in <strong>the afternoon</strong>.</td>
+        </tr>
+        <tr>
+          <td>At night</td>
+          <td>No</td>
+          <td>He studies <strong>at night</strong>.</td>
+        </tr>
+        <tr>
+          <td>The same / the next / the last</td>
+          <td>Yes</td>
+          <td>We arrived on <strong>the next day</strong>.</td>
+        </tr>
+        <tr>
+          <td>By car / bus / train</td>
+          <td>No</td>
+          <td>She came <strong>by bus</strong>.</td>
+        </tr>
+        <tr>
+          <td>Go to the cinema / the bank / the doctor</td>
+          <td>Yes</td>
+          <td>I went to <strong>the doctor</strong>.</td>
+        </tr>
+      </table>
+      <div class="tip-box">
+        <h4>💡 Quick Tip</h4>
+        <p>Some places and expressions <strong>never use articles</strong>, while others <strong>always need “the”</strong>. Learn them as fixed phrases!</p>
+      </div>
+    </div>
+
+    <div class="section green">
+      <h2>🎯 Common Expressions</h2>
+      <h4>✅ No Article</h4>
+      <ul>
+        <li>Go to school / college / work</li>
+        <li>Be in hospital / prison / bed</li>
+        <li>Travel by car / plane / train</li>
+        <li>At night</li>
+      </ul>
+      <h4>✅ With “The”</h4>
+      <ul>
+        <li>Go to the bank / the cinema / the supermarket</li>
+        <li>Play the piano / the violin / the drums</li>
+        <li>In the morning / the evening / the afternoon</li>
+        <li>The same / the next / the last</li>
+      </ul>
+    </div>
+
+    <div class="section pink">
+      <h2>📝 More Sentences</h2>
+      <h4>✅ No Article</h4>
+      <p>• She goes to <strong>school</strong> every day.<br>
+         • He’s in <strong>hospital</strong> after the accident.<br>
+         • We traveled <strong>by train</strong>.<br>
+         • I sleep <strong>at night</strong>.</p>
+      <h4>✅ With “The”</h4>
+      <p>• I went to <strong>the supermarket</strong>.<br>
+         • He plays <strong>the drums</strong>.<br>
+         • We’ll meet in <strong>the morning</strong>.<br>
+         • She wore <strong>the same dress</strong> as yesterday.</p>
+    </div>
+
+    <div class="section purple">
+      <h2>📌 Compare: With and Without “The”</h2>
+      <table class="structure-table">
+        <tr>
+          <th>Without “The”</th>
+          <th>With “The”</th>
+        </tr>
+        <tr>
+          <td>He goes to <strong>school</strong>.</td>
+          <td>He went to <strong>the school</strong> to fix the lights.</td>
+        </tr>
+        <tr>
+          <td>She’s in <strong>hospital</strong>.</td>
+          <td>She visited <strong>the hospital</strong> as a tourist.</td>
+        </tr>
+        <tr>
+          <td>We traveled <strong>by car</strong>.</td>
+          <td>We cleaned <strong>the car</strong> before traveling.</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section coral">
+      <h2>🔄 Real-Life Sentences</h2>
+      <ul>
+        <li>He goes to <strong>church</strong> every Sunday.</li>
+        <li>We met in <strong>the afternoon</strong>.</li>
+        <li>She came <strong>by taxi</strong>.</li>
+        <li>I went to <strong>the cinema</strong> last night.</li>
+        <li>He plays <strong>the violin</strong> beautifully.</li>
+      </ul>
+    </div>
+
+    <div class="section orange">
+      <h2>⚠️ Common Mistakes to Avoid</h2>
+      <div class="error-box">
+        <p>❌ I go to the school every day. (general)<br>✅ I go to <strong>school</strong> every day.</p>
+        <p>❌ She is in the hospital. (as a patient)<br>✅ She is in <strong>hospital</strong>.</p>
+        <p>❌ He plays piano.<br>✅ He plays <strong>the piano</strong>.</p>
+        <p>❌ We traveled in the car.<br>✅ We traveled <strong>by car</strong>.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Learn special cases as fixed expressions — some need “the”, others never use it!</strong></p>
+      <p>Practice with real examples to sound natural and fluent in English!</p>
+    </div>
+  </div>
+</body>
+</html>

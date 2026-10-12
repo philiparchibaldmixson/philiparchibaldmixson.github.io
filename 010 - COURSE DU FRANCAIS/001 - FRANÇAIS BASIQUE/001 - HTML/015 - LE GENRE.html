@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Genre en Français - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .flag-colors {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .flag-bar {
+            width: 80px;
+            height: 8px;
+            border-radius: 4px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .blue { background: #002395; }
+        .white { background: #ffffff; }
+        .red { background: #ED2939; }
+
+        h1 {
+            color: #fff;
+            font-size: 3.8em;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            }
+            to {
+                text-shadow: 0 0 25px rgba(255, 255, 255, 0.9),
+                             0 0 35px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        .subtitle {
+            color: #f0f0f0;
+            font-size: 1.4em;
+            font-weight: 300;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.3em;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #764ba2;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.7em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .gender-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .gender-box {
+            border-radius: 20px;
+            padding: 35px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            animation: scaleIn 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gender-box.masculine {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .gender-box.feminine {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .gender-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .gender-box:hover {
+            transform: scale(1.05) rotateZ(2deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .gender-box h3 {
+            color: #fff;
+            font-size: 2em;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gender-box p,
+        .gender-box ul {
+            color: rgba(255, 255, 255, 0.95);
+            position: relative;
+            z-index: 1;
+        }
+
+        .gender-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .gender-box li {
+            padding: 10px;
+            margin: 8px 0;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            border-left: 4px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .icon {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            display: block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .rule-card {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            color: #333;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            animation: slideInLeft 0.8s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        .rule-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .rule-card h3 {
+            color: #0d7377;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .rule-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .rule-card li {
+            padding: 12px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 10px;
+            border-left: 5px solid #0d7377;
+            transition: all 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        .rule-card li:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: translateX(5px);
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            color: #333;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .example-box strong {
+            font-size: 1.3em;
+            display: block;
+            margin-bottom: 12px;
+            color: #d63031;
+        }
+
+        .example-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .example-box li {
+            padding: 10px;
+            margin: 8px 0;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .example-box li:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: translateX(5px);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ED2939 0%, #002395 100%);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+        }
+
+        td {
+            padding: 15px 18px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        tr:hover {
+            background: #e8e4f3;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            color: #333;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            animation: pulse 2s ease-in-out infinite;
+            border: 3px solid #fee140;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .tip-box strong {
+            display: block;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #c2185b;
+        }
+
+        .special-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            color: #333;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .special-box h3 {
+            color: #6c5ce7;
+            margin-bottom: 15px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .comparison-item {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .comparison-item.masculine {
+            border-left: 5px solid #667eea;
+        }
+
+        .comparison-item.feminine {
+            border-left: 5px solid #f5576c;
+        }
+
+        .comparison-item strong {
+            font-size: 1.2em;
+        }
+
+        .exception-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            color: #333;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .exception-box h4 {
+            color: #c23616;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 5px;
+            color: white;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .badge-masculine {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .badge-feminine {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .content-card {
+                padding: 25px;
+            }
+
+            .gender-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="flag-colors">
+                <div class="flag-bar blue"></div>
+                <div class="flag-bar white"></div>
+                <div class="flag-bar red"></div>
+            </div>
+            <h1>⚧️ Le Genre en Français</h1>
+            <p class="subtitle">Maîtriser le Masculin et le Féminin</p>
+        </header>
+
+        <div class="content-card">
+            <h2>Qu'est-ce que le Genre Grammatical ?</h2>
+            <p>Le <span class="highlight">genre grammatical</span> est une caractéristique fondamentale du français. Chaque nom est soit <strong>masculin</strong>, soit <strong>féminin</strong>. Cette distinction affecte les articles, les adjectifs et les pronoms qui accompagnent le nom.</p>
+            
+            <div class="tip-box">
+                <strong>💡 Important !</strong>
+                <p>Le genre grammatical est souvent arbitraire et ne correspond pas toujours au sexe biologique. Par exemple, "une personne" est toujours féminin, même pour un homme, et "un bébé" est toujours masculin, même pour une fille !</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Les Deux Genres</h2>
+            <div class="gender-grid">
+                <div class="gender-box masculine">
+                    <span class="icon">♂️</span>
+                    <h3>Masculin</h3>
+                    <p><strong>Articles : le, un, les, des</strong></p>
+                    <ul>
+                        <li>📘 <strong>le</strong> livre</li>
+                        <li>🐱 <strong>un</strong> chat</li>
+                        <li>👨 <strong>le</strong> garçon</li>
+                        <li>🌳 <strong>l'</strong>arbre</li>
+                        <li>☀️ <strong>le</strong> soleil</li>
+                        <li>🚗 <strong>un</strong> véhicule</li>
+                    </ul>
+                </div>
+
+                <div class="gender-box feminine">
+                    <span class="icon">♀️</span>
+                    <h3>Féminin</h3>
+                    <p><strong>Articles : la, une, les, des</strong></p>
+                    <ul>
+                        <li>🏠 <strong>la</strong> maison</li>
+                        <li>🐱 <strong>une</strong> chatte</li>
+                        <li>👧 <strong>la</strong> fille</li>
+                        <li>🌸 <strong>la</strong> fleur</li>
+                        <li>🌙 <strong>la</strong> lune</li>
+                        <li>🚗 <strong>une</strong> voiture</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Reconnaître le Genre par la Terminaison</h2>
+            
+            <h3>Terminaisons Généralement Masculines</h3>
+            
+            <div class="rule-card">
+                <h3>🔵 Terminaisons masculines courantes</h3>
+                <ul>
+                    <li><strong>-age :</strong> le fromage, le garage, le voyage, le courage</li>
+                    <li><strong>-ment :</strong> le gouvernement, le développement, le logement</li>
+                    <li><strong>-eau :</strong> le château, le bureau, le cadeau, le bateau</li>
+                    <li><strong>-phone :</strong> le téléphone, le microphone, le saxophone</li>
+                    <li><strong>-scope :</strong> le microscope, le télescope, le stéthoscope</li>
+                    <li><strong>-isme :</strong> le tourisme, le réalisme, le capitalisme</li>
+                    <li><strong>-oir :</strong> le miroir, le couloir, leoir</li>
+                </ul>
+                
+                <div class="exception-box">
+                    <h4>⚠️ Exceptions importantes :</h4>
+                    <ul>
+                        <li><strong>-age :</strong> la page, la plage, la cage, la rage, l'image</li>
+                        <li><strong>-eau :</strong> l'eau, la peau</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Terminaisons Généralement Féminines</h3>
+            
+            <div class="rule-card">
+                <h3>🌸 Terminaisons féminines courantes</h3>
+                <ul>
+                    <li><strong>-tion :</strong> la nation, la création, l'action, la solution</li>
+                    <li><strong>-sion :</strong> la télévision, la décision, la passion</li>
+                    <li><strong>-té :</strong> la liberté, la beauté, la vérité, la société</li>
+                    <li><strong>-ée :</strong> la journée, la durée, l'idée, la soirée</li>
+                    <li><strong>-ie :</strong> la vie, la maladie, la pharmacie, la théorie</li>
+                    <li><strong>-ure :</strong> la nature, la culture, la voiture, la peinture</li>
+                    <li><strong>-ance/-ence :</strong> la France, la danse, la science, la prudence</li>
+                    <li><strong>-ette :</strong> la cigarette, la baguette, la recette</li>
+                    <li><strong>-esse :</strong> la richesse, la jeunesse, la tristesse</li>
+                </ul>
+                
+                <div class="exception-box">
+                    <h4>⚠️ Exceptions importantes :</h4>
+                    <ul>
+                        <li><strong>-té :</strong> le côté, le comité, le député, l'été, le pâté</li>
+                        <li><strong>-ée :</strong> le musée, le lycée, le scarabée</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Formation du Féminin</h2>
+            
+            <div class="rule-card">
+                <h3>1️⃣ Règle Générale : Ajout du -E</h3>
+                <p><strong>On ajoute simplement -e au masculin</strong></p>
+                <div class="comparison-grid">
+                    <div class="comparison-item masculine">
+                        <strong>Masculin :</strong>
+                        <p>un ami</p>
+                    </div>
+                    <div class="comparison-item feminine">
+                        <strong>Féminin :</strong>
+                        <p>une amie</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>un étudiant → une étudiant<strong>e</strong></li>
+                    <li>un avocat → une avocat<strong>e</strong></li>
+                    <li>un français → une français<strong>e</strong></li>
+                </ul>
+            </div>
+
+            <div class="rule-card">
+                <h3>2️⃣ Doublement de la Consonne + E</h3>
+                <p><strong>Certains mots doublent la consonne finale avant d'ajouter -e</strong></p>
+                <ul>
+                    <li>un chat → une chat<strong>te</strong></li>
+                    <li>un lion → une lion<strong>ne</strong></li>
+                    <li>un chien → une chien<strong>ne</strong></li>
+                    <li>un paysan → une paysan<strong>ne</strong></li>
+                    <li>un Parisien → une Parisien<strong>ne</strong></li>
+                    <li>un musicien → une musicien<strong>ne</strong></li>
+                    <li>bon → bon<strong>ne</strong></li>
+                    <li>européen → européen<strong>ne</strong></li>
+                </ul>
+            </div>
+
+            <div class="rule-card">
+                <h3>3️⃣ Changement de -ER en -ÈRE</h3>
+                <ul>
+                    <li>un boulanger → une boulang<strong>ère</strong></li>
+                    <li>un étranger → une étrang<strong>ère</strong></li>
+                    <li>un infirmier → une infirmi<strong>ère</strong></li>
+                    <li>un premier → une premi<strong>ère</strong></li>
+                    <li>un dernier → une derni<strong>ère</strong></li>
+                </ul>
+            </div>
+
+            <div class="rule-card">
+                <h3>4️⃣ Changement de -EUR en -EUSE</h3>
+                <ul>
+                    <li>un vendeur → une vend<strong>euse</strong></li>
+                    <li>un chanteur → une chant<strong>euse</strong></li>
+                    <li>un danseur → une dans<strong>euse</strong></li>
+                    <li>un coiffeur → une coiff<strong>euse</strong></li>
+                    <li>heureux → heureuse</li>
+                </ul>
+                
+                <div class="exception-box">
+                    <h4>⚠️ Mais -EUR devient -RICE pour certains mots :</h4>
+                    <ul>
+                        <li>un acteur → une act<strong>rice</strong></li>
+                        <li>un directeur → une direct<strong>rice</strong></li>
+                        <li>un lecteur → une lect<strong>rice</strong></li>
+                        <li>un traducteur → une traduct<strong>rice</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <h3>5️⃣ Changement de -TEUR en -TRICE</h3>
+                <ul>
+                    <li>un acteur → une actrice</li>
+                    <li>un instituteur → une institutrice</li>
+                    <li>un dessinateur → une dessinatrice</li>
+                    <li>un admirateur → une admiratrice</li>
+                </ul>
+            </div>
+
+            <div class="rule-card">
+                <h3>6️⃣ Changement de -F en -VE</h3>
+                <ul>
+                    <li>un veuf → une veu<strong>ve</strong></li>
+                    <li>neuf → neu<strong>ve</strong></li>
+                    <li>actif → acti<strong>ve</strong></li>
+                    <li>sportif → sporti<strong>ve</strong></li>
+                </ul>
+            </div>
+
+            <div class="rule-card">
+                <h3>7️⃣ Changement de -X en -SE</h3>
+                <ul>
+                    <li>heureux → heureu<strong>se</strong></li>
+                    <li>jaloux → jalou<strong>se</strong></li>
+                    <li>sérieux → sérieu<strong>se</strong></li>
+                    <li>curieux → curieu<strong>se</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Féminins Irréguliers et Particuliers</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Masculin</th>
+                        <th>Féminin</th>
+                        <th>Particularité</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>blanc</td>
+                        <td>blanche</td>
+                        <td>-c → -che</td>
+                    </tr>
+                    <tr>
+                        <td>franc</td>
+                        <td>franche</td>
+                        <td>-c → -che</td>
+                    </tr>
+                    <tr>
+                        <td>sec</td>
+                        <td>sèche</td>
+                        <td>-c → -che</td>
+                    </tr>
+                    <tr>
+                        <td>doux</td>
+                        <td>douce</td>
+                        <td>-x → -ce</td>
+                    </tr>
+                    <tr>
+                        <td>roux</td>
+                        <td>rousse</td>
+                        <td>-x → -sse</td>
+                    </tr>
+                    <tr>
+                        <td>faux</td>
+                        <td>fausse</td>
+                        <td>-x → -sse</td>
+                    </tr>
+                    <tr>
+                        <td>beau</td>
+                        <td>belle</td>
+                        <td>Forme différente</td>
+                    </tr>
+                    <tr>
+                        <td>nouveau</td>
+                        <td>nouvelle</td>
+                        <td>Forme différente</td>
+                    </tr>
+                    <tr>
+                        <td>vieux</td>
+                        <td>vieille</td>
+                        <td>Forme différente</td>
+                    </tr>
+                    <tr>
+                        <td>fou</td>
+                        <td>folle</td>
+                        <td>Forme différente</td>
+                    </tr>
+                    <tr>
+                        <td>mou</td>
+                        <td>molle</td>
+                        <td>Forme différente</td>
+                    </tr>
+                    <tr>
+                        <td>long</td>
+                        <td>longue</td>
+                        <td>Ajout de -ue</td>
+                    </tr>
+                    <tr>
+                        <td>frais</td>
+                        <td>fraîche</td>
+                        <td>Forme différente</td>
+                    </tr>
+                    <tr>
+                        <td>grec</td>
+                        <td>grecque</td>
+                        <td>-c → -que</td>
+                    </tr>
+                    <tr>
+                        <td>turc</td>
+                        <td>turque</td>
+                        <td>-c → -que</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-card">
+            <h2>Noms avec Formes Complètement Différentes</h2>
+            
+            <div class="special-box">
+                <h3>👥 Personnes et Animaux</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Masculin</th>
+                            <th>Féminin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>un homme</td>
+                            <td>une femme</td>
+                        </tr>
+                        <tr>
+                            <td>un garçon</td>
+                            <td>une fille</td>
+                        </tr>
+                        <tr>
+                            <td>un père</td>
+                            <td>une mère</td>
+                        </tr>
+                        <tr>
+                            <td>un oncle</td>
+                            <td>une tante</td>
+                        </tr>
+                        <tr>
+                            <td>un neveu</td>
+                            <td>une nièce</td>
+                        </tr>
+                        <tr>
+                            <td>un frère</td>
+                            <td>une sœur</td>
+                        </tr>
+                        <tr>
+                            <td>un parrain</td>
+                            <td>une marraine</td>
+                        </tr>
+                        <tr>
+                            <td>un roi</td>
+                            <td>une reine</td>
+                        </tr>
+                        <tr>
+                            <td>un prince</td>
+                            <td>une princesse</td>
+                        </tr>
+                        <tr>
+                            <td>un héros</td>
+                            <td>une héroïne</td>
+                        </tr>
+                        <tr>
+                            <td>un coq</td>
+                            <td>une poule</td>
+                        </tr>
+                        <tr>
+                            <td>un taureau</td>
+                            <td>une vache</td>
+                        </tr>
+                        <tr>
+                            <td>un cheval</td>
+                            <td>une jument</td>
+                        </tr>
+                        <tr>
+                            <td>un canard</td>
+                            <td>une cane</td>
+                        </tr>
+                        <tr>
+                            <td>un mouton</td>
+                            <td>une brebis</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Noms Épicènes (Même Forme)</h2>
+            
+            <div class="example-box">
+                <strong>📌 Ces noms ont la même forme au masculin et au féminin :</strong>
+                <p>Seul l'article change !</p>
+                <ul>
+                    <li><strong>un/une</strong> artiste</li>
+                    <li><strong>un/une</strong> architecte</li>
+                    <li><strong>un/une</strong> élève</li>
+                    <li><strong>un/une</strong> journaliste</li>
+                    <li><strong>un/une</strong> dentiste</li>
+                    <li><strong>un/une</strong> enfant</li>
+                    <li><strong>un/une</strong> collègue</li>
+                    <li><strong>un/une</strong> secrétaire</li>
+                    <li><strong>un/une</strong> propriétaire</li>
+                    <li><strong>un/une</strong> locataire</li>
+                    <li><strong>un/une</strong> photographe</li>
+                    <li><strong>un/une</strong> bibliothécaire</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Changement de Sens selon le Genre</h2>
+            <p>Certains mots changent de signification selon qu'ils sont masculins ou féminins :</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Masculin</th>
+                        <th>Signification</th>
+                        <th>Féminin</th>
+                        <th>Signification</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>le</strong> livre</td>
+                        <td>un ouvrage à lire</td>
+                        <td><strong>la</strong> livre</td>
+                        <td>unité de poids</td>
+                    </tr>
+                    <tr>
+                        <td><strong>le</strong> tour</td>
+                        <td>promenade, rotation</td>
+                        <td><strong>la</strong> tour</td>
+                        <td>bâtiment élevé</td>
+                    </tr>
+                    <tr>
+                        <td><strong>le</strong> poste</td>
+                        <td>emploi, appareil</td>
+                        <td><strong>la</strong> poste</td>
+                        <td>service postal</td>
+                    </tr>
+                    <tr>
+                        <td><strong>le</strong> mode</td>
+                        <td>manière, façon</td>
+                        <td><strong>la</strong> mode</td>
+                        <td>tendance vestimentaire</td>
+                    </tr>
+                    <tr>
+                        <td><strong>le</strong> manche</td>
+                        <td>partie d'un outil</td>
+                        <td><strong>la</strong> manche</td>
+                        <td>partie du vêtement</td>
+                    </tr>
+                    <tr>
+                        <td><strong>le</strong> vase</td>
+                        <td>récipient pour fleurs</td>
+                        <td><strong>la</strong> vase</td>
+                        <td>boue</td>
+                    </tr>
+                    <tr>
+                        <td><strong>le</strong> voile</td>
+                        <td>tissu qui cache</td>
+                        <td><strong>la</strong> voile</td>
+                        <td>toile d'un bateau</td>
+                    </tr>
+                    <tr>
+                        <td><strong>le</strong> moule</strong></td>
+                        <td>modèle, forme</td>
+                        <td><strong>la</strong> moule</td>
+                        <td>coquillage</td>
+                    </tr>
+                    <tr>
+                        <td><strong>le</strong> page</td>
+                        <td>jeune serviteur</td>
+                        <td><strong>la</strong> page</td>
+                        <td>feuille d'un livre</td>
+                    </tr>
+                    <tr>
+                        <td><strong>le</strong> crêpe</td>
+                        <td>tissu de deuil</td>
+                        <td><strong>la</strong> crêpe</td>
+                        <td>galette</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-card">
+            <h2>Conseils et Astuces</h2>
+            
+            <div class="tip-box">
+                <strong>✅ Comment mémoriser le genre ?</strong>
+                <ul>
+                    <li><strong>Apprendre le nom avec son article</strong> : toujours dire "le livre" et pas juste "livre"</li>
+                    <li><strong>Grouper les mots par terminaison</strong> : les mots en -tion sont presque toujours féminins</li>
+                    <li><strong>Utiliser des couleurs</strong> : bleu pour le masculin, rose pour le féminin</li>
+                    <li><strong>Faire des associations</strong> : créer des phrases mnémotechniques</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>⚠️ Pièges à éviter !</strong>
+                <ul>
+                    <li><strong>Ne pas se fier à la logique</strong> : "une personne" peut désigner un homme !</li>
+                    <li><strong>Attention aux faux amis</strong> : certains mots ont un genre différent dans d'autres langues</li>
+                    <li><strong>Les noms de pays</strong> : généralement féminins s'ils finissent par -e (la France), masculins sinon (le Brésil)</li>
+                    <li><strong>Les lettres de l'alphabet</strong> : sont toujours féminines (la lettre A, la lettre B)</li>
+                </ul>
+            </div>
+
+            <div class="special-box">
+                <h3>🌍 Genre des Pays et Continents</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-item masculine">
+                        <strong>Masculin :</strong>
+                        <p>le Brésil, le Portugal, le Japon, le Canada, le Mexique, le Maroc</p>
+                    </div>
+                    <div class="comparison-item feminine">
+                        <strong>Féminin :</strong>
+                        <p>la France, l'Espagne, l'Italie, la Chine, la Russie, l'Allemagne</p>
+                    </div>
+                </div>
+                <p><strong>Règle simple :</strong> Si le pays finit par -E, il est généralement féminin. Exceptions : le Mexique, le Mozambique, le Cambodge...</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="flag-colors">
+                <div class="flag-bar blue"></div>
+                <div class="flag-bar white"></div>
+                <div class="flag-bar red"></div>
+            </div>
+            <p>✨ <strong>Língua Academy</strong> - Apprenez le français avec style ! ✨</p>
+            <p>© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

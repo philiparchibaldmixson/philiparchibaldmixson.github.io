@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todas as Figuras de Linguagem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* CSS EXATO do ARQUIVO 004 - ORTOGRAFIA */
+        body {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E7D6E 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #2E7D6E; /* Cor principal adaptada do tema */
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #4ECDC4;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #44A08D; /* Cor secundária adaptada do tema */
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+            min-height: 380px;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores adaptadas do tema 004 */
+        .tipo-card.palavra {
+            background: linear-gradient(135deg, #FF6B6B, #EE5A5A); /* Vermelho/Palavra */
+        }
+
+        .tipo-card.pensamento {
+            background: linear-gradient(135deg, #8338EC, #6C23D6); /* Roxo/Pensamento */
+        }
+
+        .tipo-card.construcao {
+            background: linear-gradient(135deg, #FFC300, #FFAD00); /* Amarelo/Construção */
+            color: #333;
+        }
+
+        .tipo-card.som {
+            background: linear-gradient(135deg, #00B4D8, #00A6CC); /* Azul/Som */
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+        
+        /* Ajuste de contraste para o card amarelo */
+        .tipo-card.construcao .exemplos {
+            background: rgba(0,0,0,0.1); 
+            color: #333;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .dicas-box {
+            /* Cor adaptada do arquivo 004 */
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "💡"; /* Ícone adaptado */
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ TODAS as Figuras de Linguagem Essenciais ✨</h1>
+        <p class="subtitle">Recursos estilísticos que tornam a expressão mais expressiva, rica e subjetiva.</p>
+
+        <div class="section">
+            <h2>🧠 Figuras de Palavra (Semânticas)</h2>
+            <p class="intro-text">
+                O uso figurado ou simbólico de uma palavra em seu sentido denotativo, baseado em associações de sentido.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card palavra">
+                    <h3>1. Metáfora</h3>
+                    <div class="definicao">
+                        Comparação implícita (sem conectivo). Substituição de um termo por outro em virtude de uma relação de similaridade.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • Os olhos dela **são faróis** acesos.
+                    </div>
+                </div>
+
+                <div class="tipo-card palavra">
+                    <h3>2. Metonímia / Sinédoque</h3>
+                    <div class="definicao">
+                        Substituição de um termo por outro havendo uma relação lógica (Autor/Obra, Causa/Efeito, Marca/Produto, Parte/Todo).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • **Metonímia:** Li **Camilo Castelo Branco**. (Autor pela Obra)<br>
+                        • **Sinédoque:** Não tinha **teto** para morar. (Parte pelo Todo)
+                    </div>
+                </div>
+
+                <div class="tipo-card palavra">
+                    <h3>3. Comparação (Símile)</h3>
+                    <div class="definicao">
+                        Comparação explícita entre dois elementos, utilizando conectivos (*como, tal qual, feito, que nem*).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • O amor é **como** a chama de uma vela.
+                    </div>
+                </div>
+
+                <div class="tipo-card palavra">
+                    <h3>4. Catacrese</h3>
+                    <div class="definicao">
+                        Emprego de um termo em sentido figurado por falta de um termo apropriado na língua, que se consagrou pelo uso.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • O **dente** de alho.<br>
+                        • Embarcou no **avião**. (Embarcar é para barco)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💭 Figuras de Pensamento</h2>
+            <p class="intro-text">
+                Baseadas na combinação de ideias, no exagero ou na suavização do sentido.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card pensamento">
+                    <h3>5. Antítese / Paradoxo</h3>
+                    <div class="definicao">
+                        • **Antítese:** Uso de palavras ou ideias de sentidos opostos. (Vida **e** Morte).<br>
+                        • **Paradoxo (Oxímoro):** Fusão de ideias opostas, formando uma contradição insustentável na lógica.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • Antítese: O **claro** e o **escuro** da vida.<br>
+                        • Paradoxo: **Silêncio** que me **gritava** aos ouvidos.
+                    </div>
+                </div>
+
+                <div class="tipo-card pensamento">
+                    <h3>6. Hipérbole / Eufemismo</h3>
+                    <div class="definicao">
+                        • **Hipérbole:** Exagero proposital da expressão.<br>
+                        • **Eufemismo:** Suavização de uma ideia desagradável ou chocante.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • Hipérbole: Estou **morrendo** de fome.<br>
+                        • Eufemismo: Ele **foi morar no céu**. (Em vez de: Ele morreu.)
+                    </div>
+                </div>
+
+                <div class="tipo-card pensamento">
+                    <h3>7. Prosopopeia (Personificação)</h3>
+                    <div class="definicao">
+                        Atribuição de qualidades ou ações humanas a seres inanimados ou irracionais.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • O vento **sussurrava** segredos.<br>
+                        • O fogo **dançava** na fogueira.
+                    </div>
+                </div>
+
+                <div class="tipo-card pensamento">
+                    <h3>8. Ironia / Gradação</h3>
+                    <div class="definicao">
+                        • **Ironia:** Dizer o contrário do que se pensa.<br>
+                        • **Gradação:** Sequência de ideias em ordem crescente (clímax) ou decrescente (anticlímax).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • Ironia: Você chegou **cedíssimo**! (Chegou atrasado.)<br>
+                        • Gradação: Ele **nasceu, cresceu, viveu e morreu**.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏗️ Figuras de Construção (Sintáticas)</h2>
+            <p class="intro-text">
+                Alterações na estrutura ou ordem normal da frase (Sujeito + Verbo + Complemento).
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card construcao">
+                    <h3>9. Hipérbato (Inversão)</h3>
+                    <div class="definicao">
+                        Inversão da ordem direta dos termos da oração. (Muito comum em hinos e poesia).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Ordem Invertida:</strong><br>
+                        • A **morte** dos **inconfidentes** foi cruel. (Ordem direta: A morte dos inconfidentes... )<br>
+                        • **Ouro** e **incenso** **deu-lhe** o mago.
+                    </div>
+                </div>
+
+                <div class="tipo-card construcao">
+                    <h3>10. Elipse / Zeugma</h3>
+                    <div class="definicao">
+                        • **Elipse:** Omissão de termo que pode ser subentendido (não precisa ter sido citado antes).<br>
+                        • **Zeugma:** Omissão de termo que já foi citado anteriormente.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • Elipse: **(Nós)** *Fomos* à praia.<br>
+                        • Zeugma: Ele trouxe as frutas; eu, **(trouxe)** os doces.
+                    </div>
+                </div>
+
+                <div class="tipo-card construcao">
+                    <h3>11. Anáfora / Pleonasmo</h3>
+                    <div class="definicao">
+                        • **Anáfora:** Repetição de uma ou mais palavras no início de versos ou frases sucessivas.<br>
+                        • **Pleonasmo:** Repetição de uma ideia, tornando-a redundante (com função estilística ou vício de linguagem).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • Anáfora: **Se** você quiser, **se** você puder.<br>
+                        • Pleonasmo: **Subir** para **cima**. / Vi **com meus próprios olhos**.
+                    </div>
+                </div>
+
+                <div class="tipo-card construcao">
+                    <h3>12. Silepse (Concordância Ideológica)</h3>
+                    <div class="definicao">
+                        Concordância que se faz com a ideia e não com a forma gramatical da palavra. Pode ser de **Gênero**, **Número** ou **Pessoa**.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • **A gente** *somos* felizes. (Silepse de Pessoa)<br>
+                        • **São Paulo** *é* acolhedor**a**. (Silepse de Gênero)
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🎶 Figuras de Som (Harmonia)</h2>
+            <p class="intro-text">
+                Baseadas na sonoridade e na harmonia dos vocábulos.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card som">
+                    <h3>13. Aliteração / Assonância</h3>
+                    <div class="definicao">
+                        • **Aliteração:** Repetição de **consoantes** ou sílabas tônicas. (Foco na consoante).<br>
+                        • **Assonância:** Repetição de **vogais** idênticas. (Foco na vogal).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • Aliteração: O **r**ato **r**oeu a **r**oupa.<br>
+                        • Assonância: A luz do l**a**mp**ã**o d**á** v**a**g**a**s à lembr**a**nç**a**.
+                    </div>
+                </div>
+                
+                <div class="tipo-card som">
+                    <h3>14. Onomatopeia</h3>
+                    <div class="definicao">
+                        Criação de palavras que imitam sons naturais ou ruídos.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • O cão faz **au-au**.<br>
+                        • O relógio fazia **tic-tac**.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 Dicas de Ouro</h2>
+            
+            <div class="dicas-box">
+                <h4>Chaves para a Identificação:</h4>
+                <ul>
+                    <li>**Semânticas:** Se o sentido da palavra mudou, é Palavra (Metáfora, Metonímia, etc.).</li>
+                    <li>**Pensamento:** Se há contraste, exagero ou suavização de ideias, é Pensamento (Hipérbole, Eufemismo, Paradoxo).</li>
+                    <li>**Construção:** Se a ordem ou a estrutura da frase está alterada (omissão, repetição, inversão), é Construção (Hipérbato, Elipse, Anáfora).</li>
+                    <li>**Som:** Se o efeito depende da audição ou da repetição de sons, é Som (Aliteração, Onomatopeia).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

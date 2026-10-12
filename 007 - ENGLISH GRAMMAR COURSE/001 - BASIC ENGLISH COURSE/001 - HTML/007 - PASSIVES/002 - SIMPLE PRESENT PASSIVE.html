@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Present Passive</title>
+  <style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        color: #333;
+        background: white;
+    }
+    
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 0 auto;
+        background: white;
+        page-break-after: always;
+    }
+    
+    .header {
+        text-align: center;
+        padding: 35px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+    
+    .header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+        font-size: 18px;
+        opacity: 0.95;
+    }
+    
+    .section {
+        margin: 25px 0;
+        padding: 25px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .section.orange {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+    
+    .section.green {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        color: black;
+    }
+    
+    .section.blue {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .section.pink {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+    
+    .section.purple {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    }
+    
+    .section.teal {
+        background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    }
+    
+    .section.coral {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+    
+    h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    
+    .section.green h2, .section.green h3 {
+        color: white;
+    }
+    
+    h3 {
+        font-size: 22px;
+        margin: 20px 0 10px 0;
+        color: #34495e;
+    }
+    
+    p {
+        margin-bottom: 15px;
+        font-size: 16px;
+        text-align: justify;
+    }
+    
+    .verb-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #667eea;
+        margin: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .verb-title {
+        color: #667eea;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    
+    .verb-form {
+        color: #e74c3c;
+        font-style: italic;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .verb-desc {
+        color: #555;
+        font-size: 16px;
+    }
+    
+    .example-box {
+        background: #fff9e6;
+        border: 2px dashed #f39c12;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .example-title {
+        color: #f39c12;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .tip-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #27ae60;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .tip-box h4 {
+        color: #27ae60;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    
+    ul {
+        margin-left: 30px;
+        margin-bottom: 15px;
+    }
+    
+    li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    
+    .structure-table {
+        width: 100%;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .structure-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .structure-table th {
+        background: #667eea;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+    }
+    
+    .structure-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+    }
+    
+    .structure-table tr:nth-child(even) {
+        background: #f8f9fa;
+    }
+    
+    .structure-label {
+        font-weight: bold;
+        color: #3498db;
+    }
+    
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .form-item {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        border-top: 4px solid #3498db;
+    }
+    
+    .form-type {
+        font-weight: bold;
+        color: #3498db;
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+    
+    .form-text {
+        color: #555;
+        font-size: 15px;
+    }
+    
+    .negative-box {
+        background: #ffe6e6;
+        border: 2px solid #e74c3c;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .negative-title {
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .question-box {
+        background: #e6f3ff;
+        border: 2px solid #3498db;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .question-title {
+        color: #3498db;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .comparison-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #9b59b6;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .comparison-title {
+        color: #9b59b6;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .alternative-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #e67e22;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .alternative-title {
+        color: #e67e22;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .error-box {
+        background: #fff5f5;
+        border: 2px solid #c0392b;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .error-title {
+        color: #c0392b;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    
+    @media print {
+        body {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>📘 SIMPLE PRESENT – PASSIVE VOICE 📘</h1>
+      <p>Focus on the Action, Not the Doer</p>
+    </div>
+
+    <div class="section orange">
+      <h2>🌟 What Is the Passive Voice in Simple Present?</h2>
+      <p>The <strong>Simple Present Passive</strong> is used when the <u>action</u> is more important than the <u>person who does it</u>. It’s common in instructions, news, and formal writing.</p>
+      <p>It is formed with <strong>am / is / are + past participle</strong>.</p>
+    </div>
+
+    <div class="section blue">
+      <h2>📋 Structure of Simple Present Passive</h2>
+      <div class="structure-table">
+        <table>
+          <tr>
+            <th>Form</th>
+            <th>Structure</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Affirmative</td>
+            <td>Subject + am/is/are + past participle</td>
+            <td>The room is cleaned every day.</td>
+          </tr>
+          <tr>
+            <td>Negative</td>
+            <td>Subject + am/is/are + not + past participle</td>
+            <td>The windows aren’t opened in the morning.</td>
+          </tr>
+          <tr>
+            <td>Question</td>
+            <td>Am/Is/Are + subject + past participle?</td>
+            <td>Is the homework checked?</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="tip-box">
+        <h4>💡 Quick Tip</h4>
+        <p>Use passive voice when the doer is unknown, unimportant, or obvious from context.</p>
+      </div>
+    </div>
+
+    <div class="section green">
+      <h2>🎯 When to Use the Simple Present Passive</h2>
+
+      <div class="verb-box">
+        <div class="verb-title">1. Instructions</div>
+        <div class="verb-desc">To describe how things are done</div>
+        <div class="example-box">
+          <p>• The form is filled out online.<br>
+             • The documents are sent by email.</p>
+        </div>
+      </div>
+
+      <div class="verb-box">
+        <div class="verb-title">2. News and Reports</div>
+        <div class="verb-desc">To report facts or events</div>
+        <div class="example-box">
+          <p>• A new law is passed.<br>
+             • The president is elected every four years.</p>
+        </div>
+      </div>
+
+      <div class="verb-box">
+        <div class="verb-title">3. General Truths</div>
+        <div class="verb-desc">To describe things that are always true</div>
+        <div class="example-box">
+          <p>• English is spoken in many countries.<br>
+             • The Earth is surrounded by atmosphere.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section pink">
+      <h2>📝 More Examples</h2>
+      <div class="example-box">
+        <div class="example-title">✅ Affirmative</div>
+        <p>• The house is cleaned on Fridays.<br>
+           • Emails are answered quickly.<br>
+           • The food is served at noon.<br>
+           • Homework is collected every Monday.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">🚫 Negative</div>
+        <p>• The trash isn’t taken out at night.<br>
+           • The reports aren’t printed on time.<br>
+           • The lights aren’t turned off.<br>
+           • The books aren’t returned to the shelf.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">❓ Questions</div>
+        <p>• Is the room cleaned every day?<br>
+           • Are the tests corrected by the teacher?<br>
+           • Is lunch served at 1 PM?<br>
+           • Are the windows closed at night?</p>
+      </div>
+    </div>
+
+    <div class="section purple">
+      <h2>📌 Active vs Passive</h2>
+      <div class="form-grid">
+        <div class="form-item">
+          <div class="form-type">Active</div>
+          <div class="form-text">"They clean the room."</div>
+        </div>
+        <div class="form-item">
+          <div class="form-type">Passive</div>
+          <div class="form-text">"The room is cleaned."</div>
+        </div>
+        <div class="form-item">
+          <div class="form-type">Active</div>
+          <div class="form-text">"She writes the reports."</div>
+        </div>
+        <div class="form-item">
+          <div class="form-type">Passive</div>
+          <div class="form-text">"The reports are written."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section coral">
+      <h2>🔄 Real-Life Sentences</h2>
+      <div class="alternative-box">
+        <div class="alternative-title">Using Simple Present Passive in Context</div>
+        <p>• The classroom <strong>is cleaned</strong> every morning.<br>
+           • The packages <strong>are delivered</strong> on time.<br>
+           • The homework <strong>is checked</strong> by the teacher.<br>
+           • The lights <strong>are turned off</strong> at night.</p>
+      </div>
+    </div>
+
+    <div class="section orange">
+      <h2>⚠️ Common Mistakes to Avoid</h2>
+      <div class="error-box">
+        <div class="error-title">❌ Wrong → ✅ Correct</div>
+        <p>❌ The room cleaned every day.<br>✅ The room is cleaned every day.</p>
+        <p>❌ The reports is written.<br>✅ The reports are written.</p>
+        <p>❌ Is cleaned the floor?<br>✅ Is the floor cleaned?</p>
+        <p>❌ They are clean the windows.<br>✅ The windows are cleaned.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Use the Simple Present Passive to Focus on the Action or Result!</strong></p>
+      <p>Practice turning active sentences into passive ones to improve your grammar and writing skills!</p>
+    </div>
+  </div>
+</body>
+</html>

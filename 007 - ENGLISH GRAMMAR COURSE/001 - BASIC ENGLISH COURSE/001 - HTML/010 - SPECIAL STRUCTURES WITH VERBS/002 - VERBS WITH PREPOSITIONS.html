@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verbs with Prepositions</title>
+  <style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        color: #333;
+        background: white;
+    }
+    
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 0 auto;
+        background: white;
+        page-break-after: always;
+    }
+    
+    .header {
+        text-align: center;
+        padding: 35px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+    
+    .header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+        font-size: 18px;
+        opacity: 0.95;
+    }
+    
+    .section {
+        margin: 25px 0;
+        padding: 25px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .section.orange {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+    
+    .section.green {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        color: black;
+    }
+    
+    .section.blue {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .section.pink {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+    
+    .section.purple {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    }
+    
+    .section.teal {
+        background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    }
+    
+    .section.coral {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+    
+    h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    
+    .section.green h2, .section.green h3 {
+        color: white;
+    }
+    
+    h3 {
+        font-size: 22px;
+        margin: 20px 0 10px 0;
+        color: #34495e;
+    }
+    
+    p {
+        margin-bottom: 15px;
+        font-size: 16px;
+        text-align: justify;
+    }
+    
+    .verb-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #667eea;
+        margin: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .verb-title {
+        color: #667eea;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    
+    .verb-form {
+        color: #e74c3c;
+        font-style: italic;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .verb-desc {
+        color: #555;
+        font-size: 16px;
+    }
+    
+    .example-box {
+        background: #fff9e6;
+        border: 2px dashed #f39c12;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .example-title {
+        color: #f39c12;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .tip-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #27ae60;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .tip-box h4 {
+        color: #27ae60;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    
+    ul {
+        margin-left: 30px;
+        margin-bottom: 15px;
+    }
+    
+    li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    
+    .structure-table {
+        width: 100%;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .structure-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .structure-table th {
+        background: #667eea;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+    }
+    
+    .structure-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+    }
+    
+    .structure-table tr:nth-child(even) {
+        background: #f8f9fa;
+    }
+    
+    .structure-label {
+        font-weight: bold;
+        color: #3498db;
+    }
+    
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .form-item {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        border-top: 4px solid #3498db;
+    }
+    
+    .form-type {
+        font-weight: bold;
+        color: #3498db;
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+    
+    .form-text {
+        color: #555;
+        font-size: 15px;
+    }
+    
+    .negative-box {
+        background: #ffe6e6;
+        border: 2px solid #e74c3c;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .negative-title {
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .question-box {
+        background: #e6f3ff;
+        border: 2px solid #3498db;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .question-title {
+        color: #3498db;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .comparison-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #9b59b6;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .comparison-title {
+        color: #9b59b6;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .alternative-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #e67e22;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .alternative-title {
+        color: #e67e22;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .error-box {
+        background: #fff5f5;
+        border: 2px solid #c0392b;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .error-title {
+        color: #c0392b;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    
+    @media print {
+        body {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>🔗 VERBS WITH PREPOSITIONS 🔗</h1>
+      <p>Common Verb + Preposition Combinations in English</p>
+    </div>
+
+    <div class="section orange">
+      <h2>🌟 What Are Verbs with Prepositions?</h2>
+      <p>Some verbs in English are followed by specific <strong>prepositions</strong>. These combinations are called <strong>prepositional verbs</strong>. The preposition is part of the verb’s meaning and is followed by a noun, pronoun, or -ING form.</p>
+      <ul>
+        <li>She <strong>looks at</strong> the painting.</li>
+        <li>I <strong>listen to</strong> music every day.</li>
+        <li>We <strong>depend on</strong> our team.</li>
+      </ul>
+    </div>
+
+    <div class="section blue">
+      <h2>📋 Structure</h2>
+      <table class="structure-table">
+        <tr>
+          <th>Verb</th>
+          <th>Preposition</th>
+          <th>Object</th>
+          <th>Full Sentence</th>
+        </tr>
+        <tr>
+          <td>look</td>
+          <td>at</td>
+          <td>the sky</td>
+          <td>She <strong>looked at</strong> the sky.</td>
+        </tr>
+        <tr>
+          <td>listen</td>
+          <td>to</td>
+          <td>music</td>
+          <td>I <strong>listen to</strong> music.</td>
+        </tr>
+        <tr>
+          <td>depend</td>
+          <td>on</td>
+          <td>you</td>
+          <td>We <strong>depend on</strong> you.</td>
+        </tr>
+        <tr>
+          <td>talk</td>
+          <td>about</td>
+          <td>the problem</td>
+          <td>He <strong>talked about</strong> the problem.</td>
+        </tr>
+      </table>
+      <div class="tip-box">
+        <h4>💡 Quick Tip</h4>
+        <p>Don’t forget the preposition! It’s part of the verb’s meaning and must be used correctly.</p>
+      </div>
+    </div>
+
+    <div class="section green">
+      <h2>🎯 Common Verb + Preposition Combinations</h2>
+      <ul>
+        <li><strong>look at</strong> → She <strong>looked at</strong> me.</li>
+        <li><strong>listen to</strong> → I <strong>listen to</strong> podcasts.</li>
+        <li><strong>talk about</strong> → We <strong>talked about</strong> the movie.</li>
+        <li><strong>depend on</strong> → They <strong>depend on</strong> support.</li>
+        <li><strong>belong to</strong> → This book <strong>belongs to</strong> Ana.</li>
+        <li><strong>agree with</strong> → I <strong>agree with</strong> you.</li>
+        <li><strong>apologize for</strong> → He <strong>apologized for</strong> being late.</li>
+        <li><strong>wait for</strong> → We <strong>waited for</strong> the bus.</li>
+        <li><strong>worry about</strong> → Don’t <strong>worry about</strong> it.</li>
+      </ul>
+    </div>
+
+    <div class="section pink">
+      <h2>📝 More Examples</h2>
+      <h4>✅ Present</h4>
+      <p>• I <strong>listen to</strong> music every day.<br>
+         • She <strong>talks about</strong> her job.<br>
+         • We <strong>depend on</strong> teamwork.</p>
+      <h4>✅ Past</h4>
+      <p>• He <strong>apologized for</strong> the mistake.<br>
+         • They <strong>waited for</strong> hours.<br>
+         • I <strong>agreed with</strong> the decision.</p>
+      <h4>✅ Future</h4>
+      <p>• I will <strong>talk about</strong> the plan tomorrow.<br>
+         • She will <strong>look at</strong> the report.<br>
+         • We will <strong>worry about</strong> it later.</p>
+    </div>
+
+    <div class="section purple">
+      <h2>📌 Compare with Verbs Without Prepositions</h2>
+      <table class="structure-table">
+        <tr>
+          <th>With Preposition</th>
+          <th>Without Preposition</th>
+        </tr>
+        <tr>
+          <td>I <strong>listen to</strong> music.</td>
+          <td>I <strong>hear</strong> music.</td>
+        </tr>
+        <tr>
+          <td>She <strong>looks at</strong> the photo.</td>
+          <td>She <strong>sees</strong> the photo.</td>
+        </tr>
+        <tr>
+          <td>We <strong>talk about</strong> the issue.</td>
+          <td>We <strong>discuss</strong> the issue.</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section coral">
+      <h2>🔄 Real-Life Sentences</h2>
+      <ul>
+        <li>I <strong>listen to</strong> English songs to improve my vocabulary.</li>
+        <li>She <strong>talked about</strong> her experience abroad.</li>
+        <li>We <strong>waited for</strong> the results all day.</li>
+        <li>He <strong>apologized for</strong> forgetting the meeting.</li>
+        <li>They <strong>depend on</strong> technology to work remotely.</li>
+      </ul>
+    </div>
+
+    <div class="section orange">
+      <h2>⚠️ Common Mistakes to Avoid</h2>
+      <div class="error-box">
+        <p>❌ I listen music.<br>✅ I <strong>listen to</strong> music.</p>
+        <p>❌ She looked the photo.<br>✅ She <strong>looked at</strong> the photo.</p>
+        <p>❌ We talked the problem.<br>✅ We <strong>talked about</strong> the problem.</p>
+        <p>❌ He apologized the delay.<br>✅ He <strong>apologized for</strong> the delay.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Use verb + preposition combinations to express ideas naturally and correctly in English!</strong></p>
+      <p>Practice with different verbs and prepositions to build fluency and avoid common mistakes!</p>
+    </div>
+  </div>
+</body>
+</html>

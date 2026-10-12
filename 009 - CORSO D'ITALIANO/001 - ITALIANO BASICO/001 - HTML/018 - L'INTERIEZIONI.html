@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Interiezioni Italiane - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #f06595 20%, #cc5de8 40%, #5f3dc4 60%, #339af0 80%, #22b8cf 100%);
+            background-size: 400% 400%;
+            animation: rainbowFlow 25s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        @keyframes rainbowFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: zoomBounce 1.5s ease;
+        }
+
+        @keyframes zoomBounce {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        h1 {
+            font-size: 4.5em;
+            color: #fff;
+            text-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+            animation: textGlow 3s ease infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% { 
+                text-shadow: 5px 5px 10px rgba(0,0,0,0.5),
+                           0 0 30px rgba(255,255,255,0.5);
+            }
+            50% { 
+                text-shadow: 5px 5px 10px rgba(0,0,0,0.5),
+                           0 0 60px rgba(255,255,255,0.9),
+                           0 0 90px rgba(255,215,0,0.6);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            color: #FFD700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .intro-box {
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            animation: slideInLeft 1.5s ease;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-150px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .intro-box h2 {
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+
+        .intro-box p {
+            color: #fff;
+            font-size: 1.4em;
+            line-height: 1.9;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            border-radius: 35px;
+            padding: 45px;
+            margin-bottom: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.35);
+            animation: popIn 1.2s ease;
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) rotate(-10deg);
+            }
+            70% {
+                transform: scale(1.05) rotate(2deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .section:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.4);
+            transition: all 0.5s ease;
+        }
+
+        .section h2 {
+            color: #fff;
+            font-size: 3em;
+            margin-bottom: 35px;
+            text-align: center;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.4);
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section h2::before {
+            content: '🎉';
+            margin-right: 20px;
+            display: inline-block;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 6px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd43b, #51cf66, #339af0, #cc5de8);
+            border-radius: 3px;
+            animation: rainbow 3s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .interj-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .interj-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 1.6em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            animation: flipIn 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes flipIn {
+            0% { 
+                transform: rotateY(90deg); 
+                opacity: 0; 
+            }
+            100% { 
+                transform: rotateY(0deg); 
+                opacity: 1; 
+            }
+        }
+
+        .interj-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .interj-card:hover::before {
+            left: 100%;
+        }
+
+        .interj-card:hover {
+            transform: scale(1.25) rotate(5deg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Cores vibrantes diferentes */
+        .interj-card.joy {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+        }
+
+        .interj-card.surprise {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .interj-card.pain {
+            background: linear-gradient(135deg, #ff6b6b 0%, #c92a2a 100%);
+        }
+
+        .interj-card.disgust {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+        }
+
+        .interj-card.encouragement {
+            background: linear-gradient(135deg, #51cf66 0%, #2f9e44 100%);
+        }
+
+        .interj-card.silence {
+            background: linear-gradient(135deg, #cc5de8 0%, #7950f2 100%);
+        }
+
+        .interj-card.doubt {
+            background: linear-gradient(135deg, #ffd43b 0%, #fab005 100%);
+            color: #333;
+        }
+
+        .interj-card.approval {
+            background: linear-gradient(135deg, #20c997 0%, #12b886 100%);
+        }
+
+        .interj-card.disapproval {
+            background: linear-gradient(135deg, #ff8787 0%, #f06595 100%);
+        }
+
+        .interj-card.greeting {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+        }
+
+        .interj-card.farewell {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+        }
+
+        .interj-card.animal {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            color: #333;
+        }
+
+        .interj-card.nature {
+            background: linear-gradient(135deg, #55efc4 0%, #00b894 100%);
+        }
+
+        .interj-card.action {
+            background: linear-gradient(135deg, #fab1a0 0%, #ff7675 100%);
+        }
+
+        .interj-card.sound {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+        }
+
+        .example-section {
+            background: rgba(255, 255, 255, 0.5);
+            border-left: 8px solid #FFD700;
+            padding: 30px;
+            margin-top: 35px;
+            border-radius: 20px;
+            animation: slideInRight 1.2s ease;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(80px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .example-section h3 {
+            color: #fff;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .example-section ul {
+            list-style: none;
+            color: #fff;
+            font-size: 1.2em;
+        }
+
+        .example-section li {
+            padding: 12px 0;
+            padding-left: 40px;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .example-section li::before {
+            content: '💬';
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+            animation: pulse 2s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #FFD700 0%, #FFA500 100%);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #333;
+            box-shadow: 0 3px 10px rgba(255, 215, 0, 0.4);
+        }
+
+        .emotion-box {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .emotion-box h4 {
+            color: #fff;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .emotion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .emotion-item {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .emotion-item:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .emotion-item h5 {
+            color: #FFD700;
+            font-size: 1.5em;
+            margin-bottom: 12px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .emotion-item p {
+            color: #fff;
+            font-size: 1.15em;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF6347 100%);
+            color: #333;
+            padding: 35px;
+            border-radius: 30px;
+            margin-top: 40px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+            animation: shake 4s ease infinite;
+            text-align: center;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            10%, 30%, 50%, 70%, 90% { transform: rotate(-1deg); }
+            20%, 40%, 60%, 80% { transform: rotate(1deg); }
+        }
+
+        .tip-box h3 {
+            font-size: 2.2em;
+            margin-bottom: 18px;
+        }
+
+        .tip-box p {
+            font-size: 1.4em;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .onomatopoeia-showcase {
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(12px);
+            border-radius: 25px;
+            padding: 35px;
+            margin-top: 30px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .onomatopoeia-showcase h4 {
+            color: #fff;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .sound-card {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+            padding: 25px;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            animation: fadeInScale 1s ease;
+        }
+
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .sound-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .sound-card h5 {
+            font-size: 1.6em;
+            margin-bottom: 10px;
+            color: #e74c3c;
+        }
+
+        .sound-card p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 45px;
+            color: #fff;
+            font-size: 1.3em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            margin-top: 70px;
+        }
+
+        .emoji-dance {
+            display: inline-block;
+            font-size: 2.5em;
+            animation: dance 1s ease infinite;
+        }
+
+        @keyframes dance {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-15deg) scale(1.1); }
+            75% { transform: rotate(15deg) scale(1.1); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8em; }
+            .section h2 { font-size: 2.2em; }
+            .interj-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+            .interj-card { font-size: 1.3em; padding: 25px; }
+            .emotion-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎊 Le Interiezioni Italiane! 🎊</h1>
+            <p class="subtitle">Esprimi le tue emozioni con colore e passione!</p>
+        </header>
+
+        <div class="intro-box">
+            <h2>🌟 Cosa sono le Interiezioni?</h2>
+            <p>Le interiezioni sono parole o espressioni che esprimono emozioni, stati d'animo, reazioni spontanee o richiami. Non hanno un legame grammaticale con il resto della frase e sono sempre seguite da un punto esclamativo! Sono il modo più immediato e colorato per esprimere ciò che sentiamo!</p>
+        </div>
+
+        <!-- INTERIEZIONI PROPRIE -->
+        <div class="section">
+            <h2>Interiezioni Proprie</h2>
+            <p style="color: #fff; font-size: 1.4em; text-align: center; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                Parole che funzionano SOLO come interiezioni e non hanno altro significato!
+            </p>
+
+            <div class="emotion-box">
+                <h4>😄 GIOIA E ALLEGRIA</h4>
+                <div class="interj-grid">
+                    <div class="interj-card joy">AH!</div>
+                    <div class="interj-card joy">OH!</div>
+                    <div class="interj-card joy">EH!</div>
+                    <div class="interj-card joy">EVVIVA!</div>
+                    <div class="interj-card joy">URRÀ!</div>
+                    <div class="interj-card joy">OLEEE!</div>
+                </div>
+                <div class="example-section">
+                    <h3>💡 Esempi:</h3>
+                    <ul>
+                        <li><span class="highlight">Ah!</span> Che bella sorpresa!</li>
+                        <li><span class="highlight">Evviva!</span> Ho vinto!</li>
+                        <li><span class="highlight">Urrà!</span> È finalmente venerdì!</li>
+                        <li><span class="highlight">Oleee!</span> Che gol fantastico!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="emotion-box">
+                <h4>😲 SORPRESA E MERAVIGLIA</h4>
+                <div class="interj-grid">
+                    <div class="interj-card surprise">OH!</div>
+                    <div class="interj-card surprise">AH!</div>
+                    <div class="interj-card surprise">EHI!</div>
+                    <div class="interj-card surprise">UH!</div>
+                    <div class="interj-card surprise">ACCIDENTI!</div>
+                    <div class="interj-card surprise">CASPITA!</div>
+                </div>
+                <div class="example-section">
+                    <h3>💡 Esempi:</h3>
+                    <ul>
+                        <li><span class="highlight">Oh!</span> Non me lo aspettavo!</li>
+                        <li><span class="highlight">Ah!</span> Ma guarda un po'!</li>
+                        <li><span class="highlight">Caspita!</span> Che velocità!</li>
+                        <li><span class="highlight">Accidenti!</span> Che forza!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="emotion-box">
+                <h4>😣 DOLORE E SOFFERENZA</h4>
+                <div class="interj-grid">
+                    <div class="interj-card pain">AHI!</div>
+                    <div class="interj-card pain">AHÌ!</div>
+                    <div class="interj-card pain">OHI!</div>
+                    <div class="interj-card pain">OHIMÈ!</div>
+                    <div class="interj-card pain">AHI AHI!</div>
+                </div>
+                <div class="example-section">
+                    <h3>💡 Esempi:</h3>
+                    <ul>
+                        <li><span class="highlight">Ahi!</span> Mi sono fatto male!</li>
+                        <li><span class="highlight">Ahì!</span> Che dolore!</li>
+                        <li><span class="highlight">Ohimè!</span> Che disastro!</li>
+                        <li><span class="highlight">Ahi ahi!</span> Questa è grave!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="emotion-box">
+                <h4>🤢 DISGUSTO E RIPUGNANZA</h4>
+                <div class="interj-grid">
+                    <div class="interj-card disgust">UH!</div>
+                    <div class="interj-card disgust">PUH!</div>
+                    <div class="interj-card disgust">PUAH!</div>
+                    <div class="interj-card disgust">BEH!</div>
+                </div>
+                <div class="example-section">
+                    <h3>💡 Esempi:</h3>
+                    <ul>
+                        <li><span class="highlight">Uh!</span> Che schifo!</li>
+                        <li><span class="highlight">Puah!</span> Che odore terribile!</li>
+                        <li><span class="highlight">Puh!</span> Non lo tocco!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="emotion-box">
+                <h4>💪 INCITAMENTO E INCORAGGIAMENTO</h4>
+                <div class="interj-grid">
+                    <div class="interj-card encouragement">SU!</div>
+                    <div class="interj-card encouragement">DAI!</div>
+                    <div class="interj-card encouragement">FORZA!</div>
+                    <div class="interj-card encouragement">CORAGGIO!</div>
+                    <div class="interj-card encouragement">VIA!</div>
+                    <div class="interj-card encouragement">ANDIAMO!</div>
+                </div>
+                <div class="example-section">
+                    <h3>💡 Esempi:</h3>
+                    <ul>
+                        <li><span class="highlight">Su!</span> Non mollare!</li>
+                        <li><span class="highlight">Dai!</span> Ce la puoi fare!</li>
+                        <li><span class="highlight">Forza!</span> Ancora un po'!</li>
+                        <li><span class="highlight">Coraggio!</span> Sei quasi arrivato!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="emotion-box">
+                <h4>🤫 SILENZIO E RICHIAMO</h4>
+                <div class="interj-grid">
+                    <div class="interj-card silence">SHH!</div>
+                    <div class="interj-card silence">ZIT!</div>
+                    <div class="interj-card silence">PSST!</div>
+                    <div class="interj-card silence">EHI!</div>
+                    <div class="interj-card silence">OHÈ!</div>
+                </div>
+                <div class="example-section">
+                    <h3>💡 Esempi:</h3>
+                    <ul>
+                        <li><span class="highlight">Shh!</span> Silenzio, sta dormendo!</li>
+                        <li><span class="highlight">Psst!</span> Vieni qui!</li>
+                        <li><span class="highlight">Ehi!</span> Aspetta!</li>
+                        <li><span class="highlight">Ohè!</span> C'è nessuno?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERIEZIONI IMPROPRIE -->
+        <div class="section">
+            <h2>Interiezioni Improprie</h2>
+            <p style="color: #fff; font-size: 1.4em; text-align: center; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                Parole che normalmente hanno un altro significato ma possono essere usate come interiezioni!
+            </p>
+
+            <div class="emotion-box">
+                <h4>✅ APPROVAZIONE E CONSENSO</h4>
+                <div class="interj-grid">
+                    <div class="interj-card approval">BRAVO!</div>
+                    <div class="interj-card approval">BENE!</div>
+                    <div class="interj-card approval">BENISSIMO!</div>
+                    <div class="interj-card approval">PERFETTO!</div>
+                    <div class="interj-card approval">GIUSTO!</div>
+                    <div class="interj-card approval">MAGNIFICO!</div>
+                </div>
+                <div class="example-section">
+                    <h3>💡 Esempi:</h3>
+                    <ul>
+                        <li><span class="highlight">Bravo!</span> Ottimo lavoro!</li>
+                        <li><span class="highlight">Perfetto!</span> Proprio così!</li>
+                        <li><span class="highlight">Magnifico!</span> Esattamente!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="emotion-box">
+                <h4>❌ DISAPPROVAZIONE E RIMPROVERO</h4>
+                <div class="interj-grid">
+                    <div class="interj-card disapproval">VERGOGNA!</div>
+                    <div class="interj-card disapproval">SCIOCCO!</div>
+                    <div class="interj-card disapproval">STUPIDO!</div>
+                    <div class="interj-card disapproval">POVERO ME!</div>
+                    <div class="interj-card disapproval">MANNAGGIA!</div>
+                </div>
+                <div class="example-section">
+                    <h3>💡 Esempi:</h3>
+                    <ul>
+                        <li><span class="highlight">Vergogna!</span> Non dovevi farlo!</li>
+                        <li><span class="highlight">Mannaggia!</span> Ho sbagliato tutto!</li>
+                        <li><span class="highlight">Povero me!</span> Cosa ho combinato!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="emotion-box">
+                <h4>🤔 DUBBIO E INCERTEZZA</h4>
+                <div class="interj-grid">
+                    <div class="interj-card doubt">MMMH!</div>
+                    <div class="interj-card doubt">BOH!</div>
+                    <div class="interj-card doubt">CHISSÀ!</div>
+                    <div class="interj-card doubt">MAMMA MIA!</div>
+                </div>
+                <div class="example-section">
+                    <h3>💡 Esempi:</h3>
+                    <ul>
+                        <li><span class="highlight">Mmmh!</span> Non sono sicuro...</li>
+                        <li><span class="highlight">Boh!</span> Non lo so!</li>
+                        <li><span class="highlight">Chissà!</span> Forse sì, forse no...</li>
+                        <li><span class="highlight">Mamma mia!</span> Che situazione!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="emotion-box">
+                <h4>👋 SALUTO E CONGEDO</h4>
+                <div class="interj-grid">
+                    <div class="interj-card greeting">CIAO!</div>
+                    <div class="interj-card greeting">SALVE!</div>
+                    <div class="interj-card greeting">BUONGIORNO!</div>
+                    <div class="interj-card greeting">BUONASERA!</div>
+                    <div class="interj-card farewell">ADDIO!</div>
+                    <div class="interj-card farewell">ARRIVEDERCI!</div>
+                </div>
+                <div class="example-section">
+                    <h3>💡 Esempi:</h3>
+                    <ul>
+                        <li><span class="highlight">Ciao!</span> Come stai?</li>
+                        <li><span class="highlight">Salve!</span> Piacere di conoscerti!</li>
+                        <li><span class="highlight">Arrivederci!</span> A presto!</li>
+                        <li><span class="highlight">Addio!</span> Buon viaggio!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOCUZIONI INTERIETTIVE -->
+        <div class="section">
+            <h2>Locuzioni Interiettive</h2>
+            <p style="color: #fff; font-size: 1.4em; text-align: center; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                Gruppi di parole che insieme funzionano come una interiezione!
+            </p>
+
+            <div class="emotion-grid">
+                <div class="emotion-item">
+                    <h5>PER CARITÀ!</h5>
+                    <p><strong>Per carità!</strong> Non riprovarci!</p>
+                </div>
+                <div class="emotion-item">
+                    <h5>PER L'AMOR DI DIO!</h5>
+                    <p><strong>Per l'amor di Dio!</strong> Smettila!</p>
+                </div>
+                <div class="emotion-item">
+                    <h5>DIO MIO!</h5>
+                    <p><strong>Dio mio!</strong> Che spavento!</p>
+                </div>
+                <div class="emotion-item">
+                    <h5>SANTO CIELO!</h5>
+                    <p><strong>Santo cielo!</strong> È incredibile!</p>
+                </div>
+                <div class="emotion-item">
+                    <h5>POVERO ME!</h5>
+                    <p><strong>Povero me!</strong> Cosa farò?</p>
+                </div>
+                <div class="emotion-item">
+                    <h5>NEANCHE PER SOGNO!</h5>
+                    <p><strong>Neanche per sogno!</strong> Mai!</p>
+                </div>
+                <div class="emotion-item">
+                    <h5>MA VA!</h5>
+                    <p><strong>Ma va!</strong> Non ci posso credere!</p>
+                </div>
+                <div class="emotion-item">
+                    <h5>MA DAI!</h5>
+                    <p><strong>Ma dai!</strong> Dici sul serio?</p>
+                </div>
+                <div class="emotion-item">
+                    <h5>MA CHE!</h5>
+                    <p><strong>Ma che!</strong> È assurdo!</p>
+                </div>
+                <div class="emotion-item">
+                    <h5>CHE SCHIFO!</h5>
+                    <p><strong>Che schifo!</strong> È disgustoso!</p>
+                </div>
+                <div class="emotion-item">
+                    <h5>CHE PECCATO!</h5>
+                    <p><strong>Che peccato!</strong> Dispiace tanto!</p>
+                </div>
+                <div class="emotion-item">
+                    <h5>CHE BELLO!</h5>
+                    <p><strong>Che bello!</strong> Sono felice!</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <h3>🎯 Ricorda!</h3>
+                <p>Le locuzioni interiettive sono formate da più parole che creano un'espressione emotiva forte e immediata!</p>
+            </div>
+        </div>
+
+        <!-- SEGNALI DISCORSIVI -->
+        <div class="section">
+            <h2>Segnali Discorsivi</h2>
+            <p style="color: #fff; font-size: 1.4em; text-align: center; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                Espressioni che organizziamo il discorso e mantengono l'attenzione dell'ascoltatore!
+            </p>
+
+            <div class="interj-grid">
+                <div class="interj-card doubt">ALLORA</div>
+                <div class="interj-card doubt">DUNQUE</div>
+                <div class="interj-card doubt">INSOMMA</div>
+                <div class="interj-card doubt">DICIAMO</div>
+                <div class="interj-card doubt">GUARDA</div>
+                <div class="interj-card doubt">ASCOLTA</div>
+                <div class="interj-card doubt">SENTI</div>
+                <div class="interj-card doubt">ECCO</div>
+                <div class="interj-card doubt">VEDI</div>
+                <div class="interj-card doubt">CAPITO</div>
+                <div class="interj-card doubt">OK</div>
+                <div class="interj-card doubt">VA BENE</div>
+            </div>
+
+            <div class="example-section">
+                <h3>💡 Come si usano:</h3>
+                <ul>
+                    <li><span class="highlight">Allora,</span> cosa facciamo oggi?</li>
+                    <li><span class="highlight">Dunque,</span> dicevamo che...</li>
+                    <li><span class="highlight">Insomma,</span> devi decidere!</li>
+                    <li><span class="highlight">Guarda,</span> ti dico la verità...</li>
+                    <li><span class="highlight">Senti,</span> posso chiederti una cosa?</li>
+                    <li><span class="highlight">Ecco,</span> questo è quello che penso</li>
+                    <li><span class="highlight">Capito?</span> È chiaro ora?</li>
+                    <li><span class="highlight">Ok,</span> andiamo!</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- VOCI ONOMATOPEICHE -->
+        <div class="section">
+            <h2>Voci Onomatopeiche</h2>
+            <p style="color: #fff; font-size: 1.4em; text-align: center; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                Parole che imitano i suoni della natura, degli animali, delle azioni!
+            </p>
+
+            <div class="onomatopoeia-showcase">
+                <h4>🐾 VERSI DEGLI ANIMALI</h4>
+                <div class="interj-grid">
+                    <div class="interj-card animal">BAU BAU</div>
+                    <div class="interj-card animal">MIAU</div>
+                    <div class="interj-card animal">CIP CIP</div>
+                    <div class="interj-card animal">CHICCHIRICHÌ</div>
+                    <div class="interj-card animal">MUU</div>
+                    <div class="interj-card animal">BEE</div>
+                    <div class="interj-card animal">QUA QUA</div>
+                    <div class="interj-card animal">BZZZZ</div>
+                    <div class="interj-card animal">CROCRO</div>
+                    <div class="interj-card animal">GRRR</div>
+                </div>
+                <div class="sound-card">
+                    <h5>🐕 BAU BAU</h5>
+                    <p>Il cane fa <strong>bau bau</strong> quando vede uno sconosciuto</p>
+                </div>
+                <div class="sound-card">
+                    <h5>🐱 MIAU</h5>
+                    <p>Il gatto fa <strong>miau</strong> quando ha fame</p>
+                </div>
+                <div class="sound-card">
+                    <h5>🐔 CHICCHIRICHÌ</h5>
+                    <p>Il gallo fa <strong>chicchirichì</strong> all'alba</p>
+                </div>
+            </div>
+
+            <div class="onomatopoeia-showcase">
+                <h4>🌧️ SUONI DELLA NATURA</h4>
+                <div class="interj-grid">
+                    <div class="interj-card nature">SPLASH</div>
+                    <div class="interj-card nature">PLOP</div>
+                    <div class="interj-card nature">SBAM</div>
+                    <div class="interj-card nature">BOOM</div>
+                    <div class="interj-card nature">CRACK</div>
+                    <div class="interj-card nature">SHHH</div>
+                    <div class="interj-card nature">FRUSHHH</div>
+                    <div class="interj-card nature">TIC TAC</div>
+                </div>
+                <div class="sound-card">
+                    <h5>💧 SPLASH</h5>
+                    <p><strong>Splash!</strong> Il bambino salta nella pozzanghera</p>
+                </div>
+                <div class="sound-card">
+                    <h5>⚡ CRACK</h5>
+                    <p><strong>Crack!</strong> Il ramo si è spezzato</p>
+                </div>
+                <div class="sound-card">
+                    <h5>💥 BOOM</h5>
+                    <p><strong>Boom!</strong> Il tuono rimbomba nel cielo</p>
+                </div>
+            </div>
+
+            <div class="onomatopoeia-showcase">
+                <h4>🎬 AZIONI E MOVIMENTI</h4>
+                <div class="interj-grid">
+                    <div class="interj-card action">PAF</div>
+                    <div class="interj-card action">TOC TOC</div>
+                    <div class="interj-card action">BANG</div>
+                    <div class="interj-card action">ZAC</div>
+                    <div class="interj-card action">CLIC</div>
+                    <div class="interj-card action">CLAC</div>
+                    <div class="interj-card action">SMACK</div>
+                    <div class="interj-card action">ZUM ZUM</div>
+                </div>
+                <div class="sound-card">
+                    <h5>🚪 TOC TOC</h5>
+                    <p><strong>Toc toc!</strong> Bussano alla porta</p>
+                </div>
+                <div class="sound-card">
+                    <h5>✂️ ZAC</h5>
+                    <p><strong>Zac!</strong> Le forbici tagliano la carta</p>
+                </div>
+                <div class="sound-card">
+                    <h5>💋 SMACK</h5>
+                    <p><strong>Smack!</strong> Un bacio sonoro</p>
+                </div>
+            </div>
+
+            <div class="onomatopoeia-showcase">
+                <h4>🔊 SUONI VARI</h4>
+                <div class="interj-grid">
+                    <div class="interj-card sound">DRIN DRIN</div>
+                    <div class="interj-card sound">TUT TUT</div>
+                    <div class="interj-card sound">BEEP</div>
+                    <div class="interj-card sound">RING</div>
+                    <div class="interj-card sound">GNAM GNAM</div>
+                    <div class="interj-card sound">GULP</div>
+                    <div class="interj-card sound">AHAH</div>
+                    <div class="interj-card sound">AHAHAH</div>
+                </div>
+                <div class="sound-card">
+                    <h5>📞 DRIN DRIN</h5>
+                    <p><strong>Drin drin!</strong> Squilla il telefono</p>
+                </div>
+                <div class="sound-card">
+                    <h5>🍕 GNAM GNAM</h5>
+                    <p><strong>Gnam gnam!</strong> Che buono!</p>
+                </div>
+                <div class="sound-card">
+                    <h5>😂 AHAHAH</h5>
+                    <p><strong>Ahahah!</strong> Che ridere!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <h3>🌈 Curiosità Linguistica!</h3>
+            <p>Le interiezioni sono presenti in tutte le lingue del mondo! Sono il modo più antico e universale di esprimere emozioni. Ogni lingua ha le sue onomatopee speciali - per esempio, in italiano i cani fanno "bau bau", in inglese "woof woof", in francese "ouaf ouaf"!</p>
+        </div>
+
+        <footer>
+            <p><span class="emoji-dance">🎉</span> Língua Academy - Esprimi te stesso con passione! <span class="emoji-dance">🇮🇹</span></p>
+            <p style="margin-top: 25px; font-size: 1em;">Le interiezioni rendono la lingua viva, emotiva e colorata!</p>
+        </footer>
+    </div>
+</body>
+</html>

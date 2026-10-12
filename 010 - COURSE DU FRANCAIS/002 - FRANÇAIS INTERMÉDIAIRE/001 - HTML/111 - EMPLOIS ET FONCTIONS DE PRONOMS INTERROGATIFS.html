@@ -1,0 +1,2094 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronoms Interrogatifs - Emplois et Fonctions | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600;700&family=Electrolize&family=Audiowide&family=Exo+2:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --noir-cyber: #0D0D0D;
+            --gris-metal: #1A1A2E;
+            --rose-neon: #FF006E;
+            --cyan-electrique: #00F5FF;
+            --violet-plasma: #B026FF;
+            --vert-neon: #39FF14;
+            --jaune-laser: #FFEE00;
+            --blanc-hologramme: #F0F0F0;
+            --bleu-nuit: #0F2027;
+            --magenta-vif: #FF00FF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: linear-gradient(135deg, var(--noir-cyber) 0%, var(--gris-metal) 50%, var(--bleu-nuit) 100%);
+            color: var(--blanc-hologramme);
+            line-height: 1.9;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Cyberpunk grid background */
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 245, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+            animation: gridPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes gridPulse {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        /* Neon lines */
+        .neon-line {
+            position: fixed;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--rose-neon), transparent);
+            box-shadow: 0 0 10px var(--rose-neon), 0 0 20px var(--rose-neon);
+            animation: neonScan 8s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .neon-line-1 {
+            width: 100%;
+            top: 20%;
+            animation-delay: 0s;
+        }
+
+        .neon-line-2 {
+            width: 100%;
+            top: 60%;
+            animation-delay: 2s;
+            background: linear-gradient(90deg, transparent, var(--cyan-electrique), transparent);
+            box-shadow: 0 0 10px var(--cyan-electrique), 0 0 20px var(--cyan-electrique);
+        }
+
+        @keyframes neonScan {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        /* Glitch particles */
+        .glitch-particle {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: var(--vert-neon);
+            box-shadow: 0 0 8px var(--vert-neon);
+            animation: glitchFloat 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .particle-1 {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle-2 {
+            top: 35%;
+            right: 15%;
+            animation-delay: 1.5s;
+        }
+
+        .particle-3 {
+            bottom: 25%;
+            left: 20%;
+            animation-delay: 3s;
+        }
+
+        .particle-4 {
+            top: 55%;
+            right: 30%;
+            animation-delay: 4.5s;
+        }
+
+        @keyframes glitchFloat {
+            0%, 100% {
+                transform: translate(0, 0);
+                opacity: 0;
+            }
+            10%, 90% {
+                opacity: 1;
+            }
+            25% {
+                transform: translate(30px, -40px);
+            }
+            50% {
+                transform: translate(-20px, 60px);
+            }
+            75% {
+                transform: translate(40px, 30px);
+            }
+        }
+
+        /* Hologram effect */
+        .hologram {
+            position: fixed;
+            width: 200px;
+            height: 200px;
+            border: 2px solid var(--cyan-electrique);
+            border-radius: 50%;
+            box-shadow: 
+                0 0 20px var(--cyan-electrique),
+                inset 0 0 20px rgba(0, 245, 255, 0.3);
+            animation: hologramFloat 15s ease-in-out infinite;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .hologram-1 {
+            top: 10%;
+            right: 5%;
+            animation-duration: 12s;
+        }
+
+        .hologram-2 {
+            bottom: 15%;
+            left: 8%;
+            animation-duration: 18s;
+            animation-delay: 3s;
+            border-color: var(--violet-plasma);
+            box-shadow: 
+                0 0 20px var(--violet-plasma),
+                inset 0 0 20px rgba(176, 38, 255, 0.3);
+        }
+
+        @keyframes hologramFloat {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(50px, -60px) rotate(120deg);
+            }
+            66% {
+                transform: translate(-40px, 50px) rotate(240deg);
+            }
+        }
+
+        .container {
+            max-width: 1700px;
+            margin: 0 auto;
+            padding: 0 90px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Cyberpunk Header */
+        header {
+            background: linear-gradient(160deg, var(--noir-cyber) 0%, var(--gris-metal) 60%, var(--bleu-nuit) 100%);
+            padding: 120px 0 140px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 65px 150px rgba(13, 13, 13, 0.9),
+                inset 0 0 120px rgba(0, 245, 255, 0.15);
+            clip-path: polygon(0 0, 100% 0, 100% 93%, 50% 100%, 0 93%);
+            border-bottom: 3px solid var(--cyan-electrique);
+        }
+
+        /* Scan lines effect */
+        .scan-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15) 0px,
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            opacity: 0.5;
+            animation: scanlineMove 8s linear infinite;
+        }
+
+        @keyframes scanlineMove {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(50px);
+            }
+        }
+
+        /* Neon Brand */
+        .neon-brand {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 80px;
+            animation: cyberAppear 2.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes cyberAppear {
+            from {
+                opacity: 0;
+                transform: translateY(-120px) scale(0.75);
+                filter: blur(45px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .cyber-emblem {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 48px;
+            background: radial-gradient(circle, var(--rose-neon) 0%, var(--violet-plasma) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: cyberPulse 3s ease-in-out infinite;
+            box-shadow: 
+                0 35px 90px rgba(255, 0, 110, 0.9),
+                inset 0 0 60px rgba(255, 255, 255, 0.5);
+            border: 5px solid var(--cyan-electrique);
+        }
+
+        @keyframes cyberPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 
+                    0 35px 90px rgba(255, 0, 110, 0.9),
+                    inset 0 0 60px rgba(255, 255, 255, 0.5);
+            }
+            50% {
+                transform: scale(1.15);
+                box-shadow: 
+                    0 45px 110px rgba(255, 0, 110, 1),
+                    inset 0 0 80px rgba(255, 255, 255, 0.7),
+                    0 0 50px var(--cyan-electrique);
+            }
+        }
+
+        .cyber-inner {
+            font-size: 6.5rem;
+            background: linear-gradient(135deg, var(--cyan-electrique), var(--vert-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 15px var(--cyan-electrique));
+        }
+
+        .brand-cyber {
+            font-family: 'Audiowide', cursive;
+            font-size: 5rem;
+            background: linear-gradient(135deg, var(--rose-neon), var(--cyan-electrique), var(--violet-plasma));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            letter-spacing: 25px;
+            margin-bottom: 32px;
+            text-shadow: 0 0 80px rgba(255, 0, 110, 0.8);
+            text-transform: uppercase;
+            animation: brandGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes brandGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 20px var(--rose-neon)) drop-shadow(0 0 40px var(--cyan-electrique));
+            }
+            50% {
+                filter: drop-shadow(0 0 40px var(--rose-neon)) drop-shadow(0 0 80px var(--cyan-electrique));
+            }
+        }
+
+        .brand-circuit {
+            color: var(--cyan-electrique);
+            font-size: 1.4rem;
+            letter-spacing: 10px;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'Electrolize', sans-serif;
+            text-shadow: 0 0 20px var(--cyan-electrique);
+        }
+
+        /* Futuristic Title */
+        h1 {
+            font-family: 'Audiowide', cursive;
+            font-size: 8.5rem;
+            background: linear-gradient(135deg, var(--cyan-electrique), var(--vert-neon), var(--jaune-laser));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-top: 80px;
+            position: relative;
+            z-index: 2;
+            animation: cyberAppear 2.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
+            letter-spacing: 12px;
+            filter: drop-shadow(0 0 30px var(--cyan-electrique)) drop-shadow(0 0 60px var(--vert-neon));
+        }
+
+        .cyber-subtitle {
+            text-align: center;
+            color: var(--blanc-hologramme);
+            font-size: 2.7rem;
+            margin-top: 50px;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+            animation: cyberAppear 2.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s backwards;
+            font-style: italic;
+            letter-spacing: 5px;
+            font-family: 'Rajdhani', sans-serif;
+            text-shadow: 0 0 25px var(--rose-neon);
+        }
+
+        /* Neon divider */
+        .neon-divider {
+            position: absolute;
+            bottom: 75px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 850px;
+            height: 10px;
+            background: linear-gradient(90deg, transparent, var(--rose-neon), var(--cyan-electrique), var(--rose-neon), transparent);
+            z-index: 3;
+            box-shadow: 
+                0 0 25px var(--rose-neon),
+                0 0 50px var(--cyan-electrique);
+            animation: dividerPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes dividerPulse {
+            0%, 100% {
+                opacity: 0.7;
+                box-shadow: 
+                    0 0 25px var(--rose-neon),
+                    0 0 50px var(--cyan-electrique);
+            }
+            50% {
+                opacity: 1;
+                box-shadow: 
+                    0 0 40px var(--rose-neon),
+                    0 0 80px var(--cyan-electrique);
+            }
+        }
+
+        .neon-divider::before,
+        .neon-divider::after {
+            content: '◆';
+            position: absolute;
+            top: -20px;
+            color: var(--vert-neon);
+            font-size: 3.5rem;
+            animation: diamondGlow 2.5s ease-in-out infinite;
+            text-shadow: 0 0 30px var(--vert-neon);
+        }
+
+        .neon-divider::before {
+            left: -55px;
+        }
+
+        .neon-divider::after {
+            right: -55px;
+        }
+
+        @keyframes diamondGlow {
+            0%, 100% {
+                opacity: 0.6;
+                text-shadow: 0 0 30px var(--vert-neon);
+            }
+            50% {
+                opacity: 1;
+                text-shadow: 0 0 60px var(--vert-neon);
+            }
+        }
+
+        /* Main Content */
+        main {
+            padding: 180px 0;
+        }
+
+        /* Digital Introduction */
+        .intro-digital {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(15, 32, 39, 0.8) 100%);
+            backdrop-filter: blur(15px);
+            padding: 110px;
+            border-radius: 65px;
+            box-shadow: 
+                0 55px 130px rgba(13, 13, 13, 0.8),
+                inset 0 0 100px rgba(0, 245, 255, 0.15),
+                0 0 80px rgba(255, 0, 110, 0.3);
+            margin-bottom: 150px;
+            position: relative;
+            overflow: hidden;
+            border: 4px solid var(--rose-neon);
+            animation: digitalReveal 2.4s ease-out 2.8s backwards;
+        }
+
+        @keyframes digitalReveal {
+            from {
+                opacity: 0;
+                transform: translateY(150px) scale(0.82);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .intro-digital::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 25px;
+            background: linear-gradient(90deg, var(--rose-neon), var(--cyan-electrique), var(--violet-plasma), var(--vert-neon), var(--rose-neon));
+            background-size: 200% 100%;
+            animation: borderFlow 8s linear infinite;
+            border-radius: 65px 65px 0 0;
+        }
+
+        @keyframes borderFlow {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 200% 0%;
+            }
+        }
+
+        .intro-digital::after {
+            content: '⚡';
+            position: absolute;
+            top: -75px;
+            left: 110px;
+            font-size: 11rem;
+            background: var(--noir-cyber);
+            width: 175px;
+            height: 175px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.7),
+                0 0 70px var(--jaune-laser);
+            color: var(--jaune-laser);
+            animation: electricPulse 2s ease-in-out infinite;
+            border: 5px solid var(--jaune-laser);
+        }
+
+        @keyframes electricPulse {
+            0%, 100% {
+                transform: rotate(0deg) scale(1);
+                box-shadow: 
+                    0 25px 60px rgba(0, 0, 0, 0.7),
+                    0 0 70px var(--jaune-laser);
+            }
+            50% {
+                transform: rotate(180deg) scale(1.2);
+                box-shadow: 
+                    0 35px 80px rgba(0, 0, 0, 0.9),
+                    0 0 100px var(--jaune-laser);
+            }
+        }
+
+        .digital-heading {
+            font-family: 'Audiowide', cursive;
+            font-size: 5.2rem;
+            background: linear-gradient(135deg, var(--rose-neon), var(--cyan-electrique));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 80px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 45px;
+            filter: drop-shadow(0 0 30px var(--rose-neon));
+        }
+
+        .digital-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 300px;
+            height: 12px;
+            background: linear-gradient(90deg, var(--rose-neon), var(--cyan-electrique));
+            border-radius: 6px;
+            box-shadow: 0 0 35px rgba(255, 0, 110, 0.7);
+        }
+
+        .digital-text {
+            font-size: 1.8rem;
+            line-height: 3;
+            color: var(--blanc-hologramme);
+            margin-bottom: 50px;
+            text-align: justify;
+        }
+
+        /* Circuit Feature Cards */
+        .circuit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(780px, 1fr));
+            gap: 90px;
+            margin: 150px 0;
+        }
+
+        .circuit-card {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.7) 0%, rgba(15, 32, 39, 0.7) 100%);
+            backdrop-filter: blur(12px);
+            padding: 100px;
+            border-radius: 60px;
+            box-shadow: 
+                0 45px 120px rgba(13, 13, 13, 0.7),
+                inset 0 0 100px rgba(0, 245, 255, 0.1),
+                0 0 60px rgba(176, 38, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 4px solid var(--violet-plasma);
+            animation: digitalReveal 2.4s ease-out backwards;
+        }
+
+        .circuit-card:nth-child(1) { animation-delay: 3s; }
+        .circuit-card:nth-child(2) { animation-delay: 3.2s; }
+        .circuit-card:nth-child(3) { animation-delay: 3.4s; }
+
+        .circuit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 25px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--cyan-electrique), var(--violet-plasma));
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 0 30px var(--cyan-electrique);
+        }
+
+        .circuit-card:hover {
+            transform: translateY(-45px) scale(1.03);
+            box-shadow: 
+                0 65px 160px rgba(13, 13, 13, 0.9),
+                inset 0 0 120px rgba(0, 245, 255, 0.2),
+                0 0 100px var(--rose-neon);
+            border-color: var(--cyan-electrique);
+        }
+
+        .circuit-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .circuit-icon {
+            font-size: 8rem;
+            margin-bottom: 65px;
+            display: inline-block;
+            filter: drop-shadow(0 22px 50px rgba(0, 0, 0, 0.6));
+            animation: iconGlitch 9s ease-in-out infinite;
+        }
+
+        @keyframes iconGlitch {
+            0%, 100% {
+                transform: translateY(0) rotate(-12deg);
+                filter: drop-shadow(0 22px 50px rgba(0, 0, 0, 0.6));
+            }
+            25% {
+                transform: translateY(-30px) rotate(0deg);
+                filter: drop-shadow(0 30px 70px rgba(255, 0, 110, 0.8));
+            }
+            50% {
+                transform: translateY(-55px) rotate(12deg);
+                filter: drop-shadow(0 40px 90px rgba(0, 245, 255, 0.8));
+            }
+            75% {
+                transform: translateY(-30px) rotate(0deg);
+                filter: drop-shadow(0 30px 70px rgba(57, 255, 20, 0.8));
+            }
+        }
+
+        .circuit-title {
+            font-family: 'Audiowide', cursive;
+            font-size: 4.3rem;
+            background: linear-gradient(135deg, var(--cyan-electrique), var(--vert-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 50px;
+            font-weight: 700;
+            filter: drop-shadow(0 0 25px var(--cyan-electrique));
+        }
+
+        .circuit-description {
+            font-size: 1.7rem;
+            line-height: 2.9;
+            color: var(--blanc-hologramme);
+        }
+
+        /* Digital Examples Section */
+        .examples-digital {
+            background: linear-gradient(135deg, rgba(15, 32, 39, 0.9) 0%, rgba(13, 13, 13, 0.9) 100%);
+            backdrop-filter: blur(15px);
+            padding: 105px;
+            border-radius: 60px;
+            box-shadow: 
+                0 45px 120px rgba(13, 13, 13, 0.8),
+                0 0 80px rgba(57, 255, 20, 0.3);
+            margin: 105px 0;
+            animation: digitalReveal 2.4s ease-out 3.6s backwards;
+            border: 4px solid var(--vert-neon);
+        }
+
+        .digital-title {
+            font-family: 'Audiowide', cursive;
+            font-size: 5rem;
+            background: linear-gradient(135deg, var(--vert-neon), var(--jaune-laser));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 85px;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            padding-bottom: 65px;
+            filter: drop-shadow(0 0 35px var(--vert-neon));
+        }
+
+        .digital-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 350px;
+            height: 11px;
+            background: linear-gradient(90deg, transparent, var(--vert-neon), var(--jaune-laser), var(--vert-neon), transparent);
+            border-radius: 6px;
+            box-shadow: 0 0 40px var(--vert-neon);
+        }
+
+        /* Neon Example Box */
+        .example-neon {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.6) 0%, rgba(0, 245, 255, 0.1) 100%);
+            padding: 80px 85px;
+            border-radius: 40px;
+            margin: 75px 0;
+            border-left: 20px solid var(--cyan-electrique);
+            position: relative;
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 
+                0 22px 55px rgba(0, 0, 0, 0.7),
+                inset 0 0 50px rgba(0, 245, 255, 0.15);
+        }
+
+        .example-neon:hover {
+            transform: translateX(45px);
+            border-left-width: 28px;
+            box-shadow: 
+                -28px 28px 75px rgba(0, 245, 255, 0.7),
+                inset 0 0 70px rgba(0, 245, 255, 0.25);
+        }
+
+        .example-chip {
+            font-family: 'Electrolize', sans-serif;
+            font-size: 1.55rem;
+            color: var(--jaune-laser);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 9px;
+            margin-bottom: 35px;
+            text-shadow: 0 0 25px var(--jaune-laser);
+        }
+
+        .sentence-neon {
+            font-size: 2.3rem;
+            font-weight: 600;
+            color: var(--blanc-hologramme);
+            margin: 50px 0;
+            padding: 50px;
+            background: rgba(13, 13, 13, 0.8);
+            border-radius: 30px;
+            box-shadow: 
+                0 18px 55px rgba(0, 0, 0, 0.8),
+                inset 0 0 50px rgba(0, 245, 255, 0.15),
+                0 0 40px rgba(255, 0, 110, 0.3);
+            line-height: 2.9;
+            font-style: italic;
+            border: 4px solid rgba(0, 245, 255, 0.4);
+        }
+
+        .analysis-neon {
+            font-size: 1.65rem;
+            line-height: 2.9;
+            color: var(--blanc-hologramme);
+            margin-top: 45px;
+            padding-left: 65px;
+            border-left: 18px solid rgba(0, 245, 255, 0.5);
+        }
+
+        .pronoun-electric {
+            color: var(--rose-neon);
+            font-weight: 700;
+            background: rgba(255, 0, 110, 0.2);
+            padding: 11px 24px;
+            border-radius: 16px;
+            border-bottom: 8px solid var(--rose-neon);
+            text-decoration: none;
+            text-shadow: 0 0 18px var(--rose-neon);
+        }
+
+        .function-cyber {
+            color: var(--cyan-electrique);
+            font-weight: 600;
+            font-style: italic;
+            background: rgba(0, 245, 255, 0.2);
+            padding: 10px 22px;
+            border-radius: 12px;
+            text-shadow: 0 0 15px var(--cyan-electrique);
+        }
+
+        /* Plasma Rule Box */
+        .rule-plasma {
+            background: linear-gradient(135deg, rgba(176, 38, 255, 0.25) 0%, rgba(176, 38, 255, 0.12) 100%);
+            border: 9px solid var(--violet-plasma);
+            padding: 85px 90px;
+            border-radius: 50px;
+            margin: 90px 0;
+            position: relative;
+            animation: digitalReveal 2.4s ease-out 3.8s backwards;
+            box-shadow: 
+                0 35px 100px rgba(176, 38, 255, 0.6),
+                inset 0 0 80px rgba(176, 38, 255, 0.15);
+        }
+
+        .rule-plasma::before {
+            content: '◈';
+            position: absolute;
+            top: -65px;
+            left: 85px;
+            background: var(--noir-cyber);
+            padding: 30px 48px;
+            border-radius: 50%;
+            font-size: 5rem;
+            box-shadow: 
+                0 18px 55px rgba(0, 0, 0, 0.8),
+                0 0 70px var(--violet-plasma);
+            border: 9px solid var(--violet-plasma);
+            color: var(--violet-plasma);
+        }
+
+        .rule-heading-plasma {
+            font-family: 'Audiowide', cursive;
+            background: linear-gradient(135deg, var(--violet-plasma), var(--magenta-vif));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 4.2rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+            filter: drop-shadow(0 0 30px var(--violet-plasma));
+        }
+
+        .rule-cyber-text {
+            font-size: 1.68rem;
+            line-height: 3;
+            color: var(--blanc-hologramme);
+        }
+
+        .rule-circuit {
+            list-style: none;
+            margin: 65px 0;
+        }
+
+        .rule-circuit li {
+            padding: 48px 0 48px 100px;
+            position: relative;
+            font-size: 1.68rem;
+            line-height: 2.8;
+            border-bottom: 5px dashed rgba(176, 38, 255, 0.3);
+        }
+
+        .rule-circuit li:last-child {
+            border-bottom: none;
+        }
+
+        .rule-circuit li::before {
+            content: '⬡';
+            position: absolute;
+            left: 32px;
+            color: var(--vert-neon);
+            font-size: 3.8rem;
+            animation: hexGlow 9s ease-in-out infinite;
+        }
+
+        @keyframes hexGlow {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.7;
+                text-shadow: 0 0 28px var(--vert-neon);
+            }
+            50% {
+                transform: scale(2) rotate(120deg);
+                opacity: 1;
+                text-shadow: 0 0 60px var(--vert-neon);
+            }
+        }
+
+        /* Matrix Table */
+        .table-matrix {
+            background: linear-gradient(135deg, rgba(15, 32, 39, 0.9) 0%, rgba(13, 13, 13, 0.9) 100%);
+            backdrop-filter: blur(15px);
+            padding: 100px;
+            border-radius: 55px;
+            box-shadow: 
+                0 45px 120px rgba(13, 13, 13, 0.8),
+                0 0 80px rgba(255, 238, 0, 0.3);
+            margin: 100px 0;
+            overflow-x: auto;
+            animation: digitalReveal 2.4s ease-out 4s backwards;
+            border: 4px solid var(--jaune-laser);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 70px 0;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--gris-metal) 0%, var(--noir-cyber) 100%);
+        }
+
+        th {
+            color: var(--jaune-laser);
+            padding: 50px 42px;
+            text-align: left;
+            font-family: 'Electrolize', sans-serif;
+            font-size: 1.85rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-shadow: 0 0 25px var(--jaune-laser);
+        }
+
+        th:first-child {
+            border-radius: 35px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 35px 0 0;
+        }
+
+        td {
+            padding: 48px 42px;
+            border-bottom: 5px solid rgba(0, 245, 255, 0.2);
+            font-size: 1.65rem;
+            line-height: 2.8;
+            color: var(--blanc-hologramme);
+        }
+
+        tbody tr {
+            transition: all 0.9s ease;
+            background: rgba(13, 13, 13, 0.5);
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, rgba(0, 245, 255, 0.2) 0%, rgba(57, 255, 20, 0.15) 100%);
+            transform: translateX(30px);
+            box-shadow: 0 0 50px rgba(0, 245, 255, 0.5);
+        }
+
+        tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 35px;
+        }
+
+        tbody tr:last-child td:last-child {
+            border-radius: 0 0 35px 0;
+        }
+
+        .table-pronoun-neon {
+            font-weight: 700;
+            color: var(--rose-neon);
+            font-size: 1.85rem;
+            text-shadow: 0 0 18px var(--rose-neon);
+        }
+
+        /* Laser Warning */
+        .warning-laser {
+            background: linear-gradient(135deg, rgba(255, 238, 0, 0.25) 0%, rgba(255, 238, 0, 0.12) 100%);
+            border: 9px solid var(--jaune-laser);
+            padding: 85px 90px;
+            border-radius: 50px;
+            margin: 90px 0;
+            position: relative;
+            animation: digitalReveal 2.4s ease-out 4.2s backwards;
+            box-shadow: 
+                0 35px 100px rgba(255, 238, 0, 0.6),
+                inset 0 0 80px rgba(255, 238, 0, 0.15);
+        }
+
+        .warning-laser::before {
+            content: '⚠';
+            position: absolute;
+            top: -65px;
+            left: 85px;
+            background: var(--noir-cyber);
+            padding: 30px 48px;
+            border-radius: 50%;
+            font-size: 5rem;
+            box-shadow: 
+                0 18px 55px rgba(0, 0, 0, 0.8),
+                0 0 70px var(--jaune-laser);
+            border: 9px solid var(--jaune-laser);
+            color: var(--jaune-laser);
+        }
+
+        .warning-heading-laser {
+            font-family: 'Audiowide', cursive;
+            background: linear-gradient(135deg, var(--jaune-laser), var(--vert-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 4.2rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+            filter: drop-shadow(0 0 30px var(--jaune-laser));
+        }
+
+        .warning-cyber-text {
+            font-size: 1.68rem;
+            line-height: 3;
+            color: var(--blanc-hologramme);
+        }
+
+        /* Electric Tip */
+        .tip-electric {
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.2) 0%, rgba(57, 255, 20, 0.1) 100%);
+            border-left: 22px solid var(--vert-neon);
+            padding: 82px 90px;
+            border-radius: 38px;
+            margin: 85px 0;
+            position: relative;
+            animation: digitalReveal 2.4s ease-out 4.4s backwards;
+            box-shadow: 0 25px 70px rgba(57, 255, 20, 0.5);
+        }
+
+        .tip-electric::before {
+            content: '💡';
+            position: absolute;
+            top: -48px;
+            left: 85px;
+            background: var(--noir-cyber);
+            padding: 28px 45px;
+            border-radius: 65px;
+            font-size: 4rem;
+            box-shadow: 
+                0 16px 50px rgba(0, 0, 0, 0.8),
+                0 0 60px var(--vert-neon);
+            border: 8px solid var(--vert-neon);
+        }
+
+        .tip-heading-electric {
+            font-family: 'Audiowide', cursive;
+            background: linear-gradient(135deg, var(--vert-neon), var(--cyan-electrique));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 4rem;
+            margin-bottom: 48px;
+            font-weight: 700;
+            filter: drop-shadow(0 0 30px var(--vert-neon));
+        }
+
+        .tip-cyber-text {
+            font-size: 1.65rem;
+            line-height: 2.9;
+            color: var(--blanc-hologramme);
+        }
+
+        /* Digital Void Panel */
+        .void-digital {
+            background: linear-gradient(135deg, var(--gris-metal) 0%, var(--noir-cyber) 100%);
+            padding: 115px;
+            border-radius: 65px;
+            margin: 110px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 60px 140px rgba(13, 13, 13, 0.95),
+                inset 0 0 120px rgba(0, 245, 255, 0.2);
+            animation: digitalReveal 2.4s ease-out 4.6s backwards;
+            border: 4px solid var(--cyan-electrique);
+        }
+
+        .void-digital::before {
+            content: '';
+            position: absolute;
+            top: -250px;
+            right: -250px;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 0, 110, 0.7) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: voidDigitalPulse 22s ease-in-out infinite;
+        }
+
+        .void-digital::after {
+            content: '';
+            position: absolute;
+            bottom: -230px;
+            left: -230px;
+            width: 750px;
+            height: 750px;
+            background: radial-gradient(circle, rgba(0, 245, 255, 0.65) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: voidDigitalPulse 26s ease-in-out infinite reverse;
+        }
+
+        @keyframes voidDigitalPulse {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(2) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        .void-digital h2 {
+            font-family: 'Audiowide', cursive;
+            background: linear-gradient(135deg, var(--rose-neon), var(--cyan-electrique), var(--vert-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 5.5rem;
+            margin-bottom: 75px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 8px;
+            filter: drop-shadow(0 0 40px var(--rose-neon)) drop-shadow(0 0 60px var(--cyan-electrique));
+        }
+
+        .void-digital p {
+            color: rgba(255, 255, 255, 0.98);
+            font-size: 1.8rem;
+            line-height: 3.1;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 45px;
+        }
+
+        .void-circuit {
+            list-style: none;
+            margin: 70px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .void-circuit li {
+            color: rgba(255, 255, 255, 0.98);
+            font-size: 1.75rem;
+            padding: 50px 0 50px 100px;
+            position: relative;
+            line-height: 3;
+        }
+
+        .void-circuit li::before {
+            content: '▶';
+            position: absolute;
+            left: 32px;
+            color: var(--rose-neon);
+            font-size: 4rem;
+            animation: arrowGlow 10s ease-in-out infinite;
+        }
+
+        @keyframes arrowGlow {
+            0%, 100% {
+                opacity: 0.7;
+                transform: translateX(0);
+                text-shadow: 0 0 32px var(--rose-neon);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(20px);
+                text-shadow: 0 0 70px var(--rose-neon);
+            }
+        }
+
+        /* Digital Footer */
+        footer {
+            background: linear-gradient(135deg, var(--noir-cyber) 0%, var(--gris-metal) 100%);
+            color: var(--blanc-hologramme);
+            padding: 105px 0;
+            text-align: center;
+            margin-top: 180px;
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid var(--cyan-electrique);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 40% 50%, rgba(255, 0, 110, 0.35) 0%, transparent 50%),
+                radial-gradient(circle at 60% 50%, rgba(0, 245, 255, 0.35) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        footer p {
+            font-size: 1.7rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 3px;
+            margin: 30px 0;
+        }
+
+        .footer-digital {
+            font-family: 'Audiowide', cursive;
+            background: linear-gradient(135deg, var(--rose-neon), var(--cyan-electrique), var(--vert-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            font-size: 3.3rem;
+            margin-top: 40px;
+            letter-spacing: 14px;
+            filter: drop-shadow(0 0 50px var(--cyan-electrique));
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 70px;
+            }
+
+            h1 {
+                font-size: 6rem;
+            }
+
+            .cyber-subtitle {
+                font-size: 2.3rem;
+            }
+
+            .circuit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-digital,
+            .examples-digital,
+            .table-matrix,
+            .void-digital {
+                padding: 80px;
+            }
+
+            table {
+                font-size: 1.4rem;
+            }
+
+            th, td {
+                padding: 38px 32px;
+            }
+        }
+
+        /* Cyber Scrollbar */
+        ::-webkit-scrollbar {
+            width: 32px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--noir-cyber);
+            border-left: 8px solid rgba(0, 245, 255, 0.2);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--rose-neon), var(--cyan-electrique));
+            border-radius: 16px;
+            border: 11px solid var(--noir-cyber);
+            box-shadow: 
+                inset 0 0 25px rgba(0, 0, 0, 0.7),
+                0 0 30px var(--rose-neon);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--violet-plasma), var(--vert-neon));
+            box-shadow: 
+                inset 0 0 30px rgba(0, 0, 0, 0.9),
+                0 0 50px var(--vert-neon);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cyber Grid -->
+    <div class="cyber-grid"></div>
+
+    <!-- Neon Lines -->
+    <div class="neon-line neon-line-1"></div>
+    <div class="neon-line neon-line-2"></div>
+
+    <!-- Glitch Particles -->
+    <div class="glitch-particle particle-1"></div>
+    <div class="glitch-particle particle-2"></div>
+    <div class="glitch-particle particle-3"></div>
+    <div class="glitch-particle particle-4"></div>
+
+    <!-- Holograms -->
+    <div class="hologram hologram-1"></div>
+    <div class="hologram hologram-2"></div>
+
+    <header>
+        <div class="scan-lines"></div>
+        
+        <div class="container">
+            <div class="neon-brand">
+                <div class="cyber-emblem">
+                    <div class="cyber-inner">⚡</div>
+                </div>
+                <div class="brand-cyber">Língua Academy</div>
+                <div class="brand-circuit">Décoder la Grammaire Numérique</div>
+            </div>
+            <h1>PRONOMS INTERROGATIFS</h1>
+            <p class="cyber-subtitle">Emplois et Fonctions Grammaticales</p>
+        </div>
+        <div class="neon-divider"></div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Introduction Digital -->
+            <section class="intro-digital">
+                <h2 class="digital-heading">Architecture des Emplois</h2>
+                <p class="digital-text">
+                    Les <strong>pronoms interrogatifs</strong> possèdent des emplois et des fonctions grammaticales 
+                    spécifiques qui déterminent leur utilisation correcte dans la phrase. Chaque pronom interrogatif 
+                    (qui, que, quoi, lequel) occupe des fonctions grammaticales précises qui correspondent à sa nature 
+                    et à son rôle dans la communication. La compréhension de ces fonctions est essentielle pour maîtriser 
+                    l'art de poser des questions en français avec précision et élégance. Les <strong>fonctions principales</strong> 
+                    incluent le sujet (qui fait l'action), le complément d'objet direct ou COD (qui subit l'action), le 
+                    complément d'objet indirect ou COI (à qui/de qui l'action est faite), l'attribut du sujet (ce qu'est 
+                    le sujet), et les compléments circonstanciels (où, quand, comment, pourquoi). Chaque fonction impose 
+                    des contraintes spécifiques sur le choix du pronom interrogatif approprié.
+                </p>
+                <p class="digital-text">
+                    L'emploi de <strong>"QUI"</strong> illustre parfaitement cette polyvalence fonctionnelle. "Qui" peut 
+                    être <strong>sujet</strong> du verbe ("Qui parle ?" → fonction sujet), <strong>COD</strong> ("Qui 
+                    vois-tu ?" → fonction COD), ou <strong>complément prépositionnel</strong> ("À qui parles-tu ?" → COI, 
+                    "De qui parles-tu ?" → complément du nom, "Avec qui travailles-tu ?" → complément circonstanciel de 
+                    manière). Dans toutes ces fonctions, "qui" conserve sa caractéristique fondamentale : il désigne 
+                    UNIQUEMENT des personnes. Cette restriction sémantique (personne vs chose) croise la distinction 
+                    fonctionnelle (sujet, COD, COI, etc.) pour créer un système complexe mais logique. La position de 
+                    "qui" dans la phrase et sa relation avec les autres éléments (verbe, préposition) révèlent sa fonction 
+                    grammaticale et guident l'interprétation de la question.
+                </p>
+                <p class="digital-text">
+                    Les pronoms <strong>"QUE"</strong> et <strong>"QUOI"</strong> présentent une distribution complémentaire 
+                    basée sur la fonction. "Que" s'emploie comme <strong>COD</strong> en position initiale ("Que fais-tu ?" → 
+                    "tu fais QUOI") ou comme <strong>attribut du sujet</strong> ("Que devient ce projet ?" → le projet 
+                    devient QUOI). "Quoi" apparaît obligatoirement après une <strong>préposition</strong> pour toutes les 
+                    fonctions de complément prépositionnel : COI ("À quoi penses-tu ?"), complément du nom ("De quoi 
+                    s'agit-il ?"), complément circonstanciel ("Avec quoi travailles-tu ?", "Pour quoi te bats-tu ?"). Cette 
+                    distribution stricte (que en position initiale, quoi après préposition) s'applique uniformément pour 
+                    les choses et les concepts. Enfin, <strong>"LEQUEL"</strong> et ses variantes peuvent occuper toutes 
+                    les fonctions grammaticales (sujet, COD, COI, etc.) avec l'avantage supplémentaire de l'accord en genre 
+                    et en nombre, ce qui permet de clarifier la référence dans des contextes où plusieurs antécédents 
+                    seraient possibles.
+                </p>
+            </section>
+
+            <!-- Circuit Grid -->
+            <div class="circuit-grid">
+                <div class="circuit-card">
+                    <span class="circuit-icon">🎯</span>
+                    <h3 class="circuit-title">QUI - Fonction Sujet</h3>
+                    <p class="circuit-description">
+                        Lorsque <strong>QUI</strong> fonctionne comme <strong>sujet</strong>, il désigne la personne qui 
+                        effectue l'action du verbe. Construction : "Qui + verbe" sans inversion obligatoire ("Qui vient ?", 
+                        "Qui a téléphoné ?"). Le verbe s'accorde avec "qui" (3ème personne du singulier généralement). 
+                        Forme renforcée : "Qui est-ce qui + verbe" ("Qui est-ce qui vient ?"). Dans l'interrogation indirecte, 
+                        "qui" sujet conserve sa forme et l'ordre normal des mots : "Je me demande qui vient" (pas d'inversion). 
+                        Test : si on peut répondre avec "C'est [personne] qui [verbe]", alors "qui" est sujet. Exemples : 
+                        "Qui parle ? → C'est Marie qui parle", "Qui a gagné ? → C'est Pierre qui a gagné". "Qui" sujet 
+                        ne s'élide jamais, même devant voyelle ("Qui arrive ?", jamais "Qu'arrive"). Cette fonction de 
+                        sujet est la plus simple car elle ne nécessite pas d'inversion complexe ni de préposition.
+                    </p>
+                </div>
+
+                <div class="circuit-card">
+                    <span class="circuit-icon">📥</span>
+                    <h3 class="circuit-title">QUI/QUE - Fonction COD</h3>
+                    <p class="circuit-description">
+                        Pour la fonction <strong>COD</strong> (complément d'objet direct), le choix du pronom dépend de 
+                        la nature de ce qu'on interroge. <strong>QUI</strong> pour les personnes : "Qui vois-tu ?", "Qui 
+                        regardes-tu ?", "Qui as-tu rencontré ?". Construction avec inversion : Qui + verbe-sujet. Forme 
+                        renforcée : "Qui est-ce que tu vois ?" (sans inversion, plus courant à l'oral). <strong>QUE</strong> 
+                        pour les choses : "Que fais-tu ?", "Que regardes-tu ?", "Qu'as-tu acheté ?" (élision devant voyelle). 
+                        Construction obligatoire avec inversion : Que + verbe-sujet. Forme renforcée : "Qu'est-ce que tu 
+                        fais ?" (sans inversion). Test du COD : si on peut transformer en phrase affirmative avec le COD 
+                        placé après le verbe, c'est bien un COD. "Que fais-tu ? → Tu fais cela", "Qui vois-tu ? → Tu vois 
+                        cette personne". En interrogation indirecte : "qui" conserve sa forme ("Je ne sais pas qui tu vois"), 
+                        mais "que" devient "ce que" ("Je ne sais pas ce que tu fais"). L'accord du participe passé avec 
+                        "que" placé avant est obligatoire : "Quelle personne as-tu vue ?" (accord avec "quelle personne").
+                    </p>
+                </div>
+
+                <div class="circuit-card">
+                    <span class="circuit-icon">🔗</span>
+                    <h3 class="circuit-title">QUI/QUOI - Compléments Prépositionnels</h3>
+                    <p class="circuit-description">
+                        Les <strong>compléments prépositionnels</strong> suivent obligatoirement une préposition (à, de, 
+                        avec, pour, sans, par, etc.). <strong>QUI</strong> après préposition désigne des PERSONNES : "À qui 
+                        parles-tu ?" (COI), "De qui parles-tu ?" (complément du nom), "Avec qui travailles-tu ?" (complément 
+                        circonstanciel), "Pour qui fais-tu cela ?" (complément d'attribution). <strong>QUOI</strong> après 
+                        préposition désigne des CHOSES : "À quoi penses-tu ?" (COI), "De quoi parles-tu ?" (complément du nom), 
+                        "Avec quoi travailles-tu ?" (complément circonstanciel), "Pour quoi te bats-tu ?" (complément de but). 
+                        La préposition reste toujours en début de question : Préposition + qui/quoi + verbe-sujet. Jamais 
+                        "qui/quoi" seul en début si une préposition est nécessaire. Forme renforcée possible : "À qui est-ce 
+                        que tu parles ?", "De quoi est-ce que tu parles ?". En interrogation indirecte, la préposition 
+                        reste : "Je me demande à qui tu parles", "Je me demande de quoi tu parles". Les prépositions les 
+                        plus courantes incluent à (COI), de (complément du nom), avec/sans (circonstanciel de moyen), 
+                        pour (but), par (agent), chez (lieu), vers (direction).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Examples Digital -->
+            <section class="examples-digital">
+                <h2 class="digital-title">Applications Pratiques et Exemples</h2>
+
+                <div class="example-neon">
+                    <div class="example-chip">QUI - FONCTION SUJET</div>
+                    <div class="sentence-neon">
+                        <span class="pronoun-electric">Qui</span> a organisé cette réunion ?
+                    </div>
+                    <p class="analysis-neon">
+                        → <strong>Fonction :</strong> <span class="function-cyber">"Qui" est SUJET du verbe "organiser"</span><br>
+                        → <strong>Test :</strong> Réponse possible = "C'est Marie qui a organisé"<br>
+                        → <strong>Construction :</strong> Qui + verbe (pas d'inversion nécessaire)<br>
+                        → <strong>Forme renforcée :</strong> "Qui est-ce qui a organisé cette réunion ?"<br>
+                        → <strong>Interrogation indirecte :</strong> "Je me demande qui a organisé cette réunion"
+                    </p>
+                </div>
+
+                <div class="example-neon">
+                    <div class="example-chip">QUI - FONCTION COD</div>
+                    <div class="sentence-neon">
+                        <span class="pronoun-electric">Qui</span> as-tu invité à la fête ?
+                    </div>
+                    <p class="analysis-neon">
+                        → <strong>Fonction :</strong> <span class="function-cyber">"Qui" est COD du verbe "inviter"</span><br>
+                        → <strong>Test :</strong> Transformation = "Tu as invité QUI" → cette personne<br>
+                        → <strong>Construction :</strong> Qui + verbe-sujet (inversion)<br>
+                        → <strong>Forme renforcée :</strong> "Qui est-ce que tu as invité ?"<br>
+                        → <strong>Interrogation indirecte :</strong> "Je ne sais pas qui tu as invité"
+                    </p>
+                </div>
+
+                <div class="example-neon">
+                    <div class="example-chip">QUI - FONCTION COI (Préposition À)</div>
+                    <div class="sentence-neon">
+                        <span class="pronoun-electric">À qui</span> avez-vous parlé hier ?
+                    </div>
+                    <p class="analysis-neon">
+                        → <strong>Fonction :</strong> <span class="function-cyber">"Qui" est COI (parler À quelqu'un)</span><br>
+                        → <strong>Préposition :</strong> "À" obligatoire car "parler à"<br>
+                        → <strong>Construction :</strong> À qui + verbe-sujet (inversion)<br>
+                        → <strong>Test :</strong> "Vous avez parlé À qui" → à cette personne<br>
+                        → <strong>Forme renforcée :</strong> "À qui est-ce que vous avez parlé ?"<br>
+                        → <strong>Interrogation indirecte :</strong> "Je me demande à qui vous avez parlé"
+                    </p>
+                </div>
+
+                <div class="example-neon">
+                    <div class="example-chip">QUI - COMPLÉMENT DU NOM (Préposition DE)</div>
+                    <div class="sentence-neon">
+                        <span class="pronoun-electric">De qui</span> parlez-vous en ce moment ?
+                    </div>
+                    <p class="analysis-neon">
+                        → <strong>Fonction :</strong> <span class="function-cyber">"Qui" est complément du nom (parler DE quelqu'un)</span><br>
+                        → <strong>Préposition :</strong> "De" obligatoire car "parler de"<br>
+                        → <strong>Construction :</strong> De qui + verbe-sujet (inversion)<br>
+                        → <strong>Distinction :</strong> Parler à qqn (COI) ≠ parler de qqn (complément)<br>
+                        → <strong>Interrogation indirecte :</strong> "Je ne sais pas de qui vous parlez"
+                    </p>
+                </div>
+
+                <div class="example-neon">
+                    <div class="example-chip">QUI - COMPLÉMENT CIRCONSTANCIEL (Avec/Chez/Pour)</div>
+                    <div class="sentence-neon">
+                        <span class="pronoun-electric">Avec qui</span> travaillez-vous sur ce projet ?
+                    </div>
+                    <p class="analysis-neon">
+                        → <strong>Fonction :</strong> <span class="function-cyber">"Qui" est complément circonstanciel de manière/accompagnement</span><br>
+                        → <strong>Prépositions variées :</strong> Avec qui, chez qui, pour qui, sans qui<br>
+                        → <strong>Exemples :</strong> "Chez qui loges-tu ?", "Pour qui fais-tu cela ?"<br>
+                        → <strong>Test :</strong> Ces compléments indiquent accompagnement, lieu, but, etc.<br>
+                        → <strong>Interrogation indirecte :</strong> "Je me demande avec qui tu travailles"
+                    </p>
+                </div>
+
+                <div class="example-neon">
+                    <div class="example-chip">QUE - FONCTION COD</div>
+                    <div class="sentence-neon">
+                        <span class="pronoun-electric">Que</span> cherches-tu dans ce tiroir ?
+                    </div>
+                    <p class="analysis-neon">
+                        → <strong>Fonction :</strong> <span class="function-cyber">"Que" est COD du verbe "chercher" (chose)</span><br>
+                        → <strong>Construction obligatoire :</strong> Que + verbe-sujet (inversion)<br>
+                        → <strong>Test :</strong> "Tu cherches QUOI" → cet objet/cette chose<br>
+                        → <strong>Forme renforcée :</strong> "Qu'est-ce que tu cherches ?"<br>
+                        → <strong>Élision :</strong> "Qu'aimes-tu ?" (que → qu' devant voyelle)<br>
+                        → <strong>Interrogation indirecte :</strong> "Je ne sais pas ce que tu cherches"
+                    </p>
+                </div>
+
+                <div class="example-neon">
+                    <div class="example-chip">QUE - FONCTION ATTRIBUT DU SUJET</div>
+                    <div class="sentence-neon">
+                        <span class="pronoun-electric">Que</span> devient ton ancien projet ?
+                    </div>
+                    <p class="analysis-neon">
+                        → <strong>Fonction :</strong> <span class="function-cyber">"Que" est attribut du sujet (avec verbe d'état)</span><br>
+                        → <strong>Verbes d'état :</strong> Devenir, être, rester, paraître, sembler<br>
+                        → <strong>Test :</strong> "Ton projet devient QUOI" → quelque chose<br>
+                        → <strong>Construction :</strong> Que + verbe + sujet (inversion)<br>
+                        → <strong>Forme renforcée :</strong> "Qu'est-ce que ton projet devient ?"<br>
+                        → <strong>Interrogation indirecte :</strong> "Je me demande ce que devient ton projet"
+                    </p>
+                </div>
+
+                <div class="example-neon">
+                    <div class="example-chip">QUOI - FONCTION COI (Préposition À)</div>
+                    <div class="sentence-neon">
+                        <span class="pronoun-electric">À quoi</span> sert cet outil exactement ?
+                    </div>
+                    <p class="analysis-neon">
+                        → <strong>Fonction :</strong> <span class="function-cyber">"Quoi" est COI (servir À quelque chose)</span><br>
+                        → <strong>Obligatoire :</strong> Préposition "à" + quoi (jamais "que" après préposition)<br>
+                        → <strong>Test :</strong> "Cet outil sert À QUOI" → à cette fonction<br>
+                        → <strong>Autres verbes + à :</strong> Penser à, réfléchir à, servir à, s'intéresser à<br>
+                        → <strong>Interrogation indirecte :</strong> "Je me demande à quoi sert cet outil"
+                    </p>
+                </div>
+
+                <div class="example-neon">
+                    <div class="example-chip">QUOI - COMPLÉMENT DU NOM (Préposition DE)</div>
+                    <div class="sentence-neon">
+                        <span class="pronoun-electric">De quoi</span> s'agit-il dans ce document ?
+                    </div>
+                    <p class="analysis-neon">
+                        → <strong>Fonction :</strong> <span class="function-cyber">"Quoi" complément du nom (s'agir DE quelque chose)</span><br>
+                        → <strong>Verbes + de :</strong> S'agir de, parler de, traiter de, se souvenir de<br>
+                        → <strong>Construction :</strong> De quoi + verbe-pronom-sujet (s'agit-il)<br>
+                        → <strong>Test :</strong> "Il s'agit DE QUOI" → de ce sujet<br>
+                        → <strong>Interrogation indirecte :</strong> "Je ne sais pas de quoi il s'agit"
+                    </p>
+                </div>
+
+                <div class="example-neon">
+                    <div class="example-chip">QUOI - COMPLÉMENT CIRCONSTANCIEL</div>
+                    <div class="sentence-neon">
+                        <span class="pronoun-electric">Avec quoi</span> as-tu réparé ce moteur ?
+                    </div>
+                    <p class="analysis-neon">
+                        → <strong>Fonction :</strong> <span class="function-cyber">"Quoi" complément circonstanciel de moyen/instrument</span><br>
+                        → <strong>Prépositions variées :</strong> Avec quoi (moyen), sans quoi (condition), pour quoi (but)<br>
+                        → <strong>Test :</strong> "Tu as réparé AVEC QUOI" → avec cet outil<br>
+                        → <strong>Exemples :</strong> "Sur quoi travailles-tu ?", "Par quoi commencer ?"<br>
+                        → <strong>Interrogation indirecte :</strong> "Je me demande avec quoi tu as réparé"
+                    </p>
+                </div>
+
+                <div class="example-neon">
+                    <div class="example-chip">LEQUEL - FONCTION SUJET</div>
+                    <div class="sentence-neon">
+                        <span class="pronoun-electric">Lequel</span> de ces candidats sera sélectionné ?
+                    </div>
+                    <p class="analysis-neon">
+                        → <strong>Fonction :</strong> <span class="function-cyber">"Lequel" est SUJET du verbe "sélectionner"</span><br>
+                        → <strong>Accord :</strong> Masculin singulier (s'accorde avec "candidat")<br>
+                        → <strong>Complément :</strong> "De ces candidats" délimite le choix<br>
+                        → <strong>Test :</strong> "C'est lequel qui sera sélectionné ?"<br>
+                        → <strong>Interrogation indirecte :</strong> "Je me demande lequel sera sélectionné"
+                    </p>
+                </div>
+
+                <div class="example-neon">
+                    <div class="example-chip">LEQUEL - FONCTION COD</div>
+                    <div class="sentence-neon">
+                        <span class="pronoun-electric">Laquelle</span> de ces options préférez-vous ?
+                    </div>
+                    <p class="analysis-neon">
+                        → <strong>Fonction :</strong> <span class="function-cyber">"Laquelle" est COD du verbe "préférer"</span><br>
+                        → <strong>Accord :</strong> Féminin singulier (avec "option")<br>
+                        → <strong>Test :</strong> "Vous préférez laquelle" → cette option<br>
+                        → <strong>Construction :</strong> Laquelle + verbe-sujet (inversion)<br>
+                        → <strong>Interrogation indirecte :</strong> "Je ne sais pas laquelle vous préférez"
+                    </p>
+                </div>
+
+                <div class="example-neon">
+                    <div class="example-chip">AUQUEL - FONCTION COI (Contraction À + LEQUEL)</div>
+                    <div class="sentence-neon">
+                        <span class="pronoun-electric">Auquel</span> de ces projets participez-vous ?
+                    </div>
+                    <p class="analysis-neon">
+                        → <strong>Fonction :</strong> <span class="function-cyber">"Auquel" est COI (participer À quelque chose)</span><br>
+                        → <strong>Contraction obligatoire :</strong> à + lequel = auquel<br>
+                        → <strong>Accord :</strong> Masculin singulier (avec "projet")<br>
+                        → <strong>Variantes :</strong> À laquelle, auxquels, auxquelles<br>
+                        → <strong>Interrogation indirecte :</strong> "Je me demande auquel vous participez"
+                    </p>
+                </div>
+
+                <div class="example-neon">
+                    <div class="example-chip">DUQUEL - COMPLÉMENT DU NOM (Contraction DE + LEQUEL)</div>
+                    <div class="sentence-neon">
+                        <span class="pronoun-electric">Duquel</span> de ces auteurs parlez-vous ?
+                    </div>
+                    <p class="analysis-neon">
+                        → <strong>Fonction :</strong> <span class="function-cyber">"Duquel" complément du nom (parler DE quelque chose)</span><br>
+                        → <strong>Contraction obligatoire :</strong> de + lequel = duquel<br>
+                        → <strong>Accord :</strong> Masculin singulier (avec "auteur")<br>
+                        → <strong>Variantes :</strong> De laquelle, desquels, desquelles<br>
+                        → <strong>Interrogation indirecte :</strong> "Je ne sais pas duquel vous parlez"
+                    </p>
+                </div>
+
+                <div class="example-neon">
+                    <div class="example-chip">Comparaison Fonctions : QUI Sujet vs COD</div>
+                    <div class="sentence-neon">
+                        <span class="pronoun-electric">Qui</span> vient ? (sujet) / <span class="pronoun-electric">Qui</span> vois-tu ? (COD)
+                    </div>
+                    <p class="analysis-neon">
+                        → <strong>SUJET :</strong> <span class="function-cyber">Qui + verbe (pas d'inversion nécessaire)</span><br>
+                        → <strong>COD :</strong> <span class="function-cyber">Qui + verbe-sujet (inversion obligatoire)</span><br>
+                        → <strong>Test :</strong> Sujet = qui fait ; COD = qui subit<br>
+                        → <strong>Réponses :</strong> "C'est Marie qui vient" vs "Je vois Marie"<br>
+                        → <strong>Remarque :</strong> L'inversion marque souvent la fonction COD
+                    </p>
+                </div>
+            </section>
+
+            <!-- Rule Plasma -->
+            <div class="rule-plasma">
+                <h3 class="rule-heading-plasma">Règles Fonctionnelles Essentielles</h3>
+                <div class="rule-cyber-text">
+                    <ul class="rule-circuit">
+                        <li>
+                            <strong>Fonction SUJET = Qui fait l'action :</strong> Le sujet est l'élément qui effectue 
+                            l'action du verbe. Pour interroger sur le sujet : "Qui" (personne) ou "Qu'est-ce qui" (chose). 
+                            Construction simple sans inversion obligatoire. "Qui vient ?", "Qu'est-ce qui se passe ?". 
+                            Le verbe s'accorde avec le sujet interrogatif.
+                        </li>
+                        <li>
+                            <strong>Fonction COD = Qui/quoi subit l'action :</strong> Le COD subit directement l'action 
+                            du verbe. Pour interroger sur le COD : "Qui" (personne) ou "Que" (chose) en début de phrase 
+                            avec inversion. "Qui vois-tu ?", "Que fais-tu ?". Test : on peut transformer en "Tu vois qui/quoi". 
+                            En interrogation indirecte : "qui" reste, "que" devient "ce que".
+                        </li>
+                        <li>
+                            <strong>Fonction COI = À qui/quoi :</strong> Le COI est introduit par la préposition "à" 
+                            (rarement "de" pour certains verbes). Pour interroger sur le COI : "À qui" (personne) ou 
+                            "À quoi" (chose). "À qui parles-tu ?", "À quoi penses-tu ?". La préposition "à" reste toujours 
+                            en début de question. Verbes courants + à : parler à, penser à, téléphoner à, réfléchir à.
+                        </li>
+                        <li>
+                            <strong>Complément du nom avec DE :</strong> Introduit par "de", indique possession, origine, 
+                            matière, sujet. Pour interroger : "De qui" (personne) ou "De quoi" (chose). "De qui parles-tu ?", 
+                            "De quoi s'agit-il ?". Distinction importante : "parler à quelqu'un" (COI) ≠ "parler de quelqu'un" 
+                            (complément). La préposition change la fonction et le sens.
+                        </li>
+                        <li>
+                            <strong>Attribut du sujet = Que devient/est :</strong> L'attribut qualifie le sujet via un 
+                            verbe d'état (être, devenir, paraître, sembler, rester). Pour interroger sur l'attribut : 
+                            "Que" pour les choses, rarement "qui" pour les personnes. "Que devient ce projet ?", "Que 
+                            devient-il ?" (profession, état). Moins fréquent que COD mais grammaticalement distinct.
+                        </li>
+                        <li>
+                            <strong>Compléments circonstanciels = Diverses prépositions :</strong> Indiquent les 
+                            circonstances (manière, moyen, lieu, but, etc.). Pour interroger : Préposition + qui/quoi. 
+                            "Avec qui travailles-tu ?" (manière), "Par quoi commencer ?" (moyen), "Pour qui fais-tu cela ?" 
+                            (but), "Chez qui habites-tu ?" (lieu). La préposition reste toujours en tête de question.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Table Matrix -->
+            <section class="table-matrix">
+                <h2 class="digital-heading">Tableau des Fonctions Grammaticales</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fonction</th>
+                            <th>Personne</th>
+                            <th>Chose</th>
+                            <th>Test de Reconnaissance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-pronoun-neon">SUJET</td>
+                            <td><em>Qui vient ?</em></td>
+                            <td><em>Qu'est-ce qui se passe ?</em></td>
+                            <td>Qui/quoi fait l'action ?</td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-neon">COD</td>
+                            <td><em>Qui vois-tu ?</em></td>
+                            <td><em>Que fais-tu ?</em></td>
+                            <td>Tu vois/fais qui/quoi ?</td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-neon">COI</td>
+                            <td><em>À qui parles-tu ?</em></td>
+                            <td><em>À quoi penses-tu ?</em></td>
+                            <td>Verbe + à qui/quoi ?</td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-neon">Complément (de)</td>
+                            <td><em>De qui parles-tu ?</em></td>
+                            <td><em>De quoi s'agit-il ?</em></td>
+                            <td>Verbe + de qui/quoi ?</td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-neon">Attribut</td>
+                            <td><em>Qui devient-il ?</em></td>
+                            <td><em>Que devient-il ?</em></td>
+                            <td>Sujet = qui/quoi ?</td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-neon">CC Manière</td>
+                            <td><em>Avec qui travailles-tu ?</em></td>
+                            <td><em>Avec quoi travailles-tu ?</em></td>
+                            <td>Verbe + avec qui/quoi ?</td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-neon">CC Lieu</td>
+                            <td><em>Chez qui loges-tu ?</em></td>
+                            <td><em>—</em></td>
+                            <td>Verbe + chez qui ?</td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-neon">CC But</td>
+                            <td><em>Pour qui fais-tu cela ?</em></td>
+                            <td><em>Pour quoi te bats-tu ?</em></td>
+                            <td>Verbe + pour qui/quoi ?</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 class="digital-heading" style="margin-top: 100px;">Tableau LEQUEL - Toutes Fonctions</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fonction</th>
+                            <th>Sans Préposition</th>
+                            <th>Avec À (COI)</th>
+                            <th>Avec DE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-pronoun-neon">Masculin Sg.</td>
+                            <td><em>Lequel vient ?</em></td>
+                            <td><em>Auquel penses-tu ?</em></td>
+                            <td><em>Duquel parles-tu ?</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-neon">Féminin Sg.</td>
+                            <td><em>Laquelle préfères-tu ?</em></td>
+                            <td><em>À laquelle penses-tu ?</em></td>
+                            <td><em>De laquelle parles-tu ?</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-neon">Masculin Pl.</td>
+                            <td><em>Lesquels choisis-tu ?</em></td>
+                            <td><em>Auxquels participes-tu ?</em></td>
+                            <td><em>Desquels parles-tu ?</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun-neon">Féminin Pl.</td>
+                            <td><em>Lesquelles veux-tu ?</em></td>
+                            <td><em>Auxquelles penses-tu ?</em></td>
+                            <td><em>Desquelles parles-tu ?</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Warning Laser -->
+            <div class="warning-laser">
+                <h3 class="warning-heading-laser">Erreurs Fonctionnelles Courantes</h3>
+                <div class="warning-cyber-text">
+                    <p style="margin-bottom: 45px;">
+                        <strong>Erreur n°1 : Confondre sujet et COD</strong><br>
+                        ❌ <em>"Qui vois-tu vient ?"</em> (confusion de fonction)<br>
+                        ✅ <em>"Qui vient ?" (sujet) ou "Qui vois-tu ?" (COD)</em><br>
+                        → Sujet = pas d'inversion systématique ; COD = inversion obligatoire
+                    </p>
+                    
+                    <p style="margin-bottom: 45px;">
+                        <strong>Erreur n°2 : Oublier la préposition</strong><br>
+                        ❌ <em>"Qui penses-tu ?"</em> (incorrect, manque "à")<br>
+                        ✅ <em>"À qui penses-tu ?"</em> (correct)<br>
+                        → "Penser à" exige la préposition ; vérifiez la construction du verbe
+                    </p>
+                    
+                    <p style="margin-bottom: 45px;">
+                        <strong>Erreur n°3 : Utiliser "que" après préposition</strong><br>
+                        ❌ <em>"Avec que travailles-tu ?"</em> (incorrect)<br>
+                        ✅ <em>"Avec quoi travailles-tu ?"</em> (correct)<br>
+                        → Après préposition : obligatoirement "quoi" (chose) ou "qui" (personne)
+                    </p>
+                    
+                    <p style="margin-bottom: 45px;">
+                        <strong>Erreur n°4 : Confondre COI et complément du nom</strong><br>
+                        ❌ <em>"Qui parles-tu ?"</em> (ambigu/incorrect)<br>
+                        ✅ <em>"À qui parles-tu ?" (COI) ou "De qui parles-tu ?" (complément)</em><br>
+                        → "Parler à" (COI) ≠ "parler de" (complément) : fonctions et sens différents
+                    </p>
+                    
+                    <p>
+                        <strong>Erreur n°5 : Mauvaise fonction avec "lequel"</strong><br>
+                        ❌ <em>"Lequel penses-tu ?"</em> (manque préposition)<br>
+                        ✅ <em>"Auquel penses-tu ?"</em> (correct avec contraction)<br>
+                        → "Penser à" → auquel (à + lequel), pas "lequel" seul
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tip Electric -->
+            <div class="tip-electric">
+                <h3 class="tip-heading-electric">Guide de Détermination des Fonctions</h3>
+                <div class="tip-cyber-text">
+                    <p style="margin-bottom: 35px;">
+                        <strong>Méthode systématique pour identifier la fonction :</strong>
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>Étape 1 :</strong> Identifiez le verbe de la question.<br>
+                        → Le verbe détermine quelles fonctions sont possibles<br>
+                        → Ex : "regarder" peut avoir un COD, "parler" peut avoir COI ou complément
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>Étape 2 :</strong> Cherchez s'il y a une préposition.<br>
+                        → PAS de préposition → Sujet ou COD<br>
+                        → AVEC préposition (à, de, avec, etc.) → Complément prépositionnel
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>Étape 3 :</strong> Testez la fonction avec une phrase affirmative.<br>
+                        → "Qui vient ?" → "Pierre vient" (Pierre = sujet)<br>
+                        → "Qui vois-tu ?" → "Tu vois Pierre" (Pierre = COD)<br>
+                        → "À qui parles-tu ?" → "Tu parles à Pierre" (à Pierre = COI)
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>Étape 4 :</strong> Vérifiez la construction verbale.<br>
+                        → Certains verbes exigent des prépositions spécifiques<br>
+                        → "Penser à", "parler de", "s'intéresser à", "se souvenir de"<br>
+                        → La préposition fait partie du verbe et doit apparaître dans la question
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>Étape 5 :</strong> Distinguez personne vs chose.<br>
+                        → PERSONNE → "qui" (toutes fonctions)<br>
+                        → CHOSE → "que" (COD/attribut) ou "quoi" (après préposition)<br>
+                        → Cette distinction reste vraie quelle que soit la fonction
+                    </p>
+                    
+                    <p>
+                        <strong>Mémo rapide :</strong><br>
+                        Sujet = fait l'action (Qui + verbe)<br>
+                        COD = subit l'action (Qui/Que + verbe-sujet)<br>
+                        COI/Complément = avec préposition (Prép + qui/quoi + verbe-sujet)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Void Digital -->
+            <section class="void-digital">
+                <h2>Synthèse Complète des Emplois</h2>
+                <ul class="void-circuit">
+                    <li>
+                        <strong>Architecture fonctionnelle complète :</strong> Les pronoms interrogatifs français 
+                        s'organisent selon deux axes : la nature de l'élément interrogé (personne vs chose) et la 
+                        fonction grammaticale (sujet, COD, COI, complément, attribut, circonstanciel). Cette double 
+                        organisation crée un système régulier où chaque combinaison a une forme spécifique.
+                    </li>
+                    <li>
+                        <strong>Polyvalence de "qui" pour les personnes :</strong> "Qui" peut occuper toutes les 
+                        fonctions grammaticales (sujet, COD, COI, compléments divers) tant qu'il désigne une personne. 
+                        Sa forme reste identique, seule la construction syntaxique (présence/absence de préposition, 
+                        inversion) change selon la fonction. Cette polyvalence fait de "qui" le pronom le plus flexible.
+                    </li>
+                    <li>
+                        <strong>Distribution complémentaire que/quoi :</strong> Pour les choses, "que" et "quoi" se 
+                        répartissent strictement selon la construction : "que" en position initiale pour COD et attribut 
+                        (avec inversion obligatoire), "quoi" obligatoirement après toute préposition pour tous les 
+                        compléments prépositionnels. Aucun chevauchement n'existe entre ces deux formes.
+                    </li>
+                    <li>
+                        <strong>Importance des prépositions :</strong> Les prépositions jouent un rôle crucial dans 
+                        la détermination de la fonction. Elles introduisent les compléments (COI avec "à", complément 
+                        du nom avec "de", circonstanciels avec "avec/pour/chez/etc.") et dictent le choix entre "qui" 
+                        (personne) et "quoi" (chose). La préposition reste toujours en tête de question.
+                    </li>
+                    <li>
+                        <strong>Tests de reconnaissance des fonctions :</strong> Pour identifier la fonction, 
+                        transformez la question en phrase affirmative et observez la position de l'élément. Sujet : 
+                        avant le verbe ("Qui vient" → "Pierre vient"). COD : après le verbe ("Qui vois-tu" → "Tu 
+                        vois Pierre"). COI/Complément : après verbe + préposition ("À qui parles-tu" → "Tu parles 
+                        à Pierre").
+                    </li>
+                    <li>
+                        <strong>Lequel et la précision référentielle :</strong> "Lequel" et ses variantes peuvent 
+                        occuper toutes les fonctions (comme "qui") avec l'avantage de l'accord morphologique visible. 
+                        Cet accord (lequel/laquelle/lesquels/lesquelles) permet de désambiguïser quand plusieurs 
+                        référents sont possibles et marque clairement le genre et le nombre de l'élément choisi.
+                    </li>
+                    <li>
+                        <strong>Constructions verbales et fonctions :</strong> La construction du verbe (transitif 
+                        direct, transitif indirect, verbe d'état) détermine quelles fonctions sont possibles. Un 
+                        verbe transitif direct accepte un COD ("regarder quelqu'un/quelque chose"). Un verbe transitif 
+                        indirect exige une préposition ("parler à/de", "penser à"). Un verbe d'état prend un attribut 
+                        ("être/devenir quelque chose").
+                    </li>
+                    <li>
+                        <strong>Maîtrise pratique et automatisation :</strong> La maîtrise des emplois et fonctions 
+                        s'acquiert par la pratique régulière et l'attention aux constructions verbales. Avec l'usage, 
+                        le choix du bon pronom et de la bonne construction devient automatique. L'essentiel est de 
+                        comprendre la logique sous-jacente : nature (personne/chose) + fonction (sujet/COD/COI/etc.) 
+                        = forme interrogative appropriée. Cette compréhension permet de générer correctement toutes 
+                        les questions possibles en français.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Final Tip -->
+            <div class="tip-electric">
+                <h3 class="tip-heading-electric">Récapitulatif pour Maîtrise Complète</h3>
+                <div class="tip-cyber-text">
+                    <p style="margin-bottom: 35px;">
+                        <strong>⚡ Les 6 principes cybernétiques pour maîtriser les emplois :</strong>
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>1. Fonction SUJET → Qui (personne) / Qu'est-ce qui (chose) :</strong> Le sujet fait 
+                        l'action. Construction simple sans inversion obligatoire. "Qui vient ?", "Qu'est-ce qui se passe ?".
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>2. Fonction COD → Qui/Que + inversion :</strong> Le COD subit l'action. Construction 
+                        avec inversion obligatoire. "Qui vois-tu ?" (personne), "Que fais-tu ?" (chose).
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>3. Fonction COI → À qui / À quoi :</strong> Introduit par "à". "À qui parles-tu ?", 
+                        "À quoi penses-tu ?". La préposition "à" reste toujours en tête de question.
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>4. Complément du nom → De qui / De quoi :</strong> Introduit par "de". "De qui 
+                        parles-tu ?", "De quoi s'agit-il ?". Distinction avec COI crucial.
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>5. Après préposition → Qui (personne) / Quoi (chose) :</strong> Avec, pour, sans, 
+                        chez, par, etc. "Avec qui ?", "Avec quoi ?". "Que" est impossible après préposition.
+                    </p>
+                    
+                    <p>
+                        <strong>6. Test pratique → Phrase affirmative :</strong> Transformez en phrase affirmative 
+                        pour identifier la fonction. Position avant verbe = sujet ; après verbe = COD ; après verbe + 
+                        préposition = complément prépositionnel.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Língua Academy · Tous droits réservés</p>
+            <p class="footer-digital">LÍNGUA ACADEMY</p>
+            <p>Connecter l'Intelligence à la Grammaire</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Advanced Intersection Observer
+        const observerOptions = {
+            threshold: 0.26,
+            rootMargin: '0px 0px -190px 0px'
+        };
+
+        const cyberObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe example boxes
+        document.querySelectorAll('.example-neon').forEach(box => {
+            box.style.opacity = '0';
+            box.style.transform = 'translateY(70px)';
+            box.style.transition = 'opacity 1.6s ease, transform 1.6s ease';
+            cyberObserver.observe(box);
+        });
+
+        // Circuit card hover effects
+        document.querySelectorAll('.circuit-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.circuit-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(2) rotate(50deg)';
+                    icon.style.transition = 'transform 1.1s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                }
+            });
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.circuit-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                }
+            });
+        });
+
+        // Animate table rows with cyber stagger
+        document.querySelectorAll('tbody tr').forEach((row, index) => {
+            row.style.opacity = '0';
+            row.style.transform = 'translateX(-95px)';
+            row.style.transition = `opacity 1.4s ease ${index * 0.15}s, transform 1.4s ease ${index * 0.15}s`;
+            
+            cyberObserver.observe(row);
+        });
+
+        // Cyber emblem enhancement on hover
+        const cyberEmblem = document.querySelector('.cyber-emblem');
+        if (cyberEmblem) {
+            cyberEmblem.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.3)';
+                this.style.boxShadow = '0 45px 120px rgba(255, 0, 110, 1.2), 0 0 80px var(--cyan-electrique)';
+            });
+            cyberEmblem.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = '0 35px 90px rgba(255, 0, 110, 0.9)';
+            });
+        }
+
+        // Glitch effect on scroll
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            if (Math.abs(currentScroll - lastScroll) > 100) {
+                const glitchElements = document.querySelectorAll('.digital-heading, .circuit-title');
+                glitchElements.forEach(el => {
+                    el.style.transform = `translateX(${Math.random() * 4 - 2}px)`;
+                    setTimeout(() => {
+                        el.style.transform = 'translateX(0)';
+                    }, 100);
+                });
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Dynamic hologram creation
+        function createHologram() {
+            const hologram = document.createElement('div');
+            hologram.className = 'hologram';
+            hologram.style.position = 'fixed';
+            hologram.style.top = Math.random() * 80 + '%';
+            hologram.style.left = Math.random() * 90 + '%';
+            hologram.style.width = Math.random() * 100 + 150 + 'px';
+            hologram.style.height = hologram.style.width;
+            hologram.style.animationDuration = Math.random() * 10 + 10 + 's';
+            document.body.appendChild(hologram);
+            
+            setTimeout(() => {
+                hologram.remove();
+            }, 20000);
+        }
+
+        setInterval(createHologram, 15000);
+
+        // Neon glow on mouse movement
+        document.addEventListener('mousemove', function(e) {
+            const neonElements = document.querySelectorAll('.neon-divider, .cyber-emblem');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            neonElements.forEach(el => {
+                const intensity = Math.max(mouseX, mouseY);
+                el.style.filter = `brightness(${1 + intensity * 0.3})`;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place du Pronom Relatif | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Montserrat:wght@400;600;700;800&family=Spectral:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bleu-marine: #003DA5;
+            --blanc-neige: #FFFFFF;
+            --rouge-cardinal: #E1000F;
+            --or-lumiere: #DAA520;
+            --graphite: #2E3440;
+            --creme: #FFFEF7;
+            --bleu-nuit: #001A3D;
+            --bleu-clair: #6B9BD1;
+            --cuivre: #B87333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Spectral', serif;
+            background: var(--creme);
+            color: var(--graphite);
+            line-height: 1.75;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, transparent 48%, rgba(0, 61, 165, 0.02) 49%, rgba(0, 61, 165, 0.02) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(225, 0, 15, 0.02) 49%, rgba(225, 0, 15, 0.02) 51%, transparent 52%);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+            animation: patternMove 40s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% {
+                background-position: 0 0, 0 0;
+            }
+            100% {
+                background-position: 60px 60px, -60px -60px;
+            }
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Design */
+        header {
+            background: linear-gradient(160deg, var(--bleu-nuit) 0%, var(--bleu-marine) 60%, var(--bleu-clair) 100%);
+            padding: 75px 0 95px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(0, 26, 61, 0.35);
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+        }
+
+        /* Decorative Elements */
+        header::before,
+        header::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: orbit 30s ease-in-out infinite;
+        }
+
+        header::before {
+            top: -150px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--rouge-cardinal) 0%, transparent 70%);
+        }
+
+        header::after {
+            bottom: -120px;
+            left: -80px;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, var(--or-lumiere) 0%, transparent 70%);
+            animation-delay: -15s;
+        }
+
+        @keyframes orbit {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(50px, -50px) scale(1.15);
+            }
+        }
+
+        /* Brand Section */
+        .brand-container {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 40px;
+            animation: fadeDropIn 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes fadeDropIn {
+            from {
+                opacity: 0;
+                transform: translateY(-60px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .brand-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.6rem;
+            color: var(--or-lumiere);
+            font-weight: 800;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+            position: relative;
+            display: inline-block;
+        }
+
+        .brand-logo::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--or-lumiere), transparent);
+            animation: glowLine 2s ease-in-out infinite;
+        }
+
+        @keyframes glowLine {
+            0%, 100% {
+                opacity: 0.5;
+                box-shadow: 0 0 5px var(--or-lumiere);
+            }
+            50% {
+                opacity: 1;
+                box-shadow: 0 0 20px var(--or-lumiere);
+            }
+        }
+
+        .brand-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        /* Main Title */
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 4.5rem;
+            color: var(--blanc-neige);
+            text-align: center;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-top: 40px;
+            position: relative;
+            z-index: 2;
+            animation: fadeDropIn 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s backwards;
+            text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .main-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.7rem;
+            margin-top: 25px;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            animation: fadeDropIn 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s backwards;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        /* French Flag Stripe */
+        .flag-stripe {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            z-index: 3;
+        }
+
+        .stripe-bleu { background: var(--bleu-marine); }
+        .stripe-blanc { background: var(--blanc-neige); }
+        .stripe-rouge { background: var(--rouge-cardinal); }
+
+        .flag-stripe > div {
+            animation: stripeGrow 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+        }
+
+        .stripe-bleu { animation-delay: 0.7s; }
+        .stripe-blanc { animation-delay: 0.85s; }
+        .stripe-rouge { animation-delay: 1s; }
+
+        @keyframes stripeGrow {
+            from {
+                transform: scaleY(0);
+            }
+            to {
+                transform: scaleY(1);
+            }
+        }
+
+        /* Main Content */
+        main {
+            padding: 100px 0;
+        }
+
+        /* Intro Section */
+        .intro-block {
+            background: linear-gradient(135deg, white 0%, rgba(255, 254, 247, 0.95) 100%);
+            padding: 70px;
+            border-radius: 30px;
+            box-shadow: 0 15px 50px rgba(0, 61, 165, 0.12);
+            margin-bottom: 70px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 61, 165, 0.1);
+            animation: slideUpFade 1s ease-out 1.1s backwards;
+        }
+
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--bleu-marine), var(--rouge-cardinal), var(--or-lumiere));
+        }
+
+        .intro-block::after {
+            content: '📍';
+            position: absolute;
+            top: -30px;
+            left: 60px;
+            font-size: 3rem;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-heading {
+            font-family: 'Merriweather', serif;
+            font-size: 3rem;
+            color: var(--bleu-marine);
+            margin-bottom: 40px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--bleu-marine), var(--rouge-cardinal));
+            border-radius: 3px;
+        }
+
+        .intro-text {
+            font-size: 1.4rem;
+            line-height: 2.2;
+            color: var(--graphite);
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        /* Content Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(580px, 1fr));
+            gap: 50px;
+            margin: 70px 0;
+        }
+
+        .content-card {
+            background: white;
+            padding: 60px;
+            border-radius: 25px;
+            box-shadow: 0 12px 40px rgba(0, 61, 165, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid transparent;
+            animation: slideUpFade 1s ease-out backwards;
+        }
+
+        .content-card:nth-child(1) { animation-delay: 1.3s; }
+        .content-card:nth-child(2) { animation-delay: 1.5s; }
+        .content-card:nth-child(3) { animation-delay: 1.7s; }
+        .content-card:nth-child(4) { animation-delay: 1.9s; }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--bleu-marine), var(--rouge-cardinal));
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.5s ease;
+        }
+
+        .content-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .content-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(0, 61, 165, 0.2);
+            border-color: var(--bleu-marine);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .card-heading {
+            font-family: 'Merriweather', serif;
+            font-size: 2.3rem;
+            color: var(--bleu-marine);
+            margin-bottom: 28px;
+            font-weight: 700;
+        }
+
+        .card-text {
+            font-size: 1.3rem;
+            line-height: 2.1;
+            color: var(--graphite);
+        }
+
+        /* Visual Examples Section */
+        .visual-section {
+            background: white;
+            padding: 65px;
+            border-radius: 25px;
+            box-shadow: 0 12px 40px rgba(0, 61, 165, 0.1);
+            margin: 60px 0;
+            animation: slideUpFade 1s ease-out 2.1s backwards;
+        }
+
+        .visual-heading {
+            font-family: 'Merriweather', serif;
+            font-size: 2.8rem;
+            color: var(--bleu-marine);
+            margin-bottom: 45px;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        .visual-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--rouge-cardinal), transparent);
+            border-radius: 2px;
+        }
+
+        /* Diagram Boxes */
+        .diagram-box {
+            background: linear-gradient(135deg, rgba(107, 155, 209, 0.08) 0%, rgba(225, 0, 15, 0.05) 100%);
+            padding: 40px;
+            border-radius: 18px;
+            margin: 35px 0;
+            border-left: 6px solid var(--bleu-clair);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .diagram-box:hover {
+            transform: translateX(15px);
+            border-left-width: 8px;
+            box-shadow: -8px 8px 25px rgba(107, 155, 209, 0.3);
+        }
+
+        .diagram-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            color: var(--rouge-cardinal);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .sentence-visual {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--bleu-nuit);
+            margin: 25px 0;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            line-height: 2;
+        }
+
+        .position-arrow {
+            display: inline-block;
+            color: var(--rouge-cardinal);
+            font-size: 2rem;
+            margin: 0 15px;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .antecedent-mark {
+            color: var(--bleu-marine);
+            font-weight: 700;
+            background: rgba(0, 61, 165, 0.12);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border-bottom: 3px solid var(--bleu-marine);
+        }
+
+        .relative-mark {
+            color: var(--rouge-cardinal);
+            font-weight: 700;
+            background: rgba(225, 0, 15, 0.12);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border-bottom: 3px solid var(--rouge-cardinal);
+        }
+
+        .explanation-text {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--graphite);
+            margin-top: 20px;
+            padding-left: 25px;
+            border-left: 4px solid rgba(0, 61, 165, 0.25);
+        }
+
+        /* Rule Boxes */
+        .rule-container {
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.1) 0%, rgba(218, 165, 32, 0.05) 100%);
+            border: 3px solid var(--or-lumiere);
+            padding: 40px 45px;
+            border-radius: 18px;
+            margin: 45px 0;
+            position: relative;
+            animation: slideUpFade 1s ease-out 2.3s backwards;
+        }
+
+        .rule-container::before {
+            content: '📏';
+            position: absolute;
+            top: -25px;
+            left: 40px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .rule-title {
+            font-family: 'Merriweather', serif;
+            color: var(--bleu-marine);
+            font-size: 2rem;
+            margin-bottom: 22px;
+            font-weight: 700;
+        }
+
+        .rule-content {
+            font-size: 1.25rem;
+            line-height: 2.2;
+            color: var(--graphite);
+        }
+
+        .rule-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .rule-list li {
+            padding: 18px 0 18px 50px;
+            position: relative;
+            font-size: 1.25rem;
+            line-height: 2;
+            border-bottom: 1px dashed rgba(0, 61, 165, 0.15);
+        }
+
+        .rule-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rule-list li::before {
+            content: '→';
+            position: absolute;
+            left: 10px;
+            color: var(--rouge-cardinal);
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+
+        /* Table Styling */
+        .table-section {
+            background: white;
+            padding: 60px;
+            border-radius: 22px;
+            box-shadow: 0 12px 40px rgba(0, 61, 165, 0.1);
+            margin: 55px 0;
+            overflow-x: auto;
+            animation: slideUpFade 1s ease-out 2.5s backwards;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 30px 0;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--bleu-marine) 0%, var(--bleu-nuit) 100%);
+        }
+
+        th {
+            color: white;
+            padding: 28px 22px;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        th:first-child {
+            border-radius: 18px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 18px 0 0;
+        }
+
+        td {
+            padding: 28px 22px;
+            border-bottom: 1px solid rgba(0, 61, 165, 0.1);
+            font-size: 1.25rem;
+            line-height: 2;
+        }
+
+        tbody tr {
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, rgba(107, 155, 209, 0.08) 0%, rgba(225, 0, 15, 0.04) 100%);
+            transform: translateX(8px);
+        }
+
+        tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 18px;
+        }
+
+        tbody tr:last-child td:last-child {
+            border-radius: 0 0 18px 0;
+        }
+
+        .case-cell {
+            font-weight: 700;
+            color: var(--bleu-marine);
+            font-size: 1.4rem;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: linear-gradient(135deg, rgba(225, 0, 15, 0.1) 0%, rgba(225, 0, 15, 0.05) 100%);
+            border: 3px solid var(--rouge-cardinal);
+            padding: 40px 45px;
+            border-radius: 18px;
+            margin: 45px 0;
+            position: relative;
+            animation: slideUpFade 1s ease-out 2.7s backwards;
+        }
+
+        .warning-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: -25px;
+            left: 40px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .warning-title {
+            font-family: 'Merriweather', serif;
+            color: var(--rouge-cardinal);
+            font-size: 2rem;
+            margin-bottom: 22px;
+            font-weight: 700;
+        }
+
+        .warning-content {
+            font-size: 1.25rem;
+            line-height: 2.2;
+            color: var(--graphite);
+        }
+
+        /* Tip Box */
+        .tip-box {
+            background: linear-gradient(135deg, rgba(107, 155, 209, 0.1) 0%, rgba(107, 155, 209, 0.05) 100%);
+            border-left: 7px solid var(--bleu-clair);
+            padding: 40px 45px;
+            border-radius: 15px;
+            margin: 40px 0;
+            position: relative;
+            animation: slideUpFade 1s ease-out 2.9s backwards;
+        }
+
+        .tip-box::before {
+            content: '💡';
+            position: absolute;
+            top: -22px;
+            left: 40px;
+            background: white;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 1.6rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tip-title {
+            font-family: 'Merriweather', serif;
+            color: var(--bleu-marine);
+            font-size: 1.9rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .tip-content {
+            font-size: 1.22rem;
+            line-height: 2.1;
+            color: var(--graphite);
+        }
+
+        /* Highlight Section */
+        .highlight-panel {
+            background: linear-gradient(135deg, var(--bleu-nuit) 0%, var(--bleu-marine) 100%);
+            padding: 75px;
+            border-radius: 28px;
+            margin: 65px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 26, 61, 0.4);
+            animation: slideUpFade 1s ease-out 3.1s backwards;
+        }
+
+        .highlight-panel::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(225, 0, 15, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 6s ease-in-out infinite;
+        }
+
+        .highlight-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(218, 165, 32, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        .highlight-panel h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--or-lumiere);
+            font-size: 3rem;
+            margin-bottom: 35px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .highlight-panel p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.4rem;
+            line-height: 2.3;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 25px;
+        }
+
+        .highlight-list {
+            list-style: none;
+            margin: 30px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-list li {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.3rem;
+            padding: 20px 0 20px 55px;
+            position: relative;
+            line-height: 2.1;
+        }
+
+        .highlight-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 12px;
+            color: var(--or-lumiere);
+            font-size: 1.8rem;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(1.3);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--bleu-nuit) 0%, var(--graphite) 100%);
+            color: white;
+            padding: 65px 0;
+            text-align: center;
+            margin-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 30% 50%, rgba(218, 165, 32, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(225, 0, 15, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        footer p {
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.8px;
+            margin: 12px 0;
+        }
+
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--or-lumiere);
+            font-weight: 800;
+            font-size: 1.7rem;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 30px;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .main-subtitle {
+                font-size: 1.4rem;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-block,
+            .visual-section,
+            .table-section,
+            .highlight-panel {
+                padding: 40px;
+            }
+
+            table {
+                font-size: 1rem;
+            }
+
+            th, td {
+                padding: 18px 15px;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 16px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--creme);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--bleu-marine), var(--rouge-cardinal));
+            border-radius: 8px;
+            border: 3px solid var(--creme);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--bleu-nuit), var(--rouge-cardinal));
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="brand-container">
+                <div class="brand-logo">Língua Academy</div>
+                <div class="brand-subtitle">Excellence en Grammaire Française</div>
+            </div>
+            <h1>Place du Pronom Relatif</h1>
+            <p class="main-subtitle">Position et Ordre dans la Phrase</p>
+        </div>
+        <div class="flag-stripe">
+            <div class="stripe-bleu"></div>
+            <div class="stripe-blanc"></div>
+            <div class="stripe-rouge"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Introduction -->
+            <section class="intro-block">
+                <h2 class="section-heading">Principes Fondamentaux</h2>
+                <p class="intro-text">
+                    La place du pronom relatif dans la phrase française obéit à des règles précises qui garantissent 
+                    la clarté et la correction de l'expression. Le pronom relatif se situe généralement 
+                    <strong>immédiatement après son antécédent</strong>, introduisant ainsi la proposition subordonnée 
+                    relative qui le complète ou le précise.
+                </p>
+                <p class="intro-text">
+                    Cette proximité entre l'antécédent et le pronom relatif est essentielle pour éviter toute ambiguïté 
+                    et assurer une compréhension immédiate de la relation entre les deux éléments. Cependant, certaines 
+                    situations particulières peuvent créer une distance entre l'antécédent et le relatif, nécessitant 
+                    une attention particulière à la structure de la phrase.
+                </p>
+                <p class="intro-text">
+                    Au sein de la proposition relative elle-même, le pronom relatif occupe <strong>toujours la 
+                    première position</strong>, quelle que soit sa fonction grammaticale (sujet, complément d'objet, 
+                    complément circonstanciel, etc.). Cette règle absolue structure l'ordre des mots dans la relative 
+                    de manière invariable.
+                </p>
+            </section>
+
+            <!-- Content Cards -->
+            <div class="cards-container">
+                <div class="content-card">
+                    <span class="card-icon">🎯</span>
+                    <h3 class="card-heading">Position Standard</h3>
+                    <p class="card-text">
+                        Dans la construction standard, le pronom relatif suit <strong>immédiatement</strong> son antécédent, 
+                        sans aucun mot intercalé. Cette proximité garantit la clarté de la référence et facilite la 
+                        compréhension. La proposition relative vient ainsi compléter directement le nom ou le pronom 
+                        auquel elle se rapporte, créant une unité syntaxique cohérente.
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <span class="card-icon">📏</span>
+                    <h3 class="card-heading">Règle d'Ordre</h3>
+                    <p class="card-text">
+                        Le pronom relatif occupe <strong>toujours la première place</strong> dans la proposition 
+                        subordonnée relative, indépendamment de sa fonction grammaticale. Même s'il est complément 
+                        d'objet ou circonstanciel, il précède le sujet et le verbe de la relative. Cette position 
+                        initiale est impérative et ne souffre aucune exception en français standard.
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <span class="card-icon">⚡</span>
+                    <h3 class="card-heading">Séparations Possibles</h3>
+                    <p class="card-text">
+                        Bien que la règle générale prône la proximité, certains éléments peuvent s'intercaler entre 
+                        l'antécédent et le pronom relatif : les compléments du nom, les appositions, ou les propositions 
+                        incises. Ces séparations, bien que grammaticalement correctes, doivent rester limitées pour 
+                        préserver la clarté et éviter toute confusion sur l'antécédent du relatif.
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <span class="card-icon">🔍</span>
+                    <h3 class="card-heading">Cas Particuliers</h3>
+                    <p class="card-text">
+                        Certaines constructions présentent des particularités : les relatives avec antécédent sous-entendu 
+                        (<em>qui que, quoi que</em>), les relatives introduites par "ce" (<em>ce qui, ce que, ce dont</em>), 
+                        et les relatives à double antécédent potentiel nécessitent une attention spéciale pour déterminer 
+                        la bonne position du relatif et éviter les ambiguïtés.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Visual Examples -->
+            <section class="visual-section">
+                <h2 class="visual-heading">Visualisation de la Position</h2>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Position Standard : Antécédent + Relatif</h3>
+                    <div class="sentence-visual">
+                        <span class="antecedent-mark">L'homme</span> 
+                        <span class="position-arrow">→</span> 
+                        <span class="relative-mark">qui</span> 
+                        parle est mon professeur.
+                    </div>
+                    <p class="explanation-text">
+                        → Le pronom relatif "qui" suit immédiatement son antécédent "l'homme"<br>
+                        → Aucun mot ne sépare l'antécédent du relatif<br>
+                        → Le relatif est en première position dans sa proposition
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Position avec COD : Relatif en Tête</h3>
+                    <div class="sentence-visual">
+                        <span class="antecedent-mark">Le livre</span> 
+                        <span class="position-arrow">→</span> 
+                        <span class="relative-mark">que</span> 
+                        je lis est captivant.
+                    </div>
+                    <p class="explanation-text">
+                        → Bien que "que" soit COD de "lis", il précède le sujet "je"<br>
+                        → L'ordre normal (je lis le livre) est inversé dans la relative<br>
+                        → Le relatif occupe toujours la première place
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Position avec Préposition</h3>
+                    <div class="sentence-visual">
+                        <span class="antecedent-mark">La table</span> 
+                        <span class="position-arrow">→</span> 
+                        <span class="relative-mark">sur laquelle</span> 
+                        je travaille est solide.
+                    </div>
+                    <p class="explanation-text">
+                        → Le groupe "sur laquelle" (préposition + relatif) est en première position<br>
+                        → La préposition accompagne le relatif en tête de proposition<br>
+                        → Cette structure précède le sujet "je"
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Séparation par un Complément</h3>
+                    <div class="sentence-visual">
+                        <span class="antecedent-mark">Un homme</span> 
+                        <span style="color: var(--cuivre); font-style: italic;">d'une grande intelligence</span>
+                        <span class="position-arrow">→</span> 
+                        <span class="relative-mark">qui</span> 
+                        travaille ici.
+                    </div>
+                    <p class="explanation-text">
+                        → Le complément du nom "d'une grande intelligence" sépare l'antécédent du relatif<br>
+                        → Cette séparation est grammaticalement acceptable<br>
+                        → L'antécédent reste clairement identifiable
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Séparation par une Apposition</h3>
+                    <div class="sentence-visual">
+                        <span class="antecedent-mark">Mon frère</span>, 
+                        <span style="color: var(--cuivre); font-style: italic;">médecin à Paris</span>,
+                        <span class="position-arrow">→</span> 
+                        <span class="relative-mark">qui</span> 
+                        vient nous voir demain...
+                    </div>
+                    <p class="explanation-text">
+                        → L'apposition "médecin à Paris" (entre virgules) s'intercale<br>
+                        → Le relatif reste lié à son antécédent "mon frère"<br>
+                        → Les virgules délimitent clairement l'élément intercalé
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Position avec "dont"</h3>
+                    <div class="sentence-visual">
+                        <span class="antecedent-mark">L'auteur</span> 
+                        <span class="position-arrow">→</span> 
+                        <span class="relative-mark">dont</span> 
+                        je t'ai parlé vient de publier un livre.
+                    </div>
+                    <p class="explanation-text">
+                        → "Dont" est en première position bien qu'il soit complément de "parlé"<br>
+                        → L'ordre naturel (je t'ai parlé de l'auteur) est restructuré<br>
+                        → Le complément "de" est intégré dans "dont"
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Position avec "où"</h3>
+                    <div class="sentence-visual">
+                        <span class="antecedent-mark">La ville</span> 
+                        <span class="position-arrow">→</span> 
+                        <span class="relative-mark">où</span> 
+                        je suis né a beaucoup changé.
+                    </div>
+                    <p class="explanation-text">
+                        → "Où" (complément circonstanciel de lieu) précède le sujet "je"<br>
+                        → La structure normale (je suis né dans cette ville) est transformée<br>
+                        → Le relatif conserve sa position initiale
+                    </p>
+                </div>
+            </section>
+
+            <!-- Rules Section -->
+            <div class="rule-container">
+                <h3 class="rule-title">Règles de Placement Essentielles</h3>
+                <div class="rule-content">
+                    <ul class="rule-list">
+                        <li>
+                            <strong>Proximité immédiate :</strong> Le pronom relatif suit généralement son antécédent 
+                            sans intercalation. C'est la construction la plus claire et la plus fréquente en français.
+                        </li>
+                        <li>
+                            <strong>Position initiale dans la relative :</strong> Le pronom relatif occupe toujours 
+                            la première place de la proposition subordonnée relative, quelle que soit sa fonction 
+                            grammaticale (sujet, COD, COI, circonstanciel).
+                        </li>
+                        <li>
+                            <strong>Préposition liée :</strong> Lorsque le pronom relatif est précédé d'une préposition 
+                            (sur, dans, avec, pour, etc.), l'ensemble "préposition + pronom" se place en tête de relative.
+                        </li>
+                        <li>
+                            <strong>Inversions interdites :</strong> On ne peut jamais placer le sujet ou le verbe 
+                            avant le pronom relatif dans la proposition relative. L'ordre est impératif : 
+                            relatif + sujet + verbe (+ compléments).
+                        </li>
+                        <li>
+                            <strong>Séparations tolérées :</strong> Les compléments du nom, les appositions entre 
+                            virgules, et les propositions incises peuvent s'intercaler entre l'antécédent et le relatif, 
+                            à condition de ne pas créer d'ambiguïté.
+                        </li>
+                        <li>
+                            <strong>Accord visuel :</strong> En cas de doute sur l'antécédent (deux noms possibles), 
+                            privilégiez la proximité avec le nom le plus proche et assurez l'accord du verbe en conséquence.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Table Section -->
+            <section class="table-section">
+                <h2 class="section-heading">Tableau des Positions Possibles</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Configuration</th>
+                            <th>Structure</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="case-cell">Standard</td>
+                            <td>Antécédent + Relatif + Verbe</td>
+                            <td><em>L'homme qui travaille ici...</em></td>
+                        </tr>
+                        <tr>
+                            <td class="case-cell">Avec COD</td>
+                            <td>Antécédent + Relatif + Sujet + Verbe</td>
+                            <td><em>Le film que je regarde...</em></td>
+                        </tr>
+                        <tr>
+                            <td class="case-cell">Avec Préposition</td>
+                            <td>Antécédent + Prép. + Relatif + Sujet + Verbe</td>
+                            <td><em>L'outil avec lequel je travaille...</em></td>
+                        </tr>
+                        <tr>
+                            <td class="case-cell">Avec "dont"</td>
+                            <td>Antécédent + dont + Sujet + Verbe</td>
+                            <td><em>L'auteur dont je parle...</em></td>
+                        </tr>
+                        <tr>
+                            <td class="case-cell">Avec "où"</td>
+                            <td>Antécédent + où + Sujet + Verbe</td>
+                            <td><em>La ville où j'habite...</em></td>
+                        </tr>
+                        <tr>
+                            <td class="case-cell">Avec Complément</td>
+                            <td>Antécédent + Complément + Relatif</td>
+                            <td><em>Un livre de français qui est utile...</em></td>
+                        </tr>
+                        <tr>
+                            <td class="case-cell">Avec Apposition</td>
+                            <td>Antécédent + , Apposition , + Relatif</td>
+                            <td><em>Paul, mon ami, qui vient demain...</em></td>
+                        </tr>
+                        <tr>
+                            <td class="case-cell">Sans Antécédent</td>
+                            <td>Ce + Relatif + Verbe</td>
+                            <td><em>Ce qui m'intéresse, c'est...</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Warning Box -->
+            <div class="warning-box">
+                <h3 class="warning-title">Attention aux Ambiguïtés !</h3>
+                <p class="warning-content">
+                    <strong>Cas problématique :</strong> Lorsque deux noms peuvent servir d'antécédent, le pronom 
+                    relatif se rapporte généralement au <strong>nom le plus proche</strong>. Il faut donc faire 
+                    attention à la structure de la phrase pour éviter les confusions.<br><br>
+                    
+                    <strong>Exemple ambigu :</strong><br>
+                    ❌ <em>"J'ai rencontré <strong>le frère de mon ami</strong> qui habite à Paris."</em><br>
+                    → Qui habite à Paris ? Le frère ou l'ami ? L'ambiguïté persiste !<br><br>
+                    
+                    <strong>Solutions :</strong><br>
+                    ✅ Si c'est l'ami : <em>"J'ai rencontré le frère de mon ami, <strong>lequel</strong> habite à Paris."</em><br>
+                    ✅ Si c'est le frère : <em>"J'ai rencontré le frère de mon ami. <strong>Il</strong> habite à Paris."</em><br>
+                    ✅ Ou reformulez : <em>"Le frère de mon ami habite à Paris. Je l'ai rencontré hier."</em><br><br>
+                    
+                    <strong>Règle d'or :</strong> En cas de doute, reformulez la phrase pour éliminer toute ambiguïté 
+                    plutôt que de forcer une construction confuse.
+                </p>
+            </div>
+
+            <!-- More Visual Examples -->
+            <section class="visual-section">
+                <h2 class="visual-heading">Exemples d'Ordre des Mots</h2>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Ordre Standard : Relatif Sujet</h3>
+                    <div class="sentence-visual">
+                        Les enfants <span class="relative-mark">qui</span> jouent dans le parc sont joyeux.
+                    </div>
+                    <p class="explanation-text">
+                        <strong>Structure :</strong> Relatif (sujet) + Verbe + Compléments<br>
+                        <strong>Fonction :</strong> "Qui" est sujet de "jouent"<br>
+                        <strong>Position :</strong> Le relatif précède directement le verbe
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Ordre avec COD : Relatif en Tête</h3>
+                    <div class="sentence-visual">
+                        Le roman <span class="relative-mark">que</span> Marie lit est passionnant.
+                    </div>
+                    <p class="explanation-text">
+                        <strong>Structure :</strong> Relatif (COD) + Sujet + Verbe<br>
+                        <strong>Ordre normal inversé :</strong> "Marie lit le roman" → "que Marie lit"<br>
+                        <strong>Position :</strong> Le COD "que" passe avant le sujet dans la relative
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Ordre avec COI : Dont en Premier</h3>
+                    <div class="sentence-visual">
+                        La question <span class="relative-mark">dont</span> nous parlons est importante.
+                    </div>
+                    <p class="explanation-text">
+                        <strong>Structure :</strong> Relatif (COI) + Sujet + Verbe<br>
+                        <strong>Ordre normal inversé :</strong> "Nous parlons de la question" → "dont nous parlons"<br>
+                        <strong>Position :</strong> "Dont" précède le sujet "nous"
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Ordre avec Complément Circonstanciel</h3>
+                    <div class="sentence-visual">
+                        Le moment <span class="relative-mark">où</span> tu arriveras sera parfait.
+                    </div>
+                    <p class="explanation-text">
+                        <strong>Structure :</strong> Relatif (CC temps) + Sujet + Verbe<br>
+                        <strong>Ordre normal inversé :</strong> "Tu arriveras à ce moment" → "où tu arriveras"<br>
+                        <strong>Position :</strong> Le circonstanciel "où" est placé en tête
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Ordre avec Préposition + Relatif</h3>
+                    <div class="sentence-visual">
+                        Les outils <span class="relative-mark">avec lesquels</span> l'artisan travaille sont anciens.
+                    </div>
+                    <p class="explanation-text">
+                        <strong>Structure :</strong> (Préposition + Relatif) + Sujet + Verbe<br>
+                        <strong>Bloc indissociable :</strong> "Avec lesquels" forme un ensemble<br>
+                        <strong>Position :</strong> Tout le groupe prépositionnel précède le sujet
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Ordre avec Complément du Nom</h3>
+                    <div class="sentence-visual">
+                        L'écrivain <span class="relative-mark">dont</span> le livre est célèbre vit à Lyon.
+                    </div>
+                    <p class="explanation-text">
+                        <strong>Structure :</strong> Relatif + Article + Nom (possédé) + Verbe<br>
+                        <strong>Construction :</strong> "Le livre de l'écrivain" → "dont le livre"<br>
+                        <strong>Position :</strong> "Dont" précède le nom qu'il détermine
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Ordre avec Pronom Personnel</h3>
+                    <div class="sentence-visual">
+                        Les idées <span class="relative-mark">que</span> tu m'as expliquées sont claires.
+                    </div>
+                    <p class="explanation-text">
+                        <strong>Structure :</strong> Relatif + Sujet + Pronom(s) + Verbe<br>
+                        <strong>Ordre :</strong> Les pronoms personnels ("me", "te", "lui", etc.) se placent après le sujet<br>
+                        <strong>Position :</strong> Le relatif reste en première position absolue
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Ordre avec Négation</h3>
+                    <div class="sentence-visual">
+                        L'histoire <span class="relative-mark">que</span> je ne comprends pas est complexe.
+                    </div>
+                    <p class="explanation-text">
+                        <strong>Structure :</strong> Relatif + Sujet + ne + Verbe + pas<br>
+                        <strong>Négation :</strong> La négation encadre le verbe normalement<br>
+                        <strong>Position :</strong> Le relatif précède toute la structure négative
+                    </p>
+                </div>
+            </section>
+
+            <!-- Tip Box -->
+            <div class="tip-box">
+                <h3 class="tip-title">Conseil Pratique pour Bien Placer le Relatif</h3>
+                <p class="tip-content">
+                    <strong>Méthode en 4 étapes :</strong><br><br>
+                    
+                    <strong>1. Identifiez l'antécédent</strong> : Quel nom ou pronom le relatif remplace-t-il ?<br>
+                    <strong>2. Placez le relatif immédiatement après</strong> : Sauf exception, le relatif suit directement l'antécédent<br>
+                    <strong>3. Construisez la relative</strong> : Le relatif est TOUJOURS en première position dans sa proposition<br>
+                    <strong>4. Vérifiez l'accord</strong> : Le verbe s'accorde avec l'antécédent si le relatif est sujet<br><br>
+                    
+                    <strong>Exemple d'application :</strong><br>
+                    → Phrase à construire : "Les étudiants réussissent. Ils travaillent régulièrement."<br>
+                    → Antécédent : "les étudiants"<br>
+                    → Relatif sujet : "qui"<br>
+                    → Construction : <em>"Les étudiants <strong>qui</strong> travaillent régulièrement réussissent."</em><br>
+                    → Le relatif "qui" suit l'antécédent et précède le verbe "travaillent"
+                </p>
+            </div>
+
+            <!-- More Complex Cases -->
+            <section class="visual-section">
+                <h2 class="visual-heading">Cas Complexes et Subtilités</h2>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Relative Incise (Entre Virgules)</h3>
+                    <div class="sentence-visual">
+                        Mon père, <span class="relative-mark">qui</span> est médecin, travaille beaucoup.
+                    </div>
+                    <p class="explanation-text">
+                        → La relative est une <strong>proposition explicative</strong> (entre virgules)<br>
+                        → Elle apporte une information supplémentaire, non essentielle<br>
+                        → Le relatif suit immédiatement l'antécédent malgré la virgule
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Double Relative</h3>
+                    <div class="sentence-visual">
+                        Le livre <span class="relative-mark">que</span> j'ai acheté et <span class="relative-mark">qui</span> est sur la table...
+                    </div>
+                    <p class="explanation-text">
+                        → Deux relatives coordonnées se rapportant au même antécédent<br>
+                        → Chaque relative commence par son propre pronom relatif<br>
+                        → Les deux pronoms peuvent avoir des fonctions différentes
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Relative au Subjonctif</h3>
+                    <div class="sentence-visual">
+                        Je cherche quelqu'un <span class="relative-mark">qui</span> puisse m'aider.
+                    </div>
+                    <p class="explanation-text">
+                        → Le mode du verbe (subjonctif) n'affecte pas la position du relatif<br>
+                        → "Qui" reste en première position de la relative<br>
+                        → L'ordre des mots demeure identique quel que soit le mode
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Relative avec "ce" (Sans Antécédent Nominal)</h3>
+                    <div class="sentence-visual">
+                        <span class="relative-mark">Ce qui</span> m'intéresse, c'est la musique.
+                    </div>
+                    <p class="explanation-text">
+                        → "Ce qui" forme un bloc : pronom démonstratif neutre + relatif<br>
+                        → Pas d'antécédent nominal précis, "ce" représente une idée générale<br>
+                        → La relative est détachée et mise en relief
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Relative en Début de Phrase</h3>
+                    <div class="sentence-visual">
+                        <span class="relative-mark">Qui</span> vivra verra.
+                    </div>
+                    <p class="explanation-text">
+                        → Proverbe sans antécédent exprimé<br>
+                        → "Qui" a une valeur indéfinie ("celui qui", "quiconque")<br>
+                        → Construction particulière aux expressions figées
+                    </p>
+                </div>
+
+                <div class="diagram-box">
+                    <h3 class="diagram-title">Relative avec Inversion Sujet-Verbe (Rare)</h3>
+                    <div class="sentence-visual">
+                        La maison <span class="relative-mark">où</span> habitent mes parents est grande.
+                    </div>
+                    <p class="explanation-text">
+                        → Inversion possible quand le sujet est long et le verbe court<br>
+                        → Style soutenu, peu fréquent en français moderne<br>
+                        → Le relatif reste en première position
+                    </p>
+                </div>
+            </section>
+
+            <!-- Highlight Panel -->
+            <section class="highlight-panel">
+                <h2>Points Clés à Retenir</h2>
+                <ul class="highlight-list">
+                    <li>
+                        <strong>Position privilégiée :</strong> Le pronom relatif se place immédiatement après son 
+                        antécédent dans la construction standard. Cette proximité assure la clarté de la référence 
+                        et facilite la compréhension immédiate de la relation grammaticale.
+                    </li>
+                    <li>
+                        <strong>Tête de proposition :</strong> Le pronom relatif occupe TOUJOURS la première position 
+                        dans la proposition subordonnée relative, quelle que soit sa fonction grammaticale (sujet, 
+                        COD, COI, complément circonstanciel). Cette règle est absolue et sans exception.
+                    </li>
+                    <li>
+                        <strong>Préposition solidaire :</strong> Lorsqu'une préposition accompagne le pronom relatif 
+                        (sur, dans, avec, pour, etc.), l'ensemble "préposition + pronom" forme un bloc indissociable 
+                        qui se place en tête de la proposition relative.
+                    </li>
+                    <li>
+                        <strong>Inversions autorisées :</strong> Dans la relative, l'ordre normal sujet-verbe peut 
+                        être modifié car le relatif passe en première position. Ainsi, un COD relatif ("que") 
+                        précède le sujet, contrairement à l'ordre habituel.
+                    </li>
+                    <li>
+                        <strong>Séparations tolérées :</strong> Certains éléments peuvent s'intercaler entre 
+                        l'antécédent et le relatif : compléments du nom, appositions entre virgules, ou propositions 
+                        incises. Ces séparations doivent rester limitées pour éviter l'ambiguïté.
+                    </li>
+                    <li>
+                        <strong>Accord et proximité :</strong> En présence de deux antécédents possibles, le pronom 
+                        relatif se rapporte généralement au nom le plus proche. Le verbe de la relative s'accorde 
+                        en conséquence si le relatif est sujet.
+                    </li>
+                    <li>
+                        <strong>Clarté avant tout :</strong> En cas d'ambiguïté sur l'antécédent, il est préférable 
+                        de reformuler la phrase plutôt que de maintenir une construction confuse. La clarté prime 
+                        sur la concision.
+                    </li>
+                    <li>
+                        <strong>Pas d'inversion après le relatif :</strong> On ne peut jamais placer le verbe avant 
+                        le sujet dans une relative introduite par "qui", "que", "dont". L'ordre reste : 
+                        relatif + sujet + verbe (sauf cas très rares en langue soutenue).
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Final Tip -->
+            <div class="tip-box">
+                <h3 class="tip-title">Récapitulatif Visual de l'Ordre</h3>
+                <p class="tip-content">
+                    <strong>📍 Structure Générale de la Relative :</strong><br><br>
+                    
+                    <strong style="color: var(--bleu-marine);">ANTÉCÉDENT</strong> + 
+                    <strong style="color: var(--rouge-cardinal);">PRONOM RELATIF</strong> + 
+                    <strong style="color: var(--graphite);">RESTE DE LA PROPOSITION</strong><br><br>
+                    
+                    <strong>Détail du "Reste de la Proposition" :</strong><br>
+                    • Si relatif = sujet → Verbe + Compléments<br>
+                    • Si relatif = COD → Sujet + Verbe + Compléments<br>
+                    • Si relatif = COI → Sujet + Verbe + Compléments<br>
+                    • Si relatif = CC → Sujet + Verbe + Compléments<br><br>
+                    
+                    <strong>🎯 Règle d'Or :</strong> Le pronom relatif est TOUJOURS le premier mot de sa proposition, 
+                    même quand il est complément !
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Língua Academy · Tous droits réservés</p>
+            <p class="footer-logo">LÍNGUA ACADEMY</p>
+            <p>Votre Partenaire pour l'Excellence en Français</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const scrollObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply fade-in effect to diagram boxes
+        document.querySelectorAll('.diagram-box').forEach(box => {
+            box.style.opacity = '0';
+            box.style.transform = 'translateY(30px)';
+            box.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            scrollObserver.observe(box);
+        });
+
+        // Add dynamic hover effects
+        document.querySelectorAll('.content-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.querySelector('.card-icon').style.transform = 'scale(1.2) rotate(10deg)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.querySelector('.card-icon').style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Animate table rows on scroll
+        document.querySelectorAll('tbody tr').forEach((row, index) => {
+            row.style.opacity = '0';
+            row.style.transform = 'translateX(-30px)';
+            row.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            
+            scrollObserver.observe(row);
+        });
+    </script>
+</body>
+</html>

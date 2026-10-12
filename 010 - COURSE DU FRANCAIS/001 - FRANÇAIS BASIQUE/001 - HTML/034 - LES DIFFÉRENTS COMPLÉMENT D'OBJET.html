@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Compléments d'Objet | Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 35px;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #002395 0%, #FFFFFF 50%, #ED2939 100%);
+            color: white;
+            padding: 70px 45px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🎯';
+            position: absolute;
+            font-size: 25em;
+            opacity: 0.08;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(15deg);
+            animation: rotate 40s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3.8em;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+            color: #002395;
+        }
+
+        .subtitle {
+            font-size: 1.7em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            color: #002395;
+            font-weight: 600;
+        }
+
+        .content {
+            padding: 60px 50px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+            border-left: 10px solid #e17055;
+            animation: slideInLeft 0.9s ease-out;
+            box-shadow: 0 10px 30px rgba(225, 112, 85, 0.3);
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-80px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .intro p {
+            font-size: 1.25em;
+            color: #2d3436;
+            margin-bottom: 15px;
+        }
+
+        .intro strong {
+            color: #d63031;
+        }
+
+        h2 {
+            color: #002395;
+            font-size: 2.6em;
+            margin: 50px 0 30px 0;
+            padding-bottom: 20px;
+            border-bottom: 5px solid #ED2939;
+            display: inline-block;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #f093fb);
+            animation: expandWidth 2s ease-out forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        .section {
+            margin-bottom: 55px;
+            animation: fadeInUp 0.9s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .co-card {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 35px 0;
+            border: 5px solid #00d2ff;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.3);
+        }
+
+        .co-card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 20px 50px rgba(0, 210, 255, 0.5);
+        }
+
+        .co-card h3 {
+            color: #01579b;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        .co-card h3 .icon {
+            font-size: 1.6em;
+            margin-right: 15px;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .numero {
+            display: inline-block;
+            background: linear-gradient(135deg, #ED2939 0%, #c41230 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            margin-right: 15px;
+            font-weight: bold;
+            box-shadow: 0 6px 18px rgba(237, 41, 57, 0.6);
+            font-size: 1.3em;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 8px solid #ff6348;
+            box-shadow: 0 6px 20px rgba(255, 99, 72, 0.3);
+        }
+
+        .definition-box h4 {
+            color: #d63031;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .definition-box h4::before {
+            content: '📝';
+            margin-right: 12px;
+            font-size: 1.3em;
+        }
+
+        .example-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .example {
+            padding: 22px;
+            margin: 15px 0;
+            border-radius: 12px;
+            font-size: 1.25em;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .example::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .example:hover::before {
+            left: 100%;
+        }
+
+        .example:hover {
+            transform: scale(1.05);
+        }
+
+        .example-cod {
+            background: linear-gradient(135deg, #c3fdff 0%, #89f7fe 100%);
+            border-left: 6px solid #00bcd4;
+        }
+
+        .example-coi {
+            background: linear-gradient(135deg, #d4f1f4 0%, #a8e6cf 100%);
+            border-left: 6px solid #00b894;
+        }
+
+        .example-cos {
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe066 100%);
+            border-left: 6px solid #f39c12;
+        }
+
+        .highlight-sujet {
+            background: linear-gradient(135deg, #ff7979 0%, #eb4d4b 100%);
+            padding: 5px 12px;
+            border-radius: 7px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 3px 8px rgba(235, 77, 75, 0.4);
+        }
+
+        .highlight-verbe {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            padding: 5px 12px;
+            border-radius: 7px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 3px 8px rgba(108, 92, 231, 0.4);
+        }
+
+        .highlight-cod {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            padding: 5px 12px;
+            border-radius: 7px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 3px 8px rgba(9, 132, 227, 0.4);
+        }
+
+        .highlight-coi {
+            background: linear-gradient(135deg, #55efc4 0%, #00b894 100%);
+            padding: 5px 12px;
+            border-radius: 7px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 3px 8px rgba(0, 184, 148, 0.4);
+        }
+
+        .highlight-cos {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 5px 12px;
+            border-radius: 7px;
+            font-weight: bold;
+            color: #2d3436;
+            box-shadow: 0 3px 8px rgba(253, 203, 110, 0.4);
+        }
+
+        .test-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 4px solid #4caf50;
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .test-box h4 {
+            color: #2e7d32;
+            font-size: 1.7em;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .test-box h4::before {
+            content: '🔍';
+            margin-right: 12px;
+            font-size: 1.3em;
+        }
+
+        .question-box {
+            background: linear-gradient(135deg, #ffecb3 0%, #ffe082 100%);
+            padding: 22px;
+            border-radius: 10px;
+            margin: 18px 0;
+            border-left: 5px solid #ffa000;
+            font-size: 1.15em;
+            color: #e65100;
+        }
+
+        .question-box::before {
+            content: '❓ ';
+            font-size: 1.4em;
+            margin-right: 10px;
+        }
+
+        .answer-box {
+            background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #388e3c;
+            font-size: 1.15em;
+            color: #1b5e20;
+        }
+
+        .answer-box::before {
+            content: '✅ ';
+            font-size: 1.4em;
+            margin-right: 10px;
+        }
+
+        .attention-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 5px dashed #f44336;
+            margin: 35px 0;
+            box-shadow: 0 8px 25px rgba(244, 67, 54, 0.3);
+        }
+
+        .attention-box h3 {
+            color: #c62828;
+            font-size: 1.8em;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .attention-box h3::before {
+            content: '⚠️';
+            margin-right: 15px;
+            font-size: 1.4em;
+            animation: shake 2s ease-in-out infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .comparison-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 4px solid #1976d2;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(25, 118, 210, 0.2);
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(25, 118, 210, 0.5);
+        }
+
+        .comparison-card h5 {
+            color: #0d47a1;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 3px solid #1976d2;
+            padding-bottom: 12px;
+        }
+
+        .schema-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 35px;
+            border-radius: 18px;
+            margin: 35px 0;
+            text-align: center;
+            border: 5px solid #9c27b0;
+            box-shadow: 0 10px 30px rgba(156, 39, 176, 0.4);
+        }
+
+        .schema-content {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #4a148c;
+            line-height: 2.2;
+        }
+
+        .arrow {
+            font-size: 2.2em;
+            color: #ED2939;
+            margin: 0 18px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .liste-regles {
+            list-style: none;
+            padding: 0;
+        }
+
+        .liste-regles li {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            padding: 22px;
+            margin: 18px 0;
+            border-radius: 12px;
+            border-left: 6px solid #667eea;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-size: 1.15em;
+        }
+
+        .liste-regles li:hover {
+            background: linear-gradient(135deg, #e8eaff 0%, #d8daff 100%);
+            transform: translateX(12px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .tips-box {
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe066 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 4px dashed #f39c12;
+            margin: 35px 0;
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.3);
+        }
+
+        .tips-box h3 {
+            color: #d35400;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .tips-box h3::before {
+            content: '💡';
+            margin-right: 15px;
+            font-size: 1.5em;
+            animation: glow 2.5s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { 
+                filter: brightness(1) drop-shadow(0 0 10px gold); 
+                transform: scale(1);
+            }
+            50% { 
+                filter: brightness(1.5) drop-shadow(0 0 25px gold); 
+                transform: scale(1.15);
+            }
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            text-align: center;
+            padding: 45px;
+            font-size: 1.2em;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .logo {
+            font-weight: bold;
+            color: #ffd700;
+            font-size: 1.5em;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .content {
+                padding: 40px 25px;
+            }
+
+            header {
+                padding: 50px 25px;
+            }
+
+            .comparison-table {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇫🇷 Les Compléments d'Objet</h1>
+            <p class="subtitle">COD • COI • COS</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <p><strong>🎯 Qu'est-ce qu'un complément d'objet ?</strong></p>
+                <p>Le complément d'objet est un mot ou un groupe de mots qui <strong>complète le sens du verbe</strong>. Il représente la personne ou la chose sur laquelle porte l'action du verbe.</p>
+                <p>Il existe <strong>trois types</strong> de compléments d'objet : le COD, le COI et le COS.</p>
+            </div>
+
+            <div class="schema-box">
+                <div class="schema-content">
+                    <span class="highlight-sujet">SUJET</span>
+                    <span class="arrow">+</span>
+                    <span class="highlight-verbe">VERBE</span>
+                    <span class="arrow">+</span>
+                    <span class="highlight-cod">COMPLÉMENT D'OBJET</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>1. Le Complément d'Objet Direct (COD)</h2>
+
+                <div class="co-card">
+                    <h3><span class="numero">1</span><span class="icon">🎯</span>Qu'est-ce que le COD ?</h3>
+                    
+                    <div class="definition-box">
+                        <h4>Définition</h4>
+                        <p>Le COD complète <strong>directement</strong> le verbe, <strong>sans préposition</strong>. Il répond aux questions <strong>« qui ? »</strong> ou <strong>« quoi ? »</strong> après le verbe.</p>
+                    </div>
+
+                    <div class="test-box">
+                        <h4>Comment identifier le COD ?</h4>
+                        <p><strong>Posez la question :</strong></p>
+                        <div class="question-box">
+                            SUJET + VERBE + <strong>qui ?</strong> ou <strong>quoi ?</strong>
+                        </div>
+                    </div>
+
+                    <div class="example-container">
+                        <h4 style="color: #01579b; margin-bottom: 20px; font-size: 1.4em;">Exemples avec COD :</h4>
+                        
+                        <div class="example example-cod">
+                            <span class="highlight-sujet">Marie</span> <span class="highlight-verbe">mange</span> <span class="highlight-cod">une pomme</span>.
+                        </div>
+                        <div class="question-box">
+                            Marie mange quoi ? → une pomme (COD)
+                        </div>
+
+                        <div class="example example-cod">
+                            <span class="highlight-sujet">Je</span> <span class="highlight-verbe">lis</span> <span class="highlight-cod">un livre</span>.
+                        </div>
+                        <div class="question-box">
+                            Je lis quoi ? → un livre (COD)
+                        </div>
+
+                        <div class="example example-cod">
+                            <span class="highlight-sujet">Paul</span> <span class="highlight-verbe">rencontre</span> <span class="highlight-cod">ses amis</span>.
+                        </div>
+                        <div class="question-box">
+                            Paul rencontre qui ? → ses amis (COD)
+                        </div>
+
+                        <div class="example example-cod">
+                            <span class="highlight-sujet">Les enfants</span> <span class="highlight-verbe">regardent</span> <span class="highlight-cod">la télévision</span>.
+                        </div>
+
+                        <div class="example example-cod">
+                            <span class="highlight-sujet">Elle</span> <span class="highlight-verbe">aime</span> <span class="highlight-cod">le chocolat</span>.
+                        </div>
+
+                        <div class="example example-cod">
+                            <span class="highlight-sujet">Nous</span> <span class="highlight-verbe">écoutons</span> <span class="highlight-cod">de la musique</span>.
+                        </div>
+                    </div>
+
+                    <div class="attention-box">
+                        <h3>Important !</h3>
+                        <p>✓ Le COD est <strong>sans préposition</strong></p>
+                        <p>✓ Il se place généralement <strong>après le verbe</strong></p>
+                        <p>✓ Il peut être un <strong>nom, un pronom, un infinitif ou une proposition</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>2. Le Complément d'Objet Indirect (COI)</h2>
+
+                <div class="co-card">
+                    <h3><span class="numero">2</span><span class="icon">🎯</span>Qu'est-ce que le COI ?</h3>
+                    
+                    <div class="definition-box">
+                        <h4>Définition</h4>
+                        <p>Le COI complète le verbe <strong>indirectement</strong>, c'est-à-dire <strong>avec une préposition</strong> (à, de, pour, contre, etc.). Il répond aux questions <strong>« à qui ? », « de qui ? », « à quoi ? », « de quoi ? »</strong></p>
+                    </div>
+
+                    <div class="test-box">
+                        <h4>Comment identifier le COI ?</h4>
+                        <p><strong>Posez la question :</strong></p>
+                        <div class="question-box">
+                            SUJET + VERBE + <strong>à qui ?</strong> / <strong>à quoi ?</strong> / <strong>de qui ?</strong> / <strong>de quoi ?</strong>
+                        </div>
+                    </div>
+
+                    <div class="example-container">
+                        <h4 style="color: #01579b; margin-bottom: 20px; font-size: 1.4em;">Exemples avec COI :</h4>
+                        
+                        <div class="example example-coi">
+                            <span class="highlight-sujet">Je</span> <span class="highlight-verbe">parle</span> <span class="highlight-coi">à Marie</span>.
+                        </div>
+                        <div class="question-box">
+                            Je parle à qui ? → à Marie (COI)
+                        </div>
+
+                        <div class="example example-coi">
+                            <span class="highlight-sujet">Il</span> <span class="highlight-verbe">pense</span> <span class="highlight-coi">à son voyage</span>.
+                        </div>
+                        <div class="question-box">
+                            Il pense à quoi ? → à son voyage (COI)
+                        </div>
+
+                        <div class="example example-coi">
+                            <span class="highlight-sujet">Elle</span> <span class="highlight-verbe">obéit</span> <span class="highlight-coi">à ses parents</span>.
+                        </div>
+                        <div class="question-box">
+                            Elle obéit à qui ? → à ses parents (COI)
+                        </div>
+
+                        <div class="example example-coi">
+                            <span class="highlight-sujet">Nous</span> <span class="highlight-verbe">téléphonons</span> <span class="highlight-coi">à nos amis</span>.
+                        </div>
+
+                        <div class="example example-coi">
+                            <span class="highlight-sujet">Pierre</span> <span class="highlight-verbe">se souvient</span> <span class="highlight-coi">de son enfance</span>.
+                        </div>
+
+                        <div class="example example-coi">
+                            <span class="highlight-sujet">Tu</span> <span class="highlight-verbe">ressembles</span> <span class="highlight-coi">à ton père</span>.
+                        </div>
+                    </div>
+
+                    <div class="attention-box">
+                        <h3>Important !</h3>
+                        <p>✓ Le COI est introduit par une <strong>préposition</strong> (à, de, pour, contre...)</p>
+                        <p>✓ La préposition dépend du verbe</p>
+                        <p>✓ Certains verbes se construisent TOUJOURS avec une préposition</p>
+                        <p style="margin-top: 15px;"><strong>Verbes + à :</strong> parler à, téléphoner à, obéir à, ressembler à, plaire à</p>
+                        <p><strong>Verbes + de :</strong> parler de, se souvenir de, rêver de, avoir besoin de, profiter de</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>3. Le Complément d'Objet Second (COS)</h2>
+
+                <div class="co-card">
+                    <h3><span class="numero">3</span><span class="icon">🎯</span>Qu'est-ce que le COS ?</h3>
+                    
+                    <div class="definition-box">
+                        <h4>Définition</h4>
+                        <p>Le COS est un <strong>second complément d'objet</strong> qui s'ajoute au COD. Il est introduit par une préposition (généralement <strong>à</strong> ou <strong>de</strong>).</p>
+                        <p style="margin-top: 15px;">Structure : SUJET + VERBE + <strong>COD</strong> + <strong>COS</strong></p>
+                    </div>
+
+                    <div class="test-box">
+                        <h4>Comment identifier le COS ?</h4>
+                        <p><strong>Il faut deux compléments :</strong></p>
+                        <div class="question-box">
+                            1. Un COD (quoi ? qui ?)<br>
+                            2. Un COS (à qui ? à quoi ?)
+                        </div>
+                    </div>
+
+                    <div class="example-container">
+                        <h4 style="color: #01579b; margin-bottom: 20px; font-size: 1.4em;">Exemples avec COD + COS :</h4>
+                        
+                        <div class="example example-cos">
+                            <span class="highlight-sujet">Je</span> <span class="highlight-verbe">donne</span> <span class="highlight-cod">un livre</span> <span class="highlight-cos">à Marie</span>.
+                        </div>
+                        <div class="question-box">
+                            Je donne quoi ? → un livre (COD)<br>
+                            Je donne à qui ? → à Marie (COS)
+                        </div>
+
+                        <div class="example example-cos">
+                            <span class="highlight-sujet">Elle</span> <span class="highlight-verbe">offre</span> <span class="highlight-cod">un cadeau</span> <span class="highlight-cos">à son ami</span>.
+                        </div>
+                        <div class="question-box">
+                            Elle offre quoi ? → un cadeau (COD)<br>
+                            Elle offre à qui ? → à son ami (COS)
+                        </div>
+
+                        <div class="example example-cos">
+                            <span class="highlight-sujet">Paul</span> <span class="highlight-verbe">prête</span> <span class="highlight-cod">sa voiture</span> <span class="highlight-cos">à Pierre</span>.
+                        </div>
+
+                        <div class="example example-cos">
+                            <span class="highlight-sujet">Nous</span> <span class="highlight-verbe">envoyons</span> <span class="highlight-cod">une lettre</span> <span class="highlight-cos">à nos parents</span>.
+                        </div>
+
+                        <div class="example example-cos">
+                            <span class="highlight-sujet">Le professeur</span> <span class="highlight-verbe">explique</span> <span class="highlight-cod">la leçon</span> <span class="highlight-cos">aux élèves</span>.
+                        </div>
+
+                        <div class="example example-cos">
+                            <span class="highlight-sujet">Marie</span> <span class="highlight-verbe">montre</span> <span class="highlight-cod">ses photos</span> <span class="highlight-cos">à sa famille</span>.
+                        </div>
+                    </div>
+
+                    <div class="attention-box">
+                        <h3>Important !</h3>
+                        <p>✓ Le COS apparaît quand il y a <strong>déjà un COD</strong></p>
+                        <p>✓ Il est toujours introduit par une <strong>préposition</strong> (à, de)</p>
+                        <p>✓ Il indique généralement le <strong>destinataire</strong> ou le <strong>bénéficiaire</strong></p>
+                        <p style="margin-top: 15px;"><strong>Verbes avec COD + COS :</strong> donner, offrir, prêter, envoyer, dire, montrer, expliquer, vendre, acheter</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Tableau Comparatif des 3 Compléments</h2>
+
+                <div class="comparison-table">
+                    <div class="comparison-card">
+                        <h5>COD</h5>
+                        <div class="example example-cod">
+                            Je <strong>lis</strong> un livre.
+                        </div>
+                        <p style="margin-top: 15px; color: #0d47a1;">
+                            ✓ Sans préposition<br>
+                            ✓ Questions : qui ? quoi ?<br>
+                            ✓ Direct après le verbe
+                        </p>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h5>COI</h5>
+                        <div class="example example-coi">
+                            Je <strong>parle</strong> à Marie.
+                        </div>
+                        <p style="margin-top: 15px; color: #0d47a1;">
+                            ✓ Avec préposition (à, de)<br>
+                            ✓ Questions : à qui ? de quoi ?<br>
+                            ✓ Indirect (avec prép.)
+                        </p>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h5>COS</h5>
+                        <div class="example example-cos">
+                            Je <strong>donne</strong> un livre à Marie.
+                        </div>
+                        <p style="margin-top: 15px; color: #0d47a1;">
+                            ✓ Second complément<br>
+                            ✓ Après le COD<br>
+                            ✓ Avec préposition
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Différences Importantes</h2>
+
+                <div class="schema-box">
+                    <div class="schema-content" style="font-size: 1.3em;">
+                        <strong>COD</strong> : Pas de préposition ✓<br>
+                        <strong>COI</strong> : Avec préposition (mais pas de COD) ✓<br>
+                        <strong>COS</strong> : Avec préposition + il y a déjà un COD ✓
+                    </div>
+                </div>
+
+                <div class="comparison-table">
+                    <div class="comparison-card">
+                        <h5>🔵 Verbe + COD seulement</h5>
+                        <div class="example example-cod">
+                            J'aime <strong>le chocolat</strong>. (COD)
+                        </div>
+                        <div class="example example-cod">
+                            Elle regarde <strong>la télé</strong>. (COD)
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h5>🟢 Verbe + COI seulement</h5>
+                        <div class="example example-coi">
+                            Je pense <strong>à toi</strong>. (COI)
+                        </div>
+                        <div class="example example-coi">
+                            Elle parle <strong>à Pierre</strong>. (COI)
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h5>🟡 Verbe + COD + COS</h5>
+                        <div class="example example-cos">
+                            Je donne <strong>un livre</strong> (COD) <strong>à Marie</strong> (COS).
+                        </div>
+                        <div class="example example-cos">
+                            Il prête <strong>sa voiture</strong> (COD) <strong>à son frère</strong> (COS).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Règles Essentielles</h2>
+
+                <ul class="liste-regles">
+                    <li>📌 <strong>COD :</strong> Répond à « qui ? » ou « quoi ? » - SANS préposition</li>
+                    <li>📌 <strong>COI :</strong> Répond à « à qui ? », « de qui ? », « à quoi ? », « de quoi ? » - AVEC préposition</li>
+                    <li>📌 <strong>COS :</strong> Second complément APRÈS un COD - AVEC préposition</li>
+                    <li>📌 <strong>Position :</strong> Généralement après le verbe (ordre : COD puis COS)</li>
+                    <li>📌 <strong>Nature :</strong> Peut être un nom, un pronom, un groupe nominal, un infinitif ou une proposition</li>
+                    <li>📌 <strong>Suppression :</strong> Le complément d'objet ne peut généralement pas être supprimé sans changer le sens</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Verbes selon leur Construction</h2>
+
+                <div class="comparison-table">
+                    <div class="comparison-card">
+                        <h5>Verbes + COD</h5>
+                        <p style="font-size: 1.15em; line-height: 1.8;">
+                            • manger<br>
+                            • boire<br>
+                            • lire<br>
+                            • regarder<br>
+                            • aimer<br>
+                            • écouter<br>
+                            • voir<br>
+                            • prendre
+                        </p>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h5>Verbes + COI (à)</h5>
+                        <p style="font-size: 1.15em; line-height: 1.8;">
+                            • parler à<br>
+                            • téléphoner à<br>
+                            • obéir à<br>
+                            • ressembler à<br>
+                            • plaire à<br>
+                            • penser à<br>
+                            • répondre à
+                        </p>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h5>Verbes + COI (de)</h5>
+                        <p style="font-size: 1.15em; line-height: 1.8;">
+                            • parler de<br>
+                            • se souvenir de<br>
+                            • rêver de<br>
+                            • avoir besoin de<br>
+                            • profiter de<br>
+                            • se servir de<br>
+                            • douter de
+                        </p>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h5>Verbes + COD + COS</h5>
+                        <p style="font-size: 1.15em; line-height: 1.8;">
+                            • donner qqch à qqn<br>
+                            • offrir qqch à qqn<br>
+                            • prêter qqch à qqn<br>
+                            • envoyer qqch à qqn<br>
+                            • dire qqch à qqn<br>
+                            • montrer qqch à qqn<br>
+                            • expliquer qqch à qqn
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h3>Astuce Pratique</h3>
+                <p style="font-size: 1.2em; line-height: 1.9;">
+                    <strong>Pour identifier le type de complément :</strong><br><br>
+                    1️⃣ Cherchez le verbe<br>
+                    2️⃣ Posez la question « qui ? » ou « quoi ? »<br>
+                    3️⃣ Si la réponse vient <strong>sans préposition</strong> → <strong>COD</strong><br>
+                    4️⃣ Si vous devez ajouter « à » ou « de » dans la question → <strong>COI</strong><br>
+                    5️⃣ S'il y a déjà un COD et un autre complément avec préposition → <strong>COS</strong>
+                </p>
+            </div>
+
+            <div class="attention-box">
+                <h3>Erreurs Fréquentes à Éviter</h3>
+                <ul class="liste-regles" style="margin-top: 20px;">
+                    <li>❌ Confondre COI et COS : le COS existe SEULEMENT quand il y a déjà un COD</li>
+                    <li>❌ Oublier la préposition pour le COI : "Je parle Marie" → ✅ "Je parle à Marie"</li>
+                    <li>❌ Mettre une préposition avec un COD : "Je mange à une pomme" → ✅ "Je mange une pomme"</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p class="logo">🎓 Língua Academy</p>
+            <p>Maîtrisez la grammaire française avec excellence</p>
+            <p>© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

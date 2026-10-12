@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposizioni Subordinate - Guida Completa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: slideDown 1s ease-out;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #f0f0f0;
+            font-style: italic;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .intro-section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #764ba2;
+            padding-bottom: 10px;
+        }
+
+        .intro-section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .gradi-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: fadeIn 1.4s ease-out;
+        }
+
+        .gradi-section h2 {
+            color: #fff;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gradi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .grado-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .grado-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .grado-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #f5576c;
+        }
+
+        .grado-card .esempio {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            margin-top: 10px;
+            font-style: italic;
+            border-radius: 5px;
+        }
+
+        .clause-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .clause-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .clause-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            transition: height 0.3s ease;
+        }
+
+        .clause-card:hover::before {
+            height: 100%;
+            opacity: 0.1;
+        }
+
+        .clause-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .clause-card.oggettive::before { background: linear-gradient(90deg, #FF6B6B, #FF8E53); }
+        .clause-card.soggettive::before { background: linear-gradient(90deg, #4ECDC4, #44A08D); }
+        .clause-card.dichiarative::before { background: linear-gradient(90deg, #A8E6CF, #3DDC84); }
+        .clause-card.interrogative::before { background: linear-gradient(90deg, #FFD93D, #FFA07A); }
+        .clause-card.causali::before { background: linear-gradient(90deg, #6C5CE7, #A29BFE); }
+        .clause-card.finali::before { background: linear-gradient(90deg, #FD79A8, #E84393); }
+        .clause-card.consecutive::before { background: linear-gradient(90deg, #00B894, #00CEC9); }
+        .clause-card.condizionali::before { background: linear-gradient(90deg, #FDCB6E, #E17055); }
+        .clause-card.concessive::before { background: linear-gradient(90deg, #74B9FF, #0984E3); }
+        .clause-card.temporali::before { background: linear-gradient(90deg, #A29BFE, #6C5CE7); }
+        .clause-card.avversative::before { background: linear-gradient(90deg, #FF7675, #D63031); }
+        .clause-card.comparative::before { background: linear-gradient(90deg, #55EFC4, #00B894); }
+        .clause-card.limitative::before { background: linear-gradient(90deg, #FAB1A0, #E17055); }
+        .clause-card.eccettuative::before { background: linear-gradient(90deg, #DFE6E9, #636E72); }
+        .clause-card.esclusive::before { background: linear-gradient(90deg, #FD79A8, #FDCB6E); }
+        .clause-card.relative::before { background: linear-gradient(90deg, #74B9FF, #0984E3); }
+        .clause-card.modali::before { background: linear-gradient(90deg, #A29BFE, #DFE6E9); }
+        .clause-card.aggiuntive::before { background: linear-gradient(90deg, #FFEAA7, #FDCB6E); }
+
+        .clause-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #2d3436;
+            border-bottom: 3px solid;
+            padding-bottom: 10px;
+        }
+
+        .clause-card.oggettive h3 { border-color: #FF6B6B; color: #FF6B6B; }
+        .clause-card.soggettive h3 { border-color: #4ECDC4; color: #4ECDC4; }
+        .clause-card.dichiarative h3 { border-color: #3DDC84; color: #3DDC84; }
+        .clause-card.interrogative h3 { border-color: #FFD93D; color: #FFD93D; }
+        .clause-card.causali h3 { border-color: #6C5CE7; color: #6C5CE7; }
+        .clause-card.finali h3 { border-color: #E84393; color: #E84393; }
+        .clause-card.consecutive h3 { border-color: #00CEC9; color: #00CEC9; }
+        .clause-card.condizionali h3 { border-color: #E17055; color: #E17055; }
+        .clause-card.concessive h3 { border-color: #0984E3; color: #0984E3; }
+        .clause-card.temporali h3 { border-color: #6C5CE7; color: #6C5CE7; }
+        .clause-card.avversative h3 { border-color: #D63031; color: #D63031; }
+        .clause-card.comparative h3 { border-color: #00B894; color: #00B894; }
+        .clause-card.limitative h3 { border-color: #E17055; color: #E17055; }
+        .clause-card.eccettuative h3 { border-color: #636E72; color: #636E72; }
+        .clause-card.esclusive h3 { border-color: #FD79A8; color: #FD79A8; }
+        .clause-card.relative h3 { border-color: #0984E3; color: #0984E3; }
+        .clause-card.modali h3 { border-color: #A29BFE; color: #A29BFE; }
+        .clause-card.aggiuntive h3 { border-color: #FDCB6E; color: #FDCB6E; }
+
+        .definition {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #2d3436;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .connettori {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .connettori h4 {
+            color: #1976d2;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .connettori-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .connettore {
+            background: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #1976d2;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .connettore:hover {
+            transform: scale(1.1);
+        }
+
+        .esempi {
+            margin-top: 15px;
+        }
+
+        .esempi h4 {
+            color: #2d3436;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .esempio-item {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            padding: 12px;
+            border-left: 4px solid #ff9800;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-style: italic;
+            transition: all 0.3s ease;
+        }
+
+        .esempio-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+        }
+
+        .periodo-ipotetico {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            color: #fff;
+            animation: fadeIn 1.6s ease-out;
+        }
+
+        .periodo-ipotetico h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tipo-periodo {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tipo-periodo:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        .tipo-periodo h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .tipo-periodo .struttura {
+            background: rgba(255, 255, 255, 0.95);
+            color: #2d3436;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            color: #fff;
+        }
+
+        footer h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .nota-importante {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .nota-importante strong {
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .clause-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gradi-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Le Proposizioni Subordinate 🎯</h1>
+            <p class="subtitle">Guida Completa alla Subordinazione Italiana</p>
+        </header>
+
+        <div class="intro-section">
+            <h2>📚 Che cos'è la Subordinazione?</h2>
+            <p>
+                La <strong>subordinazione</strong> è il rapporto di dipendenza che si stabilisce tra una proposizione principale 
+                e una proposizione subordinata. La proposizione subordinata dipende dalla principale e non può esistere da sola.
+            </p>
+            <p>
+                <strong>Esempio:</strong><br>
+                <em>Proposizione principale:</em> "Penso"<br>
+                <em>Proposizione subordinata:</em> "che tu abbia ragione"<br>
+                <em>Periodo completo:</em> "Penso che tu abbia ragione."
+            </p>
+        </div>
+
+        <div class="gradi-section">
+            <h2>🎓 I Gradi delle Proposizioni Subordinate</h2>
+            <p style="color: #fff; text-align: center; font-size: 1.2em; margin-bottom: 20px;">
+                Le proposizioni subordinate si classificano in base al loro grado di dipendenza dalla principale
+            </p>
+
+            <div class="gradi-grid">
+                <div class="grado-card">
+                    <h3>🥇 Subordinata di 1° Grado</h3>
+                    <p>Dipende direttamente dalla proposizione principale.</p>
+                    <div class="esempio">
+                        <strong>Esempio:</strong><br>
+                        "Spero <u>che tu venga</u> alla festa."<br>
+                        <small>(La subordinata dipende dalla principale "Spero")</small>
+                    </div>
+                </div>
+
+                <div class="grado-card">
+                    <h3>🥈 Subordinata di 2° Grado</h3>
+                    <p>Dipende da una subordinata di 1° grado.</p>
+                    <div class="esempio">
+                        <strong>Esempio:</strong><br>
+                        "Spero <u>che tu venga</u> <mark>prima che faccia buio</mark>."<br>
+                        <small>(La subordinata di 2° grado "prima che faccia buio" dipende dalla subordinata di 1° grado)</small>
+                    </div>
+                </div>
+
+                <div class="grado-card">
+                    <h3>🥉 Subordinata di 3° Grado</h3>
+                    <p>Dipende da una subordinata di 2° grado.</p>
+                    <div class="esempio">
+                        <strong>Esempio:</strong><br>
+                        "Spero <u>che tu venga</u> <mark>prima che faccia buio</mark> <em>perché fa freddo</em>."<br>
+                        <small>(La subordinata di 3° grado "perché fa freddo" dipende dalla subordinata di 2° grado)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="color: #fff; text-align: center; font-size: 2.5em; margin: 40px 0;">📖 Tipi di Proposizioni Subordinate</h2>
+
+        <div class="clause-grid">
+            <!-- OGGETTIVE -->
+            <div class="clause-card oggettive">
+                <h3>🎯 Proposizioni Oggettive</h3>
+                <div class="definition">
+                    Svolgono la funzione di <strong>complemento oggetto</strong> rispetto alla proposizione principale. 
+                    Rispondono alla domanda "Che cosa?"
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">che</span>
+                        <span class="connettore">di + infinito</span>
+                        <span class="connettore">se</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item">Penso <strong>che abbiate ragione</strong>.</div>
+                    <div class="esempio-item">Spero <strong>di partire domani</strong>.</div>
+                    <div class="esempio-item">Non so <strong>se verrà</strong>.</div>
+                </div>
+            </div>
+
+            <!-- SOGGETTIVE -->
+            <div class="clause-card soggettive">
+                <h3>👤 Proposizioni Soggettive</h3>
+                <div class="definition">
+                    Svolgono la funzione di <strong>soggetto</strong> rispetto alla proposizione principale. 
+                    Rispondono alla domanda "Chi? Che cosa?"
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">che</span>
+                        <span class="connettore">di + infinito</span>
+                        <span class="connettore">se</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item">È necessario <strong>che tu studi</strong>.</div>
+                    <div class="esempio-item">Conviene <strong>partire presto</strong>.</div>
+                    <div class="esempio-item">È probabile <strong>che piova</strong>.</div>
+                </div>
+            </div>
+
+            <!-- DICHIARATIVE -->
+            <div class="clause-card dichiarative">
+                <h3>💬 Proposizioni Dichiarative</h3>
+                <div class="definition">
+                    Precisano, chiariscono o spiegano un elemento della proposizione principale (spesso un nome o un pronome).
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">che</span>
+                        <span class="connettore">di + infinito</span>
+                        <span class="connettore">cioè</span>
+                        <span class="connettore">ossia</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item">Ho la certezza <strong>che vinceremo</strong>.</div>
+                    <div class="esempio-item">Mi è venuta l'idea <strong>di cambiare lavoro</strong>.</div>
+                    <div class="esempio-item">Ho il sospetto <strong>che mi stiano mentendo</strong>.</div>
+                </div>
+            </div>
+
+            <!-- INTERROGATIVE INDIRETTE -->
+            <div class="clause-card interrogative">
+                <h3>❓ Proposizioni Interrogative Indirette</h3>
+                <div class="definition">
+                    Esprimono una domanda in forma indiretta, dipendente da verbi come chiedere, domandare, sapere, ignorare.
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">se</span>
+                        <span class="connettore">chi</span>
+                        <span class="connettore">che cosa</span>
+                        <span class="connettore">quando</span>
+                        <span class="connettore">dove</span>
+                        <span class="connettore">come</span>
+                        <span class="connettore">perché</span>
+                        <span class="connettore">quanto</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item">Mi domando <strong>se verrà</strong>.</div>
+                    <div class="esempio-item">Non so <strong>dove sia andato</strong>.</div>
+                    <div class="esempio-item">Dimmi <strong>quando tornerai</strong>.</div>
+                </div>
+            </div>
+
+            <!-- CAUSALI -->
+            <div class="clause-card causali">
+                <h3>🔍 Proposizioni Causali</h3>
+                <div class="definition">
+                    Indicano la <strong>causa</strong> o il <strong>motivo</strong> per cui si verifica quanto espresso nella principale. 
+                    Rispondono alla domanda "Perché?"
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">perché</span>
+                        <span class="connettore">poiché</span>
+                        <span class="connettore">siccome</span>
+                        <span class="connettore">dato che</span>
+                        <span class="connettore">visto che</span>
+                        <span class="connettore">per + infinito</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item">Non esco <strong>perché piove</strong>.</div>
+                    <div class="esempio-item"><strong>Siccome era tardi</strong>, sono tornato a casa.</div>
+                    <div class="esempio-item">È felice <strong>per aver vinto</strong>.</div>
+                </div>
+            </div>
+
+            <!-- FINALI -->
+            <div class="clause-card finali">
+                <h3>🎯 Proposizioni Finali</h3>
+                <div class="definition">
+                    Indicano lo <strong>scopo</strong> o la <strong>finalità</strong> dell'azione espressa nella principale. 
+                    Rispondono alla domanda "Per quale scopo? Con quale fine?"
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">perché</span>
+                        <span class="connettore">affinché</span>
+                        <span class="connettore">per + infinito</span>
+                        <span class="connettore">allo scopo di</span>
+                        <span class="connettore">in modo che</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item">Studio <strong>per superare l'esame</strong>.</div>
+                    <div class="esempio-item">Ti chiamo <strong>perché tu sappia la verità</strong>.</div>
+                    <div class="esempio-item">Lavora duro <strong>affinché la famiglia non manchi di nulla</strong>.</div>
+                </div>
+            </div>
+
+            <!-- CONSECUTIVE -->
+            <div class="clause-card consecutive">
+                <h3>➡️ Proposizioni Consecutive</h3>
+                <div class="definition">
+                    Indicano la <strong>conseguenza</strong> di quanto affermato nella principale. 
+                    Rispondono alla domanda "Con quale conseguenza?"
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">così... che</span>
+                        <span class="connettore">tanto... che</span>
+                        <span class="connettore">talmente... che</span>
+                        <span class="connettore">a tal punto che</span>
+                        <span class="connettore">da + infinito</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item">Sono così stanco <strong>che non riesco a pensare</strong>.</div>
+                    <div class="esempio-item">Ha studiato tanto <strong>da sapere tutto a memoria</strong>.</div>
+                    <div class="esempio-item">Era talmente felice <strong>che piangeva di gioia</strong>.</div>
+                </div>
+            </div>
+
+            <!-- CONDIZIONALI -->
+            <div class="clause-card condizionali">
+                <h3>🔀 Proposizioni Condizionali</h3>
+                <div class="definition">
+                    Esprimono la <strong>condizione</strong> necessaria affinché si verifichi quanto detto nella principale. 
+                    Rispondono alla domanda "A quale condizione?"
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">se</span>
+                        <span class="connettore">qualora</span>
+                        <span class="connettore">purché</span>
+                        <span class="connettore">a condizione che</span>
+                        <span class="connettore">a patto che</span>
+                        <span class="connettore">nel caso che</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item"><strong>Se piove</strong>, resto a casa.</div>
+                    <div class="esempio-item">Vengo <strong>purché tu mi accompagni</strong>.</div>
+                    <div class="esempio-item"><strong>A condizione che tu studi</strong>, ti aiuterò.</div>
+                </div>
+            </div>
+
+            <!-- CONCESSIVE -->
+            <div class="clause-card concessive">
+                <h3>🔄 Proposizioni Concessive</h3>
+                <div class="definition">
+                    Esprimono una <strong>concessione</strong>, cioè un fatto che, pur potendo impedire l'azione della principale, 
+                    non la impedisce. Rispondono alla domanda "Nonostante che cosa?"
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">benché</span>
+                        <span class="connettore">sebbene</span>
+                        <span class="connettore">nonostante</span>
+                        <span class="connettore">anche se</span>
+                        <span class="connettore">per quanto</span>
+                        <span class="connettore">malgrado</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item"><strong>Benché sia stanco</strong>, continuo a lavorare.</div>
+                    <div class="esempio-item">Esco <strong>nonostante piova</strong>.</div>
+                    <div class="esempio-item"><strong>Sebbene fosse tardi</strong>, non voleva dormire.</div>
+                </div>
+            </div>
+
+            <!-- TEMPORALI -->
+            <div class="clause-card temporali">
+                <h3>⏰ Proposizioni Temporali</h3>
+                <div class="definition">
+                    Indicano il <strong>tempo</strong> in cui si svolge l'azione della principale. 
+                    Rispondono alla domanda "Quando?"
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">quando</span>
+                        <span class="connettore">mentre</span>
+                        <span class="connettore">prima che</span>
+                        <span class="connettore">dopo che</span>
+                        <span class="connettore">finché</span>
+                        <span class="connettore">appena</span>
+                        <span class="connettore">non appena</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item"><strong>Quando arriverai</strong>, ti chiamerò.</div>
+                    <div class="esempio-item">Studia <strong>mentre io cucino</strong>.</div>
+                    <div class="esempio-item">Vai via <strong>prima che lui torni</strong>.</div>
+                </div>
+            </div>
+
+            <!-- AVVERSATIVE -->
+            <div class="clause-card avversative">
+                <h3>⚡ Proposizioni Avversative</h3>
+                <div class="definition">
+                    Esprimono un <strong>contrasto</strong> o un'<strong>opposizione</strong> rispetto a quanto affermato nella principale.
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">mentre</span>
+                        <span class="connettore">laddove</span>
+                        <span class="connettore">quando invece</span>
+                        <span class="connettore">invece di</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item">Tu studi, <strong>mentre io lavoro</strong>.</div>
+                    <div class="esempio-item">È rimasto a casa <strong>invece di uscire</strong>.</div>
+                    <div class="esempio-item">Lui ride <strong>mentre tutti piangono</strong>.</div>
+                </div>
+            </div>
+
+            <!-- COMPARATIVE -->
+            <div class="clause-card comparative">
+                <h3>⚖️ Proposizioni Comparative</h3>
+                <div class="definition">
+                    Stabiliscono un <strong>paragone</strong> tra due elementi o situazioni. 
+                    Possono esprimere uguaglianza, maggioranza o minoranza.
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">come</span>
+                        <span class="connettore">più... di quanto</span>
+                        <span class="connettore">meno... di quanto</span>
+                        <span class="connettore">così... come</span>
+                        <span class="connettore">tanto... quanto</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item">È più intelligente <strong>di quanto sembrasse</strong>.</div>
+                    <div class="esempio-item">Corre veloce <strong>come correva suo padre</strong>.</div>
+                    <div class="esempio-item">Lavora meno <strong>di quanto dovrebbe</strong>.</div>
+                </div>
+            </div>
+
+            <!-- LIMITATIVE -->
+            <div class="clause-card limitative">
+                <h3>🔒 Proposizioni Limitative</h3>
+                <div class="definition">
+                    Limitano, restringono o precisano la validità di quanto affermato nella principale. 
+                    Rispondono alla domanda "In che ambito? Limitatamente a che cosa?"
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">per quanto</span>
+                        <span class="connettore">in quanto</span>
+                        <span class="connettore">per quel che</span>
+                        <span class="connettore">secondo che</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item"><strong>Per quanto mi riguarda</strong>, sono d'accordo.</div>
+                    <div class="esempio-item"><strong>Per quel che ne so</strong>, è una brava persona.</div>
+                    <div class="esempio-item"><strong>In quanto a me</strong>, non ho obiezioni.</div>
+                </div>
+            </div>
+
+            <!-- ECCETTUATIVE -->
+            <div class="clause-card eccettuative">
+                <h3>🚫 Proposizioni Eccettuative</h3>
+                <div class="definition">
+                    Indicano un'<strong>eccezione</strong> rispetto a quanto affermato nella principale.
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">tranne che</span>
+                        <span class="connettore">fuorché</span>
+                        <span class="connettore">eccetto che</span>
+                        <span class="connettore">salvo che</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item">Faccio tutto, <strong>tranne che cucinare</strong>.</div>
+                    <div class="esempio-item">Verrò sicuramente, <strong>salvo che non piova</strong>.</div>
+                    <div class="esempio-item">È d'accordo su tutto, <strong>fuorché sulla data</strong>.</div>
+                </div>
+            </div>
+
+            <!-- ESCLUSIVE -->
+            <div class="clause-card esclusive">
+                <h3>❌ Proposizioni Esclusive</h3>
+                <div class="definition">
+                    Escludono completamente una possibilità rispetto a quanto affermato nella principale.
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">senza che</span>
+                        <span class="connettore">senza + infinito</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item">È partito <strong>senza salutare</strong>.</div>
+                    <div class="esempio-item">Ha vinto <strong>senza che nessuno se l'aspettasse</strong>.</div>
+                    <div class="esempio-item">Lavora <strong>senza mai lamentarsi</strong>.</div>
+                </div>
+            </div>
+
+            <!-- RELATIVE -->
+            <div class="clause-card relative">
+                <h3>🔗 Proposizioni Relative</h3>
+                <div class="definition">
+                    Svolgono la funzione di un <strong>attributo</strong> o di un'<strong>apposizione</strong> rispetto a un elemento 
+                    della principale (l'antecedente). Sono introdotte da pronomi relativi.
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">che</span>
+                        <span class="connettore">il quale</span>
+                        <span class="connettore">cui</span>
+                        <span class="connettore">chi</span>
+                        <span class="connettore">dove</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item">Il libro <strong>che ho letto</strong> è bellissimo.</div>
+                    <div class="esempio-item">La persona <strong>di cui ti ho parlato</strong> è arrivata.</div>
+                    <div class="esempio-item">La città <strong>dove sono nato</strong> è piccola.</div>
+                </div>
+            </div>
+
+            <!-- MODALI -->
+            <div class="clause-card modali">
+                <h3>🎭 Proposizioni Modali</h3>
+                <div class="definition">
+                    Indicano il <strong>modo</strong> in cui si svolge l'azione espressa nella principale. 
+                    Rispondono alla domanda "In che modo? Come?"
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">come</span>
+                        <span class="connettore">come se</span>
+                        <span class="connettore">nel modo che</span>
+                        <span class="connettore">gerundio</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item">Fai <strong>come vuoi</strong>.</div>
+                    <div class="esempio-item">Si comporta <strong>come se fosse il capo</strong>.</div>
+                    <div class="esempio-item">Ha risolto il problema <strong>lavorando tutta la notte</strong>.</div>
+                </div>
+            </div>
+
+            <!-- AGGIUNTIVE -->
+            <div class="clause-card aggiuntive">
+                <h3>➕ Proposizioni Aggiuntive</h3>
+                <div class="definition">
+                    Aggiungono un'informazione supplementare a quanto espresso nella principale, 
+                    introducendo un elemento ulteriore.
+                </div>
+                <div class="connettori">
+                    <h4>Connettivi principali:</h4>
+                    <div class="connettori-list">
+                        <span class="connettore">oltre a</span>
+                        <span class="connettore">oltre che</span>
+                        <span class="connettore">in aggiunta a</span>
+                        <span class="connettore">oltreché</span>
+                    </div>
+                </div>
+                <div class="esempi">
+                    <h4>Esempi:</h4>
+                    <div class="esempio-item"><strong>Oltre a studiare</strong>, lavora anche.</div>
+                    <div class="esempio-item">È bravo, <strong>oltre che intelligente</strong>.</div>
+                    <div class="esempio-item"><strong>In aggiunta a ciò che hai detto</strong>, vorrei aggiungere un dettaglio.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PERIODO IPOTETICO -->
+        <div class="periodo-ipotetico">
+            <h2>🌟 Il Periodo Ipotetico 🌟</h2>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px;">
+                Il periodo ipotetico è formato da una proposizione principale (apodosi) e da una subordinata condizionale (protasi)
+            </p>
+
+            <div class="tipo-periodo">
+                <h3>✅ Periodo Ipotetico della REALTÀ</h3>
+                <p style="margin-bottom: 15px;">
+                    Esprime una condizione <strong>reale e concreta</strong>, che può verificarsi o si è verificata.
+                </p>
+                <div class="struttura">
+                    <strong>Struttura:</strong> Se + Indicativo, Indicativo
+                </div>
+                <div class="esempio-item">
+                    <strong>Esempio:</strong><br>
+                    <strong>Se piove</strong> (protasi - indicativo presente), <strong>resto a casa</strong> (apodosi - indicativo presente).
+                </div>
+                <div class="esempio-item">
+                    <strong>Se hai studiato</strong>, <strong>supererai l'esame</strong>.
+                </div>
+            </div>
+
+            <div class="tipo-periodo">
+                <h3>🤔 Periodo Ipotetico della POSSIBILITÀ</h3>
+                <p style="margin-bottom: 15px;">
+                    Esprime una condizione <strong>possibile ma non certa</strong>, riferita al presente o al futuro.
+                </p>
+                <div class="struttura">
+                    <strong>Struttura:</strong> Se + Congiuntivo Imperfetto, Condizionale Presente
+                </div>
+                <div class="esempio-item">
+                    <strong>Esempio:</strong><br>
+                    <strong>Se piovesse</strong> (protasi - congiuntivo imperfetto), <strong>resterei a casa</strong> (apodosi - condizionale presente).
+                </div>
+                <div class="esempio-item">
+                    <strong>Se avessi tempo</strong>, <strong>verrei con te</strong>.
+                </div>
+            </div>
+
+            <div class="tipo-periodo">
+                <h3>❌ Periodo Ipotetico dell'IRREALTÀ</h3>
+                <p style="margin-bottom: 15px;">
+                    Esprime una condizione <strong>irreale o impossibile</strong>, che non si è verificata o non può verificarsi.
+                </p>
+                <div class="struttura">
+                    <strong>Struttura:</strong> Se + Congiuntivo Trapassato, Condizionale Passato
+                </div>
+                <div class="esempio-item">
+                    <strong>Esempio (passato):</strong><br>
+                    <strong>Se avesse piovuto</strong> (protasi - congiuntivo trapassato), <strong>sarei restato a casa</strong> (apodosi - condizionale passato).
+                </div>
+                <div class="esempio-item">
+                    <strong>Se avessi studiato</strong>, <strong>avresti superato l'esame</strong>.
+                </div>
+            </div>
+        </div>
+
+        <div class="nota-importante">
+            <strong>💡 Nota Importante:</strong>
+            <p style="margin-top: 10px;">
+                Le proposizioni subordinate possono essere espresse in diverse forme:
+            </p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>Forma esplicita:</strong> con verbo di modo finito (indicativo, congiuntivo, condizionale)</li>
+                <li><strong>Forma implicita:</strong> con verbo di modo indefinito (infinito, participio, gerundio)</li>
+            </ul>
+        </div>
+
+        <footer>
+            <h3>🎓 Língua Academy 🎓</h3>
+            <p>Impara l'italiano con passione!</p>
+            <p style="margin-top: 10px;">✨ Studia, pratica e migliora ogni giorno! ✨</p>
+        </footer>
+    </div>
+</body>
+</html>

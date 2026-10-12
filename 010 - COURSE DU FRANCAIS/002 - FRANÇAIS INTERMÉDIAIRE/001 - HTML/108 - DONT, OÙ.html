@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DONT / OÙ - Emplois Particuliers | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&family=Poppins:wght@300;400;600;700;800;900&family=Spectral:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ocean-profond: #004D7A;
+            --aqua-clair: #E0F2F7;
+            --corail-vif: #FF6F61;
+            --sable-dore: #F4E5C2;
+            --nuit-marine: #001F3F;
+            --perle-blanc: #FEFEFE;
+            --turquoise-mer: #00BCD4;
+            --emeraude: #00897B;
+            --sunset-orange: #FF8A65;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Spectral', serif;
+            background: linear-gradient(135deg, var(--aqua-clair) 0%, #C8E6F5 100%);
+            color: var(--nuit-marine);
+            line-height: 1.95;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ocean wave animation */
+        body::before {
+            content: '';
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(0deg, rgba(0, 77, 122, 0.08) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 0;
+            animation: waveMove 15s ease-in-out infinite;
+        }
+
+        @keyframes waveMove {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-30px);
+                opacity: 1;
+            }
+        }
+
+        /* Floating bubbles */
+        .bubble {
+            position: fixed;
+            bottom: -100px;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(0, 188, 212, 0.3));
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: bubbleFloat 20s linear infinite;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .bubble-1 {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 25s;
+        }
+
+        .bubble-2 {
+            width: 120px;
+            height: 120px;
+            left: 30%;
+            animation-delay: 5s;
+            animation-duration: 30s;
+        }
+
+        .bubble-3 {
+            width: 60px;
+            height: 60px;
+            left: 50%;
+            animation-delay: 10s;
+            animation-duration: 20s;
+        }
+
+        .bubble-4 {
+            width: 100px;
+            height: 100px;
+            left: 70%;
+            animation-delay: 15s;
+            animation-duration: 28s;
+        }
+
+        .bubble-5 {
+            width: 90px;
+            height: 90px;
+            left: 85%;
+            animation-delay: 8s;
+            animation-duration: 22s;
+        }
+
+        @keyframes bubbleFloat {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-120vh) translateX(50px) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1550px;
+            margin: 0 auto;
+            padding: 0 75px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Ocean-themed Header */
+        header {
+            background: linear-gradient(155deg, var(--ocean-profond) 0%, var(--turquoise-mer) 50%, var(--emeraude) 100%);
+            padding: 100px 0 120px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 50px 120px rgba(0, 77, 122, 0.6);
+            clip-path: ellipse(100% 100% at 50% 0%);
+        }
+
+        /* Wave pattern overlay */
+        .wave-pattern {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,50 Q300,10 600,50 T1200,50 L1200,120 L0,120 Z" fill="rgba(224,242,247,0.3)"/></svg>') repeat-x;
+            background-size: 1200px 120px;
+            animation: wavesMove 20s linear infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes wavesMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 1200px 0;
+            }
+        }
+
+        /* Nautical Brand */
+        .nautical-brand {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 65px;
+            animation: oceanFadeIn 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        @keyframes oceanFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-90px) scale(0.88);
+                filter: blur(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .anchor-emblem {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 35px;
+            background: radial-gradient(circle, var(--sable-dore) 0%, var(--corail-vif) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: anchorSway 5s ease-in-out infinite;
+            box-shadow: 
+                0 20px 60px rgba(255, 111, 97, 0.6),
+                inset 0 0 30px rgba(255, 255, 255, 0.3);
+            border: 5px solid rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes anchorSway {
+            0%, 100% {
+                transform: rotate(-5deg) scale(1);
+            }
+            50% {
+                transform: rotate(5deg) scale(1.08);
+            }
+        }
+
+        .anchor-inner {
+            font-size: 5rem;
+            color: var(--nuit-marine);
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.5);
+        }
+
+        .brand-name-ocean {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.8rem;
+            color: var(--sable-dore);
+            font-weight: 900;
+            letter-spacing: 18px;
+            margin-bottom: 25px;
+            text-shadow: 
+                6px 6px 15px rgba(0, 0, 0, 0.7),
+                0 0 60px rgba(244, 229, 194, 0.6);
+            text-transform: uppercase;
+        }
+
+        .brand-wave {
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 1.25rem;
+            letter-spacing: 7px;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Majestic Title */
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 7rem;
+            color: var(--perle-blanc);
+            text-align: center;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-top: 65px;
+            position: relative;
+            z-index: 2;
+            animation: oceanFadeIn 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s backwards;
+            text-shadow: 
+                8px 8px 20px rgba(0, 0, 0, 0.8),
+                0 0 80px rgba(255, 255, 255, 0.4);
+            letter-spacing: 4px;
+        }
+
+        .ocean-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.96);
+            font-size: 2.2rem;
+            margin-top: 42px;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+            animation: oceanFadeIn 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s backwards;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        /* Ripple decoration */
+        .ripple-decoration {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 10px;
+            z-index: 3;
+        }
+
+        .ripple {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--sable-dore), transparent);
+            margin: 4px 0;
+            animation: rippleExpand 3s ease-in-out infinite;
+        }
+
+        .ripple:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .ripple:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        @keyframes rippleExpand {
+            0%, 100% {
+                width: 100%;
+                opacity: 0.4;
+            }
+            50% {
+                width: 80%;
+                opacity: 1;
+                margin: 0 auto;
+            }
+        }
+
+        /* Main Content */
+        main {
+            padding: 150px 0;
+        }
+
+        /* Oceanic Introduction */
+        .intro-oceanic {
+            background: linear-gradient(135deg, white 0%, var(--aqua-clair) 100%);
+            padding: 95px;
+            border-radius: 50px;
+            box-shadow: 
+                0 40px 100px rgba(0, 77, 122, 0.25),
+                inset 0 2px 0 rgba(255, 255, 255, 0.9);
+            margin-bottom: 120px;
+            position: relative;
+            overflow: hidden;
+            border: 5px solid rgba(0, 188, 212, 0.2);
+            animation: oceanicReveal 2s ease-out 2.2s backwards;
+        }
+
+        @keyframes oceanicReveal {
+            from {
+                opacity: 0;
+                transform: translateY(120px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .intro-oceanic::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 18px;
+            background: linear-gradient(90deg, var(--ocean-profond), var(--turquoise-mer), var(--emeraude));
+            border-radius: 50px 50px 0 0;
+        }
+
+        .intro-oceanic::after {
+            content: '🌊';
+            position: absolute;
+            top: -60px;
+            left: 95px;
+            font-size: 8rem;
+            background: white;
+            width: 145px;
+            height: 145px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+            animation: waveIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes waveIcon {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(10deg);
+            }
+        }
+
+        .oceanic-heading {
+            font-family: 'Merriweather', serif;
+            font-size: 4.2rem;
+            color: var(--ocean-profond);
+            margin-bottom: 65px;
+            font-weight: 900;
+            position: relative;
+            padding-bottom: 38px;
+        }
+
+        .oceanic-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 240px;
+            height: 9px;
+            background: linear-gradient(90deg, var(--ocean-profond), var(--turquoise-mer));
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(0, 77, 122, 0.5);
+        }
+
+        .oceanic-text {
+            font-size: 1.65rem;
+            line-height: 2.7;
+            color: var(--nuit-marine);
+            margin-bottom: 42px;
+            text-align: justify;
+        }
+
+        /* Nautical Feature Cards */
+        .nautical-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+            gap: 75px;
+            margin: 120px 0;
+        }
+
+        .nautical-card {
+            background: linear-gradient(135deg, white 0%, var(--aqua-clair) 100%);
+            padding: 85px;
+            border-radius: 45px;
+            box-shadow: 
+                0 30px 90px rgba(0, 77, 122, 0.25),
+                inset 0 2px 0 rgba(255, 255, 255, 0.9);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 4px solid rgba(0, 188, 212, 0.2);
+            animation: oceanicReveal 1.8s ease-out backwards;
+        }
+
+        .nautical-card:nth-child(1) { animation-delay: 2.4s; }
+        .nautical-card:nth-child(2) { animation-delay: 2.6s; }
+
+        .nautical-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 18px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--ocean-profond), var(--emeraude));
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .nautical-card:hover {
+            transform: translateY(-30px) scale(1.02);
+            box-shadow: 
+                0 50px 130px rgba(0, 77, 122, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        .nautical-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .nautical-icon {
+            font-size: 6.5rem;
+            margin-bottom: 50px;
+            display: inline-block;
+            filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.18));
+            animation: iconDrift 6s ease-in-out infinite;
+        }
+
+        @keyframes iconDrift {
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+            50% {
+                transform: translateY(-40px) rotate(5deg);
+            }
+        }
+
+        .nautical-title {
+            font-family: 'Merriweather', serif;
+            font-size: 3.5rem;
+            color: var(--ocean-profond);
+            margin-bottom: 42px;
+            font-weight: 700;
+        }
+
+        .nautical-description {
+            font-size: 1.55rem;
+            line-height: 2.6;
+            color: var(--nuit-marine);
+        }
+
+        /* Marine Examples Section */
+        .examples-marine {
+            background: white;
+            padding: 90px;
+            border-radius: 45px;
+            box-shadow: 0 30px 90px rgba(0, 77, 122, 0.25);
+            margin: 90px 0;
+            animation: oceanicReveal 1.8s ease-out 2.8s backwards;
+        }
+
+        .marine-title {
+            font-family: 'Merriweather', serif;
+            font-size: 4rem;
+            color: var(--ocean-profond);
+            margin-bottom: 70px;
+            font-weight: 900;
+            text-align: center;
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        .marine-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            height: 8px;
+            background: linear-gradient(90deg, transparent, var(--turquoise-mer), transparent);
+            border-radius: 4px;
+        }
+
+        /* Coastal Example Box */
+        .example-coastal {
+            background: linear-gradient(135deg, rgba(0, 77, 122, 0.06) 0%, rgba(0, 188, 212, 0.05) 100%);
+            padding: 65px 70px;
+            border-radius: 32px;
+            margin: 60px 0;
+            border-left: 14px solid var(--ocean-profond);
+            position: relative;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-coastal:hover {
+            transform: translateX(32px);
+            border-left-width: 20px;
+            box-shadow: -20px 20px 55px rgba(0, 77, 122, 0.45);
+        }
+
+        .example-badge {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            color: var(--turquoise-mer);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 28px;
+        }
+
+        .sentence-coastal {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--nuit-marine);
+            margin: 42px 0;
+            padding: 42px;
+            background: white;
+            border-radius: 22px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            line-height: 2.6;
+            font-style: italic;
+            border: 3px solid rgba(0, 188, 212, 0.2);
+        }
+
+        .analysis-coastal {
+            font-size: 1.5rem;
+            line-height: 2.6;
+            color: var(--nuit-marine);
+            margin-top: 38px;
+            padding-left: 50px;
+            border-left: 12px solid rgba(0, 77, 122, 0.3);
+        }
+
+        .pronoun-wave {
+            color: var(--corail-vif);
+            font-weight: 700;
+            background: rgba(255, 111, 97, 0.18);
+            padding: 8px 18px;
+            border-radius: 10px;
+            border-bottom: 5px solid var(--corail-vif);
+            text-decoration: none;
+        }
+
+        .complement-note {
+            color: var(--emeraude);
+            font-weight: 600;
+            font-style: italic;
+            background: rgba(0, 137, 123, 0.15);
+            padding: 7px 16px;
+            border-radius: 8px;
+        }
+
+        /* Aquatic Rule Box */
+        .rule-aquatic {
+            background: linear-gradient(135deg, rgba(0, 188, 212, 0.2) 0%, rgba(0, 188, 212, 0.12) 100%);
+            border: 6px solid var(--turquoise-mer);
+            padding: 70px 75px;
+            border-radius: 35px;
+            margin: 75px 0;
+            position: relative;
+            animation: oceanicReveal 1.8s ease-out 3s backwards;
+            box-shadow: 0 22px 70px rgba(0, 188, 212, 0.35);
+        }
+
+        .rule-aquatic::before {
+            content: '⚓';
+            position: absolute;
+            top: -50px;
+            left: 70px;
+            background: white;
+            padding: 22px 38px;
+            border-radius: 50%;
+            font-size: 3.5rem;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+            border: 6px solid var(--turquoise-mer);
+        }
+
+        .rule-heading {
+            font-family: 'Merriweather', serif;
+            color: var(--ocean-profond);
+            font-size: 3.2rem;
+            margin-bottom: 42px;
+            font-weight: 700;
+        }
+
+        .rule-text {
+            font-size: 1.52rem;
+            line-height: 2.7;
+            color: var(--nuit-marine);
+        }
+
+        .rule-points {
+            list-style: none;
+            margin: 50px 0;
+        }
+
+        .rule-points li {
+            padding: 36px 0 36px 85px;
+            position: relative;
+            font-size: 1.52rem;
+            line-height: 2.5;
+            border-bottom: 3px dashed rgba(0, 77, 122, 0.25);
+        }
+
+        .rule-points li:last-child {
+            border-bottom: none;
+        }
+
+        .rule-points li::before {
+            content: '◉';
+            position: absolute;
+            left: 25px;
+            color: var(--turquoise-mer);
+            font-size: 3rem;
+            animation: oceanPulse 6s ease-in-out infinite;
+        }
+
+        @keyframes oceanPulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.7;
+                text-shadow: 0 0 20px var(--turquoise-mer);
+            }
+            50% {
+                transform: scale(1.6);
+                opacity: 1;
+                text-shadow: 0 0 40px var(--turquoise-mer);
+            }
+        }
+
+        /* Maritime Table */
+        .table-maritime {
+            background: white;
+            padding: 85px;
+            border-radius: 40px;
+            box-shadow: 0 30px 90px rgba(0, 77, 122, 0.25);
+            margin: 85px 0;
+            overflow-x: auto;
+            animation: oceanicReveal 1.8s ease-out 3.2s backwards;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 55px 0;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--ocean-profond) 0%, var(--turquoise-mer) 100%);
+        }
+
+        th {
+            color: var(--perle-blanc);
+            padding: 42px 35px;
+            text-align: left;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+        }
+
+        th:first-child {
+            border-radius: 28px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 28px 0 0;
+        }
+
+        td {
+            padding: 40px 35px;
+            border-bottom: 3px solid rgba(0, 77, 122, 0.15);
+            font-size: 1.5rem;
+            line-height: 2.5;
+        }
+
+        tbody tr {
+            transition: all 0.6s ease;
+            background: white;
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, rgba(0, 77, 122, 0.08) 0%, rgba(0, 188, 212, 0.05) 100%);
+            transform: translateX(22px);
+        }
+
+        tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 28px;
+        }
+
+        tbody tr:last-child td:last-child {
+            border-radius: 0 0 28px 0;
+        }
+
+        .table-pronoun {
+            font-weight: 700;
+            color: var(--ocean-profond);
+            font-size: 1.7rem;
+        }
+
+        /* Coral Warning */
+        .warning-coral {
+            background: linear-gradient(135deg, rgba(255, 111, 97, 0.2) 0%, rgba(255, 111, 97, 0.12) 100%);
+            border: 6px solid var(--corail-vif);
+            padding: 70px 75px;
+            border-radius: 35px;
+            margin: 75px 0;
+            position: relative;
+            animation: oceanicReveal 1.8s ease-out 3.4s backwards;
+            box-shadow: 0 22px 70px rgba(255, 111, 97, 0.35);
+        }
+
+        .warning-coral::before {
+            content: '🐚';
+            position: absolute;
+            top: -50px;
+            left: 70px;
+            background: white;
+            padding: 22px 38px;
+            border-radius: 50%;
+            font-size: 3.5rem;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+            border: 6px solid var(--corail-vif);
+        }
+
+        .warning-heading {
+            font-family: 'Merriweather', serif;
+            color: var(--corail-vif);
+            font-size: 3.2rem;
+            margin-bottom: 42px;
+            font-weight: 700;
+        }
+
+        .warning-text {
+            font-size: 1.52rem;
+            line-height: 2.7;
+            color: var(--nuit-marine);
+        }
+
+        /* Coastal Tip */
+        .tip-coastal {
+            background: linear-gradient(135deg, rgba(0, 77, 122, 0.2) 0%, rgba(0, 77, 122, 0.12) 100%);
+            border-left: 16px solid var(--ocean-profond);
+            padding: 68px 75px;
+            border-radius: 28px;
+            margin: 70px 0;
+            position: relative;
+            animation: oceanicReveal 1.8s ease-out 3.6s backwards;
+        }
+
+        .tip-coastal::before {
+            content: '🔱';
+            position: absolute;
+            top: -38px;
+            left: 70px;
+            background: white;
+            padding: 20px 35px;
+            border-radius: 50px;
+            font-size: 2.8rem;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.22);
+            border: 5px solid var(--ocean-profond);
+        }
+
+        .tip-heading {
+            font-family: 'Merriweather', serif;
+            color: var(--ocean-profond);
+            font-size: 3rem;
+            margin-bottom: 38px;
+            font-weight: 700;
+        }
+
+        .tip-text {
+            font-size: 1.5rem;
+            line-height: 2.6;
+            color: var(--nuit-marine);
+        }
+
+        /* Deep Ocean Panel */
+        .deep-ocean-panel {
+            background: linear-gradient(135deg, var(--ocean-profond) 0%, var(--nuit-marine) 100%);
+            padding: 100px;
+            border-radius: 50px;
+            margin: 95px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 45px 110px rgba(0, 77, 122, 0.7),
+                inset 0 2px 0 rgba(255, 255, 255, 0.18);
+            animation: oceanicReveal 1.8s ease-out 3.8s backwards;
+        }
+
+        .deep-ocean-panel::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 650px;
+            height: 650px;
+            background: radial-gradient(circle, rgba(0, 188, 212, 0.55) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: deepOceanPulse 16s ease-in-out infinite;
+        }
+
+        .deep-ocean-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -180px;
+            left: -180px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 111, 97, 0.5) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: deepOceanPulse 20s ease-in-out infinite reverse;
+        }
+
+        @keyframes deepOceanPulse {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.7) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        .deep-ocean-panel h2 {
+            font-family: 'Merriweather', serif;
+            color: var(--sable-dore);
+            font-size: 4.2rem;
+            margin-bottom: 60px;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
+            text-shadow: 
+                7px 7px 15px rgba(0, 0, 0, 0.7),
+                0 0 50px rgba(244, 229, 194, 0.7);
+            letter-spacing: 5px;
+        }
+
+        .deep-ocean-panel p {
+            color: rgba(255, 255, 255, 0.98);
+            font-size: 1.65rem;
+            line-height: 2.8;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 38px;
+        }
+
+        .deep-ocean-list {
+            list-style: none;
+            margin: 55px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .deep-ocean-list li {
+            color: rgba(255, 255, 255, 0.98);
+            font-size: 1.58rem;
+            padding: 38px 0 38px 85px;
+            position: relative;
+            line-height: 2.7;
+        }
+
+        .deep-ocean-list li::before {
+            content: '⬢';
+            position: absolute;
+            left: 25px;
+            color: var(--sable-dore);
+            font-size: 3rem;
+            animation: coralGlow 8s ease-in-out infinite;
+        }
+
+        @keyframes coralGlow {
+            0%, 100% {
+                opacity: 0.7;
+                transform: scale(1) rotate(0deg);
+                text-shadow: 0 0 25px var(--sable-dore);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.8) rotate(60deg);
+                text-shadow: 0 0 50px var(--sable-dore);
+            }
+        }
+
+        /* Seaside Footer */
+        footer {
+            background: linear-gradient(135deg, var(--ocean-profond) 0%, var(--nuit-marine) 100%);
+            color: var(--perle-blanc);
+            padding: 90px 0;
+            text-align: center;
+            margin-top: 150px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 45% 50%, rgba(244, 229, 194, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 55% 50%, rgba(0, 188, 212, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        footer p {
+            font-size: 1.55rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 2px;
+            margin: 22px 0;
+        }
+
+        .footer-anchor {
+            font-family: 'Poppins', sans-serif;
+            color: var(--sable-dore);
+            font-weight: 900;
+            font-size: 2.6rem;
+            margin-top: 32px;
+            letter-spacing: 8px;
+            text-shadow: 0 0 40px rgba(244, 229, 194, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 55px;
+            }
+
+            h1 {
+                font-size: 4.8rem;
+            }
+
+            .ocean-subtitle {
+                font-size: 1.9rem;
+            }
+
+            .nautical-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-oceanic,
+            .examples-marine,
+            .table-maritime,
+            .deep-ocean-panel {
+                padding: 65px;
+            }
+
+            table {
+                font-size: 1.25rem;
+            }
+
+            th, td {
+                padding: 30px 25px;
+            }
+        }
+
+        /* Ocean Scrollbar */
+        ::-webkit-scrollbar {
+            width: 26px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--aqua-clair);
+            border-left: 5px solid rgba(0, 77, 122, 0.18);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--ocean-profond), var(--turquoise-mer));
+            border-radius: 13px;
+            border: 8px solid var(--aqua-clair);
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--nuit-marine), var(--emeraude));
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating bubbles -->
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+
+    <header>
+        <div class="wave-pattern"></div>
+        
+        <div class="container">
+            <div class="nautical-brand">
+                <div class="anchor-emblem">
+                    <div class="anchor-inner">⚓</div>
+                </div>
+                <div class="brand-name-ocean">Língua Academy</div>
+                <div class="brand-wave">Naviguer dans l'Excellence Grammaticale</div>
+            </div>
+            <h1>DONT / OÙ</h1>
+            <p class="ocean-subtitle">Emplois Particuliers et Subtilités</p>
+        </div>
+        <div class="ripple-decoration">
+            <div class="ripple"></div>
+            <div class="ripple"></div>
+            <div class="ripple"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Introduction Oceanic -->
+            <section class="intro-oceanic">
+                <h2 class="oceanic-heading">Panorama Essentiel</h2>
+                <p class="oceanic-text">
+                    Les pronoms relatifs <strong>DONT</strong> et <strong>OÙ</strong> occupent une place particulière 
+                    parmi les relatifs français. Contrairement à "qui" et "que" qui expriment des fonctions grammaticales 
+                    universelles (sujet et COD), ces deux pronoms portent des valeurs sémantiques spécifiques : 
+                    <strong>DONT</strong> exprime une relation de dépendance ou d'appartenance (souvent traduite par "de"), 
+                    tandis que <strong>OÙ</strong> indique une localisation spatiale ou temporelle. Leur maîtrise est 
+                    essentielle pour construire des phrases élégantes et précises en français.
+                </p>
+                <p class="oceanic-text">
+                    <strong>DONT</strong> remplace un complément introduit par la préposition "de" dans toutes ses 
+                    acceptions : complément du nom ("le livre de Marie" → "le livre dont je parle"), complément de 
+                    l'adjectif ("fier de son travail" → "le travail dont il est fier"), complément d'agent ("aimé de tous" 
+                    → "l'homme dont tous l'aiment"), ou complément d'objet indirect ("parler de quelque chose" → "le sujet 
+                    dont je parle"). Cette polyvalence fait de "dont" un outil grammatical puissant mais parfois délicat 
+                    à employer correctement, notamment dans sa distinction avec "duquel/de laquelle".
+                </p>
+                <p class="oceanic-text">
+                    <strong>OÙ</strong> présente une double fonction : il exprime principalement le lieu ("la ville où 
+                    j'habite"), mais peut aussi indiquer le temps ("le jour où je suis né"). Cette dualité 
+                    spatio-temporelle en fait un pronom unique dans le système des relatifs français. "Où" peut être 
+                    précédé de prépositions pour nuancer sa valeur (d'où, par où, jusqu'où), et se distingue clairement 
+                    de son homophone "ou" (conjonction de coordination). La compréhension approfondie de ces deux pronoms 
+                    permet d'éviter les erreurs fréquentes et d'enrichir considérablement l'expression en français.
+                </p>
+            </section>
+
+            <!-- Nautical Grid -->
+            <div class="nautical-grid">
+                <div class="nautical-card">
+                    <span class="nautical-icon">🧭</span>
+                    <h3 class="nautical-title">DONT - Le Connecteur "DE"</h3>
+                    <p class="nautical-description">
+                        <strong>DONT</strong> est un pronom relatif qui remplace systématiquement un complément introduit 
+                        par la préposition "DE". Il a quatre emplois principaux : <strong>complément du nom</strong> 
+                        ("le livre dont la couverture est rouge" = la couverture du livre), <strong>complément de 
+                        l'adjectif</strong> ("le travail dont il est fier" = fier de son travail), <strong>complément 
+                        d'agent du passif</strong> ("l'homme dont tous parlent" = on parle de l'homme), et 
+                        <strong>complément d'objet indirect</strong> avec des verbes construits avec "de" ("le sujet 
+                        dont je parle" = parler de). "Dont" ne peut jamais être précédé d'une préposition. L'ordre 
+                        des mots avec "dont" est fixe : dont + sujet + verbe + autres compléments.
+                    </p>
+                </div>
+
+                <div class="nautical-card">
+                    <span class="nautical-icon">🗺️</span>
+                    <h3 class="nautical-title">OÙ - Le Localisateur</h3>
+                    <p class="nautical-description">
+                        <strong>OÙ</strong> est un pronom relatif à double fonction : il exprime principalement le 
+                        <strong>lieu</strong> ("la maison où je vis", "le pays où je suis né") et peut également 
+                        indiquer le <strong>temps</strong> ("l'année où il est né", "le moment où tu es arrivé"). 
+                        "Où" peut être précédé de prépositions pour préciser le sens : "d'où" (provenance), "par où" 
+                        (passage), "jusqu'où" (limite). Il remplace des compléments circonstanciels de lieu ou de temps 
+                        et s'accorde toujours avec un antécédent exprimé. Attention à ne pas confondre "où" (relatif/
+                        interrogatif, avec accent) et "ou" (conjonction de coordination, sans accent) qui signifie 
+                        "ou bien, sinon". "Où" ne désigne que des lieux et des moments, jamais des personnes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Examples Marine -->
+            <section class="examples-marine">
+                <h2 class="marine-title">Exemples Détaillés et Analysés</h2>
+
+                <div class="example-coastal">
+                    <div class="example-badge">DONT - Complément du Nom</div>
+                    <div class="sentence-coastal">
+                        Le professeur <span class="pronoun-wave">dont</span> la méthode est efficace enseigne ici.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Fonction :</strong> <span class="complement-note">"Dont" complément du nom "méthode"</span><br>
+                        → <strong>Équivalent :</strong> Le professeur. La méthode du professeur est efficace.<br>
+                        → <strong>Construction :</strong> dont + article + nom (la méthode) + verbe<br>
+                        → <strong>Remarque :</strong> "Dont" remplace "du professeur" (de + le professeur)
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">DONT - Complément de l'Adjectif</div>
+                    <div class="sentence-coastal">
+                        Le résultat <span class="pronoun-wave">dont</span> il est fier a été publié.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Fonction :</strong> <span class="complement-note">"Dont" complément de l'adjectif "fier"</span><br>
+                        → <strong>Construction :</strong> Adjectif "fier" se construit avec "de" (fier de quelque chose)<br>
+                        → <strong>Équivalent :</strong> Le résultat. Il est fier du résultat.<br>
+                        → <strong>Structure :</strong> dont + sujet + verbe + adjectif (il est fier)
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">DONT - COI avec Verbe + DE</div>
+                    <div class="sentence-coastal">
+                        Le livre <span class="pronoun-wave">dont</span> je parle est épuisé.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Fonction :</strong> <span class="complement-note">"Dont" COI du verbe "parler de"</span><br>
+                        → <strong>Verbe :</strong> "Parler" se construit avec "de" (parler de quelque chose)<br>
+                        → <strong>Équivalent :</strong> Le livre. Je parle du livre.<br>
+                        → <strong>Ordre :</strong> dont + sujet + verbe (je parle) - pas d'autre complément "de"
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">DONT - Complément d'Agent</div>
+                    <div class="sentence-coastal">
+                        L'artiste <span class="pronoun-wave">dont</span> tout le monde admire le talent est modeste.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Construction complexe :</strong> <span class="complement-note">Dont + sujet + verbe + article + nom</span><br>
+                        → <strong>Analyse :</strong> Tout le monde admire le talent de l'artiste<br>
+                        → <strong>Structure :</strong> dont + sujet (tout le monde) + verbe (admire) + COD (le talent)<br>
+                        → <strong>Remarque :</strong> "Le talent" reste après le verbe, "dont" remplace "de l'artiste"
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">OÙ - Lieu</div>
+                    <div class="sentence-coastal">
+                        La ville <span class="pronoun-wave">où</span> je suis né a beaucoup changé.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Fonction :</strong> <span class="complement-note">"Où" complément circonstanciel de lieu</span><br>
+                        → <strong>Antécédent :</strong> "La ville" (lieu)<br>
+                        → <strong>Équivalent :</strong> La ville. Je suis né dans cette ville.<br>
+                        → <strong>Remarque :</strong> "Où" remplace "dans laquelle", "à laquelle" pour les lieux
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">OÙ - Temps</div>
+                    <div class="sentence-coastal">
+                        L'année <span class="pronoun-wave">où</span> il est né était exceptionnelle.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Fonction :</strong> <span class="complement-note">"Où" complément circonstanciel de temps</span><br>
+                        → <strong>Antécédent :</strong> "L'année" (temps)<br>
+                        → <strong>Équivalent :</strong> L'année. Il est né cette année-là.<br>
+                        → <strong>Usage :</strong> "Où" temporel s'emploie avec : jour, moment, époque, année, instant, etc.
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">OÙ - Avec Préposition "D'où"</div>
+                    <div class="sentence-coastal">
+                        Le pays <span class="pronoun-wave">d'où</span> je viens est tropical.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Construction :</strong> <span class="complement-note">Préposition "de" + "où" = d'où (provenance)</span><br>
+                        → <strong>Signification :</strong> Le lieu d'origine, la provenance<br>
+                        → <strong>Équivalent :</strong> Le pays. Je viens de ce pays.<br>
+                        → <strong>Autres :</strong> "par où" (passage), "jusqu'où" (limite), "vers où" (direction)
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">DONT vs DUQUEL - Distinction</div>
+                    <div class="sentence-coastal">
+                        La maison <span class="pronoun-wave">dont</span> le toit est rouge. / La maison à côté <span class="pronoun-wave">de laquelle</span> j'habite.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>DONT :</strong> <span class="complement-note">Utilisé sans préposition composée (de + nom)</span><br>
+                        → <strong>DUQUEL :</strong> <span class="complement-note">Après locution prépositive (à côté de, près de, etc.)</span><br>
+                        → <strong>Règle :</strong> Avec locutions prépositives à deux mots → "duquel/de laquelle"<br>
+                        → <strong>Erreur :</strong> ❌ "La maison à côté dont" (incorrect)
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">DONT - Ordre des Mots Fixe</div>
+                    <div class="sentence-coastal">
+                        L'enfant <span class="pronoun-wave">dont</span> les parents sont médecins étudie la médecine.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Ordre obligatoire :</strong> <span class="complement-note">dont + article + nom + verbe</span><br>
+                        → <strong>Structure :</strong> dont + les parents + sont médecins<br>
+                        → <strong>Erreur :</strong> ❌ "L'enfant dont sont médecins les parents" (incorrect)<br>
+                        → <strong>Règle :</strong> Le nom complété par "dont" reste à sa place normale après "dont"
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">OÙ - Ne pas confondre avec OU</div>
+                    <div class="sentence-coastal">
+                        La ville <span class="pronoun-wave">où</span> tu vis <span style="color: var(--emeraude); font-weight: 700;">ou</span> celle <span class="pronoun-wave">où</span> tu travailles ?
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>OÙ (avec accent) :</strong> <span class="complement-note">Pronom relatif de lieu/temps</span><br>
+                        → <strong>OU (sans accent) :</strong> <span class="complement-note">Conjonction de coordination = ou bien</span><br>
+                        → <strong>Test :</strong> Si on peut remplacer par "ou bien" → "ou" sans accent<br>
+                        → <strong>Ici :</strong> Deux "où" relatifs + un "ou" conjonction au milieu
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">DONT - Avec Verbes Pronominaux</div>
+                    <div class="sentence-coastal">
+                        Le problème <span class="pronoun-wave">dont</span> je me souviens était complexe.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Verbe pronominal :</strong> <span class="complement-note">"Se souvenir de" → dont</span><br>
+                        → <strong>Construction :</strong> dont + sujet + verbe pronominal (je me souviens)<br>
+                        → <strong>Autres verbes :</strong> s'occuper de, se servir de, se méfier de, se plaindre de, etc.<br>
+                        → <strong>Remarque :</strong> "Dont" remplace le complément "de + nom" du verbe pronominal
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">OÙ - Interrogatif Direct</div>
+                    <div class="sentence-coastal">
+                        <span class="pronoun-wave">Où</span> vas-tu pour les vacances ?
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Usage interrogatif :</strong> <span class="complement-note">"Où" introduit une question de lieu</span><br>
+                        → <strong>Type :</strong> Question directe (avec inversion ou "est-ce que")<br>
+                        → <strong>Nature :</strong> Adverbe interrogatif (non pronom relatif ici)<br>
+                        → <strong>Variantes :</strong> "Où est-ce que tu vas ?", "D'où viens-tu ?", "Par où passes-tu ?"
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">DONT - Ne peut pas être précédé d'une préposition</div>
+                    <div class="sentence-coastal">
+                        ❌ L'ami <span style="color: #DC2626;">*à dont</span> je pense. / ✅ L'ami <span class="pronoun-wave">auquel</span> je pense.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Règle absolue :</strong> <span class="complement-note">"Dont" ne peut JAMAIS suivre une préposition</span><br>
+                        → <strong>Erreur :</strong> ❌ "à dont", "avec dont", "pour dont" (toutes incorrectes)<br>
+                        → <strong>Solution :</strong> Utiliser "auquel/à laquelle", "avec lequel", "pour lequel"<br>
+                        → <strong>Remarque :</strong> "Dont" remplace uniquement "de + nom", pas d'autres prépositions
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">OÙ - Interrogation Indirecte</div>
+                    <div class="sentence-coastal">
+                        Je me demande <span class="pronoun-wave">où</span> il habite maintenant.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Interrogation indirecte :</strong> <span class="complement-note">Verbe + où + sujet + verbe</span><br>
+                        → <strong>Ordre :</strong> Pas d'inversion du sujet (il habite, non habite-t-il)<br>
+                        → <strong>Type :</strong> Question intégrée dans une phrase déclarative<br>
+                        → <strong>Variantes :</strong> Je ne sais pas où, Il ignore où, Dis-moi où, etc.
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">DONT - Avec Nombre/Quantité</div>
+                    <div class="sentence-coastal">
+                        J'ai lu trois livres, <span class="pronoun-wave">dont</span> deux romans policiers.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Valeur partitive :</strong> <span class="complement-note">"Dont" introduit une partie d'un ensemble</span><br>
+                        → <strong>Signification :</strong> Parmi lesquels, parmi ces livres<br>
+                        → <strong>Construction :</strong> Ensemble total + dont + partie spécifiée<br>
+                        → <strong>Usage :</strong> Fréquent pour préciser une quantité dans un ensemble
+                    </p>
+                </div>
+            </section>
+
+            <!-- Rule Aquatic -->
+            <div class="rule-aquatic">
+                <h3 class="rule-heading">Règles Fondamentales de DONT</h3>
+                <div class="rule-text">
+                    <ul class="rule-points">
+                        <li>
+                            <strong>DONT = DE obligatoire :</strong> "Dont" remplace TOUJOURS un complément introduit 
+                            par "de". Test infaillible : si vous pouvez reformuler avec "de + nom", utilisez "dont". 
+                            Exemples : parler de → dont je parle ; le père de → dont le père ; fier de → dont il est fier.
+                        </li>
+                        <li>
+                            <strong>Ordre des mots avec DONT :</strong> L'ordre est fixe et invariable : dont + sujet + 
+                            verbe + autres compléments. Le nom complété par "dont" (complément du nom) se place après 
+                            "dont" avec son article : "dont le livre", "dont la mère", jamais "dont livre le" ou 
+                            "dont la mère de".
+                        </li>
+                        <li>
+                            <strong>DONT vs DUQUEL :</strong> Utilisez "dont" pour un simple "de". Utilisez "duquel/de laquelle" 
+                            après une locution prépositive en deux mots : à côté de → à côté duquel ; près de → près de laquelle ; 
+                            au sujet de → au sujet duquel. Jamais "à côté dont" ou "près dont".
+                        </li>
+                        <li>
+                            <strong>DONT jamais après préposition :</strong> "Dont" ne peut JAMAIS être précédé d'une 
+                            préposition. Les constructions comme "à dont", "avec dont", "pour dont" sont toutes 
+                            agrammaticales. Utilisez "auquel", "avec lequel", "pour lequel" à la place.
+                        </li>
+                        <li>
+                            <strong>DONT avec verbes et adjectifs :</strong> De nombreux verbes se construisent avec "de" 
+                            (parler de, se souvenir de, avoir besoin de, s'occuper de, etc.) et de nombreux adjectifs 
+                            aussi (fier de, content de, sûr de, capable de, etc.). Dans tous ces cas, "dont" est le 
+                            pronom relatif approprié.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Table Maritime -->
+            <section class="table-maritime">
+                <h2 class="oceanic-heading">Tableau Comparatif DONT / OÙ</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pronom</th>
+                            <th>Fonction</th>
+                            <th>Remplace</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-pronoun">DONT</td>
+                            <td>Complément du nom</td>
+                            <td>de + nom (possession)</td>
+                            <td><em>L'homme dont le fils...</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">DONT</td>
+                            <td>Complément de l'adjectif</td>
+                            <td>de + nom (après adjectif)</td>
+                            <td><em>Le travail dont il est fier</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">DONT</td>
+                            <td>COI</td>
+                            <td>de + nom (verbe + de)</td>
+                            <td><em>Le livre dont je parle</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">DONT</td>
+                            <td>Complément d'agent</td>
+                            <td>de + nom (passif)</td>
+                            <td><em>L'homme dont on parle</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">DONT</td>
+                            <td>Partitif</td>
+                            <td>parmi lesquels</td>
+                            <td><em>Trois livres, dont deux romans</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">OÙ</td>
+                            <td>CC de lieu</td>
+                            <td>dans/à + lieu</td>
+                            <td><em>La ville où je vis</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">OÙ</td>
+                            <td>CC de temps</td>
+                            <td>quand, lorsque</td>
+                            <td><em>Le jour où il est né</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">D'OÙ</td>
+                            <td>CC de provenance</td>
+                            <td>de + lieu</td>
+                            <td><em>Le pays d'où je viens</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Warning Coral -->
+            <div class="warning-coral">
+                <h3 class="warning-heading">Erreurs Courantes à Éviter</h3>
+                <div class="warning-text">
+                    <p style="margin-bottom: 35px;">
+                        <strong>Erreur n°1 : Utiliser une préposition avant DONT</strong><br>
+                        ❌ <em>"L'ami à dont je pense"</em> (incorrect)<br>
+                        ✅ <em>"L'ami <strong>auquel</strong> je pense"</em> (correct)<br>
+                        → "Dont" ne peut JAMAIS suivre une préposition. Utilisez "auquel/à laquelle" à la place.
+                    </p>
+                    
+                    <p style="margin-bottom: 35px;">
+                        <strong>Erreur n°2 : Mauvais ordre des mots avec DONT</strong><br>
+                        ❌ <em>"L'homme dont est médecin le père"</em> (incorrect)<br>
+                        ✅ <em>"L'homme <strong>dont le père</strong> est médecin"</em> (correct)<br>
+                        → Ordre fixe : dont + article + nom + verbe
+                    </p>
+                    
+                    <p style="margin-bottom: 35px;">
+                        <strong>Erreur n°3 : Confondre DONT et DUQUEL après locution</strong><br>
+                        ❌ <em>"La maison à côté dont j'habite"</em> (incorrect)<br>
+                        ✅ <em>"La maison à côté <strong>de laquelle</strong> j'habite"</em> (correct)<br>
+                        → Après locution prépositive (à côté de, près de) → "duquel/de laquelle"
+                    </p>
+                    
+                    <p style="margin-bottom: 35px;">
+                        <strong>Erreur n°4 : Confondre OÙ et OU</strong><br>
+                        ❌ <em>"La ville ou j'habite"</em> (incorrect)<br>
+                        ✅ <em>"La ville <strong>où</strong> j'habite"</em> (correct)<br>
+                        → "Où" (avec accent) pour le lieu/temps, "ou" (sans accent) pour "ou bien"
+                    </p>
+                    
+                    <p>
+                        <strong>Erreur n°5 : Répéter DE après DONT</strong><br>
+                        ❌ <em>"Le livre dont je parle de"</em> (incorrect)<br>
+                        ✅ <em>"Le livre <strong>dont</strong> je parle"</em> (correct)<br>
+                        → "Dont" remplace déjà "de", ne pas le répéter après le verbe
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tip Coastal -->
+            <div class="tip-coastal">
+                <h3 class="tip-heading">Méthode de Distinction Infaillible</h3>
+                <div class="tip-text">
+                    <p style="margin-bottom: 28px;">
+                        <strong>Pour savoir si on utilise DONT :</strong>
+                    </p>
+                    
+                    <p style="margin-bottom: 25px;">
+                        <strong>Étape 1 :</strong> Reformulez la phrase en deux phrases séparées.<br>
+                        "Le livre dont je parle" → "Le livre. Je parle du livre."<br>
+                        → Si vous trouvez "DE + nom" dans la reformulation → utilisez DONT
+                    </p>
+                    
+                    <p style="margin-bottom: 25px;">
+                        <strong>Étape 2 :</strong> Vérifiez s'il y a une locution prépositive.<br>
+                        Si la préposition est composée de deux mots (à côté de, près de, au sujet de) → 
+                        N'utilisez PAS "dont", mais "duquel/de laquelle"
+                    </p>
+                    
+                    <p style="margin-bottom: 25px;">
+                        <strong>Pour savoir si on utilise OÙ :</strong><br>
+                        Si l'antécédent désigne un LIEU (ville, pays, maison, endroit) ou un TEMPS (jour, année, 
+                        moment, époque) → utilisez OÙ
+                    </p>
+                    
+                    <p style="margin-bottom: 25px;">
+                        <strong>Test du remplacement :</strong><br>
+                        • Si vous pouvez remplacer par "dans lequel/laquelle" → OÙ fonctionne<br>
+                        • Si vous pouvez remplacer par "de + nom" → DONT fonctionne
+                    </p>
+                    
+                    <p>
+                        <strong>Mémo rapide :</strong><br>
+                        DONT = toujours lié à DE (parler de, fier de, le père de, etc.)<br>
+                        OÙ = toujours lié au LIEU ou au TEMPS (dans, à, quand)
+                    </p>
+                </div>
+            </div>
+
+            <!-- More Examples -->
+            <section class="examples-marine">
+                <h2 class="marine-title">Cas Particuliers et Subtilités</h2>
+
+                <div class="example-coastal">
+                    <div class="example-badge">DONT - Avec Superlatif</div>
+                    <div class="sentence-coastal">
+                        C'est le meilleur film <span class="pronoun-wave">dont</span> je me souvienne.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Construction :</strong> <span class="complement-note">Superlatif + dont + subjonctif</span><br>
+                        → <strong>Verbe :</strong> "Se souvenir de" → dont<br>
+                        → <strong>Mode :</strong> Subjonctif après superlatif ("souvienne" et non "souviens")<br>
+                        → <strong>Remarque :</strong> Construction courante avec superlatif + dont + subjonctif
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">OÙ - Sens Abstrait (Figuré)</div>
+                    <div class="sentence-coastal">
+                        Le point <span class="pronoun-wave">où</span> nous en sommes dans nos discussions...
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Sens abstrait :</strong> <span class="complement-note">"Où" peut avoir un sens figuré (stade, degré)</span><br>
+                        → <strong>Signification :</strong> Le stade, le niveau auquel nous sommes parvenus<br>
+                        → <strong>Usage :</strong> "Où" peut s'éloigner du sens spatial strict<br>
+                        → <strong>Exemple :</strong> "Voilà où nous en sommes" = voilà notre situation actuelle
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">DONT - Double Complément Impossible</div>
+                    <div class="sentence-coastal">
+                        ❌ La personne <span style="color: #DC2626;">dont je connais le frère de</span>.<br>
+                        ✅ La personne <span class="pronoun-wave">dont</span> je connais le frère.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Règle :</strong> <span class="complement-note">On ne peut pas avoir deux "de" dans la même relative</span><br>
+                        → <strong>Erreur :</strong> "Dont" remplace déjà "de", ne pas en ajouter un autre<br>
+                        → <strong>Correct :</strong> dont je connais le frère (le frère de cette personne)<br>
+                        → <strong>Impossible :</strong> ❌ "dont... de" dans la même proposition
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">OÙ - Avec Antécédent "Ce"</div>
+                    <div class="sentence-coastal">
+                        <span class="pronoun-wave">C'est là où</span> je veux aller. / <span style="color: var(--emeraude); font-weight: 700;">Mieux :</span> <span class="pronoun-wave">C'est où</span> je veux aller.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Pléonasme :</strong> <span class="complement-note">"Là où" est redondant dans cette construction</span><br>
+                        → <strong>Acceptable :</strong> "C'est là où" est compris mais considéré comme lourd<br>
+                        → <strong>Préférable :</strong> "C'est où" (plus élégant) ou "C'est l'endroit où"<br>
+                        → <strong>Remarque :</strong> "Là où" est correct dans d'autres contextes ("Là où tu vas")
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">DONT - Avec Quantité Numérique</div>
+                    <div class="sentence-coastal">
+                        J'ai invité dix personnes, <span class="pronoun-wave">dont</span> trois collègues.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Valeur partitive :</strong> <span class="complement-note">"Dont" = parmi lesquelles</span><br>
+                        → <strong>Structure :</strong> Total + dont + partie avec nombre précis<br>
+                        → <strong>Usage :</strong> Très fréquent pour spécifier une sous-catégorie<br>
+                        → <strong>Variante :</strong> "dont la plupart", "dont certains", "dont quelques-uns"
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">OÙ - Locutions Temporelles</div>
+                    <div class="sentence-coastal">
+                        Du temps <span class="pronoun-wave">où</span> j'étais étudiant, la vie était différente.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Locution :</strong> <span class="complement-note">"Du temps où" = à l'époque où</span><br>
+                        → <strong>Équivalent :</strong> "À l'époque où", "au moment où", "dans les jours où"<br>
+                        → <strong>Registre :</strong> Légèrement littéraire, évoque le passé<br>
+                        → <strong>Usage :</strong> Fréquent pour rappeler une période révolue
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">DONT - Avec Nom Indéfini</div>
+                    <div class="sentence-coastal">
+                        Voilà quelque chose <span class="pronoun-wave">dont</span> tu peux être fier.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Antécédent indéfini :</strong> <span class="complement-note">"Quelque chose", "rien", "tout", "ce" + dont</span><br>
+                        → <strong>Construction :</strong> Pronom indéfini + dont + proposition<br>
+                        → <strong>Exemples :</strong> "rien dont", "tout dont", "ce dont", "quelque chose dont"<br>
+                        → <strong>Usage :</strong> Très courant avec pronoms neutres
+                    </p>
+                </div>
+
+                <div class="example-coastal">
+                    <div class="example-badge">OÙ - Expression "N'importe où"</div>
+                    <div class="sentence-coastal">
+                        Il va <span class="pronoun-wave">n'importe où</span> sans réfléchir.
+                    </div>
+                    <p class="analysis-coastal">
+                        → <strong>Locution :</strong> <span class="complement-note">"N'importe où" = en tout lieu, partout</span><br>
+                        → <strong>Signification :</strong> Un lieu quelconque, sans précision<br>
+                        → <strong>Usage :</strong> Très fréquent à l'oral et à l'écrit<br>
+                        → <strong>Variantes :</strong> "n'importe quand" (temps), "n'importe qui" (personne), "n'importe quoi" (chose)
+                    </p>
+                </div>
+            </section>
+
+            <!-- Deep Ocean Panel -->
+            <section class="deep-ocean-panel">
+                <h2>Synthèse Complète et Maîtrise</h2>
+                <ul class="deep-ocean-list">
+                    <li>
+                        <strong>DONT - Le remplaçant universel de "DE" :</strong> "Dont" est le pronom relatif utilisé 
+                        pour remplacer tout complément introduit par la préposition "de", quelle que soit sa fonction : 
+                        complément du nom (dont le père), complément de l'adjectif (dont il est fier), COI (dont je parle), 
+                        ou complément d'agent (dont on parle). Il ne peut jamais être précédé d'une préposition et impose 
+                        un ordre des mots fixe : dont + sujet + verbe + autres compléments.
+                    </li>
+                    <li>
+                        <strong>Distinction DONT vs DUQUEL :</strong> Utilisez "dont" pour un simple complément en "de". 
+                        Utilisez "duquel/de laquelle/desquels/desquelles" après une locution prépositive composée de deux 
+                        mots ou plus : "à côté de" → "à côté duquel", "au sujet de" → "au sujet duquel", "près de" → 
+                        "près de laquelle". Cette distinction est fondamentale et ne souffre aucune exception. "À côté dont" 
+                        ou "près dont" sont des erreurs graves.
+                    </li>
+                    <li>
+                        <strong>OÙ - Le double localisateur :</strong> "Où" fonctionne comme pronom relatif de lieu 
+                        (la ville où je vis) et de temps (le jour où je suis né). Il peut être précédé de prépositions 
+                        pour préciser le sens : "d'où" (provenance), "par où" (passage), "jusqu'où" (limite). "Où" remplace 
+                        avantageusement "dans lequel/laquelle", "à laquelle", "auquel" quand il s'agit de lieux ou de moments, 
+                        rendant la phrase plus fluide et naturelle.
+                    </li>
+                    <li>
+                        <strong>Ordre des mots avec DONT :</strong> L'ordre est strictement fixe et non négociable : 
+                        dont + article/déterminant + nom + verbe + autres éléments. "Dont le père est médecin" est correct ; 
+                        "dont est médecin le père" est incorrect. Quand "dont" est COI ou complément de l'adjectif, l'ordre 
+                        est : dont + sujet + verbe (+adjectif). Cette rigidité structurelle garantit la clarté de la phrase.
+                    </li>
+                    <li>
+                        <strong>Confusion OÙ vs OU :</strong> "Où" avec accent grave est un pronom relatif ou interrogatif 
+                        indiquant le lieu ou le temps. "Ou" sans accent est une conjonction de coordination signifiant 
+                        "ou bien, sinon". Test simple : si on peut remplacer par "ou bien", c'est "ou" sans accent. 
+                        "La ville où (dans laquelle) je vis ou (ou bien) celle où je travaille" - deux fonctions différentes 
+                        dans la même phrase.
+                    </li>
+                    <li>
+                        <strong>DONT et la double préposition impossible :</strong> On ne peut pas avoir deux compléments 
+                        en "de" dans une même proposition relative avec "dont". "Dont" remplace déjà "de + antécédent", 
+                        donc on ne peut pas ajouter un autre "de" après. "L'homme dont je connais le frère" est correct ; 
+                        "l'homme dont je connais le frère de" est agrammatical. Cette règle évite les structures bancales 
+                        et ambiguës.
+                    </li>
+                    <li>
+                        <strong>Valeurs particulières de DONT :</strong> Au-delà de ses emplois standards, "dont" a une 
+                        valeur partitive dans des constructions comme "trois livres dont deux romans" (= parmi lesquels). 
+                        Il peut aussi marquer la manière dans des expressions figées ("la façon dont", "la manière dont"). 
+                        Ces emplois particuliers enrichissent les possibilités expressives du français et permettent des 
+                        formulations élégantes et précises.
+                    </li>
+                    <li>
+                        <strong>Maîtrise complète et usage idiomatique :</strong> La maîtrise parfaite de "dont" et "où" 
+                        est un marqueur de compétence linguistique avancée en français. Leur emploi correct évite les 
+                        lourdeurs stylistiques (répétition de "de laquelle", "dans laquelle") et permet des formulations 
+                        naturelles et fluides. Les erreurs d'usage de ces pronoms sont parmi les plus visibles et les plus 
+                        pénalisantes en français écrit et oral soutenu. Une pratique intensive et une attention constante 
+                        à l'ordre des mots sont essentielles pour les utiliser avec aisance.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Final Tip -->
+            <div class="tip-coastal">
+                <h3 class="tip-heading">Récapitulatif pour une Maîtrise Parfaite</h3>
+                <div class="tip-text">
+                    <p style="margin-bottom: 28px;">
+                        <strong>🎯 Les 5 principes absolus à retenir :</strong>
+                    </p>
+                    
+                    <p style="margin-bottom: 25px;">
+                        <strong>1. DONT = DE obligatoire :</strong> Si la reformulation contient "de + nom", utilisez 
+                        "dont". Si c'est une autre préposition (à, avec, pour), utilisez "auquel/à laquelle/avec lequel", etc.
+                    </p>
+                    
+                    <p style="margin-bottom: 25px;">
+                        <strong>2. DONT jamais après préposition :</strong> "À dont", "avec dont", "pour dont" sont 
+                        TOUTES incorrectes. "Dont" ne peut jamais suivre une préposition. Utilisez les formes composées 
+                        "auquel", "avec lequel", etc.
+                    </p>
+                    
+                    <p style="margin-bottom: 25px;">
+                        <strong>3. OÙ pour lieu et temps uniquement :</strong> "Où" s'emploie avec des antécédents de 
+                        lieu (ville, pays, maison) ou de temps (jour, année, moment). Ne jamais l'utiliser pour des personnes 
+                        ou des choses abstraites.
+                    </p>
+                    
+                    <p style="margin-bottom: 25px;">
+                        <strong>4. Ordre fixe avec DONT :</strong> dont + article + nom + verbe. Cet ordre ne peut pas 
+                        être modifié. "Dont le père est..." (correct), "dont est le père..." (incorrect).
+                    </p>
+                    
+                    <p>
+                        <strong>5. Attention aux confusions :</strong> "Où" (avec accent, lieu/temps) ≠ "ou" (sans accent, 
+                        ou bien). "Dont" (simple "de") ≠ "duquel" (après locution prépositive). Ces distinctions sont 
+                        fondamentales et non négociables.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Língua Academy · Tous droits réservés</p>
+            <p class="footer-anchor">LÍNGUA ACADEMY</p>
+            <p>Voguant vers l'Excellence Linguistique</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Advanced Intersection Observer
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -160px 0px'
+        };
+
+        const oceanObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe example boxes
+        document.querySelectorAll('.example-coastal').forEach(box => {
+            box.style.opacity = '0';
+            box.style.transform = 'translateY(55px)';
+            box.style.transition = 'opacity 1.3s ease, transform 1.3s ease';
+            oceanObserver.observe(box);
+        });
+
+        // Nautical card hover effects
+        document.querySelectorAll('.nautical-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.nautical-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(1.7) rotate(35deg)';
+                    icon.style.transition = 'transform 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                }
+            });
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.nautical-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                }
+            });
+        });
+
+        // Animate table rows with wave effect
+        document.querySelectorAll('tbody tr').forEach((row, index) => {
+            row.style.opacity = '0';
+            row.style.transform = 'translateX(-80px)';
+            row.style.transition = `opacity 1.1s ease ${index * 0.12}s, transform 1.1s ease ${index * 0.12}s`;
+            
+            oceanObserver.observe(row);
+        });
+
+        // Anchor emblem sway enhancement on hover
+        const anchorEmblem = document.querySelector('.anchor-emblem');
+        if (anchorEmblem) {
+            anchorEmblem.addEventListener('mouseenter', function() {
+                this.style.transform = 'rotate(15deg) scale(1.15)';
+                this.style.boxShadow = '0 30px 90px rgba(255, 111, 97, 1)';
+            });
+            anchorEmblem.addEventListener('mouseleave', function() {
+                this.style.transform = 'rotate(0deg) scale(1)';
+                this.style.boxShadow = '0 20px 60px rgba(255, 111, 97, 0.6)';
+            });
+        }
+
+        // Create additional bubbles dynamically
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.style.width = Math.random() * 60 + 40 + 'px';
+            bubble.style.height = bubble.style.width;
+            bubble.style.left = Math.random() * 100 + '%';
+            bubble.style.animationDuration = Math.random() * 15 + 15 + 's';
+            bubble.style.animationDelay = Math.random() * 10 + 's';
+            document.body.appendChild(bubble);
+            
+            setTimeout(() => {
+                bubble.remove();
+            }, 35000);
+        }
+
+        // Add new bubbles periodically
+        setInterval(createBubble, 5000);
+    </script>
+</body>
+</html>

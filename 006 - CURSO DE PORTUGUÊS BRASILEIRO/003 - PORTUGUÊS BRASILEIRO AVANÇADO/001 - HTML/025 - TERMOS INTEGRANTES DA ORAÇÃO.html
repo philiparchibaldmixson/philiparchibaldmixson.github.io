@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos Integrantes da Oração</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* CSS EXATO do ARQUIVO 004 - ORTOGRAFIA */
+        body {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E7D6E 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #2E7D6E; /* Cor principal adaptada do tema */
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #4ECDC4;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #44A08D; /* Cor secundária adaptada do tema */
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+            min-height: 350px;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores adaptadas do tema 004 */
+        .tipo-card.od {
+            background: linear-gradient(135deg, #FF6B6B, #EE5A5A); /* Vermelho/Ação */
+        }
+
+        .tipo-card.oi {
+            background: linear-gradient(135deg, #8338EC, #6C23D6); /* Roxo/Necessidade */
+        }
+
+        .tipo-card.co {
+            background: linear-gradient(135deg, #FFC300, #FFAD00); /* Amarelo/Adição */
+            color: #333;
+        }
+
+        .tipo-card.cn {
+            background: linear-gradient(135deg, #00B4D8, #00A6CC); /* Azul/Conclusão */
+        }
+
+        .tipo-card.agente {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D); /* Verde Água/Agente */
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+        
+        /* Ajuste de contraste para o card amarelo */
+        .tipo-card.co .exemplos {
+            background: rgba(0,0,0,0.1); 
+            color: #333;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .dicas-box {
+            /* Cor adaptada do arquivo 004 */
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "💡"; /* Ícone adaptado */
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛠️ Termos Integrantes da Oração 🛠️</h1>
+        <p class="subtitle">Elementos que complementam o sentido do Verbo ou do Nome na oração!</p>
+
+        <div class="section">
+            <h2>🎯 O que são Termos Integrantes?</h2>
+            <p class="intro-text">
+                Termos Integrantes são aqueles que complementam o sentido de verbos transitivos, nomes (substantivos, adjetivos, advérbios) e do verbo na voz passiva. Eles são essenciais para que o sentido da oração fique completo.
+                <br><br>
+                1. **Complementos Verbais:** Objetos (Direto e Indireto).<br>
+                2. **Complementos Nominais:** Complemento Nominal e Agente da Passiva.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>🔗 Complementos Verbais (Objetos)</h2>
+            <p class="intro-text">
+                São os termos que completam o sentido dos Verbos Transitivos (aqueles que não têm sentido completo por si só).
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card od">
+                    <h3>1. Objeto Direto (OD)</h3>
+                    <div class="definicao">
+                        Completa o sentido de um **Verbo Transitivo Direto (VTD)**. A ligação entre o verbo e o objeto é **direta**, ou seja, sem preposição obrigatória.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Eu comprei **o carro novo**.<br>
+                        • Ela comeu **o bolo**.
+                    </div>
+                </div>
+
+                <div class="tipo-card oi">
+                    <h3>2. Objeto Indireto (OI)</h3>
+                    <div class="definicao">
+                        Completa o sentido de um **Verbo Transitivo Indireto (VTI)**. A ligação é **indireta**, ou seja, sempre feita por meio de uma **preposição obrigatória** (a, de, em, para, com, etc.).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Nós precisamos **de ajuda**.<br>
+                        • Ele obedece **às regras**.
+                    </div>
+                </div>
+
+                <div class="tipo-card co">
+                    <h3>3. Objeto Direto Preposicionado</h3>
+                    <div class="definicao">
+                        Um Objeto Direto que, por motivos estilísticos ou de clareza, é introduzido por uma preposição. Embora incomum, ocorre.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • O réu ofendeu **aos juízes**.<br>
+                        • Amamos **a Deus**.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✨ Complementos Nominais e Agente</h2>
+            <p class="intro-text">
+                Estes termos completam o sentido de nomes ou indicam quem praticou a ação na voz passiva.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card cn">
+                    <h3>4. Complemento Nominal (CN)</h3>
+                    <div class="definicao">
+                        Completa o sentido de um **Nome** (substantivo, adjetivo ou advérbio) e é sempre introduzido por **preposição**.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Tenho medo **de escuro** (Completa o nome *medo*).<br>
+                        • Ele era favorável **à mudança** (Completa o adjetivo *favorável*).
+                    </div>
+                </div>
+
+                <div class="tipo-card agente">
+                    <h3>5. Agente da Passiva</h3>
+                    <div class="definicao">
+                        É o termo que, na **voz passiva analítica**, indica quem praticou a ação. É sempre introduzido por **preposição** (geralmente *por* ou *de*).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • O livro foi escrito **pelo autor**.<br>
+                        • O muro foi derrubado **pelo vento**.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 Diferença Crucial: CN vs. Adjunto Adnominal</h2>
+
+            <div class="dicas-box">
+                <h4>CN (Complemento Nominal) vs. AA (Adjunto Adnominal):</h4>
+                <ul>
+                    <li>**CN** sempre tem preposição e completa o sentido de um **nome abstrato** (ou adjetivo/advérbio), exercendo o papel de **paciente/alvo** da ação ou qualidade. Ex: *Amor **ao próximo*** (O próximo é o alvo do amor).</li>
+                    <li>**AA** pode ou não ter preposição e sempre expressa uma **qualidade, posse ou especificação** de um substantivo (concreto ou abstrato), exercendo o papel de **agente/possuidor**. Ex: *Amor **de mãe*** (A mãe é quem ama).</li>
+                    <li>**Dica:** Se o termo com preposição puder ser substituído por um sujeito (*a mãe ama*), é Adjunto Adnominal. Se for o alvo da ação (*eu amo o próximo*), é Complemento Nominal.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

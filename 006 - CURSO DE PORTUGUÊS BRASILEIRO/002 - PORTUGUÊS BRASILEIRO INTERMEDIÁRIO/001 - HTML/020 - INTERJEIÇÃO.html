@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interjeição em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #E67E22;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #E67E22;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #F39C12;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores Adaptadas para Interjeição (Sentimentos) */
+        .tipo-card.alegria {
+            background: linear-gradient(135deg, #2ECC71, #16A085); /* Alegria/Aprovação */
+        }
+
+        .tipo-card.dor {
+            background: linear-gradient(135deg, #E74C3C, #C0392B); /* Dor/Tristeza */
+        }
+
+        .tipo-card.espanto {
+            background: linear-gradient(135deg, #F1C40F, #F39C12); /* Espanto/Surpresa */
+            color: #333; /* Texto escuro para contraste com o amarelo */
+        }
+
+        .tipo-card.chamamento {
+            background: linear-gradient(135deg, #3498DB, #2980B9); /* Chamamento/Apelo */
+        }
+        
+        .tipo-card.silencio {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD); /* Silêncio/Súplica */
+        }
+        
+        .tipo-card.locucao {
+            background: linear-gradient(135deg, #1ABC9C, #16A085); /* Locução Interjetiva */
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+        
+        /* Corrigindo contraste em amarelo */
+        .tipo-card.espanto .exemplos {
+            background: rgba(0,0,0,0.1); 
+            color: #333;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .exemplo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #E67E22;
+        }
+
+        .exemplo-card .titulo-exemplo {
+            font-size: 2em;
+            color: #E67E22;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .conteudo-exemplo {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .dicas-box {
+            background: linear-gradient(135deg, #1ABC9C, #16A085);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .tipo-card, .destaque, .dicas-box, .exemplo-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📣 Interjeição 📣</h1>
+        <p class="subtitle">A palavra invariável que expressa emoções, sentimentos e estados de espírito!</p>
+
+        <div class="section">
+            <h2>🎯 O que é Interjeição?</h2>
+            <p class="intro-text">
+                A **Interjeição** é a classe de palavras **invariável** que expressa emoções, 
+                sentimentos repentinos ou estados de espírito. Ela funciona como um grito, um desabafo ou 
+                uma convocação, sem estabelecer, geralmente, relação sintática com os outros termos da oração. 
+                É a única classe essencialmente emotiva.
+            </p>
+
+            <div class="destaque">
+                <strong>💡 Característica Principal:</strong> A interjeição é quase sempre acompanhada 
+                do ponto de exclamação (!), que reforça a intensidade da emoção ou do comando. Ela 
+                pode, por si só, constituir uma oração.
+            </div>
+
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">Interjeição como Oração</div>
+                <div class="conteudo-exemplo">
+                    • <span style="font-weight: bold; color: #E74C3C;">Uau!</span> Que carro lindo! (O sentimento é a oração)<br>
+                    • <span style="font-weight: bold; color: #E74C3C;">Psiu!</span> Não faça barulho. (O comando/chamamento é a oração)
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Classificação (Sentimento)</h2>
+            <p class="intro-text">
+                As interjeições são classificadas de acordo com o sentimento que buscam expressar.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card alegria">
+                    <h3>1. Alegria / Satisfação</h3>
+                    <div class="definicao">
+                        Expressa contentamento, prazer ou aprovação.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Ah! Oba! Viva! Aleluia! Que bom!
+                    </div>
+                </div>
+
+                <div class="tipo-card dor">
+                    <h3>2. Dor / Tristeza</h3>
+                    <div class="definicao">
+                        Expressa sofrimento, lamento ou piedade.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Ai! Ui! Ah! Oh! Que pena! Cruzes!
+                    </div>
+                </div>
+
+                <div class="tipo-card espanto">
+                    <h3>3. Espanto / Surpresa</h3>
+                    <div class="definicao">
+                        Expressa admiração, susto ou estranheza.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Puxa! Nossa! Uau! Quê! Oh! Caramba!
+                    </div>
+                </div>
+
+                <div class="tipo-card chamamento">
+                    <h3>4. Chamamento / Apelo</h3>
+                    <div class="definicao">
+                        Usada para invocar ou chamar a atenção de alguém.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Olá! Alô! Ei! Ô! Psiu! Atenção!
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px;">Outras Classificações</h3>
+            <div class="tipos-grid">
+                <div class="tipo-card silencio">
+                    <h3>5. Silêncio / Desejo</h3>
+                    <div class="definicao">
+                        Expressa pedido de silêncio ou manifestação de uma vontade.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Silêncio:</strong> Silêncio! Cala a boca! Shhh!<br>
+                        <strong>Desejo:</strong> Oh! Tomara! Oxalá!
+                    </div>
+                </div>
+                
+                <div class="tipo-card locucao">
+                    <h3>Locução Interjetiva</h3>
+                    <div class="definicao">
+                        É um conjunto de duas ou mais palavras que, juntas, atuam como uma única interjeição, expressando uma só emoção.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Que horror!<br>
+                        • Meu Deus!<br>
+                        • Graças a Deus!<br>
+                        • Ora bolas!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Dicas de Ouro</h2>
+            
+            <div class="dicas-box">
+                <h4>Observações Essenciais:</h4>
+                <ul>
+                    <li>A interjeição é uma classe **invariável**, ou seja, não tem plural, feminino ou flexão de grau, exceto quando se trata de um advérbio que passa a funcionar como interjeição (ex: *Lindo!*).</li>
+                    <li>Sua posição na frase é **livre**. Pode vir no começo, meio ou fim, e ser isolada por exclamação, vírgula ou parênteses.</li>
+                    <li>Muitas palavras de outras classes podem funcionar como interjeição pelo **contexto** (Ex: *Basta!* - é um verbo usado como interjeição).</li>
+                    <li>O sentido da interjeição depende fortemente da **entonação** e do contexto. O "Ah!" pode expressar dor, espanto, alívio, etc.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Accord du Verbe avec Plusieurs Sujets | Língua Academy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c44569 100%);
+            color: #2d3436;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 50px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 40px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: #ffffff;
+            padding: 80px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '+ + +';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 300px;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.03);
+            letter-spacing: 60px;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 0.9em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        .header .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            opacity: 0.85;
+            max-width: 700px;
+        }
+        
+        .content {
+            padding: 70px 60px;
+        }
+        
+        .intro-box {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+            padding: 50px;
+            border-radius: 25px;
+            margin-bottom: 70px;
+            border-left: 10px solid #ff6b6b;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro-box::after {
+            content: '×';
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            font-size: 200px;
+            color: rgba(255, 107, 107, 0.1);
+            font-weight: 900;
+        }
+        
+        .intro-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #2d3436;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .intro-box p {
+            font-size: 1.2em;
+            color: #636e72;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: #2d3436;
+            margin: 80px 0 50px 0;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .section-title::before {
+            content: '';
+            width: 60px;
+            height: 6px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            border-radius: 3px;
+        }
+        
+        .rule-container {
+            background: #ffffff;
+            border-radius: 25px;
+            padding: 45px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            border: 3px solid #f8f9fa;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .rule-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            opacity: 0;
+            border-radius: 25px;
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .rule-container:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 70px rgba(255, 107, 107, 0.3);
+            color: #ffffff;
+        }
+        
+        .rule-container:hover::before {
+            opacity: 1;
+        }
+        
+        .rule-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .rule-icon {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            flex-shrink: 0;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .rule-container:hover .rule-icon {
+            background: #ffffff;
+            transform: rotate(360deg);
+        }
+        
+        .rule-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            font-weight: 700;
+            color: #2d3436;
+            transition: all 0.4s ease;
+        }
+        
+        .rule-container:hover .rule-title {
+            color: #ffffff;
+        }
+        
+        .rule-description {
+            font-size: 1.15em;
+            color: #636e72;
+            line-height: 1.9;
+            margin-bottom: 35px;
+            padding-left: 95px;
+            transition: all 0.4s ease;
+        }
+        
+        .rule-container:hover .rule-description {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .examples-list {
+            padding-left: 95px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .example {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px 30px;
+            border-radius: 15px;
+            border-left: 5px solid #ff6b6b;
+            transition: all 0.3s ease;
+        }
+        
+        .rule-container:hover .example {
+            background: rgba(255, 255, 255, 0.15);
+            border-left-color: #ffffff;
+        }
+        
+        .example-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #2d3436;
+            transition: all 0.4s ease;
+        }
+        
+        .rule-container:hover .example-text {
+            color: #ffffff;
+        }
+        
+        .example-note {
+            font-size: 0.95em;
+            color: #636e72;
+            font-style: italic;
+            padding-left: 20px;
+            border-left: 2px solid rgba(255, 107, 107, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .rule-container:hover .example-note {
+            color: rgba(255, 255, 255, 0.8);
+            border-left-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .subject-highlight {
+            background: linear-gradient(120deg, #fdcb6e 0%, #ffeaa7 100%);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            color: #2d3436;
+            transition: all 0.4s ease;
+        }
+        
+        .rule-container:hover .subject-highlight {
+            background: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+        
+        .verb-highlight {
+            background: linear-gradient(120deg, #74b9ff 0%, #a29bfe 100%);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            color: #2d3436;
+            transition: all 0.4s ease;
+        }
+        
+        .rule-container:hover .verb-highlight {
+            background: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+        
+        .connector-highlight {
+            background: linear-gradient(120deg, #55efc4 0%, #00b894 100%);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            color: #2d3436;
+            transition: all 0.4s ease;
+        }
+        
+        .rule-container:hover .connector-highlight {
+            background: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+        
+        .attention-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 25px;
+            padding: 50px;
+            margin: 70px 0;
+            border-left: 10px solid #fdcb6e;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .attention-box::before {
+            content: '⚠';
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            font-size: 250px;
+            opacity: 0.1;
+        }
+        
+        .attention-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #2d3436;
+            margin-bottom: 30px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .attention-box h3::before {
+            content: '⚠️';
+            font-size: 1.2em;
+        }
+        
+        .attention-item {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border-left: 5px solid #e17055;
+        }
+        
+        .attention-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .attention-title {
+            font-weight: 700;
+            font-size: 1.2em;
+            color: #2d3436;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .attention-title::before {
+            content: '▸';
+            color: #e17055;
+            font-size: 1.4em;
+        }
+        
+        .attention-content {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15em;
+            color: #636e72;
+            line-height: 1.8;
+            padding-left: 30px;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .comparison-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(255, 107, 107, 0.2);
+        }
+        
+        .comparison-label {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: #ffffff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .comparison-example {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2em;
+            color: #2d3436;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .comparison-explanation {
+            font-size: 0.95em;
+            color: #636e72;
+            line-height: 1.7;
+        }
+        
+        .tip-section {
+            background: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);
+            border-radius: 25px;
+            padding: 50px;
+            margin: 70px 0;
+            color: #ffffff;
+        }
+        
+        .tip-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .tip-section h3::before {
+            content: '💡';
+            font-size: 1.2em;
+        }
+        
+        .tip-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 35px;
+        }
+        
+        .tip-step {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .tip-step-number {
+            font-size: 2.5em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        
+        .tip-step-text {
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        
+        .summary-section {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: #ffffff;
+            padding: 70px 60px;
+            border-radius: 25px;
+            margin-top: 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .summary-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .summary-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin-bottom: 35px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .summary-content {
+            font-size: 1.25em;
+            line-height: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .summary-highlight {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            padding: 4px 15px;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 50px;
+            text-align: center;
+            color: #636e72;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 1024px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 30px 15px;
+            }
+            
+            .header {
+                padding: 50px 30px;
+            }
+            
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .content {
+                padding: 50px 30px;
+            }
+            
+            .rule-description,
+            .examples-list {
+                padding-left: 0;
+            }
+            
+            .tip-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="header-tag">Niveau Avancé</div>
+                <h1>L'Accord du Verbe avec Plusieurs Sujets</h1>
+                <div class="subtitle">Maîtrisez les règles complexes de l'accord quand plusieurs sujets commandent le même verbe</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="intro-box">
+                <h2>La Complexité de la Pluralité</h2>
+                <p>Lorsque plusieurs sujets commandent le même verbe, des règles précises déterminent l'accord. La coordination, l'ordre des sujets, et même leur sens peuvent influencer la conjugaison. Explorons ces règles essentielles pour une maîtrise parfaite.</p>
+            </div>
+            
+            <div class="section-title">Sujets Coordonnés par « ET »</div>
+            
+            <div class="rule-container">
+                <div class="rule-header">
+                    <div class="rule-icon">+</div>
+                    <h3 class="rule-title">Règle Générale : Pluriel</h3>
+                </div>
+                <div class="rule-description">
+                    Quand plusieurs sujets sont unis par <strong>« et »</strong>, le verbe se met au <strong>pluriel</strong>, car l'addition des sujets crée une pluralité réelle.
+                </div>
+                <div class="examples-list">
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="subject-highlight">Paul</span> <span class="connector-highlight">et</span> <span class="subject-highlight">Marie</span> <span class="verb-highlight">arrivent</span> demain.
+                        </div>
+                        <div class="example-note">
+                            Deux sujets de 3ème personne → verbe au pluriel (3ème pers. plur.)
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="subject-highlight">Le chien</span> <span class="connector-highlight">et</span> <span class="subject-highlight">le chat</span> <span class="verb-highlight">jouent</span> ensemble.
+                        </div>
+                        <div class="example-note">
+                            Addition de deux sujets singuliers = sujet pluriel
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="subject-highlight">La pluie</span> <span class="connector-highlight">et</span> <span class="subject-highlight">le vent</span> <span class="verb-highlight">ont cessé</span>.
+                        </div>
+                        <div class="example-note">
+                            Même à des temps composés, l'accord au pluriel est obligatoire
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rule-container">
+                <div class="rule-header">
+                    <div class="rule-icon">👥</div>
+                    <h3 class="rule-title">Personnes Différentes avec « ET »</h3>
+                </div>
+                <div class="rule-description">
+                    Quand les sujets sont de <strong>personnes différentes</strong>, le verbe se met au pluriel et la personne qui l'emporte suit une hiérarchie : <strong>1ère > 2ème > 3ème</strong>.
+                </div>
+                <div class="examples-list">
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="subject-highlight">Toi</span> <span class="connector-highlight">et</span> <span class="subject-highlight">moi</span> <span class="verb-highlight">partons</span> ensemble.
+                        </div>
+                        <div class="example-note">
+                            2ème pers. + 1ère pers. → 1ère pers. plur. (nous)
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="subject-highlight">Toi</span> <span class="connector-highlight">et</span> <span class="subject-highlight">lui</span> <span class="verb-highlight">partez</span> demain.
+                        </div>
+                        <div class="example-note">
+                            2ème pers. + 3ème pers. → 2ème pers. plur. (vous)
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="subject-highlight">Lui</span> <span class="connector-highlight">et</span> <span class="subject-highlight">elle</span> <span class="verb-highlight">partent</span> en vacances.
+                        </div>
+                        <div class="example-note">
+                            3ème pers. + 3ème pers. → 3ème pers. plur. (ils)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-title">Sujets Coordonnés par « OU »</div>
+            
+            <div class="rule-container">
+                <div class="rule-header">
+                    <div class="rule-icon">⚡</div>
+                    <h3 class="rule-title">« OU » Exclusif : Singulier</h3>
+                </div>
+                <div class="rule-description">
+                    Quand <strong>« ou »</strong> indique une <strong>exclusion</strong> (un seul des sujets fait l'action), le verbe reste au <strong>singulier</strong>.
+                </div>
+                <div class="examples-list">
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="subject-highlight">Pierre</span> <span class="connector-highlight">ou</span> <span class="subject-highlight">Jean</span> <span class="verb-highlight">viendra</span> te chercher.
+                        </div>
+                        <div class="example-note">
+                            Un seul viendra (exclusion) → verbe au singulier
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="subject-highlight">Le président</span> <span class="connector-highlight">ou</span> <span class="subject-highlight">le vice-président</span> <span class="verb-highlight">présidera</span> la réunion.
+                        </div>
+                        <div class="example-note">
+                            Une seule personne présidera → singulier
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rule-container">
+                <div class="rule-header">
+                    <div class="rule-icon">🔄</div>
+                    <h3 class="rule-title">« OU » Inclusif : Pluriel</h3>
+                </div>
+                <div class="rule-description">
+                    Quand <strong>« ou »</strong> signifie que <strong>les deux peuvent</strong> faire l'action (inclusion possible), le verbe se met au <strong>pluriel</strong>.
+                </div>
+                <div class="examples-list">
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="subject-highlight">La fatigue</span> <span class="connector-highlight">ou</span> <span class="subject-highlight">le stress</span> <span class="verb-highlight">peuvent</span> causer des maux de tête.
+                        </div>
+                        <div class="example-note">
+                            Les deux causes sont possibles simultanément → pluriel
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="subject-highlight">Un mot</span> <span class="connector-highlight">ou</span> <span class="subject-highlight">un geste</span> <span class="verb-highlight">suffisent</span> parfois.
+                        </div>
+                        <div class="example-note">
+                            L'un ou l'autre ou les deux ensemble → pluriel
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-title">Sujets Coordonnés par « NI »</div>
+            
+            <div class="rule-container">
+                <div class="rule-header">
+                    <div class="rule-icon">⊘</div>
+                    <h3 class="rule-title">« NI... NI... » : Pluriel ou Singulier</h3>
+                </div>
+                <div class="rule-description">
+                    Avec <strong>« ni... ni... »</strong>, deux accords sont possibles selon l'intention : <strong>pluriel</strong> (aucun des deux ne...) ou <strong>singulier</strong> (ni l'un ni l'autre ne...).
+                </div>
+                <div class="examples-list">
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="connector-highlight">Ni</span> <span class="subject-highlight">Paul</span> <span class="connector-highlight">ni</span> <span class="subject-highlight">Marie</span> <span class="verb-highlight">ne sont venus</span>.
+                        </div>
+                        <div class="example-note">
+                            Pluriel (les deux sont absents) – usage le plus courant
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="connector-highlight">Ni</span> <span class="subject-highlight">l'un</span> <span class="connector-highlight">ni</span> <span class="subject-highlight">l'autre</span> <span class="verb-highlight">ne convient</span>.
+                        </div>
+                        <div class="example-note">
+                            Singulier (insistance sur l'exclusion individuelle)
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="connector-highlight">Ni</span> <span class="subject-highlight">le temps</span> <span class="connector-highlight">ni</span> <span class="subject-highlight">l'argent</span> <span class="verb-highlight">ne manquent</span>.
+                        </div>
+                        <div class="example-note">
+                            Pluriel – négation globale des deux éléments
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-title">Cas Particuliers</div>
+            
+            <div class="rule-container">
+                <div class="rule-header">
+                    <div class="rule-icon">≈</div>
+                    <h3 class="rule-title">« Ainsi que », « Comme », « De même que »</h3>
+                </div>
+                <div class="rule-description">
+                    Avec ces expressions, l'accord dépend du sens : <strong>comparaison</strong> (virgules = singulier) ou <strong>addition</strong> (pas de virgules = pluriel).
+                </div>
+                <div class="examples-list">
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="subject-highlight">Le français</span>, <span class="connector-highlight">ainsi que</span> <span class="subject-highlight">l'anglais</span>, <span class="verb-highlight">est enseigné</span> ici.
+                        </div>
+                        <div class="example-note">
+                            Comparaison (virgules) → verbe au singulier (accord avec "le français")
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="subject-highlight">Le français</span> <span class="connector-highlight">ainsi que</span> <span class="subject-highlight">l'anglais</span> <span class="verb-highlight">sont enseignés</span> ici.
+                        </div>
+                        <div class="example-note">
+                            Addition (pas de virgules) → verbe au pluriel
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rule-container">
+                <div class="rule-header">
+                    <div class="rule-icon">∑</div>
+                    <h3 class="rule-title">Sujet Résumé par un Mot</h3>
+                </div>
+                <div class="rule-description">
+                    Quand plusieurs sujets sont <strong>résumés</strong> par un mot comme <em>tout, rien, personne, chacun, nul</em>, le verbe s'accorde avec ce <strong>mot récapitulatif</strong>.
+                </div>
+                <div class="examples-list">
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="subject-highlight">Parents, amis, collègues</span>, <span class="subject-highlight">tout</span> <span class="verb-highlight">était</span> réuni.
+                        </div>
+                        <div class="example-note">
+                            "Tout" résume les sujets → verbe au singulier (accord avec "tout")
+                        </div>
+                    </div>
+                    <div class="example">
+                        <div class="example-text">
+                            <span class="subject-highlight">Menaces, promesses, supplications</span>, <span class="subject-highlight">rien</span> <span class="verb-highlight">ne l'a</span> convaincu.
+                        </div>
+                        <div class="example-note">
+                            "Rien" résume → verbe au singulier
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="attention-box">
+                <h3>Attention aux Pièges !</h3>
+                
+                <div class="attention-item">
+                    <div class="attention-title">L'un et l'autre</div>
+                    <div class="attention-content">
+                        Avec <strong>« l'un et l'autre »</strong>, le verbe peut se mettre au <strong>singulier</strong> ou au <strong>pluriel</strong> :<br>
+                        • "L'un et l'autre <strong>est</strong> possible." (insistance sur chacun)<br>
+                        • "L'un et l'autre <strong>sont</strong> possibles." (pluriel, usage moderne)
+                    </div>
+                </div>
+                
+                <div class="attention-item">
+                    <div class="attention-title">L'un ou l'autre</div>
+                    <div class="attention-content">
+                        Avec <strong>« l'un ou l'autre »</strong>, le verbe se met généralement au <strong>singulier</strong> :<br>
+                        • "L'un ou l'autre <strong>viendra</strong>." (un seul des deux)<br>
+                        Exception : pluriel si l'action peut être faite par les deux
+                    </div>
+                </div>
+                
+                <div class="attention-item">
+                    <div class="attention-title">Sujets synonymes ou graduels</div>
+                    <div class="attention-content">
+                        Quand les sujets expriment la <strong>même idée</strong> ou une <strong>gradation</strong>, le verbe peut s'accorder au singulier :<br>
+                        • "La joie, le bonheur, l'allégresse <strong>l'envahit</strong>." (un seul sentiment)<br>
+                        • "Un mot, un geste, un sourire <strong>suffit</strong>." (gradation)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-label">Addition réelle</div>
+                    <div class="comparison-example">
+                        Le père <strong>et</strong> le fils travaillent ensemble.
+                    </div>
+                    <div class="comparison-explanation">
+                        Deux personnes distinctes → pluriel obligatoire
+                    </div>
+                </div>
+                
+                <div class="comparison-card">
+                    <div class="comparison-label">Comparaison</div>
+                    <div class="comparison-example">
+                        Le père, <strong>ainsi que</strong> le fils, travaille ici.
+                    </div>
+                    <div class="comparison-explanation">
+                        Virgules = comparaison → singulier (accord avec "le père")
+                    </div>
+                </div>
+                
+                <div class="comparison-card">
+                    <div class="comparison-label">Exclusion</div>
+                    <div class="comparison-example">
+                        Pierre <strong>ou</strong> Paul viendra demain.
+                    </div>
+                    <div class="comparison-explanation">
+                        Un seul des deux → singulier
+                    </div>
+                </div>
+                
+                <div class="comparison-card">
+                    <div class="comparison-label">Inclusion possible</div>
+                    <div class="comparison-example">
+                        La pluie <strong>ou</strong> le vent peuvent causer des dégâts.
+                    </div>
+                    <div class="comparison-explanation">
+                        Les deux sont possibles → pluriel
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tip-section">
+                <h3>Méthode Infaillible</h3>
+                <div class="tip-steps">
+                    <div class="tip-step">
+                        <div class="tip-step-number">1</div>
+                        <div class="tip-step-text">
+                            <strong>Identifiez le connecteur</strong><br>
+                            ET, OU, NI, ainsi que...
+                        </div>
+                    </div>
+                    <div class="tip-step">
+                        <div class="tip-step-number">2</div>
+                        <div class="tip-step-text">
+                            <strong>Déterminez le sens</strong><br>
+                            Addition, exclusion, comparaison ?
+                        </div>
+                    </div>
+                    <div class="tip-step">
+                        <div class="tip-step-number">3</div>
+                        <div class="tip-step-text">
+                            <strong>Appliquez la règle</strong><br>
+                            Singulier ou pluriel selon le cas
+                        </div>
+                    </div>
+                    <div class="tip-step">
+                        <div class="tip-step-number">4</div>
+                        <div class="tip-step-text">
+                            <strong>Vérifiez la personne</strong><br>
+                            Hiérarchie : 1ère > 2ème > 3ème
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="summary-section">
+                <h3>Synthèse Générale</h3>
+                <div class="summary-content">
+                    <span class="summary-highlight">ET</span> → Pluriel (sauf cas particuliers)<br><br>
+                    <span class="summary-highlight">OU</span> → Singulier (exclusion) ou Pluriel (inclusion)<br><br>
+                    <span class="summary-highlight">NI... NI...</span> → Pluriel généralement, singulier possible<br><br>
+                    <span class="summary-highlight">Ainsi que, comme</span> → Singulier (comparaison) ou Pluriel (addition)<br><br>
+                    <span class="summary-highlight">Personnes différentes</span> → 1ère > 2ème > 3ème personne
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-logo">Língua Academy</div>
+            <div>Maîtrise Avancée de la Grammaire Française</div>
+        </div>
+    </div>
+</body>
+</html>

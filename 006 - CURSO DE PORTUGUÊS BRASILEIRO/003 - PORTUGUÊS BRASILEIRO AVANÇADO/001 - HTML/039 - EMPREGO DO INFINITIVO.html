@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emprego do Infinitivo em Português</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* CSS EXATO do ARQUIVO 004 - ORTOGRAFIA */
+        body {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E7D6E 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #2E7D6E; /* Cor principal adaptada do tema */
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #4ECDC4;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #44A08D; /* Cor secundária adaptada do tema */
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+            min-height: 350px;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores adaptadas do tema 004 */
+        .tipo-card.inf-nao-flex {
+            background: linear-gradient(135deg, #FF6B6B, #EE5A5A); /* Vermelho/Não Flexionado */
+        }
+
+        .tipo-card.inf-flex {
+            background: linear-gradient(135deg, #8338EC, #6C23D6); /* Roxo/Flexionado */
+        }
+
+        .tipo-card.proibicao {
+            background: linear-gradient(135deg, #FFC300, #FFAD00); /* Amarelo/Proibição */
+            color: #333;
+        }
+
+        .tipo-card.excecoes {
+            background: linear-gradient(135deg, #00B4D8, #00A6CC); /* Azul/Exceções */
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+        
+        /* Ajuste de contraste para o card amarelo */
+        .tipo-card.proibicao .exemplos {
+            background: rgba(0,0,0,0.1); 
+            color: #333;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .dicas-box {
+            /* Cor adaptada do arquivo 004 */
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "💡"; /* Ícone adaptado */
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+        
+        .regra-chave {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.3em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .regra-chave strong {
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>♾️ Emprego do Infinitivo (Flexionado e Não Flexionado) ♾️</h1>
+        <p class="subtitle">Quando a terminação -r (infinitivo) deve ou não flexionar em pessoa e número.</p>
+
+        <div class="section">
+            <h2>🎯 Conceito: O Que é Infinitivo?</h2>
+            <p class="intro-text">
+                O **Infinitivo** é uma das formas nominais do verbo e corresponde ao nome da ação (*falar, comer, partir*). Ele pode ser empregado de duas formas:
+                <br>
+                1. **Não Flexionado (Impessoal):** Terminação em **-r** (forma básica).<br>
+                2. **Flexionado (Pessoal):** Terminação em **-r** com desinências (*-es, -mos, -des, -em*), concordando com o sujeito.
+            </p>
+
+            <div class="regra-chave">
+                <strong>Regra Mestra:</strong><br>
+                Use o **Infinitivo Flexionado** se houver um sujeito **diferente** do sujeito da oração principal, para **clareza** e **ênfase**.
+            </div>
+
+            <div class="tipos-grid">
+                <div class="tipo-card inf-nao-flex">
+                    <h3>1. Infinitivo Não Flexionado (Impessoal)</h3>
+                    <div class="definicao">
+                        Deve ser usado quando o sujeito do infinitivo for **indeterminado** ou **o mesmo** da oração principal. Também ocorre quando é regido por certas preposições.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Casos de Não Flexão:</strong><br>
+                        • **Sujeitos Iguais:** Eles *vieram* para *fazer* a prova.<br>
+                        • **Preposição *a* ou *para*** (em geral): Estamos prontos *a* sair.<br>
+                        • **Verbos Causativos/Sensitivos:** Eles *mandaram* a equipe *trabalhar*.
+                    </div>
+                </div>
+
+                <div class="tipo-card inf-flex">
+                    <h3>2. Infinitivo Flexionado (Pessoal)</h3>
+                    <div class="definicao">
+                        Deve ser usado quando o infinitivo possui um **sujeito próprio e diferente** do sujeito da oração principal, para deixar claro quem realiza a ação.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Casos de Flexão:</strong><br>
+                        • **Sujeitos Diferentes:** *É essencial* para **nós** *termos* o material.<br>
+                        • **Preposição *por* (causa):** *Por* **vocês** *estudarem* muito, passaram.<br>
+                        • **Após *de* (condição):** *Se* **eles** *trabalharem* muito...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚨 Regras Específicas e Proibições</h2>
+            <p class="intro-text">
+                Existem situações onde a flexão do infinitivo é proibida ou obrigatória.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card inf-nao-flex" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+                    <h3>3. Não Flexionar é Obrigatório (Auxiliar)</h3>
+                    <div class="definicao">
+                        O infinitivo **nunca** deve ser flexionado quando faz parte de uma **locução verbal**, atuando como verbo auxiliar.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • Eles **vão *fazer*** a prova. (NUNCA *vão fazerem*).<br>
+                        • As crianças **podem *brincar***.
+                    </div>
+                </div>
+
+                <div class="tipo-card proibicao">
+                    <h3>4. Flexão Proibida (Verbos Causativos/Sensitivos)</h3>
+                    <div class="definicao">
+                        Com os verbos causativos (*mandar, deixar, fazer*) e sensitivos (*ver, ouvir, sentir*), o infinitivo do verbo principal **não** se flexiona se o objeto (sujeito do infinitivo) for um pronome oblíquo átono.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • Eu *os* **deixei *falar***. (NUNCA *deixei-os falarem*).<br>
+                        • Nós *o* **vimos *sair***.
+                    </div>
+                </div>
+
+                <div class="tipo-card excecoes">
+                    <h3>5. Flexão Facultativa (Opcional)</h3>
+                    <div class="definicao">
+                        Em algumas construções, a flexão é opcional, mas a norma culta sugere flexionar para evitar ambiguidade.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplo:</strong><br>
+                        • *Antes* **de** *sair*/*saírem* da sala. (Ambos corretos)<br>
+                        • *O fato* **de** *ele falar*/*falarem* pouco.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 Dicas de Ouro</h2>
+            
+            <div class="dicas-box">
+                <h4>Sumário do Infinitivo:</h4>
+                <ul>
+                    <li>**Sujeitos Diferentes:** FLEXIONE (A clareza é a prioridade). Ex: É hora de *eles* **chegarem**.</li>
+                    <li>**Sujeitos Iguais/Indeterminados:** NÃO FLEXIONE. Ex: É difícil *entender*.</li>
+                    <li>**Locução Verbal:** NUNCA FLEXIONE o infinitivo. Ex: Eles *estão a* **chegar**.</li>
+                    <li>**Infinitivo Substantivado:** NUNCA FLEXIONE se estiver precedido de artigo (*o, um*). Ex: **O falar** dos jovens.</li>
+                    <li>**Teste do Pronome:** Tente trocar o sujeito por *nós* ou *eles*. Se a frase ficar mais clara com a flexão, use-a!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

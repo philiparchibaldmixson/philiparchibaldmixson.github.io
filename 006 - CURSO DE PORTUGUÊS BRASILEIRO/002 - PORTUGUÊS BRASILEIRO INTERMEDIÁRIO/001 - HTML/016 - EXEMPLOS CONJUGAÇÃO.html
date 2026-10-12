@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos de Conjugação Verbal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #E67E22;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #E67E22;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #F39C12;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        /* Cores Adaptadas/Reutilizadas do 008 - CLASSES DE PALAVRAS */
+        .tipo-card.regular {
+            background: linear-gradient(135deg, #2ECC71, #16A085); /* Regular */
+        }
+        
+        .tipo-card.irregular {
+            background: linear-gradient(135deg, #E74C3C, #C0392B); /* Irregular */
+        }
+        
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+        
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
+        .tabela-substantivos {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .tabela-substantivos thead {
+            background: linear-gradient(135deg, #E67E22, #F39C12);
+            color: white;
+        }
+
+        .tabela-substantivos th {
+            padding: 20px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        .tabela-substantivos td {
+            padding: 18px 20px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        .tabela-substantivos tr:hover {
+            background: #fff8e8;
+        }
+
+        .tabela-substantivos .pessoa {
+            color: #E67E22;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        
+        .tabela-substantivos .radical {
+            font-weight: bold;
+            color: #3498DB; /* Azul para Radical */
+        }
+        
+        .tabela-substantivos .desinencia {
+            font-weight: bold;
+            color: #E74C3C; /* Vermelho para Desinência */
+        }
+        
+        .dicas-box {
+            background: linear-gradient(135deg, #1ABC9C, #16A085);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .tipo-card, .destaque, .dicas-box, .tabela-substantivos {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tabela-substantivos th, .tabela-substantivos td {
+                padding: 12px 10px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tabelas de Conjugação Verbal 📖</h1>
+        <p class="subtitle">Modelos de verbos regulares e irregulares em tempos essenciais do Indicativo.</p>
+
+        <div class="section">
+            <h2>🥇 1ª Conjugação (Verbo Regular: CANTAR)</h2>
+            <p class="intro-text">
+                O verbo CANTAR é regular, ou seja, seu radical (**CANT-**) permanece o mesmo em todas as conjugações, 
+                e ele segue fielmente as desinências do modelo da 1ª conjugação (-AR).
+            </p>
+
+            <h3>Presente do Indicativo (Fato Certo e Atual)</h3>
+            <div class="tabela-wrapper">
+                <table class="tabela-substantivos">
+                    <thead>
+                        <tr>
+                            <th>Pessoa</th>
+                            <th>Conjugação</th>
+                            <th>Radical</th>
+                            <th>Desinência</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="pessoa">Eu</td><td><span class="radical">cant</span><span class="desinencia">o</span></td><td>CANT-</td><td>-o</td></tr>
+                        <tr><td class="pessoa">Tu</td><td><span class="radical">cant</span><span class="desinencia">as</span></td><td>CANT-</td><td>-as</td></tr>
+                        <tr><td class="pessoa">Ele/Ela/Você</td><td><span class="radical">cant</span><span class="desinencia">a</span></td><td>CANT-</td><td>-a</td></tr>
+                        <tr><td class="pessoa">Nós</td><td><span class="radical">cant</span><span class="desinencia">amos</span></td><td>CANT-</td><td>-amos</td></tr>
+                        <tr><td class="pessoa">Vós</td><td><span class="radical">cant</span><span class="desinencia">ais</span></td><td>CANT-</td><td>-ais</td></tr>
+                        <tr><td class="pessoa">Eles/Elas/Vocês</td><td><span class="radical">cant</span><span class="desinencia">am</span></td><td>CANT-</td><td>-am</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Pretérito Perfeito do Indicativo (Ação Concluída no Passado)</h3>
+            <div class="tabela-wrapper">
+                <table class="tabela-substantivos">
+                    <thead>
+                        <tr>
+                            <th>Pessoa</th>
+                            <th>Conjugação</th>
+                            <th>Radical</th>
+                            <th>Desinência</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="pessoa">Eu</td><td><span class="radical">cant</span><span class="desinencia">ei</span></td><td>CANT-</td><td>-ei</td></tr>
+                        <tr><td class="pessoa">Tu</td><td><span class="radical">cant</span><span class="desinencia">aste</span></td><td>CANT-</td><td>-aste</td></tr>
+                        <tr><td class="pessoa">Ele/Ela/Você</td><td><span class="radical">cant</span><span class="desinencia">ou</span></td><td>CANT-</td><td>-ou</td></tr>
+                        <tr><td class="pessoa">Nós</td><td><span class="radical">cant</span><span class="desinencia">amos</span></td><td>CANT-</td><td>-amos</td></tr>
+                        <tr><td class="pessoa">Vós</td><td><span class="radical">cant</span><span class="desinencia">astes</span></td><td>CANT-</td><td>-astes</td></tr>
+                        <tr><td class="pessoa">Eles/Elas/Vocês</td><td><span class="radical">cant</span><span class="desinencia">aram</span></td><td>CANT-</td><td>-aram</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🥈 2ª Conjugação (Verbo Regular: VENDER)</h2>
+            <p class="intro-text">
+                O verbo VENDER, terminado em -ER, também é regular. Seu radical (**VEND-**) é fixo, 
+                e suas desinências são típicas da 2ª conjugação.
+            </p>
+
+            <h3>Futuro do Presente do Indicativo (Ação Futura Certa)</h3>
+            <div class="tabela-wrapper">
+                <table class="tabela-substantivos">
+                    <thead>
+                        <tr>
+                            <th>Pessoa</th>
+                            <th>Conjugação</th>
+                            <th>Radical</th>
+                            <th>Desinência</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="pessoa">Eu</td><td><span class="radical">vend</span>er<span class="desinencia">ei</span></td><td>VEND-</td><td>-ei</td></tr>
+                        <tr><td class="pessoa">Tu</td><td><span class="radical">vend</span>er<span class="desinencia">ás</span></td><td>VEND-</td><td>-ás</td></tr>
+                        <tr><td class="pessoa">Ele/Ela/Você</td><td><span class="radical">vend</span>er<span class="desinencia">á</span></td><td>VEND-</td><td>-á</td></tr>
+                        <tr><td class="pessoa">Nós</td><td><span class="radical">vend</span>er<span class="desinencia">emos</span></td><td>VEND-</td><td>-emos</td></tr>
+                        <tr><td class="pessoa">Vós</td><td><span class="radical">vend</span>er<span class="desinencia">eis</span></td><td>VEND-</td><td>-eis</td></tr>
+                        <tr><td class="pessoa">Eles/Elas/Vocês</td><td><span class="radical">vend</span>er<span class="desinencia">ão</span></td><td>VEND-</td><td>-ão</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>❌ Verbo Irregular (FAZER)</h2>
+            <p class="intro-text">
+                O verbo FAZER é irregular. Note como o radical original (**FAZ-**) se altera em algumas pessoas, 
+                e as desinências nem sempre são as esperadas.
+            </p>
+
+            <h3>Presente do Indicativo (Atenção ao Radical)</h3>
+            <div class="tabela-wrapper">
+                <table class="tabela-substantivos">
+                    <thead>
+                        <tr>
+                            <th>Pessoa</th>
+                            <th>Conjugação</th>
+                            <th>Radical</th>
+                            <th>Desinência</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="pessoa">Eu</td><td><span class="radical">faç</span><span class="desinencia">o</span></td><td>FAÇ- (Irregular)</td><td>-o</td></tr>
+                        <tr><td class="pessoa">Tu</td><td><span class="radical">faz</span><span class="desinencia">es</span></td><td>FAZ-</td><td>-es</td></tr>
+                        <tr><td class="pessoa">Ele/Ela/Você</td><td><span class="radical">faz</span><span class="desinencia">e</span></td><td>FAZ-</td><td>-e</td></tr>
+                        <tr><td class="pessoa">Nós</td><td><span class="radical">faz</span><span class="desinencia">emos</span></td><td>FAZ-</td><td>-emos</td></tr>
+                        <tr><td class="pessoa">Vós</td><td><span class="radical">faz</span><span class="desinencia">eis</span></td><td>FAZ-</td><td>-eis</td></tr>
+                        <tr><td class="pessoa">Eles/Elas/Vocês</td><td><span class="radical">faz</span><span class="desinencia">em</span></td><td>FAZ-</td><td>-em</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3>Pretérito Perfeito do Indicativo (Atenção Máxima)</h3>
+            <div class="tabela-wrapper">
+                <table class="tabela-substantivos">
+                    <thead>
+                        <tr>
+                            <th>Pessoa</th>
+                            <th>Conjugação</th>
+                            <th>Radical</th>
+                            <th>Desinência</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="pessoa">Eu</td><td><span class="radical">fiz</span><span class="desinencia"></span></td><td>FIZ- (Irregular)</td><td>-</td></tr>
+                        <tr><td class="pessoa">Tu</td><td><span class="radical">fiz</span><span class="desinencia">este</span></td><td>FIZ- (Irregular)</td><td>-este</td></tr>
+                        <tr><td class="pessoa">Ele/Ela/Você</td><td><span class="radical">fez</span><span class="desinencia"></span></td><td>FEZ- (Irregular)</td><td>-</td></tr>
+                        <tr><td class="pessoa">Nós</td><td><span class="radical">fiz</span><span class="desinencia">emos</span></td><td>FIZ- (Irregular)</td><td>-emos</td></tr>
+                        <tr><td class="pessoa">Vós</td><td><span class="radical">fiz</span><span class="desinencia">estes</span></td><td>FIZ- (Irregular)</td><td>-estes</td></tr>
+                        <tr><td class="pessoa">Eles/Elas/Vocês</td><td><span class="radical">fiz</span><span class="desinencia">eram</span></td><td>FIZ- (Irregular)</td><td>-eram</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Dicas de Ouro</h2>
+            
+            <div class="dicas-box">
+                <h4>Observações Essenciais:</h4>
+                <ul>
+                    <li>**Radical Fixo:** Em verbos regulares (como Cantar e Vender), observe que a parte azul (**radical**) nunca muda.</li>
+                    <li>**Desinências:** A parte vermelha (**desinência**) indica quem faz a ação (pessoa) e quando (tempo/modo). A desinência *"-mos"* é sempre da 1ª pessoa do plural (nós).</li>
+                    <li>**Irregularidade:** No verbo FAZER, a irregularidade ocorre quando o radical muda (**FAZ-** vira **FAÇ-**, **FIZ-** ou **FEZ-**), dificultando a memorização.</li>
+                    <li>**Futuro:** No futuro do presente (como Vender), a desinência é adicionada ao infinitivo completo (VENDER + -ei).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

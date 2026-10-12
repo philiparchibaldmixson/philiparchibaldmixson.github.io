@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Sens de l'Adjectif Possessif - Língua Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bleu-france: #0055A4;
+            --rouge-france: #EF4135;
+            --blanc: #FFFFFF;
+            --bleu-nuit: #1a2b4a;
+            --bleu-ciel: #87CEEB;
+            --rose-doux: #FFE4E1;
+            --ivoire: #FFFFF0;
+            --or-antique: #D4A574;
+            --gris-perle: #F0F0F5;
+        }
+
+        body {
+            font-family: 'Libre Baskerville', serif;
+            background: radial-gradient(ellipse at top, #f0f4ff 0%, #e8ecf9 50%, #f5f7fc 100%);
+            color: var(--bleu-nuit);
+            line-height: 1.9;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Motif décoratif de fond */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 50px, rgba(0, 85, 164, 0.02) 50px, rgba(0, 85, 164, 0.02) 51px),
+                repeating-linear-gradient(-45deg, transparent, transparent 50px, rgba(239, 65, 53, 0.02) 50px, rgba(239, 65, 53, 0.02) 51px);
+            pointer-events: none;
+            z-index: 0;
+            animation: rotateBackground 60s linear infinite;
+        }
+
+        @keyframes rotateBackground {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 50px 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* En-tête artistique */
+        header {
+            text-align: center;
+            padding: 100px 20px 70px;
+            position: relative;
+        }
+
+        .header-ornament {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 6em;
+            color: var(--bleu-france);
+            opacity: 0.1;
+            font-family: 'Dancing Script', cursive;
+            animation: floatOrnament 4s ease-in-out infinite;
+        }
+
+        @keyframes floatOrnament {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 5em;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--bleu-france) 0%, var(--bleu-ciel) 50%, var(--rouge-france) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            letter-spacing: 4px;
+            position: relative;
+            animation: fadeInScale 1.2s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .title-decoration {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 35px 0;
+        }
+
+        .title-decoration::before,
+        .title-decoration::after {
+            content: '';
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--rouge-france), transparent);
+        }
+
+        .title-decoration span {
+            font-size: 1.5em;
+            color: var(--rouge-france);
+        }
+
+        .subtitle {
+            font-size: 2.5em;
+            color: var(--rouge-france);
+            font-weight: 700;
+            margin: 20px 0;
+            letter-spacing: 3px;
+            animation: slideInFromRight 1s ease-out 0.3s both;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .logo-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--bleu-nuit), var(--bleu-france));
+            color: white;
+            padding: 18px 45px;
+            border-radius: 60px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.15em;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            box-shadow: 0 15px 35px rgba(0, 85, 164, 0.35);
+            margin-top: 35px;
+            animation: slideInFromRight 1.2s ease-out 0.6s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .logo-badge:hover::before {
+            left: 100%;
+        }
+
+        /* Sections de contenu */
+        .content-block {
+            background: white;
+            border-radius: 35px;
+            padding: 65px;
+            margin: 55px 0;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+            position: relative;
+            border: 1px solid rgba(0, 85, 164, 0.08);
+            animation: fadeInUp 1s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .content-block:nth-child(2) { animation-delay: 0.15s; }
+        .content-block:nth-child(3) { animation-delay: 0.3s; }
+        .content-block:nth-child(4) { animation-delay: 0.45s; }
+        .content-block:nth-child(5) { animation-delay: 0.6s; }
+        .content-block:nth-child(6) { animation-delay: 0.75s; }
+        .content-block:nth-child(7) { animation-delay: 0.9s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(80px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--bleu-france), var(--bleu-ciel), var(--rouge-france));
+            border-radius: 35px 35px 0 0;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2em;
+            color: var(--bleu-france);
+            margin-bottom: 40px;
+            font-weight: 800;
+            position: relative;
+            padding-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 120px;
+            height: 5px;
+            background: var(--rouge-france);
+            border-radius: 3px;
+            box-shadow: 0 2px 10px rgba(239, 65, 53, 0.3);
+        }
+
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2em;
+            color: var(--rouge-france);
+            margin: 45px 0 30px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3::before {
+            content: '◆';
+            color: var(--bleu-france);
+            font-size: 0.8em;
+        }
+
+        p {
+            font-size: 1.35em;
+            line-height: 2.1;
+            margin: 25px 0;
+            color: var(--bleu-nuit);
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--bleu-france);
+            font-weight: 700;
+        }
+
+        /* Cartes de sens */
+        .sense-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            margin: 45px 0;
+        }
+
+        .sense-card {
+            background: linear-gradient(135deg, var(--ivoire) 0%, white 100%);
+            border-radius: 25px;
+            padding: 40px;
+            border: 3px solid var(--bleu-france);
+            box-shadow: 0 15px 40px rgba(0, 85, 164, 0.15);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sense-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 85, 164, 0.1) 0%, transparent 60%);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .sense-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(0, 85, 164, 0.25);
+            border-color: var(--rouge-france);
+        }
+
+        .sense-card:hover::before {
+            opacity: 1;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .sense-number {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 4em;
+            font-weight: 800;
+            color: var(--bleu-france);
+            opacity: 0.15;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .sense-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.9em;
+            color: var(--rouge-france);
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sense-description {
+            font-size: 1.2em;
+            color: var(--bleu-nuit);
+            margin-bottom: 25px;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sense-examples {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 5px solid var(--bleu-ciel);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+
+        .sense-examples p {
+            font-size: 1.15em;
+            margin: 10px 0;
+            font-style: italic;
+            color: var(--bleu-france);
+            text-align: left;
+        }
+
+        /* Boîtes d'explications */
+        .explanation-box {
+            background: linear-gradient(135deg, var(--rose-doux) 0%, white 100%);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 3px solid var(--rouge-france);
+            box-shadow: 0 15px 40px rgba(239, 65, 53, 0.15);
+            position: relative;
+        }
+
+        .explanation-box::before {
+            content: '💡';
+            position: absolute;
+            top: -25px;
+            left: 40px;
+            font-size: 2.5em;
+            background: white;
+            padding: 0 15px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .explanation-box h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.9em;
+            color: var(--bleu-france);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .explanation-box p {
+            text-align: left;
+        }
+
+        /* Tableaux comparatifs */
+        .comparison-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin: 45px 0;
+        }
+
+        .comparison-box {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            border: 2px solid var(--bleu-ciel);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .comparison-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 85, 164, 0.15);
+            border-color: var(--bleu-france);
+        }
+
+        .comparison-box h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            color: var(--rouge-france);
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .comparison-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comparison-box li {
+            padding: 15px 0 15px 40px;
+            position: relative;
+            font-size: 1.2em;
+            border-bottom: 1px solid var(--gris-perle);
+        }
+
+        .comparison-box li:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--bleu-france);
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        /* Tableaux élégants */
+        .elegant-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 40px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+        }
+
+        .elegant-table thead {
+            background: linear-gradient(135deg, var(--bleu-france), var(--bleu-ciel));
+            color: white;
+        }
+
+        .elegant-table th {
+            padding: 25px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2em;
+            font-weight: 700;
+            text-align: left;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .elegant-table td {
+            padding: 22px 20px;
+            font-size: 1.25em;
+            border-bottom: 1px solid var(--gris-perle);
+        }
+
+        .elegant-table tbody tr {
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .elegant-table tbody tr:nth-child(even) {
+            background: var(--ivoire);
+        }
+
+        .elegant-table tbody tr:hover {
+            background: var(--rose-doux);
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 85, 164, 0.15);
+        }
+
+        .elegant-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Zones d'attention */
+        .attention-zone {
+            background: linear-gradient(135deg, #fff9e6 0%, #fffaf0 100%);
+            border: 4px solid var(--or-antique);
+            border-radius: 30px;
+            padding: 45px;
+            margin: 45px 0;
+            box-shadow: 0 20px 50px rgba(212, 165, 116, 0.2);
+            position: relative;
+        }
+
+        .attention-zone::before {
+            content: '⚠️';
+            position: absolute;
+            top: -30px;
+            left: 45px;
+            font-size: 3em;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50%;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .attention-zone h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            color: var(--or-antique);
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
+        /* Listes stylisées */
+        .styled-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        .styled-list li {
+            padding: 18px 0 18px 50px;
+            position: relative;
+            font-size: 1.3em;
+            line-height: 1.9;
+            margin: 15px 0;
+            border-left: 4px solid var(--bleu-ciel);
+            background: linear-gradient(90deg, var(--ivoire) 0%, transparent 100%);
+            border-radius: 0 15px 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .styled-list li:hover {
+            background: linear-gradient(90deg, var(--rose-doux) 0%, transparent 100%);
+            border-left-color: var(--rouge-france);
+            transform: translateX(10px);
+        }
+
+        .styled-list li::before {
+            content: '→';
+            position: absolute;
+            left: 15px;
+            color: var(--rouge-france);
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        /* Citations */
+        .quote-box {
+            background: linear-gradient(135deg, var(--gris-perle) 0%, white 100%);
+            border-left: 6px solid var(--bleu-france);
+            border-radius: 20px;
+            padding: 35px 40px;
+            margin: 40px 0;
+            font-style: italic;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 5em;
+            color: var(--bleu-france);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .quote-box p {
+            font-size: 1.4em;
+            color: var(--bleu-nuit);
+            position: relative;
+            z-index: 1;
+            text-align: left;
+        }
+
+        /* Section d'exemples pratiques */
+        .practice-section {
+            background: linear-gradient(135deg, var(--ivoire) 0%, white 50%, var(--rose-doux) 100%);
+            border-radius: 30px;
+            padding: 50px;
+            margin: 50px 0;
+            border: 3px solid var(--bleu-france);
+            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.12);
+        }
+
+        .practice-item {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            margin: 25px 0;
+            border-left: 6px solid var(--rouge-france);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+        }
+
+        .practice-item:hover {
+            transform: translateX(15px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .practice-item p {
+            margin: 12px 0;
+            text-align: left;
+        }
+
+        /* Séparateur décoratif */
+        .divider {
+            text-align: center;
+            margin: 70px 0;
+            position: relative;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--bleu-ciel), transparent);
+        }
+
+        .divider::before {
+            left: 0;
+        }
+
+        .divider::after {
+            right: 0;
+        }
+
+        .divider span {
+            font-size: 2.5em;
+            color: var(--rouge-france);
+            background: white;
+            padding: 0 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer artistique */
+        footer {
+            text-align: center;
+            padding: 70px 0 45px;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .footer-wave {
+            width: 250px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--bleu-france), var(--rouge-france), transparent);
+            margin: 35px auto;
+            border-radius: 3px;
+            animation: waveAnimation 3s ease-in-out infinite;
+        }
+
+        @keyframes waveAnimation {
+            0%, 100% {
+                transform: scaleX(1);
+            }
+            50% {
+                transform: scaleX(1.2);
+            }
+        }
+
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--bleu-france), var(--rouge-france));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3em;
+            color: var(--bleu-nuit);
+            margin: 15px 0;
+        }
+
+        .footer-motto {
+            font-size: 1.5em;
+            font-style: italic;
+            color: var(--bleu-france);
+            margin-top: 30px;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sense-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3em;
+            }
+
+            .subtitle {
+                font-size: 1.8em;
+            }
+
+            .content-block {
+                padding: 35px 25px;
+            }
+
+            h2 {
+                font-size: 2.2em;
+            }
+
+            h3 {
+                font-size: 1.7em;
+            }
+
+            p, .styled-list li, .comparison-box li {
+                font-size: 1.15em;
+            }
+
+            .sense-card {
+                padding: 25px;
+            }
+
+            .elegant-table {
+                font-size: 0.85em;
+            }
+
+            .elegant-table th,
+            .elegant-table td {
+                padding: 15px 10px;
+            }
+        }
+
+        /* Animations supplémentaires */
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <div class="header-ornament">✦</div>
+            <h1>Les Sens de l'Adjectif Possessif</h1>
+            <div class="title-decoration">
+                <span>✦</span>
+            </div>
+            <p class="subtitle">Nuances et Significations</p>
+            <div class="logo-badge">Língua Academy</div>
+        </header>
+
+        <main>
+            <section class="content-block">
+                <h2>🎨 Introduction aux Sens du Possessif</h2>
+                
+                <p>L'adjectif possessif ne se limite pas à exprimer une simple <strong>possession matérielle</strong>. En français, il possède une richesse sémantique remarquable et peut véhiculer de <strong>nombreuses nuances</strong> selon le contexte. Comprendre ces différents sens permet d'enrichir considérablement son expression écrite et orale.</p>
+
+                <div class="explanation-box">
+                    <h4>Principe Fondamental</h4>
+                    <p>L'adjectif possessif établit un <strong>lien</strong> entre le possesseur et l'objet possédé, mais ce lien peut être de nature très diverse : possession réelle, relation familiale, sentiment, habitude, qualité, etc.</p>
+                    <p style="margin-top: 20px;"><strong>Exemple :</strong> Dans « <em>mon</em> père », « <em>mon</em> idée », « <em>mon</em> restaurant préféré », le possessif exprime trois types de relations complètement différents.</p>
+                </div>
+
+                <div class="quote-box">
+                    <p>« Le possessif français est un outil linguistique aux multiples facettes qui dépasse largement la simple notion de propriété. »</p>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <h2>📚 Les Différents Sens de l'Adjectif Possessif</h2>
+
+                <div class="sense-grid">
+                    <div class="sense-card">
+                        <div class="sense-number">1</div>
+                        <div class="sense-title">La Possession Matérielle</div>
+                        <div class="sense-description">
+                            C'est le sens <strong>premier et le plus évident</strong>. L'adjectif possessif indique que quelque chose appartient matériellement à quelqu'un, qu'il en est le propriétaire.
+                        </div>
+                        <div class="sense-examples">
+                            <p>• <strong>Mon</strong> téléphone est neuf.</p>
+                            <p>• J'ai perdu <strong>mes</strong> clés.</p>
+                            <p>• <strong>Sa</strong> voiture est garée devant.</p>
+                            <p>• <strong>Notre</strong> maison a un grand jardin.</p>
+                            <p>• Où sont <strong>vos</strong> bagages ?</p>
+                        </div>
+                    </div>
+
+                    <div class="sense-card">
+                        <div class="sense-number">2</div>
+                        <div class="sense-title">La Relation Familiale et Sociale</div>
+                        <div class="sense-description">
+                            L'adjectif possessif exprime un <strong>lien de parenté</strong>, d'amitié ou toute relation sociale ou affective entre des personnes.
+                        </div>
+                        <div class="sense-examples">
+                            <p>• <strong>Mon</strong> père travaille à Paris.</p>
+                            <p>• <strong>Ta</strong> sœur est très gentille.</p>
+                            <p>• <strong>Ses</strong> amis viennent ce soir.</p>
+                            <p>• <strong>Notre</strong> voisin est médecin.</p>
+                            <p>• <strong>Votre</strong> professeur est excellent.</p>
+                            <p>• <strong>Leurs</strong> collègues sont sympas.</p>
+                        </div>
+                    </div>
+
+                    <div class="sense-card">
+                        <div class="sense-number">3</div>
+                        <div class="sense-title">La Relation Abstraite</div>
+                        <div class="sense-description">
+                            Le possessif établit un lien avec des <strong>concepts abstraits</strong> : idées, pensées, sentiments, qualités, défauts, etc.
+                        </div>
+                        <div class="sense-examples">
+                            <p>• <strong>Mon</strong> idée est originale.</p>
+                            <p>• <strong>Ton</strong> opinion m'intéresse.</p>
+                            <p>• <strong>Sa</strong> gentillesse est remarquable.</p>
+                            <p>• <strong>Notre</strong> projet avance bien.</p>
+                            <p>• <strong>Vos</strong> efforts seront récompensés.</p>
+                            <p>• <strong>Leur</strong> courage est admirable.</p>
+                        </div>
+                    </div>
+
+                    <div class="sense-card">
+                        <div class="sense-number">4</div>
+                        <div class="sense-title">L'Habitude ou la Préférence</div>
+                        <div class="sense-description">
+                            Le possessif désigne des <strong>lieux, objets ou personnes habituels</strong>, fréquemment utilisés ou préférés par quelqu'un, sans qu'il y ait nécessairement possession.
+                        </div>
+                        <div class="sense-examples">
+                            <p>• Je vais à <strong>mon</strong> café habituel.</p>
+                            <p>• C'est <strong>ton</strong> restaurant préféré ?</p>
+                            <p>• <strong>Son</strong> coiffeur est très doué.</p>
+                            <p>• Nous allons à <strong>notre</strong> plage.</p>
+                            <p>• <strong>Votre</strong> boulangerie est fermée.</p>
+                            <p>• <strong>Leur</strong> médecin les a bien soignés.</p>
+                        </div>
+                    </div>
+
+                    <div class="sense-card">
+                        <div class="sense-number">5</div>
+                        <div class="sense-title">L'Origine ou la Provenance</div>
+                        <div class="sense-description">
+                            L'adjectif possessif indique que quelque chose <strong>émane de quelqu'un</strong>, qu'il en est l'auteur, le créateur ou la source.
+                        </div>
+                        <div class="sense-examples">
+                            <p>• J'ai lu <strong>son</strong> article.</p>
+                            <p>• <strong>Ton</strong> dessin est magnifique.</p>
+                            <p>• <strong>Sa</strong> chanson a du succès.</p>
+                            <p>• <strong>Notre</strong> proposition a été acceptée.</p>
+                            <p>• <strong>Votre</strong> livre est passionnant.</p>
+                            <p>• <strong>Leur</strong> invention est géniale.</p>
+                        </div>
+                    </div>
+
+                    <div class="sense-card">
+                        <div class="sense-number">6</div>
+                        <div class="sense-title">La Partie du Corps</div>
+                        <div class="sense-description">
+                            Avec les parties du corps, le possessif exprime un <strong>lien naturel et inaliénable</strong>, bien qu'en français on préfère souvent l'article défini.
+                        </div>
+                        <div class="sense-examples">
+                            <p>• <strong>Mes</strong> yeux sont fatigués.</p>
+                            <p>• <strong>Tes</strong> cheveux sont longs.</p>
+                            <p>• <strong>Sa</strong> main droite est blessée.</p>
+                            <p>• Mais aussi : Il lève <strong>la</strong> main.</p>
+                            <p>• Elle ferme <strong>les</strong> yeux.</p>
+                        </div>
+                    </div>
+
+                    <div class="sense-card">
+                        <div class="sense-number">7</div>
+                        <div class="sense-title">Le Sens Affectif ou Emphatique</div>
+                        <div class="sense-description">
+                            Le possessif peut exprimer une <strong>nuance affective</strong>, de la tendresse, de l'ironie, du mépris ou simplement servir à renforcer l'expression.
+                        </div>
+                        <div class="sense-examples">
+                            <p>• <strong>Mon</strong> chéri, viens ici ! (tendresse)</p>
+                            <p>• <strong>Mon</strong> pauvre ami... (compassion)</p>
+                            <p>• Avec <strong>son</strong> air supérieur ! (ironie)</p>
+                            <p>• <strong>Notre</strong> cher président... (respect/ironie)</p>
+                            <p>• <strong>Mon</strong> Dieu ! (exclamation)</p>
+                        </div>
+                    </div>
+
+                    <div class="sense-card">
+                        <div class="sense-number">8</div>
+                        <div class="sense-title">Le Temps et l'Époque</div>
+                        <div class="sense-description">
+                            L'adjectif possessif peut situer quelque chose dans <strong>le temps vécu</strong> ou l'époque personnelle du sujet.
+                        </div>
+                        <div class="sense-examples">
+                            <p>• Dans <strong>ma</strong> jeunesse, tout était différent.</p>
+                            <p>• À <strong>ton</strong> âge, j'étais plus sage.</p>
+                            <p>• De <strong>son</strong> temps, c'était différent.</p>
+                            <p>• À <strong>notre</strong> époque, tout va vite.</p>
+                            <p>• <strong>Votre</strong> génération est chanceuse.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <h2>🔍 Analyse Détaillée des Sens</h2>
+
+                <h3>1. La Possession vs La Relation</h3>
+
+                <div class="comparison-container">
+                    <div class="comparison-box">
+                        <h4>Possession Réelle</h4>
+                        <ul>
+                            <li><strong>Mon</strong> livre (je l'ai acheté)</li>
+                            <li><strong>Ma</strong> voiture (elle m'appartient)</li>
+                            <li><strong>Mes</strong> vêtements (je les possède)</li>
+                            <li><strong>Mon</strong> ordinateur (j'en suis propriétaire)</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-box">
+                        <h4>Relation sans Possession</h4>
+                        <ul>
+                            <li><strong>Mon</strong> père (lien familial)</li>
+                            <li><strong>Ma</strong> ville (lieu d'origine)</li>
+                            <li><strong>Mon</strong> école (lieu fréquenté)</li>
+                            <li><strong>Mon</strong> médecin (relation professionnelle)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="attention-zone">
+                    <h4>Important à Comprendre</h4>
+                    <p>Dans « <strong>mon</strong> père », je ne « possède » pas mon père au sens matériel. Le possessif exprime ici un <strong>lien de filiation</strong>, une relation naturelle et non une propriété.</p>
+                    <p style="margin-top: 20px;">De même, « <strong>mon</strong> patron » ne signifie pas que je suis propriétaire de mon patron, mais qu'il existe une <strong>relation professionnelle</strong> entre lui et moi.</p>
+                </div>
+
+                <h3>2. Les Nuances Affectives</h3>
+
+                <div class="practice-section">
+                    <h3 style="margin-top: 0; color: var(--bleu-france);">Exemples de Valeurs Affectives</h3>
+
+                    <div class="practice-item">
+                        <p><strong>Tendresse et Affection :</strong></p>
+                        <p>• <em>Mon</em> petit, tu as bien travaillé.</p>
+                        <p>• <em>Ma</em> chérie, je t'aime.</p>
+                        <p>• <em>Mon</em> cœur, ne t'inquiète pas.</p>
+                    </div>
+
+                    <div class="practice-item">
+                        <p><strong>Compassion et Pitié :</strong></p>
+                        <p>• <em>Mon</em> pauvre ami, tu as l'air épuisé.</p>
+                        <p>• <em>Ma</em> pauvre, quelle journée difficile !</p>
+                        <p>• <em>Mon</em> cher, je comprends ta peine.</p>
+                    </div>
+
+                    <div class="practice-item">
+                        <p><strong>Ironie et Mépris :</strong></p>
+                        <p>• Avec <em>son</em> petit air supérieur !</p>
+                        <p>• <em>Votre</em> Excellence daignera-t-elle nous honorer ? (ironique)</p>
+                        <p>• Il parade avec <em>sa</em> nouvelle voiture.</p>
+                    </div>
+
+                    <div class="practice-item">
+                        <p><strong>Respect et Déférence :</strong></p>
+                        <p>• <em>Notre</em> cher Président a annoncé...</p>
+                        <p>• <em>Votre</em> Majesté, nous sommes honorés.</p>
+                        <p>• <em>Mon</em> père (forme respectueuse en religion)</p>
+                    </div>
+                </div>
+
+                <h3>3. Les Expressions Idiomatiques</h3>
+
+                <p>Le français possède de nombreuses <strong>expressions figées</strong> utilisant l'adjectif possessif avec des sens particuliers :</p>
+
+                <ul class="styled-list">
+                    <li><strong>Mon Dieu !</strong> (exclamation de surprise)</li>
+                    <li><strong>Mon œil !</strong> (expression de doute, incrédulité)</li>
+                    <li><strong>À mon avis</strong> (selon moi)</li>
+                    <li><strong>De mon côté</strong> (pour ma part)</li>
+                    <li><strong>À ta place</strong> (si j'étais toi)</li>
+                    <li><strong>Pour son compte</strong> (de manière indépendante)</li>
+                    <li><strong>À notre tour</strong> (c'est à nous maintenant)</li>
+                    <li><strong>En votre honneur</strong> (pour vous rendre hommage)</li>
+                    <li><strong>De leur temps</strong> (à leur époque)</li>
+                    <li><strong>À ses risques et périls</strong> (en assumant les conséquences)</li>
+                </ul>
+            </section>
+
+            <section class="content-block">
+                <h2>📊 Tableau Récapitulatif des Sens</h2>
+
+                <table class="elegant-table">
+                    <thead>
+                        <tr>
+                            <th>Type de Sens</th>
+                            <th>Description</th>
+                            <th>Exemples</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Possession matérielle</strong></td>
+                            <td>Propriété d'un objet</td>
+                            <td><em>Mon</em> livre, <em>ta</em> voiture, <em>ses</em> clés</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Relation familiale</strong></td>
+                            <td>Lien de parenté</td>
+                            <td><em>Mon</em> père, <em>ta</em> sœur, <em>ses</em> enfants</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Relation sociale</strong></td>
+                            <td>Lien professionnel, amical</td>
+                            <td><em>Mon</em> ami, <em>ton</em> patron, <em>son</em> collègue</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Concept abstrait</strong></td>
+                            <td>Idées, sentiments, qualités</td>
+                            <td><em>Mon</em> idée, <em>ta</em> gentillesse, <em>son</em> courage</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Habitude</strong></td>
+                            <td>Lieux ou personnes habituels</td>
+                            <td><em>Mon</em> café, <em>ton</em> restaurant, <em>son</em> coiffeur</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Création</strong></td>
+                            <td>Production intellectuelle</td>
+                            <td><em>Mon</em> article, <em>ton</em> dessin, <em>sa</em> chanson</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Partie du corps</strong></td>
+                            <td>Lien naturel et inaliénable</td>
+                            <td><em>Mes</em> yeux, <em>tes</em> mains, <em>sa</em> tête</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Valeur affective</strong></td>
+                            <td>Nuance émotionnelle</td>
+                            <td><em>Mon</em> chéri, <em>mon</em> pauvre ami</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Temporel</strong></td>
+                            <td>Époque personnelle</td>
+                            <td>De <em>mon</em> temps, à <em>ton</em> âge</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-block">
+                <h2>⚖️ Comparaisons et Subtilités</h2>
+
+                <h3>Possessif vs Article Défini avec les Parties du Corps</h3>
+
+                <div class="explanation-box">
+                    <h4>Règle Générale</h4>
+                    <p>En français, on utilise généralement l'<strong>article défini</strong> (le, la, les) plutôt que le possessif avec les parties du corps quand le possesseur est évident :</p>
+                </div>
+
+                <table class="elegant-table" style="margin-top: 40px;">
+                    <thead>
+                        <tr>
+                            <th>Avec Article Défini</th>
+                            <th>Avec Possessif</th>
+                            <th>Explication</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Je me lave <strong>les</strong> mains</td>
+                            <td>Je lave <strong>mes</strong> mains</td>
+                            <td>Avec verbe pronominal : article</td>
+                        </tr>
+                        <tr>
+                            <td>Elle ferme <strong>les</strong> yeux</td>
+                            <td><strong>Ses</strong> yeux sont bleus</td>
+                            <td>Action vs Description</td>
+                        </tr>
+                        <tr>
+                            <td>Il a mal à <strong>la</strong> tête</td>
+                            <td><strong>Sa</strong> tête lui fait mal</td>
+                            <td>Expression figée vs phrase libre</td>
+                        </tr>
+                        <tr>
+                            <td>Je me brosse <strong>les</strong> dents</td>
+                            <td><strong>Mes</strong> dents sont blanches</td>
+                            <td>Verbe pronominal vs état</td>
+                        </tr>
+                        <tr>
+                            <td>Elle lève <strong>la</strong> main</td>
+                            <td>Elle lève <strong>sa</strong> main droite</td>
+                            <td>Général vs Précision</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="divider">
+                    <span>✦</span>
+                </div>
+
+                <h3>Sens Propre vs Sens Figuré</h3>
+
+                <div class="comparison-container">
+                    <div class="comparison-box">
+                        <h4>Sens Propre (Littéral)</h4>
+                        <ul>
+                            <li><strong>Ma</strong> tête me fait mal (partie du corps réelle)</li>
+                            <li><strong>Mon</strong> cœur bat vite (organe)</li>
+                            <li><strong>Mes</strong> pieds sont fatigués (membres)</li>
+                            <li><strong>Sa</strong> main tremble (main physique)</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-box">
+                        <h4>Sens Figuré (Métaphorique)</h4>
+                        <ul>
+                            <li>Cela me passe par-dessus <strong>la</strong> tête (je ne comprends pas)</li>
+                            <li>J'ai le cœur brisé (je suis triste)</li>
+                            <li>Casser les pieds à quelqu'un (ennuyer)</li>
+                            <li>Mettre <strong>la</strong> main à la pâte (participer)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <h2>💭 Exercices d'Application</h2>
+
+                <div class="practice-section">
+                    <h3 style="margin-top: 0; color: var(--bleu-france);">Exercice 1 : Identifiez le sens du possessif</h3>
+
+                    <div class="practice-item">
+                        <p>1. « <em>Mon</em> médecin m'a prescrit des vitamines. »</p>
+                        <p style="font-size: 1em; color: #666; margin-top: 10px;">→ Sens : _______________ (habitude, relation professionnelle)</p>
+                    </div>
+
+                    <div class="practice-item">
+                        <p>2. « J'ai perdu <em>mes</em> clés ce matin. »</p>
+                        <p style="font-size: 1em; color: #666; margin-top: 10px;">→ Sens : _______________ (possession matérielle)</p>
+                    </div>
+
+                    <div class="practice-item">
+                        <p>3. « <em>Ma</em> chérie, tu es magnifique ! »</p>
+                        <p style="font-size: 1em; color: #666; margin-top: 10px;">→ Sens : _______________ (affectif, tendresse)</p>
+                    </div>
+
+                    <div class="practice-item">
+                        <p>4. « De <em>mon</em> temps, on respectait les anciens. »</p>
+                        <p style="font-size: 1em; color: #666; margin-top: 10px;">→ Sens : _______________ (temporel, époque)</p>
+                    </div>
+
+                    <div class="practice-item">
+                        <p>5. « <em>Son</em> courage est admirable. »</p>
+                        <p style="font-size: 1em; color: #666; margin-top: 10px;">→ Sens : _______________ (qualité abstraite)</p>
+                    </div>
+
+                    <div class="practice-item">
+                        <p>6. « <em>Mon</em> frère habite à Lyon. »</p>
+                        <p style="font-size: 1em; color: #666; margin-top: 10px;">→ Sens : _______________ (relation familiale)</p>
+                    </div>
+                </div>
+
+                <div class="practice-section" style="margin-top: 50px;">
+                    <h3 style="margin-top: 0; color: var(--bleu-france);">Exercice 2 : Complétez avec le possessif approprié</h3>
+
+                    <div class="practice-item">
+                        <p>1. Je vais au café avec _______ amis.</p>
+                    </div>
+
+                    <div class="practice-item">
+                        <p>2. _______ pauvre, tu as l'air fatigué ! (compassion)</p>
+                    </div>
+
+                    <div class="practice-item">
+                        <p>3. À _______ âge, j'étais plus sportif.</p>
+                    </div>
+
+                    <div class="practice-item">
+                        <p>4. Elle a publié _______ premier roman.</p>
+                    </div>
+
+                    <div class="practice-item">
+                        <p>5. _______ opinion est importante pour nous.</p>
+                    </div>
+                </div>
+
+                <div class="attention-zone">
+                    <h4>Conseil de Pratique</h4>
+                    <p>Pour bien maîtriser les sens de l'adjectif possessif, il est essentiel de lire beaucoup en français et d'observer comment les possessifs sont utilisés dans différents contextes. Chaque contexte révèle une nuance différente !</p>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <h2>🎯 Points Clés à Retenir</h2>
+
+                <div class="explanation-box">
+                    <h4>Résumé Essentiel</h4>
+                    <ul class="styled-list">
+                        <li>L'adjectif possessif ne se limite <strong>pas à la possession matérielle</strong></li>
+                        <li>Il exprime différents types de <strong>relations</strong> : familiale, sociale, professionnelle, abstraite</li>
+                        <li>Il peut avoir une <strong>valeur affective</strong> : tendresse, compassion, ironie, respect</li>
+                        <li>Avec les <strong>parties du corps</strong>, on préfère souvent l'article défini</li>
+                        <li>Le contexte est <strong>essentiel</strong> pour comprendre le sens exact du possessif</li>
+                        <li>De nombreuses <strong>expressions idiomatiques</strong> utilisent le possessif avec des sens particuliers</li>
+                    </ul>
+                </div>
+
+                <div class="quote-box" style="margin-top: 50px;">
+                    <p>« Maîtriser les nuances de l'adjectif possessif, c'est enrichir considérablement son expression et sa compréhension du français. »</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-wave"></div>
+            <p class="footer-logo">Língua Academy</p>
+            <p class="footer-text">L'Excellence en Enseignement des Langues</p>
+            <p class="footer-motto">
+                « Chaque nuance compte dans l'art de la langue française. »
+            </p>
+            <p class="footer-text" style="margin-top: 40px; font-size: 1.1em; opacity: 0.6;">
+                © Língua Academy - Grammaire Française Avancée
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

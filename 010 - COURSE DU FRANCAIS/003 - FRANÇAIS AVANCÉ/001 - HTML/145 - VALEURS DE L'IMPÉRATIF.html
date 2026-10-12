@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Valeurs Particulières de l'Impératif | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #2c3e50;
+            --color-secondary: #e8b4b8;
+            --color-accent: #d4a5a5;
+            --color-gold: #c9a961;
+            --color-cream: #faf8f5;
+            --color-sage: #9db4a8;
+            --color-terracotta: #d4896e;
+            --color-navy: #1a2634;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fdfbf7 0%, #f5f0eb 100%);
+            color: var(--color-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .decorative-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.03;
+            background-image: 
+                radial-gradient(circle at 20% 30%, var(--color-secondary) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, var(--color-sage) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, var(--color-gold) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4em;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: var(--color-gold);
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .intro {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-secondary), var(--color-gold), var(--color-sage));
+        }
+
+        .intro p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: var(--color-primary);
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .valeurs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .valeur-card {
+            background: white;
+            border-radius: 25px;
+            padding: 45px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .valeur-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--card-color);
+            transition: height 0.3s ease;
+        }
+
+        .valeur-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border-color: var(--card-color);
+        }
+
+        .valeur-card:hover::before {
+            height: 100%;
+            opacity: 0.05;
+        }
+
+        .valeur-card.ordre { --card-color: #d4896e; }
+        .valeur-card.conseil { --card-color: #9db4a8; }
+        .valeur-card.priere { --card-color: #e8b4b8; }
+        .valeur-card.souhait { --card-color: #c9a961; }
+        .valeur-card.instruction { --card-color: #7a9cc6; }
+        .valeur-card.interdiction { --card-color: #c97a7a; }
+
+        .valeur-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(0,0,0,0.05);
+        }
+
+        .valeur-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--card-color);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+
+        .valeur-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--color-navy);
+        }
+
+        .valeur-definition {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(250,248,245,0.5), rgba(250,248,245,0.8));
+            border-radius: 15px;
+            border-left: 4px solid var(--card-color);
+        }
+
+        .exemples {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .exemple {
+            padding: 20px 25px;
+            background: #fdfbf9;
+            border-radius: 15px;
+            border-left: 4px solid var(--card-color);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .exemple:hover {
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transform: translateX(5px);
+        }
+
+        .exemple-text {
+            font-size: 1.1em;
+            color: var(--color-navy);
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .exemple-note {
+            font-size: 0.95em;
+            color: #777;
+            line-height: 1.5;
+        }
+
+        .contexte {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--card-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .section-nuances {
+            background: white;
+            padding: 50px;
+            border-radius: 25px;
+            margin-bottom: 60px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-nuances::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-terracotta), var(--color-gold), var(--color-sage));
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .nuances-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .nuance-item {
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(250,248,245,0.5), rgba(250,248,245,0.9));
+            border-radius: 20px;
+            border: 2px solid rgba(201,169,97,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nuance-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: var(--color-gold);
+        }
+
+        .nuance-item h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6em;
+            color: var(--color-navy);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nuance-item h3::before {
+            content: '◆';
+            color: var(--color-gold);
+            font-size: 0.8em;
+        }
+
+        .nuance-item p {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .nuance-exemple {
+            font-style: italic;
+            color: var(--color-navy);
+            font-weight: 500;
+            padding: 12px 20px;
+            background: white;
+            border-radius: 10px;
+            margin-top: 12px;
+            border-left: 3px solid var(--color-gold);
+        }
+
+        .attention-box {
+            background: linear-gradient(135deg, #fff5f5, #ffe8e8);
+            padding: 35px;
+            border-radius: 20px;
+            margin-top: 50px;
+            border: 2px solid #ffc0c0;
+            position: relative;
+        }
+
+        .attention-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5em;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .attention-box h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8em;
+            color: #c44545;
+            margin-bottom: 20px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .attention-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .attention-box li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #c44545;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            color: #888;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+                letter-spacing: 2px;
+            }
+
+            .valeurs-grid,
+            .nuances-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .valeur-card {
+                padding: 30px;
+            }
+
+            .section-nuances {
+                padding: 30px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .valeur-card,
+        .section-nuances {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .valeur-card:nth-child(1) { animation-delay: 0.1s; }
+        .valeur-card:nth-child(2) { animation-delay: 0.2s; }
+        .valeur-card:nth-child(3) { animation-delay: 0.3s; }
+        .valeur-card:nth-child(4) { animation-delay: 0.4s; }
+        .valeur-card:nth-child(5) { animation-delay: 0.5s; }
+        .valeur-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <div class="decorative-bg"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Les Valeurs Particulières de l'Impératif</h1>
+            <div class="subtitle">L'Art de Commander, Conseiller et Souhaiter</div>
+        </header>
+
+        <div class="intro">
+            <p>
+                L'impératif n'est pas seulement un mode de l'ordre : c'est un outil linguistique riche et nuancé qui permet d'exprimer une grande variété d'intentions communicatives. De la demande polie au souhait chaleureux, en passant par le conseil amical ou l'instruction précise, l'impératif se décline en de multiples valeurs qui enrichissent notre expression quotidienne.
+            </p>
+        </div>
+
+        <div class="valeurs-grid">
+            <div class="valeur-card ordre">
+                <div class="valeur-header">
+                    <div class="valeur-icon">👑</div>
+                    <div class="valeur-title">L'Ordre</div>
+                </div>
+                <div class="valeur-definition">
+                    L'impératif exprime un <strong>ordre ferme et direct</strong>, où le locuteur exerce son autorité sur l'interlocuteur. C'est la valeur la plus directe et la plus impérative du mode.
+                </div>
+                <div class="exemples">
+                    <div class="exemple">
+                        <div class="exemple-text">« Tais-toi immédiatement ! »</div>
+                        <div class="exemple-note">Ordre autoritaire et sans appel</div>
+                        <span class="contexte">Contexte autoritaire</span>
+                    </div>
+                    <div class="exemple">
+                        <div class="exemple-text">« Rendez vos devoirs demain matin. »</div>
+                        <div class="exemple-note">Instruction obligatoire d'un enseignant</div>
+                        <span class="contexte">Contexte scolaire</span>
+                    </div>
+                    <div class="exemple">
+                        <div class="exemple-text">« Sortez d'ici ! »</div>
+                        <div class="exemple-note">Ordre impératif et péremptoire</div>
+                        <span class="contexte">Expulsion</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="valeur-card conseil">
+                <div class="valeur-header">
+                    <div class="valeur-icon">💡</div>
+                    <div class="valeur-title">Le Conseil</div>
+                </div>
+                <div class="valeur-definition">
+                    L'impératif sert à <strong>recommander ou suggérer</strong> une action jugée bénéfique pour l'interlocuteur. Le ton est bienveillant et moins autoritaire qu'un ordre.
+                </div>
+                <div class="exemples">
+                    <div class="exemple">
+                        <div class="exemple-text">« Repose-toi un peu, tu as l'air fatigué. »</div>
+                        <div class="exemple-note">Conseil amical exprimant une préoccupation</div>
+                        <span class="contexte">Sollicitude</span>
+                    </div>
+                    <div class="exemple">
+                        <div class="exemple-text">« Prends un parapluie, il va pleuvoir. »</div>
+                        <div class="exemple-note">Recommandation pratique et préventive</div>
+                        <span class="contexte">Conseil pratique</span>
+                    </div>
+                    <div class="exemple">
+                        <div class="exemple-text">« Réfléchis bien avant de décider. »</div>
+                        <div class="exemple-note">Suggestion sage et mesurée</div>
+                        <span class="contexte">Prudence</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="valeur-card priere">
+                <div class="valeur-header">
+                    <div class="valeur-icon">🙏</div>
+                    <div class="valeur-title">La Prière / Demande</div>
+                </div>
+                <div class="valeur-definition">
+                    L'impératif peut exprimer une <strong>demande polie ou une prière</strong>, souvent accompagné de formules de politesse comme « s'il te plaît » ou « je t'en prie ».
+                </div>
+                <div class="exemples">
+                    <div class="exemple">
+                        <div class="exemple-text">« Aide-moi, s'il te plaît. »</div>
+                        <div class="exemple-note">Demande polie sollicitant l'assistance</div>
+                        <span class="contexte">Demande d'aide</span>
+                    </div>
+                    <div class="exemple">
+                        <div class="exemple-text">« Pardonne-moi, je t'en supplie. »</div>
+                        <div class="exemple-note">Prière instante et humble</div>
+                        <span class="contexte">Supplication</span>
+                    </div>
+                    <div class="exemple">
+                        <div class="exemple-text">« Écoutez-moi quelques instants, je vous prie. »</div>
+                        <div class="exemple-note">Requête polie et formelle</div>
+                        <span class="contexte">Formalité</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="valeur-card souhait">
+                <div class="valeur-header">
+                    <div class="valeur-icon">⭐</div>
+                    <div class="valeur-title">Le Souhait</div>
+                </div>
+                <div class="valeur-definition">
+                    L'impératif exprime un <strong>vœu ou un désir</strong> envers l'interlocuteur. Cette valeur est fréquente dans les formules de politesse et les expressions de courtoisie.
+                </div>
+                <div class="exemples">
+                    <div class="exemple">
+                        <div class="exemple-text">« Passe une excellente journée ! »</div>
+                        <div class="exemple-note">Souhait bienveillant de bon augure</div>
+                        <span class="contexte">Salutation</span>
+                    </div>
+                    <div class="exemple">
+                        <div class="exemple-text">« Sois heureux dans ta nouvelle vie. »</div>
+                        <div class="exemple-note">Vœu de bonheur sincère</div>
+                        <span class="contexte">Bénédiction</span>
+                    </div>
+                    <div class="exemple">
+                        <div class="exemple-text">« Amusez-vous bien ! »</div>
+                        <div class="exemple-note">Souhait de plaisir et d'agrément</div>
+                        <span class="contexte">Départ festif</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="valeur-card instruction">
+                <div class="valeur-header">
+                    <div class="valeur-icon">📋</div>
+                    <div class="valeur-title">L'Instruction</div>
+                </div>
+                <div class="valeur-definition">
+                    L'impératif sert à <strong>donner des indications ou des instructions</strong> techniques, pratiques ou méthodologiques. Très utilisé dans les modes d'emploi et les recettes.
+                </div>
+                <div class="exemples">
+                    <div class="exemple">
+                        <div class="exemple-text">« Mélangez le tout pendant 5 minutes. »</div>
+                        <div class="exemple-note">Instruction culinaire précise</div>
+                        <span class="contexte">Recette</span>
+                    </div>
+                    <div class="exemple">
+                        <div class="exemple-text">« Appuyez sur le bouton rouge pour démarrer. »</div>
+                        <div class="exemple-note">Directive technique claire</div>
+                        <span class="contexte">Mode d'emploi</span>
+                    </div>
+                    <div class="exemple">
+                        <div class="exemple-text">« Tournez à gauche au prochain carrefour. »</div>
+                        <div class="exemple-note">Indication directionnelle</div>
+                        <span class="contexte">Itinéraire</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="valeur-card interdiction">
+                <div class="valeur-header">
+                    <div class="valeur-icon">🚫</div>
+                    <div class="valeur-title">L'Interdiction</div>
+                </div>
+                <div class="valeur-definition">
+                    À la forme négative, l'impératif exprime une <strong>interdiction ou une défense</strong>. Il indique ce qu'il ne faut absolument pas faire.
+                </div>
+                <div class="exemples">
+                    <div class="exemple">
+                        <div class="exemple-text">« Ne touche pas à ça ! »</div>
+                        <div class="exemple-note">Interdiction ferme et protectrice</div>
+                        <span class="contexte">Danger</span>
+                    </div>
+                    <div class="exemple">
+                        <div class="exemple-text">« N'oublie surtout pas ton passeport. »</div>
+                        <div class="exemple-note">Mise en garde importante</div>
+                        <span class="contexte">Avertissement</span>
+                    </div>
+                    <div class="exemple">
+                        <div class="exemple-text">« Ne soyez pas en retard. »</div>
+                        <div class="exemple-note">Interdiction du retard, injonction à la ponctualité</div>
+                        <span class="contexte">Consigne</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-nuances">
+            <h2 class="section-title">Nuances et Subtilités d'Usage</h2>
+            
+            <div class="nuances-grid">
+                <div class="nuance-item">
+                    <h3>L'Impératif Atténué</h3>
+                    <p>L'ajout de formules de politesse ou d'expressions atténuantes permet d'adoucir la force de l'impératif et de le rendre plus acceptable socialement.</p>
+                    <div class="nuance-exemple">« Passe-moi le sel, s'il te plaît. »</div>
+                    <div class="nuance-exemple">« Viens donc me voir quand tu veux. »</div>
+                </div>
+
+                <div class="nuance-item">
+                    <h3>L'Impératif de Concession</h3>
+                    <p>L'impératif peut exprimer une concession ironique ou résignée, où l'on accepte quelque chose tout en marquant son désaccord.</p>
+                    <div class="nuance-exemple">« Fais comme tu veux, après tout ! »</div>
+                    <div class="nuance-exemple">« Allez-y, ne vous gênez pas ! » (ironique)</div>
+                </div>
+
+                <div class="nuance-item">
+                    <h3>L'Impératif d'Hypothèse</h3>
+                    <p>Dans certaines constructions, l'impératif peut introduire une condition hypothétique, équivalent à « si tu fais cela ».</p>
+                    <div class="nuance-exemple">« Dis un mot, et tu le regretteras. » (= Si tu dis un mot...)</div>
+                    <div class="nuance-exemple">« Prends ce chemin, et tu arriveras plus vite. »</div>
+                </div>
+
+                <div class="nuance-item">
+                    <h3>L'Impératif Rhétorique</h3>
+                    <p>L'impératif peut être utilisé dans une argumentation pour faire imaginer une situation ou souligner un point de vue.</p>
+                    <div class="nuance-exemple">« Imaginez un monde sans art... »</div>
+                    <div class="nuance-exemple">« Pensez aux conséquences de vos actes ! »</div>
+                </div>
+
+                <div class="nuance-item">
+                    <h3>L'Impératif Emphatique</h3>
+                    <p>Répété ou associé à des adverbes intensifs, l'impératif renforce l'urgence ou l'importance de l'action.</p>
+                    <div class="nuance-exemple">« Cours, cours vite ! »</div>
+                    <div class="nuance-exemple">« Écoute-moi bien attentivement. »</div>
+                </div>
+
+                <div class="nuance-item">
+                    <h3>L'Impératif Général</h3>
+                    <p>Dans les proverbes et maximes, l'impératif s'adresse à un destinataire universel et exprime une vérité générale.</p>
+                    <div class="nuance-exemple">« Aide-toi, le ciel t'aidera. »</div>
+                    <div class="nuance-exemple">« Ne remets jamais au lendemain ce que tu peux faire le jour même. »</div>
+                </div>
+            </div>
+
+            <div class="attention-box">
+                <h3>Points d'Attention</h3>
+                <ul>
+                    <li><strong>Intonation déterminante :</strong> Le ton de voix change complètement la valeur de l'impératif. « Viens ici ! » peut être un ordre sec ou un appel affectueux selon l'intonation.</li>
+                    <li><strong>Contexte social :</strong> L'usage de l'impératif dépend fortement de la relation entre les interlocuteurs. Entre amis, il est plus naturel ; en situation formelle, il doit être atténué.</li>
+                    <li><strong>Formules d'atténuation :</strong> « S'il te plaît », « s'il vous plaît », « je t'en prie », « veux-tu » transforment un ordre en demande polie.</li>
+                    <li><strong>Registre de langue :</strong> L'impératif non atténué appartient souvent à un registre familier ou autoritaire. Dans un contexte formel, préférez des formulations plus indirectes.</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-logo">Língua Academy</div>
+            <div class="footer-text">Excellence en enseignement du français • Grammaire sophistiquée</div>
+        </footer>
+    </div>
+</body>
+</html>

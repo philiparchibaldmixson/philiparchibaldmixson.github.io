@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Déterminants du Nom - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0055A4 0%, #EF4135 100%);
+            color: white;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid #0055A4;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .intro h2 {
+            color: #0055A4;
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            color: #EF4135;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #0055A4;
+            display: inline-block;
+        }
+
+        .section h3 {
+            color: #0055A4;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #EF4135;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .definition-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .definition-box strong {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .type-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #EF4135;
+            transition: all 0.3s ease;
+        }
+
+        .type-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .type-card h4 {
+            color: #EF4135;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .example-box {
+            background: #fff;
+            border: 2px solid #0055A4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            background: #f0f8ff;
+            border-color: #EF4135;
+            box-shadow: 0 5px 15px rgba(0, 85, 164, 0.2);
+        }
+
+        .example {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .example::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #EF4135;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: #EF4135;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 15px 18px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        tr:hover {
+            background: #e3f2fd;
+            transition: background 0.3s ease;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #e17055;
+            box-shadow: 0 5px 15px rgba(253, 203, 110, 0.3);
+        }
+
+        .note-box strong {
+            color: #d63031;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #EF4135 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(239, 65, 53, 0.3);
+        }
+
+        .important-box strong {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .grid-item {
+            background: linear-gradient(135deg, #a8e6cf 0%, #3fc1c0 100%);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(63, 193, 192, 0.3);
+        }
+
+        .grid-item h4 {
+            color: #006064;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .list-style {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-style li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+        }
+
+        .list-style li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #0055A4;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .section h2 {
+                font-size: 1.8em;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: #EF4135;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Les Déterminants du Nom</h1>
+            <p>Emploi des Déterminants et des Pronoms</p>
+            <div class="logo">🎓 LÍNGUA ACADEMY</div>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <h2>🎯 Introduction</h2>
+                <p>Les <strong>déterminants</strong> sont des mots qui accompagnent le nom et qui précisent le sens de celui-ci. Ils s'accordent en genre (masculin/féminin) et en nombre (singulier/pluriel) avec le nom qu'ils déterminent. Le déterminant est généralement placé avant le nom et forme avec lui le <strong>groupe nominal</strong>.</p>
+            </div>
+
+            <div class="definition-box pulse">
+                <strong>📖 Définition Générale</strong>
+                <p>Un déterminant est un mot qui précède un nom et qui indique le genre, le nombre et le degré de détermination de ce nom. Sans déterminant, le nom ne peut généralement pas être utilisé dans une phrase française.</p>
+            </div>
+
+            <section class="section">
+                <h2>1️⃣ Les Articles</h2>
+                <p>Les articles sont les déterminants les plus courants en français. Ils se divisent en trois catégories principales.</p>
+
+                <h3>A. Les Articles Définis</h3>
+                <div class="type-card">
+                    <h4>Articles Définis Simples</h4>
+                    <p>Ils désignent une personne, un animal ou une chose <strong>déterminés</strong>, c'est-à-dire connus du locuteur et de l'interlocuteur.</p>
+                    
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>Genre et Nombre</th>
+                                <th>Article</th>
+                                <th>Exemples</th>
+                            </tr>
+                            <tr>
+                                <td>Masculin singulier</td>
+                                <td><strong>le</strong></td>
+                                <td><span class="highlight">Le</span> livre, <span class="highlight">le</span> chien</td>
+                            </tr>
+                            <tr>
+                                <td>Féminin singulier</td>
+                                <td><strong>la</strong></td>
+                                <td><span class="highlight">La</span> maison, <span class="highlight">la</span> voiture</td>
+                            </tr>
+                            <tr>
+                                <td>Voyelle/H muet</td>
+                                <td><strong>l'</strong></td>
+                                <td><span class="highlight">L'</span>arbre, <span class="highlight">l'</span>homme</td>
+                            </tr>
+                            <tr>
+                                <td>Pluriel (m. et f.)</td>
+                                <td><strong>les</strong></td>
+                                <td><span class="highlight">Les</span> livres, <span class="highlight">les</span> maisons</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="example-box">
+                        <p><strong>Exemples en contexte :</strong></p>
+                        <div class="example"><span class="highlight">Le</span> soleil brille dans le ciel.</div>
+                        <div class="example"><span class="highlight">La</span> lune éclaire la nuit.</div>
+                        <div class="example"><span class="highlight">L'</span>étoile scintille au loin.</div>
+                        <div class="example"><span class="highlight">Les</span> enfants jouent dans le jardin.</div>
+                    </div>
+                </div>
+
+                <div class="type-card">
+                    <h4>Articles Définis Contractés</h4>
+                    <p>Ils résultent de la contraction de l'article défini avec les prépositions <strong>à</strong> ou <strong>de</strong>.</p>
+                    
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>Contraction</th>
+                                <th>Formation</th>
+                                <th>Exemples</th>
+                            </tr>
+                            <tr>
+                                <td><strong>au</strong></td>
+                                <td>à + le</td>
+                                <td>Je vais <span class="highlight">au</span> cinéma</td>
+                            </tr>
+                            <tr>
+                                <td><strong>aux</strong></td>
+                                <td>à + les</td>
+                                <td>Il parle <span class="highlight">aux</span> étudiants</td>
+                            </tr>
+                            <tr>
+                                <td><strong>du</strong></td>
+                                <td>de + le</td>
+                                <td>Je viens <span class="highlight">du</span> marché</td>
+                            </tr>
+                            <tr>
+                                <td><strong>des</strong></td>
+                                <td>de + les</td>
+                                <td>Le livre <span class="highlight">des</span> enfants</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>⚠️ Attention :</strong>
+                        <p>Pas de contraction avec <strong>à la</strong>, <strong>à l'</strong>, <strong>de la</strong> et <strong>de l'</strong> !<br>
+                        Exemples : à la maison, de la ville, à l'école, de l'université</p>
+                    </div>
+                </div>
+
+                <h3>B. Les Articles Indéfinis</h3>
+                <div class="type-card">
+                    <h4>Caractéristiques</h4>
+                    <p>Ils désignent une personne, un animal ou une chose <strong>indéterminés</strong>, c'est-à-dire non précisés ou inconnus.</p>
+                    
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>Genre et Nombre</th>
+                                <th>Article</th>
+                                <th>Exemples</th>
+                            </tr>
+                            <tr>
+                                <td>Masculin singulier</td>
+                                <td><strong>un</strong></td>
+                                <td><span class="highlight">Un</span> garçon, <span class="highlight">un</span> chat</td>
+                            </tr>
+                            <tr>
+                                <td>Féminin singulier</td>
+                                <td><strong>une</strong></td>
+                                <td><span class="highlight">Une</span> fille, <span class="highlight">une</span> table</td>
+                            </tr>
+                            <tr>
+                                <td>Pluriel (m. et f.)</td>
+                                <td><strong>des</strong></td>
+                                <td><span class="highlight">Des</span> livres, <span class="highlight">des</span> fleurs</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="example-box">
+                        <p><strong>Exemples en contexte :</strong></p>
+                        <div class="example">J'ai vu <span class="highlight">un</span> oiseau dans le jardin.</div>
+                        <div class="example">Elle a acheté <span class="highlight">une</span> robe magnifique.</div>
+                        <div class="example">Il y a <span class="highlight">des</span> nuages dans le ciel.</div>
+                        <div class="example"><span class="highlight">Des</span> étudiants travaillent à la bibliothèque.</div>
+                    </div>
+                </div>
+
+                <h3>C. Les Articles Partitifs</h3>
+                <div class="type-card">
+                    <h4>Utilisation</h4>
+                    <p>Ils expriment une <strong>quantité indéterminée</strong> ou une <strong>partie</strong> d'un tout. Ils s'utilisent principalement avec des noms de choses qu'on ne peut pas compter.</p>
+                    
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>Genre et Nombre</th>
+                                <th>Article</th>
+                                <th>Exemples</th>
+                            </tr>
+                            <tr>
+                                <td>Masculin singulier</td>
+                                <td><strong>du</strong></td>
+                                <td><span class="highlight">Du</span> pain, <span class="highlight">du</span> lait</td>
+                            </tr>
+                            <tr>
+                                <td>Féminin singulier</td>
+                                <td><strong>de la</strong></td>
+                                <td><span class="highlight">De la</span> viande, <span class="highlight">de la</span> musique</td>
+                            </tr>
+                            <tr>
+                                <td>Voyelle/H muet</td>
+                                <td><strong>de l'</strong></td>
+                                <td><span class="highlight">De l'</span>eau, <span class="highlight">de l'</span>argent</td>
+                            </tr>
+                            <tr>
+                                <td>Pluriel (sens partitif)</td>
+                                <td><strong>des</strong></td>
+                                <td><span class="highlight">Des</span> épinards, <span class="highlight">des</span> rillettes</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="example-box">
+                        <p><strong>Exemples en contexte :</strong></p>
+                        <div class="example">Je mange <span class="highlight">du</span> chocolat.</div>
+                        <div class="example">Elle boit <span class="highlight">de la</span> limonade.</div>
+                        <div class="example">Il faut <span class="highlight">de l'</span>huile pour cuisiner.</div>
+                        <div class="example">Nous mangeons <span class="highlight">des</span> pâtes.</div>
+                    </div>
+
+                    <div class="important-box">
+                        <strong>🔑 Règle importante :</strong>
+                        <p>À la forme négative, les articles partitifs (du, de la, de l', des) et les articles indéfinis (un, une, des) sont généralement remplacés par <strong>de</strong> ou <strong>d'</strong> :<br><br>
+                        → Je mange du pain → Je ne mange pas <strong>de</strong> pain.<br>
+                        → Il y a des nuages → Il n'y a pas <strong>de</strong> nuages.<br>
+                        → Elle a une voiture → Elle n'a pas <strong>de</strong> voiture.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>2️⃣ Les Adjectifs Démonstratifs</h2>
+                <p>Les adjectifs démonstratifs servent à <strong>montrer</strong> ou à <strong>désigner</strong> un nom. Ils permettent d'identifier précisément la personne, l'animal ou la chose dont on parle.</p>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Genre et Nombre</th>
+                            <th>Adjectif</th>
+                            <th>Exemples</th>
+                        </tr>
+                        <tr>
+                            <td>Masculin singulier</td>
+                            <td><strong>ce</strong></td>
+                            <td><span class="highlight">Ce</span> livre est intéressant</td>
+                        </tr>
+                        <tr>
+                            <td>Masc. sing. (voyelle/H muet)</td>
+                            <td><strong>cet</strong></td>
+                            <td><span class="highlight">Cet</span> arbre, <span class="highlight">cet</span> homme</td>
+                        </tr>
+                        <tr>
+                            <td>Féminin singulier</td>
+                            <td><strong>cette</strong></td>
+                            <td><span class="highlight">Cette</span> maison est belle</td>
+                        </tr>
+                        <tr>
+                            <td>Pluriel (m. et f.)</td>
+                            <td><strong>ces</strong></td>
+                            <td><span class="highlight">Ces</span> livres, <span class="highlight">ces</span> maisons</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Exemples détaillés :</strong></p>
+                    <div class="example">J'aime <span class="highlight">ce</span> film. (masculin singulier)</div>
+                    <div class="example"><span class="highlight">Cet</span> ordinateur est neuf. (masculin sing. devant voyelle)</div>
+                    <div class="example"><span class="highlight">Cette</span> chanson est magnifique. (féminin singulier)</div>
+                    <div class="example"><span class="highlight">Ces</span> fleurs sont parfumées. (pluriel)</div>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 Astuce :</strong>
+                    <p>Pour insister ou distinguer entre plusieurs objets, on peut ajouter <strong>-ci</strong> (proximité) ou <strong>-là</strong> (éloignement) après le nom :<br><br>
+                    → <span class="highlight">Ce livre-ci</span> est plus intéressant que <span class="highlight">ce livre-là</span>.<br>
+                    → Je préfère <span class="highlight">cette robe-ci</span> à <span class="highlight">cette robe-là</span>.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>3️⃣ Les Adjectifs Possessifs</h2>
+                <p>Les adjectifs possessifs indiquent une relation d'<strong>appartenance</strong> ou de <strong>possession</strong>. Ils s'accordent avec le nom qu'ils déterminent (et non avec le possesseur).</p>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Possesseur</th>
+                            <th>Masculin Singulier</th>
+                            <th>Féminin Singulier</th>
+                            <th>Pluriel (m. et f.)</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Je</strong></td>
+                            <td>mon</td>
+                            <td>ma (mon*)</td>
+                            <td>mes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tu</strong></td>
+                            <td>ton</td>
+                            <td>ta (ton*)</td>
+                            <td>tes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Il/Elle</strong></td>
+                            <td>son</td>
+                            <td>sa (son*)</td>
+                            <td>ses</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nous</strong></td>
+                            <td>notre</td>
+                            <td>notre</td>
+                            <td>nos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vous</strong></td>
+                            <td>votre</td>
+                            <td>votre</td>
+                            <td>vos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ils/Elles</strong></td>
+                            <td>leur</td>
+                            <td>leur</td>
+                            <td>leurs</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="note-box">
+                    <strong>⚠️ Règle d'euphonie (*) :</strong>
+                    <p>Devant un nom féminin commençant par une voyelle ou un h muet, on utilise <strong>mon, ton, son</strong> au lieu de ma, ta, sa :<br><br>
+                    → <span class="highlight">Mon</span> amie (et non : ma amie)<br>
+                    → <span class="highlight">Ton</span> histoire (et non : ta histoire)<br>
+                    → <span class="highlight">Son</span> école (et non : sa école)</p>
+                </div>
+
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h4>Singulier</h4>
+                        <ul class="list-style">
+                            <li><span class="highlight">Mon</span> père travaille</li>
+                            <li><span class="highlight">Ta</span> sœur est gentille</li>
+                            <li><span class="highlight">Sa</span> voiture est rouge</li>
+                            <li><span class="highlight">Notre</span> maison est grande</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h4>Pluriel</h4>
+                        <ul class="list-style">
+                            <li><span class="highlight">Mes</span> parents voyagent</li>
+                            <li><span class="highlight">Tes</span> amis arrivent</li>
+                            <li><span class="highlight">Ses</span> enfants jouent</li>
+                            <li><span class="highlight">Nos</span> voisins chantent</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h4>Attention !</h4>
+                        <ul class="list-style">
+                            <li><span class="highlight">Votre</span> livre (politesse)</li>
+                            <li><span class="highlight">Vos</span> affaires (plusieurs)</li>
+                            <li><span class="highlight">Leur</span> maison (à eux)</li>
+                            <li><span class="highlight">Leurs</span> enfants (plusieurs)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>4️⃣ Les Adjectifs Indéfinis</h2>
+                <p>Les adjectifs indéfinis expriment une <strong>quantité imprécise</strong> ou une <strong>identité vague</strong>. Ils permettent de parler de personnes ou de choses sans les préciser exactement.</p>
+
+                <div class="type-card">
+                    <h4>Principaux Adjectifs Indéfinis</h4>
+                    
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>Adjectif Indéfini</th>
+                                <th>Sens</th>
+                                <th>Exemples</th>
+                            </tr>
+                            <tr>
+                                <td><strong>aucun(e)</strong></td>
+                                <td>Pas un seul</td>
+                                <td><span class="highlight">Aucun</span> élève n'est absent</td>
+                            </tr>
+                            <tr>
+                                <td><strong>autre(s)</strong></td>
+                                <td>Différent</td>
+                                <td>Une <span class="highlight">autre</span> solution existe</td>
+                            </tr>
+                            <tr>
+                                <td><strong>certain(e)(s)</strong></td>
+                                <td>Quelques</td>
+                                <td><span class="highlight">Certains</span> jours sont difficiles</td>
+                            </tr>
+                            <tr>
+                                <td><strong>chaque</strong></td>
+                                <td>Tous sans exception</td>
+                                <td><span class="highlight">Chaque</span> enfant a un cadeau</td>
+                            </tr>
+                            <tr>
+                                <td><strong>plusieurs</strong></td>
+                                <td>Un nombre indéfini</td>
+                                <td><span class="highlight">Plusieurs</span> personnes sont venues</td>
+                            </tr>
+                            <tr>
+                                <td><strong>quelque(s)</strong></td>
+                                <td>Un petit nombre</td>
+                                <td>J'ai <span class="highlight">quelques</span> questions</td>
+                            </tr>
+                            <tr>
+                                <td><strong>tout, toute, tous, toutes</strong></td>
+                                <td>La totalité</td>
+                                <td><span class="highlight">Tous</span> les élèves sont présents</td>
+                            </tr>
+                            <tr>
+                                <td><strong>même(s)</strong></td>
+                                <td>Identique</td>
+                                <td>Nous avons le <span class="highlight">même</span> âge</td>
+                            </tr>
+                            <tr>
+                                <td><strong>tel(le)(s)</strong></td>
+                                <td>De cette sorte</td>
+                                <td>Une <span class="highlight">telle</span> situation est rare</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Exemples en contexte :</strong></p>
+                    <div class="example"><span class="highlight">Plusieurs</span> étudiants ont réussi l'examen.</div>
+                    <div class="example"><span class="highlight">Chaque</span> matin, je bois du café.</div>
+                    <div class="example">Je n'ai <span class="highlight">aucune</span> idée de la réponse.</div>
+                    <div class="example"><span class="highlight">Certaines</span> personnes préfèrent le thé.</div>
+                    <div class="example"><span class="highlight">Tous</span> les jours, il fait du sport.</div>
+                    <div class="example">J'ai lu le <span class="highlight">même</span> livre que toi.</div>
+                </div>
+
+                <div class="important-box">
+                    <strong>🔑 Particularités :</strong>
+                    <p>• <strong>Chaque</strong> est toujours au singulier<br>
+                    • <strong>Plusieurs</strong> est toujours au pluriel<br>
+                    • <strong>Aucun(e)</strong> s'utilise avec la négation : n'... aucun(e)<br>
+                    • <strong>Tout</strong> peut être adjectif ou pronom selon le contexte</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>5️⃣ Les Adjectifs Interrogatifs</h2>
+                <p>Les adjectifs interrogatifs servent à <strong>poser une question</strong> sur l'identité ou la nature d'un nom. Ils introduisent une interrogation.</p>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Genre et Nombre</th>
+                            <th>Adjectif</th>
+                            <th>Exemples</th>
+                        </tr>
+                        <tr>
+                            <td>Masculin singulier</td>
+                            <td><strong>quel</strong></td>
+                            <td><span class="highlight">Quel</span> livre lis-tu ?</td>
+                        </tr>
+                        <tr>
+                            <td>Féminin singulier</td>
+                            <td><strong>quelle</strong></td>
+                            <td><span class="highlight">Quelle</span> heure est-il ?</td>
+                        </tr>
+                        <tr>
+                            <td>Masculin pluriel</td>
+                            <td><strong>quels</strong></td>
+                            <td><span class="highlight">Quels</span> films préfères-tu ?</td>
+                        </tr>
+                        <tr>
+                            <td>Féminin pluriel</td>
+                            <td><strong>quelles</strong></td>
+                            <td><span class="highlight">Quelles</span> chansons aimes-tu ?</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Différents types de questions :</strong></p>
+                    <div class="example"><span class="highlight">Quel</span> est ton nom ? (identité)</div>
+                    <div class="example"><span class="highlight">Quelle</span> voiture conduis-tu ? (choix)</div>
+                    <div class="example"><span class="highlight">Quels</span> sont tes projets ? (pluriel)</div>
+                    <div class="example"><span class="highlight">Quelles</span> langues parles-tu ? (pluriel féminin)</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>6️⃣ Les Adjectifs Exclamatifs</h2>
+                <p>Les adjectifs exclamatifs expriment l'<strong>étonnement</strong>, l'<strong>admiration</strong> ou l'<strong>intensité</strong>. Ils ont la même forme que les adjectifs interrogatifs mais s'utilisent dans des phrases exclamatives.</p>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Genre et Nombre</th>
+                            <th>Adjectif</th>
+                            <th>Exemples</th>
+                        </tr>
+                        <tr>
+                            <td>Masculin singulier</td>
+                            <td><strong>quel</strong></td>
+                            <td><span class="highlight">Quel</span> beau paysage !</td>
+                        </tr>
+                        <tr>
+                            <td>Féminin singulier</td>
+                            <td><strong>quelle</strong></td>
+                            <td><span class="highlight">Quelle</span> magnifique journée !</td>
+                        </tr>
+                        <tr>
+                            <td>Masculin pluriel</td>
+                            <td><strong>quels</strong></td>
+                            <td><span class="highlight">Quels</span> beaux enfants !</td>
+                        </tr>
+                        <tr>
+                            <td>Féminin pluriel</td>
+                            <td><strong>quelles</strong></td>
+                            <td><span class="highlight">Quelles</span> jolies fleurs !</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Exemples d'exclamations :</strong></p>
+                    <div class="example"><span class="highlight">Quel</span> bonheur de te revoir !</div>
+                    <div class="example"><span class="highlight">Quelle</span> chance tu as !</div>
+                    <div class="example"><span class="highlight">Quels</span> merveilleux souvenirs !</div>
+                    <div class="example"><span class="highlight">Quelles</span> belles couleurs !</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>7️⃣ Les Adjectifs Numéraux</h2>
+                <p>Les adjectifs numéraux indiquent une <strong>quantité précise</strong> (cardinaux) ou un <strong>rang</strong>, un <strong>ordre</strong> (ordinaux).</p>
+
+                <h3>A. Les Adjectifs Numéraux Cardinaux</h3>
+                <div class="type-card">
+                    <h4>Caractéristiques</h4>
+                    <p>Ils indiquent un nombre exact et précis.</p>
+                    
+                    <div class="example-box">
+                        <p><strong>Exemples :</strong></p>
+                        <div class="example">J'ai <span class="highlight">deux</span> frères.</div>
+                        <div class="example">Il y a <span class="highlight">vingt</span> élèves dans la classe.</div>
+                        <div class="example">Elle a <span class="highlight">cent</span> euros.</div>
+                        <div class="example">Nous avons lu <span class="highlight">mille</span> pages.</div>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Règles importantes :</strong>
+                        <p>• Les nombres sont généralement invariables<br>
+                        • <strong>Vingt</strong> et <strong>cent</strong> prennent un <strong>s</strong> quand ils sont multipliés et terminent le nombre : quatre-vingts, deux cents<br>
+                        • Mais : quatre-vingt-trois, deux cent cinquante (pas de s)<br>
+                        • <strong>Mille</strong> est toujours invariable</p>
+                    </div>
+                </div>
+
+                <h3>B. Les Adjectifs Numéraux Ordinaux</h3>
+                <div class="type-card">
+                    <h4>Formation et Utilisation</h4>
+                    <p>Ils indiquent un ordre, un classement. Ils se forment généralement en ajoutant <strong>-ième</strong> au nombre cardinal.</p>
+                    
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>Cardinal</th>
+                                <th>Ordinal</th>
+                                <th>Exemple</th>
+                            </tr>
+                            <tr>
+                                <td>un</td>
+                                <td><strong>premier / première</strong></td>
+                                <td>Le <span class="highlight">premier</span> jour</td>
+                            </tr>
+                            <tr>
+                                <td>deux</td>
+                                <td><strong>deuxième / second(e)</strong></td>
+                                <td>La <span class="highlight">deuxième</span> année</td>
+                            </tr>
+                            <tr>
+                                <td>trois</td>
+                                <td><strong>troisième</strong></td>
+                                <td>Le <span class="highlight">troisième</span> étage</td>
+                            </tr>
+                            <tr>
+                                <td>quatre</td>
+                                <td><strong>quatrième</strong></td>
+                                <td>La <span class="highlight">quatrième</span> place</td>
+                            </tr>
+                            <tr>
+                                <td>cinq</td>
+                                <td><strong>cinquième</strong></td>
+                                <td>Le <span class="highlight">cinquième</span> mois</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="example-box">
+                        <p><strong>Exemples en contexte :</strong></p>
+                        <div class="example">C'est mon <span class="highlight">premier</span> voyage en France.</div>
+                        <div class="example">Elle habite au <span class="highlight">cinquième</span> étage.</div>
+                        <div class="example">C'est la <span class="highlight">dixième</span> fois que je te le dis !</div>
+                        <div class="example">Nous sommes au <span class="highlight">vingt et unième</span> siècle.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>📊 Tableau Récapitulatif</h2>
+                
+                <div class="type-card">
+                    <h4>Classification des Déterminants</h4>
+                    
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <h4>Articles</h4>
+                            <p><span class="badge">Définis</span> le, la, l', les</p>
+                            <p><span class="badge">Indéfinis</span> un, une, des</p>
+                            <p><span class="badge">Partitifs</span> du, de la, de l'</p>
+                            <p><span class="badge">Contractés</span> au, aux, du, des</p>
+                        </div>
+                        
+                        <div class="grid-item">
+                            <h4>Adjectifs Déterminatifs</h4>
+                            <p><span class="badge">Démonstratifs</span> ce, cet, cette, ces</p>
+                            <p><span class="badge">Possessifs</span> mon, ton, son...</p>
+                            <p><span class="badge">Indéfinis</span> chaque, plusieurs...</p>
+                        </div>
+                        
+                        <div class="grid-item">
+                            <h4>Adjectifs Spéciaux</h4>
+                            <p><span class="badge">Interrogatifs</span> quel, quelle...</p>
+                            <p><span class="badge">Exclamatifs</span> quel, quelle...</p>
+                            <p><span class="badge">Numéraux</span> deux, premier...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>✨ Points Clés à Retenir</h2>
+                
+                <div class="important-box">
+                    <strong>🎯 Règles Fondamentales</strong>
+                    <p>
+                    <strong>1.</strong> Le déterminant s'accorde toujours en genre et en nombre avec le nom qu'il accompagne.<br><br>
+                    <strong>2.</strong> Un nom commun ne peut généralement pas être utilisé seul sans déterminant en français.<br><br>
+                    <strong>3.</strong> Le choix du déterminant dépend du sens que l'on veut donner : précis/imprécis, défini/indéfini, quantité déterminée/indéterminée.<br><br>
+                    <strong>4.</strong> À la forme négative, les articles indéfinis et partitifs deviennent généralement "de" ou "d'".<br><br>
+                    <strong>5.</strong> Les déterminants possessifs s'accordent avec le nom (l'objet possédé) et non avec le possesseur.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <div class="footer">
+            <p><strong>📚 LÍNGUA ACADEMY</strong></p>
+            <p>Excellence en Enseignement des Langues</p>
+            <p style="font-size: 0.9em; margin-top: 15px;">© 2024 Língua Academy - Tous droits réservés</p>
+        </div>
+    </div>
+</body>
+</html>

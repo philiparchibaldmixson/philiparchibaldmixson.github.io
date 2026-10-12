@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Valeurs Particulières du Conditionnel | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #2d3142;
+            --color-secondary: #4f5d75;
+            --color-accent: #bfc0c0;
+            --color-mint: #8ab89d;
+            --color-peach: #ef8275;
+            --color-lavender: #9b9ec5;
+            --color-cream: #f8f5f2;
+            --color-sand: #e8dfd7;
+            --color-rust: #c76a5c;
+            --color-sage: #7a9f8e;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(to bottom, #f8f5f2 0%, #e8dfd7 100%);
+            color: var(--color-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .geometric-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .geo-shape {
+            position: absolute;
+            opacity: 0.08;
+        }
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            border: 2px solid var(--color-mint);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .circle-2 {
+            width: 300px;
+            height: 300px;
+            border: 2px solid var(--color-peach);
+            border-radius: 50%;
+            bottom: 50px;
+            left: -80px;
+        }
+
+        .triangle-1 {
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 260px solid var(--color-lavender);
+            top: 40%;
+            right: 10%;
+            transform: rotate(25deg);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 70px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 90px;
+            position: relative;
+        }
+
+        .header-ornament {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--color-peach), transparent);
+            margin: 0 auto 35px;
+        }
+
+        h1 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 4.2em;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+            line-height: 1.2;
+        }
+
+        .highlight {
+            color: var(--color-peach);
+            position: relative;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: var(--color-secondary);
+            font-weight: 400;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .intro-section {
+            background: white;
+            padding: 50px 60px;
+            border-radius: 15px;
+            margin-bottom: 70px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border-left: 6px solid var(--color-mint);
+            position: relative;
+        }
+
+        .intro-section::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 8em;
+            font-family: 'Libre Baskerville', serif;
+            color: var(--color-sand);
+            line-height: 0.7;
+        }
+
+        .intro-section p {
+            font-size: 1.15em;
+            line-height: 1.9;
+            color: var(--color-secondary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .valeurs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+            gap: 45px;
+            margin-bottom: 70px;
+        }
+
+        .valeur-card {
+            background: white;
+            border-radius: 20px;
+            padding: 45px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--card-color);
+        }
+
+        .valeur-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 180px;
+            height: 180px;
+            background: var(--card-color);
+            opacity: 0.05;
+            border-radius: 50%;
+            transform: translate(60px, -60px);
+            transition: transform 0.4s ease;
+        }
+
+        .valeur-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .valeur-card:hover::before {
+            transform: translate(40px, -40px) scale(1.2);
+        }
+
+        .valeur-card.politesse { --card-color: #8ab89d; }
+        .valeur-card.attenuation { --card-color: #9b9ec5; }
+        .valeur-card.hypothese { --card-color: #ef8275; }
+        .valeur-card.information { --card-color: #d4a574; }
+        .valeur-card.conseil { --card-color: #7a9f8e; }
+        .valeur-card.souhait { --card-color: #c89f91; }
+        .valeur-card.imaginaire { --card-color: #9fa8c7; }
+        .valeur-card.indignation { --card-color: #c76a5c; }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--color-sand);
+        }
+
+        .card-icon {
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, var(--card-color), rgba(255,255,255,0.3));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.3em;
+            flex-shrink: 0;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-title {
+            flex: 1;
+        }
+
+        .card-title h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2em;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .card-subtitle {
+            font-size: 0.9em;
+            color: var(--color-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .definition {
+            background: linear-gradient(135deg, rgba(248,245,242,0.8), rgba(232,223,215,0.6));
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--card-color);
+        }
+
+        .definition p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: var(--color-secondary);
+        }
+
+        .exemples-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .exemple {
+            background: #fafafa;
+            padding: 22px 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--card-color);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .exemple:hover {
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transform: translateX(6px);
+        }
+
+        .exemple-phrase {
+            font-size: 1.15em;
+            color: var(--color-primary);
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .exemple-note {
+            font-size: 0.95em;
+            color: var(--color-secondary);
+            line-height: 1.6;
+        }
+
+        .contexte-tag {
+            display: inline-block;
+            padding: 5px 14px;
+            background: var(--card-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-top: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .special-section {
+            background: white;
+            padding: 55px;
+            border-radius: 20px;
+            margin-bottom: 70px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            border-top: 5px solid var(--color-lavender);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.8em;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 1.1em;
+            color: var(--color-secondary);
+            font-weight: 400;
+        }
+
+        .nuances-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+        }
+
+        .nuance-box {
+            background: linear-gradient(135deg, rgba(248,245,242,0.6), rgba(232,223,215,0.4));
+            padding: 32px;
+            border-radius: 15px;
+            border: 2px solid var(--color-sand);
+            transition: all 0.3s ease;
+        }
+
+        .nuance-box:hover {
+            border-color: var(--color-mint);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .nuance-box h4 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.5em;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nuance-icon {
+            font-size: 1.2em;
+        }
+
+        .nuance-box p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: var(--color-secondary);
+            margin-bottom: 15px;
+        }
+
+        .nuance-exemple {
+            font-style: italic;
+            color: var(--color-primary);
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-top: 12px;
+            border-left: 3px solid var(--color-mint);
+            font-weight: 500;
+        }
+
+        .tableau-temps {
+            background: white;
+            padding: 55px;
+            border-radius: 20px;
+            margin-bottom: 70px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--color-peach);
+        }
+
+        .tableau-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5em;
+            text-align: center;
+            color: var(--color-primary);
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .temps-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 35px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(248,245,242,0.5), rgba(232,223,215,0.3));
+            border-radius: 15px;
+            border-left: 5px solid var(--temps-color);
+            transition: all 0.3s ease;
+        }
+
+        .temps-row:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .temps-row.present { --temps-color: #8ab89d; }
+        .temps-row.passe { --temps-color: #ef8275; }
+
+        .temps-name {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.8em;
+            color: var(--color-primary);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .temps-content h5 {
+            font-size: 1.2em;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .temps-content p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: var(--color-secondary);
+            margin-bottom: 15px;
+        }
+
+        .temps-exemple {
+            font-style: italic;
+            color: var(--color-primary);
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border-left: 3px solid var(--temps-color);
+            font-weight: 500;
+        }
+
+        .attention-section {
+            background: linear-gradient(135deg, #fff4f0, #ffe8e0);
+            padding: 45px;
+            border-radius: 20px;
+            border: 3px solid #ffd0c0;
+            margin-bottom: 70px;
+            position: relative;
+        }
+
+        .attention-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .attention-icon {
+            font-size: 3em;
+            filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.1));
+        }
+
+        .attention-header h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2em;
+            color: #c76a5c;
+            font-weight: 700;
+        }
+
+        .attention-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .attention-item {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 12px;
+            border-left: 4px solid #c76a5c;
+            display: flex;
+            gap: 15px;
+        }
+
+        .attention-item::before {
+            content: '▸';
+            color: #c76a5c;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .attention-item p {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: var(--color-secondary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--color-mint);
+        }
+
+        .footer-logo {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+
+        .footer-text {
+            color: var(--color-secondary);
+            font-size: 1em;
+            font-weight: 400;
+        }
+
+        @media (max-width: 1024px) {
+            .valeurs-grid,
+            .nuances-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .temps-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2.8em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+                letter-spacing: 3px;
+            }
+
+            .valeur-card,
+            .special-section,
+            .tableau-temps {
+                padding: 30px;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .valeur-card {
+            animation: slideInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .valeur-card:nth-child(1) { animation-delay: 0.1s; }
+        .valeur-card:nth-child(2) { animation-delay: 0.15s; }
+        .valeur-card:nth-child(3) { animation-delay: 0.2s; }
+        .valeur-card:nth-child(4) { animation-delay: 0.25s; }
+        .valeur-card:nth-child(5) { animation-delay: 0.3s; }
+        .valeur-card:nth-child(6) { animation-delay: 0.35s; }
+        .valeur-card:nth-child(7) { animation-delay: 0.4s; }
+        .valeur-card:nth-child(8) { animation-delay: 0.45s; }
+    </style>
+</head>
+<body>
+    <div class="geometric-bg">
+        <div class="geo-shape circle-1"></div>
+        <div class="geo-shape circle-2"></div>
+        <div class="geo-shape triangle-1"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="header-ornament"></div>
+            <h1>Les Valeurs Particulières<br>du <span class="highlight">Conditionnel</span></h1>
+            <div class="subtitle">L'Art de la Nuance et du Possible</div>
+        </header>
+
+        <div class="intro-section">
+            <p>
+                Le conditionnel est bien plus qu'un simple temps verbal : c'est un mode de l'incertitude, de la courtoisie et du rêve. Situé à la frontière du réel et de l'imaginaire, il permet d'exprimer une palette extraordinaire de nuances communicatives. Du souhait délicat à l'information prudente, de l'hypothèse audacieuse au conseil bienveillant, le conditionnel enrichit notre expression de mille subtilités. Maîtriser ses valeurs particulières, c'est accéder à une sophistication linguistique qui caractérise le français dans toute sa finesse.
+            </p>
+        </div>
+
+        <div class="valeurs-grid">
+            <!-- POLITESSE -->
+            <div class="valeur-card politesse">
+                <div class="card-header">
+                    <div class="card-icon">🎩</div>
+                    <div class="card-title">
+                        <h3>Conditionnel de Politesse</h3>
+                        <div class="card-subtitle">La Courtoisie Raffinée</div>
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <p>
+                        Le conditionnel permet d'<strong>atténuer une demande ou une requête</strong> pour la rendre plus polie et respectueuse. Cette valeur sociale du conditionnel est fondamentale dans les interactions formelles et courtoises.
+                    </p>
+                </div>
+
+                <div class="exemples-container">
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Je voudrais un café, s'il vous plaît. »</div>
+                        <div class="exemple-note">Plus poli que « Je veux un café » — le conditionnel adoucit la demande directe.</div>
+                        <span class="contexte-tag">Restaurant / Café</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Pourriez-vous m'aider un instant ? »</div>
+                        <div class="exemple-note">Formulation très polie qui rend le refus plus difficile sans être impératif.</div>
+                        <span class="contexte-tag">Demande d'assistance</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Auriez-vous l'amabilité de patienter ? »</div>
+                        <div class="exemple-note">Courtoisie formelle qui transforme une attente imposée en requête élégante.</div>
+                        <span class="contexte-tag">Contexte professionnel</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ATTÉNUATION -->
+            <div class="valeur-card attenuation">
+                <div class="card-header">
+                    <div class="card-icon">🔅</div>
+                    <div class="card-title">
+                        <h3>Conditionnel d'Atténuation</h3>
+                        <div class="card-subtitle">Adoucir l'Affirmation</div>
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <p>
+                        Le conditionnel permet d'<strong>atténuer une affirmation, un jugement ou une opinion</strong> pour ne pas paraître trop catégorique ou blessant. C'est une valeur de prudence et de délicatesse.
+                    </p>
+                </div>
+
+                <div class="exemples-container">
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Je dirais qu'il a environ quarante ans. »</div>
+                        <div class="exemple-note">Plus prudent que « il a quarante ans » — laisse place à l'incertitude.</div>
+                        <span class="contexte-tag">Estimation</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Ce serait mieux de partir tôt. »</div>
+                        <div class="exemple-note">Suggestion douce qui évite l'impératif « il faut partir tôt ».</div>
+                        <span class="contexte-tag">Suggestion</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Il me semblerait préférable de choisir l'autre option. »</div>
+                        <div class="exemple-note">Opinion exprimée avec précaution, laissant place au débat.</div>
+                        <span class="contexte-tag">Avis nuancé</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HYPOTHÈSE -->
+            <div class="valeur-card hypothese">
+                <div class="card-header">
+                    <div class="card-icon">🤔</div>
+                    <div class="card-title">
+                        <h3>Conditionnel d'Hypothèse</h3>
+                        <div class="card-subtitle">Le Domaine du Possible</div>
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <p>
+                        Le conditionnel exprime une <strong>action qui dépend d'une condition</strong>, souvent exprimée ou sous-entendue. C'est la valeur hypothétique par excellence, celle des « si ».
+                    </p>
+                </div>
+
+                <div class="exemples-container">
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Si j'avais de l'argent, je voyagerais autour du monde. »</div>
+                        <div class="exemple-note">L'action de voyager dépend de la condition (avoir de l'argent) qui n'est pas remplie.</div>
+                        <span class="contexte-tag">Hypothèse irréelle</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« À ta place, je refuserais cette offre. »</div>
+                        <div class="exemple-note">Condition implicite « si j'étais toi » — hypothèse de substitution.</div>
+                        <span class="contexte-tag">Conseil hypothétique</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Avec un peu plus de temps, nous réussirions. »</div>
+                        <div class="exemple-note">La réussite dépend d'une condition non réalisée (avoir plus de temps).</div>
+                        <span class="contexte-tag">Condition temporelle</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INFORMATION NON CONFIRMÉE -->
+            <div class="valeur-card information">
+                <div class="card-header">
+                    <div class="card-icon">📰</div>
+                    <div class="card-title">
+                        <h3>Conditionnel Journalistique</h3>
+                        <div class="card-subtitle">L'Information Prudente</div>
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <p>
+                        Le conditionnel marque une <strong>information non vérifiée, un fait rapporté sans certitude</strong>. Très utilisé dans la presse, il indique une distance prudente vis-à-vis de l'information.
+                    </p>
+                </div>
+
+                <div class="exemples-container">
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Le ministre démissionnerait dans les prochains jours. »</div>
+                        <div class="exemple-note">Rumeur non confirmée — le conditionnel protège le journaliste en cas d'erreur.</div>
+                        <span class="contexte-tag">Presse / Médias</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Selon nos sources, l'entreprise serait en difficulté financière. »</div>
+                        <div class="exemple-note">Information de seconde main nécessitant vérification.</div>
+                        <span class="contexte-tag">Source indirecte</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Il y aurait eu trois blessés dans l'accident. »</div>
+                        <div class="exemple-note">Bilan provisoire, chiffres non définitifs — prudence journalistique.</div>
+                        <span class="contexte-tag">Bilan non définitif</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONSEIL -->
+            <div class="valeur-card conseil">
+                <div class="card-header">
+                    <div class="card-icon">💡</div>
+                    <div class="card-title">
+                        <h3>Conditionnel de Conseil</h3>
+                        <div class="card-subtitle">La Recommandation Bienveillante</div>
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <p>
+                        Le conditionnel permet de <strong>donner un conseil de manière douce et non impérative</strong>. Il suggère plutôt qu'il n'ordonne, laissant la liberté de choix à l'interlocuteur.
+                    </p>
+                </div>
+
+                <div class="exemples-container">
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Tu devrais te reposer un peu. »</div>
+                        <div class="exemple-note">Conseil amical sans obligation — plus doux que « repose-toi ».</div>
+                        <span class="contexte-tag">Sollicitude</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Vous feriez bien de vérifier vos calculs. »</div>
+                        <div class="exemple-note">Recommandation professionnelle formulée avec tact.</div>
+                        <span class="contexte-tag">Contexte professionnel</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Il faudrait peut-être consulter un spécialiste. »</div>
+                        <div class="exemple-note">Suggestion médicale prudente qui respecte l'autonomie décisionnelle.</div>
+                        <span class="contexte-tag">Conseil médical</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOUHAIT / DÉSIR -->
+            <div class="valeur-card souhait">
+                <div class="card-header">
+                    <div class="card-icon">⭐</div>
+                    <div class="card-title">
+                        <h3>Conditionnel du Souhait</h3>
+                        <div class="card-subtitle">Le Désir Exprimé</div>
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <p>
+                        Le conditionnel exprime un <strong>désir, un souhait ou une aspiration</strong>. Il traduit ce que l'on aimerait voir se réaliser, même si la probabilité est incertaine.
+                    </p>
+                </div>
+
+                <div class="exemples-container">
+                    <div class="exemple">
+                        <div class="exemple-phrase">« J'aimerais tant partir en vacances ! »</div>
+                        <div class="exemple-note">Désir profond mais non réalisé — aspiration personnelle.</div>
+                        <span class="contexte-tag">Envie personnelle</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Nous souhaiterions vous inviter à notre mariage. »</div>
+                        <div class="exemple-note">Souhait poli transformé en invitation courtoise.</div>
+                        <span class="contexte-tag">Invitation formelle</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Elle voudrait devenir médecin. »</div>
+                        <div class="exemple-note">Ambition future, projet de vie encore incertain.</div>
+                        <span class="contexte-tag">Projet d'avenir</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IMAGINAIRE / RÊVE -->
+            <div class="valeur-card imaginaire">
+                <div class="card-header">
+                    <div class="card-icon">🌙</div>
+                    <div class="card-title">
+                        <h3>Conditionnel de l'Imaginaire</h3>
+                        <div class="card-subtitle">Le Monde du Rêve</div>
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <p>
+                        Le conditionnel permet d'entrer dans un <strong>monde imaginaire ou ludique</strong>, particulièrement utilisé dans les jeux d'enfants et les récits fictifs. Il crée un univers parallèle.
+                    </p>
+                </div>
+
+                <div class="exemples-container">
+                    <div class="exemple">
+                        <div class="exemple-phrase">« On dirait que tu serais le prince et je serais la princesse. »</div>
+                        <div class="exemple-note">Jeu d'enfant créant un univers imaginaire — le conditionnel établit les règles du jeu.</div>
+                        <span class="contexte-tag">Jeu d'enfants</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Ce serait une immense forêt enchantée où vivraient des créatures magiques. »</div>
+                        <div class="exemple-note">Récit imaginaire qui construit un monde fictif avec le conditionnel.</div>
+                        <span class="contexte-tag">Narration fantastique</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Dans un monde idéal, il n'y aurait plus de guerre. »</div>
+                        <div class="exemple-note">Utopie exprimée — le conditionnel marque la distance avec la réalité.</div>
+                        <span class="contexte-tag">Monde idéal</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INDIGNATION / REPROCHE -->
+            <div class="valeur-card indignation">
+                <div class="card-header">
+                    <div class="card-icon">😤</div>
+                    <div class="card-title">
+                        <h3>Conditionnel d'Indignation</h3>
+                        <div class="card-subtitle">Le Reproche Véhément</div>
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <p>
+                        Le conditionnel passé exprime un <strong>reproche, un regret ou une indignation</strong> face à une action qui aurait dû se produire mais ne s'est pas produite. Valeur affective forte.
+                    </p>
+                </div>
+
+                <div class="exemples-container">
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Tu aurais pu me prévenir ! »</div>
+                        <div class="exemple-note">Reproche sur une action non réalisée — exprime la déception et le blâme.</div>
+                        <span class="contexte-tag">Reproche personnel</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Vous auriez dû vous présenter à l'heure ! »</div>
+                        <div class="exemple-note">Indignation face au retard — obligation morale non respectée.</div>
+                        <span class="contexte-tag">Réprimande</span>
+                    </div>
+
+                    <div class="exemple">
+                        <div class="exemple-phrase">« Il aurait fallu agir plus tôt ! »</div>
+                        <div class="exemple-note">Regret collectif sur une occasion manquée — critique implicite.</div>
+                        <span class="contexte-tag">Regret critique</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABLEAU DES TEMPS -->
+        <div class="tableau-temps">
+            <h2 class="tableau-title">Les Temps du Conditionnel et Leurs Valeurs</h2>
+
+            <div class="temps-row present">
+                <div class="temps-name">Conditionnel Présent</div>
+                <div class="temps-content">
+                    <h5>Valeurs temporelles</h5>
+                    <p>
+                        Exprime une action <strong>future par rapport à un moment du passé</strong>, ou une action <strong>présente/future soumise à condition</strong>. C'est le temps de l'hypothèse, de la politesse, du conseil et du souhait dans le présent ou le futur.
+                    </p>
+                    <div class="temps-exemple">« Il a dit qu'il viendrait demain. » (futur dans le passé)</div>
+                    <div class="temps-exemple">« Je voudrais un rendez-vous. » (présent de politesse)</div>
+                    <div class="temps-exemple">« Si j'étais riche, j'achèterais une maison. » (hypothèse présente)</div>
+                </div>
+            </div>
+
+            <div class="temps-row passe">
+                <div class="temps-name">Conditionnel Passé</div>
+                <div class="temps-content">
+                    <h5>Valeurs temporelles</h5>
+                    <p>
+                        Exprime une action <strong>qui aurait pu se produire dans le passé mais ne s'est pas produite</strong>. Utilisé pour le reproche, le regret, l'hypothèse irréelle passée et l'information non confirmée au passé.
+                    </p>
+                    <div class="temps-exemple">« Tu aurais dû m'écouter ! » (reproche)</div>
+                    <div class="temps-exemple">« J'aurais aimé te voir. » (regret)</div>
+                    <div class="temps-exemple">« Si j'avais su, je ne serais pas venu. » (hypothèse passée irréelle)</div>
+                    <div class="temps-exemple">« L'accident aurait fait trois victimes. » (information non confirmée)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NUANCES SUBTILES -->
+        <div class="special-section">
+            <div class="section-header">
+                <h2 class="section-title">Nuances et Subtilités d'Usage</h2>
+                <p class="section-subtitle">Pour une maîtrise parfaite du conditionnel</p>
+            </div>
+
+            <div class="nuances-grid">
+                <div class="nuance-box">
+                    <h4><span class="nuance-icon">🎭</span> Degré de politesse</h4>
+                    <p>
+                        Plus le temps verbal est complexe, plus la politesse est marquée. Le conditionnel passé est ainsi plus poli que le présent.
+                    </p>
+                    <div class="nuance-exemple">« Je voudrais » (poli) → « J'aurais voulu » (très poli)</div>
+                </div>
+
+                <div class="nuance-box">
+                    <h4><span class="nuance-icon">⚖️</span> Distance énonciative</h4>
+                    <p>
+                        Le conditionnel crée une distance entre le locuteur et son énoncé, permettant de se protéger ou de nuancer son propos.
+                    </p>
+                    <div class="nuance-exemple">« Il est malade » (affirmation) → « Il serait malade » (information prudente)</div>
+                </div>
+
+                <div class="nuance-box">
+                    <h4><span class="nuance-icon">🔗</span> Concordance des temps</h4>
+                    <p>
+                        Dans le discours indirect, le conditionnel remplace le futur après un verbe introducteur au passé.
+                    </p>
+                    <div class="nuance-exemple">« Il dit : "Je viendrai" » → « Il a dit qu'il viendrait »</div>
+                </div>
+
+                <div class="nuance-box">
+                    <h4><span class="nuance-icon">💭</span> Hypothèse et irréalité</h4>
+                    <p>
+                        Le conditionnel présent exprime l'hypothèse présente/future, le passé l'hypothèse passée irréelle.
+                    </p>
+                    <div class="nuance-exemple">Présent : « Si j'avais le temps, je lirais » / Passé : « Si j'avais eu le temps, j'aurais lu »</div>
+                </div>
+
+                <div class="nuance-box">
+                    <h4><span class="nuance-icon">🗣️</span> Conditionnel de rumeur</h4>
+                    <p>
+                        Dans la presse, le conditionnel permet de rapporter sans s'engager sur la véracité des faits.
+                    </p>
+                    <div class="nuance-exemple">« Le gouvernement annoncerait de nouvelles mesures »</div>
+                </div>
+
+                <div class="nuance-box">
+                    <h4><span class="nuance-icon">🎨</span> Valeur littéraire</h4>
+                    <p>
+                        Dans la narration, le conditionnel peut exprimer une action future par rapport au récit passé.
+                    </p>
+                    <div class="nuance-exemple">« Il ne savait pas qu'il rencontrerait sa future femme ce jour-là »</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ATTENTION -->
+        <div class="attention-section">
+            <div class="attention-header">
+                <div class="attention-icon">⚠️</div>
+                <h3>Points d'Attention Essentiels</h3>
+            </div>
+
+            <div class="attention-list">
+                <div class="attention-item">
+                    <p><strong>Le conditionnel n'est PAS un temps :</strong> C'est un mode verbal (comme l'indicatif ou le subjonctif) qui possède deux temps : le présent et le passé. Cette distinction est fondamentale.</p>
+                </div>
+
+                <div class="attention-item">
+                    <p><strong>Confusion avec le futur :</strong> Ne confondez pas « je mangerai » (futur) et « je mangerais » (conditionnel). Le futur exprime une certitude future, le conditionnel une hypothèse ou condition.</p>
+                </div>
+
+                <div class="attention-item">
+                    <p><strong>« Si » + conditionnel est INCORRECT :</strong> On ne met jamais de conditionnel après « si » de condition. Correct : « Si j'avais le temps, je viendrais ». Incorrect : « Si j'aurais le temps... »</p>
+                </div>
+
+                <div class="attention-item">
+                    <p><strong>Le conditionnel journalistique n'est pas universel :</strong> Tous les conditionnel dans la presse ne marquent pas l'incertitude. Contexte et verbe déterminent la valeur.</p>
+                </div>
+
+                <div class="attention-item">
+                    <p><strong>Registre de langue :</strong> Le conditionnel de politesse appartient à un registre soutenu ou standard. À l'oral très familier, on peut revenir à l'indicatif : « Je veux un café » entre amis proches.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-logo">Língua Academy</div>
+            <div class="footer-text">Excellence en enseignement du français • Grammaire sophistiquée</div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Adjectif Épithète - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 20%, #f093fb 40%, #43e97b 60%, #38f9d7 80%, #667eea 100%);
+            background-size: 600% 600%;
+            animation: epitheteGradient 40s ease infinite;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes epitheteGradient {
+            0% { background-position: 0% 50%; }
+            20% { background-position: 25% 75%; }
+            40% { background-position: 75% 100%; }
+            60% { background-position: 100% 50%; }
+            80% { background-position: 50% 0%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 35%, rgba(255,255,255,0.2) 0%, transparent 40%),
+                radial-gradient(circle at 75% 65%, rgba(255,255,255,0.2) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.12) 0%, transparent 55%);
+            animation: epitheteFloat 28s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes epitheteFloat {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            33% { transform: translate(40px, -40px) scale(1.15) rotate(120deg); }
+            66% { transform: translate(-40px, 40px) scale(0.95) rotate(240deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.3em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+            animation: epithetePulse 4s ease-in-out infinite;
+        }
+
+        @keyframes epithetePulse {
+            0%, 100% { 
+                box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 22px 70px rgba(118, 75, 162, 1);
+                transform: scale(1.15);
+            }
+        }
+
+        h1 {
+            color: white;
+            font-size: 3.8em;
+            text-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+            animation: epitheteGlow 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes epitheteGlow {
+            from { 
+                text-shadow: 5px 5px 15px rgba(102, 126, 234, 0.7);
+                filter: drop-shadow(0 0 30px rgba(102, 126, 234, 0.6));
+            }
+            to { 
+                text-shadow: 5px 5px 35px rgba(67, 233, 123, 1);
+                filter: drop-shadow(0 0 60px rgba(67, 233, 123, 0.9));
+            }
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.9em;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #43e97b, #38f9d7, #667eea);
+            background-size: 400% 100%;
+            animation: borderEpithete 15s ease infinite;
+        }
+
+        @keyframes borderEpithete {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.6em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 5px solid #43e97b;
+            position: relative;
+        }
+
+        h2::after {
+            content: '🎨';
+            margin-left: 15px;
+            animation: palette 3s ease-in-out infinite;
+        }
+
+        @keyframes palette {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg); 
+                opacity: 1;
+            }
+            50% { 
+                transform: scale(1.4) rotate(360deg); 
+                opacity: 0.8;
+            }
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 2em;
+            margin: 35px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3::before {
+            content: '📍';
+            font-size: 1.3em;
+            animation: marker 3.5s ease-in-out infinite;
+        }
+
+        @keyframes marker {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-12px) scale(1.25); }
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #667eea15, #43e97b15);
+            border-left: 6px solid #667eea;
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            font-size: 1.25em;
+            line-height: 1.9;
+            color: #2d3748;
+        }
+
+        .definition-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.15);
+            border: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .definition-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 65px rgba(102, 126, 234, 0.35);
+        }
+
+        .definition-title {
+            color: #667eea;
+            font-size: 1.9em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .definition-title::before {
+            content: '📖';
+            font-size: 1.4em;
+            animation: book 4s ease-in-out infinite;
+        }
+
+        @keyframes book {
+            0%, 100% { transform: rotateY(0deg); }
+            50% { transform: rotateY(180deg); }
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #43e97b15, #38f9d715);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #43e97b;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 35px rgba(67, 233, 123, 0.25);
+        }
+
+        .example {
+            color: #2d3748;
+            font-size: 1.3em;
+            line-height: 2.2;
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .example::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+            color: #43e97b;
+            font-weight: bold;
+        }
+
+        .highlight-epithete {
+            background: linear-gradient(120deg, #667eea60 0%, #764ba260 100%);
+            padding: 5px 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #4c51bf;
+            font-size: 1.05em;
+        }
+
+        .highlight-nom {
+            background: linear-gradient(120deg, #f093fb50 0%, #f5576c50 100%);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #c0392b;
+        }
+
+        .highlight-verbe {
+            background: linear-gradient(120deg, #43e97b50 0%, #38f9d750 100%);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #1e7e34;
+        }
+
+        .position-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .position-card {
+            background: linear-gradient(135deg, #667eea10, #f093fb10);
+            padding: 30px;
+            border-radius: 15px;
+            border: 3px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .position-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 45px rgba(102, 126, 234, 0.3);
+        }
+
+        .position-card h4 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .visual-schema {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .visual-schema h5 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .schema-text {
+            font-size: 1.5em;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f093fb10, #43e97b10);
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .comparison-box {
+            background: linear-gradient(135deg, #f093fb10, #4facfe10);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 3px solid #f093fb;
+        }
+
+        .comparison-box h4 {
+            color: #f093fb;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .comparison-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .comparison-item h5 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffd43b15, #ff8c4215);
+            border: 3px solid #ffd43b;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .warning-box::before {
+            content: '⚠️ ATTENTION';
+            position: absolute;
+            top: -15px;
+            left: 35px;
+            background: linear-gradient(135deg, #ffd43b, #ff8c42);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.95em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .warning-box p {
+            margin-top: 15px;
+            color: #2d3748;
+            line-height: 1.9;
+            font-size: 1.15em;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #43e97b15, #38f9d715);
+            border: 3px dashed #43e97b;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .note-box::before {
+            content: '💡 BON À SAVOIR';
+            position: absolute;
+            top: -15px;
+            left: 35px;
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.95em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .note-box p {
+            margin-top: 15px;
+            color: #2d3748;
+            line-height: 1.9;
+            font-size: 1.15em;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        th {
+            padding: 18px;
+            text-align: left;
+            font-size: 1.15em;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, #667eea10, #43e97b10);
+        }
+
+        .schema-box {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.18);
+            border: 4px solid #667eea;
+        }
+
+        .schema-title {
+            text-align: center;
+            color: #667eea;
+            font-size: 1.7em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .schema-title::before,
+        .schema-title::after {
+            content: '═══';
+            color: #43e97b;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #4facfe20, #00f2fe20);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 3px solid #4facfe;
+        }
+
+        .tip-box h4 {
+            color: #4facfe;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tip-box h4::before {
+            content: '🎯';
+            font-size: 1.3em;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        footer p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .emoji-decoration {
+            display: inline-block;
+            animation: twirl 5s linear infinite;
+        }
+
+        @keyframes twirl {
+            from { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            to { transform: rotate(360deg) scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            h2 {
+                font-size: 1.9em;
+            }
+            
+            h3 {
+                font-size: 1.6em;
+            }
+
+            .position-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🎓 Língua Academy</div>
+            <h1>L'Adjectif Épithète</h1>
+            <p class="subtitle">Les Fonctions de l'Adjectif</p>
+        </header>
+
+        <div class="content-card">
+            <h2>Qu'est-ce qu'un Adjectif Épithète ?</h2>
+            
+            <div class="definition-card">
+                <div class="definition-title">Définition</div>
+                <p style="font-size: 1.2em; line-height: 2; color: #2d3748;">
+                    L'adjectif <strong style="color: #667eea;">épithète</strong> est un adjectif qui se place 
+                    <strong>directement à côté du nom</strong> qu'il qualifie, <strong>sans l'intermédiaire d'un verbe</strong>. 
+                    Il enrichit le nom en lui ajoutant une précision, une qualité ou une caractéristique.
+                </p>
+            </div>
+
+            <div class="intro-box">
+                <strong style="color: #667eea; font-size: 1.2em;">Caractéristiques principales :</strong><br><br>
+                • L'épithète est <strong>directement lié</strong> au nom<br>
+                • Il peut se placer <strong>avant ou après</strong> le nom<br>
+                • Il <strong>s'accorde</strong> en genre et en nombre avec le nom<br>
+                • Il peut être <strong>supprimé</strong> sans rendre la phrase incorrecte<br>
+                • Il n'y a <strong>pas de verbe</strong> entre l'épithète et le nom
+            </div>
+
+            <div class="visual-schema">
+                <h5>Structure de Base</h5>
+                <div class="schema-text">
+                    <span class="highlight-epithete">ADJECTIF</span> + <span class="highlight-nom">NOM</span>
+                    <br>OU<br>
+                    <span class="highlight-nom">NOM</span> + <span class="highlight-epithete">ADJECTIF</span>
+                </div>
+                <p style="text-align: center; color: #555; margin-top: 15px; font-size: 1.1em;">
+                    Exemple : Une <span class="highlight-epithete">belle</span> <span class="highlight-nom">maison</span> / 
+                    Une <span class="highlight-nom">maison</span> <span class="highlight-epithete">spacieuse</span>
+                </p>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #43e97b; font-size: 1.3em; margin-bottom: 15px;">✓ Exemples d'Adjectifs Épithètes :</h4>
+                <div class="example">
+                    Une <span class="highlight-epithete">grande</span> <span class="highlight-nom">ville</span>
+                </div>
+                <div class="example">
+                    Un <span class="highlight-nom">livre</span> <span class="highlight-epithete">intéressant</span>
+                </div>
+                <div class="example">
+                    Des <span class="highlight-epithete">beaux</span> <span class="highlight-nom">paysages</span>
+                </div>
+                <div class="example">
+                    La <span class="highlight-nom">mer</span> <span class="highlight-epithete">bleue</span>
+                </div>
+                <div class="example">
+                    Un <span class="highlight-epithete">vieux</span> <span class="highlight-nom">château</span> <span class="highlight-epithete">abandonné</span>
+                </div>
+            </div>
+
+            <h2>Position de l'Épithète</h2>
+
+            <h3>Les Deux Positions Possibles</h3>
+            <div class="position-grid">
+                <div class="position-card">
+                    <h4>AVANT le Nom</h4>
+                    <div class="visual-schema">
+                        <div class="schema-text">
+                            <span class="highlight-epithete">ADJ.</span> + <span class="highlight-nom">NOM</span>
+                        </div>
+                    </div>
+                    <div style="line-height: 2; color: #2d3748; margin-top: 20px;">
+                        <strong style="color: #667eea;">Adjectifs courants :</strong><br>
+                        • Taille : grand, petit, gros<br>
+                        • Âge : jeune, vieux, nouveau<br>
+                        • Beauté : beau, joli<br>
+                        • Qualité : bon, mauvais<br>
+                        • Autres : autre, même
+                    </div>
+                    <div class="example-box" style="margin-top: 20px;">
+                        <div class="example">Une <strong>belle</strong> fleur</div>
+                        <div class="example">Un <strong>grand</strong> jardin</div>
+                        <div class="example">Le <strong>premier</strong> jour</div>
+                    </div>
+                </div>
+
+                <div class="position-card">
+                    <h4>APRÈS le Nom</h4>
+                    <div class="visual-schema">
+                        <div class="schema-text">
+                            <span class="highlight-nom">NOM</span> + <span class="highlight-epithete">ADJ.</span>
+                        </div>
+                    </div>
+                    <div style="line-height: 2; color: #2d3748; margin-top: 20px;">
+                        <strong style="color: #667eea;">Adjectifs courants :</strong><br>
+                        • Couleur : rouge, bleu, vert<br>
+                        • Forme : rond, carré, ovale<br>
+                        • Nationalité : français, italien<br>
+                        • Adjectifs longs<br>
+                        • Participes passés
+                    </div>
+                    <div class="example-box" style="margin-top: 20px;">
+                        <div class="example">Une fleur <strong>rouge</strong></div>
+                        <div class="example">Un jardin <strong>magnifique</strong></div>
+                        <div class="example">Un livre <strong>passionnant</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>Règle générale :</strong> La plupart des adjectifs se placent <strong>après le nom</strong>. 
+                    Seuls quelques adjectifs courts et courants (beauté, taille, âge, qualité) se placent habituellement 
+                    <strong>avant le nom</strong>. Certains adjectifs peuvent changer de place et modifier légèrement 
+                    le sens de la phrase.
+                </p>
+            </div>
+
+            <h3>Adjectifs qui Changent de Sens</h3>
+            <div class="comparison-box">
+                <h4>Selon leur Position</h4>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h5>AVANT le Nom</h5>
+                        <div style="line-height: 2; color: #2d3748; margin-top: 10px;">
+                            • Un <strong>grand</strong> homme<br>
+                            <small style="color: #666;">(= un homme important)</small><br><br>
+                            • Un <strong>pauvre</strong> homme<br>
+                            <small style="color: #666;">(= un homme malheureux)</small><br><br>
+                            • Un <strong>ancien</strong> professeur<br>
+                            <small style="color: #666;">(= un ex-professeur)</small><br><br>
+                            • Ma <strong>propre</strong> voiture<br>
+                            <small style="color: #666;">(= ma voiture personnelle)</small>
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <h5>APRÈS le Nom</h5>
+                        <div style="line-height: 2; color: #2d3748; margin-top: 10px;">
+                            • Un homme <strong>grand</strong><br>
+                            <small style="color: #666;">(= un homme de grande taille)</small><br><br>
+                            • Un homme <strong>pauvre</strong><br>
+                            <small style="color: #666;">(= un homme sans argent)</small><br><br>
+                            • Un professeur <strong>ancien</strong><br>
+                            <small style="color: #666;">(= un professeur âgé)</small><br><br>
+                            • Ma voiture <strong>propre</strong><br>
+                            <small style="color: #666;">(= ma voiture qui est nette)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Accord de l'Épithète</h2>
+            <div class="definition-card">
+                <div class="definition-title">Règle d'Accord</div>
+                <p style="font-size: 1.2em; line-height: 2; color: #2d3748;">
+                    L'adjectif épithète s'accorde <strong style="color: #667eea;">en genre</strong> (masculin/féminin) 
+                    et en <strong style="color: #f093fb;">nombre</strong> (singulier/pluriel) avec le 
+                    <strong>nom qu'il qualifie</strong>.
+                </p>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Genre/Nombre</th>
+                            <th>Nom</th>
+                            <th>Adjectif Épithète</th>
+                            <th>Exemple Complet</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Masc. Sing.</strong></td>
+                            <td>le chat</td>
+                            <td>noir</td>
+                            <td>Le chat <strong>noir</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fém. Sing.</strong></td>
+                            <td>la voiture</td>
+                            <td>noire</td>
+                            <td>La voiture <strong>noire</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Masc. Plur.</strong></td>
+                            <td>les chats</td>
+                            <td>noirs</td>
+                            <td>Les chats <strong>noirs</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fém. Plur.</strong></td>
+                            <td>les voitures</td>
+                            <td>noires</td>
+                            <td>Les voitures <strong>noires</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #43e97b; font-size: 1.3em; margin-bottom: 15px;">✓ Exemples d'Accord :</h4>
+                <div class="example">
+                    Un <span class="highlight-nom">livre</span> <span class="highlight-epithete">intéressant</span> (masc. sing.)
+                </div>
+                <div class="example">
+                    Une <span class="highlight-nom">histoire</span> <span class="highlight-epithete">intéressante</span> (fém. sing.)
+                </div>
+                <div class="example">
+                    Des <span class="highlight-nom">livres</span> <span class="highlight-epithete">intéressants</span> (masc. plur.)
+                </div>
+                <div class="example">
+                    Des <span class="highlight-nom">histoires</span> <span class="highlight-epithete">intéressantes</span> (fém. plur.)
+                </div>
+            </div>
+
+            <h2>Épithète Liée vs Épithète Détachée</h2>
+
+            <h3>Épithète Liée (la plus courante)</h3>
+            <div class="definition-card">
+                <div class="definition-title">Épithète Liée</div>
+                <p style="font-size: 1.2em; line-height: 2; color: #2d3748;">
+                    L'épithète liée est <strong>directement attachée au nom</strong>, sans virgule ni pause.
+                </p>
+                <div class="example-box" style="margin-top: 20px;">
+                    <div class="example">
+                        Une <span class="highlight-epithete">belle</span> <span class="highlight-nom">journée</span>
+                    </div>
+                    <div class="example">
+                        Un <span class="highlight-nom">enfant</span> <span class="highlight-epithete">joyeux</span>
+                    </div>
+                    <div class="example">
+                        Des <span class="highlight-epithete">grandes</span> <span class="highlight-nom">maisons</span> <span class="highlight-epithete">blanches</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Épithète Détachée (apposition)</h3>
+            <div class="definition-card">
+                <div class="definition-title">Épithète Détachée</div>
+                <p style="font-size: 1.2em; line-height: 2; color: #2d3748;">
+                    L'épithète détachée est <strong>séparée du nom par une virgule</strong>. Elle apporte une 
+                    information supplémentaire, comme une explication. On l'appelle aussi « apposition ».
+                </p>
+                <div class="example-box" style="margin-top: 20px;">
+                    <div class="example">
+                        Le <span class="highlight-nom">chat</span>, <span class="highlight-epithete">noir</span>, dort sur le canapé.
+                    </div>
+                    <div class="example">
+                        <span class="highlight-epithete">Épuisée</span>, Marie s'est endormie.
+                    </div>
+                    <div class="example">
+                        Les <span class="highlight-nom">enfants</span>, <span class="highlight-epithete">ravis</span>, applaudissaient.
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>Différence :</strong> L'épithète détachée peut souvent être supprimée ou déplacée 
+                    dans la phrase. Elle ajoute une nuance explicative. L'épithète liée, elle, est plus 
+                    intégrée au sens du nom.
+                </p>
+            </div>
+
+            <h2>Différence avec l'Adjectif Attribut</h2>
+            <div class="comparison-box">
+                <h4>Épithète vs Attribut</h4>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h5>ÉPITHÈTE</h5>
+                        <div style="line-height: 2; color: #2d3748; margin-top: 15px;">
+                            <strong style="color: #667eea;">• Sans verbe</strong><br>
+                            Directement avec le nom<br><br>
+                            <strong style="color: #667eea;">• Peut être supprimé</strong><br>
+                            Sans changer la structure<br><br>
+                            <strong style="color: #667eea;">• Exemple :</strong><br>
+                            Une <strong>belle</strong> maison<br>
+                            (pas de verbe)
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <h5>ATTRIBUT</h5>
+                        <div style="line-height: 2; color: #2d3748; margin-top: 15px;">
+                            <strong style="color: #f093fb;">• Avec un verbe d'état</strong><br>
+                            Séparé du nom par un verbe<br><br>
+                            <strong style="color: #f093fb;">• Ne peut pas être supprimé</strong><br>
+                            Essentiel à la phrase<br><br>
+                            <strong style="color: #f093fb;">• Exemple :</strong><br>
+                            La maison <span class="highlight-verbe">est</span> <strong>belle</strong><br>
+                            (avec verbe « être »)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #4facfe; font-size: 1.3em; margin-bottom: 15px;">Comparaison en Exemples :</h4>
+                <div class="example">
+                    <strong>ÉPITHÈTE :</strong> J'ai acheté un <span class="highlight-epithete">beau</span> <span class="highlight-nom">livre</span>.
+                </div>
+                <div class="example">
+                    <strong>ATTRIBUT :</strong> Ce <span class="highlight-nom">livre</span> <span class="highlight-verbe">est</span> <span class="highlight-epithete">beau</span>.
+                </div>
+                <div style="margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                    <p style="color: #555;">
+                        → Dans le premier cas, « beau » qualifie directement « livre » (épithète)<br>
+                        → Dans le second cas, « beau » est relié à « livre » par le verbe « est » (attribut)
+                    </p>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <p>
+                    <strong>Test simple :</strong> Pour savoir si un adjectif est épithète ou attribut, 
+                    cherchez s'il y a un <strong>verbe</strong> entre l'adjectif et le nom :<br><br>
+                    • <strong>PAS de verbe</strong> → ÉPITHÈTE<br>
+                    • <strong>AVEC un verbe</strong> → ATTRIBUT
+                </p>
+            </div>
+
+            <h2>Exercices Pratiques</h2>
+            <div class="example-box">
+                <h4 style="color: #667eea; font-size: 1.4em; margin-bottom: 15px;">Identifiez les adjectifs épithètes :</h4>
+                <div class="example">1. Le chat noir dort sur le canapé.</div>
+                <div class="example">2. Cette grande maison est magnifique.</div>
+                <div class="example">3. J'ai vu un film intéressant.</div>
+                <div class="example">4. Les enfants sont joyeux.</div>
+                <div class="example">5. Elle porte une jolie robe bleue.</div>
+                <div class="example">6. Le vieux château semble abandonné.</div>
+                <div class="example">7. Ces fleurs sont belles.</div>
+                <div class="example">8. Il a lu un long roman passionnant.</div>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #f093fb; font-size: 1.4em; margin-bottom: 15px;">Accordez les adjectifs épithètes :</h4>
+                <div class="example">1. Une (beau) ___________ fleur</div>
+                <div class="example">2. Des livres (intéressant) ___________</div>
+                <div class="example">3. La maison (blanc) ___________</div>
+                <div class="example">4. Les (grand) ___________ villes</div>
+                <div class="example">5. Un chat (noir) ___________</div>
+                <div class="example">6. Des robes (élégant) ___________</div>
+            </div>
+
+            <div class="tip-box">
+                <h4>Méthode de Reconnaissance</h4>
+                <p style="line-height: 2; color: #2d3748;">
+                    Pour identifier un adjectif épithète dans une phrase :<br><br>
+                    <strong>1.</strong> Cherchez les noms dans la phrase<br>
+                    <strong>2.</strong> Regardez les mots qui sont directement à côté des noms<br>
+                    <strong>3.</strong> Vérifiez qu'il n'y a PAS de verbe entre le mot et le nom<br>
+                    <strong>4.</strong> Si le mot qualifie le nom directement → c'est un ÉPITHÈTE !<br><br>
+                    <strong>Astuce :</strong> Essayez de supprimer le mot. Si la phrase reste correcte 
+                    (même si moins précise), c'est probablement un épithète ! 🎨
+                </p>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>En résumé :</strong> L'adjectif épithète est une fonction essentielle qui permet 
+                    d'enrichir et de préciser le sens d'un nom. Il se place directement à côté du nom (avant ou 
+                    après selon les cas), s'accorde avec lui, et ne nécessite aucun verbe pour le relier au nom. 
+                    Maîtriser l'épithète vous permet de construire des phrases plus riches et plus descriptives ! 📍
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p><span class="emoji-decoration">🎓</span> <strong>Língua Academy</strong> <span class="emoji-decoration">🎓</span></p>
+            <p>Enrichissez votre expression en français !</p>
+            <p style="font-size: 0.9em; opacity: 0.8; margin-top: 15px;">© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

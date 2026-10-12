@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerais em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #E67E22;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #E67E22;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #F39C12;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .classes-grid, .tipos-grid, .flexao-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .classe-card, .tipo-card, .flexao-item {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+        }
+
+        .classe-card:hover, .tipo-card:hover, .flexao-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores Adaptadas/Reutilizadas do 008 - CLASSES DE PALAVRAS */
+        .classe-card.substantivo, .tipo-card.cardinal {
+            background: linear-gradient(135deg, #2ECC71, #27AE60); /* Cardinal */
+        }
+
+        .classe-card.artigo, .tipo-card.ordinal {
+            background: linear-gradient(135deg, #3498DB, #2980B9); /* Ordinal */
+        }
+
+        .classe-card.adjetivo, .tipo-card.multiplicativo {
+            background: linear-gradient(135deg, #E74C3C, #C0392B); /* Multiplicativo */
+        }
+
+        .classe-card.verbo, .tipo-card.fracionario {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD); /* Fracionário */
+        }
+
+        .classe-card.advérbio, .tipo-card.locucao {
+            background: linear-gradient(135deg, #F1C40F, #F39C12);
+            color: #333;
+        }
+
+        /* Novas Cores ou Reuso */
+        .tipo-card.flexao {
+             background: linear-gradient(135deg, #FFC300, #FF5733); /* Flexão */
+        }
+        .tipo-card.uso {
+             background: linear-gradient(135deg, #00C9FF, #92FE9D); /* Uso e Regras */
+        }
+
+
+        .classe-card h3, .tipo-card h3, .flexao-item h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .classe-card .definicao, .tipo-card .definicao, .flexao-item .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .classe-card .exemplo, .tipo-card .exemplos, .flexao-item .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .classe-card .exemplo strong, .tipo-card .exemplos strong, .flexao-item .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .exemplo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #E67E22;
+        }
+
+        .exemplo-card .titulo-exemplo {
+            font-size: 2em;
+            color: #E67E22;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .conteudo-exemplo {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
+        .tabela-substantivos {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tabela-substantivos thead {
+            background: linear-gradient(135deg, #E67E22, #F39C12);
+            color: white;
+        }
+
+        .tabela-substantivos th {
+            padding: 20px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        .tabela-substantivos td {
+            padding: 18px 20px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        .tabela-substantivos tr:hover {
+            background: #fff8e8;
+        }
+
+        .tabela-substantivos .destaque-col {
+            color: #E67E22;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .dicas-box {
+            background: linear-gradient(135deg, #1ABC9C, #16A085);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .classe-card, .tipo-card, .destaque, .dicas-box, .exemplo-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .classes-grid, .tipos-grid, .flexao-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔢 Numeral 🔢</h1>
+        <p class="subtitle">A classe de palavras que indica quantidade ou posição em uma sequência!</p>
+
+        <div class="section">
+            <h2>🎯 O que é Numeral?</h2>
+            <p class="intro-text">
+                O **Numeral** é a classe de palavras que indica a quantidade exata de seres ou a 
+                posição que um ser ocupa em uma determinada sequência. Os numerais podem ser 
+                variáveis ou invariáveis, dependendo do tipo.
+            </p>
+
+            <div class="destaque">
+                <strong>💡 Funções do Numeral:</strong> O numeral pode funcionar como um **adjetivo** (modificando um substantivo) ou como um **substantivo** (o número em si).
+            </div>
+
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">Diferença de Função</div>
+                <div class="conteudo-exemplo">
+                    • Função Adjetiva: Havia <span style="font-weight: bold; color: #E67E22;">dois</span> carros no pátio. (Modifica o substantivo)<br>
+                    • Função Substantiva: <span style="font-weight: bold; color: #E67E22;">Dois</span> é o número par que sucede um. (O numeral é o núcleo da oração)
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Classificação dos Numerais</h2>
+            <p class="intro-text">
+                Os numerais são classificados em quatro tipos principais, de acordo com a ideia que expressam.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card cardinal">
+                    <h3>Cardinais</h3>
+                    <div class="definicao">
+                        Indicam uma quantidade determinada e exata de seres.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Um, dois, dez, cem, mil<br>
+                        • Compramos <span style="font-weight: bold;">três</span> livros.
+                    </div>
+                </div>
+
+                <div class="tipo-card ordinal">
+                    <h3>Ordinais</h3>
+                    <div class="definicao">
+                        Indicam a ordem ou posição dos seres em uma sequência.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Primeiro, segundo, décimo, centésimo<br>
+                        • Ele chegou em <span style="font-weight: bold;">segundo</span> lugar.
+                    </div>
+                </div>
+
+                <div class="tipo-card multiplicativo">
+                    <h3>Multiplicativos</h3>
+                    <div class="definicao">
+                        Indicam a multiplicação da quantidade, ou seja, quantas vezes a quantidade foi aumentada.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Dobro, triplo, quádruplo, quíntuplo<br>
+                        • Quero o <span style="font-weight: bold;">dobro</span> da minha parte.
+                    </div>
+                </div>
+
+                <div class="tipo-card fracionario">
+                    <h3>Fracionários</h3>
+                    <div class="definicao">
+                        Indicam a divisão, ou seja, quantas vezes a quantidade foi diminuída ou em quantas partes foi dividida.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Meio, terço, quarto, um décimo<br>
+                        • Comi <span style="font-weight: bold;">metade</span> do bolo.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔄 Flexão dos Numerais</h2>
+            <p class="intro-text">
+                Diferente de algumas classes, os numerais podem ser variáveis ou invariáveis.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card flexao">
+                    <h3>Numerais Variáveis</h3>
+                    <div class="definicao">
+                        Sofrem flexão de gênero (masculino e feminino) e/ou número (singular e plural).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Cardinais:</strong> um/uma, dois/duas, os que indicam centenas de 200 a 900 (duzentos/duzentas).<br>
+                        <span style="font-weight: bold;">Ordinais:</span> todos (primeiro/primeira).<br>
+                        <span style="font-weight: bold;">Fracionários:</span> todos (terço/terça).<br>
+                        <span style="font-weight: bold;">Multiplicativos:</span> quando atuam como adjetivo (dose dupla/dobrada).
+                    </div>
+                </div>
+
+                <div class="tipo-card uso">
+                    <h3>Numerais Invariáveis</h3>
+                    <div class="definicao">
+                        Mantêm a mesma forma, não sofrendo flexão.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Cardinais:</strong> dez, vinte, mil, milhões, etc.<br>
+                        <span style="font-weight: bold;">Multiplicativos:</span> quando atuam como substantivo (o triplo).
+                        <br><br>
+                        <span style="font-weight: bold;">Exemplo:</span> Compramos <span style="font-weight: bold;">mil</span> rosas. (Mil é invariável)
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 40px;">Regras de Concordância</h3>
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">Milhões, Bilhões e Similares</div>
+                <div class="conteudo-exemplo">
+                    Quando usamos "milhões", "bilhões" e numerais maiores, o verbo concorda com o numeral, e o substantivo que o segue é acompanhado da preposição **de**.
+                    <br><br>
+                    Exemplo:<br>
+                    • **Dois milhões de** reais <span style="font-weight: bold; color: #E74C3C;">foram</span> gastos.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Tabela de Leitura de Ordinais</h2>
+            <p class="intro-text">
+                Os ordinais são frequentemente usados em referências a séculos, papas, reis e capítulos de documentos.
+            </p>
+            
+            <div class="tabela-wrapper">
+                <table class="tabela-substantivos">
+                    <thead>
+                        <tr>
+                            <th>Número (Cardinal)</th>
+                            <th>Ordinal</th>
+                            <th>Leitura (Séculos/Papas)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="destaque-col">I</td>
+                            <td>Primeiro</td>
+                            <td>Primeiro</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">V</td>
+                            <td>Quinto</td>
+                            <td>Quinto</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">X</td>
+                            <td>Décimo</td>
+                            <td>Décimo</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">XI</td>
+                            <td>Décimo Primeiro</td>
+                            <td>Décimo Primeiro</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">XII</td>
+                            <td>Décimo Segundo</td>
+                            <td>Décimo Segundo</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">L</td>
+                            <td>Quinquagésimo</td>
+                            <td>(Use o Cardinal) Cinquenta</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">C</td>
+                            <td>Centésimo</td>
+                            <td>(Use o Cardinal) Cem</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="destaque" style="margin-top: 25px;">
+                <strong>📚 Dica de Leitura:</strong> Para séculos, reis e papas, usamos o ordinal até o décimo (X). A partir do décimo primeiro (XI), usamos o cardinal. <br>
+                • Ex: Século <span style="font-weight: bold;">IX</span> (Nono) | Século <span style="font-weight: bold;">XV</span> (Quinze).
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Dicas Finais</h2>
+            
+            <div class="dicas-box">
+                <h4>Não Confunda Numeral com Artigo Indefinido!</h4>
+                <ul>
+                    <li>O numeral **um/uma** indica *quantidade* (Ex: Só tenho **uma** caneta).</li>
+                    <li>O artigo indefinido **um/uma** indica *indeterminação* (Ex: Vi **uma** moça sair, mas não sei quem era).</li>
+                    <li>Em caso de dúvida, tente substituir por **dois/duas**. Se a frase mantiver sentido de quantidade, é numeral.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

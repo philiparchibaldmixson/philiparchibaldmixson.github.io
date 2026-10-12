@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Imperatives</title>
+  <style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        color: #333;
+        background: white;
+    }
+    
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 0 auto;
+        background: white;
+        page-break-after: always;
+    }
+    
+    .header {
+        text-align: center;
+        padding: 35px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+    
+    .header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+        font-size: 18px;
+        opacity: 0.95;
+    }
+    
+    .section {
+        margin: 25px 0;
+        padding: 25px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .section.orange {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+    
+    .section.green {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        color: black;
+    }
+    
+    .section.blue {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .section.pink {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+    
+    .section.purple {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    }
+    
+    .section.teal {
+        background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    }
+    
+    .section.coral {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+    
+    h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    
+    .section.green h2, .section.green h3 {
+        color: white;
+    }
+    
+    h3 {
+        font-size: 22px;
+        margin: 20px 0 10px 0;
+        color: #34495e;
+    }
+    
+    p {
+        margin-bottom: 15px;
+        font-size: 16px;
+        text-align: justify;
+    }
+    
+    .verb-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #667eea;
+        margin: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .verb-title {
+        color: #667eea;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    
+    .verb-form {
+        color: #e74c3c;
+        font-style: italic;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .verb-desc {
+        color: #555;
+        font-size: 16px;
+    }
+    
+    .example-box {
+        background: #fff9e6;
+        border: 2px dashed #f39c12;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .example-title {
+        color: #f39c12;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .tip-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #27ae60;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .tip-box h4 {
+        color: #27ae60;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    
+    ul {
+        margin-left: 30px;
+        margin-bottom: 15px;
+    }
+    
+    li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    
+    .structure-table {
+        width: 100%;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .structure-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .structure-table th {
+        background: #667eea;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+    }
+    
+    .structure-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+    }
+    
+    .structure-table tr:nth-child(even) {
+        background: #f8f9fa;
+    }
+    
+    .structure-label {
+        font-weight: bold;
+        color: #3498db;
+    }
+    
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .form-item {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        border-top: 4px solid #3498db;
+    }
+    
+    .form-type {
+        font-weight: bold;
+        color: #3498db;
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+    
+    .form-text {
+        color: #555;
+        font-size: 15px;
+    }
+    
+    .negative-box {
+        background: #ffe6e6;
+        border: 2px solid #e74c3c;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .negative-title {
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .question-box {
+        background: #e6f3ff;
+        border: 2px solid #3498db;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .question-title {
+        color: #3498db;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .comparison-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #9b59b6;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .comparison-title {
+        color: #9b59b6;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .alternative-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #e67e22;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .alternative-title {
+        color: #e67e22;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .error-box {
+        background: #fff5f5;
+        border: 2px solid #c0392b;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .error-title {
+        color: #c0392b;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    
+    @media print {
+        body {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>🗣️ IMPERATIVES 🗣️</h1>
+      <p>Giving Commands, Instructions, and Advice</p>
+    </div>
+
+    <div class="section orange">
+      <h2>🌟 What Are Imperatives?</h2>
+      <p>An <strong>imperative</strong> is a verb form used to <u>give orders, instructions, advice, or requests</u>. It usually starts with the base form of the verb and doesn’t use a subject.</p>
+      <ul>
+        <li><strong>Close</strong> the door.</li>
+        <li><strong>Be</strong> quiet.</li>
+        <li><strong>Don’t touch</strong> that!</li>
+      </ul>
+    </div>
+
+    <div class="section blue">
+      <h2>📋 Structure</h2>
+      <table class="structure-table">
+        <tr>
+          <th>Type</th>
+          <th>Structure</th>
+          <th>Example</th>
+        </tr>
+        <tr>
+          <td>Positive</td>
+          <td>Verb (base form)</td>
+          <td><strong>Open</strong> the window.</td>
+        </tr>
+        <tr>
+          <td>Negative</td>
+          <td>Don’t + verb</td>
+          <td><strong>Don’t forget</strong> your keys.</td>
+        </tr>
+        <tr>
+          <td>With “please”</td>
+          <td>Please + verb</td>
+          <td><strong>Please wait</strong> here.</td>
+        </tr>
+        <tr>
+          <td>Be + adjective</td>
+          <td>Be + adjective</td>
+          <td><strong>Be careful</strong> with that.</td>
+        </tr>
+      </table>
+      <div class="tip-box">
+        <h4>💡 Quick Tip</h4>
+        <p>Imperatives are direct. Use “please” to sound more polite. Use “don’t” to make it negative.</p>
+      </div>
+    </div>
+
+    <div class="section green">
+      <h2>🎯 Common Imperatives</h2>
+      <ul>
+        <li><strong>Stop</strong> talking.</li>
+        <li><strong>Listen</strong> carefully.</li>
+        <li><strong>Turn off</strong> the lights.</li>
+        <li><strong>Don’t forget</strong> your homework.</li>
+        <li><strong>Be</strong> quiet.</li>
+        <li><strong>Please</strong> sit down.</li>
+        <li><strong>Don’t be</strong> late.</li>
+        <li><strong>Take</strong> a deep breath.</li>
+        <li><strong>Follow</strong> the instructions.</li>
+      </ul>
+    </div>
+
+    <div class="section pink">
+      <h2>📝 More Examples</h2>
+      <h4>✅ Positive</h4>
+      <p>• <strong>Close</strong> the window.<br>
+         • <strong>Take</strong> a break.<br>
+         • <strong>Read</strong> the instructions.</p>
+      <h4>✅ Negative</h4>
+      <p>• <strong>Don’t touch</strong> that.<br>
+         • <strong>Don’t be</strong> rude.<br>
+         • <strong>Don’t forget</strong> your ID.</p>
+      <h4>✅ Polite</h4>
+      <p>• <strong>Please</strong> wait here.<br>
+         • <strong>Please</strong> help me.<br>
+         • <strong>Please</strong> be patient.</p>
+    </div>
+
+    <div class="section purple">
+      <h2>📌 Imperatives vs Regular Sentences</h2>
+      <table class="structure-table">
+        <tr>
+          <th>Imperative</th>
+          <th>Regular Sentence</th>
+        </tr>
+        <tr>
+          <td><strong>Turn off</strong> the TV.</td>
+          <td>You should turn off the TV.</td>
+        </tr>
+        <tr>
+          <td><strong>Don’t be</strong> late.</td>
+          <td>You must not be late.</td>
+        </tr>
+        <tr>
+          <td><strong>Be</strong> careful.</td>
+          <td>You need to be careful.</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section coral">
+      <h2>🔄 Real-Life Sentences</h2>
+      <ul>
+        <li><strong>Watch</strong> your step!</li>
+        <li><strong>Don’t forget</strong> to call me.</li>
+        <li><strong>Be</strong> kind to others.</li>
+        <li><strong>Take</strong> your time.</li>
+        <li><strong>Please</strong> turn off your phone.</li>
+      </ul>
+    </div>
+
+    <div class="section orange">
+      <h2>⚠️ Common Mistakes to Avoid</h2>
+      <div class="error-box">
+        <p>❌ You close the door.<br>✅ <strong>Close</strong> the door.</p>
+        <p>❌ Don’t to be late.<br>✅ <strong>Don’t be</strong> late.</p>
+        <p>❌ Please you help me.<br>✅ <strong>Please help</strong> me.</p>
+        <p>❌ Be to careful.<br>✅ <strong>Be careful</strong>.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Use imperatives to give clear instructions, advice, or commands!</strong></p>
+      <p>Practice with positive, negative, and polite forms to sound natural and confident!</p>
+    </div>
+  </div>
+</body>
+</html>

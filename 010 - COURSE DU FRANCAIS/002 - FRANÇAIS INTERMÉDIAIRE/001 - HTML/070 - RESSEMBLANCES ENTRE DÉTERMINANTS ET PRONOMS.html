@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ressemblances entre Déterminants et Pronoms - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0055A4 0%, #EF4135 50%, #FFFFFF 100%);
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0055A4 0%, #FFFFFF 50%, #EF4135 100%);
+            color: white;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 1;
+            color: #0055A4;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .logo {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+            color: #EF4135;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid #0055A4;
+            animation: slideInLeft 0.8s ease-out;
+            box-shadow: 0 10px 30px rgba(9, 132, 227, 0.3);
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .intro h2 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            color: #0055A4;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #EF4135;
+            display: inline-block;
+        }
+
+        .section h3 {
+            color: #EF4135;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #0055A4;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .definition-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(108, 92, 231, 0.4);
+        }
+
+        .definition-box strong {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .comparison-card {
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .determinant-card {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+        }
+
+        .pronom-card {
+            background: linear-gradient(135deg, #EF4135 0%, #c0392b 100%);
+            color: white;
+        }
+
+        .comparison-card h4 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.8em;
+        }
+
+        .example-box {
+            background: #fff;
+            border: 2px solid #0055A4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            background: #f0f8ff;
+            border-color: #EF4135;
+            box-shadow: 0 5px 15px rgba(0, 85, 164, 0.2);
+        }
+
+        .example {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .example::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #EF4135;
+            font-weight: bold;
+        }
+
+        .highlight-blue {
+            color: #0055A4;
+            font-weight: bold;
+            font-style: italic;
+            background: rgba(0, 85, 164, 0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .highlight-red {
+            color: #EF4135;
+            font-weight: bold;
+            font-style: italic;
+            background: rgba(239, 65, 53, 0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        th.pronom-header {
+            background: linear-gradient(135deg, #EF4135 0%, #c0392b 100%);
+        }
+
+        td {
+            padding: 15px 18px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        tr:hover {
+            background: #e3f2fd;
+            transition: background 0.3s ease;
+        }
+
+        .vs-container {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .vs-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            color: #d63031;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 2em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(253, 203, 110, 0.5);
+            animation: pulse 2s infinite;
+            border: 3px solid #d63031;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #e17055;
+            box-shadow: 0 5px 15px rgba(253, 203, 110, 0.3);
+        }
+
+        .note-box strong {
+            color: #d63031;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #ff7675 0%, #EF4135 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(239, 65, 53, 0.3);
+        }
+
+        .important-box strong {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .similarity-box {
+            background: linear-gradient(135deg, #a8e6cf 0%, #56ab91 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(86, 171, 145, 0.3);
+        }
+
+        .similarity-box strong {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .difference-box {
+            background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(225, 112, 85, 0.3);
+        }
+
+        .difference-box strong {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #dfe6e9 0%, #b2bec3 100%);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .category-card:hover {
+            transform: scale(1.05);
+            border-color: #0055A4;
+            box-shadow: 0 10px 30px rgba(0, 85, 164, 0.3);
+        }
+
+        .category-card h4 {
+            color: #0055A4;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .dual-example {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .dual-example-item {
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .dual-example-det {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #0055A4;
+        }
+
+        .dual-example-pro {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-left: 4px solid #EF4135;
+        }
+
+        .arrow-right {
+            text-align: center;
+            font-size: 2em;
+            color: #fdcb6e;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .section h2 {
+                font-size: 1.8em;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dual-example {
+                grid-template-columns: 1fr;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: #0055A4;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        .badge-red {
+            background: #EF4135;
+        }
+
+        .list-style {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-style li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+        }
+
+        .list-style li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #0055A4;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .transform-box {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px dashed #0055A4;
+        }
+
+        .transform-arrow {
+            text-align: center;
+            font-size: 1.5em;
+            color: #EF4135;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔄 Ressemblances entre Déterminants et Pronoms</h1>
+            <p>Emploi des Déterminants et des Pronoms</p>
+            <div class="logo">🎓 LÍNGUA ACADEMY</div>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <h2>🎯 Introduction</h2>
+                <p>Les <strong>déterminants</strong> et les <strong>pronoms</strong> sont deux catégories grammaticales qui partagent de nombreuses formes similaires. Cependant, leur fonction dans la phrase est totalement différente. Comprendre leurs ressemblances et leurs différences est essentiel pour maîtriser la grammaire française.</p>
+            </div>
+
+            <div class="vs-container">
+                <div class="vs-badge">DÉTERMINANT ⚔️ PRONOM</div>
+            </div>
+
+            <section class="section">
+                <h2>1️⃣ La Différence Fondamentale</h2>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card determinant-card">
+                        <h4><span class="icon">📌</span> LE DÉTERMINANT</h4>
+                        <p><strong>Fonction :</strong> Accompagne et précède un nom</p>
+                        <p><strong>Rôle :</strong> Introduit le nom et forme avec lui un groupe nominal</p>
+                        <p><strong>Position :</strong> Toujours AVANT le nom</p>
+                        <p style="margin-top: 15px;"><strong>Formule :</strong></p>
+                        <p style="font-size: 1.2em; text-align: center; background: rgba(255,255,255,0.2); padding: 10px; border-radius: 5px; margin-top: 10px;">DÉTERMINANT + NOM</p>
+                    </div>
+
+                    <div class="comparison-card pronom-card">
+                        <h4><span class="icon">🔄</span> LE PRONOM</h4>
+                        <p><strong>Fonction :</strong> Remplace un nom ou un groupe nominal</p>
+                        <p><strong>Rôle :</strong> Évite la répétition du nom</p>
+                        <p><strong>Position :</strong> Utilisé SEUL, sans nom</p>
+                        <p style="margin-top: 15px;"><strong>Formule :</strong></p>
+                        <p style="font-size: 1.2em; text-align: center; background: rgba(255,255,255,0.2); padding: 10px; border-radius: 5px; margin-top: 10px;">PRONOM (seul)</p>
+                    </div>
+                </div>
+
+                <div class="definition-box">
+                    <strong>📖 Règle d'Or</strong>
+                    <p>Si le mot est suivi d'un NOM → c'est un DÉTERMINANT<br>
+                    Si le mot est utilisé SEUL (sans nom après) → c'est un PRONOM</p>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Exemple illustratif :</strong></p>
+                    <div class="transform-box">
+                        <div class="example"><span class="highlight-blue">Ce</span> livre est intéressant. → <strong>Ce</strong> = déterminant (suivi du nom "livre")</div>
+                        <div class="transform-arrow">⬇️ Transformation ⬇️</div>
+                        <div class="example"><span class="highlight-red">Celui-ci</span> est intéressant. → <strong>Celui-ci</strong> = pronom (remplace "ce livre")</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>2️⃣ Les Catégories qui Existent sous les Deux Formes</h2>
+                <p>Plusieurs catégories grammaticales peuvent être à la fois déterminants et pronoms, selon leur emploi dans la phrase.</p>
+
+                <h3>A. Les Démonstratifs</h3>
+                <div class="dual-example">
+                    <div class="dual-example-item dual-example-det">
+                        <strong>🔵 DÉTERMINANT DÉMONSTRATIF</strong>
+                        <p style="margin-top: 10px;">ce, cet, cette, ces</p>
+                        <div class="example" style="margin-top: 15px;"><span class="highlight-blue">Ce</span> garçon est sympa.</div>
+                        <div class="example"><span class="highlight-blue">Cette</span> fille est gentille.</div>
+                        <div class="example"><span class="highlight-blue">Ces</span> livres sont intéressants.</div>
+                    </div>
+                    <div class="dual-example-item dual-example-pro">
+                        <strong>🔴 PRONOM DÉMONSTRATIF</strong>
+                        <p style="margin-top: 10px;">celui, celle, ceux, celles, ce, ceci, cela, ça</p>
+                        <div class="example" style="margin-top: 15px;"><span class="highlight-red">Celui-ci</span> est sympa.</div>
+                        <div class="example"><span class="highlight-red">Celle-là</span> est gentille.</div>
+                        <div class="example"><span class="highlight-red">Ceux-ci</span> sont intéressants.</div>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Comparaison directe :</strong></p>
+                    <div class="example">J'aime <span class="highlight-blue">ce</span> gâteau. (déterminant) → J'aime <span class="highlight-red">celui-ci</span>. (pronom)</div>
+                    <div class="example">Prends <span class="highlight-blue">cette</span> pomme. (déterminant) → Prends <span class="highlight-red">celle-là</span>. (pronom)</div>
+                    <div class="example"><span class="highlight-blue">Ces</span> voitures sont rapides. (déterminant) → <span class="highlight-red">Celles-ci</span> sont rapides. (pronom)</div>
+                </div>
+
+                <h3>B. Les Possessifs</h3>
+                <div class="dual-example">
+                    <div class="dual-example-item dual-example-det">
+                        <strong>🔵 DÉTERMINANT POSSESSIF</strong>
+                        <p style="margin-top: 10px;">mon, ton, son, ma, ta, sa, mes, tes, ses, notre, votre, leur, nos, vos, leurs</p>
+                        <div class="example" style="margin-top: 15px;"><span class="highlight-blue">Mon</span> livre est là.</div>
+                        <div class="example"><span class="highlight-blue">Ta</span> voiture est belle.</div>
+                        <div class="example"><span class="highlight-blue">Leurs</span> enfants jouent.</div>
+                    </div>
+                    <div class="dual-example-item dual-example-pro">
+                        <strong>🔴 PRONOM POSSESSIF</strong>
+                        <p style="margin-top: 10px;">le mien, le tien, le sien, la mienne, la tienne, la sienne, les miens, les tiens, les siens, le nôtre, le vôtre, le leur, etc.</p>
+                        <div class="example" style="margin-top: 15px;"><span class="highlight-red">Le mien</span> est là.</div>
+                        <div class="example"><span class="highlight-red">La tienne</span> est belle.</div>
+                        <div class="example"><span class="highlight-red">Les leurs</span> jouent.</div>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Comparaison directe :</strong></p>
+                    <div class="example">C'est <span class="highlight-blue">mon</span> stylo. (déterminant) → C'est <span class="highlight-red">le mien</span>. (pronom)</div>
+                    <div class="example">J'ai oublié <span class="highlight-blue">ma</span> clé. (déterminant) → J'ai oublié <span class="highlight-red">la mienne</span>. (pronom)</div>
+                    <div class="example">Voici <span class="highlight-blue">nos</span> amis. (déterminant) → Voici <span class="highlight-red">les nôtres</span>. (pronom)</div>
+                </div>
+
+                <h3>C. Les Interrogatifs</h3>
+                <div class="dual-example">
+                    <div class="dual-example-item dual-example-det">
+                        <strong>🔵 DÉTERMINANT INTERROGATIF</strong>
+                        <p style="margin-top: 10px;">quel, quelle, quels, quelles</p>
+                        <div class="example" style="margin-top: 15px;"><span class="highlight-blue">Quel</span> livre lis-tu ?</div>
+                        <div class="example"><span class="highlight-blue">Quelle</span> heure est-il ?</div>
+                        <div class="example"><span class="highlight-blue">Quels</span> films aimes-tu ?</div>
+                    </div>
+                    <div class="dual-example-item dual-example-pro">
+                        <strong>🔴 PRONOM INTERROGATIF</strong>
+                        <p style="margin-top: 10px;">lequel, laquelle, lesquels, lesquelles</p>
+                        <div class="example" style="margin-top: 15px;"><span class="highlight-red">Lequel</span> préfères-tu ?</div>
+                        <div class="example"><span class="highlight-red">Laquelle</span> choisis-tu ?</div>
+                        <div class="example"><span class="highlight-red">Lesquels</span> veux-tu ?</div>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Comparaison directe :</strong></p>
+                    <div class="example"><span class="highlight-blue">Quel</span> gâteau veux-tu ? (déterminant) → <span class="highlight-red">Lequel</span> veux-tu ? (pronom)</div>
+                    <div class="example"><span class="highlight-blue">Quelle</span> robe achètes-tu ? (déterminant) → <span class="highlight-red">Laquelle</span> achètes-tu ? (pronom)</div>
+                    <div class="example"><span class="highlight-blue">Quels</span> fruits manges-tu ? (déterminant) → <span class="highlight-red">Lesquels</span> manges-tu ? (pronom)</div>
+                </div>
+
+                <h3>D. Les Indéfinis</h3>
+                <div class="dual-example">
+                    <div class="dual-example-item dual-example-det">
+                        <strong>🔵 DÉTERMINANT INDÉFINI</strong>
+                        <p style="margin-top: 10px;">chaque, plusieurs, quelques, certains, tous, aucun, autre, même, tel...</p>
+                        <div class="example" style="margin-top: 15px;"><span class="highlight-blue">Plusieurs</span> élèves sont absents.</div>
+                        <div class="example"><span class="highlight-blue">Chaque</span> jour est différent.</div>
+                        <div class="example"><span class="highlight-blue">Tous</span> les enfants jouent.</div>
+                    </div>
+                    <div class="dual-example-item dual-example-pro">
+                        <strong>🔴 PRONOM INDÉFINI</strong>
+                        <p style="margin-top: 10px;">plusieurs, quelques-uns, certains, tous, aucun, personne, rien, quelqu'un, quelque chose, autre, même...</p>
+                        <div class="example" style="margin-top: 15px;"><span class="highlight-red">Plusieurs</span> sont absents.</div>
+                        <div class="example"><span class="highlight-red">Chacun</span> est différent.</div>
+                        <div class="example"><span class="highlight-red">Tous</span> jouent.</div>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Comparaison directe :</strong></p>
+                    <div class="example"><span class="highlight-blue">Certains</span> élèves étudient. (déterminant) → <span class="highlight-red">Certains</span> étudient. (pronom)</div>
+                    <div class="example"><span class="highlight-blue">Tous</span> les jours. (déterminant) → <span class="highlight-red">Tous</span> sont venus. (pronom)</div>
+                    <div class="example"><span class="highlight-blue">Aucun</span> problème. (déterminant) → <span class="highlight-red">Aucun</span> n'est parfait. (pronom)</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>3️⃣ Similitudes et Différences</h2>
+
+                <div class="similarity-box">
+                    <strong>✅ SIMILITUDES</strong>
+                    <ul class="list-style">
+                        <li>Les deux s'accordent en genre et en nombre</li>
+                        <li>Certaines formes sont identiques (ex: plusieurs, certains, tous)</li>
+                        <li>Ils appartiennent aux mêmes catégories grammaticales (démonstratifs, possessifs, interrogatifs, indéfinis)</li>
+                        <li>Ils précisent ou identifient des éléments dans la phrase</li>
+                    </ul>
+                </div>
+
+                <div class="difference-box">
+                    <strong>❌ DIFFÉRENCES</strong>
+                    <ul class="list-style">
+                        <li>Le déterminant accompagne TOUJOURS un nom</li>
+                        <li>Le pronom est utilisé SEUL, sans nom</li>
+                        <li>Le déterminant introduit un élément nouveau</li>
+                        <li>Le pronom remplace un élément déjà mentionné</li>
+                        <li>Le déterminant ne peut jamais être sujet d'un verbe</li>
+                        <li>Le pronom peut être sujet, COD, COI, etc.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>4️⃣ Tableau Comparatif Complet</h2>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Catégorie</th>
+                            <th>Déterminant</th>
+                            <th>Exemple (Dét.)</th>
+                            <th class="pronom-header">Pronom</th>
+                            <th class="pronom-header">Exemple (Pron.)</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Démonstratifs</strong></td>
+                            <td>ce, cet, cette, ces</td>
+                            <td><span class="highlight-blue">Ce</span> livre</td>
+                            <td>celui, celle, ceux, celles</td>
+                            <td><span class="highlight-red">Celui-ci</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Possessifs</strong></td>
+                            <td>mon, ton, son, ma, ta, sa, mes, tes, ses, notre, votre, leur, nos, vos, leurs</td>
+                            <td><span class="highlight-blue">Mon</span> chat</td>
+                            <td>le mien, le tien, le sien, la mienne, etc.</td>
+                            <td><span class="highlight-red">Le mien</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Interrogatifs</strong></td>
+                            <td>quel, quelle, quels, quelles</td>
+                            <td><span class="highlight-blue">Quel</span> jour ?</td>
+                            <td>lequel, laquelle, lesquels, lesquelles</td>
+                            <td><span class="highlight-red">Lequel</span> ?</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Indéfinis</strong></td>
+                            <td>chaque, plusieurs, quelques, certains, tous, aucun, autre...</td>
+                            <td><span class="highlight-blue">Plusieurs</span> personnes</td>
+                            <td>plusieurs, certains, tous, aucun, personne, rien, quelqu'un...</td>
+                            <td><span class="highlight-red">Plusieurs</span> sont venus</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Exclamatifs</strong></td>
+                            <td>quel, quelle, quels, quelles</td>
+                            <td><span class="highlight-blue">Quelle</span> chance !</td>
+                            <td>—</td>
+                            <td>Pas de forme pronominale</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>5️⃣ Comment les Distinguer ?</h2>
+
+                <div class="category-grid">
+                    <div class="category-card">
+                        <h4>🔍 Méthode 1 : La Question du Nom</h4>
+                        <p><strong>Posez la question :</strong><br>
+                        "Y a-t-il un nom juste après ?"</p>
+                        <ul class="list-style">
+                            <li>OUI → Déterminant</li>
+                            <li>NON → Pronom</li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <h4>🔍 Méthode 2 : Le Test du Remplacement</h4>
+                        <p><strong>Essayez de remplacer :</strong><br>
+                        Si vous pouvez remplacer par un nom, c'est un pronom</p>
+                        <p style="margin-top: 10px;">Ex: "<span class="highlight-red">Celui-ci</span> est beau"<br>
+                        → "<span class="highlight-blue">Le tableau</span> est beau"</p>
+                    </div>
+
+                    <div class="category-card">
+                        <h4>🔍 Méthode 3 : La Fonction</h4>
+                        <p><strong>Identifiez la fonction :</strong></p>
+                        <ul class="list-style">
+                            <li>Accompagne un nom → Déterminant</li>
+                            <li>Remplace un nom → Pronom</li>
+                        </ul>
+                    </div>
+
+                    <div class="category-card">
+                        <h4>🔍 Méthode 4 : L'Article</h4>
+                        <p><strong>Recherchez l'article :</strong><br>
+                        Les pronoms possessifs ont toujours un article défini</p>
+                        <p style="margin-top: 10px;">
+                        <span class="highlight-blue">Mon</span> livre → déterminant<br>
+                        <span class="highlight-red">Le mien</span> → pronom (avec article)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>6️⃣ Exercices Pratiques</h2>
+
+                <div class="note-box">
+                    <strong>💡 Identifiez : Déterminant ou Pronom ?</strong>
+                    <div style="margin-top: 15px;">
+                        <p>1. <strong>Cette</strong> maison est magnifique.</p>
+                        <p>2. <strong>Celle-là</strong> est plus grande.</p>
+                        <p>3. J'aime <strong>ton</strong> style.</p>
+                        <p>4. Je préfère <strong>le tien</strong>.</p>
+                        <p>5. <strong>Plusieurs</strong> élèves ont réussi.</p>
+                        <p>6. <strong>Plusieurs</strong> ont échoué.</p>
+                        <p>7. <strong>Quel</strong> livre lis-tu ?</p>
+                        <p>8. <strong>Lequel</strong> préfères-tu ?</p>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>✅ Réponses :</strong></p>
+                    <div class="example">1. <strong>Cette</strong> = Déterminant démonstratif (suivi de "maison")</div>
+                    <div class="example">2. <strong>Celle-là</strong> = Pronom démonstratif (seul, remplace "cette maison")</div>
+                    <div class="example">3. <strong>Ton</strong> = Déterminant possessif (suivi de "style")</div>
+                    <div class="example">4. <strong>Le tien</strong> = Pronom possessif (seul, remplace "ton style")</div>
+                    <div class="example">5. <strong>Plusieurs</strong> = Déterminant indéfini (suivi de "élèves")</div>
+                    <div class="example">6. <strong>Plusieurs</strong> = Pronom indéfini (seul, remplace "plusieurs élèves")</div>
+                    <div class="example">7. <strong>Quel</strong> = Déterminant interrogatif (suivi de "livre")</div>
+                    <div class="example">8. <strong>Lequel</strong> = Pronom interrogatif (seul)</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>7️⃣ Cas Particuliers</h2>
+
+                <div class="important-box">
+                    <strong>⚠️ Attention aux Pièges !</strong>
+                    <p><strong>1. "Tout" peut être déterminant, pronom ou adverbe :</strong><br>
+                    → <span class="highlight-blue">Tous les</span> jours (déterminant)<br>
+                    → <span class="highlight-red">Tous</span> sont venus (pronom)<br>
+                    → Elle est <strong>tout</strong> heureuse (adverbe = très)</p>
+                    
+                    <p style="margin-top: 15px;"><strong>2. "Même" peut être déterminant, pronom ou adverbe :</strong><br>
+                    → Le <span class="highlight-blue">même</span> livre (déterminant)<br>
+                    → C'est le <span class="highlight-red">même</span> (pronom)<br>
+                    → Il viendra <strong>même</strong> demain (adverbe)</p>
+                    
+                    <p style="margin-top: 15px;"><strong>3. Certains mots ne peuvent être QUE déterminants :</strong><br>
+                    → <strong>Chaque</strong> (toujours déterminant, jamais pronom)<br>
+                    → <strong>Un, une, des</strong> (articles, uniquement déterminants)</p>
+                    
+                    <p style="margin-top: 15px;"><strong>4. Certains mots ne peuvent être QUE pronoms :</strong><br>
+                    → <strong>Personne, rien, quelqu'un, quelque chose</strong> (uniquement pronoms)</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>✨ Points Clés à Retenir</h2>
+                
+                <div class="similarity-box">
+                    <strong>🎯 Synthèse Finale</strong>
+                    <p>
+                    <strong>1.</strong> La différence principale : le déterminant accompagne un nom, le pronom le remplace.<br><br>
+                    <strong>2.</strong> Pour identifier : cherchez s'il y a un nom après le mot en question.<br><br>
+                    <strong>3.</strong> Quatre catégories existent sous les deux formes : démonstratifs, possessifs, interrogatifs, indéfinis.<br><br>
+                    <strong>4.</strong> Les deux s'accordent en genre et en nombre avec le nom (présent ou remplacé).<br><br>
+                    <strong>5.</strong> Les pronoms possessifs prennent toujours un article défini (le, la, les).<br><br>
+                    <strong>6.</strong> Certains mots comme "plusieurs", "certains", "tous" ont exactement la même forme en déterminant et en pronom.<br><br>
+                    <strong>7.</strong> La fonction dans la phrase est différente : le déterminant introduit, le pronom remplace.
+                    </p>
+                </div>
+            </section>
+
+            <div class="arrow-right">⬇️⬇️⬇️</div>
+
+            <div class="important-box">
+                <strong>🔑 LA RÈGLE D'OR</strong>
+                <p style="font-size: 1.2em; text-align: center; margin-top: 15px;">
+                AVEC UN NOM = DÉTERMINANT<br>
+                SANS NOM = PRONOM
+                </p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>📚 LÍNGUA ACADEMY</strong></p>
+            <p>Excellence en Enseignement des Langues</p>
+            <p style="font-size: 0.9em; margin-top: 15px;">© 2024 Língua Academy - Tous droits réservés</p>
+        </div>
+    </div>
+</body>
+</html>

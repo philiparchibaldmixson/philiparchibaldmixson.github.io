@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Conjonctions de Subordination | Língua Academy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+            color: #1a202c;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        /* Animated network background */
+        .network-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        
+        .network-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, #4fd1c5, transparent);
+            height: 1px;
+            animation: flowLine 4s linear infinite;
+        }
+        
+        @keyframes flowLine {
+            0% { transform: translateX(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%); opacity: 0; }
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 5rem;
+            padding: 4rem 3rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+            border-radius: 25px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(79, 209, 197, 0.3);
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #4fd1c5, #38b2ac, #2c7a7b);
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #2c7a7b, #4fd1c5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: #4a5568;
+            font-weight: 400;
+            font-style: italic;
+        }
+        
+        /* Introduction section */
+        .intro-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .intro-card {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid #4fd1c5;
+            transition: all 0.4s ease;
+        }
+        
+        .intro-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        
+        .intro-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #2c7a7b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .intro-card h2::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #4fd1c5;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #4fd1c5;
+        }
+        
+        .intro-card p {
+            color: #4a5568;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        
+        /* Hierarchy visualization */
+        .hierarchy-demo {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+        
+        .hierarchy-demo h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #2c7a7b;
+            margin-bottom: 2rem;
+        }
+        
+        .hierarchy-visual {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+        
+        .hierarchy-box {
+            position: relative;
+            padding: 2rem 3rem;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .hierarchy-box:hover {
+            transform: scale(1.05);
+        }
+        
+        .principal-box {
+            background: linear-gradient(135deg, #4fd1c5, #38b2ac);
+            color: white;
+            position: relative;
+        }
+        
+        .principal-box::after {
+            content: 'PRINCIPALE';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #2c7a7b;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+        
+        .connector {
+            font-size: 3rem;
+            color: #4fd1c5;
+            font-weight: 700;
+            align-self: center;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        .subordinate-box {
+            background: linear-gradient(135deg, #e6fffa, #b2f5ea);
+            color: #2c7a7b;
+            border: 2px solid #4fd1c5;
+            position: relative;
+        }
+        
+        .subordinate-box::after {
+            content: 'SUBORDONNÉE';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #4fd1c5;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+        
+        .example-sentence {
+            background: rgba(79, 209, 197, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            font-style: italic;
+            color: #2d3748;
+            font-size: 1.1rem;
+            border: 1px dashed #4fd1c5;
+        }
+        
+        /* Categories section */
+        .categories-intro {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .categories-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .categories-intro p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.2rem;
+        }
+        
+        /* Category cards */
+        .category-section {
+            margin-bottom: 3rem;
+        }
+        
+        .category-header {
+            background: linear-gradient(135deg, var(--cat-color), var(--cat-color-dark));
+            padding: 2rem 3rem;
+            border-radius: 20px 20px 0 0;
+            color: white;
+            margin-bottom: 0;
+        }
+        
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .category-icon {
+            font-size: 2.5rem;
+        }
+        
+        .category-desc {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        .conjunctions-container {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 2.5rem;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .conjunctions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .conjunction-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(var(--cat-rgb), 0.05));
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid rgba(var(--cat-rgb), 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .conjunction-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--cat-color);
+        }
+        
+        .conjunction-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border-color: var(--cat-color);
+        }
+        
+        .conjunction-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--cat-color);
+            margin-bottom: 1rem;
+        }
+        
+        .conjunction-examples {
+            color: #4a5568;
+        }
+        
+        .example-item {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-style: italic;
+        }
+        
+        .example-item::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--cat-color);
+            font-weight: bold;
+        }
+        
+        /* Color schemes for categories */
+        .cat-temporelle {
+            --cat-color: #3b82f6;
+            --cat-color-dark: #2563eb;
+            --cat-rgb: 59, 130, 246;
+        }
+        
+        .cat-causale {
+            --cat-color: #ef4444;
+            --cat-color-dark: #dc2626;
+            --cat-rgb: 239, 68, 68;
+        }
+        
+        .cat-finale {
+            --cat-color: #8b5cf6;
+            --cat-color-dark: #7c3aed;
+            --cat-rgb: 139, 92, 246;
+        }
+        
+        .cat-consecutive {
+            --cat-color: #f59e0b;
+            --cat-color-dark: #d97706;
+            --cat-rgb: 245, 158, 11;
+        }
+        
+        .cat-concessive {
+            --cat-color: #10b981;
+            --cat-color-dark: #059669;
+            --cat-rgb: 16, 185, 129;
+        }
+        
+        .cat-conditionnelle {
+            --cat-color: #ec4899;
+            --cat-color-dark: #db2777;
+            --cat-rgb: 236, 72, 153;
+        }
+        
+        .cat-comparative {
+            --cat-color: #06b6d4;
+            --cat-color-dark: #0891b2;
+            --cat-rgb: 6, 182, 212;
+        }
+        
+        /* Summary table */
+        .summary-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 3rem;
+            border-radius: 25px;
+            margin: 4rem 0;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .summary-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #2c7a7b;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .summary-card {
+            background: linear-gradient(135deg, rgba(79, 209, 197, 0.1), rgba(56, 178, 172, 0.05));
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #4fd1c5;
+        }
+        
+        .summary-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2c7a7b;
+            margin-bottom: 1rem;
+        }
+        
+        .summary-card ul {
+            list-style: none;
+        }
+        
+        .summary-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4a5568;
+        }
+        
+        .summary-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4fd1c5;
+            font-weight: bold;
+        }
+        
+        /* Tips section */
+        .tips-section {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            padding: 3rem;
+            border-radius: 25px;
+            margin: 4rem 0;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tips-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .tip-card {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-top: 4px solid #f59e0b;
+        }
+        
+        .tip-number {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .tip-title {
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .tip-content {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 968px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .intro-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .hierarchy-visual {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .connector {
+                transform: rotate(90deg);
+            }
+            
+            .conjunctions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .category-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="network-bg">
+        <div class="network-line" style="top: 15%; width: 300px; animation-delay: 0s;"></div>
+        <div class="network-line" style="top: 35%; width: 400px; animation-delay: 1s;"></div>
+        <div class="network-line" style="top: 55%; width: 350px; animation-delay: 2s;"></div>
+        <div class="network-line" style="top: 75%; width: 450px; animation-delay: 1.5s;"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Les Conjonctions de Subordination</h1>
+            <p class="subtitle">Quand une proposition dépend d'une autre...</p>
+        </header>
+
+        <div class="intro-section">
+            <div class="intro-card">
+                <h2>Définition</h2>
+                <p>
+                    Les conjonctions de subordination sont des mots ou des locutions qui relient 
+                    une proposition subordonnée à une proposition principale. La proposition 
+                    subordonnée dépend de la principale et ne peut exister seule : elle complète 
+                    ou précise le sens de la proposition principale.
+                </p>
+            </div>
+
+            <div class="intro-card">
+                <h2>Rôle essentiel</h2>
+                <p>
+                    Contrairement aux conjonctions de coordination qui relient des éléments de 
+                    même niveau, les conjonctions de subordination créent une hiérarchie : elles 
+                    introduisent une information qui dépend d'une autre. Elles expriment diverses 
+                    relations logiques : temps, cause, but, conséquence, opposition, condition...
+                </p>
+            </div>
+        </div>
+
+        <div class="hierarchy-demo">
+            <h2>Comprendre la hiérarchie</h2>
+            <div class="hierarchy-visual">
+                <div class="hierarchy-box principal-box">
+                    Je reste à la maison
+                </div>
+                <div class="connector">→</div>
+                <div class="hierarchy-box subordinate-box">
+                    parce qu'il pleut
+                </div>
+            </div>
+            <div class="example-sentence">
+                La proposition « parce qu'il pleut » ne peut pas exister seule. 
+                Elle dépend de la proposition principale « Je reste à la maison ».
+            </div>
+        </div>
+
+        <div class="categories-intro">
+            <h2>Les 7 catégories principales</h2>
+            <p>Les conjonctions de subordination se classent selon le type de relation qu'elles expriment</p>
+        </div>
+
+        <!-- TEMPORELLES -->
+        <div class="category-section cat-temporelle">
+            <div class="category-header">
+                <div class="category-title">
+                    <span class="category-icon">⏰</span>
+                    Conjonctions Temporelles
+                </div>
+                <div class="category-desc">Elles situent l'action dans le temps</div>
+            </div>
+            <div class="conjunctions-container">
+                <div class="conjunctions-grid">
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Quand / Lorsque</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Quand tu arrives, appelle-moi.</div>
+                            <div class="example-item">Lorsque je voyage, je prends des photos.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Avant que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Partons avant qu'il ne fasse nuit.</div>
+                            <div class="example-item">Finis avant que je revienne.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Après que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Nous partirons après que tu auras fini.</div>
+                            <div class="example-item">Après qu'il est parti, j'ai pleuré.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Dès que / Aussitôt que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Dès que j'arrive, je t'appelle.</div>
+                            <div class="example-item">Aussitôt qu'elle le vit, elle sourit.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Pendant que / Tandis que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Pendant que tu travailles, je lis.</div>
+                            <div class="example-item">Tandis qu'il dort, elle veille.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Depuis que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Depuis qu'il est parti, je m'ennuie.</div>
+                            <div class="example-item">Elle a changé depuis que tu es arrivé.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CAUSALES -->
+        <div class="category-section cat-causale">
+            <div class="category-header">
+                <div class="category-title">
+                    <span class="category-icon">❓</span>
+                    Conjonctions Causales
+                </div>
+                <div class="category-desc">Elles expriment la cause, la raison</div>
+            </div>
+            <div class="conjunctions-container">
+                <div class="conjunctions-grid">
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Parce que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Je suis fatigué parce que j'ai peu dormi.</div>
+                            <div class="example-item">Il est heureux parce qu'il a réussi.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Puisque</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Puisque tu es là, aide-moi.</div>
+                            <div class="example-item">Puisqu'il pleut, restons ici.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Comme</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Comme il fait beau, sortons.</div>
+                            <div class="example-item">Comme tu étais absent, j'ai attendu.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Étant donné que / Vu que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Étant donné qu'il est tard, je pars.</div>
+                            <div class="example-item">Vu que tu es d'accord, continuons.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FINALES -->
+        <div class="category-section cat-finale">
+            <div class="category-header">
+                <div class="category-title">
+                    <span class="category-icon">🎯</span>
+                    Conjonctions Finales
+                </div>
+                <div class="category-desc">Elles expriment le but, l'objectif</div>
+            </div>
+            <div class="conjunctions-container">
+                <div class="conjunctions-grid">
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Pour que / Afin que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Je t'aide pour que tu réussisses.</div>
+                            <div class="example-item">Il étudie afin qu'il obtienne son diplôme.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">De peur que / De crainte que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Je pars tôt de peur qu'il y ait des embouteillages.</div>
+                            <div class="example-item">Elle chuchote de crainte qu'on l'entende.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONSÉCUTIVES -->
+        <div class="category-section cat-consecutive">
+            <div class="category-header">
+                <div class="category-title">
+                    <span class="category-icon">➡️</span>
+                    Conjonctions Consécutives
+                </div>
+                <div class="category-desc">Elles expriment la conséquence, le résultat</div>
+            </div>
+            <div class="conjunctions-container">
+                <div class="conjunctions-grid">
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Si bien que / De sorte que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Il a plu si bien que la route est glissante.</div>
+                            <div class="example-item">Il parle fort de sorte que tout le monde l'entend.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Au point que / Tellement... que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Il crie au point que j'ai mal aux oreilles.</div>
+                            <div class="example-item">Il est tellement fatigué qu'il s'endort debout.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Si... que / Tant... que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Il fait si froid que l'eau gèle.</div>
+                            <div class="example-item">Il a tant travaillé qu'il est épuisé.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONCESSIVES -->
+        <div class="category-section cat-concessive">
+            <div class="category-header">
+                <div class="category-title">
+                    <span class="category-icon">⚖️</span>
+                    Conjonctions Concessives
+                </div>
+                <div class="category-desc">Elles expriment une opposition, une concession</div>
+            </div>
+            <div class="conjunctions-container">
+                <div class="conjunctions-grid">
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Bien que / Quoique</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Bien qu'il soit riche, il est généreux.</div>
+                            <div class="example-item">Quoiqu'elle soit fatiguée, elle continue.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Même si</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Même si tu insistes, je refuse.</div>
+                            <div class="example-item">Je viendrai même s'il pleut.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Alors que / Tandis que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Il dort alors que je travaille.</div>
+                            <div class="example-item">Elle rit tandis qu'il pleure.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONDITIONNELLES -->
+        <div class="category-section cat-conditionnelle">
+            <div class="category-header">
+                <div class="category-title">
+                    <span class="category-icon">🔀</span>
+                    Conjonctions Conditionnelles
+                </div>
+                <div class="category-desc">Elles expriment une condition, une hypothèse</div>
+            </div>
+            <div class="conjunctions-container">
+                <div class="conjunctions-grid">
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Si</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Si tu viens, je serai content.</div>
+                            <div class="example-item">Je viendrai si j'ai le temps.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">À condition que / Pourvu que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Je t'aide à condition que tu m'écoutes.</div>
+                            <div class="example-item">Pourvu qu'il fasse beau demain !</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">À moins que / Sauf si</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Je viendrai à moins qu'il pleuve.</div>
+                            <div class="example-item">Sauf si tu refuses, je commence.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Au cas où / Dans le cas où</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Au cas où tu aurais besoin, appelle-moi.</div>
+                            <div class="example-item">Dans le cas où il pleuvrait, prends un parapluie.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPARATIVES -->
+        <div class="category-section cat-comparative">
+            <div class="category-header">
+                <div class="category-title">
+                    <span class="category-icon">↔️</span>
+                    Conjonctions Comparatives
+                </div>
+                <div class="category-desc">Elles établissent une comparaison</div>
+            </div>
+            <div class="conjunctions-container">
+                <div class="conjunctions-grid">
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Comme</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Il chante comme un ange.</div>
+                            <div class="example-item">Fais comme tu veux.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Ainsi que / De même que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Il travaille ainsi que son frère.</div>
+                            <div class="example-item">De même que tu réussis, elle réussira.</div>
+                        </div>
+                    </div>
+                    <div class="conjunction-item">
+                        <div class="conjunction-name">Plus... que / Moins... que</div>
+                        <div class="conjunction-examples">
+                            <div class="example-item">Il est plus grand que je pensais.</div>
+                            <div class="example-item">Elle travaille moins qu'avant.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-section">
+            <h2>Points clés à retenir</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>Mode du verbe</h3>
+                    <ul>
+                        <li>Indicatif : quand, lorsque, parce que, puisque, après que...</li>
+                        <li>Subjonctif : pour que, afin que, bien que, avant que, de peur que...</li>
+                        <li>Conditionnel : au cas où, dans le cas où...</li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <h3>Différence importante</h3>
+                    <ul>
+                        <li>"Parce que" répond à "pourquoi ?" (cause)</li>
+                        <li>"Car" (coordination) n'y répond pas</li>
+                        <li>"Puisque" indique une cause connue</li>
+                        <li>"Comme" se place en début de phrase</li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <h3>Pièges à éviter</h3>
+                    <ul>
+                        <li>Ne pas confondre "bien que" (+ subjonctif) et "même si" (+ indicatif)</li>
+                        <li>"Après que" + indicatif (pas subjonctif !)</li>
+                        <li>"Avant que" demande souvent un "ne" explétif</li>
+                        <li>Certaines conjonctions sont suivies du subjonctif obligatoirement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="tips-section">
+            <h2>Conseils pratiques</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <div class="tip-title">Identifier la proposition principale</div>
+                    <div class="tip-content">
+                        Pour bien comprendre, repérez d'abord la proposition qui peut exister seule. 
+                        C'est la proposition principale.
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <div class="tip-title">Attention au mode</div>
+                    <div class="tip-content">
+                        Le choix entre indicatif et subjonctif dépend de la conjonction. 
+                        Apprenez les principales conjonctions + subjonctif par cœur.
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <div class="tip-title">La virgule avec "comme"</div>
+                    <div class="tip-content">
+                        Quand "comme" exprime la cause en début de phrase, on met généralement 
+                        une virgule après la subordonnée.
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <div class="tip-title">Éviter les répétitions</div>
+                    <div class="tip-content">
+                        Variez les conjonctions pour éviter la monotonie : alternez "quand" 
+                        et "lorsque", "parce que" et "puisque", etc.
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <div class="tip-title">L'élision</div>
+                    <div class="tip-content">
+                        "Lorsque", "puisque", "quoique" s'élident devant une voyelle : 
+                        lorsqu'il, puisqu'elle, quoiqu'on...
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">6</div>
+                    <div class="tip-title">Nuances de sens</div>
+                    <div class="tip-content">
+                        "Tandis que" peut exprimer le temps OU l'opposition selon le contexte. 
+                        Soyez attentif au sens global de la phrase.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Língua Academy | Grammaire Française | Les Conjonctions de Subordination</p>
+        </footer>
+    </div>
+</body>
+</html>

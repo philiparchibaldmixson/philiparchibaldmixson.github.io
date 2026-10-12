@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Present Progressive – Forms</title>
+  <style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        color: #333;
+        background: white;
+    }
+    
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 0 auto;
+        background: white;
+        page-break-after: always;
+    }
+    
+    .header {
+        text-align: center;
+        padding: 35px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+    
+    .header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+        font-size: 18px;
+        opacity: 0.95;
+    }
+    
+    .section {
+        margin: 25px 0;
+        padding: 25px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .section.orange {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+    
+    .section.green {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        color: black;
+    }
+    
+    .section.blue {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .section.pink {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+    
+    .section.purple {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    }
+    
+    .section.teal {
+        background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    }
+    
+    .section.coral {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+    
+    h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    
+    .section.green h2, .section.green h3 {
+        color: white;
+    }
+    
+    h3 {
+        font-size: 22px;
+        margin: 20px 0 10px 0;
+        color: #34495e;
+    }
+    
+    p {
+        margin-bottom: 15px;
+        font-size: 16px;
+        text-align: justify;
+    }
+    
+    .verb-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #667eea;
+        margin: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .verb-title {
+        color: #667eea;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    
+    .verb-form {
+        color: #e74c3c;
+        font-style: italic;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .verb-desc {
+        color: #555;
+        font-size: 16px;
+    }
+    
+    .example-box {
+        background: #fff9e6;
+        border: 2px dashed #f39c12;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .example-title {
+        color: #f39c12;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .tip-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #27ae60;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .tip-box h4 {
+        color: #27ae60;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    
+    ul {
+        margin-left: 30px;
+        margin-bottom: 15px;
+    }
+    
+    li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    
+    .structure-table {
+        width: 100%;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .structure-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .structure-table th {
+        background: #667eea;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+    }
+    
+    .structure-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+    }
+    
+    .structure-table tr:nth-child(even) {
+        background: #f8f9fa;
+    }
+    
+    .structure-label {
+        font-weight: bold;
+        color: #3498db;
+    }
+    
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .form-item {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        border-top: 4px solid #3498db;
+    }
+    
+    .form-type {
+        font-weight: bold;
+        color: #3498db;
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+    
+    .form-text {
+        color: #555;
+        font-size: 15px;
+    }
+    
+    .negative-box {
+        background: #ffe6e6;
+        border: 2px solid #e74c3c;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .negative-title {
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .question-box {
+        background: #e6f3ff;
+        border: 2px solid #3498db;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .question-title {
+        color: #3498db;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .comparison-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #9b59b6;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .comparison-title {
+        color: #9b59b6;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .alternative-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #e67e22;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .alternative-title {
+        color: #e67e22;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .error-box {
+        background: #fff5f5;
+        border: 2px solid #c0392b;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .error-title {
+        color: #c0392b;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    
+    @media print {
+        body {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>⏳ PRESENT PROGRESSIVE – FORMS ⏳</h1>
+      <p>Describing Actions Happening Now</p>
+    </div>
+
+    <div class="section orange">
+      <h2>🌟 What Is the Present Progressive?</h2>
+      <p>The <strong>Present Progressive</strong> (also called Present Continuous) is used to describe actions that are happening <u>right now</u>, or around the current moment.</p>
+      <p>It is formed with the verb <strong>to be</strong> (am/is/are) + <strong>verb + ing</strong>.</p>
+    </div>
+
+    <div class="section blue">
+      <h2>📋 Structure of Present Progressive</h2>
+      <div class="structure-table">
+        <table>
+          <tr>
+            <th>Form</th>
+            <th>Structure</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Affirmative</td>
+            <td>Subject + am/is/are + verb-ing</td>
+            <td>She is studying now.</td>
+          </tr>
+          <tr>
+            <td>Negative</td>
+            <td>Subject + am/is/are + not + verb-ing</td>
+            <td>They are not working today.</td>
+          </tr>
+          <tr>
+            <td>Question</td>
+            <td>Am/Is/Are + subject + verb-ing?</td>
+            <td>Are you listening?</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="tip-box">
+        <h4>💡 Quick Tip</h4>
+        <p><strong>I → am</strong><br><strong>He/She/It → is</strong><br><strong>You/We/They → are</strong><br>Then add <strong>verb + ing</strong></p>
+      </div>
+    </div>
+
+    <div class="section green">
+      <h2>🎯 Uses of Present Progressive</h2>
+
+      <div class="verb-box">
+        <div class="verb-title">1. Actions Happening Now</div>
+        <div class="verb-desc">To describe what is happening at this moment</div>
+        <div class="example-box">
+          <p>• I am talking to you.<br>• She is cooking dinner.<br>• They are playing soccer.</p>
+        </div>
+      </div>
+
+      <div class="verb-box">
+        <div class="verb-title">2. Temporary Actions</div>
+        <div class="verb-desc">To describe actions happening around now, but not always</div>
+        <div class="example-box">
+          <p>• He is staying with his cousin this week.<br>• I am working on a new project.<br>• We are learning Spanish this semester.</p>
+        </div>
+      </div>
+
+      <div class="verb-box">
+        <div class="verb-title">3. Changing Situations</div>
+        <div class="verb-desc">To describe things that are developing or changing</div>
+        <div class="example-box">
+          <p>• The weather is getting colder.<br>• Prices are rising.<br>• Technology is improving fast.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section pink">
+      <h2>📝 Examples by Subject</h2>
+      <div class="example-box">
+        <div class="example-title">👤 Affirmative</div>
+        <p>• I am studying English.<br>• You are watching TV.<br>• He is reading a book.<br>• She is writing a letter.<br>• It is raining.<br>• We are working together.<br>• They are dancing.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">🚫 Negative</div>
+        <p>• I am not sleeping.<br>• He is not listening.<br>• We are not going out.<br>• They are not playing today.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">❓ Questions</div>
+        <p>• Are you studying?<br>• Is she cooking?<br>• Am I doing this right?<br>• Are they coming now?</p>
+      </div>
+    </div>
+
+    <div class="section purple">
+      <h2>📌 Verb + ing Rules</h2>
+      <div class="form-grid">
+        <div class="form-item">
+          <div class="form-type">play → playing</div>
+          <div class="form-text">He is playing football.</div>
+        </div>
+        <div class="form-item">
+          <div class="form-type">run → running</div>
+          <div class="form-text">She is running fast.</div>
+        </div>
+        <div class="form-item">
+          <div class="form-type">write → writing</div>
+          <div class="form-text">I am writing a story.</div>
+        </div>
+        <div class="form-item">
+          <div class="form-type">swim → swimming</div>
+          <div class="form-text">They are swimming now.</div>
+        </div>
+        <div class="form-item">
+          <div class="form-type">make → making</div>
+          <div class="form-text">We are making dinner.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section coral">
+      <h2>🔄 Time Expressions</h2>
+      <div class="alternative-box">
+        <div class="alternative-title">Common Time Phrases</div>
+        <p>• Now<br>• At the moment<br>• Today<br>• This week<br>• Right now<br>• Currently</p>
+        <p><strong>Example:</strong> She is studying at the moment.</p>
+      </div>
+    </div>
+
+    <div class="section orange">
+      <h2>⚠️ Common Mistakes to Avoid</h2>
+      <div class="error-box">
+        <div class="error-title">❌ Wrong → ✅ Correct</div>
+        <p>❌ He is play football.<br>✅ He is playing football.</p>
+        <p>❌ They are works now.<br>✅ They are working now.</p>
+        <p>❌ She not is cooking.<br>✅ She is not cooking.</p>
+        <p>❌ Are she writing?<br>✅ Is she writing?</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Use Present Progressive to Describe Actions Happening Now!</strong></p>
+      <p>Practice with different subjects and verbs to build fluency!</p>
+    </div>
+  </div>
+</body>
+</html>

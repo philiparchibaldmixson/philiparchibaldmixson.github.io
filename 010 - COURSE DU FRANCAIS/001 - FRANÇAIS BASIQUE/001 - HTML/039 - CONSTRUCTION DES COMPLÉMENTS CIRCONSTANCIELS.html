@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction des Compléments Circonstanciels - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #002395 0%, #ffffff 50%, #ED2939 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(237, 41, 57, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0, 35, 149, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background: linear-gradient(135deg, #002395, #0035b8, #002395);
+            background-size: 200% 200%;
+            animation: gradientFlow 8s ease infinite;
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 35, 149, 0.4);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .logo {
+            font-size: 1.3em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            opacity: 0.95;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 20px 0;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-top: 15px;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            border: 3px solid rgba(0, 35, 149, 0.2);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .intro-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .intro-section h2::before {
+            content: '🏗️';
+            font-size: 1.2em;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .intro-section p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.15em;
+            margin-bottom: 15px;
+        }
+
+        .construction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .construction-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .construction-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #002395, #ED2939);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .construction-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 35, 149, 0.3);
+            border-color: #002395;
+        }
+
+        .construction-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .construction-card h3 {
+            color: #002395;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .construction-icon {
+            font-size: 1.3em;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .construction-type {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(237, 41, 57, 0.3);
+        }
+
+        .construction-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(0, 35, 149, 0.03);
+            border-radius: 15px;
+            border-left: 4px solid #002395;
+        }
+
+        .examples-container {
+            margin-top: 20px;
+        }
+
+        .example-item {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .example-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(0, 35, 149, 0.15);
+        }
+
+        .example-sentence {
+            color: #222;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .example-highlight {
+            color: #ED2939;
+            background: rgba(237, 41, 57, 0.1);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .example-analysis {
+            color: #666;
+            font-size: 0.95em;
+            margin-top: 8px;
+            padding-left: 15px;
+            border-left: 3px solid #ED2939;
+        }
+
+        .special-section {
+            background: linear-gradient(135deg, #002395 0%, #0041c9 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 35, 149, 0.4);
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .special-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .special-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .special-section p, .special-section li {
+            font-size: 1.1em;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .tip-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .structure-table {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            margin: 30px 0;
+            animation: fadeInUp 1.8s ease;
+        }
+
+        .structure-table h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+        }
+
+        th {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        th:first-child {
+            border-top-left-radius: 15px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 15px;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid rgba(0, 35, 149, 0.1);
+            font-size: 1.05em;
+        }
+
+        tr:hover {
+            background: rgba(0, 35, 149, 0.05);
+        }
+
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 15px;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 15px;
+        }
+
+        .nature-highlight {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #002395, #ED2939);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 2s ease;
+        }
+
+        .footer-content {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo {
+            font-size: 2em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .construction-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 30px;
+            }
+
+            .construction-card, .intro-section, .special-section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">⚜️ Língua Academy ⚜️</div>
+            <h1>Construction des Compléments Circonstanciels</h1>
+            <div class="subtitle">🏗️ Comment Former les CC en Français 🏗️</div>
+        </header>
+
+        <div class="intro-section">
+            <h2>Qu'est-ce que la Construction d'un CC ?</h2>
+            <p>
+                La <strong>construction</strong> d'un complément circonstanciel désigne la <strong>manière dont il est formé</strong> grammaticalement. 
+                Un CC peut être construit de plusieurs façons différentes : avec une préposition, sans préposition, sous forme de groupe nominal, 
+                de proposition subordonnée, d'adverbe, etc.
+            </p>
+            <p>
+                Comprendre la construction des CC permet de reconnaître leurs différentes formes et d'enrichir considérablement son expression écrite et orale.
+            </p>
+        </div>
+
+        <div class="construction-grid">
+            <div class="construction-card">
+                <h3><span class="construction-icon">📦</span> Groupe Nominal Prépositionnel</h3>
+                <div class="construction-type">Construction la plus fréquente</div>
+                <div class="construction-description">
+                    Le CC est introduit par une <strong>préposition</strong> (à, de, en, dans, sur, avec, sans, par, pour, etc.) 
+                    suivie d'un groupe nominal.
+                </div>
+                <div class="examples-container">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Je travaille <span class="example-highlight">dans mon bureau</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de lieu • Préposition "dans" + GN "mon bureau"
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Elle voyage <span class="example-highlight">avec ses amis</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC d'accompagnement • Préposition "avec" + GN "ses amis"
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Il réussit <span class="example-highlight">grâce à son travail</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de cause • Locution prépositionnelle "grâce à" + GN "son travail"
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-card">
+                <h3><span class="construction-icon">⚡</span> Adverbe</h3>
+                <div class="construction-type">Construction simple</div>
+                <div class="construction-description">
+                    Le CC est un <strong>adverbe</strong> ou une <strong>locution adverbiale</strong>. 
+                    Cette construction est directe et ne nécessite pas de préposition.
+                </div>
+                <div class="examples-container">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Nous partons <span class="example-highlight">demain</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de temps • Adverbe de temps
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Il parle <span class="example-highlight">lentement</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de manière • Adverbe de manière
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Venez <span class="example-highlight">ici</span> !
+                        </div>
+                        <div class="example-analysis">
+                            → CC de lieu • Adverbe de lieu
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-card">
+                <h3><span class="construction-icon">📝</span> Groupe Nominal Sans Préposition</h3>
+                <div class="construction-type">Construction directe</div>
+                <div class="construction-description">
+                    Certains CC peuvent être construits <strong>sans préposition</strong>, directement avec un groupe nominal. 
+                    Cela concerne principalement les CC de temps et de poids/mesure.
+                </div>
+                <div class="examples-container">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Nous partons <span class="example-highlight">lundi prochain</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de temps • GN sans préposition
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Ce paquet pèse <span class="example-highlight">deux kilos</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de mesure • GN sans préposition
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Il travaille <span class="example-highlight">toute la journée</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de temps • GN sans préposition
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-card">
+                <h3><span class="construction-icon">🔗</span> Proposition Subordonnée</h3>
+                <div class="construction-type">Construction complexe</div>
+                <div class="construction-description">
+                    Le CC peut être une <strong>proposition subordonnée conjonctive</strong> introduite par une conjonction 
+                    de subordination (quand, parce que, si, bien que, pour que, etc.).
+                </div>
+                <div class="examples-container">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Je sors <span class="example-highlight">quand il fait beau</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de temps • Proposition subordonnée de temps
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Il est absent <span class="example-highlight">parce qu'il est malade</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de cause • Proposition subordonnée de cause
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Elle parle fort <span class="example-highlight">pour que tout le monde entende</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de but • Proposition subordonnée de but
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-card">
+                <h3><span class="construction-icon">🎯</span> Infinitif Prépositionnel</h3>
+                <div class="construction-type">Construction verbale</div>
+                <div class="construction-description">
+                    Le CC peut être construit avec un <strong>verbe à l'infinitif</strong> précédé d'une préposition 
+                    (à, de, pour, sans, avant de, après, etc.).
+                </div>
+                <div class="examples-container">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Il travaille <span class="example-highlight">pour réussir</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de but • Préposition "pour" + infinitif
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Je sors <span class="example-highlight">sans fermer la porte</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de manière • Préposition "sans" + infinitif
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Réfléchis <span class="example-highlight">avant de répondre</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de temps • Locution "avant de" + infinitif
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-card">
+                <h3><span class="construction-icon">✨</span> Gérondif</h3>
+                <div class="construction-type">Construction particulière</div>
+                <div class="construction-description">
+                    Le CC peut être exprimé par un <strong>gérondif</strong> (en + participe présent), 
+                    qui indique une action simultanée ou la manière.
+                </div>
+                <div class="examples-container">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Elle travaille <span class="example-highlight">en chantant</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de manière • Gérondif
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Il s'est blessé <span class="example-highlight">en tombant</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de temps/manière • Gérondif
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            Tu réussiras <span class="example-highlight">en travaillant dur</span>.
+                        </div>
+                        <div class="example-analysis">
+                            → CC de condition/moyen • Gérondif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="structure-table">
+            <h2>📊 Tableau Récapitulatif des Constructions</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type de Construction</th>
+                            <th>Nature Grammaticale</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GN prépositionnel</td>
+                            <td><span class="nature-highlight">Préposition + GN</span></td>
+                            <td>Je vais <strong>à Paris</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Adverbe</td>
+                            <td><span class="nature-highlight">Adverbe</span></td>
+                            <td>Il court <strong>vite</strong></td>
+                        </tr>
+                        <tr>
+                            <td>GN sans préposition</td>
+                            <td><span class="nature-highlight">Groupe nominal</span></td>
+                            <td>Nous partons <strong>ce soir</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Proposition subordonnée</td>
+                            <td><span class="nature-highlight">Conjonction + proposition</span></td>
+                            <td>Je reste <strong>parce que je suis fatigué</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Infinitif prépositionnel</td>
+                            <td><span class="nature-highlight">Préposition + infinitif</span></td>
+                            <td>Il part <strong>pour travailler</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Gérondif</td>
+                            <td><span class="nature-highlight">En + participe présent</span></td>
+                            <td>Elle lit <strong>en marchant</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="special-section">
+            <h2>💡 Conseils pour Identifier la Construction</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>🔍 Cherchez la préposition</h4>
+                    <p>Si le CC commence par une préposition (à, de, dans, avec, pour...), 
+                    c'est probablement un GN prépositionnel ou un infinitif prépositionnel.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>⚡ Repérez les adverbes</h4>
+                    <p>Les mots qui se terminent souvent en -ment, ou les mots comme "ici", "demain", "vite" 
+                    sont des adverbes formant des CC simples.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>🔗 Identifiez les conjonctions</h4>
+                    <p>Si le CC contient un verbe conjugué introduit par "quand", "parce que", "si", etc., 
+                    c'est une proposition subordonnée.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>✨ Reconnaissez "en + -ant"</h4>
+                    <p>La structure "en" + verbe se terminant par "-ant" est toujours un gérondif 
+                    et forme un CC (généralement de manière ou de temps).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="intro-section">
+            <h2>🎯 Points Importants à Retenir</h2>
+            <p>
+                ✅ <strong>Un même type de CC peut avoir plusieurs constructions différentes :</strong>
+                <br>• CC de temps : "demain" (adverbe), "dans trois jours" (GN prépositionnel), "quand il pleut" (proposition)
+            </p>
+            <p>
+                ✅ <strong>La construction influence parfois le sens précis du CC :</strong>
+                <br>• "Il travaille pour réussir" (but) ≠ "Il travaille avec succès" (manière)
+            </p>
+            <p>
+                ✅ <strong>Certains CC peuvent être construits sans préposition :</strong>
+                <br>• Surtout pour les CC de temps : "lundi", "ce soir", "l'année prochaine"
+            </p>
+            <p>
+                ✅ <strong>Le gérondif est toujours un complément circonstanciel :</strong>
+                <br>• Il exprime généralement la manière, le temps ou la condition
+            </p>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                Maîtrisez la construction des compléments circonstanciels 
+                pour enrichir votre expression française ! 🇫🇷
+            </div>
+            <div class="footer-logo">⚜️ LÍNGUA ACADEMY ⚜️</div>
+        </footer>
+    </div>
+</body>
+</html>

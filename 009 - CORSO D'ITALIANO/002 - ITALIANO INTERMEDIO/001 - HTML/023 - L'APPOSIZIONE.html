@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Apposizione - Grammatica Italiana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 20%, #f093fb 40%, #4facfe 60%, #00f2fe 80%, #43e97b 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1.4s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-120px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 5.5em;
+            color: #fff;
+            text-shadow: 8px 8px 16px rgba(0,0,0,0.6);
+            margin-bottom: 20px;
+            animation: pulse 3s ease-in-out infinite;
+            letter-spacing: 5px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.09); }
+        }
+
+        .subtitle {
+            font-size: 2.2em;
+            color: #fff;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 45px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 35px 70px rgba(0,0,0,0.4);
+            backdrop-filter: blur(30px);
+            border: 6px solid rgba(255,255,255,0.7);
+            animation: fadeInUp 1.2s ease;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-22px) scale(1.02);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 3.2em;
+            margin-bottom: 40px;
+            border-bottom: 8px solid #764ba2;
+            padding-bottom: 20px;
+            display: inline-block;
+            animation: slideInLeft 1.4s ease;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-250px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h3 {
+            color: #f093fb;
+            font-size: 2.6em;
+            margin: 45px 0 30px 0;
+        }
+
+        .definition {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 45px;
+            border-radius: 30px;
+            margin: 40px 0;
+            font-size: 1.5em;
+            box-shadow: 0 18px 40px rgba(102, 126, 234, 0.7);
+            animation: zoomIn 1.4s ease;
+            line-height: 2.3;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.2);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            padding: 40px;
+            border-radius: 30px;
+            margin: 35px 0;
+            color: white;
+            font-size: 1.4em;
+            box-shadow: 0 18px 40px rgba(245, 87, 108, 0.7);
+            animation: slideInRight 1.4s ease;
+            line-height: 2.3;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(250px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .apposizione-highlight {
+            background: #feca57;
+            padding: 14px 28px;
+            border-radius: 16px;
+            display: inline-block;
+            animation: bounce 3.5s ease-in-out infinite;
+            box-shadow: 0 10px 25px rgba(254, 202, 87, 0.8);
+            font-weight: bold;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+        }
+
+        .nome-highlight {
+            background: #4facfe;
+            padding: 14px 28px;
+            border-radius: 16px;
+            display: inline-block;
+            animation: wiggle 3.5s ease-in-out infinite;
+            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.8);
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-7deg); }
+            75% { transform: rotate(7deg); }
+        }
+
+        .types-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            margin: 45px 0;
+        }
+
+        .type-box {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            padding: 45px;
+            border-radius: 32px;
+            text-align: center;
+            box-shadow: 0 20px 45px rgba(79, 172, 254, 0.7);
+            transition: all 0.5s ease;
+            animation: bounceIn 1.5s ease;
+            border: 6px solid rgba(255,255,255,0.5);
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.05);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+            70% {
+                transform: scale(0.75);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .type-box:hover {
+            transform: translateY(-28px) rotate(4deg);
+            box-shadow: 0 28px 60px rgba(79, 172, 254, 0.9);
+        }
+
+        .type-title {
+            color: #fff;
+            font-size: 2.4em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-shadow: 5px 5px 10px rgba(0,0,0,0.4);
+        }
+
+        .type-description {
+            color: #fff;
+            font-size: 1.4em;
+            margin: 25px 0;
+            line-height: 2;
+        }
+
+        .type-example {
+            background: rgba(255,255,255,0.4);
+            padding: 32px;
+            border-radius: 22px;
+            color: #fff;
+            font-weight: bold;
+            margin-top: 25px;
+            font-size: 1.4em;
+            border: 5px solid rgba(255,255,255,0.7);
+        }
+
+        .interactive-analysis {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            padding: 50px;
+            border-radius: 35px;
+            margin: 45px 0;
+            color: white;
+            box-shadow: 0 22px 50px rgba(67, 233, 123, 0.8);
+            animation: zoomIn 1.5s ease;
+        }
+
+        .sentence-display {
+            background: rgba(255,255,255,0.35);
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            border: 6px dashed rgba(255,255,255,0.9);
+            font-size: 1.9em;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .analysis-step {
+            background: rgba(255,255,255,0.3);
+            padding: 35px;
+            border-radius: 22px;
+            margin: 25px 0;
+            border-left: 10px solid #fff;
+        }
+
+        .word-tag {
+            background: rgba(255,255,255,0.6);
+            padding: 18px 35px;
+            border-radius: 18px;
+            display: inline-block;
+            margin: 12px;
+            font-weight: bold;
+            font-size: 1.5em;
+            transition: all 0.4s ease;
+            border: 5px solid rgba(255,255,255,0.8);
+        }
+
+        .word-tag:hover {
+            background: rgba(255,255,255,0.9);
+            transform: scale(1.25) rotate(6deg);
+        }
+
+        .note {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            padding: 38px;
+            border-radius: 25px;
+            margin: 38px 0;
+            font-style: italic;
+            border-left: 14px solid #667eea;
+            animation: slideInRight 1.4s ease;
+            font-size: 1.3em;
+            line-height: 2.2;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            padding: 35px;
+            border-radius: 22px;
+            margin: 35px 0;
+            border-left: 14px solid #ff6a00;
+            animation: slideInLeft 1.4s ease;
+            font-size: 1.3em;
+            line-height: 2.2;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 35px 0;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 18px 40px rgba(240, 147, 251, 0.6);
+        }
+
+        th, td {
+            padding: 32px;
+            text-align: left;
+            color: white;
+            font-size: 1.4em;
+            border-bottom: 5px solid rgba(255,255,255,0.4);
+        }
+
+        th {
+            background: rgba(255,255,255,0.35);
+            font-size: 1.7em;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        tr:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        ul {
+            margin-left: 50px;
+            line-height: 2.7;
+        }
+
+        li {
+            margin: 20px 0;
+            font-size: 1.3em;
+        }
+
+        .emoji {
+            font-size: 2.5em;
+            margin-right: 20px;
+            display: inline-block;
+            animation: rotate 6s ease-in-out infinite;
+        }
+
+        @keyframes rotate {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-25deg) scale(1.2); }
+            75% { transform: rotate(25deg) scale(1.2); }
+        }
+
+        .comparison-section {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            padding: 55px;
+            border-radius: 38px;
+            color: white;
+            margin: 45px 0;
+            box-shadow: 0 25px 55px rgba(250, 112, 154, 0.8);
+            animation: slideInLeft 1.5s ease;
+        }
+
+        .comparison-section h3 {
+            color: #fff;
+            font-size: 2.8em;
+            margin-bottom: 32px;
+            text-shadow: 5px 5px 10px rgba(0,0,0,0.4);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 35px;
+        }
+
+        .comparison-card {
+            background: rgba(255,255,255,0.35);
+            padding: 35px;
+            border-radius: 22px;
+            border: 5px solid rgba(255,255,255,0.6);
+            transition: all 0.4s ease;
+        }
+
+        .comparison-card:hover {
+            background: rgba(255,255,255,0.5);
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 90px;
+            padding: 40px;
+            font-size: 1.6em;
+            text-shadow: 6px 6px 12px rgba(0,0,0,0.6);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5em; }
+            h2 { font-size: 2.6em; }
+            h3 { font-size: 2.2em; }
+            .types-container, .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sparkle {
+            display: inline-block;
+            animation: sparkle 2.2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+            50% { opacity: 0.4; transform: scale(1.6) rotate(180deg); }
+        }
+
+        .arrow-divider {
+            text-align: center;
+            font-size: 4em;
+            color: #fff;
+            margin: 35px 0;
+            animation: float 3.5s ease-in-out infinite;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-35px); }
+        }
+
+        .schema-box {
+            background: linear-gradient(135deg, #ff6a00, #ee0979);
+            padding: 50px;
+            border-radius: 35px;
+            margin: 45px 0;
+            box-shadow: 0 22px 50px rgba(238, 9, 121, 0.7);
+        }
+
+        .schema-box h3 {
+            color: #fff;
+            margin-bottom: 30px;
+            text-shadow: 5px 5px 10px rgba(0,0,0,0.4);
+        }
+
+        .formula {
+            background: rgba(255,255,255,0.4);
+            padding: 35px;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            margin: 22px 0;
+            border: 5px solid rgba(255,255,255,0.7);
+        }
+
+        .visual-example {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 45px;
+            border-radius: 30px;
+            margin: 40px 0;
+            box-shadow: 0 20px 45px rgba(102, 126, 234, 0.7);
+        }
+
+        .visual-box {
+            background: rgba(255,255,255,0.3);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px 0;
+            border: 4px solid rgba(255,255,255,0.6);
+        }
+
+        .visual-element {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 15px;
+            font-size: 1.4em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .visual-element:hover {
+            transform: scale(1.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="sparkle">🌟</span> L'APPOSIZIONE <span class="sparkle">🌟</span></h1>
+            <p class="subtitle">Grammatica Italiana - Analisi Logica</p>
+        </header>
+
+        <!-- Sezione: Cos'è l'Apposizione -->
+        <div class="card">
+            <h2><span class="emoji">💎</span> Cos'è l'Apposizione?</h2>
+            <div class="definition">
+                <strong>L'APPOSIZIONE</strong> è un nome (sostantivo) che si affianca a un altro nome per specificarlo, chiarirlo o qualificarlo meglio. L'apposizione fornisce informazioni aggiuntive su chi o cosa è il nome a cui si riferisce.
+            </div>
+
+            <div class="example-box">
+                <span class="emoji">📌</span> <strong>Esempi di Apposizione:</strong><br><br>
+                <span class="nome-highlight">Marco</span>, <span class="apposizione-highlight">mio fratello</span>, studia medicina.<br><br>
+                <span class="nome-highlight">Roma</span>, <span class="apposizione-highlight">la capitale d'Italia</span>, è bellissima.<br><br>
+                Il dottor <span class="nome-highlight">Rossi</span>, <span class="apposizione-highlight">medico</span>, visita i pazienti.<br><br>
+                <span class="nome-highlight">Napoleone</span>, <span class="apposizione-highlight">imperatore</span>, conquistò l'Europa.
+            </div>
+
+            <div class="schema-box">
+                <h3>📐 Struttura dell'Apposizione:</h3>
+                <div class="formula">
+                    NOME + APPOSIZIONE (altro nome)
+                </div>
+                <div class="formula" style="font-size: 1.6em; margin-top: 28px;">
+                    L'apposizione è sempre un NOME<br>
+                    che specifica un altro NOME
+                </div>
+            </div>
+
+            <div class="highlight">
+                <span class="emoji">🔍</span> <strong>Come riconoscere l'Apposizione:</strong><br><br>
+                <strong>1.</strong> L'apposizione è sempre un NOME (mai un aggettivo!)<br>
+                <strong>2.</strong> Si riferisce a un altro nome nella frase<br>
+                <strong>3.</strong> Di solito è separata da virgole<br>
+                <strong>4.</strong> Puoi toglierla e la frase ha ancora senso<br>
+                <strong>5.</strong> Risponde alla domanda: "Chi è?" o "Che cos'è?"
+            </div>
+
+            <div class="note">
+                <span class="emoji">💡</span> <strong>Importante:</strong> L'apposizione è un NOME, non un aggettivo! Questa è la differenza fondamentale tra apposizione e attributo.
+            </div>
+        </div>
+
+        <!-- Sezione: Tipi di Apposizione -->
+        <div class="card">
+            <h2><span class="emoji">🎨</span> Tipi di Apposizione</h2>
+            <p style="font-size: 1.5em; margin-bottom: 40px; line-height: 2.3;">
+                L'apposizione si divide in due tipi principali in base alla sua posizione e funzione.
+            </p>
+
+            <div class="types-container">
+                <div class="type-box" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    <div class="type-title">📝 APPOSIZIONE SEMPLICE</div>
+                    <div class="type-description">
+                        È formata da un solo nome che specifica il nome principale. Di solito NON è separata da virgole.
+                    </div>
+                    <div class="type-example">
+                        Il dottor <strong>Rossi</strong><br><br>
+                        Il re <strong>Carlo</strong><br><br>
+                        Il professor <strong>Bianchi</strong><br><br>
+                        Il fiume <strong>Po</strong><br><br>
+                        La città <strong>Milano</strong>
+                    </div>
+                </div>
+
+                <div class="type-box" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                    <div class="type-title">👑 APPOSIZIONE COMPLESSA</div>
+                    <div class="type-description">
+                        È formata da un nome con i suoi attributi o complementi. Di solito È separata da virgole.
+                    </div>
+                    <div class="type-example">
+                        Marco, <strong>mio fratello maggiore</strong>, ...<br><br>
+                        Roma, <strong>la capitale d'Italia</strong>, ...<br><br>
+                        Dante, <strong>il sommo poeta</strong>, ...<br><br>
+                        Il Po, <strong>il fiume più lungo</strong>, ...
+                    </div>
+                </div>
+            </div>
+
+            <div class="visual-example">
+                <h3 style="color: white; margin-bottom: 30px; text-shadow: 4px 4px 8px rgba(0,0,0,0.4);">🎯 Confronto Visivo:</h3>
+                
+                <div class="visual-box">
+                    <h4 style="color: white; font-size: 1.8em; margin-bottom: 20px;">APPOSIZIONE SEMPLICE:</h4>
+                    <p style="color: white; font-size: 1.5em;">
+                        <span class="visual-element" style="background: #4facfe; color: white;">Il dottor</span>
+                        <span class="visual-element" style="background: #feca57; color: #333;">Rossi</span>
+                        <span class="visual-element" style="background: #43e97b; color: white;">è arrivato.</span>
+                    </p>
+                    <p style="color: white; font-size: 1.3em; margin-top: 20px;">
+                        → "Rossi" è apposizione semplice di "dottor"
+                    </p>
+                </div>
+
+                <div class="visual-box" style="margin-top: 30px;">
+                    <h4 style="color: white; font-size: 1.8em; margin-bottom: 20px;">APPOSIZIONE COMPLESSA:</h4>
+                    <p style="color: white; font-size: 1.5em;">
+                        <span class="visual-element" style="background: #4facfe; color: white;">Marco</span>
+                        <span class="visual-element" style="background: #feca57; color: #333;">mio fratello maggiore</span>
+                        <span class="visual-element" style="background: #43e97b; color: white;">studia.</span>
+                    </p>
+                    <p style="color: white; font-size: 1.3em; margin-top: 20px;">
+                        → "mio fratello maggiore" è apposizione complessa di "Marco"
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sezione: Analisi Interattiva -->
+        <div class="card">
+            <h2><span class="emoji">🔬</span> Analisi dell'Apposizione - Passo per Passo</h2>
+            
+            <div class="interactive-analysis">
+                <h3 style="color: white; margin-bottom: 35px;">🎯 Esempio di Analisi Completa:</h3>
+                <div class="sentence-display">
+                    "Marco, il mio migliore amico, studia a Roma, la capitale d'Italia."
+                </div>
+                
+                <div class="arrow-divider">⬇️</div>
+
+                <div class="analysis-step">
+                    <strong style="font-size: 1.6em; color: white;">PASSO 1:</strong>
+                    <p style="color: white; font-size: 1.4em; margin-top: 18px;">
+                        Identifica tutti i NOMI nella frase
+                    </p>
+                    <div class="word-tag" style="background: #4facfe;">Marco</div>
+                    <div class="word-tag" style="background: #4facfe;">amico</div>
+                    <div class="word-tag" style="background: #4facfe;">Roma</div>
+                    <div class="word-tag" style="background: #4facfe;">capitale</div>
+                </div>
+
+                <div class="analysis-step">
+                    <strong style="font-size: 1.6em; color: white;">PASSO 2:</strong>
+                    <p style="color: white; font-size: 1.4em; margin-top: 18px;">
+                        Cerca i nomi che SPECIFICANO altri nomi
+                    </p>
+                    <p style="color: white; font-size: 1.3em; margin-top: 15px; line-height: 2;">
+                        • "il mio migliore amico" → specifica CHI è Marco<br>
+                        • "la capitale d'Italia" → specifica CHE COS'È Roma
+                    </p>
+                </div>
+
+                <div class="analysis-step">
+                    <strong style="font-size: 1.6em; color: white;">PASSO 3:</strong>
+                    <p style="color: white; font-size: 1.4em; margin-top: 18px;">
+                        Verifica che siano tra virgole (apposizioni complesse)
+                    </p>
+                    <div class="word-tag" style="background: #43e97b;">✅ Entrambe tra virgole!</div>
+                </div>
+
+                <div class="analysis-step">
+                    <strong style="font-size: 1.6em; color: white;">RISULTATO FINALE:</strong>
+                    <p style="color: white; font-size: 1.5em; margin-top: 22px; line-height: 2.4;">
+                        • <strong>"il mio migliore amico"</strong> = apposizione complessa di "Marco"<br>
+                        • <strong>"la capitale d'Italia"</strong> = apposizione complessa di "Roma"
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sezione: Differenza Apposizione vs Attributo -->
+        <div class="card">
+            <h2><span class="emoji">⚖️</span> Apposizione VS Attributo</h2>
+            
+            <div class="comparison-section">
+                <h3>🔥 ATTENZIONE - Differenza FONDAMENTALE!</h3>
+                <p style="font-size: 1.5em; line-height: 2.3; margin: 30px 0;">
+                    Questa è la confusione più comune! Ecco come distinguerli:
+                </p>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h4 style="color: white; font-size: 2em; margin-bottom: 22px;">✅ APPOSIZIONE</h4>
+                        <p style="color: white; font-size: 1.4em; line-height: 2.2;">
+                            È sempre un <strong>NOME</strong><br>
+                            che specifica un altro nome
+                        </p>
+                        <div style="background: rgba(255,255,255,0.4); padding: 22px; border-radius: 18px; margin-top: 22px;">
+                            <p style="color: white; font-size: 1.4em; font-weight: bold;">
+                                Marco, <span style="background: #feca57; padding: 10px 20px; border-radius: 12px; color: #333;">mio fratello</span>
+                            </p>
+                            <p style="color: white; font-size: 1.3em; margin-top: 18px;">
+                                → "fratello" è un NOME
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h4 style="color: white; font-size: 2em; margin-bottom: 22px;">✅ ATTRIBUTO</h4>
+                        <p style="color: white; font-size: 1.4em; line-height: 2.2;">
+                            È sempre un <strong>AGGETTIVO</strong><br>
+                            che descrive un nome
+                        </p>
+                        <div style="background: rgba(255,255,255,0.4); padding: 22px; border-radius: 18px; margin-top: 22px;">
+                            <p style="color: white; font-size: 1.4em; font-weight: bold;">
+                                Il mio <span style="background: #43e97b; padding: 10px 20px; border-radius: 12px;">simpatico</span> fratello
+                            </p>
+                            <p style="color: white; font-size: 1.3em; margin-top: 18px;">
+                                → "simpatico" è un AGGETTIVO
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table style="margin-top: 45px;">
+                <tr>
+                    <th>Elemento</th>
+                    <th>Tipo</th>
+                    <th>È un...</th>
+                    <th>Esempio</th>
+                </tr>
+                <tr>
+                    <td>Marco, <strong>medico</strong>, lavora.</td>
+                    <td><strong>APPOSIZIONE</strong></td>
+                    <td>NOME</td>
+                    <td>"medico" è un nome</td>
+                </tr>
+                <tr>
+                    <td>Il <strong>bravo</strong> medico lavora.</td>
+                    <td><strong>ATTRIBUTO</strong></td>
+                    <td>AGGETTIVO</td>
+                    <td>"bravo" è un aggettivo</td>
+                </tr>
+                <tr>
+                    <td>Roma, <strong>capitale</strong>, è bella.</td>
+                    <td><strong>APPOSIZIONE</strong></td>
+                    <td>NOME</td>
+                    <td>"capitale" è un nome</td>
+                </tr>
+                <tr>
+                    <td>La <strong>bella</strong> capitale.</td>
+                    <td><strong>ATTRIBUTO</strong></td>
+                    <td>AGGETTIVO</td>
+                    <td>"bella" è un aggettivo</td>
+                </tr>
+                <tr>
+                    <td>Dante, <strong>poeta</strong>, scrisse.</td>
+                    <td><strong>APPOSIZIONE</strong></td>
+                    <td>NOME</td>
+                    <td>"poeta" è un nome</td>
+                </tr>
+                <tr>
+                    <td>Il <strong>grande</strong> poeta scrisse.</td>
+                    <td><strong>ATTRIBUTO</strong></td>
+                    <td>AGGETTIVO</td>
+                    <td>"grande" è un aggettivo</td>
+                </tr>
+            </table>
+
+            <div class="highlight" style="margin-top: 40px;">
+                <span class="emoji">🎯</span> <strong>Trucco Infallibile:</strong><br><br>
+                <strong>DOMANDA:</strong> L'elemento è un nome o un aggettivo?<br>
+                <strong>✅ NOME</strong> → APPOSIZIONE<br>
+                <strong>✅ AGGETTIVO</strong> → ATTRIBUTO<br><br>
+                Esempio: "Marco, <u>studente</u>, studia."<br>
+                → "studente" è un NOME → È un'APPOSIZIONE!
+            </div>
+        </div>
+
+        <!-- Sezione: A chi si riferisce l'Apposizione -->
+        <div class="card">
+            <h2><span class="emoji">🎯</span> A chi si riferisce l'Apposizione?</h2>
+            <p style="font-size: 1.5em; margin-bottom: 40px; line-height: 2.3;">
+                Come l'attributo, l'apposizione può riferirsi a diverse funzioni logiche nella frase:
+            </p>
+
+            <div class="types-container">
+                <div class="type-box" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    <div class="type-title">👑 APPOSIZIONE DEL SOGGETTO</div>
+                    <div class="type-description">
+                        L'apposizione specifica il soggetto della frase
+                    </div>
+                    <div class="type-example">
+                        <strong>Marco</strong>, <span style="background: #feca57; padding: 8px 16px; border-radius: 10px; color: #333;">mio fratello</span>, studia.<br><br>
+                        <strong>Roma</strong>, <span style="background: #feca57; padding: 8px 16px; border-radius: 10px; color: #333;">la capitale</span>, è bella.<br><br>
+                        → "mio fratello" e "la capitale" sono apposizioni del soggetto
+                    </div>
+                </div>
+
+                <div class="type-box" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                    <div class="type-title">📦 APPOSIZIONE DEL COMPLEMENTO OGGETTO</div>
+                    <div class="type-description">
+                        L'apposizione specifica il complemento oggetto
+                    </div>
+                    <div class="type-example">
+                        Ho incontrato <strong>Paolo</strong>, <span style="background: #feca57; padding: 8px 16px; border-radius: 10px; color: #333;">il mio professore</span>.<br><br>
+                        Visito <strong>Parigi</strong>, <span style="background: #feca57; padding: 8px 16px; border-radius: 10px; color: #333;">città dell'amore</span>.<br><br>
+                        → apposizioni del complemento oggetto
+                    </div>
+                </div>
+
+                <div class="type-box" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                    <div class="type-title">🔗 APPOSIZIONE DI ALTRI COMPLEMENTI</div>
+                    <div class="type-description">
+                        L'apposizione può specificare qualsiasi complemento
+                    </div>
+                    <div class="type-example">
+                        Vado con <strong>Luca</strong>, <span style="background: #feca57; padding: 8px 16px; border-radius: 10px; color: #333;">mio cugino</span>.<br><br>
+                        Vivo a <strong>Milano</strong>, <span style="background: #feca57; padding: 8px 16px; border-radius: 10px; color: #333;">città della moda</span>.<br><br>
+                        → apposizioni di complementi indiretti
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box" style="margin-top: 45px;">
+                <span class="emoji">🔍</span> <strong>Analisi Completa di una Frase:</strong><br><br>
+                <div style="background: rgba(255,255,255,0.35); padding: 35px; border-radius: 22px; margin-top: 28px;">
+                    <p style="font-size: 1.6em; font-weight: bold; margin-bottom: 28px;">
+                        "Marco, mio fratello, ha visitato Roma, la capitale, con Paolo, suo amico."
+                    </p>
+                    
+                    <p style="font-size: 1.4em; line-height: 2.5;">
+                        • <strong>"mio fratello"</strong> = apposizione del soggetto "Marco"<br>
+                        • <strong>"la capitale"</strong> = apposizione del complemento oggetto "Roma"<br>
+                        • <strong>"suo amico"</strong> = apposizione del complemento "Paolo"
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sezione: Apposizione con Titoli e Nomi Propri -->
+        <div class="card">
+            <h2><span class="emoji">🏆</span> Apposizioni Speciali: Titoli e Nomi Propri</h2>
+            
+            <div class="schema-box">
+                <h3>👔 Apposizione con Titoli Professionali:</h3>
+                <p style="color: white; font-size: 1.4em; line-height: 2.2; margin: 25px 0;">
+                    Quando un titolo professionale precede un nome proprio, il titolo è un'apposizione semplice.
+                </p>
+                
+                <div class="formula" style="font-size: 1.5em;">
+                    TITOLO + NOME PROPRIO
+                </div>
+            </div>
+
+            <div class="example-box">
+                <span class="emoji">💼</span> <strong>Esempi con Titoli:</strong><br><br>
+                <div style="background: rgba(255,255,255,0.35); padding: 30px; border-radius: 20px; margin-top: 25px; line-height: 2.5; font-size: 1.3em;">
+                    • Il dottor <strong>Rossi</strong> → "dottor" è apposizione di "Rossi"<br>
+                    • Il professor <strong>Bianchi</strong> → "professor" è apposizione di "Bianchi"<br>
+                    • L'avvocato <strong>Verdi</strong> → "avvocato" è apposizione di "Verdi"<br>
+                    • Il re <strong>Carlo</strong> → "re" è apposizione di "Carlo"<br>
+                    • Il presidente <strong>Lincoln</strong> → "presidente" è apposizione di "Lincoln"<br>
+                    • L'imperatore <strong>Napoleone</strong> → "imperatore" è apposizione di "Napoleone"
+                </div>
+            </div>
+
+            <div class="schema-box" style="background: linear-gradient(135deg, #43e97b, #38f9d7); margin-top: 45px;">
+                <h3>🌍 Apposizione con Nomi di Luoghi:</h3>
+                <p style="color: white; font-size: 1.4em; line-height: 2.2; margin: 25px 0;">
+                    Nomi geografici possono avere apposizioni che ne specificano la natura.
+                </p>
+            </div>
+
+            <div class="example-box">
+                <span class="emoji">🗺️</span> <strong>Esempi con Luoghi:</strong><br><br>
+                <div style="background: rgba(255,255,255,0.35); padding: 30px; border-radius: 20px; margin-top: 25px; line-height: 2.5; font-size: 1.3em;">
+                    • Il fiume <strong>Po</strong> → "fiume" è apposizione di "Po"<br>
+                    • La città <strong>Milano</strong> → "città" è apposizione di "Milano"<br>
+                    • Il monte <strong>Bianco</strong> → "monte" è apposizione di "Bianco"<br>
+                    • Il lago <strong>di Como</strong> → "lago" è apposizione di "Como"<br>
+                    • L'isola <strong>Sicilia</strong> → "isola" è apposizione di "Sicilia"<br>
+                    • La regione <strong>Toscana</strong> → "regione" è apposizione di "Toscana"
+                </div>
+            </div>
+
+            <div class="note" style="margin-top: 40px;">
+                <span class="emoji">📚</span> <strong>Nota Importante:</strong> Nelle apposizioni con titoli e nomi di luoghi, l'ordine può essere invertito. Invece di "Il dottor Rossi" possiamo dire "Rossi, il dottore" (qui "il dottore" diventa apposizione complessa con virgole).
+            </div>
+        </div>
+
+        <!-- Sezione: Posizione dell'Apposizione -->
+        <div class="card">
+            <h2><span class="emoji">📍</span> Posizione dell'Apposizione</h2>
+            
+            <div class="comparison-section" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                <h3>🎨 L'Apposizione può trovarsi in diverse posizioni:</h3>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h4 style="color: white; font-size: 1.9em; margin-bottom: 20px;">➡️ PRIMA DEL NOME</h4>
+                        <p style="color: white; font-size: 1.3em; line-height: 2;">
+                            Apposizione semplice, senza virgole
+                        </p>
+                        <div style="background: rgba(255,255,255,0.4); padding: 20px; border-radius: 15px; margin-top: 20px;">
+                            <p style="color: white; font-size: 1.3em; font-weight: bold; line-height: 2;">
+                                Il dottor Rossi<br>
+                                Il re Carlo<br>
+                                Il fiume Po
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <h4 style="color: white; font-size: 1.9em; margin-bottom: 20px;">⬅️ DOPO IL NOME</h4>
+                        <p style="color: white; font-size: 1.3em; line-height: 2;">
+                            Apposizione complessa, con virgole
+                        </p>
+                        <div style="background: rgba(255,255,255,0.4); padding: 20px; border-radius: 15px; margin-top: 20px;">
+                            <p style="color: white; font-size: 1.3em; font-weight: bold; line-height: 2;">
+                                Marco, mio fratello,<br>
+                                Roma, la capitale,<br>
+                                Dante, il poeta,
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 40px;">
+                <span class="emoji">💡</span> <strong>Regola delle Virgole:</strong><br><br>
+                • <strong>Apposizione SEMPLICE:</strong> NO virgole (il dottor Rossi)<br>
+                • <strong>Apposizione COMPLESSA:</strong> SÌ virgole (Marco, mio fratello,)
+            </div>
+        </div>
+
+        <!-- Sezione: Schema Riassuntivo -->
+        <div class="card">
+            <h2><span class="emoji">📋</span> Schema Riassuntivo Completo</h2>
+            
+            <div class="highlight">
+                <h3 style="color: #ff6a00;">🎯 Punti Chiave da Ricordare:</h3>
+                <ul>
+                    <li><strong>DEFINIZIONE:</strong> L'apposizione è un NOME che specifica un altro nome</li>
+                    <li><strong>DIFFERENZA CON ATTRIBUTO:</strong> Apposizione = NOME, Attributo = AGGETTIVO</li>
+                    <li><strong>TIPI:</strong> Semplice (senza virgole) e Complessa (con virgole)</li>
+                    <li><strong>POSIZIONE:</strong> Prima del nome (semplice) o dopo il nome (complessa)</li>
+                    <li><strong>SI RIFERISCE A:</strong> Soggetto, Complemento oggetto, Altri complementi</li>
+                    <li><strong>USI COMUNI:</strong> Titoli professionali, nomi di luoghi, specificazioni</li>
+                    <li><strong>DOMANDA:</strong> "Chi è?" o "Che cos'è?" il nome a cui si riferisce</li>
+                    <li><strong>FUNZIONE:</strong> Chiarisce, specifica, qualifica il nome principale</li>
+                </ul>
+            </div>
+
+            <div class="schema-box" style="margin-top: 45px;">
+                <h3>🔑 Formula Magica per Riconoscere l'Apposizione:</h3>
+                <div class="formula">
+                    È un NOME? → Può essere APPOSIZIONE
+                </div>
+                <div class="formula" style="margin-top: 28px;">
+                    Specifica un altro NOME? → È APPOSIZIONE!
+                </div>
+                <div class="formula" style="margin-top: 28px;">
+                    È un AGGETTIVO? → È ATTRIBUTO (non apposizione)
+                </div>
+            </div>
+
+            <div class="interactive-analysis" style="margin-top: 45px;">
+                <h3 style="color: white; margin-bottom: 30px;">🎨 Esempio Finale Completo:</h3>
+                <div class="sentence-display">
+                    "Il dottor Rossi, medico famoso, visita a Milano, città della moda, con Paolo, suo assistente."
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.35); padding: 35px; border-radius: 22px; margin-top: 30px;">
+                    <p style="color: white; font-size: 1.5em; line-height: 2.6;">
+                        <strong>APPOSIZIONI:</strong><br><br>
+                        • <span style="background: #feca57; padding: 10px 20px; border-radius: 12px; color: #333;">dottor</span> → apposizione semplice di "Rossi"<br>
+                        • <span style="background: #feca57; padding: 10px 20px; border-radius: 12px; color: #333;">medico famoso</span> → apposizione complessa di "Rossi"<br>
+                        • <span style="background: #feca57; padding: 10px 20px; border-radius: 12px; color: #333;">città della moda</span> → apposizione complessa di "Milano"<br>
+                        • <span style="background: #feca57; padding: 10px 20px; border-radius: 12px; color: #333;">suo assistente</span> → apposizione complessa di "Paolo"
+                    </p>
+                </div>
+            </div>
+
+            <table style="margin-top: 45px; background: linear-gradient(135deg, #667eea, #764ba2);">
+                <tr>
+                    <th>Concetto</th>
+                    <th>Apposizione</th>
+                    <th>Attributo</th>
+                </tr>
+                <tr>
+                    <td><strong>Cos'è?</strong></td>
+                    <td>Un NOME</td>
+                    <td>Un AGGETTIVO</td>
+                </tr>
+                <tr>
+                    <td><strong>Funzione</strong></td>
+                    <td>Specifica un nome</td>
+                    <td>Descrive un nome</td>
+                </tr>
+                <tr>
+                    <td><strong>Esempio</strong></td>
+                    <td>Marco, <strong>medico</strong></td>
+                    <td>Il <strong>bravo</strong> medico</td>
+                </tr>
+                <tr>
+                    <td><strong>Virgole</strong></td>
+                    <td>Spesso sì (complessa)</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td><strong>Domanda</strong></td>
+                    <td>Chi è? Che cos'è?</td>
+                    <td>Com'è? Quale?</td>
+                </tr>
+            </table>
+        </div>
+
+        <footer>
+            <p>🌟 Con l'apposizione specifichiamo meglio di chi o cosa parliamo! 🌟</p>
+            <p>📚 Grammatica Italiana - L'Apposizione 📚</p>
+        </footer>
+    </div>
+</body>
+</html>

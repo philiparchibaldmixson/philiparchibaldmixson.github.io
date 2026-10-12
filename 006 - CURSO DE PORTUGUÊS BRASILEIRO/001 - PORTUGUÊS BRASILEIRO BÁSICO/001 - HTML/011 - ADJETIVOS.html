@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adjetivos em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #E67E22;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #E67E22;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #F39C12;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .classes-grid, .tipos-grid, .flexao-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .classe-card, .tipo-card, .flexao-item {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+        }
+
+        .classe-card:hover, .tipo-card:hover, .flexao-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores Adaptadas/Reutilizadas do 008 - CLASSES DE PALAVRAS */
+        .classe-card.substantivo, .tipo-card.simples {
+            background: linear-gradient(135deg, #2ECC71, #27AE60);
+        }
+
+        .classe-card.artigo, .tipo-card.composto {
+            background: linear-gradient(135deg, #3498DB, #2980B9);
+        }
+
+        .classe-card.adjetivo, .tipo-card.primitivo {
+            background: linear-gradient(135deg, #E74C3C, #C0392B);
+        }
+
+        .classe-card.verbo, .tipo-card.derivado {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD);
+        }
+
+        .classe-card.advérbio, .tipo-card.locucao {
+            background: linear-gradient(135deg, #F1C40F, #F39C12);
+            color: #333;
+        }
+
+        /* Novas Cores ou Reuso */
+        .tipo-card.uniforme {
+            background: linear-gradient(135deg, #1ABC9C, #16A085); /* Gênero Uniforme */
+        }
+        .tipo-card.biforme {
+            background: linear-gradient(135deg, #FFC300, #FF5733); /* Gênero Biforme */
+        }
+        .tipo-card.superlativo {
+             background: linear-gradient(135deg, #00C9FF, #92FE9D); /* Grau Superlativo */
+        }
+        .tipo-card.comparativo {
+             background: linear-gradient(135deg, #FF5F6D, #FFC371); /* Grau Comparativo */
+        }
+
+        .classe-card h3, .tipo-card h3, .flexao-item h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .classe-card .definicao, .tipo-card .definicao, .flexao-item .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .classe-card .exemplo, .tipo-card .exemplos, .flexao-item .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .classe-card .exemplo strong, .tipo-card .exemplos strong, .flexao-item .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .exemplo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #E67E22;
+        }
+
+        .exemplo-card .titulo-exemplo {
+            font-size: 2em;
+            color: #E67E22;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .conteudo-exemplo {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
+        .tabela-substantivos {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tabela-substantivos thead {
+            background: linear-gradient(135deg, #E67E22, #F39C12);
+            color: white;
+        }
+
+        .tabela-substantivos th {
+            padding: 20px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        .tabela-substantivos td {
+            padding: 18px 20px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        .tabela-substantivos tr:hover {
+            background: #fff8e8;
+        }
+
+        .tabela-substantivos .destaque-col {
+            color: #E67E22;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .dicas-box {
+            background: linear-gradient(135deg, #1ABC9C, #16A085);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .classe-card, .tipo-card, .destaque, .dicas-box, .exemplo-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .classes-grid, .tipos-grid, .flexao-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌟 Adjetivo 🌟</h1>
+        <p class="subtitle">A classe de palavras que dá qualidade, estado ou característica aos seres!</p>
+
+        <div class="section">
+            <h2>🎯 O que é Adjetivo?</h2>
+            <p class="intro-text">
+                O <strong>Adjetivo</strong> é a classe de palavras variável que tem por função 
+                modificar um substantivo, atribuindo-lhe uma qualidade, estado, modo de ser, ou 
+                característica. Ele sempre concorda em gênero e número com o substantivo.
+            </p>
+
+            <div class="destaque">
+                <strong>💡 O Modificador:</strong> A principal função do adjetivo é atuar como 
+                "satélite" do substantivo. Se você consegue dar uma qualidade a um nome, essa 
+                qualidade é um adjetivo.
+            </div>
+
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">Função e Concordância</div>
+                <div class="conteudo-exemplo">
+                    <strong>Exemplos:</strong><br><br>
+                    • Carro <span style="font-weight: bold; color: #E74C3C;">novo</span> (Adjetivo no singular masculino, concordando com Carro)<br>
+                    • Casas <span style="font-weight: bold; color: #E74C3C;">bonitas</span> (Adjetivo no plural feminino, concordando com Casas)<br>
+                    • Pessoas <span style="font-weight: bold; color: #E74C3C;">felizes</span> (Adjetivo uniforme no plural, concordando com Pessoas)
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔢 Classificação do Adjetivo</h2>
+            <p class="intro-text">
+                Os adjetivos podem ser classificados quanto à formação e quanto ao gênero.
+            </p>
+
+            <h3>1. Quanto ao Gênero</h3>
+            <div class="tipos-grid">
+                <div class="tipo-card biforme">
+                    <h3>Biformes</h3>
+                    <div class="definicao">
+                        Possuem uma forma para o masculino e outra para o feminino.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Masculino: aluno <span style="font-weight: bold;">bonito</span><br>
+                        • Feminino: aluna <span style="font-weight: bold;">bonita</span><br>
+                        • Outros: feio/feia, alto/alta, bom/boa
+                    </div>
+                </div>
+
+                <div class="tipo-card uniforme">
+                    <h3>Uniformes</h3>
+                    <div class="definicao">
+                        Possuem a mesma forma para o masculino e para o feminino.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Masculino: aluno <span style="font-weight: bold;">feliz</span><br>
+                        • Feminino: aluna <span style="font-weight: bold;">feliz</span><br>
+                        • Outros: simples, inteligente, capaz, comum
+                    </div>
+                </div>
+            </div>
+            
+            <h3>2. Quanto à Formação</h3>
+            <div class="tipos-grid">
+                <div class="tipo-card primitivo">
+                    <h3>Primitivo</h3>
+                    <div class="definicao">
+                        Não deriva de outra palavra da língua portuguesa.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • bom<br>
+                        • feliz<br>
+                        • claro<br>
+                        • azul
+                    </div>
+                </div>
+
+                <div class="tipo-card derivado">
+                    <h3>Derivado</h3>
+                    <div class="definicao">
+                        Deriva de outra palavra (geralmente substantivo) através de acréscimo de prefixo ou sufixo.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • bondoso (de bondade)<br>
+                        • infeliz (de feliz)<br>
+                        • avermelhado (de vermelho)<br>
+                        • articulado (de artigo)
+                    </div>
+                </div>
+                
+                <div class="tipo-card simples">
+                    <h3>Simples</h3>
+                    <div class="definicao">
+                        Formado por apenas um radical (uma palavra).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • brasileiro<br>
+                        • social<br>
+                        • amarelo<br>
+                        • doce
+                    </div>
+                </div>
+
+                <div class="tipo-card composto">
+                    <h3>Composto</h3>
+                    <div class="definicao">
+                        Formado por dois ou mais radicais, geralmente separados por hífen.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • luso-brasileiro<br>
+                        • verde-amarelo<br>
+                        • político-social<br>
+                        • azul-claro
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🌍 Locução Adjetiva e Adjetivos Pátrios</h2>
+            
+            <h3>Locução Adjetiva</h3>
+            <p class="intro-text">
+                É a expressão formada por duas ou mais palavras que, juntas, têm o valor de um adjetivo (geralmente uma preposição + substantivo).
+            </p>
+
+            <div class="tipo-card locucao">
+                <h3>Locução Adjetiva</h3>
+                <div class="definicao">
+                    Expressão com valor de adjetivo.
+                </div>
+                <div class="exemplos">
+                    <strong>Exemplos:</strong><br>
+                    • Amor <span style="font-weight: bold;">de mãe</span> (materno)<br>
+                    • Luz <span style="font-weight: bold;">do sol</span> (solar)<br>
+                    • Água <span style="font-weight: bold;">da chuva</span> (pluvial)<br>
+                    • Carne <span style="font-weight: bold;">de boi</span> (bovina)
+                </div>
+            </div>
+
+            <h3>Adjetivos Pátrios</h3>
+            <p class="intro-text" style="margin-top: 30px;">
+                Indicam a nacionalidade ou o lugar de origem de um ser.
+            </p>
+            
+            <div class="tabela-wrapper">
+                <table class="tabela-substantivos">
+                    <thead>
+                        <tr>
+                            <th>Lugar de Origem</th>
+                            <th>Adjetivo Pátrio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="destaque-col">Brasil</td>
+                            <td>brasileiro(a)</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">São Paulo (Cidade/Estado)</td>
+                            <td>paulistano(a)/paulista</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">Rio de Janeiro (Estado)</td>
+                            <td>fluminense</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">Rio de Janeiro (Capital)</td>
+                            <td>carioca</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">Japão</td>
+                            <td>japonês(esa)</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">França e Portugal</td>
+                            <td>franco-português</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📈 Flexão de Grau do Adjetivo</h2>
+            <p class="intro-text">
+                A flexão de grau mostra a intensidade da qualidade que o adjetivo expressa.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card comparativo">
+                    <h3>Grau Comparativo</h3>
+                    <div class="definicao">
+                        Compara a mesma qualidade entre dois seres (ou duas qualidades do mesmo ser).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Três tipos:</strong><br>
+                        • <strong>Igualdade:</strong> Tão ... quanto (ou como)<br>
+                        <span style="font-weight: bold;">Ex:</span> Ele é <span style="font-weight: bold;">tão</span> rápido <span style="font-weight: bold;">quanto</span> ela.<br>
+                        • <strong>Superioridade:</strong> Mais ... do que<br>
+                        <span style="font-weight: bold;">Ex:</span> Ele é <span style="font-weight: bold;">mais</span> rápido <span style="font-weight: bold;">do que</span> ela.<br>
+                        • <strong>Inferioridade:</strong> Menos ... do que<br>
+                        <span style="font-weight: bold;">Ex:</span> Ele é <span style="font-weight: bold;">menos</span> rápido <span style="font-weight: bold;">do que</span> ela.
+                    </div>
+                </div>
+
+                <div class="tipo-card superlativo">
+                    <h3>Grau Superlativo</h3>
+                    <div class="definicao">
+                        Intensifica a qualidade de um ser, destacando-o em relação aos demais (relativo) ou no seu grau máximo (absoluto).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Absoluto (Máximo Grau):</strong><br>
+                        • <span style="font-weight: bold;">Sintético:</span> Rápido → Rapidíssimo<br>
+                        • <span style="font-weight: bold;">Analítico:</span> Muito Rápido<br>
+                        <br>
+                        <strong>Relativo (Destaque no Grupo):</strong><br>
+                        • O mais / O menos<br>
+                        <span style="font-weight: bold;">Ex:</span> Ele é <span style="font-weight: bold;">o mais</span> rápido da turma.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="destaque" style="margin-top: 25px;">
+                <strong>⚠️ Formas Irregulares de Comparativo/Superlativo:</strong><br>
+                • Bom → Melhor → Ótimo<br>
+                • Mau → Pior → Péssimo<br>
+                • Grande → Maior → Máximo<br>
+                • Pequeno → Menor → Mínimo
+            </div>
+
+        </div>
+
+        <div class="section">
+            <h2>🎯 Dicas de Ouro</h2>
+            
+            <div class="dicas-box">
+                <h4>Pontos Essenciais:</h4>
+                <ul>
+                    <li>Em adjetivos compostos, apenas o último elemento varia em número e gênero (Ex: Camisa verde-clara, Camisas verde-claras).</li>
+                    <li>As cores adjetivas <span style="font-weight: bold;">AZUL-MARINHO</span> e <span style="font-weight: bold;">AZUL-CELESTE</span> são invariáveis (Ex: Carros azul-marinho).</li>
+                    <li>O adjetivo pode vir antes ou depois do substantivo, e sua posição pode mudar o sentido (Ex: Homem pobre vs Pobre homem).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

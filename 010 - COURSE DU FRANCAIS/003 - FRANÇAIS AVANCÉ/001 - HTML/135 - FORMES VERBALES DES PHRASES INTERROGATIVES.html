@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Formes Interrogatives | Língua Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Work+Sans:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --vibrant-orange: #ff6600;
+            --deep-navy: #0a1628;
+            --mustard-yellow: #f2c94c;
+            --electric-blue: #2e5cff;
+            --soft-peach: #ffe4d6;
+            --charcoal: #2d2d2d;
+            --off-white: #fafaf8;
+            --warm-gray: #e8e6e1;
+            --accent-pink: #ff385c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--off-white);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Large decorative question marks */
+        body::before,
+        body::after {
+            content: '?';
+            position: fixed;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body::before {
+            font-size: 40vw;
+            color: var(--vibrant-orange);
+            opacity: 0.03;
+            top: -10%;
+            right: -10%;
+            animation: float 30s ease-in-out infinite;
+        }
+
+        body::after {
+            font-size: 25vw;
+            color: var(--electric-blue);
+            opacity: 0.04;
+            bottom: -5%;
+            left: -5%;
+            animation: float 40s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(5deg); }
+            66% { transform: translate(-20px, 20px) rotate(-5deg); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 2rem;
+            position: relative;
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--charcoal) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 100px,
+                    rgba(255, 102, 0, 0.03) 100px,
+                    rgba(255, 102, 0, 0.03) 102px
+                );
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--vibrant-orange);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3.5rem, 10vw, 8rem);
+            font-weight: 800;
+            color: white;
+            line-height: 0.95;
+            margin-bottom: 2rem;
+            animation: slideInRight 1s ease-out 0.2s both;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 .question-mark {
+            color: var(--vibrant-orange);
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            color: var(--warm-gray);
+            max-width: 800px;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Section styles */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--vibrant-orange);
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--deep-navy);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .section-intro {
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            max-width: 800px;
+            line-height: 1.8;
+        }
+
+        /* Three Methods Grid */
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .method-card {
+            background: white;
+            border-radius: 24px;
+            padding: 0;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(10, 22, 40, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 3px solid transparent;
+        }
+
+        .method-card:hover {
+            transform: translateY(-10px) rotate(-1deg);
+            box-shadow: 0 30px 80px rgba(10, 22, 40, 0.15);
+        }
+
+        .method-card:nth-child(1) {
+            border-color: var(--vibrant-orange);
+        }
+
+        .method-card:nth-child(1) .method-header {
+            background: linear-gradient(135deg, var(--vibrant-orange), #ff8533);
+        }
+
+        .method-card:nth-child(2) {
+            border-color: var(--electric-blue);
+        }
+
+        .method-card:nth-child(2) .method-header {
+            background: linear-gradient(135deg, var(--electric-blue), #5c7cff);
+        }
+
+        .method-card:nth-child(3) {
+            border-color: var(--accent-pink);
+        }
+
+        .method-card:nth-child(3) .method-header {
+            background: linear-gradient(135deg, var(--accent-pink), #ff5c7c);
+        }
+
+        .method-header {
+            padding: 3rem 2rem 2rem;
+            color: white;
+            position: relative;
+        }
+
+        .method-number {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            font-family: 'Syne', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            opacity: 0.2;
+        }
+
+        .method-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .method-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .method-body {
+            padding: 2.5rem;
+        }
+
+        .method-description {
+            font-size: 1.05rem;
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .method-example {
+            background: var(--warm-gray);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--vibrant-orange);
+        }
+
+        .example-fr {
+            font-family: 'Lora', serif;
+            font-size: 1.4rem;
+            color: var(--deep-navy);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-en {
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* Interrogative Words Section */
+        .interrogative-words {
+            background: var(--deep-navy);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interrogative-words::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(46, 92, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .interrogative-words .section-title {
+            color: white;
+        }
+
+        .interrogative-words .section-intro {
+            color: var(--warm-gray);
+        }
+
+        .words-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .word-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .word-card::before {
+            content: '?';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-family: 'Syne', sans-serif;
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--vibrant-orange);
+            opacity: 0.05;
+            transition: all 0.3s ease;
+        }
+
+        .word-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--vibrant-orange);
+            transform: translateY(-5px);
+        }
+
+        .word-card:hover::before {
+            transform: rotate(15deg);
+            opacity: 0.1;
+        }
+
+        .word-main {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--vibrant-orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .word-meaning {
+            font-size: 1.1rem;
+            color: var(--mustard-yellow);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .word-examples {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+        }
+
+        .word-example {
+            color: white;
+            margin: 0.75rem 0;
+            font-family: 'Lora', serif;
+            font-size: 1.05rem;
+        }
+
+        /* Asymmetric comparison section */
+        .comparison-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--soft-peach) 0%, var(--off-white) 100%);
+        }
+
+        .comparison-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+            align-items: start;
+        }
+
+        .register-block {
+            background: white;
+            border-radius: 32px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(10, 22, 40, 0.08);
+            position: relative;
+        }
+
+        .register-block.formal {
+            transform: translateY(-50px);
+        }
+
+        .register-label {
+            position: absolute;
+            top: -15px;
+            left: 3rem;
+            background: var(--deep-navy);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .register-block.informal .register-label {
+            background: var(--vibrant-orange);
+        }
+
+        .register-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            color: var(--deep-navy);
+            margin: 2rem 0 1.5rem;
+        }
+
+        .register-examples {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .register-example {
+            padding: 1.5rem;
+            background: var(--warm-gray);
+            border-radius: 16px;
+            border-left: 5px solid var(--electric-blue);
+            transition: all 0.3s ease;
+        }
+
+        .register-example:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(10, 22, 40, 0.1);
+        }
+
+        .register-block.informal .register-example {
+            border-left-color: var(--vibrant-orange);
+        }
+
+        .register-example-text {
+            font-family: 'Lora', serif;
+            font-size: 1.3rem;
+            color: var(--deep-navy);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .register-example-note {
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            opacity: 0.7;
+        }
+
+        /* Special rules section */
+        .special-rules {
+            padding: 6rem 0;
+        }
+
+        .rules-masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .rule-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 40px rgba(10, 22, 40, 0.08);
+            border-top: 5px solid var(--vibrant-orange);
+            transition: all 0.3s ease;
+        }
+
+        .rule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 60px rgba(10, 22, 40, 0.12);
+        }
+
+        .rule-card:nth-child(even) {
+            border-top-color: var(--electric-blue);
+        }
+
+        .rule-card:nth-child(3n) {
+            border-top-color: var(--mustard-yellow);
+        }
+
+        .rule-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--vibrant-orange), var(--accent-pink));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rule-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: 1rem;
+        }
+
+        .rule-description {
+            color: var(--charcoal);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .rule-example {
+            background: var(--soft-peach);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-family: 'Lora', serif;
+            color: var(--deep-navy);
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        /* Quick tips banner */
+        .tips-banner {
+            background: linear-gradient(135deg, var(--mustard-yellow) 0%, #ffdb6d 100%);
+            padding: 4rem;
+            border-radius: 32px;
+            margin: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tips-banner::before {
+            content: '!';
+            position: absolute;
+            font-family: 'Syne', sans-serif;
+            font-size: 20rem;
+            font-weight: 800;
+            color: white;
+            opacity: 0.1;
+            top: -50px;
+            right: -50px;
+        }
+
+        .tips-banner h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 3rem;
+            color: var(--deep-navy);
+            margin-bottom: 2rem;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .tip-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(10, 22, 40, 0.1);
+        }
+
+        .tip-number {
+            width: 40px;
+            height: 40px;
+            background: var(--vibrant-orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .tip-text {
+            color: var(--charcoal);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--deep-navy);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--vibrant-orange), var(--mustard-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-text {
+            color: var(--warm-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .comparison-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .register-block.formal {
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .methods-grid,
+            .words-grid,
+            .rules-masonry {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .tips-banner {
+                padding: 2rem;
+            }
+
+            .tips-banner::before {
+                font-size: 10rem;
+            }
+        }
+
+        /* Scroll animations */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger animation delays */
+        .animate-in:nth-child(1) { transition-delay: 0.1s; }
+        .animate-in:nth-child(2) { transition-delay: 0.2s; }
+        .animate-in:nth-child(3) { transition-delay: 0.3s; }
+        .animate-in:nth-child(4) { transition-delay: 0.4s; }
+        .animate-in:nth-child(5) { transition-delay: 0.5s; }
+        .animate-in:nth-child(6) { transition-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Língua Academy</span>
+            <h1>Comment poser<br>une question<span class="question-mark">?</span></h1>
+            <p class="hero-subtitle">
+                Maîtrisez les trois méthodes d'interrogation en français et utilisez les mots interrogatifs avec précision
+            </p>
+        </div>
+    </section>
+
+    <!-- Three Methods -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">01 — LES TROIS MÉTHODES</div>
+                <h2 class="section-title">Comment former<br>une question ?</h2>
+                <p class="section-intro">
+                    Le français offre trois façons distinctes de poser une question, chacune avec son propre niveau de formalité et sa structure particulière.
+                </p>
+            </div>
+
+            <div class="methods-grid">
+                <div class="method-card animate-in">
+                    <div class="method-header">
+                        <span class="method-number">01</span>
+                        <h3 class="method-title">Intonation</h3>
+                        <p class="method-subtitle">Le plus simple</p>
+                    </div>
+                    <div class="method-body">
+                        <p class="method-description">
+                            La méthode la plus courante en français parlé. Il suffit de prononcer une phrase affirmative en montant la voix à la fin. C'est la forme la plus naturelle et la plus utilisée dans les conversations quotidiennes.
+                        </p>
+                        <div class="method-example">
+                            <div class="example-fr">Tu parles français ?</div>
+                            <div class="example-en">Do you speak French?</div>
+                        </div>
+                        <div class="method-example">
+                            <div class="example-fr">Il vient ce soir ?</div>
+                            <div class="example-en">Is he coming tonight?</div>
+                        </div>
+                        <div class="method-example">
+                            <div class="example-fr">Vous habitez à Paris ?</div>
+                            <div class="example-en">Do you live in Paris?</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="method-card animate-in">
+                    <div class="method-header">
+                        <span class="method-number">02</span>
+                        <h3 class="method-title">Est-ce que</h3>
+                        <p class="method-subtitle">Standard et neutre</p>
+                    </div>
+                    <div class="method-body">
+                        <p class="method-description">
+                            Ajoutez "Est-ce que" au début d'une phrase affirmative. Cette méthode est correcte à l'écrit comme à l'oral et convient à tous les registres. C'est une formule sûre et facile à utiliser.
+                        </p>
+                        <div class="method-example">
+                            <div class="example-fr">Est-ce que tu parles français ?</div>
+                            <div class="example-en">Do you speak French?</div>
+                        </div>
+                        <div class="method-example">
+                            <div class="example-fr">Est-ce qu'il vient ce soir ?</div>
+                            <div class="example-en">Is he coming tonight?</div>
+                        </div>
+                        <div class="method-example">
+                            <div class="example-fr">Est-ce que vous habitez à Paris ?</div>
+                            <div class="example-en">Do you live in Paris?</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="method-card animate-in">
+                    <div class="method-header">
+                        <span class="method-number">03</span>
+                        <h3 class="method-title">Inversion</h3>
+                        <p class="method-subtitle">Formel et élégant</p>
+                    </div>
+                    <div class="method-body">
+                        <p class="method-description">
+                            Inversez l'ordre du sujet et du verbe, en les reliant par un trait d'union. Cette méthode est la plus formelle et la plus littéraire. Elle est essentielle dans les contextes professionnels et académiques.
+                        </p>
+                        <div class="method-example">
+                            <div class="example-fr">Parlez-vous français ?</div>
+                            <div class="example-en">Do you speak French?</div>
+                        </div>
+                        <div class="method-example">
+                            <div class="example-fr">Vient-il ce soir ?</div>
+                            <div class="example-en">Is he coming tonight?</div>
+                        </div>
+                        <div class="method-example">
+                            <div class="example-fr">Habitez-vous à Paris ?</div>
+                            <div class="example-en">Do you live in Paris?</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interrogative Words -->
+    <section class="interrogative-words">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number" style="color: var(--vibrant-orange);">02 — MOTS INTERROGATIFS</div>
+                <h2 class="section-title">Les questions précises</h2>
+                <p class="section-intro">
+                    Utilisez ces mots interrogatifs pour obtenir des informations spécifiques. Ils peuvent être combinés avec les trois méthodes d'interrogation.
+                </p>
+            </div>
+
+            <div class="words-grid">
+                <div class="word-card animate-in">
+                    <div class="word-main">QUI</div>
+                    <div class="word-meaning">Who / Whom</div>
+                    <div class="word-examples">
+                        <div class="word-example">Qui est là ?</div>
+                        <div class="word-example">Qui vient avec nous ?</div>
+                    </div>
+                </div>
+
+                <div class="word-card animate-in">
+                    <div class="word-main">QUE</div>
+                    <div class="word-meaning">What</div>
+                    <div class="word-examples">
+                        <div class="word-example">Que fais-tu ?</div>
+                        <div class="word-example">Que veux-tu ?</div>
+                    </div>
+                </div>
+
+                <div class="word-card animate-in">
+                    <div class="word-main">QUOI</div>
+                    <div class="word-meaning">What (informal)</div>
+                    <div class="word-examples">
+                        <div class="word-example">Tu fais quoi ?</div>
+                        <div class="word-example">C'est quoi ?</div>
+                    </div>
+                </div>
+
+                <div class="word-card animate-in">
+                    <div class="word-main">QUAND</div>
+                    <div class="word-meaning">When</div>
+                    <div class="word-examples">
+                        <div class="word-example">Quand pars-tu ?</div>
+                        <div class="word-example">Quand arrive-t-il ?</div>
+                    </div>
+                </div>
+
+                <div class="word-card animate-in">
+                    <div class="word-main">OÙ</div>
+                    <div class="word-meaning">Where</div>
+                    <div class="word-examples">
+                        <div class="word-example">Où habites-tu ?</div>
+                        <div class="word-example">Où est la gare ?</div>
+                    </div>
+                </div>
+
+                <div class="word-card animate-in">
+                    <div class="word-main">COMMENT</div>
+                    <div class="word-meaning">How</div>
+                    <div class="word-examples">
+                        <div class="word-example">Comment vas-tu ?</div>
+                        <div class="word-example">Comment ça marche ?</div>
+                    </div>
+                </div>
+
+                <div class="word-card animate-in">
+                    <div class="word-main">POURQUOI</div>
+                    <div class="word-meaning">Why</div>
+                    <div class="word-examples">
+                        <div class="word-example">Pourquoi tu pleures ?</div>
+                        <div class="word-example">Pourquoi pas ?</div>
+                    </div>
+                </div>
+
+                <div class="word-card animate-in">
+                    <div class="word-main">COMBIEN</div>
+                    <div class="word-meaning">How much / many</div>
+                    <div class="word-examples">
+                        <div class="word-example">Combien ça coûte ?</div>
+                        <div class="word-example">Combien êtes-vous ?</div>
+                    </div>
+                </div>
+
+                <div class="word-card animate-in">
+                    <div class="word-main">QUEL(LE)</div>
+                    <div class="word-meaning">Which / What</div>
+                    <div class="word-examples">
+                        <div class="word-example">Quelle heure est-il ?</div>
+                        <div class="word-example">Quel âge as-tu ?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formal vs Informal Comparison -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">03 — REGISTRES DE LANGUE</div>
+                <h2 class="section-title">Formel ou informel ?</h2>
+                <p class="section-intro">
+                    Le choix de la méthode interrogative dépend du contexte et de votre interlocuteur. Voici comment adapter votre niveau de langue.
+                </p>
+            </div>
+
+            <div class="comparison-layout">
+                <div class="register-block formal animate-in">
+                    <span class="register-label">Formel</span>
+                    <h3 class="register-title">Situations professionnelles</h3>
+                    <div class="register-examples">
+                        <div class="register-example">
+                            <div class="register-example-text">Pourriez-vous répéter ?</div>
+                            <div class="register-example-note">Inversion avec conditionnel</div>
+                        </div>
+                        <div class="register-example">
+                            <div class="register-example-text">Avez-vous une question ?</div>
+                            <div class="register-example-note">Inversion standard</div>
+                        </div>
+                        <div class="register-example">
+                            <div class="register-example-text">Où se trouve le bureau ?</div>
+                            <div class="register-example-note">Mot interrogatif + inversion</div>
+                        </div>
+                        <div class="register-example">
+                            <div class="register-example-text">Est-ce que vous êtes disponible ?</div>
+                            <div class="register-example-note">Est-ce que (neutre)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="register-block informal animate-in">
+                    <span class="register-label">Informel</span>
+                    <h3 class="register-title">Conversations quotidiennes</h3>
+                    <div class="register-examples">
+                        <div class="register-example">
+                            <div class="register-example-text">Tu peux répéter ?</div>
+                            <div class="register-example-note">Intonation simple</div>
+                        </div>
+                        <div class="register-example">
+                            <div class="register-example-text">T'as une question ?</div>
+                            <div class="register-example-note">Contraction familière</div>
+                        </div>
+                        <div class="register-example">
+                            <div class="register-example-text">Le bureau, c'est où ?</div>
+                            <div class="register-example-note">Question en fin de phrase</div>
+                        </div>
+                        <div class="register-example">
+                            <div class="register-example-text">T'es dispo ?</div>
+                            <div class="register-example-note">Très informel</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Rules -->
+    <section class="special-rules">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">04 — RÈGLES SPÉCIALES</div>
+                <h2 class="section-title">Points d'attention</h2>
+                <p class="section-intro">
+                    Certaines situations nécessitent des ajustements particuliers lors de la formation des questions.
+                </p>
+            </div>
+
+            <div class="rules-masonry">
+                <div class="rule-card animate-in">
+                    <div class="rule-icon">T</div>
+                    <h3 class="rule-title">Le "T" euphonique</h3>
+                    <p class="rule-description">
+                        Avec l'inversion, ajoutez un "T" entre deux voyelles pour faciliter la prononciation.
+                    </p>
+                    <div class="rule-example">Parle-t-il français ?</div>
+                    <div class="rule-example">A-t-elle compris ?</div>
+                    <div class="rule-example">Ira-t-on au cinéma ?</div>
+                </div>
+
+                <div class="rule-card animate-in">
+                    <div class="rule-icon">-</div>
+                    <h3 class="rule-title">Le trait d'union</h3>
+                    <p class="rule-description">
+                        À l'inversion, reliez toujours le verbe et le pronom avec un trait d'union.
+                    </p>
+                    <div class="rule-example">Viens-tu avec nous ?</div>
+                    <div class="rule-example">Mangez-vous ici ?</div>
+                    <div class="rule-example">Sont-ils arrivés ?</div>
+                </div>
+
+                <div class="rule-card animate-in">
+                    <div class="rule-icon">Je</div>
+                    <h3 class="rule-title">Éviter "je" à l'inversion</h3>
+                    <p class="rule-description">
+                        L'inversion avec "je" est rare et sonne archaïque. Préférez "est-ce que" ou l'intonation.
+                    </p>
+                    <div class="rule-example">❌ Suis-je en retard ?</div>
+                    <div class="rule-example">✓ Est-ce que je suis en retard ?</div>
+                    <div class="rule-example">✓ Je suis en retard ?</div>
+                </div>
+
+                <div class="rule-card animate-in">
+                    <div class="rule-icon">Qu'</div>
+                    <h3 class="rule-title">Élision de "que"</h3>
+                    <p class="rule-description">
+                        Devant une voyelle, "que" devient "qu'" et "est-ce que" devient "est-ce qu'".
+                    </p>
+                    <div class="rule-example">Qu'est-ce que c'est ?</div>
+                    <div class="rule-example">Qu'est-ce qu'il fait ?</div>
+                    <div class="rule-example">Qu'aimes-tu ?</div>
+                </div>
+
+                <div class="rule-card animate-in">
+                    <div class="rule-icon">Il</div>
+                    <h3 class="rule-title">Nom + pronom</h3>
+                    <p class="rule-description">
+                        Avec un nom comme sujet, ajoutez le pronom correspondant après le verbe.
+                    </p>
+                    <div class="rule-example">Pierre vient-il demain ?</div>
+                    <div class="rule-example">Marie est-elle là ?</div>
+                    <div class="rule-example">Les enfants dorment-ils ?</div>
+                </div>
+
+                <div class="rule-card animate-in">
+                    <div class="rule-icon">Où</div>
+                    <h3 class="rule-title">Position des mots interrogatifs</h3>
+                    <p class="rule-description">
+                        Les mots interrogatifs se placent généralement en début de phrase ou en fin (informel).
+                    </p>
+                    <div class="rule-example">Où vas-tu ? (standard)</div>
+                    <div class="rule-example">Tu vas où ? (informel)</div>
+                    <div class="rule-example">Où est-ce que tu vas ? (neutre)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Tips -->
+    <div class="container">
+        <div class="tips-banner animate-in">
+            <h2>Conseils pratiques</h2>
+            <div class="tips-grid">
+                <div class="tip-item">
+                    <div class="tip-number">1</div>
+                    <p class="tip-text">
+                        <strong>À l'oral :</strong> L'intonation est la méthode la plus naturelle et la plus courante dans les conversations quotidiennes.
+                    </p>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-number">2</div>
+                    <p class="tip-text">
+                        <strong>À l'écrit :</strong> "Est-ce que" et l'inversion sont préférables pour un français correct et standard.
+                    </p>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-number">3</div>
+                    <p class="tip-text">
+                        <strong>En contexte formel :</strong> Privilégiez l'inversion pour montrer votre maîtrise de la langue.
+                    </p>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-number">4</div>
+                    <p class="tip-text">
+                        <strong>Point important :</strong> N'oubliez jamais le point d'interrogation à l'écrit, quelle que soit la méthode.
+                    </p>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-number">5</div>
+                    <p class="tip-text">
+                        <strong>Pratique :</strong> Transformez régulièrement des phrases affirmatives en questions pour automatiser le processus.
+                    </p>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-number">6</div>
+                    <p class="tip-text">
+                        <strong>Écoute active :</strong> Prêtez attention aux questions dans les films et séries pour reconnaître les différents registres.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Língua Academy</div>
+        <p class="footer-text">Excellence dans l'apprentissage du français</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Interactive card effects
+        document.querySelectorAll('.method-card, .word-card, .rule-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

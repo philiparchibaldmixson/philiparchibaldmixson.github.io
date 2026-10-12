@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Présent & Le Futur | Língua Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Chivo:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --burnt-orange: #d4572a;
+            --teal: #2a9d8f;
+            --mustard: #e9c46a;
+            --cream: #fef8f0;
+            --chocolate: #3d2e28;
+            --light-teal: #76c9bd;
+            --peach: #f4a261;
+            --olive: #7a8450;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Chivo', sans-serif;
+            background: var(--cream);
+            color: var(--chocolate);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Retro decorative circles */
+        .deco-circle {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.15;
+        }
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--burnt-orange), transparent 70%);
+            top: -100px;
+            right: -100px;
+            animation: float-slow 25s ease-in-out infinite;
+        }
+
+        .circle-2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--teal), transparent 70%);
+            bottom: 10%;
+            left: -50px;
+            animation: float-slow 30s ease-in-out infinite reverse;
+        }
+
+        .circle-3 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--mustard), transparent 70%);
+            top: 40%;
+            right: 10%;
+            animation: float-slow 20s ease-in-out infinite;
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        /* Sunburst pattern */
+        .sunburst {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+            background: repeating-conic-gradient(
+                from 0deg,
+                var(--burnt-orange) 0deg 10deg,
+                transparent 10deg 20deg
+            );
+            animation: rotate-slow 60s linear infinite;
+        }
+
+        @keyframes rotate-slow {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Content */
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero - Split design */
+        .hero {
+            min-height: 90vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+        }
+
+        .hero-left {
+            background: var(--chocolate);
+            padding: 5rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-left::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(233, 196, 106, 0.1), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-right {
+            background: var(--teal);
+            padding: 5rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-right::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(244, 162, 97, 0.15), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .brand-tag {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hero-left .brand-tag {
+            color: var(--mustard);
+        }
+
+        .hero-right .brand-tag {
+            color: var(--cream);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 0.8; }
+        }
+
+        .hero-title {
+            font-family: 'Righteous', sans-serif;
+            font-size: clamp(3.5rem, 7vw, 6rem);
+            line-height: 1;
+            margin-bottom: 2rem;
+            position: relative;
+            animation: slideUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-left .hero-title {
+            color: white;
+        }
+
+        .hero-right .hero-title {
+            color: white;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            max-width: 500px;
+            animation: slideUp 1s ease-out 0.4s both;
+        }
+
+        .hero-left .hero-subtitle {
+            color: var(--light-teal);
+        }
+
+        .hero-right .hero-subtitle {
+            color: var(--cream);
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: var(--burnt-orange);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 2rem;
+            animation: slideUp 1s ease-out 0.6s both;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-right .time-badge {
+            background: var(--peach);
+            color: var(--chocolate);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-eyebrow {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.85rem;
+            color: var(--burnt-orange);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Righteous', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--chocolate);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--chocolate);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Present tense section */
+        .present-section {
+            background: linear-gradient(135deg, rgba(212, 87, 42, 0.05), rgba(233, 196, 106, 0.05));
+            padding: 6rem 0;
+        }
+
+        .tense-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 4rem 0;
+            align-items: start;
+        }
+
+        .showcase-card {
+            background: white;
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 
+                0 20px 60px rgba(61, 46, 40, 0.1),
+                inset 0 -4px 0 var(--burnt-orange);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .showcase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(233, 196, 106, 0.2), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .card-header {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 2rem;
+        }
+
+        .card-label {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.75rem;
+            color: var(--burnt-orange);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-family: 'Righteous', sans-serif;
+            font-size: 2rem;
+            color: var(--chocolate);
+            margin-bottom: 1rem;
+        }
+
+        .card-description {
+            color: var(--chocolate);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .conjugation-table {
+            position: relative;
+            z-index: 2;
+        }
+
+        .conjugation-row {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 2rem;
+            padding: 1rem 0;
+            border-bottom: 2px solid rgba(61, 46, 40, 0.1);
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .conjugation-row:hover {
+            background: rgba(233, 196, 106, 0.1);
+            padding-left: 1rem;
+            border-radius: 10px;
+        }
+
+        .conjugation-row:last-child {
+            border-bottom: none;
+        }
+
+        .pronoun {
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            font-size: 1rem;
+        }
+
+        .verb-form {
+            font-family: 'Righteous', sans-serif;
+            font-size: 1.5rem;
+            color: var(--chocolate);
+        }
+
+        /* Future tense section */
+        .future-section {
+            background: linear-gradient(135deg, rgba(42, 157, 143, 0.05), rgba(118, 201, 189, 0.05));
+            padding: 6rem 0;
+        }
+
+        .future-section .showcase-card {
+            box-shadow: 
+                0 20px 60px rgba(42, 157, 143, 0.1),
+                inset 0 -4px 0 var(--teal);
+        }
+
+        .future-section .card-label {
+            color: var(--teal);
+        }
+
+        .future-section .pronoun {
+            color: var(--teal);
+        }
+
+        .future-section .showcase-card::before {
+            background: radial-gradient(circle, rgba(42, 157, 143, 0.2), transparent 70%);
+        }
+
+        /* Usage comparison */
+        .usage-comparison {
+            background: white;
+            border-radius: 40px;
+            padding: 5rem 4rem;
+            margin: 5rem 0;
+            box-shadow: 0 30px 80px rgba(61, 46, 40, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .usage-comparison::before {
+            content: '';
+            position: absolute;
+            bottom: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 87, 42, 0.05), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .usage-card {
+            background: var(--cream);
+            border-radius: 25px;
+            padding: 2.5rem;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .usage-card:hover {
+            border-color: var(--burnt-orange);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 87, 42, 0.15);
+        }
+
+        .usage-card::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--mustard);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .usage-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--burnt-orange), var(--peach));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(212, 87, 42, 0.3);
+        }
+
+        .usage-title {
+            font-family: 'Righteous', sans-serif;
+            font-size: 1.5rem;
+            color: var(--chocolate);
+            margin-bottom: 1rem;
+        }
+
+        .usage-text {
+            color: var(--chocolate);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .usage-example {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--burnt-orange);
+            font-family: 'Courier Prime', monospace;
+            color: var(--chocolate);
+            margin-top: 1rem;
+        }
+
+        /* Time expressions */
+        .time-expressions {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .expressions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .expression-column {
+            background: white;
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(61, 46, 40, 0.08);
+        }
+
+        .expression-column.present {
+            border-top: 6px solid var(--burnt-orange);
+        }
+
+        .expression-column.future {
+            border-top: 6px solid var(--teal);
+        }
+
+        .column-title {
+            font-family: 'Righteous', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .expression-column.present .column-title {
+            color: var(--burnt-orange);
+        }
+
+        .expression-column.future .column-title {
+            color: var(--teal);
+        }
+
+        .expression-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .expression-item {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .expression-item:hover {
+            transform: translateX(10px);
+            background: var(--mustard);
+        }
+
+        .expression-bullet {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .expression-column.present .expression-bullet {
+            background: var(--burnt-orange);
+        }
+
+        .expression-column.future .expression-bullet {
+            background: var(--teal);
+        }
+
+        .expression-text {
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            color: var(--chocolate);
+            font-size: 1rem;
+        }
+
+        /* Special formation */
+        .formation-section {
+            background: var(--chocolate);
+            padding: 6rem 4rem;
+            margin: 6rem 0;
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .formation-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(233, 196, 106, 0.1), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .formation-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .formation-title {
+            font-family: 'Righteous', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .formation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .formation-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 3px solid rgba(233, 196, 106, 0.3);
+            border-radius: 25px;
+            padding: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .formation-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .formation-card-title {
+            font-family: 'Righteous', sans-serif;
+            font-size: 2rem;
+            color: var(--mustard);
+            margin-bottom: 1.5rem;
+        }
+
+        .formation-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .formation-step {
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .step-number {
+            width: 35px;
+            height: 35px;
+            background: var(--burnt-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            color: var(--light-teal);
+            line-height: 1.7;
+            padding-top: 0.3rem;
+        }
+
+        .formation-example {
+            background: rgba(42, 157, 143, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--teal);
+        }
+
+        .formation-example-text {
+            font-family: 'Courier Prime', monospace;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        /* Tips retro cards */
+        .tips-retro {
+            padding: 6rem 0;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .tip-retro-card {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 15px 40px rgba(61, 46, 40, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .tip-retro-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 80px;
+            height: 80px;
+            background: var(--mustard);
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        .tip-retro-card:hover {
+            transform: rotate(-2deg) translateY(-10px);
+            box-shadow: 0 25px 60px rgba(61, 46, 40, 0.15);
+        }
+
+        .tip-number {
+            position: relative;
+            z-index: 2;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--burnt-orange), var(--peach));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 20px rgba(212, 87, 42, 0.3);
+        }
+
+        .tip-title {
+            font-family: 'Righteous', sans-serif;
+            font-size: 1.4rem;
+            color: var(--chocolate);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tip-content {
+            color: var(--chocolate);
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--chocolate);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-conic-gradient(
+                from 0deg,
+                rgba(233, 196, 106, 0.05) 0deg 10deg,
+                transparent 10deg 20deg
+            );
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-brand {
+            font-family: 'Righteous', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--mustard), var(--burnt-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-tagline {
+            font-family: 'Courier Prime', monospace;
+            color: var(--light-teal);
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .tense-showcase,
+            .expressions-grid,
+            .formation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-left,
+            .hero-right {
+                padding: 3rem 2rem;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .usage-comparison,
+            .formation-section {
+                padding: 3rem 2rem;
+                border-radius: 30px;
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.8s ease-out;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative elements -->
+    <div class="deco-circle circle-1"></div>
+    <div class="deco-circle circle-2"></div>
+    <div class="deco-circle circle-3"></div>
+    <div class="sunburst"></div>
+
+    <div class="content">
+        <!-- Hero - Split -->
+        <section class="hero">
+            <div class="hero-left">
+                <div class="brand-tag">Língua Academy</div>
+                <h1 class="hero-title">Le Présent</h1>
+                <p class="hero-subtitle">
+                    L'action se déroule maintenant, dans le moment actuel. C'est le temps de base, le fondement de toute communication en français.
+                </p>
+                <span class="time-badge">Maintenant</span>
+            </div>
+            <div class="hero-right">
+                <div class="brand-tag">Língua Academy</div>
+                <h1 class="hero-title">Le Futur</h1>
+                <p class="hero-subtitle">
+                    L'action se produira plus tard, dans l'avenir. C'est le temps des projets, des promesses et des prédictions.
+                </p>
+                <span class="time-badge">Demain</span>
+            </div>
+        </section>
+
+        <!-- Present section -->
+        <section class="present-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-eyebrow">Temps 01</div>
+                    <h2 class="section-title">Le Présent de l'Indicatif</h2>
+                    <p class="section-description">
+                        Le présent exprime une action qui se déroule au moment où l'on parle, une vérité générale, ou une action habituelle.
+                    </p>
+                </div>
+
+                <div class="tense-showcase">
+                    <div class="showcase-card reveal">
+                        <div class="card-header">
+                            <div class="card-label">1er Groupe • -ER</div>
+                            <h3 class="card-title">PARLER</h3>
+                            <p class="card-description">
+                                Modèle régulier pour ~90% des verbes français
+                            </p>
+                        </div>
+                        <div class="conjugation-table">
+                            <div class="conjugation-row">
+                                <span class="pronoun">Je</span>
+                                <span class="verb-form">parle</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Tu</span>
+                                <span class="verb-form">parles</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Il/Elle</span>
+                                <span class="verb-form">parle</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Nous</span>
+                                <span class="verb-form">parlons</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Vous</span>
+                                <span class="verb-form">parlez</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Ils/Elles</span>
+                                <span class="verb-form">parlent</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="showcase-card reveal">
+                        <div class="card-header">
+                            <div class="card-label">2e Groupe • -IR</div>
+                            <h3 class="card-title">FINIR</h3>
+                            <p class="card-description">
+                                Avec le suffixe -ISS- au pluriel
+                            </p>
+                        </div>
+                        <div class="conjugation-table">
+                            <div class="conjugation-row">
+                                <span class="pronoun">Je</span>
+                                <span class="verb-form">finis</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Tu</span>
+                                <span class="verb-form">finis</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Il/Elle</span>
+                                <span class="verb-form">finit</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Nous</span>
+                                <span class="verb-form">finissons</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Vous</span>
+                                <span class="verb-form">finissez</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Ils/Elles</span>
+                                <span class="verb-form">finissent</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future section -->
+        <section class="future-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-eyebrow">Temps 02</div>
+                    <h2 class="section-title">Le Futur Simple</h2>
+                    <p class="section-description">
+                        Le futur simple exprime une action qui se déroulera dans l'avenir. C'est le temps des projets et des promesses.
+                    </p>
+                </div>
+
+                <div class="tense-showcase">
+                    <div class="showcase-card reveal">
+                        <div class="card-header">
+                            <div class="card-label">1er Groupe • -ER</div>
+                            <h3 class="card-title">PARLER</h3>
+                            <p class="card-description">
+                                Infinitif + terminaisons du futur
+                            </p>
+                        </div>
+                        <div class="conjugation-table">
+                            <div class="conjugation-row">
+                                <span class="pronoun">Je</span>
+                                <span class="verb-form">parlerai</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Tu</span>
+                                <span class="verb-form">parleras</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Il/Elle</span>
+                                <span class="verb-form">parlera</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Nous</span>
+                                <span class="verb-form">parlerons</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Vous</span>
+                                <span class="verb-form">parlerez</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Ils/Elles</span>
+                                <span class="verb-form">parleront</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="showcase-card reveal">
+                        <div class="card-header">
+                            <div class="card-label">2e Groupe • -IR</div>
+                            <h3 class="card-title">FINIR</h3>
+                            <p class="card-description">
+                                Même formation que le premier groupe
+                            </p>
+                        </div>
+                        <div class="conjugation-table">
+                            <div class="conjugation-row">
+                                <span class="pronoun">Je</span>
+                                <span class="verb-form">finirai</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Tu</span>
+                                <span class="verb-form">finiras</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Il/Elle</span>
+                                <span class="verb-form">finira</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Nous</span>
+                                <span class="verb-form">finirons</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Vous</span>
+                                <span class="verb-form">finirez</span>
+                            </div>
+                            <div class="conjugation-row">
+                                <span class="pronoun">Ils/Elles</span>
+                                <span class="verb-form">finiront</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage comparison -->
+        <div class="container">
+            <div class="usage-comparison reveal">
+                <div class="section-header">
+                    <div class="section-eyebrow">Utilisation</div>
+                    <h2 class="section-title">Quand les utiliser ?</h2>
+                </div>
+
+                <div class="comparison-grid">
+                    <div class="usage-card">
+                        <div class="usage-icon">🎯</div>
+                        <h3 class="usage-title">Actions en cours</h3>
+                        <p class="usage-text">
+                            Le présent décrit ce qui se passe maintenant, au moment où on parle.
+                        </p>
+                        <div class="usage-example">Je mange une pomme.</div>
+                        <div class="usage-example">Il pleut dehors.</div>
+                    </div>
+
+                    <div class="usage-card">
+                        <div class="usage-icon">🔄</div>
+                        <h3 class="usage-title">Habitudes & Vérités</h3>
+                        <p class="usage-text">
+                            Le présent exprime des actions habituelles ou des vérités générales.
+                        </p>
+                        <div class="usage-example">Je travaille tous les jours.</div>
+                        <div class="usage-example">La Terre tourne autour du Soleil.</div>
+                    </div>
+
+                    <div class="usage-card">
+                        <div class="usage-icon">📅</div>
+                        <h3 class="usage-title">Futur proche</h3>
+                        <p class="usage-text">
+                            Le présent peut exprimer un futur très proche ou planifié.
+                        </p>
+                        <div class="usage-example">Je pars demain matin.</div>
+                        <div class="usage-example">On se voit ce soir ?</div>
+                    </div>
+
+                    <div class="usage-card">
+                        <div class="usage-icon">🚀</div>
+                        <h3 class="usage-title">Actions futures</h3>
+                        <p class="usage-text">
+                            Le futur simple décrit ce qui se passera plus tard.
+                        </p>
+                        <div class="usage-example">Je partirai en vacances en juillet.</div>
+                        <div class="usage-example">Nous voyagerons en Europe.</div>
+                    </div>
+
+                    <div class="usage-card">
+                        <div class="usage-icon">🤝</div>
+                        <h3 class="usage-title">Promesses & Engagements</h3>
+                        <p class="usage-text">
+                            Le futur exprime une promesse, un engagement ou une résolution.
+                        </p>
+                        <div class="usage-example">Je te téléphonerai demain.</div>
+                        <div class="usage-example">Nous finirons ce projet.</div>
+                    </div>
+
+                    <div class="usage-card">
+                        <div class="usage-icon">🔮</div>
+                        <h3 class="usage-title">Prédictions</h3>
+                        <p class="usage-text">
+                            Le futur sert à faire des prédictions sur l'avenir.
+                        </p>
+                        <div class="usage-example">Il fera beau demain.</div>
+                        <div class="usage-example">Tu réussiras ton examen.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Time expressions -->
+            <section class="time-expressions reveal">
+                <div class="section-header">
+                    <div class="section-eyebrow">Expressions temporelles</div>
+                    <h2 class="section-title">Les mots qui accompagnent</h2>
+                    <p class="section-description">
+                        Certaines expressions de temps vous aident à identifier quel temps utiliser.
+                    </p>
+                </div>
+
+                <div class="expressions-grid">
+                    <div class="expression-column present">
+                        <h3 class="column-title">Avec le PRÉSENT</h3>
+                        <div class="expression-list">
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">maintenant</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">en ce moment</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">aujourd'hui</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">actuellement</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">tous les jours</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">chaque semaine</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">d'habitude</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">toujours</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">souvent</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="expression-column future">
+                        <h3 class="column-title">Avec le FUTUR</h3>
+                        <div class="expression-list">
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">demain</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">après-demain</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">bientôt</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">plus tard</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">dans une heure</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">la semaine prochaine</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">l'année prochaine</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">dans le futur</span>
+                            </div>
+                            <div class="expression-item">
+                                <span class="expression-bullet"></span>
+                                <span class="expression-text">un jour</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Formation -->
+        <section class="formation-section reveal">
+            <div class="formation-content">
+                <h2 class="formation-title">Formation des Temps</h2>
+                <div class="formation-grid">
+                    <div class="formation-card">
+                        <h3 class="formation-card-title">Le Présent</h3>
+                        <div class="formation-steps">
+                            <div class="formation-step">
+                                <span class="step-number">1</span>
+                                <p class="step-text">Prenez l'infinitif du verbe (parler, finir)</p>
+                            </div>
+                            <div class="formation-step">
+                                <span class="step-number">2</span>
+                                <p class="step-text">Retirez la terminaison -ER ou -IR (parl-, fin-)</p>
+                            </div>
+                            <div class="formation-step">
+                                <span class="step-number">3</span>
+                                <p class="step-text">Ajoutez les terminaisons selon le groupe et la personne</p>
+                            </div>
+                        </div>
+                        <div class="formation-example">
+                            <p class="formation-example-text">
+                                parl- + -ons = nous parlons<br>
+                                fin- + -issons = nous finissons
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="formation-card">
+                        <h3 class="formation-card-title">Le Futur Simple</h3>
+                        <div class="formation-steps">
+                            <div class="formation-step">
+                                <span class="step-number">1</span>
+                                <p class="step-text">Prenez l'infinitif complet (parler, finir)</p>
+                            </div>
+                            <div class="formation-step">
+                                <span class="step-number">2</span>
+                                <p class="step-text">Gardez l'infinitif tel quel comme radical</p>
+                            </div>
+                            <div class="formation-step">
+                                <span class="step-number">3</span>
+                                <p class="step-text">Ajoutez : -ai, -as, -a, -ons, -ez, -ont</p>
+                            </div>
+                        </div>
+                        <div class="formation-example">
+                            <p class="formation-example-text">
+                                parler + -ai = je parlerai<br>
+                                finir + -ont = ils finiront
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips -->
+        <div class="container">
+            <section class="tips-retro reveal">
+                <div class="section-header">
+                    <div class="section-eyebrow">Conseils pratiques</div>
+                    <h2 class="section-title">Maîtriser les deux temps</h2>
+                </div>
+
+                <div class="tips-grid">
+                    <div class="tip-retro-card">
+                        <div class="tip-number">01</div>
+                        <h3 class="tip-title">Pratiquez quotidiennement</h3>
+                        <p class="tip-content">
+                            Décrivez vos actions au présent pendant la journée, puis planifiez votre lendemain au futur. Cette double pratique renforce les deux temps.
+                        </p>
+                    </div>
+
+                    <div class="tip-retro-card">
+                        <div class="tip-number">02</div>
+                        <h3 class="tip-title">Attention aux verbes du 3e groupe</h3>
+                        <p class="tip-content">
+                            Les verbes irréguliers ont souvent des radicaux différents au futur : être → je serai, avoir → j'aurai, aller → j'irai, faire → je ferai.
+                        </p>
+                    </div>
+
+                    <div class="tip-retro-card">
+                        <div class="tip-number">03</div>
+                        <h3 class="tip-title">Le futur proche</h3>
+                        <p class="tip-content">
+                            N'oubliez pas le futur proche (aller + infinitif) : "Je vais partir" est plus courant à l'oral que "Je partirai" pour exprimer un futur imminent.
+                        </p>
+                    </div>
+
+                    <div class="tip-retro-card">
+                        <div class="tip-number">04</div>
+                        <h3 class="tip-title">Écoutez et répétez</h3>
+                        <p class="tip-content">
+                            Regardez des vidéos en français. Notez les verbes au présent et au futur. La répétition auditive aide à automatiser les conjugaisons.
+                        </p>
+                    </div>
+
+                    <div class="tip-retro-card">
+                        <div class="tip-number">05</div>
+                        <h3 class="tip-title">Créez des phrases personnelles</h3>
+                        <p class="tip-content">
+                            Utilisez des verbes qui ont du sens pour vous. "Je travaille à Paris" et "Je voyagerai en Italie" sont plus mémorables que des exemples abstraits.
+                        </p>
+                    </div>
+
+                    <div class="tip-retro-card">
+                        <div class="tip-number">06</div>
+                        <h3 class="tip-title">Les terminaisons du futur</h3>
+                        <p class="tip-content">
+                            Les terminaisons du futur (-ai, -as, -a, -ons, -ez, -ont) ressemblent au présent du verbe AVOIR (j'ai, tu as, il a...). C'est une astuce pour les mémoriser !
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-brand">LÍNGUA ACADEMY</div>
+                <p class="footer-tagline">Du présent vers le futur</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Intersection Observer
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Interactive elements
+        document.querySelectorAll('.usage-card, .tip-retro-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

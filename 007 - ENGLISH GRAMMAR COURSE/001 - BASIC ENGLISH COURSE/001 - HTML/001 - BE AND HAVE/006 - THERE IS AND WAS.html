@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>There Is/Was Guide</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 0 auto;
+            background: white;
+            page-break-after: always;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+        
+        .section {
+            margin: 25px 0;
+            padding: 25px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section.orange {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .section.green {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            color: black;
+        }
+        
+        .section.blue {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .section.pink {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+        
+        .section.purple {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .section.teal {
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+        }
+        
+        .section.coral {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+        
+        h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .section.green h2, .section.green h3 {
+            color: white;
+        }
+        
+        h3 {
+            font-size: 22px;
+            margin: 20px 0 10px 0;
+            color: #34495e;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            text-align: justify;
+        }
+        
+        .verb-box {
+            background: white;
+            padding: 20px;
+            border-left: 6px solid #667eea;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .verb-title {
+            color: #667eea;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .verb-form {
+            color: #e74c3c;
+            font-style: italic;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .verb-desc {
+            color: #555;
+            font-size: 16px;
+        }
+        
+        .example-box {
+            background: #fff9e6;
+            border: 2px dashed #f39c12;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .example-title {
+            color: #f39c12;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .tip-box {
+            background: white;
+            padding: 20px;
+            border-left: 6px solid #27ae60;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tip-box h4 {
+            color: #27ae60;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .structure-table {
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .structure-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .structure-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 18px;
+        }
+        
+        .structure-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 16px;
+        }
+        
+        .structure-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .structure-label {
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .form-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            border-top: 4px solid #3498db;
+        }
+        
+        .form-type {
+            font-weight: bold;
+            color: #3498db;
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+        
+        .form-text {
+            color: #555;
+            font-size: 15px;
+        }
+        
+        .negative-box {
+            background: #ffe6e6;
+            border: 2px solid #e74c3c;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .negative-title {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .question-box {
+            background: #e6f3ff;
+            border: 2px solid #3498db;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .question-title {
+            color: #3498db;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .comparison-box {
+            background: white;
+            padding: 20px;
+            border: 3px solid #9b59b6;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .comparison-title {
+            color: #9b59b6;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .error-box {
+            background: #fff5f5;
+            border: 2px solid #c0392b;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .error-title {
+            color: #c0392b;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>📍 THERE IS / THERE ARE 📍</h1>
+            <p>Express Existence and Location</p>
+        </div>
+        
+        <div class="section orange">
+            <h2>🌟 What is "There Is/Are"?</h2>
+            <p>The expressions <strong>"there is"</strong> and <strong>"there are"</strong> are used to indicate the existence or presence of something or someone. They are essential structures in English for talking about what exists in a particular place or situation.</p>
+            <p>These expressions are different from the verb "to be" alone because they specifically introduce new information about the existence or location of things. We use "there is" for singular nouns and "there are" for plural nouns. Understanding this structure will help you describe places, talk about availability, and introduce topics naturally.</p>
+        </div>
+        
+        <div class="section blue">
+            <h2>📋 Present Tense: There Is / There Are</h2>
+            <p>In the present tense, we choose between <strong>"there is"</strong> and <strong>"there are"</strong> based on whether the noun is singular or plural.</p>
+            
+            <div class="structure-table">
+                <table>
+                    <tr>
+                        <th>Form</th>
+                        <th>When to Use</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td class="structure-label">There is (singular)</td>
+                        <td>One thing or person</td>
+                        <td>There is a book on the table.</td>
+                    </tr>
+                    <tr>
+                        <td class="structure-label">There is (uncountable)</td>
+                        <td>Uncountable nouns</td>
+                        <td>There is water in the bottle.</td>
+                    </tr>
+                    <tr>
+                        <td class="structure-label">There are (plural)</td>
+                        <td>Two or more things/people</td>
+                        <td>There are three apples in the basket.</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">📝 More Examples:</div>
+                <p><strong>Singular:</strong><br>
+                • There is a cat in the garden.<br>
+                • There is a problem with the computer.<br>
+                • There is milk in the refrigerator.</p>
+                
+                <p><strong>Plural:</strong><br>
+                • There are five students in the classroom.<br>
+                • There are many cars on the street.<br>
+                • There are two bathrooms in this house.</p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Contraction</h4>
+                <p><strong>There is → There's</strong> (very common in spoken English)<br>
+                Example: "There's a new restaurant downtown."<br><br>
+                <strong>Note:</strong> "There are" doesn't have a common contraction in standard English.</p>
+            </div>
+        </div>
+        
+        <div class="section green">
+            <h2>🎯 Uses of "There Is/Are"</h2>
+            <p style="color: white;">The structure "there is/are" has several important uses in English:</p>
+            
+            <div class="verb-box">
+                <div class="verb-title">1. Introducing New Information</div>
+                <div class="verb-desc">To tell someone about something they don't know about</div>
+                <div class="example-box">
+                    <p>• There is a new student in our class.<br>
+                    • There are some cookies in the kitchen.<br>
+                    • There is an important meeting tomorrow.</p>
+                </div>
+            </div>
+            
+            <div class="verb-box">
+                <div class="verb-title">2. Describing Locations & Places</div>
+                <div class="verb-desc">To say what exists in a particular place</div>
+                <div class="example-box">
+                    <p>• There is a bank on Main Street.<br>
+                    • There are two parks in this city.<br>
+                    • There is a beautiful beach nearby.</p>
+                </div>
+            </div>
+            
+            <div class="verb-box">
+                <div class="verb-title">3. Talking About Quantity</div>
+                <div class="verb-desc">To indicate how many or how much of something exists</div>
+                <div class="example-box">
+                    <p>• There are 30 students in my class.<br>
+                    • There is enough food for everyone.<br>
+                    • There are too many people here.</p>
+                </div>
+            </div>
+            
+            <div class="verb-box">
+                <div class="verb-title">4. Expressing Availability</div>
+                <div class="verb-desc">To say what is or isn't available</div>
+                <div class="example-box">
+                    <p>• There is no time to waste.<br>
+                    • There are tickets available for the concert.<br>
+                    • There is space for one more person.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section pink">
+            <h2>⏰ Past Tense: There Was / There Were</h2>
+            <p>In the past tense, we use <strong>"there was"</strong> for singular and <strong>"there were"</strong> for plural, following the same pattern as the verb "to be."</p>
+            
+            <div class="structure-table">
+                <table>
+                    <tr>
+                        <th>Form</th>
+                        <th>When to Use</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td class="structure-label">There was (singular)</td>
+                        <td>One thing or person (past)</td>
+                        <td>There was a party last night.</td>
+                    </tr>
+                    <tr>
+                        <td class="structure-label">There was (uncountable)</td>
+                        <td>Uncountable nouns (past)</td>
+                        <td>There was traffic on the highway.</td>
+                    </tr>
+                    <tr>
+                        <td class="structure-label">There were (plural)</td>
+                        <td>Two or more things/people (past)</td>
+                        <td>There were many people at the event.</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">📝 Past Tense Examples:</div>
+                <p><strong>Singular (was):</strong><br>
+                • There was a storm yesterday.<br>
+                • There was an accident on the corner.<br>
+                • There was a movie on TV last night.</p>
+                
+                <p><strong>Plural (were):</strong><br>
+                • There were three tests last week.<br>
+                • There were many tourists in the city.<br>
+                • There were problems with the system.</p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Time Expressions</h4>
+                <p>Common time words used with "there was/were":<br>
+                • Yesterday, last week/month/year<br>
+                • Ago (two days ago, a year ago)<br>
+                • In the past, before, when I was young</p>
+            </div>
+        </div>
+        
+        <div class="section purple">
+            <h2>❌ Negative Forms</h2>
+            <p>To make negative sentences, add <strong>"not"</strong> or use <strong>"no"</strong> before the noun.</p>
+            
+            <div class="negative-box">
+                <div class="negative-title">Present Negative:</div>
+                <p><strong>Method 1: is/are + not</strong><br>
+                • There is not a solution to this problem. (There isn't)<br>
+                • There are not any chairs available. (There aren't)</p>
+                
+                <p><strong>Method 2: is/are + no</strong> (more common)<br>
+                • There is no solution to this problem.<br>
+                • There are no chairs available.<br>
+                • There is no milk in the fridge.<br>
+                • There are no classes today.</p>
+            </div>
+            
+            <div class="negative-box">
+                <div class="negative-title">Past Negative:</div>
+                <p><strong>Method 1: was/were + not</strong><br>
+                • There was not enough time. (There wasn't)<br>
+                • There were not any people there. (There weren't)</p>
+                
+                <p><strong>Method 2: was/were + no</strong> (more common)<br>
+                • There was no time left.<br>
+                • There were no seats available.<br>
+                • There was no food at the party.<br>
+                • There were no problems yesterday.</p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Common Contractions</h4>
+                <p>• There isn't = There is not<br>
+                • There aren't = There are not<br>
+                • There wasn't = There was not<br>
+                • There weren't = There were not</p>
+            </div>
+        </div>
+        
+        <div class="section teal">
+            <h2>❓ Question Forms</h2>
+            <p>To form questions, move "is/are" or "was/were" before "there."</p>
+            
+            <div class="question-box">
+                <div class="question-title">Present Questions:</div>
+                <p><strong>Yes/No Questions:</strong><br>
+                • <strong>Is there</strong> a bank near here?<br>
+                • <strong>Are there</strong> any questions?<br>
+                • <strong>Is there</strong> enough time?<br>
+                • <strong>Are there</strong> students in the classroom?</p>
+                
+                <p><strong>Wh- Questions:</strong><br>
+                • <strong>How many</strong> students are there?<br>
+                • <strong>What</strong> is there to eat?<br>
+                • <strong>Where</strong> is there a good restaurant?<br>
+                • <strong>Why</strong> are there so many people?</p>
+            </div>
+            
+            <div class="question-box">
+                <div class="question-title">Past Questions:</div>
+                <p><strong>Yes/No Questions:</strong><br>
+                • <strong>Was there</strong> a meeting yesterday?<br>
+                • <strong>Were there</strong> many people at the party?<br>
+                • <strong>Was there</strong> a problem?<br>
+                • <strong>Were there</strong> any messages for me?</p>
+                
+                <p><strong>Wh- Questions:</strong><br>
+                • <strong>How many</strong> people were there?<br>
+                • <strong>What</strong> was there to do?<br>
+                • <strong>Where</strong> was there a problem?<br>
+                • <strong>Why</strong> were there delays?</p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Short Answers</h4>
+                <p><strong>Q:</strong> Is there a library nearby?<br>
+                <strong>A:</strong> Yes, there is. / No, there isn't.<br><br>
+                <strong>Q:</strong> Were there many guests?<br>
+                <strong>A:</strong> Yes, there were. / No, there weren't.</p>
+            </div>
+        </div>
+        
+        <div class="section coral">
+            <h2>🔮 Future Form: There Will Be</h2>
+            <p>For the future tense, we use <strong>"there will be"</strong> for both singular and plural nouns.</p>
+            
+            <div class="verb-box">
+                <div class="verb-title">Future Structure</div>
+                <div class="verb-desc">There + will be + noun (singular or plural)</div>
+                <div class="example-box">
+                    <p><strong>Singular:</strong><br>
+                    • There will be a test next week.<br>
+                    • There will be a party tomorrow.<br>
+                    • There will be time to talk later.</p>
+                    
+                    <p><strong>Plural:</strong><br>
+                    • There will be many guests at the wedding.<br>
+                    • There will be new opportunities in the future.<br>
+                    • There will be changes next year.</p>
+                </div>
+            </div>
+            
+            <div class="negative-box">
+                <div class="negative-title">Future Negative & Questions:</div>
+                <p><strong>Negative:</strong> There will not be / There won't be<br>
+                • There won't be classes tomorrow.<br>
+                • There will not be any problems.</p>
+                
+                <p><strong>Questions:</strong> Will there be...?<br>
+                • Will there be food at the party?<br>
+                • Will there be enough time?</p>
+            </div>
+        </div>
+        
+        <div class="section blue">
+            <h2>⚠️ Common Mistakes to Avoid</h2>
+            
+            <div class="error-box">
+                <div class="error-title">❌ Wrong → ✅ Correct</div>
+                <p>❌ There have a book on the table.<br>
+                ✅ There is a book on the table.</p>
+                
+                <p>❌ There are a problem.<br>
+                ✅ There is a problem.</p>
+                
+                <p>❌ Is there cats in the garden?<br>
+                ✅ Are there cats in the garden?</p>
+                
+                <p>❌ There was many people.<br>
+                ✅ There were many people.</p>
+                
+                <p>❌ It is a book on the table. (when introducing new info)<br>
+                ✅ There is a book on the table.</p>
+            </div>
+            
+            <div class="comparison-box">
+                <div class="comparison-title">Complete Overview: All Tenses</div>
+                <p><strong>Present:</strong> There is a party today. / There are guests here.<br>
+                <strong>Past:</strong> There was a party yesterday. / There were many guests.<br>
+                <strong>Future:</strong> There will be a party tomorrow. / There will be guests.</p>
+                
+                <p><strong>Negative Present:</strong> There is no time. / There are no seats.<br>
+                <strong>Negative Past:</strong> There was no time. / There were no seats.<br>
+                <strong>Negative Future:</strong> There won't be time. / There won't be seats.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Master "There Is/Are" Structures!</strong></p>
+            <p>Use these expressions to describe places and introduce new information naturally!</p>
+        </div>
+    </div>
+    
+    <!-- <script>
+        window.onload = function() {
+            const printBtn = document.createElement('button');
+            printBtn.textContent = '🖨️ Print/Save as PDF';
+            printBtn.style.cssText = 'position: fixed; top: 20px; right: 20px; padding: 15px 25px; background: #667eea; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1000;';
+            printBtn.onmouseover = function() { this.style.background = '#764ba2'; };
+            printBtn.onmouseout = function() { this.style.background = '#667eea'; };
+            printBtn.onclick = function() { window.print(); };
+            document.body.appendChild(printBtn);
+        };
+    </script> -->
+</body>
+</html>

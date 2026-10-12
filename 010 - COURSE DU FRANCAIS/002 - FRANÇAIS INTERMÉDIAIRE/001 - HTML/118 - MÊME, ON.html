@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emplois Particuliers - Même / On | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel+Decorative:wght@400;700;900&family=Sorts+Mill+Goudy:ital@0;1&family=Spectral:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --violet-profond: #4A235A;
+            --prune: #6C3483;
+            --amethyste: #8E44AD;
+            --vert-jade: #16A085;
+            --or-rose: #D68910;
+            --creme-ivoire: #FEF5E7;
+            --beige-doux: #F8F3E8;
+            --noir-doux: #2C3E50;
+            --rose-pale: #F4ECF7;
+            --bronze-art: #B8860B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--beige-doux) 0%, var(--creme-ivoire) 50%, #FFFBF0 100%);
+            color: var(--noir-doux);
+            line-height: 2;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Texture Art Nouveau */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 22% 28%, rgba(74, 35, 90, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 78% 72%, rgba(22, 160, 133, 0.04) 0%, transparent 40%),
+                repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(214, 137, 16, 0.02) 8px, rgba(214, 137, 16, 0.02) 16px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        /* Cadre Art Nouveau */
+        .nouveau-frame {
+            position: fixed;
+            pointer-events: none;
+            z-index: 5;
+            background: linear-gradient(135deg, var(--violet-profond) 0%, var(--prune) 50%, var(--amethyste) 100%);
+            box-shadow: 
+                inset 0 0 35px rgba(0, 0, 0, 0.6),
+                0 0 45px rgba(74, 35, 90, 0.5);
+        }
+
+        .frame-top, .frame-bottom {
+            left: 10px;
+            right: 10px;
+            height: 50px;
+        }
+
+        .frame-top {
+            top: 10px;
+            border-radius: 25px 25px 0 0;
+        }
+
+        .frame-bottom {
+            bottom: 10px;
+            border-radius: 0 0 25px 25px;
+        }
+
+        .frame-left, .frame-right {
+            top: 60px;
+            bottom: 60px;
+            width: 50px;
+        }
+
+        .frame-left {
+            left: 10px;
+            border-radius: 25px 0 0 25px;
+        }
+
+        .frame-right {
+            right: 10px;
+            border-radius: 0 25px 25px 0;
+        }
+
+        /* Coins Art Nouveau */
+        .nouveau-corner {
+            position: fixed;
+            width: 140px;
+            height: 140px;
+            pointer-events: none;
+            z-index: 6;
+            background: radial-gradient(ellipse, var(--or-rose) 0%, var(--bronze-art) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 0 60px rgba(214, 137, 16, 0.8),
+                inset 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .corner-tl {
+            top: 10px;
+            left: 10px;
+            border-radius: 50% 0 100% 0;
+        }
+
+        .corner-tr {
+            top: 10px;
+            right: 10px;
+            border-radius: 0 50% 0 100%;
+        }
+
+        .corner-bl {
+            bottom: 10px;
+            left: 10px;
+            border-radius: 100% 0 0 50%;
+        }
+
+        .corner-br {
+            bottom: 10px;
+            right: 10px;
+            border-radius: 0 100% 50% 0;
+        }
+
+        .corner-motif {
+            font-size: 5rem;
+            color: var(--creme-ivoire);
+            text-shadow: 5px 5px 12px rgba(0, 0, 0, 0.7);
+            animation: motifFloat 5s ease-in-out infinite;
+        }
+
+        @keyframes motifFloat {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-8px) scale(1.05);
+            }
+        }
+
+        .container {
+            max-width: 1850px;
+            margin: 0 auto;
+            padding: 0 170px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* En-tête Art Nouveau */
+        header {
+            background: linear-gradient(160deg, var(--violet-profond) 0%, var(--prune) 60%, var(--amethyste) 100%);
+            padding: 130px 0 155px;
+            position: relative;
+            overflow: hidden;
+            margin: 70px 70px 0 70px;
+            border-radius: 50px 50px 0 0;
+            box-shadow: 
+                0 75px 175px rgba(74, 35, 90, 0.65),
+                inset 0 0 150px rgba(214, 137, 16, 0.15);
+            border: 12px solid var(--or-rose);
+            animation: nouveauReveal 2.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes nouveauReveal {
+            from {
+                opacity: 0;
+                transform: translateY(-110px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Motif floral Art Nouveau */
+        .floral-nouveau {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: 
+                radial-gradient(ellipse at 20% 25%, rgba(214, 137, 16, 0.15) 0%, transparent 45%),
+                radial-gradient(ellipse at 80% 75%, rgba(214, 137, 16, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(22, 160, 133, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+            animation: floralWave 40s ease-in-out infinite;
+        }
+
+        @keyframes floralWave {
+            0%, 100% {
+                opacity: 0.6;
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                opacity: 0.4;
+                transform: scale(1.05) rotate(2deg);
+            }
+        }
+
+        /* Marque Art Nouveau */
+        .nouveau-brand {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 90px;
+            animation: brandEmerge 2.9s ease-out;
+        }
+
+        @keyframes brandEmerge {
+            from {
+                opacity: 0;
+                transform: translateY(-110px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floral-emblem {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 58px;
+            background: 
+                radial-gradient(ellipse, var(--or-rose) 0%, var(--vert-jade) 100%);
+            border-radius: 50% 0 50% 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 
+                0 45px 110px rgba(0, 0, 0, 0.8),
+                inset 0 0 80px rgba(255, 255, 255, 0.3);
+            border: 10px solid var(--creme-ivoire);
+            animation: emblemPulse 6s ease-in-out infinite;
+        }
+
+        @keyframes emblemPulse {
+            0%, 100% {
+                border-radius: 50% 0 50% 0;
+                transform: rotate(0deg);
+            }
+            50% {
+                border-radius: 0 50% 0 50%;
+                transform: rotate(180deg);
+            }
+        }
+
+        .floral-emblem::before {
+            content: '';
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border: 6px solid var(--or-rose);
+            border-radius: 50% 0 50% 0;
+            opacity: 0.5;
+            animation: emblemPulse 6s ease-in-out infinite reverse;
+        }
+
+        .emblem-flower {
+            font-size: 8.5rem;
+            color: var(--creme-ivoire);
+            text-shadow: 7px 7px 18px rgba(0, 0, 0, 0.9);
+            animation: emblemPulse 6s ease-in-out infinite reverse;
+        }
+
+        .brand-nouveau {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 6.5rem;
+            color: var(--or-rose);
+            font-weight: 900;
+            letter-spacing: 26px;
+            margin-bottom: 40px;
+            text-shadow: 
+                9px 9px 22px rgba(0, 0, 0, 0.95),
+                0 0 90px rgba(214, 137, 16, 0.6);
+            text-transform: uppercase;
+            animation: goldShimmer 5s ease-in-out infinite;
+        }
+
+        @keyframes goldShimmer {
+            0%, 100% {
+                text-shadow: 9px 9px 22px rgba(0, 0, 0, 0.95), 0 0 90px rgba(214, 137, 16, 0.6);
+            }
+            50% {
+                text-shadow: 9px 9px 26px rgba(0, 0, 0, 0.95), 0 0 110px rgba(214, 137, 16, 0.8);
+            }
+        }
+
+        .brand-tagline {
+            color: var(--creme-ivoire);
+            font-size: 1.7rem;
+            letter-spacing: 11px;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'Sorts Mill Goudy', serif;
+            font-style: italic;
+            opacity: 0.98;
+        }
+
+        /* Titre principal */
+        h1 {
+            font-family: 'Italiana', serif;
+            font-size: 9.5rem;
+            color: var(--or-rose);
+            text-align: center;
+            font-weight: 400;
+            line-height: 1.7;
+            margin-top: 90px;
+            position: relative;
+            z-index: 2;
+            animation: brandEmerge 2.9s ease-out 0.3s backwards;
+            text-shadow: 
+                11px 11px 26px rgba(0, 0, 0, 0.95),
+                0 0 110px rgba(214, 137, 16, 0.55);
+            letter-spacing: 12px;
+        }
+
+        .nouveau-subtitle {
+            text-align: center;
+            color: var(--creme-ivoire);
+            font-size: 3.2rem;
+            margin-top: 65px;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+            animation: brandEmerge 2.9s ease-out 0.6s backwards;
+            font-style: italic;
+            letter-spacing: 5.5px;
+            font-family: 'Spectral', serif;
+        }
+
+        /* Diviseur Art Nouveau */
+        .nouveau-divider {
+            text-align: center;
+            margin: 85px 0;
+            font-size: 4rem;
+            color: var(--or-rose);
+            position: relative;
+        }
+
+        .nouveau-divider::before,
+        .nouveau-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 280px;
+            height: 5px;
+            background: 
+                radial-gradient(ellipse, var(--or-rose) 0%, transparent 70%);
+        }
+
+        .nouveau-divider::before {
+            right: calc(50% + 120px);
+        }
+
+        .nouveau-divider::after {
+            left: calc(50% + 120px);
+        }
+
+        /* Contenu principal */
+        main {
+            padding: 135px 0;
+            margin: 0 70px;
+            background: var(--creme-ivoire);
+            box-shadow: 
+                0 65px 155px rgba(0, 0, 0, 0.35),
+                inset 0 0 130px rgba(214, 137, 16, 0.12);
+            border-left: 12px solid var(--or-rose);
+            border-right: 12px solid var(--or-rose);
+        }
+
+        /* Introduction */
+        .intro-nouveau {
+            background: linear-gradient(135deg, rgba(248, 243, 232, 0.95) 0%, rgba(254, 245, 231, 0.95) 100%);
+            padding: 115px;
+            border-radius: 35px;
+            box-shadow: 
+                0 50px 125px rgba(0, 0, 0, 0.3),
+                inset 0 0 95px rgba(74, 35, 90, 0.12);
+            margin-bottom: 160px;
+            position: relative;
+            border: 8px solid var(--violet-profond);
+            animation: pageUnfold 2.4s ease-out 2.9s backwards;
+        }
+
+        @keyframes pageUnfold {
+            from {
+                opacity: 0;
+                transform: translateY(130px) rotateX(-15deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0deg);
+            }
+        }
+
+        .intro-nouveau::before {
+            content: '📐';
+            position: absolute;
+            top: -68px;
+            left: 110px;
+            font-size: 9.5rem;
+            color: var(--violet-profond);
+            background: var(--creme-ivoire);
+            padding: 22px 48px;
+            border-radius: 50%;
+            box-shadow: 0 22px 62px rgba(0, 0, 0, 0.42);
+            border: 8px solid var(--violet-profond);
+        }
+
+        .nouveau-heading {
+            font-family: 'Italiana', serif;
+            font-size: 6rem;
+            color: var(--violet-profond);
+            margin-bottom: 85px;
+            font-weight: 400;
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        .nouveau-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 360px;
+            height: 9px;
+            background: linear-gradient(90deg, var(--violet-profond), var(--or-rose));
+            border-radius: 5px;
+        }
+
+        .nouveau-text {
+            font-size: 2rem;
+            line-height: 3.2;
+            color: var(--noir-doux);
+            margin-bottom: 52px;
+            text-align: justify;
+            text-indent: 3.8em;
+        }
+
+        .nouveau-text:first-of-type::first-letter {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 7.5rem;
+            font-weight: 900;
+            float: left;
+            line-height: 1.05;
+            margin: 18px 24px 0 0;
+            color: var(--prune);
+            text-shadow: 5px 5px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Sections thématiques */
+        .theme-panel {
+            background: linear-gradient(135deg, rgba(248, 243, 232, 0.98) 0%, rgba(254, 245, 231, 0.98) 100%);
+            padding: 110px;
+            border-radius: 32px;
+            box-shadow: 
+                0 48px 120px rgba(0, 0, 0, 0.3),
+                inset 0 0 90px rgba(74, 35, 90, 0.12);
+            margin: 110px 0;
+            animation: pageUnfold 2.4s ease-out backwards;
+            border: 7px solid var(--violet-profond);
+        }
+
+        .panel-title {
+            font-family: 'Italiana', serif;
+            font-size: 6.5rem;
+            color: var(--violet-profond);
+            margin-bottom: 90px;
+            font-weight: 400;
+            text-align: center;
+            position: relative;
+            padding-bottom: 70px;
+        }
+
+        .panel-title::after {
+            content: '❦';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4.2rem;
+            color: var(--or-rose);
+        }
+
+        /* Cadre exemple */
+        .example-nouveau {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(254, 245, 231, 0.98) 100%);
+            padding: 78px 90px;
+            border-radius: 28px;
+            margin: 75px 0;
+            border-left: 22px solid var(--prune);
+            position: relative;
+            transition: all 1.05s ease;
+            box-shadow: 0 24px 66px rgba(0, 0, 0, 0.26);
+        }
+
+        .example-nouveau:hover {
+            transform: translateX(42px);
+            border-left-width: 30px;
+            box-shadow: -24px 30px 76px rgba(74, 35, 90, 0.45);
+        }
+
+        .example-tag {
+            font-family: 'Spectral', serif;
+            font-size: 1.7rem;
+            color: var(--prune);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 7.5px;
+            margin-bottom: 42px;
+            font-style: italic;
+        }
+
+        .sentence-nouveau {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--noir-doux);
+            margin: 52px 0;
+            padding: 58px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+            box-shadow: 
+                0 18px 56px rgba(0, 0, 0, 0.2),
+                inset 0 0 56px rgba(74, 35, 90, 0.12);
+            line-height: 3;
+            font-style: italic;
+            border: 5px solid rgba(74, 35, 90, 0.24);
+        }
+
+        .analysis-nouveau {
+            font-size: 1.8rem;
+            line-height: 3.1;
+            color: var(--noir-doux);
+            margin-top: 50px;
+            padding-left: 68px;
+            border-left: 16px solid rgba(74, 35, 90, 0.35);
+        }
+
+        .word-focus {
+            color: var(--prune);
+            font-weight: 700;
+            background: rgba(108, 52, 131, 0.18);
+            padding: 11px 24px;
+            border-radius: 14px;
+            border-bottom: 9px solid var(--prune);
+            text-decoration: none;
+        }
+
+        .grammar-detail {
+            color: var(--violet-profond);
+            font-weight: 600;
+            font-style: italic;
+            background: rgba(74, 35, 90, 0.16);
+            padding: 10px 22px;
+            border-radius: 13px;
+        }
+
+        /* Boîte règle */
+        .rule-nouveau {
+            background: linear-gradient(135deg, rgba(74, 35, 90, 0.26) 0%, rgba(74, 35, 90, 0.16) 100%);
+            border: 11px solid var(--violet-profond);
+            padding: 95px 105px;
+            border-radius: 30px;
+            margin: 105px 0;
+            position: relative;
+            animation: pageUnfold 2.4s ease-out backwards;
+            box-shadow: 0 42px 105px rgba(74, 35, 90, 0.48);
+        }
+
+        .rule-nouveau::before {
+            content: '§';
+            position: absolute;
+            top: -68px;
+            left: 95px;
+            background: var(--creme-ivoire);
+            padding: 32px 52px;
+            border-radius: 50%;
+            font-size: 5.5rem;
+            box-shadow: 0 22px 62px rgba(0, 0, 0, 0.48);
+            border: 11px solid var(--violet-profond);
+            color: var(--violet-profond);
+            font-family: 'Cinzel Decorative', serif;
+        }
+
+        .rule-header {
+            font-family: 'Italiana', serif;
+            color: var(--violet-profond);
+            font-size: 5.2rem;
+            margin-bottom: 62px;
+            font-weight: 400;
+        }
+
+        .rule-body {
+            font-size: 1.9rem;
+            line-height: 3.3;
+            color: var(--noir-doux);
+        }
+
+        .rule-items {
+            list-style: none;
+            margin: 72px 0;
+        }
+
+        .rule-items li {
+            padding: 52px 0 52px 110px;
+            position: relative;
+            font-size: 1.9rem;
+            line-height: 3.1;
+            border-bottom: 7px dashed rgba(74, 35, 90, 0.26);
+        }
+
+        .rule-items li:last-child {
+            border-bottom: none;
+        }
+
+        .rule-items li::before {
+            content: '✦';
+            position: absolute;
+            left: 38px;
+            color: var(--or-rose);
+            font-size: 4.8rem;
+        }
+
+        /* Tableau */
+        .table-nouveau {
+            background: linear-gradient(135deg, rgba(248, 243, 232, 0.98) 0%, rgba(254, 245, 231, 0.98) 100%);
+            padding: 110px;
+            border-radius: 30px;
+            box-shadow: 0 48px 120px rgba(0, 0, 0, 0.3);
+            margin: 110px 0;
+            overflow-x: auto;
+            animation: pageUnfold 2.4s ease-out backwards;
+            border: 7px solid var(--violet-profond);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 72px 0;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--violet-profond) 0%, var(--prune) 100%);
+        }
+
+        th {
+            color: var(--creme-ivoire);
+            padding: 52px 45px;
+            text-align: left;
+            font-family: 'Italiana', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 2.8px;
+        }
+
+        th:first-child {
+            border-radius: 36px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 36px 0 0;
+        }
+
+        td {
+            padding: 48px 45px;
+            border-bottom: 7px solid rgba(74, 35, 90, 0.2);
+            font-size: 1.8rem;
+            line-height: 3;
+            color: var(--noir-doux);
+        }
+
+        tbody tr {
+            transition: all 0.95s ease;
+            background: rgba(254, 245, 231, 0.75);
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, rgba(214, 137, 16, 0.24) 0%, rgba(248, 243, 232, 0.42) 100%);
+            transform: translateX(32px);
+            box-shadow: 0 0 52px rgba(214, 137, 16, 0.42);
+        }
+
+        tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 36px;
+        }
+
+        tbody tr:last-child td:last-child {
+            border-radius: 0 0 36px 0;
+        }
+
+        .table-highlight {
+            font-weight: 700;
+            color: var(--prune);
+            font-size: 2rem;
+        }
+
+        /* Avertissement */
+        .warning-nouveau {
+            background: linear-gradient(135deg, rgba(142, 68, 173, 0.26) 0%, rgba(142, 68, 173, 0.16) 100%);
+            border: 11px solid var(--amethyste);
+            padding: 95px 105px;
+            border-radius: 30px;
+            margin: 105px 0;
+            position: relative;
+            animation: pageUnfold 2.4s ease-out backwards;
+            box-shadow: 0 42px 105px rgba(142, 68, 173, 0.42);
+        }
+
+        .warning-nouveau::before {
+            content: '⚠';
+            position: absolute;
+            top: -68px;
+            left: 95px;
+            background: var(--creme-ivoire);
+            padding: 32px 52px;
+            border-radius: 50%;
+            font-size: 5.5rem;
+            box-shadow: 0 22px 62px rgba(0, 0, 0, 0.48);
+            border: 11px solid var(--amethyste);
+            color: var(--amethyste);
+        }
+
+        .warning-header {
+            font-family: 'Italiana', serif;
+            color: var(--amethyste);
+            font-size: 5.2rem;
+            margin-bottom: 62px;
+            font-weight: 400;
+        }
+
+        .warning-body {
+            font-size: 1.9rem;
+            line-height: 3.3;
+            color: var(--noir-doux);
+        }
+
+        /* Conseil */
+        .tip-nouveau {
+            background: linear-gradient(135deg, rgba(214, 137, 16, 0.26) 0%, rgba(214, 137, 16, 0.16) 100%);
+            border-left: 24px solid var(--or-rose);
+            padding: 90px 100px;
+            border-radius: 26px;
+            margin: 100px 0;
+            position: relative;
+            animation: pageUnfold 2.4s ease-out backwards;
+            box-shadow: 0 35px 88px rgba(214, 137, 16, 0.4);
+        }
+
+        .tip-nouveau::before {
+            content: '✎';
+            position: absolute;
+            top: -62px;
+            left: 90px;
+            background: var(--creme-ivoire);
+            padding: 30px 48px;
+            border-radius: 65px;
+            font-size: 5.2rem;
+            box-shadow: 0 18px 56px rgba(0, 0, 0, 0.48);
+            border: 10px solid var(--or-rose);
+            color: var(--or-rose);
+        }
+
+        .tip-header {
+            font-family: 'Italiana', serif;
+            color: var(--or-rose);
+            font-size: 5rem;
+            margin-bottom: 58px;
+            font-weight: 400;
+        }
+
+        .tip-body {
+            font-size: 1.85rem;
+            line-height: 3.2;
+            color: var(--noir-doux);
+        }
+
+        /* Panneau synthèse */
+        .synthesis-panel {
+            background: linear-gradient(135deg, var(--violet-profond) 0%, var(--prune) 100%);
+            padding: 120px;
+            border-radius: 35px;
+            margin: 115px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 68px 155px rgba(74, 35, 90, 0.62);
+            animation: pageUnfold 2.4s ease-out backwards;
+            border: 8px solid var(--or-rose);
+        }
+
+        .synthesis-panel::before {
+            content: '';
+            position: absolute;
+            top: -230px;
+            right: -230px;
+            width: 820px;
+            height: 820px;
+            background: radial-gradient(ellipse, rgba(214, 137, 16, 0.35) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .synthesis-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -215px;
+            left: -215px;
+            width: 790px;
+            height: 790px;
+            background: radial-gradient(ellipse, rgba(214, 137, 16, 0.32) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .synthesis-panel h2 {
+            font-family: 'Italiana', serif;
+            color: var(--or-rose);
+            font-size: 6.8rem;
+            margin-bottom: 85px;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+            text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);
+        }
+
+        .synthesis-panel p {
+            color: var(--creme-ivoire);
+            font-size: 2rem;
+            line-height: 3.4;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 52px;
+        }
+
+        .synthesis-items {
+            list-style: none;
+            margin: 78px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .synthesis-items li {
+            color: var(--creme-ivoire);
+            font-size: 1.95rem;
+            padding: 58px 0 58px 110px;
+            position: relative;
+            line-height: 3.3;
+        }
+
+        .synthesis-items li::before {
+            content: '❖';
+            position: absolute;
+            left: 35px;
+            color: var(--or-rose);
+            font-size: 5.2rem;
+        }
+
+        /* Pied de page */
+        footer {
+            background: linear-gradient(135deg, var(--violet-profond) 0%, var(--prune) 100%);
+            color: var(--creme-ivoire);
+            padding: 110px 0;
+            text-align: center;
+            margin: 0 70px 70px 70px;
+            border-radius: 0 0 50px 50px;
+            position: relative;
+            overflow: hidden;
+            border: 12px solid var(--or-rose);
+            border-top: none;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(ellipse at 40% 50%, rgba(214, 137, 16, 0.24) 0%, transparent 50%),
+                radial-gradient(ellipse at 60% 50%, rgba(214, 137, 16, 0.24) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        footer p {
+            font-size: 1.85rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 3.2px;
+            margin: 35px 0;
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel Decorative', serif;
+            color: var(--or-rose);
+            font-weight: 700;
+            font-size: 4.2rem;
+            margin-top: 48px;
+            letter-spacing: 18px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 75px;
+            }
+
+            h1 {
+                font-size: 7.5rem;
+            }
+
+            .nouveau-subtitle {
+                font-size: 2.6rem;
+            }
+
+            .intro-nouveau,
+            .theme-panel,
+            .table-nouveau,
+            .synthesis-panel {
+                padding: 85px;
+            }
+
+            table {
+                font-size: 1.55rem;
+            }
+
+            th, td {
+                padding: 42px 35px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 34px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--beige-doux);
+            border-left: 8px solid rgba(74, 35, 90, 0.2);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--violet-profond), var(--or-rose), var(--violet-profond));
+            border-radius: 17px;
+            border: 12px solid var(--beige-doux);
+            box-shadow: inset 0 0 26px rgba(0, 0, 0, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--or-rose), var(--violet-profond), var(--or-rose));
+            box-shadow: inset 0 0 32px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cadre Art Nouveau -->
+    <div class="nouveau-frame frame-top"></div>
+    <div class="nouveau-frame frame-bottom"></div>
+    <div class="nouveau-frame frame-left"></div>
+    <div class="nouveau-frame frame-right"></div>
+
+    <!-- Coins Art Nouveau -->
+    <div class="nouveau-corner corner-tl">
+        <div class="corner-motif">🌸</div>
+    </div>
+    <div class="nouveau-corner corner-tr">
+        <div class="corner-motif">🌸</div>
+    </div>
+    <div class="nouveau-corner corner-bl">
+        <div class="corner-motif">🌸</div>
+    </div>
+    <div class="nouveau-corner corner-br">
+        <div class="corner-motif">🌸</div>
+    </div>
+
+    <header>
+        <div class="floral-nouveau"></div>
+        
+        <div class="container">
+            <div class="nouveau-brand">
+                <div class="floral-emblem">
+                    <div class="emblem-flower">🌺</div>
+                </div>
+                <div class="brand-nouveau">Língua Academy</div>
+                <div class="brand-tagline">Bibliothèque Art Nouveau de Grammaire</div>
+            </div>
+            <h1>EMPLOIS PARTICULIERS</h1>
+            <p class="nouveau-subtitle">Même · On</p>
+            <div class="nouveau-divider">❦</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Introduction -->
+            <section class="intro-nouveau">
+                <h2 class="nouveau-heading">Préambule Grammatical</h2>
+                <p class="nouveau-text">
+                    Les mots <strong>MÊME</strong> et <strong>ON</strong> occupent une place singulière et fascinante dans le 
+                    système grammatical français, présentant chacun une complexité morphologique, syntaxique et sémantique qui 
+                    mérite une étude approfondie et systématique. <strong>MÊME</strong> manifeste une remarquable polyvalence 
+                    catégorielle et fonctionnelle, pouvant opérer comme adjectif indéfini (variable en nombre : "le même livre" / 
+                    "les mêmes livres"), comme adverbe (invariable : "même les experts"), ou comme pronom indéfini (variable : 
+                    "je ferai de même"). Cette triple nature grammaticale s'accompagne de variations de sens subtiles selon la 
+                    position dans la phrase, la présence ou l'absence d'un trait d'union, et le contexte syntaxique général. 
+                    L'adjectif "même" placé AVANT le nom exprime l'identité et la similitude ("la même personne" = identique), 
+                    tandis que placé APRÈS le nom, il exprime le renforcement emphatique ("la personne même" = elle-même, 
+                    précisément). L'adverbe "même" reste toujours invariable et exprime l'inclusion extensive ou le renforcement 
+                    ("même les enfants", "il dort même debout"). Le pronom "même" reprend un élément antérieur et varie en nombre 
+                    selon le référent ("faire de même", "nous ferons de même").
+                </p>
+                <p class="nouveau-text">
+                    <strong>ON</strong>, quant à lui, constitue un pronom personnel indéfini d'une grande richesse sémantique et 
+                    fonctionnelle. Morphologiquement invariable et imposant systématiquement un accord verbal à la troisième 
+                    personne du singulier, "on" peut néanmoins référer à des réalités plurielles et varier considérablement en 
+                    sens selon le contexte. Ses valeurs sémantiques sont multiples : valeur INDÉFINIE générale ("on ne sait jamais" 
+                    = les gens en général), valeur de NOUS familier ("on va au cinéma" = nous allons au cinéma), valeur IMPERSONNELLE 
+                    ("on dit que" = il est dit que), valeur de QUELQU'UN indéterminé ("on a frappé à la porte" = quelqu'un a 
+                    frappé). Cette polyvalence sémantique pose des questions d'accord particulières : bien que le verbe s'accorde 
+                    toujours au singulier, les adjectifs et participes passés peuvent s'accorder selon le sens réel de "on" 
+                    (masculin/féminin, singulier/pluriel). Par exemple : "On est contents" (pluriel masculin si "on" = nous hommes), 
+                    "On est contentes" (pluriel féminin si "on" = nous femmes), "On est content" (singulier si "on" = quelqu'un). 
+                    L'étude approfondie de MÊME et ON révèle ainsi la richesse et la subtilité du système des indéfinis français.
+                </p>
+            </section>
+
+            <!-- Section MÊME -->
+            <section class="theme-panel" style="animation-delay: 3.1s;">
+                <h2 class="panel-title">MÊME</h2>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">MÊME Adjectif AVANT le Nom — Identité</div>
+                    <div class="sentence-nouveau">
+                        C'est la <span class="word-focus">même</span> histoire qui se répète encore et encore inlassablement.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Nature :</strong> <span class="grammar-detail">ADJECTIF indéfini (accompagne "histoire")</span><br>
+                        → <strong>Position :</strong> AVANT le nom (position normale de l'adjectif indéfini)<br>
+                        → <strong>Sens :</strong> IDENTITÉ, similitude parfaite ("identique", "semblable")<br>
+                        → <strong>Accord :</strong> Féminin singulier (avec "histoire" féminin singulier)<br>
+                        → <strong>Forme :</strong> Invariable en genre (même m. = même f.)<br>
+                        → <strong>Variation :</strong> Variable en NOMBRE uniquement (même sg. / mêmes pl.)<br>
+                        → <strong>Valeur :</strong> Exprime le caractère identique, non différent<br>
+                        → <strong>Usage :</strong> Très fréquent pour marquer la répétition, l'identité
+                    </p>
+                </div>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">MÊMES Pluriel — Accord en Nombre</div>
+                    <div class="sentence-nouveau">
+                        Nous avons exactement les <span class="word-focus">mêmes</span> idées sur ce sujet important.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Nature :</strong> <span class="grammar-detail">ADJECTIF indéfini (accompagne "idées")</span><br>
+                        → <strong>Accord :</strong> Féminin pluriel (avec "idées" féminin pluriel)<br>
+                        → <strong>Forme :</strong> MÊMES = MÊME + s (marque du pluriel)<br>
+                        → <strong>Position :</strong> AVANT le nom (adjectif indéfini)<br>
+                        → <strong>Sens :</strong> "Identiques", "similaires", "non différentes"<br>
+                        → <strong>Valeur :</strong> Concordance, accord, identité de pensée<br>
+                        → <strong>Construction :</strong> Avec article défini "les mêmes"<br>
+                        → <strong>Remarque :</strong> Marque du pluriel -s obligatoire au pluriel
+                    </p>
+                </div>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">MÊME Adjectif APRÈS le Nom — Renforcement</div>
+                    <div class="sentence-nouveau">
+                        La directrice <span class="word-focus">même</span> a reconnu l'erreur publiquement devant tous.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Nature :</strong> <span class="grammar-detail">ADJECTIF de renforcement (après "directrice")</span><br>
+                        → <strong>Position :</strong> APRÈS le nom (position emphatique)<br>
+                        → <strong>Sens :</strong> RENFORCEMENT emphatique = "elle-même", "en personne"<br>
+                        → <strong>Accord :</strong> Féminin singulier (avec "directrice")<br>
+                        → <strong>Forme :</strong> Invariable en genre, variable en nombre<br>
+                        → <strong>Valeur :</strong> Insistance, emphase sur l'identité précise<br>
+                        → <strong>Équivalent :</strong> "Elle-même", "la directrice en personne"<br>
+                        → <strong>Remarque :</strong> Position APRÈS change le sens (identité → renforcement)
+                    </p>
+                </div>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">MÊME Adverbe — Invariable Inclusion</div>
+                    <div class="sentence-nouveau">
+                        <span class="word-focus">Même</span> les experts ont été surpris par ces résultats inattendus.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Nature :</strong> <span class="grammar-detail">ADVERBE (modifie "les experts")</span><br>
+                        → <strong>Invariabilité :</strong> TOUJOURS invariable comme adverbe (pas d'accord)<br>
+                        → <strong>Sens :</strong> INCLUSION extensive = "y compris", "jusqu'à"<br>
+                        → <strong>Position :</strong> Avant le groupe nominal qu'il modifie<br>
+                        → <strong>Valeur :</strong> Extension maximale, cas limite inclus<br>
+                        → <strong>Test :</strong> Remplaçable par "y compris" ("Y compris les experts")<br>
+                        → <strong>Usage :</strong> Très fréquent pour souligner un cas extrême<br>
+                        → <strong>Remarque :</strong> PAS d'accord (pas *mêmes les experts)
+                    </p>
+                </div>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">MÊME Adverbe Renforcement — Avec Verbe</div>
+                    <div class="sentence-nouveau">
+                        Il travaille <span class="word-focus">même</span> le dimanche pour finir son projet à temps.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Nature :</strong> <span class="grammar-detail">ADVERBE de renforcement</span><br>
+                        → <strong>Position :</strong> Après le verbe ou avant un complément<br>
+                        → <strong>Sens :</strong> RENFORCEMENT, insistance ("jusqu'à", "y compris")<br>
+                        → <strong>Invariabilité :</strong> Toujours invariable (adverbe)<br>
+                        → <strong>Valeur :</strong> Souligne un fait surprenant, excessif<br>
+                        → <strong>Équivalent :</strong> "Y compris", "jusqu'à", "aussi"<br>
+                        → <strong>Construction :</strong> Peut modifier verbe, nom, adjectif<br>
+                        → <strong>Remarque :</strong> Position flexible selon l'élément renforcé
+                    </p>
+                </div>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">MÊME Pronom — "De même", "Faire de même"</div>
+                    <div class="sentence-nouveau">
+                        Il a réussi son examen, et je ferai de <span class="word-focus">même</span> l'année prochaine.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Nature :</strong> <span class="grammar-detail">PRONOM indéfini (dans locution "de même")</span><br>
+                        → <strong>Construction :</strong> "De même" = locution pronominale figée<br>
+                        → <strong>Sens :</strong> "Pareillement", "également", "aussi"<br>
+                        → <strong>Fonction :</strong> Complément circonstanciel de manière<br>
+                        → <strong>Invariabilité :</strong> "De même" reste invariable dans cette locution<br>
+                        → <strong>Valeur :</strong> Reprend une action/situation antérieure<br>
+                        → <strong>Autres expressions :</strong> "Tout de même", "quand même", "de même que"<br>
+                        → <strong>Remarque :</strong> Locution figée très fréquente
+                    </p>
+                </div>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">À MÊME — Locution Prépositive</div>
+                    <div class="sentence-nouveau">
+                        Il boit à <span class="word-focus">même</span> la bouteille sans utiliser de verre du tout.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Nature :</strong> <span class="grammar-detail">Locution prépositive "à même"</span><br>
+                        → <strong>Sens :</strong> "Directement", "sans intermédiaire"<br>
+                        → <strong>Construction :</strong> "À même + article + nom"<br>
+                        → <strong>Valeur :</strong> Contact direct, absence d'intermédiaire<br>
+                        → <strong>Autres expressions :</strong> "À même le sol" (directement sur le sol)<br>
+                        → <strong>Registre :</strong> Courant, légèrement familier<br>
+                        → <strong>Invariabilité :</strong> Locution figée invariable<br>
+                        → <strong>Remarque :</strong> "Même" n'est pas séparable de "à" ici
+                    </p>
+                </div>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">QUAND MÊME / TOUT DE MÊME — Locutions</div>
+                    <div class="sentence-nouveau">
+                        Il pleut, mais nous irons <span class="word-focus">quand même</span> nous promener au parc.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Nature :</strong> <span class="grammar-detail">Locution adverbiale "quand même"</span><br>
+                        → <strong>Sens :</strong> "Malgré tout", "néanmoins", "cependant"<br>
+                        → <strong>Valeur :</strong> Opposition, concession (malgré un obstacle)<br>
+                        → <strong>Invariabilité :</strong> Locution figée totalement invariable<br>
+                        → <strong>Synonyme :</strong> "Tout de même" (légèrement plus formel)<br>
+                        → <strong>Autres valeurs :</strong> Peut exprimer l'indignation, la protestation<br>
+                        → <strong>Usage :</strong> Très fréquent à l'oral et à l'écrit<br>
+                        → <strong>Remarque :</strong> "Quand même" = locution indissociable
+                    </p>
+                </div>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">LUI-MÊME / EUX-MÊMES — Pronoms Renforcés</div>
+                    <div class="sentence-nouveau">
+                        Ils ont construit la maison eux-<span class="word-focus">mêmes</span> sans aide professionnelle.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Nature :</strong> <span class="grammar-detail">Pronom personnel renforcé avec "même"</span><br>
+                        → <strong>Construction :</strong> Pronom tonique + trait d'union + même(s)<br>
+                        → <strong>Accord :</strong> "Mêmes" au PLURIEL (eux-mêmes, elles-mêmes)<br>
+                        → <strong>Orthographe :</strong> TRAIT D'UNION obligatoire<br>
+                        → <strong>Sens :</strong> Insistance, renforcement ("en personne", "sans aide")<br>
+                        → <strong>Formes :</strong> moi-même, toi-même, lui-même, elle-même, nous-mêmes, vous-même(s), eux-mêmes, elles-mêmes<br>
+                        → <strong>Valeur :</strong> Autonomie, action personnelle directe<br>
+                        → <strong>Remarque :</strong> "Vous-même" (sg.) vs "vous-mêmes" (pl.)
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section ON -->
+            <section class="theme-panel" style="animation-delay: 3.3s;">
+                <h2 class="panel-title">ON</h2>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">ON Valeur Indéfinie Générale — "Les Gens"</div>
+                    <div class="sentence-nouveau">
+                        <span class="word-focus">On</span> ne sait jamais ce qui peut arriver dans la vie quotidienne.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Nature :</strong> <span class="grammar-detail">PRONOM personnel indéfini (3ème personne)</span><br>
+                        → <strong>Valeur :</strong> INDÉFINIE générale = "les gens", "tout le monde"<br>
+                        → <strong>Accord verbal :</strong> TOUJOURS 3ème personne SINGULIER<br>
+                        → <strong>Sens :</strong> Référence vague, générale, indéterminée<br>
+                        → <strong>Forme :</strong> Totalement INVARIABLE (pas de genre, pas de nombre)<br>
+                        → <strong>Emploi :</strong> Généralisation, vérité générale, maxime<br>
+                        → <strong>Équivalent :</strong> "Les gens", "tout le monde", "chacun"<br>
+                        → <strong>Remarque :</strong> Forme la plus neutre et universelle de "on"
+                    </p>
+                </div>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">ON = NOUS Familier — Substitution</div>
+                    <div class="sentence-nouveau">
+                        <span class="word-focus">On</span> va au cinéma ce soir avec toute la bande d'amis.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Nature :</strong> <span class="grammar-detail">PRONOM remplaçant "nous" (registre familier)</span><br>
+                        → <strong>Valeur :</strong> Substitut de NOUS dans le langage courant/familier<br>
+                        → <strong>Accord verbal :</strong> Singulier obligatoire ("on va", pas *on allons)<br>
+                        → <strong>Sens réel :</strong> "Nous" (groupe défini incluant le locuteur)<br>
+                        → <strong>Accord adjectif/participe :</strong> PLURIEL selon le sens réel<br>
+                        → <strong>Exemple accord :</strong> "On est contents" (pluriel car on = nous)<br>
+                        → <strong>Registre :</strong> Courant à l'oral, familier à l'écrit<br>
+                        → <strong>Remarque :</strong> Usage extrêmement fréquent en français contemporain
+                    </p>
+                </div>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">ON Valeur Impersonnelle — "Il Est Dit Que"</div>
+                    <div class="sentence-nouveau">
+                        <span class="word-focus">On</span> dit que ce restaurant sert la meilleure cuisine de la ville.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Nature :</strong> <span class="grammar-detail">PRONOM impersonnel (tournure impersonnelle)</span><br>
+                        → <strong>Valeur :</strong> IMPERSONNELLE = "il est dit que", "la rumeur dit"<br>
+                        → <strong>Accord verbal :</strong> Singulier (3ème personne)<br>
+                        → <strong>Sens :</strong> Source indéterminée, ouï-dire, rumeur<br>
+                        → <strong>Construction :</strong> "On dit que", "on raconte que", "on pense que"<br>
+                        → <strong>Valeur :</strong> Distance, prudence, non-engagement du locuteur<br>
+                        → <strong>Équivalent :</strong> "Il est dit que", "il paraît que"<br>
+                        → <strong>Remarque :</strong> Permet de rapporter sans s'engager personnellement
+                    </p>
+                </div>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">ON = QUELQU'UN Indéterminé</div>
+                    <div class="sentence-nouveau">
+                        <span class="word-focus">On</span> a frappé à la porte il y a quelques instants seulement.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Nature :</strong> <span class="grammar-detail">PRONOM désignant une personne indéterminée</span><br>
+                        → <strong>Valeur :</strong> "QUELQU'UN" d'indéterminé, non identifié<br>
+                        → <strong>Accord verbal :</strong> Singulier (3ème personne)<br>
+                        → <strong>Sens :</strong> Personne non identifiée, inconnue<br>
+                        → <strong>Contexte :</strong> Action dont l'agent est inconnu ou non précisé<br>
+                        → <strong>Accord adjectif :</strong> Masculin SINGULIER (référent inconnu)<br>
+                        → <strong>Équivalent :</strong> "Quelqu'un", "une personne"<br>
+                        → <strong>Remarque :</strong> L'identité de l'agent n'est pas connue ou pertinente
+                    </p>
+                </div>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">ON Accords — Selon le Sens Réel</div>
+                    <div class="sentence-nouveau">
+                        <span class="word-focus">On</span> est contents de vous revoir après cette longue absence.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Verbe :</strong> <span class="grammar-detail">TOUJOURS singulier ("on est", jamais *on sommes)</span><br>
+                        → <strong>Adjectif/Participe :</strong> Accord selon le SENS RÉEL de "on"<br>
+                        → <strong>Exemple ici :</strong> "Contents" PLURIEL car "on" = nous (plusieurs personnes)<br>
+                        → <strong>Règle accord :</strong> Si on = nous → pluriel ; si on = quelqu'un → singulier<br>
+                        → <strong>Genre :</strong> "Contentes" (f.pl.) si "on" = nous (femmes)<br>
+                        → <strong>Autres exemples :</strong> "On est partis" (pl.), "On est parti" (sg.)<br>
+                        → <strong>Distinction :</strong> Verbe TOUJOURS sg. / Adjectif/participe selon sens<br>
+                        → <strong>Remarque :</strong> Cette règle est souvent mal appliquée !
+                    </p>
+                </div>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">L'ON — Forme Euphonique</div>
+                    <div class="sentence-nouveau">
+                        Il faut que <span class="word-focus">l'on</span> prenne une décision rapide dès maintenant.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Forme :</strong> <span class="grammar-detail">"L'on" avec apostrophe (forme euphonique)</span><br>
+                        → <strong>Emploi :</strong> Après ET, OU, OÙ, QUI, QUOI, QUE, SI, LORSQUE<br>
+                        → <strong>Raison :</strong> Éviter hiatus ou cacophonie désagréable<br>
+                        → <strong>Sens :</strong> Strictement identique à "on" (pas de différence sémantique)<br>
+                        → <strong>Registre :</strong> Plutôt soutenu, littéraire, soigné<br>
+                        → <strong>Exemples :</strong> "Si l'on veut", "que l'on fasse", "où l'on va"<br>
+                        → <strong>Accord :</strong> Identique à "on" (verbe singulier, etc.)<br>
+                        → <strong>Remarque :</strong> Facultatif mais recommandé en style soutenu
+                    </p>
+                </div>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">ON Voix Passive — Tournure Alternative</div>
+                    <div class="sentence-nouveau">
+                        <span class="word-focus">On</span> a construit cette cathédrale au XIIe siècle avec soin.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Construction :</strong> <span class="grammar-detail">"On" + verbe actif = alternative au passif</span><br>
+                        → <strong>Équivalent passif :</strong> "Cette cathédrale a été construite au XIIe siècle"<br>
+                        → <strong>Valeur :</strong> Agent indéterminé ou non pertinent<br>
+                        → <strong>Avantage :</strong> Phrase active plus simple que la voix passive<br>
+                        → <strong>Sens :</strong> Les bâtisseurs (non nommés) ont construit<br>
+                        → <strong>Usage :</strong> Très fréquent pour éviter le passif lourd<br>
+                        → <strong>Autre exemple :</strong> "On parle français ici" = "Le français est parlé ici"<br>
+                        → <strong>Remarque :</strong> Préféré au passif dans la langue courante
+                    </p>
+                </div>
+
+                <div class="example-nouveau">
+                    <div class="example-tag">ON Proverbes et Maximes</div>
+                    <div class="sentence-nouveau">
+                        <span class="word-focus">On</span> n'est jamais si bien servi que par soi-même toujours.
+                    </div>
+                    <p class="analysis-nouveau">
+                        → <strong>Emploi :</strong> <span class="grammar-detail">Dans proverbes, maximes, vérités générales</span><br>
+                        → <strong>Valeur :</strong> Généralisation universelle, principe général<br>
+                        → <strong>Sens :</strong> "Chacun", "tout le monde" (valeur universelle)<br>
+                        → <strong>Forme :</strong> Souvent avec négation "on ne... jamais"<br>
+                        → <strong>Autres proverbes :</strong> "On ne fait pas d'omelette sans casser des œufs"<br>
+                        → <strong>Fonction :</strong> Énoncer une règle, un principe moral ou pratique<br>
+                        → <strong>Registre :</strong> Soutenu, sentencieux, proverbial<br>
+                        → <strong>Remarque :</strong> "On" très fréquent dans la sagesse populaire
+                    </p>
+                </div>
+            </section>
+
+            <!-- Règle -->
+            <div class="rule-nouveau" style="animation-delay: 3.5s;">
+                <h3 class="rule-header">Règles Fondamentales d'Emploi</h3>
+                <div class="rule-body">
+                    <ul class="rule-items">
+                        <li>
+                            <strong>MÊME — Triple nature grammaticale :</strong> "Même" peut fonctionner comme ADJECTIF indéfini 
+                            (variable en nombre : "le même livre" / "les mêmes livres"), comme ADVERBE (invariable : "même les 
+                            experts", "même debout"), ou comme PRONOM (dans locutions : "de même", "tout de même"). La POSITION 
+                            détermine souvent la nature : AVANT un nom avec article = adjectif ("le même livre"), AVANT un nom 
+                            sans modification = adverbe ("même debout"), dans une locution figée = pronom/adverbe ("quand même"). 
+                            Cette polyvalence nécessite une analyse contextuelle attentive pour identifier la nature grammaticale 
+                            correcte.
+                        </li>
+                        <li>
+                            <strong>MÊME adjectif — Position change le sens :</strong> L'adjectif "même" manifeste une variation 
+                            sémantique selon sa position par rapport au nom. Placé AVANT le nom (avec article), il exprime 
+                            l'IDENTITÉ et la SIMILITUDE : "le même livre" = un livre identique, "la même personne" = la personne 
+                            identique. Placé APRÈS le nom, il exprime le RENFORCEMENT emphatique et équivaut à un pronom réfléchi : 
+                            "le directeur même" = le directeur lui-même, en personne, "la vérité même" = la vérité elle-même, 
+                            exactement. Cette distinction positionnelle est cruciale pour interpréter correctement le sens.
+                        </li>
+                        <li>
+                            <strong>MÊME adverbe — Toujours invariable :</strong> Lorsque "même" fonctionne comme ADVERBE, il 
+                            reste TOUJOURS INVARIABLE, sans aucun accord en genre ni en nombre, quelle que soit la nature de 
+                            l'élément qu'il modifie. Exemples : "Même les experts" (pas *mêmes les experts), "Elle travaille 
+                            même le dimanche" (pas *mêmes le dimanche), "Ils sont même partis" (pas *mêmes partis). L'adverbe 
+                            "même" exprime l'inclusion extensive ("y compris", "jusqu'à") ou le renforcement ("aussi", "en plus"). 
+                            L'invariabilité est le critère distinctif majeur entre l'adverbe et l'adjectif.
+                        </li>
+                        <li>
+                            <strong>MÊME avec trait d'union — Pronoms renforcés :</strong> Quand "même" suit un pronom personnel 
+                            tonique pour former un pronom renforcé, il prend un TRAIT D'UNION obligatoire et s'accorde en NOMBRE 
+                            (mais pas en genre au singulier). Formes : moi-même, toi-même, lui-même, elle-même, soi-même (sg.) ; 
+                            nous-mêmes, vous-même (sg. de politesse) ou vous-mêmes (pl.), eux-mêmes, elles-mêmes (pl.). Attention : 
+                            "vous-même" (singulier de politesse) vs "vous-mêmes" (pluriel réel). Ces formes expriment l'insistance, 
+                            le renforcement, l'action personnelle directe sans aide extérieure.
+                        </li>
+                        <li>
+                            <strong>ON — Accord verbal toujours singulier :</strong> Le pronom "on" impose SYSTÉMATIQUEMENT et 
+                            OBLIGATOIREMENT un accord verbal à la 3ème personne du SINGULIER, quel que soit son sens réel (même 
+                            si "on" signifie "nous" et désigne plusieurs personnes). Correct : "On va au cinéma" (jamais *on allons), 
+                            "On est contents" (jamais *on sommes contents), "On a décidé" (jamais *on avons décidé). Cette règle 
+                            est ABSOLUE et sans exception. L'accord singulier du verbe constitue une caractéristique morphologique 
+                            fondamentale et invariable de "on" en français moderne.
+                        </li>
+                        <li>
+                            <strong>ON — Accords adjectif/participe selon le sens :</strong> Bien que le verbe s'accorde toujours 
+                            au singulier avec "on", les ADJECTIFS et PARTICIPES PASSÉS s'accordent selon le SENS RÉEL du pronom 
+                            "on". Si "on" = NOUS (plusieurs personnes) → accord PLURIEL : "On est contents" (plusieurs personnes 
+                            contentes), "On est partis" (plusieurs personnes parties). Si "on" = groupe féminin → accord FÉMININ : 
+                            "On est contentes" (nous, femmes). Si "on" = QUELQU'UN indéterminé → accord SINGULIER MASCULIN : "On 
+                            est content" (une personne quelconque). L'accord reflète le référent réel, pas la forme grammaticale.
+                        </li>
+                        <li>
+                            <strong>L'ON — Forme euphonique facultative :</strong> La forme "l'on" (avec apostrophe et article 
+                            élidé) constitue une variante euphonique facultative de "on", employée pour éviter un hiatus désagréable 
+                            ou une cacophonie. Elle s'utilise typiquement APRÈS les mots : ET, OU, OÙ, QUI, QUOI, QUE, SI, LORSQUE, 
+                            et autres conjonctions/relatifs. Exemples : "si l'on veut", "que l'on fasse", "où l'on va", "et l'on 
+                            comprend". La forme "l'on" appartient au registre SOUTENU et LITTÉRAIRE ; elle n'apporte aucune 
+                            différence de sens par rapport à "on", seulement une amélioration euphonique stylistique. Son emploi 
+                            reste facultatif mais apprécié dans un style soigné.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tableau -->
+            <section class="table-nouveau" style="animation-delay: 3.7s;">
+                <h2 class="nouveau-heading">Tableau Récapitulatif MÊME</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nature</th>
+                            <th>Position/Contexte</th>
+                            <th>Accord</th>
+                            <th>Sens</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-highlight">Adj. indéfini</td>
+                            <td>AVANT nom + article</td>
+                            <td>Nombre (sg./pl.)</td>
+                            <td>Identité, similitude</td>
+                            <td><em>Le même livre / Les mêmes livres</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">Adj. renforcement</td>
+                            <td>APRÈS nom</td>
+                            <td>Nombre (sg./pl.)</td>
+                            <td>Renforcement (lui-même)</td>
+                            <td><em>Le directeur même</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">Adverbe</td>
+                            <td>Avant nom/verbe/adj.</td>
+                            <td>INVARIABLE</td>
+                            <td>Inclusion, renforcement</td>
+                            <td><em>Même les experts / même debout</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">Pronom</td>
+                            <td>Locutions figées</td>
+                            <td>Selon contexte</td>
+                            <td>Pareillement</td>
+                            <td><em>De même / Quand même</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">Avec pronom</td>
+                            <td>Pronom + trait d'union</td>
+                            <td>Nombre (sg./pl.)</td>
+                            <td>Renforcement personnel</td>
+                            <td><em>Lui-même / Eux-mêmes</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 class="nouveau-heading" style="margin-top: 120px;">Tableau Récapitulatif ON</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Valeur Sémantique</th>
+                            <th>Sens Équivalent</th>
+                            <th>Accord Verbe</th>
+                            <th>Accord Adj./Part.</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-highlight">Indéfini général</td>
+                            <td>Les gens, tout le monde</td>
+                            <td>3ème sg.</td>
+                            <td>Masculin sg.</td>
+                            <td><em>On ne sait jamais</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">Substitut "nous"</td>
+                            <td>Nous (familier)</td>
+                            <td>3ème sg.</td>
+                            <td>PLURIEL (sens réel)</td>
+                            <td><em>On est contents (= nous)</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">Impersonnel</td>
+                            <td>Il est dit que</td>
+                            <td>3ème sg.</td>
+                            <td>Masculin sg.</td>
+                            <td><em>On dit que...</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">Quelqu'un indéterminé</td>
+                            <td>Quelqu'un, une personne</td>
+                            <td>3ème sg.</td>
+                            <td>Masculin sg.</td>
+                            <td><em>On a frappé à la porte</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">Forme euphonique</td>
+                            <td>Identique à "on"</td>
+                            <td>3ème sg.</td>
+                            <td>Selon contexte</td>
+                            <td><em>Si l'on veut...</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Avertissement -->
+            <div class="warning-nouveau" style="animation-delay: 3.9s;">
+                <h3 class="warning-header">Erreurs Fréquentes à Éviter</h3>
+                <div class="warning-body">
+                    <p style="margin-bottom: 50px;">
+                        <strong>Erreur n°1 : Accorder "même" adverbe</strong><br>
+                        ❌ <em>"Mêmes les experts ont été surpris"</em> (accord incorrect de l'adverbe)<br>
+                        ✅ <em>"Même les experts ont été surpris"</em> (adverbe invariable)<br>
+                        → L'adverbe "même" est TOUJOURS invariable, jamais d'accord
+                    </p>
+                    
+                    <p style="margin-bottom: 50px;">
+                        <strong>Erreur n°2 : Confusion position de "même" adjectif</strong><br>
+                        ❌ Confusion entre "le même livre" (identique) et "le livre même" (lui-même)<br>
+                        ✅ <em>"Le même livre"</em> (avant = identité) / <em>"Le livre même"</em> (après = renforcement)<br>
+                        → Position change le sens : avant = identité / après = renforcement
+                    </p>
+                    
+                    <p style="margin-bottom: 50px;">
+                        <strong>Erreur n°3 : Accorder le verbe avec "on" au pluriel</strong><br>
+                        ❌ <em>"On sont allés au cinéma"</em> (verbe au pluriel impossible)<br>
+                        ✅ <em>"On est allés au cinéma"</em> (verbe singulier obligatoire)<br>
+                        → Le verbe avec "on" est TOUJOURS 3ème personne SINGULIER
+                    </p>
+                    
+                    <p style="margin-bottom: 50px;">
+                        <strong>Erreur n°4 : Ne pas accorder adjectif/participe avec "on" = nous</strong><br>
+                        ❌ <em>"On est content de vous voir"</em> (singulier alors que on = nous)<br>
+                        ✅ <em>"On est contents de vous voir"</em> (pluriel car on = nous)<br>
+                        → Adjectif/participe s'accorde selon le sens réel de "on"
+                    </p>
+                    
+                    <p style="margin-bottom: 50px;">
+                        <strong>Erreur n°5 : Oublier le trait d'union avec pronoms renforcés</strong><br>
+                        ❌ <em>"Ils l'ont fait eux mêmes"</em> (sans trait d'union incorrect)<br>
+                        ✅ <em>"Ils l'ont fait eux-mêmes"</em> (trait d'union obligatoire)<br>
+                        → Pronom tonique + "même" nécessite TOUJOURS un trait d'union
+                    </p>
+                    
+                    <p>
+                        <strong>Erreur n°6 : Mauvais accord de "même" avec pronoms renforcés</strong><br>
+                        ❌ <em>"Nous l'avons fait nous-même"</em> (singulier avec pronom pluriel)<br>
+                        ✅ <em>"Nous l'avons fait nous-mêmes"</em> (accord pluriel obligatoire)<br>
+                        → "Même" s'accorde en nombre : nous-mêmes, vous-mêmes, eux-mêmes
+                    </p>
+                </div>
+            </div>
+
+            <!-- Conseil -->
+            <div class="tip-nouveau" style="animation-delay: 4.1s;">
+                <h3 class="tip-header">Guide Pratique de Maîtrise</h3>
+                <div class="tip-body">
+                    <p style="margin-bottom: 42px;">
+                        <strong>Stratégies pour maîtriser MÊME et ON :</strong>
+                    </p>
+                    
+                    <p style="margin-bottom: 40px;">
+                        <strong>Pour identifier la nature de MÊME :</strong><br>
+                        → Test 1 : Y a-t-il un article + nom ? → OUI = adjectif indéfini ("le même")<br>
+                        → Test 2 : Peut-on remplacer par "y compris" ? → OUI = adverbe ("même les experts")<br>
+                        → Test 3 : Est-ce dans une locution figée ? → OUI = pronom/adverbe ("de même")<br>
+                        → Test 4 : Suit-il un pronom avec trait d'union ? → OUI = renforcement ("lui-même")<br>
+                        → Règle accord : ADJECTIF = variable nombre / ADVERBE = invariable toujours
+                    </p>
+                    
+                    <p style="margin-bottom: 40px;">
+                        <strong>Pour la position de MÊME adjectif :</strong><br>
+                        → AVANT le nom (avec article) = IDENTITÉ, similitude<br>
+                        → Exemples : "le même livre" (identique), "la même personne" (identique)<br>
+                        → APRÈS le nom = RENFORCEMENT emphatique (= lui-même)<br>
+                        → Exemples : "le directeur même" (le directeur en personne)<br>
+                        → Mémo : AVANT = identité / APRÈS = emphase personnelle
+                    </p>
+                    
+                    <p style="margin-bottom: 40px;">
+                        <strong>Pour les accords avec ON :</strong><br>
+                        → VERBE : TOUJOURS 3ème personne SINGULIER (on va, on est, on a)<br>
+                        → JAMAIS *on allons, *on sommes, *on avons (erreur grave !)<br>
+                        → ADJECTIF/PARTICIPE : accord selon le SENS RÉEL de "on"<br>
+                        → Si on = NOUS → PLURIEL : "On est contents" (plusieurs personnes)<br>
+                        → Si on = groupe féminin → FÉMININ : "On est contentes" (nous, femmes)<br>
+                        → Si on = QUELQU'UN → SINGULIER MASCULIN : "On est content"<br>
+                        → Règle simple : Verbe sg. obligatoire / Adj./part. selon le sens
+                    </p>
+                    
+                    <p style="margin-bottom: 40px;">
+                        <strong>Pour les valeurs sémantiques de ON :</strong><br>
+                        → Contexte général/proverbe → "les gens", "tout le monde"<br>
+                        → Langage familier/oral → "nous" (substitution courante)<br>
+                        → "On dit que", "on raconte" → impersonnel, ouï-dire<br>
+                        → Action dont l'agent est inconnu → "quelqu'un" indéterminé<br>
+                        → Alternative au passif → "On a construit" = "a été construit"
+                    </p>
+                    
+                    <p style="margin-bottom: 40px;">
+                        <strong>Pour L'ON euphonique :</strong><br>
+                        → Emploi APRÈS : et, ou, où, qui, quoi, que, si, lorsque<br>
+                        → Exemples : "si l'on veut", "que l'on fasse", "où l'on va"<br>
+                        → Registre SOUTENU, littéraire, style soigné<br>
+                        → Sens IDENTIQUE à "on" (différence purement euphonique)<br>
+                        → Usage facultatif mais élégant pour éviter hiatus
+                    </p>
+                    
+                    <p>
+                        <strong>Mémo rapide :</strong> MÊME = 3 natures (adj./adv./pron.) → adv. INVARIABLE toujours. 
+                        Position AVANT nom = identité / APRÈS nom = renforcement. ON verbe = sg. TOUJOURS / Adj./part. = 
+                        selon SENS. "On" = nous → pl. / "on" = quelqu'un → sg. L'ON = euphonique soutenu. Trait d'union 
+                        avec pronoms : lui-même, eux-mêmes (accord nombre).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Synthèse -->
+            <section class="synthesis-panel" style="animation-delay: 4.3s;">
+                <h2>Synthèse des Emplois Particuliers</h2>
+                <ul class="synthesis-items">
+                    <li>
+                        <strong>MÊME — Polyvalence catégorielle remarquable :</strong> Le mot "même" constitue un cas fascinant 
+                        de polyvalence grammaticale en français, pouvant fonctionner comme ADJECTIF INDÉFINI (variable en nombre : 
+                        "le même livre" / "les mêmes livres"), comme ADVERBE (invariable : "même les experts", "même debout"), ou 
+                        comme élément de LOCUTIONS figées ("de même", "quand même", "tout de même"). Cette triple nature nécessite 
+                        une analyse contextuelle attentive pour identifier la catégorie grammaticale correcte. Les critères 
+                        distinctifs principaux sont : la POSITION (avant/après le nom, isolé), la VARIABILITÉ (accord ou 
+                        invariabilité), et le CONTEXTE syntaxique (présence d'article, type de complément, locution figée). 
+                        La maîtrise de ces distinctions permet d'éviter les erreurs d'accord fréquentes et de comprendre les 
+                        nuances sémantiques subtiles.
+                    </li>
+                    <li>
+                        <strong>MÊME adjectif — Variation sémantique selon la position :</strong> L'adjectif "même" manifeste 
+                        une remarquable variation de sens selon sa position par rapport au nom qu'il détermine. Placé AVANT le 
+                        nom (nécessairement avec un article : "le/la/les même(s)"), il exprime l'IDENTITÉ, la SIMILITUDE, le 
+                        caractère IDENTIQUE : "le même livre" signifie un livre identique, non différent, "la même personne" 
+                        désigne la personne identique. Placé APRÈS le nom, il acquiert une valeur de RENFORCEMENT EMPHATIQUE, 
+                        équivalant à un pronom réfléchi intensif : "le directeur même" = le directeur lui-même, en personne, 
+                        précisément, "la vérité même" = la vérité elle-même, exactement. Cette distinction positionnelle 
+                        (avant/après) entraîne un changement sémantique majeur (identité/emphase) tout en conservant la même 
+                        nature grammaticale (adjectif indéfini).
+                    </li>
+                    <li>
+                        <strong>MÊME adverbe — Invariabilité absolue et valeurs sémantiques :</strong> Lorsque "même" fonctionne 
+                        comme ADVERBE, il présente une INVARIABILITÉ ABSOLUE, ne variant jamais en genre ni en nombre, quelle 
+                        que soit la nature de l'élément qu'il modifie. Cette invariabilité constitue le critère distinctif majeur 
+                        entre l'adverbe (invariable) et l'adjectif (variable en nombre). L'adverbe "même" exprime principalement 
+                        deux valeurs : INCLUSION EXTENSIVE ("y compris", "jusqu'à" : "même les experts", "même debout") et 
+                        RENFORCEMENT intensif ("aussi", "en plus" : "il travaille même le dimanche"). L'adverbe peut modifier un 
+                        nom, un verbe, un adjectif ou une proposition entière, offrant ainsi une grande souplesse syntaxique. 
+                        L'erreur d'accorder l'adverbe "même" (*mêmes les experts) constitue une faute grave et fréquente qu'il 
+                        convient d'éviter absolument.
+                    </li>
+                    <li>
+                        <strong>Pronoms renforcés avec trait d'union :</strong> La construction des pronoms personnels renforcés 
+                        avec "même" suit des règles morphologiques et orthographiques spécifiques. Ces formes se composent d'un 
+                        pronom personnel TONIQUE suivi d'un TRAIT D'UNION obligatoire puis de "même" qui s'accorde en NOMBRE : 
+                        SINGULIER (moi-même, toi-même, lui-même, elle-même, soi-même) et PLURIEL (nous-mêmes, vous-même(s), 
+                        eux-mêmes, elles-mêmes). Attention particulière à "vous-même" (singulier de politesse adressé à une 
+                        personne) versus "vous-mêmes" (pluriel réel adressé à plusieurs personnes). Ces formes renforcées 
+                        expriment l'INSISTANCE, le RENFORCEMENT, l'action PERSONNELLE directe sans aide extérieure, l'autonomie. 
+                        Elles sont très fréquentes pour souligner la responsabilité personnelle ou l'action directe.
+                    </li>
+                    <li>
+                        <strong>ON — Pronom indéfini aux valeurs sémantiques multiples :</strong> Le pronom "on" présente une 
+                        richesse sémantique exceptionnelle, pouvant référer à des réalités très diverses selon le contexte. Ses 
+                        principales valeurs sont : INDÉFINIE GÉNÉRALE ("on ne sait jamais" = les gens en général, tout le monde), 
+                        SUBSTITUT DE NOUS familier ("on va au cinéma" = nous allons, usage très fréquent à l'oral), IMPERSONNELLE 
+                        ("on dit que" = il est dit que, la rumeur dit, tournure de distance), QUELQU'UN INDÉTERMINÉ ("on a frappé" 
+                        = quelqu'un d'indéterminé a frappé), et ALTERNATIVE AU PASSIF ("on a construit" = a été construit). Cette 
+                        polyvalence sémantique fait de "on" un pronom d'une grande souplesse fonctionnelle, permettant d'exprimer 
+                        des nuances variées de généralité, d'indétermination, d'impersonnalité ou de familiarité selon le contexte 
+                        discursif.
+                    </li>
+                    <li>
+                        <strong>ON — Accord verbal singulier systématique :</strong> Indépendamment de sa valeur sémantique et 
+                        du nombre de personnes auxquelles il réfère, le pronom "on" impose SYSTÉMATIQUEMENT et OBLIGATOIREMENT 
+                        un accord verbal à la 3ème personne du SINGULIER. Cette règle est ABSOLUE et SANS EXCEPTION en français 
+                        moderne : "on va" (jamais *on allons), "on est" (jamais *on sommes), "on a" (jamais *on avons), "on fait" 
+                        (jamais *on faisons). Même lorsque "on" signifie clairement "nous" et désigne plusieurs personnes, le 
+                        verbe reste au singulier : "On va au cinéma" (= nous allons, mais verbe au singulier). Cette caractéristique 
+                        morphologique fondamentale distingue radicalement "on" de "nous" et constitue un invariant grammatical 
+                        absolu qu'il est impératif de respecter dans tous les contextes d'emploi.
+                    </li>
+                    <li>
+                        <strong>ON — Accords adjectif/participe selon le référent réel :</strong> Contrairement au verbe qui 
+                        s'accorde toujours au singulier, les ADJECTIFS et PARTICIPES PASSÉS employés avec "on" s'accordent selon 
+                        le RÉFÉRENT RÉEL du pronom, c'est-à-dire selon le sens et non selon la forme grammaticale. Si "on" = NOUS 
+                        (plusieurs personnes) → accord PLURIEL : "On est contents" (plusieurs personnes contentes), "On est partis" 
+                        (plusieurs personnes parties). Si "on" = groupe FÉMININ → accord FÉMININ : "On est contentes" (nous, 
+                        femmes), "On est parties" (nous, femmes, sommes parties). Si "on" = QUELQU'UN indéterminé → accord 
+                        SINGULIER MASCULIN : "On est content" (une personne quelconque). Cette règle d'accord sémantique (et non 
+                        grammatical) reflète le référent réel et permet de lever l'ambiguïté sur l'identité des personnes désignées 
+                        par "on". Elle constitue une exception remarquable au principe général d'accord grammatical formel.
+                    </li>
+                    <li>
+                        <strong>Maîtrise et compétence linguistique avancée :</strong> La connaissance approfondie des emplois 
+                        particuliers de MÊME et ON révèle la sophistication et la subtilité du système grammatical français. Cette 
+                        maîtrise implique : la capacité à identifier la nature grammaticale de "même" selon le contexte (adjectif, 
+                        adverbe, pronom), la compréhension des variations sémantiques selon la position (avant/après le nom), 
+                        l'application correcte des règles d'accord (variabilité de l'adjectif, invariabilité de l'adverbe), la 
+                        reconnaissance des multiples valeurs sémantiques de "on" (indéfini général, substitut de "nous", impersonnel, 
+                        indéterminé), et l'application des règles d'accord spécifiques (verbe toujours singulier, adjectif/participe 
+                        selon le référent réel). Cette expertise constitue un élément essentiel de la compétence grammaticale 
+                        avancée en français et témoigne d'une conscience linguistique développée permettant une expression précise, 
+                        nuancée et idiomatique.
+                    </li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Língua Academy · Tous droits réservés</p>
+            <p class="footer-brand">LÍNGUA ACADEMY</p>
+            <p>Bibliothèque Art Nouveau de Grammaire Française</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer pour animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -160px 0px'
+        };
+
+        const fadeObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer les exemples
+        document.querySelectorAll('.example-nouveau').forEach(example => {
+            example.style.opacity = '0';
+            example.style.transform = 'translateY(68px)';
+            example.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
+            fadeObserver.observe(example);
+        });
+
+        // Animer les rangées de tableau
+        document.querySelectorAll('tbody tr').forEach((row, index) => {
+            row.style.opacity = '0';
+            row.style.transform = 'translateX(-88px)';
+            row.style.transition = `opacity 1.3s ease ${index * 0.15}s, transform 1.3s ease ${index * 0.15}s`;
+            
+            fadeObserver.observe(row);
+        });
+
+        // Animation emblème
+        const emblem = document.querySelector('.floral-emblem');
+        if (emblem) {
+            emblem.addEventListener('mouseenter', function() {
+                this.style.animationPlayState = 'paused';
+            });
+            emblem.addEventListener('mouseleave', function() {
+                this.style.animationPlayState = 'running';
+            });
+        }
+    </script>
+</body>
+</html>

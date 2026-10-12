@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Imparfait & Le Passé Simple | Língua Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --parchment: #f4ede3;
+            --old-paper: #e8dcc8;
+            --sepia: #d4c4a8;
+            --ink-black: #2a231f;
+            --burgundy: #6b2737;
+            --aged-gold: #b8924a;
+            --dark-brown: #4a3728;
+            --cream: #faf7f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: var(--parchment);
+            color: var(--ink-black);
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Paper texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(42, 35, 31, 0.01) 2px,
+                    rgba(42, 35, 31, 0.01) 4px
+                );
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        /* Vintage stains */
+        .stain {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(circle, var(--sepia), transparent 70%);
+        }
+
+        .stain-1 {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            right: 5%;
+        }
+
+        .stain-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 8%;
+        }
+
+        .stain-3 {
+            width: 180px;
+            height: 180px;
+            top: 60%;
+            right: 15%;
+        }
+
+        /* Content */
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Ornamental border */
+        .ornamental-border {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .border-corner {
+            width: 150px;
+            height: 150px;
+            border: 3px solid var(--aged-gold);
+            opacity: 0.3;
+        }
+
+        .border-top-left {
+            top: 20px;
+            left: 20px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .border-top-right {
+            top: 20px;
+            right: 20px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .border-bottom-left {
+            bottom: 20px;
+            left: 20px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .border-bottom-right {
+            bottom: 20px;
+            right: 20px;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* Header - manuscript style */
+        .manuscript-header {
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            background: linear-gradient(180deg, var(--old-paper) 0%, var(--parchment) 100%);
+            border-bottom: 3px double var(--aged-gold);
+        }
+
+        .manuscript-header::before {
+            content: '❦';
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: var(--aged-gold);
+            opacity: 0.5;
+        }
+
+        .academy-seal {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--burgundy);
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .manuscript-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 700;
+            color: var(--ink-black);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: slideDown 1s ease-out 0.2s both;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .manuscript-subtitle {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--dark-brown);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        .divider {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--aged-gold), transparent);
+            margin: 2rem auto;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Chapter section */
+        .chapter {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .chapter-number {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .chapter-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--ink-black);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .chapter-title::before,
+        .chapter-title::after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--aged-gold);
+            font-size: 1rem;
+        }
+
+        .chapter-title::before {
+            left: -3rem;
+        }
+
+        .chapter-title::after {
+            right: -3rem;
+        }
+
+        .chapter-intro {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--dark-brown);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        /* Manuscript page */
+        .manuscript-page {
+            background: var(--cream);
+            border: 1px solid var(--sepia);
+            box-shadow: 
+                0 4px 6px rgba(42, 35, 31, 0.1),
+                inset 0 0 100px rgba(212, 196, 168, 0.1);
+            padding: 4rem;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .manuscript-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 3rem;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, var(--aged-gold), transparent);
+            opacity: 0.2;
+        }
+
+        /* Two column layout for comparison */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 3rem 0;
+        }
+
+        .column {
+            position: relative;
+        }
+
+        .column::before {
+            content: '';
+            position: absolute;
+            top: -2rem;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--aged-gold);
+            opacity: 0.3;
+        }
+
+        .column-heading {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--burgundy);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .column-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        /* Conjugation table - manuscript style */
+        .conjugation-manuscript {
+            background: rgba(255, 255, 255, 0.5);
+            border: 2px solid var(--sepia);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .conjugation-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--ink-black);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--aged-gold);
+        }
+
+        .conjugation-grid {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .conjugation-line {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 2rem;
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid rgba(212, 196, 168, 0.3);
+            align-items: baseline;
+            transition: all 0.3s ease;
+        }
+
+        .conjugation-line:hover {
+            background: rgba(184, 146, 74, 0.1);
+            padding-left: 1.5rem;
+        }
+
+        .conjugation-line:last-child {
+            border-bottom: none;
+        }
+
+        .pronoun-manuscript {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--burgundy);
+            font-weight: 600;
+        }
+
+        .verb-manuscript {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--ink-black);
+            font-style: italic;
+        }
+
+        /* Usage boxes */
+        .usage-section {
+            margin: 5rem 0;
+        }
+
+        .usage-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .usage-box {
+            background: var(--cream);
+            border: 2px solid var(--aged-gold);
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .usage-box::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 1px solid var(--sepia);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .usage-box:hover::before {
+            opacity: 1;
+        }
+
+        .usage-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(42, 35, 31, 0.15);
+        }
+
+        .usage-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--burgundy);
+            color: var(--aged-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1.5rem;
+            border: 2px solid var(--aged-gold);
+        }
+
+        .usage-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--ink-black);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .usage-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            text-align: justify;
+            color: var(--dark-brown);
+        }
+
+        .usage-example {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(184, 146, 74, 0.1);
+            border-left: 3px solid var(--burgundy);
+            font-style: italic;
+        }
+
+        /* Literary excerpt */
+        .literary-excerpt {
+            background: var(--old-paper);
+            border: 3px double var(--aged-gold);
+            padding: 4rem;
+            margin: 5rem 0;
+            position: relative;
+        }
+
+        .literary-excerpt::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            font-family: 'Cinzel', serif;
+            font-size: 8rem;
+            color: var(--aged-gold);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .excerpt-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--burgundy);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .excerpt-text {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.3rem;
+            line-height: 2;
+            text-align: justify;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .highlight-imparfait {
+            background: linear-gradient(180deg, transparent 60%, rgba(107, 39, 55, 0.2) 60%);
+            font-weight: 600;
+        }
+
+        .highlight-passe {
+            background: linear-gradient(180deg, transparent 60%, rgba(184, 146, 74, 0.2) 60%);
+            font-weight: 600;
+        }
+
+        .excerpt-source {
+            text-align: right;
+            margin-top: 2rem;
+            font-style: italic;
+            color: var(--dark-brown);
+        }
+
+        /* Formation rules */
+        .formation-section {
+            background: var(--cream);
+            border-top: 3px double var(--aged-gold);
+            border-bottom: 3px double var(--aged-gold);
+            padding: 5rem 4rem;
+            margin: 5rem 0;
+        }
+
+        .formation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .formation-card {
+            background: white;
+            border: 2px solid var(--sepia);
+            padding: 3rem;
+            position: relative;
+        }
+
+        .formation-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--burgundy);
+        }
+
+        .formation-heading {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--burgundy);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .formation-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .formation-step {
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .step-ornament {
+            width: 30px;
+            height: 30px;
+            background: var(--aged-gold);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .step-content {
+            flex: 1;
+            line-height: 1.8;
+        }
+
+        .formation-example-box {
+            background: var(--old-paper);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--burgundy);
+            font-family: 'EB Garamond', serif;
+            font-size: 1.1rem;
+        }
+
+        /* Comparison table */
+        .comparison-manuscript {
+            margin: 5rem 0;
+        }
+
+        .comparison-table {
+            background: white;
+            border: 3px double var(--aged-gold);
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 3px solid var(--aged-gold);
+        }
+
+        .table-header-cell {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            text-align: center;
+            color: var(--burgundy);
+        }
+
+        .table-rows {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 1.5rem;
+            background: var(--parchment);
+            border-left: 3px solid var(--sepia);
+            transition: all 0.3s ease;
+        }
+
+        .table-row:hover {
+            background: var(--old-paper);
+            padding-left: 2rem;
+        }
+
+        .table-cell {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        /* Tips scroll */
+        .wisdom-section {
+            padding: 5rem 0;
+        }
+
+        .wisdom-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .wisdom-card {
+            background: var(--cream);
+            border: 2px solid var(--sepia);
+            padding: 3rem 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .wisdom-card::before {
+            content: '✦';
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--aged-gold);
+            opacity: 0.5;
+        }
+
+        .wisdom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(42, 35, 31, 0.15);
+        }
+
+        .wisdom-number {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: var(--burgundy);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .wisdom-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--ink-black);
+            margin-bottom: 1rem;
+        }
+
+        .wisdom-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--dark-brown);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ink-black);
+            color: var(--old-paper);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 3px double var(--aged-gold);
+            position: relative;
+        }
+
+        footer::before {
+            content: '❦';
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: var(--aged-gold);
+            opacity: 0.5;
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--aged-gold);
+            margin-top: 2rem;
+        }
+
+        .footer-motto {
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--sepia);
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .two-columns,
+            .formation-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .column::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .manuscript-header {
+                padding: 4rem 1.5rem 3rem;
+            }
+
+            .manuscript-page,
+            .literary-excerpt,
+            .formation-section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .chapter-title::before,
+            .chapter-title::after {
+                display: none;
+            }
+
+            .usage-boxes,
+            .wisdom-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .ornamental-border {
+                display: none;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in-manuscript {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in-manuscript.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Vintage stains -->
+    <div class="stain stain-1"></div>
+    <div class="stain stain-2"></div>
+    <div class="stain stain-3"></div>
+
+    <!-- Ornamental borders -->
+    <div class="ornamental-border border-corner border-top-left"></div>
+    <div class="ornamental-border border-corner border-top-right"></div>
+    <div class="ornamental-border border-corner border-bottom-left"></div>
+    <div class="ornamental-border border-corner border-bottom-right"></div>
+
+    <div class="content">
+        <!-- Manuscript Header -->
+        <header class="manuscript-header">
+            <div class="academy-seal">Língua Academy</div>
+            <h1 class="manuscript-title">Temps du Passé</h1>
+            <p class="manuscript-subtitle">
+                L'Imparfait et le Passé Simple : les chroniqueurs de nos souvenirs
+            </p>
+            <div class="divider"></div>
+        </header>
+
+        <div class="container">
+            <!-- Chapter 1: Introduction -->
+            <section class="chapter fade-in-manuscript">
+                <div class="chapter-header">
+                    <div class="chapter-number">Chapitre Premier</div>
+                    <h2 class="chapter-title">Les Temps Révolus</h2>
+                    <p class="chapter-intro">
+                        Dans la langue française, deux temps narrent le passé avec des nuances distinctes : l'imparfait peint le décor et décrit, tandis que le passé simple relate les événements précis de l'histoire.
+                    </p>
+                </div>
+
+                <div class="manuscript-page">
+                    <div class="two-columns">
+                        <div class="column">
+                            <h3 class="column-heading">L'Imparfait</h3>
+                            <p class="column-description">
+                                L'imparfait est le temps de la description, de l'habitude et du souvenir. Il évoque une action qui durait, qui se répétait, ou qui servait de décor à une autre action. C'est le temps des souvenirs flous, des habitudes enfantines, et des descriptions atmosphériques.
+                            </p>
+                            <p class="column-description">
+                                <strong>Quand il était enfant</strong>, il <strong>jouait</strong> dans le jardin. Les oiseaux <strong>chantaient</strong> et le soleil <strong>brillait</strong>.
+                            </p>
+                        </div>
+
+                        <div class="column">
+                            <h3 class="column-heading">Le Passé Simple</h3>
+                            <p class="column-description">
+                                Le passé simple est le temps de la narration littéraire. Il exprime une action ponctuelle, précise, qui s'est déroulée et achevée dans le passé. C'est le temps des contes, des romans, et de l'histoire écrite. À l'oral, il est presque absent.
+                            </p>
+                            <p class="column-description">
+                                Soudain, il <strong>entendit</strong> un bruit. Il <strong>se retourna</strong> et <strong>vit</strong> une silhouette. Elle <strong>disparut</strong> dans la nuit.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conjugations -->
+            <section class="chapter fade-in-manuscript">
+                <div class="chapter-header">
+                    <div class="chapter-number">Chapitre Deuxième</div>
+                    <h2 class="chapter-title">Les Conjugaisons</h2>
+                </div>
+
+                <div class="two-columns">
+                    <div class="column">
+                        <div class="conjugation-manuscript">
+                            <h4 class="conjugation-title">PARLER — Imparfait</h4>
+                            <div class="conjugation-grid">
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Je</span>
+                                    <span class="verb-manuscript">parlais</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Tu</span>
+                                    <span class="verb-manuscript">parlais</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Il/Elle</span>
+                                    <span class="verb-manuscript">parlait</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Nous</span>
+                                    <span class="verb-manuscript">parlions</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Vous</span>
+                                    <span class="verb-manuscript">parliez</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Ils/Elles</span>
+                                    <span class="verb-manuscript">parlaient</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="conjugation-manuscript">
+                            <h4 class="conjugation-title">FINIR — Imparfait</h4>
+                            <div class="conjugation-grid">
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Je</span>
+                                    <span class="verb-manuscript">finissais</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Tu</span>
+                                    <span class="verb-manuscript">finissais</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Il/Elle</span>
+                                    <span class="verb-manuscript">finissait</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Nous</span>
+                                    <span class="verb-manuscript">finissions</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Vous</span>
+                                    <span class="verb-manuscript">finissiez</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Ils/Elles</span>
+                                    <span class="verb-manuscript">finissaient</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="conjugation-manuscript">
+                            <h4 class="conjugation-title">PARLER — Passé Simple</h4>
+                            <div class="conjugation-grid">
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Je</span>
+                                    <span class="verb-manuscript">parlai</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Tu</span>
+                                    <span class="verb-manuscript">parlas</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Il/Elle</span>
+                                    <span class="verb-manuscript">parla</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Nous</span>
+                                    <span class="verb-manuscript">parlâmes</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Vous</span>
+                                    <span class="verb-manuscript">parlâtes</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Ils/Elles</span>
+                                    <span class="verb-manuscript">parlèrent</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="conjugation-manuscript">
+                            <h4 class="conjugation-title">FINIR — Passé Simple</h4>
+                            <div class="conjugation-grid">
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Je</span>
+                                    <span class="verb-manuscript">finis</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Tu</span>
+                                    <span class="verb-manuscript">finis</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Il/Elle</span>
+                                    <span class="verb-manuscript">finit</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Nous</span>
+                                    <span class="verb-manuscript">finîmes</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Vous</span>
+                                    <span class="verb-manuscript">finîtes</span>
+                                </div>
+                                <div class="conjugation-line">
+                                    <span class="pronoun-manuscript">Ils/Elles</span>
+                                    <span class="verb-manuscript">finirent</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Literary Excerpt -->
+            <div class="literary-excerpt fade-in-manuscript">
+                <h3 class="excerpt-title">Extrait Littéraire</h3>
+                <p class="excerpt-text">
+                    Il <span class="highlight-imparfait">était</span> une fois un vieux roi qui <span class="highlight-imparfait">habitait</span> dans un château immense. Les tours <span class="highlight-imparfait">se dressaient</span> fièrement vers le ciel, et les jardins <span class="highlight-imparfait">s'étendaient</span> à perte de vue. Un jour, un voyageur <span class="highlight-passe">arriva</span> aux portes du château. Le roi le <span class="highlight-passe">reçut</span> avec honneur et lui <span class="highlight-passe">demanda</span> d'où il <span class="highlight-imparfait">venait</span>. Le voyageur <span class="highlight-passe">raconta</span> son histoire tandis que la nuit <span class="highlight-imparfait">tombait</span> doucement.
+                </p>
+                <p class="excerpt-source">— Exemple de narration classique</p>
+            </div>
+
+            <!-- Usage -->
+            <section class="usage-section fade-in-manuscript">
+                <div class="chapter-header">
+                    <div class="chapter-number">Chapitre Troisième</div>
+                    <h2 class="chapter-title">Les Usages</h2>
+                </div>
+
+                <div class="usage-boxes">
+                    <div class="usage-box">
+                        <div class="usage-icon">🎨</div>
+                        <h3 class="usage-title">Description</h3>
+                        <p class="usage-text">
+                            L'imparfait peint le décor, décrit les personnages, l'atmosphère et les circonstances.
+                        </p>
+                        <div class="usage-example">
+                            Il faisait froid. La neige tombait doucement. Les rues étaient désertes.
+                        </div>
+                    </div>
+
+                    <div class="usage-box">
+                        <div class="usage-icon">🔄</div>
+                        <h3 class="usage-title">Habitude</h3>
+                        <p class="usage-text">
+                            L'imparfait exprime une action qui se répétait régulièrement dans le passé.
+                        </p>
+                        <div class="usage-example">
+                            Quand j'étais jeune, je jouais au football tous les jours.
+                        </div>
+                    </div>
+
+                    <div class="usage-box">
+                        <div class="usage-icon">📖</div>
+                        <h3 class="usage-title">Narration littéraire</h3>
+                        <p class="usage-text">
+                            Le passé simple raconte les événements successifs dans un récit écrit.
+                        </p>
+                        <div class="usage-example">
+                            Le prince entra dans la salle, vit la princesse et tomba amoureux.
+                        </div>
+                    </div>
+
+                    <div class="usage-box">
+                        <div class="usage-icon">⚡</div>
+                        <h3 class="usage-title">Action soudaine</h3>
+                        <p class="usage-text">
+                            Le passé simple exprime une action ponctuelle qui interrompt une situation.
+                        </p>
+                        <div class="usage-example">
+                            Il dormait paisiblement quand soudain le téléphone sonna.
+                        </div>
+                    </div>
+
+                    <div class="usage-box">
+                        <div class="usage-icon">⏳</div>
+                        <h3 class="usage-title">Action en cours</h3>
+                        <p class="usage-text">
+                            L'imparfait décrit une action qui était en train de se dérouler.
+                        </p>
+                        <div class="usage-example">
+                            Pendant que je lisais, mon frère regardait la télévision.
+                        </div>
+                    </div>
+
+                    <div class="usage-box">
+                        <div class="usage-icon">🎭</div>
+                        <h3 class="usage-title">Actions successives</h3>
+                        <p class="usage-text">
+                            Le passé simple indique une succession d'actions accomplies.
+                        </p>
+                        <div class="usage-example">
+                            Il se leva, s'habilla, déjeuna et partit travailler.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Formation -->
+            <section class="formation-section fade-in-manuscript">
+                <div class="chapter-header">
+                    <div class="chapter-number">Chapitre Quatrième</div>
+                    <h2 class="chapter-title">La Formation</h2>
+                </div>
+
+                <div class="formation-grid">
+                    <div class="formation-card">
+                        <h3 class="formation-heading">L'Imparfait</h3>
+                        <div class="formation-steps">
+                            <div class="formation-step">
+                                <span class="step-ornament">I</span>
+                                <div class="step-content">
+                                    Prenez la forme "nous" du présent : nous parlons, nous finissons
+                                </div>
+                            </div>
+                            <div class="formation-step">
+                                <span class="step-ornament">II</span>
+                                <div class="step-content">
+                                    Retirez la terminaison -ons : parl-, finiss-
+                                </div>
+                            </div>
+                            <div class="formation-step">
+                                <span class="step-ornament">III</span>
+                                <div class="step-content">
+                                    Ajoutez les terminaisons : -ais, -ais, -ait, -ions, -iez, -aient
+                                </div>
+                            </div>
+                        </div>
+                        <div class="formation-example-box">
+                            parl- + -ais = je parlais<br>
+                            finiss- + -ions = nous finissions
+                        </div>
+                    </div>
+
+                    <div class="formation-card">
+                        <h3 class="formation-heading">Le Passé Simple</h3>
+                        <div class="formation-steps">
+                            <div class="formation-step">
+                                <span class="step-ornament">I</span>
+                                <div class="step-content">
+                                    Pour les verbes en -ER : radical + -ai, -as, -a, -âmes, -âtes, -èrent
+                                </div>
+                            </div>
+                            <div class="formation-step">
+                                <span class="step-ornament">II</span>
+                                <div class="step-content">
+                                    Pour les verbes en -IR (2e groupe) : radical + -is, -is, -it, -îmes, -îtes, -irent
+                                </div>
+                            </div>
+                            <div class="formation-step">
+                                <span class="step-ornament">III</span>
+                                <div class="step-content">
+                                    Attention : de nombreux verbes du 3e groupe sont irréguliers
+                                </div>
+                            </div>
+                        </div>
+                        <div class="formation-example-box">
+                            parl- + -a = il parla<br>
+                            fin- + -irent = ils finirent
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comparison table -->
+            <section class="comparison-manuscript fade-in-manuscript">
+                <div class="chapter-header">
+                    <div class="chapter-number">Chapitre Cinquième</div>
+                    <h2 class="chapter-title">Tableau Comparatif</h2>
+                </div>
+
+                <div class="comparison-table">
+                    <div class="table-header">
+                        <div class="table-header-cell">Imparfait</div>
+                        <div class="table-header-cell">Passé Simple</div>
+                    </div>
+                    <div class="table-rows">
+                        <div class="table-row">
+                            <div class="table-cell">Actions habituelles ou répétées</div>
+                            <div class="table-cell">Actions ponctuelles et achevées</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell">Descriptions et décors</div>
+                            <div class="table-cell">Suite d'événements</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell">Actions en cours d'accomplissement</div>
+                            <div class="table-cell">Actions soudaines</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell">Utilisé à l'oral et à l'écrit</div>
+                            <div class="table-cell">Uniquement à l'écrit (littéraire)</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell">Formation très régulière</div>
+                            <div class="table-cell">Nombreuses irrégularités (3e groupe)</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wisdom -->
+            <section class="wisdom-section fade-in-manuscript">
+                <div class="chapter-header">
+                    <div class="chapter-number">Chapitre Sixième</div>
+                    <h2 class="chapter-title">Sagesse & Conseils</h2>
+                </div>
+
+                <div class="wisdom-cards">
+                    <div class="wisdom-card">
+                        <div class="wisdom-number">I</div>
+                        <h3 class="wisdom-title">L'imparfait : le temps du quotidien</h3>
+                        <p class="wisdom-text">
+                            L'imparfait est essentiel dans la conversation courante. Maîtrisez-le en priorité car vous l'utiliserez constamment pour raconter vos souvenirs.
+                        </p>
+                    </div>
+
+                    <div class="wisdom-card">
+                        <div class="wisdom-number">II</div>
+                        <h3 class="wisdom-title">Le passé simple : l'écrit seul</h3>
+                        <p class="wisdom-text">
+                            Le passé simple n'est utilisé qu'à l'écrit littéraire. À l'oral, on utilise le passé composé. Ne vous inquiétez pas de le parler, concentrez-vous sur sa reconnaissance en lecture.
+                        </p>
+                    </div>
+
+                    <div class="wisdom-card">
+                        <div class="wisdom-number">III</div>
+                        <h3 class="wisdom-title">La règle d'or</h3>
+                        <p class="wisdom-text">
+                            Dans un récit au passé, l'imparfait décrit le décor et les circonstances, tandis que le passé simple (ou le passé composé à l'oral) relate les actions principales.
+                        </p>
+                    </div>
+
+                    <div class="wisdom-card">
+                        <div class="wisdom-number">IV</div>
+                        <h3 class="wisdom-title">Formation de l'imparfait</h3>
+                        <p class="wisdom-text">
+                            L'imparfait est l'un des temps les plus réguliers du français. Une fois que vous connaissez la règle de formation, vous pouvez conjuguer presque tous les verbes.
+                        </p>
+                    </div>
+
+                    <div class="wisdom-card">
+                        <div class="wisdom-number">V</div>
+                        <h3 class="wisdom-title">Lisez des romans</h3>
+                        <p class="wisdom-text">
+                            Pour vous familiariser avec le passé simple, lisez de la littérature française classique. Vous verrez comment l'imparfait et le passé simple s'entrelacent dans les récits.
+                        </p>
+                    </div>
+
+                    <div class="wisdom-card">
+                        <div class="wisdom-number">VI</div>
+                        <h3 class="wisdom-title">Pratiquez les deux ensemble</h3>
+                        <p class="wisdom-text">
+                            Racontez une histoire simple en alternant imparfait (pour décrire) et passé composé (pour les actions). Cette pratique renforce votre compréhension de leur différence.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-brand">Língua Academy</div>
+            <p class="footer-motto">Tempus fugit, ars manet</p>
+        </footer>
+    </div>
+
+    <script>
+        // Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-manuscript').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Interactive effects
+        document.querySelectorAll('.usage-box, .wisdom-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>

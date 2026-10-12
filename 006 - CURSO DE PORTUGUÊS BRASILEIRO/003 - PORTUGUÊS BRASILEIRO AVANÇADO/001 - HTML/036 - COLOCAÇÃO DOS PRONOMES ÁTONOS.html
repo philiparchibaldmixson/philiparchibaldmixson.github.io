@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colocação dos Pronomes Átonos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* CSS EXATO do ARQUIVO 004 - ORTOGRAFIA */
+        body {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E7D6E 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #2E7D6E; /* Cor principal adaptada do tema */
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #4ECDC4;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #44A08D; /* Cor secundária adaptada do tema */
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+            min-height: 350px;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores adaptadas do tema 004 */
+        .tipo-card.conceito {
+            background: linear-gradient(135deg, #FF6B6B, #EE5A5A); /* Vermelho/Conceito */
+        }
+
+        .tipo-card.proclise {
+            background: linear-gradient(135deg, #8338EC, #6C23D6); /* Roxo/Próclise */
+        }
+
+        .tipo-card.mesoclise {
+            background: linear-gradient(135deg, #FFC300, #FFAD00); /* Amarelo/Mesóclise */
+            color: #333;
+        }
+
+        .tipo-card.enclise {
+            background: linear-gradient(135deg, #00B4D8, #00A6CC); /* Azul/Ênclise */
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+        
+        /* Ajuste de contraste para o card amarelo */
+        .tipo-card.mesoclise .exemplos {
+            background: rgba(0,0,0,0.1); 
+            color: #333;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .dicas-box {
+            /* Cor adaptada do arquivo 004 */
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "💡"; /* Ícone adaptado */
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+        
+        .destaque-cuidado {
+            background: linear-gradient(135deg, #EE5A5A, #FF6B6B);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque-cuidado strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>↪️ Colocação dos Pronomes Átonos ↩️</h1>
+        <p class="subtitle">As três posições dos pronomes oblíquos átonos em relação ao verbo!</p>
+
+        <div class="section">
+            <h2>🎯 O que são Pronomes Átonos?</h2>
+            <p class="intro-text">
+                Os **Pronomes Oblíquos Átonos** (*me, te, se, o, a, lhe, nos, vos, os, as, lhes*) não possuem acentuação tônica própria e, por isso, apoiam-se no verbo. A **Colocação Pronominal** estuda as três posições que esses pronomes podem ocupar: **Próclise** (antes do verbo), **Mesóclise** (no meio do verbo) e **Ênclise** (depois do verbo).
+            </p>
+
+            <div class="destaque-cuidado">
+                <strong>No Português do Brasil, a **Próclise** (pronome antes do verbo) é a forma preferencial e mais utilizada na linguagem coloquial.</strong>
+            </div>
+
+            <div class="tipos-grid">
+                <div class="tipo-card conceito" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+                    <h3>Pronomes</h3>
+                    <div class="definicao">
+                        Os pronomes átonos funcionam como objeto direto (*o, a, os, as*) ou objeto indireto (*lhe, lhes*), além de reflexivos (*me, te, se, nos, vos*).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Lembre-se:</strong><br>
+                        • *O, A, Os, As* viram **lo, la, los, las** depois de verbos terminados em **R, S, Z**.<br>
+                        • *Me, Te, Nos, Vos* viram **mo, to, no, vo** quando seguidos de *o/a/os/as*.
+                    </div>
+                </div>
+
+                <div class="tipo-card proclise">
+                    <h3>1. Próclise (Pronome Antes do Verbo)</h3>
+                    <div class="definicao">
+                        É obrigatória na presença de **Palavras Atrativas** ou **Fator de Atração** que puxam o pronome para antes do verbo.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Fatores de Atração:</strong><br>
+                        • **Palavras Negativas:** *Não* **se** faz isso.<br>
+                        • **Advérbios:** *Aqui* **se** trabalha.<br>
+                        • **Pron. Indefinidos:** *Tudo* **me** incomoda.<br>
+                        • **Pron. Relativos:** O livro *que* **te** emprestei.
+                    </div>
+                </div>
+
+                <div class="tipo-card mesoclise">
+                    <h3>2. Mesóclise (Pronome no Meio do Verbo)</h3>
+                    <div class="definicao">
+                        É obrigatória somente quando o verbo está no **Futuro do Presente** (*-rei, -rás, -rá...*) ou no **Futuro do Pretérito** (*-ria, -rias, -ria...*) e a oração **não** tem fator de atração.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Eu **dar-lhe-ei** a resposta. (Futuro do Presente)<br>
+                        • Nós **arrepender-nos-íamos** depois. (Futuro do Pretérito)<br>
+                        <br><span style="color: #444;">*Se houver fator de atração, usa-se a próclise: Não *lhe* darei.*</span>
+                    </div>
+                </div>
+
+                <div class="tipo-card enclise">
+                    <h3>3. Ênclise (Pronome Depois do Verbo)</h3>
+                    <div class="definicao">
+                        É a posição padrão. Ocorre quando **não há fator de atração** e o verbo **não** está no futuro. É obrigatória em três casos:
+                    </div>
+                    <div class="exemplos">
+                        <strong>Obrigatoriedade:</strong><br>
+                        • **Início de Oração:** *Diga-me* a verdade. (Nunca inicie com pronome átono!)<br>
+                        • **Infinitivo Impessoal:** Quero *dizer-lhe* a verdade.<br>
+                        • **Imperativo Afirmativo:** *Sentem-se* aqui.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛑 Casos Proibidos de Ênclise</h2>
+            <p class="intro-text">
+                Mesmo que a ênclise seja a regra geral na falta de atração, ela é **proibida** em duas situações:
+            </p>
+            <div class="tipos-grid">
+                <div class="tipo-card conceito" style="background: linear-gradient(135deg, #FF6B6B, #EE5A5A); min-height: auto;">
+                    <h3>4. Oração Iniciada por Verbo</h3>
+                    <div class="definicao">
+                        **É proibido iniciar orações com pronomes oblíquos átonos.** A colocação correta deve ser a Ênclise.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Forma Errada:</strong> *Me* disseram a verdade.<br>
+                        <strong>Forma Certa:</strong> *Disseram-me* a verdade.
+                    </div>
+                </div>
+
+                <div class="tipo-card conceito" style="background: linear-gradient(135deg, #FF6B6B, #EE5A5A); min-height: auto;">
+                    <h3>5. Verbo no Futuro</h3>
+                    <div class="definicao">
+                        Se o verbo estiver no **Futuro do Presente** ou **Futuro do Pretérito**, é proibido usar a ênclise, devendo-se usar a **Mesóclise** (se não houver atração) ou a **Próclise** (se houver atração).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Forma Errada:</strong> *Dará-me* o livro amanhã.<br>
+                        <strong>Forma Certa:</strong> *Dar-me-á* o livro amanhã.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 Dicas de Ouro</h2>
+            
+            <div class="dicas-box">
+                <h4>Estratégias para Dominar a Colocação:</h4>
+                <ul>
+                    <li>**Priorize a Próclise:** Na dúvida, e principalmente em conversas, use a próclise (*Me diga* ao invés de *Diga-me*). Em provas, siga as regras de atração.</li>
+                    <li>**Mesóclise é Formal:** A mesóclise é usada quase exclusivamente em textos formais, jurídicos ou literários. Na fala, é praticamente inexistente.</li>
+                    <li>**Com Locução Verbal:** O pronome pode ficar antes do verbo auxiliar (próclise) ou depois do principal no infinitivo/gerúndio. Ex: *Vou te entregar* / *Vou entregar-te*.</li>
+                    <li>**Fator Negativo:** Palavras como *não, nunca, jamais* são atrações fortíssimas e sempre exigem a próclise.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

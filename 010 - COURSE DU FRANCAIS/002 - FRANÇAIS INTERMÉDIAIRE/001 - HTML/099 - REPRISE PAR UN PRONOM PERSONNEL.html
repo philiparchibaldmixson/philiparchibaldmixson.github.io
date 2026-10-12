@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reprise par un Pronom Personnel - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e65100 0%, #f57c00 50%, #ff9800 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0055A4 0%, #EF4135 50%, #FFFFFF 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: rotate 25s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3.2em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .brand {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            z-index: 2;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h2 {
+            color: #0055A4;
+            font-size: 2.3em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #EF4135;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3 {
+            color: #EF4135;
+            font-size: 1.7em;
+            margin: 30px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.2em;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 6px solid #0055A4;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-box p {
+            font-size: 1.2em;
+            color: #1a237e;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #f57c00;
+        }
+
+        .definition-box h4 {
+            color: #e65100;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .definition-box p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .reprise-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            padding: 35px;
+            border-radius: 18px;
+            margin: 30px 0;
+            border: 3px solid #0055A4;
+            box-shadow: 0 8px 25px rgba(0, 85, 164, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .reprise-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 85, 164, 0.25);
+            border-color: #EF4135;
+        }
+
+        .reprise-title {
+            color: #0055A4;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #EF4135;
+        }
+
+        .exemple {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #4caf50;
+            transition: all 0.3s ease;
+        }
+
+        .exemple:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .exemple strong {
+            color: #2e7d32;
+            font-size: 1.15em;
+        }
+
+        .exemple em {
+            color: #1b5e20;
+            font-style: normal;
+            font-weight: 600;
+            background: rgba(76, 175, 80, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+
+        .nom-antecedent {
+            background: linear-gradient(135deg, #ffb74d 0%, #ffa726 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .pronom-reprise {
+            background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .fleche-reprise {
+            display: inline-block;
+            color: #f57c00;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #d35400;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #00897b;
+        }
+
+        .note-box strong {
+            color: #004d40;
+            font-size: 1.15em;
+        }
+
+        .grammar-point {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #c2185b;
+        }
+
+        .grammar-point h4 {
+            color: #880e4f;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #e53935;
+        }
+
+        .warning-box strong {
+            color: #c62828;
+            font-size: 1.15em;
+        }
+
+        .visual-schema {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #8e24aa;
+        }
+
+        .schema-title {
+            color: #4a148c;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .schema-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .schema-box {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            min-width: 120px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .arrow-schema {
+            font-size: 2em;
+            color: #8e24aa;
+            font-weight: bold;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.15em;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 2px solid #e0e0e0;
+            transition: background 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        tr:hover td {
+            background: #f5f5f5;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        li {
+            margin: 12px 0;
+            line-height: 1.9;
+            font-size: 1.05em;
+        }
+
+        .special-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .special-list li::before {
+            content: "🔹";
+            margin-right: 10px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .comparison-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 3px solid #0277bd;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(2, 119, 189, 0.3);
+        }
+
+        .comparison-item h5 {
+            color: #01579b;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .correct-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #4caf50;
+        }
+
+        .incorrect-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #e53935;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.7em;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .schema-flow {
+                flex-direction: column;
+            }
+
+            .arrow-schema {
+                transform: rotate(90deg);
+            }
+
+            .brand {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">Língua Academy</div>
+            <h1>Reprise par un Pronom Personnel</h1>
+            <p class="subtitle">Reprendre un nom ou un pronom par un pronom personnel</p>
+        </header>
+
+        <div class="content">
+            <!-- Introduction -->
+            <div class="section">
+                <div class="intro-box">
+                    <p>
+                        La <strong>reprise pronominale</strong> est un mécanisme fondamental du français qui permet 
+                        d'éviter les répétitions en remplaçant un nom ou un pronom déjà mentionné par un 
+                        <span class="highlight">pronom personnel</span>.
+                    </p>
+                    <p>
+                        Maîtriser la reprise pronominale est essentiel pour :
+                    </p>
+                    <ul style="margin-top: 15px;">
+                        <li>Éviter les <strong>répétitions</strong> lourdes</li>
+                        <li>Assurer la <strong>cohérence</strong> du texte</li>
+                        <li>Rendre le discours plus <strong>fluide et naturel</strong></li>
+                        <li>Respecter les <strong>règles grammaticales</strong> du français</li>
+                    </ul>
+                </div>
+
+                <div class="definition-box">
+                    <h4>📚 Définitions clés</h4>
+                    <p>
+                        <strong>Antécédent :</strong> Le nom ou le groupe nominal que le pronom remplace ou reprend.
+                    </p>
+                    <p style="margin-top: 10px;">
+                        <strong>Reprise pronominale :</strong> Le fait de reprendre un élément déjà mentionné par un pronom.
+                    </p>
+                    <p style="margin-top: 10px;">
+                        <strong>Anaphore :</strong> Reprise d'un élément qui <span class="highlight">précède</span> le pronom.
+                    </p>
+                    <p style="margin-top: 10px;">
+                        <strong>Cataphore :</strong> Annonce d'un élément qui <span class="highlight">suit</span> le pronom (plus rare).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Type 1: Reprise d'un nom par un pronom -->
+            <div class="section">
+                <h2><span class="icon">📌</span>Type 1 : Reprise d'un NOM par un pronom</h2>
+
+                <div class="reprise-card">
+                    <div class="reprise-title">
+                        <span>1️⃣</span> Reprendre un nom déjà mentionné
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        C'est la forme la plus courante de reprise. Un <strong>nom</strong> (ou groupe nominal) est 
+                        d'abord mentionné, puis repris par un <strong>pronom personnel</strong> pour éviter la répétition.
+                    </p>
+
+                    <h3>📖 Reprise par un pronom SUJET</h3>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Structure : NOM → PRONOM SUJET</div>
+                        <div class="exemple" style="font-size: 1.2em; text-align: center; background: white; border-left: none;">
+                            <span class="nom-antecedent">Marie</span> 
+                            <span class="fleche-reprise">→</span> 
+                            <span class="pronom-reprise">elle</span>
+                        </div>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 1 :</strong><br>
+                        <em><span class="nom-antecedent">Marie</span> est fatiguée. <span class="pronom-reprise">Elle</span> dort.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(<strong>Marie</strong> = antécédent ; <strong>Elle</strong> = reprise)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 2 :</strong><br>
+                        <em><span class="nom-antecedent">Pierre</span> travaille beaucoup. <span class="pronom-reprise">Il</span> est très occupé.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(<strong>Pierre</strong> = antécédent ; <strong>Il</strong> = reprise)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 3 :</strong><br>
+                        <em><span class="nom-antecedent">Les enfants</span> jouent dans le parc. <span class="pronom-reprise">Ils</span> s'amusent bien.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(<strong>Les enfants</strong> = antécédent ; <strong>Ils</strong> = reprise)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 4 :</strong><br>
+                        <em><span class="nom-antecedent">Mes sœurs</span> habitent à Paris. <span class="pronom-reprise">Elles</span> adorent cette ville.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(<strong>Mes sœurs</strong> = antécédent ; <strong>Elles</strong> = reprise)</span>
+                    </div>
+
+                    <h3>📖 Reprise par un pronom COMPLÉMENT (COD)</h3>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Structure : NOM → PRONOM COD</div>
+                        <div class="exemple" style="font-size: 1.2em; text-align: center; background: white; border-left: none;">
+                            <span class="nom-antecedent">ce livre</span> 
+                            <span class="fleche-reprise">→</span> 
+                            <span class="pronom-reprise">le</span>
+                        </div>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 1 :</strong><br>
+                        <em>J'ai acheté <span class="nom-antecedent">ce livre</span>. Je <span class="pronom-reprise">le</span> lis tous les soirs.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(<strong>ce livre</strong> = antécédent ; <strong>le</strong> = reprise)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 2 :</strong><br>
+                        <em>Tu connais <span class="nom-antecedent">cette fille</span> ? Non, je ne <span class="pronom-reprise">la</span> connais pas.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(<strong>cette fille</strong> = antécédent ; <strong>la</strong> = reprise)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 3 :</strong><br>
+                        <em>Elle adore <span class="nom-antecedent">ses chats</span>. Elle <span class="pronom-reprise">les</span> nourrit chaque matin.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(<strong>ses chats</strong> = antécédent ; <strong>les</strong> = reprise)</span>
+                    </div>
+
+                    <h3>📖 Reprise par un pronom COMPLÉMENT (COI)</h3>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Structure : À + NOM → PRONOM COI</div>
+                        <div class="exemple" style="font-size: 1.2em; text-align: center; background: white; border-left: none;">
+                            <span class="nom-antecedent">à Marie</span> 
+                            <span class="fleche-reprise">→</span> 
+                            <span class="pronom-reprise">lui</span>
+                        </div>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 1 :</strong><br>
+                        <em>Je parle souvent à <span class="nom-antecedent">Marie</span>. Je <span class="pronom-reprise">lui</span> téléphone chaque jour.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(<strong>à Marie</strong> = antécédent ; <strong>lui</strong> = reprise)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 2 :</strong><br>
+                        <em>Tu as écrit à <span class="nom-antecedent">tes parents</span> ? Oui, je <span class="pronom-reprise">leur</span> ai écrit hier.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(<strong>à tes parents</strong> = antécédent ; <strong>leur</strong> = reprise)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 3 :</strong><br>
+                        <em>Il a offert un cadeau à <span class="nom-antecedent">son frère</span>. Il <span class="pronom-reprise">lui</span> a fait plaisir.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(<strong>à son frère</strong> = antécédent ; <strong>lui</strong> = reprise)</span>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Accord du pronom :</strong>
+                        <p style="margin-top: 10px;">
+                            Le pronom de reprise doit <strong>s'accorder</strong> en genre et en nombre avec son antécédent :
+                        </p>
+                        <ul style="margin-top: 10px;">
+                            <li><em>Marie → <strong>elle</strong></em> (féminin singulier)</li>
+                            <li><em>Pierre → <strong>il</strong></em> (masculin singulier)</li>
+                            <li><em>Les filles → <strong>elles</strong></em> (féminin pluriel)</li>
+                            <li><em>Les garçons → <strong>ils</strong></em> (masculin pluriel)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Type 2: Reprise d'un pronom tonique -->
+            <div class="section">
+                <h2><span class="icon">🔄</span>Type 2 : Reprise d'un PRONOM TONIQUE</h2>
+
+                <div class="reprise-card">
+                    <div class="reprise-title">
+                        <span>2️⃣</span> Reprise et insistance avec les pronoms toniques
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        Les <strong>pronoms toniques</strong> (moi, toi, lui, elle, nous, vous, eux, elles) peuvent être 
+                        repris par des pronoms sujets ou compléments pour créer une <span class="highlight">insistance</span> 
+                        ou une <span class="highlight">mise en relief</span>.
+                    </p>
+
+                    <h3>📖 Structure de reprise : Pronom tonique + Pronom sujet</h3>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Mise en relief : TONIQUE, SUJET + VERBE</div>
+                        <div class="exemple" style="font-size: 1.2em; text-align: center; background: white; border-left: none;">
+                            <span class="nom-antecedent">Moi</span><span>, </span>
+                            <span class="pronom-reprise">je</span>
+                            <span> travaille</span>
+                        </div>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Reprise de MOI par JE :</strong><br>
+                        <em><span class="nom-antecedent">Moi</span>, <span class="pronom-reprise">je</span> travaille tous les jours.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(insistance sur le sujet)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Reprise de TOI par TU :</strong><br>
+                        <em><span class="nom-antecedent">Toi</span>, <span class="pronom-reprise">tu</span> ne fais jamais rien !</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(reproche, insistance)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Reprise de LUI par IL :</strong><br>
+                        <em><span class="nom-antecedent">Lui</span>, <span class="pronom-reprise">il</span> a toujours de la chance.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(opposition, contraste)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Reprise de ELLE par ELLE (sujet) :</strong><br>
+                        <em><span class="nom-antecedent">Elle</span>, <span class="pronom-reprise">elle</span> ne comprend jamais rien.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(exaspération, insistance)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Reprise de NOUS par NOUS (sujet) :</strong><br>
+                        <em><span class="nom-antecedent">Nous</span>, <span class="pronom-reprise">nous</span> préférons rester ici.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(opposition au groupe)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Reprise de VOUS par VOUS (sujet) :</strong><br>
+                        <em><span class="nom-antecedent">Vous</span>, <span class="pronom-reprise">vous</span> pouvez partir si vous voulez.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(permission, choix)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Reprise de EUX par ILS :</strong><br>
+                        <em><span class="nom-antecedent">Eux</span>, <span class="pronom-reprise">ils</span> ne sont jamais à l'heure.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(critique, généralisation)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Reprise de ELLES par ELLES (sujet) :</strong><br>
+                        <em><span class="nom-antecedent">Elles</span>, <span class="pronom-reprise">elles</span> ont réussi l'examen.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(valorisation, succès)</span>
+                    </div>
+
+                    <h3>📖 Fonction de la reprise tonique</h3>
+
+                    <div class="grammar-point">
+                        <h4>🎯 Pourquoi utiliser la reprise tonique ?</h4>
+                        <ul class="special-list">
+                            <li><strong>Insistance :</strong> Mettre en relief le sujet</li>
+                            <li><strong>Opposition :</strong> Créer un contraste avec d'autres personnes</li>
+                            <li><strong>Reproche :</strong> Critiquer quelqu'un</li>
+                            <li><strong>Valorisation :</strong> Mettre en avant une qualité</li>
+                            <li><strong>Clarification :</strong> Préciser de qui on parle</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-item">
+                            <h5>Sans reprise tonique (neutre)</h5>
+                            <div class="exemple">
+                                <em>Je travaille tous les jours.</em><br>
+                                <em>Tu ne fais rien.</em><br>
+                                <em>Il a de la chance.</em>
+                            </div>
+                            <p style="margin-top: 15px; font-weight: bold; color: #666;">
+                                → Ton neutre, simple constat
+                            </p>
+                        </div>
+
+                        <div class="comparison-item">
+                            <h5>Avec reprise tonique (insistance)</h5>
+                            <div class="exemple">
+                                <em><strong>Moi</strong>, je travaille tous les jours.</em><br>
+                                <em><strong>Toi</strong>, tu ne fais rien.</em><br>
+                                <em><strong>Lui</strong>, il a de la chance.</em>
+                            </div>
+                            <p style="margin-top: 15px; font-weight: bold; color: #666;">
+                                → Insistance, contraste, émotion
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Type 3: Anaphore et Cataphore -->
+            <div class="section">
+                <h2><span class="icon">🔗</span>Type 3 : Anaphore et Cataphore</h2>
+
+                <div class="reprise-card">
+                    <div class="reprise-title">
+                        <span>3️⃣</span> Direction de la reprise
+                    </div>
+
+                    <h3>📖 ANAPHORE (reprise vers l'arrière)</h3>
+
+                    <div class="definition-box">
+                        <h4>Définition : Anaphore</h4>
+                        <p>
+                            L'<strong>anaphore</strong> est la reprise d'un élément qui <span class="highlight">précède</span> 
+                            le pronom. C'est le cas le plus fréquent en français.
+                        </p>
+                    </div>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Anaphore : ANTÉCÉDENT d'abord → PRONOM ensuite</div>
+                        <div class="schema-flow">
+                            <div class="schema-box" style="background: #ffe0b2; color: #e65100; border: 3px solid #f57c00;">
+                                NOM
+                            </div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box" style="background: #bbdefb; color: #0055A4; border: 3px solid #1976d2;">
+                                PRONOM
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 1 :</strong><br>
+                        <em><span class="nom-antecedent">Pierre</span> est malade. <span class="pronom-reprise">Il</span> reste à la maison.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(Pierre précède "il" → anaphore)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 2 :</strong><br>
+                        <em>J'ai rencontré <span class="nom-antecedent">Sophie</span> hier. <span class="pronom-reprise">Elle</span> m'a parlé de toi.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(Sophie précède "elle" → anaphore)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 3 :</strong><br>
+                        <em><span class="nom-antecedent">Le film</span> était excellent. Je <span class="pronom-reprise">l'</span>ai adoré.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(Le film précède "l'" → anaphore)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 4 :</strong><br>
+                        <em><span class="nom-antecedent">Les étudiants</span> ont bien travaillé. <span class="pronom-reprise">Ils</span> méritent une bonne note.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(Les étudiants précède "ils" → anaphore)</span>
+                    </div>
+
+                    <h3>📖 CATAPHORE (annonce vers l'avant)</h3>
+
+                    <div class="definition-box">
+                        <h4>Définition : Cataphore</h4>
+                        <p>
+                            La <strong>cataphore</strong> est l'annonce d'un élément qui <span class="highlight">suit</span> 
+                            le pronom. C'est beaucoup plus rare en français.
+                        </p>
+                    </div>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Cataphore : PRONOM d'abord → NOM ensuite</div>
+                        <div class="schema-flow">
+                            <div class="schema-box" style="background: #bbdefb; color: #0055A4; border: 3px solid #1976d2;">
+                                PRONOM
+                            </div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box" style="background: #ffe0b2; color: #e65100; border: 3px solid #f57c00;">
+                                NOM
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 1 :</strong><br>
+                        <em>Quand <span class="pronom-reprise">il</span> arrive, <span class="nom-antecedent">Pierre</span> fait toujours du bruit.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">("il" précède Pierre → cataphore)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 2 :</strong><br>
+                        <em>Bien qu'<span class="pronom-reprise">elle</span> soit jeune, <span class="nom-antecedent">Marie</span> est très mature.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">("elle" précède Marie → cataphore)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Exemple 3 :</strong><br>
+                        <em>Parce qu'<span class="pronom-reprise">ils</span> sont fatigués, <span class="nom-antecedent">les enfants</span> dorment.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">("ils" précède les enfants → cataphore)</span>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Usage de la cataphore :</strong>
+                        <p style="margin-top: 10px;">
+                            La cataphore s'utilise principalement :
+                        </p>
+                        <ul style="margin-top: 10px;">
+                            <li>Dans les <strong>subordonnées</strong> qui précèdent la principale</li>
+                            <li>Pour créer un <strong>effet stylistique</strong> (suspense, emphase)</li>
+                            <li>Dans le <strong>style littéraire</strong></li>
+                        </ul>
+                        <p style="margin-top: 10px;">
+                            Dans la langue courante, on préfère généralement l'<strong>anaphore</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Règles de cohérence -->
+            <div class="section">
+                <h2><span class="icon">✅</span>Règles de cohérence</h2>
+
+                <div class="reprise-card">
+                    <div class="reprise-title">
+                        <span>4️⃣</span> Assurer la clarté de la reprise
+                    </div>
+
+                    <h3>📖 Règle 1 : Proximité de l'antécédent</h3>
+
+                    <div class="grammar-point">
+                        <h4>Le pronom reprend le nom le plus proche</h4>
+                        <p style="margin-top: 10px;">
+                            Pour éviter toute ambiguïté, le pronom reprend généralement le <strong>nom le plus proche</strong> 
+                            dans la phrase précédente.
+                        </p>
+                    </div>
+
+                    <div class="correct-box">
+                        <h5 style="color: #388e3c; margin-bottom: 10px;">✅ CLAIR (un seul antécédent possible)</h5>
+                        <div class="exemple">
+                            <em><span class="nom-antecedent">Marie</span> est partie. <span class="pronom-reprise">Elle</span> reviendra demain.</em><br>
+                            <span style="font-size: 0.95em; color: #666;">(clair : "elle" = Marie)</span>
+                        </div>
+                    </div>
+
+                    <div class="incorrect-box">
+                        <h5 style="color: #c62828; margin-bottom: 10px;">❌ AMBIGU (plusieurs antécédents possibles)</h5>
+                        <div class="exemple">
+                            <em><span class="nom-antecedent">Marie</span> a parlé à <span class="nom-antecedent">Sophie</span>. <span class="pronom-reprise">Elle</span> était contente.</em><br>
+                            <span style="font-size: 0.95em; color: #666;">(ambigu : "elle" = Marie ou Sophie ?)</span>
+                        </div>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Solution à l'ambiguïté :</strong>
+                        <p style="margin-top: 10px;">
+                            Quand il y a ambiguïté, on peut :
+                        </p>
+                        <ul style="margin-top: 10px;">
+                            <li><strong>Répéter le nom :</strong> <em>Marie a parlé à Sophie. <strong>Marie</strong> était contente.</em></li>
+                            <li><strong>Utiliser "cette dernière" :</strong> <em>Marie a parlé à Sophie. <strong>Cette dernière</strong> était contente.</em></li>
+                            <li><strong>Reformuler :</strong> <em>Marie était contente d'avoir parlé à Sophie.</em></li>
+                        </ul>
+                    </div>
+
+                    <h3>📖 Règle 2 : Accord en genre et nombre</h3>
+
+                    <div class="grammar-point">
+                        <h4>Le pronom s'accorde avec son antécédent</h4>
+                        <p style="margin-top: 10px;">
+                            Le pronom doit <strong>toujours</strong> s'accorder en genre et en nombre avec le nom qu'il reprend.
+                        </p>
+                    </div>
+
+                    <div class="comparison-grid">
+                        <div class="correct-box">
+                            <h5 style="color: #388e3c; margin-bottom: 10px;">✅ CORRECT</h5>
+                            <div class="exemple">
+                                <em><span class="nom-antecedent">Le chat</span> → <span class="pronom-reprise">il</span></em> (masc. sing.)
+                            </div>
+                            <div class="exemple">
+                                <em><span class="nom-antecedent">La maison</span> → <span class="pronom-reprise">elle</span></em> (fém. sing.)
+                            </div>
+                            <div class="exemple">
+                                <em><span class="nom-antecedent">Les livres</span> → <span class="pronom-reprise">ils</span></em> (masc. plur.)
+                            </div>
+                            <div class="exemple">
+                                <em><span class="nom-antecedent">Les filles</span> → <span class="pronom-reprise">elles</span></em> (fém. plur.)
+                            </div>
+                        </div>
+
+                        <div class="incorrect-box">
+                            <h5 style="color: #c62828; margin-bottom: 10px;">❌ INCORRECT</h5>
+                            <div class="exemple">
+                                <em><span class="nom-antecedent">Le chat</span> → <strike>elle</strike></em> (mauvais genre)
+                            </div>
+                            <div class="exemple">
+                                <em><span class="nom-antecedent">La maison</span> → <strike>il</strike></em> (mauvais genre)
+                            </div>
+                            <div class="exemple">
+                                <em><span class="nom-antecedent">Les livres</span> → <strike>il</strike></em> (mauvais nombre)
+                            </div>
+                            <div class="exemple">
+                                <em><span class="nom-antecedent">Les filles</span> → <strike>il</strike></em> (mauvais genre et nombre)
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>📖 Règle 3 : Cohérence dans le texte</h3>
+
+                    <div class="grammar-point">
+                        <h4>Maintenir la référence claire</h4>
+                        <p style="margin-top: 10px;">
+                            Dans un texte suivi, il faut maintenir une <strong>référence claire</strong> tout au long 
+                            du paragraphe.
+                        </p>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Texte cohérent :</strong><br>
+                        <em>
+                            <span class="nom-antecedent">Marie</span> se lève tôt chaque matin. 
+                            <span class="pronom-reprise">Elle</span> prépare son petit-déjeuner rapidement. 
+                            Ensuite, <span class="pronom-reprise">elle</span> part au travail. 
+                            <span class="pronom-reprise">Elle</span> aime beaucoup son métier.
+                        </em><br>
+                        <span style="font-size: 0.95em; color: #666;">(tous les "elle" reprennent clairement "Marie")</span>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Attention aux changements d'antécédent :</strong>
+                        <p style="margin-top: 10px;">
+                            Quand on change de personnage dans un texte, il faut <strong>réintroduire le nom</strong> 
+                            pour éviter la confusion.
+                        </p>
+                        <div class="exemple" style="margin-top: 15px;">
+                            <em>
+                                Marie travaille. Elle est occupée. 
+                                <strong>Pierre</strong> arrive. Il la salue.
+                            </em><br>
+                            <span style="font-size: 0.95em; color: #666;">(on réintroduit "Pierre" au lieu d'utiliser "il" directement)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau récapitulatif -->
+            <div class="section">
+                <h2><span class="icon">📊</span>Tableau récapitulatif</h2>
+
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Type de reprise</th>
+                            <th>Antécédent</th>
+                            <th>Pronom de reprise</th>
+                            <th>Exemple</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Nom → Sujet</strong></td>
+                            <td>Marie</td>
+                            <td>elle</td>
+                            <td><em>Marie dort. Elle est fatiguée.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nom → COD</strong></td>
+                            <td>le livre</td>
+                            <td>le</td>
+                            <td><em>J'ai acheté le livre. Je le lis.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nom → COI</strong></td>
+                            <td>à Marie</td>
+                            <td>lui</td>
+                            <td><em>Je parle à Marie. Je lui téléphone.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tonique → Sujet</strong></td>
+                            <td>Moi</td>
+                            <td>je</td>
+                            <td><em>Moi, je travaille.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Anaphore</strong></td>
+                            <td>Pierre (avant)</td>
+                            <td>il (après)</td>
+                            <td><em>Pierre est là. Il travaille.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cataphore</strong></td>
+                            <td>Pierre (après)</td>
+                            <td>il (avant)</td>
+                            <td><em>Quand il arrive, Pierre fait du bruit.</em></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Exercices pratiques -->
+            <div class="section">
+                <h2><span class="icon">✏️</span>Exercices pratiques</h2>
+
+                <div class="grammar-point">
+                    <h4>🎯 Identifiez l'antécédent du pronom souligné</h4>
+
+                    <div class="exemple">
+                        <strong>1.</strong> <em>Marie est fatiguée. <u>Elle</u> dort.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Antécédent = <strong>Marie</strong></span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>2.</strong> <em>J'ai acheté un livre. Je <u>le</u> lis tous les soirs.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Antécédent = <strong>un livre</strong></span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>3.</strong> <em>Pierre téléphone à sa mère. Il <u>lui</u> parle souvent.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Antécédent = <strong>à sa mère</strong></span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>4.</strong> <em>Les enfants jouent dans le parc. <u>Ils</u> s'amusent bien.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Antécédent = <strong>Les enfants</strong></span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>5.</strong> <em>Mes sœurs habitent à Paris. <u>Elles</u> adorent cette ville.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Antécédent = <strong>Mes sœurs</strong></span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>6.</strong> <em>Quand <u>il</u> arrive, Pierre fait toujours du bruit.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Antécédent = <strong>Pierre</strong> (cataphore)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>7.</strong> <em>Moi, <u>je</u> préfère rester ici.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Antécédent = <strong>Moi</strong> (reprise tonique)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>8.</strong> <em>Elle adore ses chats. Elle <u>les</u> nourrit chaque matin.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Antécédent = <strong>ses chats</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Récapitulatif final -->
+            <div class="section">
+                <h2><span class="icon">📝</span>Récapitulatif final</h2>
+
+                <div class="grammar-point">
+                    <h4>✅ Points essentiels à retenir</h4>
+                    <ul class="special-list">
+                        <li>La reprise pronominale évite les répétitions et assure la cohérence</li>
+                        <li>Le pronom doit <strong>s'accorder</strong> avec son antécédent (genre et nombre)</li>
+                        <li><strong>Anaphore</strong> = reprise d'un élément qui précède (le plus courant)</li>
+                        <li><strong>Cataphore</strong> = annonce d'un élément qui suit (plus rare)</li>
+                        <li>Les pronoms toniques créent une <strong>insistance</strong> ou un <strong>contraste</strong></li>
+                        <li>Maintenir la <strong>clarté</strong> : éviter les antécédents ambigus</li>
+                        <li>Le pronom reprend généralement le <strong>nom le plus proche</strong></li>
+                    </ul>
+                </div>
+
+                <div class="visual-schema">
+                    <div class="schema-title">Types de reprise pronominale</div>
+                    <div class="schema-content">
+                        <p style="font-weight: bold; margin-bottom: 15px; font-size: 1.2em;">
+                            1. NOM → PRONOM
+                        </p>
+                        <p style="margin-bottom: 20px;">
+                            <em>Marie dort. <strong>Elle</strong> est fatiguée.</em>
+                        </p>
+                        
+                        <p style="font-weight: bold; margin-bottom: 15px; font-size: 1.2em;">
+                            2. PRONOM TONIQUE → PRONOM SUJET
+                        </p>
+                        <p style="margin-bottom: 20px;">
+                            <em><strong>Moi</strong>, <strong>je</strong> travaille.</em>
+                        </p>
+
+                        <p style="font-weight: bold; margin-bottom: 15px; font-size: 1.2em;">
+                            3. ANAPHORE vs CATAPHORE
+                        </p>
+                        <p>
+                            Anaphore : <em>Pierre dort. <strong>Il</strong> est fatigué.</em><br>
+                            Cataphore : <em>Quand <strong>il</strong> arrive, <strong>Pierre</strong> fait du bruit.</em>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 Pour progresser :</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Pratiquez l'identification des antécédents dans vos lectures</li>
+                        <li>Faites attention à la clarté quand vous écrivez</li>
+                        <li>Évitez les ambiguïtés en vérifiant que l'antécédent est évident</li>
+                        <li>Utilisez la reprise tonique pour créer de l'emphase</li>
+                        <li>Lisez beaucoup pour observer les reprises pronominales naturelles</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <strong>⚠️ Erreurs fréquentes à éviter :</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Utiliser un pronom sans antécédent clair</li>
+                        <li>Ne pas accorder le pronom avec son antécédent</li>
+                        <li>Créer des ambiguïtés avec plusieurs antécédents possibles</li>
+                        <li>Changer d'antécédent sans réintroduire le nom</li>
+                        <li>Confondre anaphore et cataphore dans l'analyse</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p><strong>Língua Academy</strong> - Excellence en enseignement des langues</p>
+            <p style="margin-top: 10px;">📚 Maîtrisez la reprise pronominale en français</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">© 2024 Língua Academy - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

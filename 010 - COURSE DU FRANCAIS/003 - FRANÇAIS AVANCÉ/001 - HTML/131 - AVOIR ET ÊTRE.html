@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Auxiliaires AVOIR et ÊTRE | Grammaire Française</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bitter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue-primary: #4A90E2;
+            --pink-soft: #FF6B9D;
+            --yellow-light: #FFE156;
+            --green-mint: #50C878;
+            --purple-soft: #9B88E3;
+            --gray-dark: #2C3E50;
+            --gray-medium: #7F8C9A;
+            --gray-light: #E8ECF0;
+            --white: #FFFFFF;
+            --off-white: #FAFBFC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--gray-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Grid overlay subtle */
+        .grid-overlay {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-image: 
+                linear-gradient(var(--gray-light) 1px, transparent 1px),
+                linear-gradient(90deg, var(--gray-light) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.4;
+        }
+
+        /* Accent shapes */
+        .accent-shape {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .shape-blue {
+            width: 300px;
+            height: 300px;
+            background: var(--blue-primary);
+            top: 100px;
+            right: -150px;
+            border-radius: 50%;
+            opacity: 0.08;
+        }
+
+        .shape-pink {
+            width: 200px;
+            height: 200px;
+            background: var(--pink-soft);
+            bottom: 200px;
+            left: -100px;
+            opacity: 0.08;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+
+        /* Modern header */
+        header {
+            padding: 120px 0 100px;
+            position: relative;
+        }
+
+        .header-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--blue-primary);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--blue-primary);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Bitter', serif;
+            font-size: 6rem;
+            font-weight: 800;
+            color: var(--gray-dark);
+            line-height: 1.1;
+            margin-bottom: 35px;
+            animation: slideDown 0.8s ease-out 0.2s backwards;
+        }
+
+        .title-auxiliary {
+            color: var(--blue-primary);
+        }
+
+        .subtitle-text {
+            font-size: 1.3rem;
+            color: var(--gray-medium);
+            max-width: 850px;
+            font-weight: 400;
+            line-height: 1.8;
+            animation: slideDown 0.8s ease-out 0.4s backwards;
+        }
+
+        /* Intro box clean */
+        .intro-section {
+            background: var(--off-white);
+            padding: 70px;
+            margin: 80px 0;
+            border-left: 6px solid var(--blue-primary);
+            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .intro-section h2 {
+            font-family: 'Bitter', serif;
+            font-size: 2.8rem;
+            color: var(--gray-dark);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .intro-section p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--gray-medium);
+        }
+
+        .highlight-text {
+            color: var(--blue-primary);
+            font-weight: 600;
+        }
+
+        /* Section with clean numbers */
+        .content-section {
+            margin: 100px 0;
+            animation: fadeIn 1s ease-out backwards;
+        }
+
+        .content-section:nth-child(4) { animation-delay: 0.8s; }
+        .content-section:nth-child(5) { animation-delay: 1s; }
+        .content-section:nth-child(6) { animation-delay: 1.2s; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--gray-light);
+        }
+
+        .section-number {
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--blue-primary);
+            line-height: 1;
+            opacity: 0.3;
+            font-family: 'Bitter', serif;
+        }
+
+        .section-title {
+            font-family: 'Bitter', serif;
+            font-size: 3rem;
+            color: var(--gray-dark);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .section-intro {
+            font-size: 1.1rem;
+            color: var(--gray-medium);
+            margin-bottom: 50px;
+            line-height: 1.85;
+            max-width: 900px;
+        }
+
+        /* Auxiliary cards side by side */
+        .auxiliary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            margin: 60px 0;
+        }
+
+        .auxiliary-card {
+            background: white;
+            border: 2px solid var(--gray-light);
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .auxiliary-card:hover {
+            border-color: var(--blue-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(74, 144, 226, 0.15);
+        }
+
+        .card-header {
+            background: var(--blue-primary);
+            color: white;
+            padding: 35px 40px;
+            text-align: center;
+        }
+
+        .auxiliary-card:nth-child(2) .card-header {
+            background: var(--pink-soft);
+        }
+
+        .card-header h3 {
+            font-family: 'Bitter', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .card-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .card-body {
+            padding: 40px;
+        }
+
+        .card-description {
+            font-size: 1.05rem;
+            color: var(--gray-medium);
+            line-height: 1.85;
+            margin-bottom: 30px;
+        }
+
+        /* Conjugation tables clean */
+        .conjugation-table {
+            margin: 30px 0;
+        }
+
+        .table-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray-medium);
+            margin-bottom: 20px;
+        }
+
+        .conjugation-row {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .conjugation-row:last-child {
+            border-bottom: none;
+        }
+
+        .person-col {
+            width: 120px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray-dark);
+        }
+
+        .form-col {
+            font-family: 'Bitter', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--blue-primary);
+        }
+
+        .auxiliary-card:nth-child(2) .form-col {
+            color: var(--pink-soft);
+        }
+
+        /* Full conjugation showcase */
+        .full-conjugation {
+            background: var(--off-white);
+            padding: 60px;
+            margin: 70px 0;
+            border-left: 6px solid var(--blue-primary);
+        }
+
+        .conjugation-title {
+            font-family: 'Bitter', serif;
+            font-size: 2.5rem;
+            color: var(--gray-dark);
+            margin-bottom: 50px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .tenses-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .tense-block {
+            background: white;
+            padding: 35px;
+            border: 2px solid var(--gray-light);
+        }
+
+        .tense-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--blue-primary);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--blue-primary);
+        }
+
+        .tense-block:nth-child(even) .tense-name {
+            color: var(--pink-soft);
+            border-bottom-color: var(--pink-soft);
+        }
+
+        .tense-forms {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .tense-form {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.05rem;
+        }
+
+        .tense-person {
+            color: var(--gray-medium);
+            font-weight: 500;
+        }
+
+        .tense-verb {
+            font-family: 'Bitter', serif;
+            font-weight: 700;
+            color: var(--gray-dark);
+        }
+
+        /* Usage section */
+        .usage-section {
+            background: white;
+            padding: 60px;
+            margin: 70px 0;
+            border: 2px solid var(--gray-light);
+        }
+
+        .usage-title {
+            font-family: 'Bitter', serif;
+            font-size: 2.5rem;
+            color: var(--gray-dark);
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+        }
+
+        .usage-card {
+            padding: 30px;
+            background: var(--off-white);
+            border-left: 4px solid var(--blue-primary);
+        }
+
+        .usage-card:nth-child(even) {
+            border-left-color: var(--pink-soft);
+        }
+
+        .usage-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gray-dark);
+            margin-bottom: 15px;
+        }
+
+        .usage-card p {
+            font-size: 1rem;
+            color: var(--gray-medium);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .usage-examples {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .usage-example {
+            font-family: 'Bitter', serif;
+            font-size: 1.05rem;
+            color: var(--gray-dark);
+            padding: 12px 15px;
+            background: white;
+            border-left: 3px solid var(--yellow-light);
+            font-weight: 600;
+        }
+
+        /* Comparison table */
+        .comparison-table {
+            background: white;
+            padding: 60px;
+            margin: 70px 0;
+            border: 2px solid var(--gray-light);
+        }
+
+        .comparison-title {
+            font-family: 'Bitter', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--gray-dark);
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .comparison-column {
+            padding: 40px;
+            background: var(--off-white);
+            border-top: 6px solid var(--blue-primary);
+        }
+
+        .comparison-column:nth-child(2) {
+            border-top-color: var(--pink-soft);
+        }
+
+        .comparison-column h4 {
+            font-family: 'Bitter', serif;
+            font-size: 2rem;
+            color: var(--gray-dark);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray-light);
+            font-size: 1.05rem;
+            color: var(--gray-medium);
+            line-height: 1.7;
+        }
+
+        .comparison-item:last-child {
+            border-bottom: none;
+        }
+
+        .bullet-square {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--blue-primary);
+            margin-right: 12px;
+        }
+
+        .comparison-column:nth-child(2) .bullet-square {
+            background: var(--pink-soft);
+        }
+
+        /* Info box clean */
+        .info-box {
+            background: var(--blue-primary);
+            color: white;
+            padding: 60px;
+            margin: 70px 0;
+            position: relative;
+        }
+
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--yellow-light);
+        }
+
+        .info-box h3 {
+            font-family: 'Bitter', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .info-box-content {
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        .info-box-content ul {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .info-box-content li {
+            padding: 15px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .info-box-content li:last-child {
+            border-bottom: none;
+        }
+
+        .info-box-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: var(--yellow-light);
+        }
+
+        .info-box-content strong {
+            color: var(--yellow-light);
+            font-weight: 700;
+        }
+
+        /* Verbs list section */
+        .verbs-list-section {
+            background: var(--off-white);
+            padding: 60px;
+            margin: 70px 0;
+            border-left: 6px solid var(--pink-soft);
+        }
+
+        .verbs-list-title {
+            font-family: 'Bitter', serif;
+            font-size: 2.5rem;
+            color: var(--gray-dark);
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .verbs-categories {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .verb-category {
+            background: white;
+            padding: 35px;
+            border: 2px solid var(--gray-light);
+        }
+
+        .category-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--pink-soft);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--pink-soft);
+        }
+
+        .verb-category:nth-child(odd) .category-title {
+            color: var(--blue-primary);
+            border-bottom-color: var(--blue-primary);
+        }
+
+        .verbs-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .verb-tag {
+            font-family: 'Bitter', serif;
+            padding: 10px 18px;
+            background: var(--off-white);
+            border: 2px solid var(--gray-light);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-dark);
+            transition: all 0.3s ease;
+        }
+
+        .verb-tag:hover {
+            background: var(--blue-primary);
+            color: white;
+            border-color: var(--blue-primary);
+        }
+
+        /* Footer minimal */
+        footer {
+            margin-top: 120px;
+            padding: 60px 0;
+            border-top: 2px solid var(--gray-light);
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: 'Bitter', serif;
+            font-size: 2rem;
+            color: var(--gray-dark);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            color: var(--gray-medium);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 50px;
+            }
+
+            .auxiliary-grid,
+            .tenses-grid,
+            .usage-grid,
+            .comparison-grid,
+            .verbs-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px;
+            }
+
+            h1 {
+                font-size: 4rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section-number {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .intro-section,
+            .full-conjugation,
+            .usage-section,
+            .comparison-table,
+            .info-box,
+            .verbs-list-section {
+                padding: 40px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-overlay"></div>
+    <div class="accent-shape shape-blue"></div>
+    <div class="accent-shape shape-pink"></div>
+
+    <div class="container">
+        <header>
+            <div class="header-label">Língua Academy · Grammaire Française</div>
+            <h1>
+                Les Auxiliaires<br>
+                <span class="title-auxiliary">AVOIR</span> & <span class="title-auxiliary">ÊTRE</span>
+            </h1>
+            <p class="subtitle-text">
+                Les deux verbes fondamentaux de la conjugaison française qui permettent de former tous les temps composés et la voix passive
+            </p>
+        </header>
+
+        <div class="intro-section">
+            <h2>Qu'est-ce qu'un auxiliaire ?</h2>
+            <p>
+                Un <span class="highlight-text">auxiliaire</span> est un verbe qui s'utilise en combinaison avec le participe passé d'un autre verbe pour former les temps composés (passé composé, plus-que-parfait, futur antérieur, etc.) et la voix passive. En français, il existe deux auxiliaires principaux : <span class="highlight-text">AVOIR</span> et <span class="highlight-text">ÊTRE</span>. Ces verbes perdent leur sens propre lorsqu'ils sont utilisés comme auxiliaires et servent uniquement à apporter les informations grammaticales de temps, de personne et de nombre.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-number">01</div>
+                <h3 class="section-title">Les Deux Auxiliaires Principaux</h3>
+            </div>
+            <p class="section-intro">
+                AVOIR et ÊTRE sont les piliers de la conjugaison française. Bien qu'ils aient leur propre sens en tant que verbes (posséder, exister), ils servent d'auxiliaires pour former les temps composés de tous les autres verbes.
+            </p>
+
+            <div class="auxiliary-grid">
+                <div class="auxiliary-card">
+                    <div class="card-header">
+                        <h3>AVOIR</h3>
+                        <p>L'auxiliaire de la majorité des verbes</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            L'auxiliaire AVOIR s'utilise avec la grande majorité des verbes français. C'est l'auxiliaire par défaut pour former les temps composés.
+                        </p>
+                        <div class="conjugation-table">
+                            <div class="table-title">Présent de l'indicatif</div>
+                            <div class="conjugation-row">
+                                <div class="person-col">je</div>
+                                <div class="form-col">ai</div>
+                            </div>
+                            <div class="conjugation-row">
+                                <div class="person-col">tu</div>
+                                <div class="form-col">as</div>
+                            </div>
+                            <div class="conjugation-row">
+                                <div class="person-col">il/elle</div>
+                                <div class="form-col">a</div>
+                            </div>
+                            <div class="conjugation-row">
+                                <div class="person-col">nous</div>
+                                <div class="form-col">avons</div>
+                            </div>
+                            <div class="conjugation-row">
+                                <div class="person-col">vous</div>
+                                <div class="form-col">avez</div>
+                            </div>
+                            <div class="conjugation-row">
+                                <div class="person-col">ils/elles</div>
+                                <div class="form-col">ont</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="auxiliary-card">
+                    <div class="card-header">
+                        <h3>ÊTRE</h3>
+                        <p>L'auxiliaire des verbes de mouvement et pronominaux</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            L'auxiliaire ÊTRE s'utilise avec les verbes de mouvement, les verbes pronominaux et pour former la voix passive.
+                        </p>
+                        <div class="conjugation-table">
+                            <div class="table-title">Présent de l'indicatif</div>
+                            <div class="conjugation-row">
+                                <div class="person-col">je</div>
+                                <div class="form-col">suis</div>
+                            </div>
+                            <div class="conjugation-row">
+                                <div class="person-col">tu</div>
+                                <div class="form-col">es</div>
+                            </div>
+                            <div class="conjugation-row">
+                                <div class="person-col">il/elle</div>
+                                <div class="form-col">est</div>
+                            </div>
+                            <div class="conjugation-row">
+                                <div class="person-col">nous</div>
+                                <div class="form-col">sommes</div>
+                            </div>
+                            <div class="conjugation-row">
+                                <div class="person-col">vous</div>
+                                <div class="form-col">êtes</div>
+                            </div>
+                            <div class="conjugation-row">
+                                <div class="person-col">ils/elles</div>
+                                <div class="form-col">sont</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-conjugation">
+            <h3 class="conjugation-title">Conjugaison Complète : AVOIR</h3>
+            <div class="tenses-grid">
+                <div class="tense-block">
+                    <div class="tense-name">Imparfait</div>
+                    <div class="tense-forms">
+                        <div class="tense-form">
+                            <span class="tense-person">j'</span>
+                            <span class="tense-verb">avais</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">tu</span>
+                            <span class="tense-verb">avais</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">il/elle</span>
+                            <span class="tense-verb">avait</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">nous</span>
+                            <span class="tense-verb">avions</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">vous</span>
+                            <span class="tense-verb">aviez</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">ils/elles</span>
+                            <span class="tense-verb">avaient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tense-block">
+                    <div class="tense-name">Futur Simple</div>
+                    <div class="tense-forms">
+                        <div class="tense-form">
+                            <span class="tense-person">j'</span>
+                            <span class="tense-verb">aurai</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">tu</span>
+                            <span class="tense-verb">auras</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">il/elle</span>
+                            <span class="tense-verb">aura</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">nous</span>
+                            <span class="tense-verb">aurons</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">vous</span>
+                            <span class="tense-verb">aurez</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">ils/elles</span>
+                            <span class="tense-verb">auront</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tense-block">
+                    <div class="tense-name">Passé Composé</div>
+                    <div class="tense-forms">
+                        <div class="tense-form">
+                            <span class="tense-person">j'</span>
+                            <span class="tense-verb">ai eu</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">tu</span>
+                            <span class="tense-verb">as eu</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">il/elle</span>
+                            <span class="tense-verb">a eu</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">nous</span>
+                            <span class="tense-verb">avons eu</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">vous</span>
+                            <span class="tense-verb">avez eu</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">ils/elles</span>
+                            <span class="tense-verb">ont eu</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tense-block">
+                    <div class="tense-name">Conditionnel Présent</div>
+                    <div class="tense-forms">
+                        <div class="tense-form">
+                            <span class="tense-person">j'</span>
+                            <span class="tense-verb">aurais</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">tu</span>
+                            <span class="tense-verb">aurais</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">il/elle</span>
+                            <span class="tense-verb">aurait</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">nous</span>
+                            <span class="tense-verb">aurions</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">vous</span>
+                            <span class="tense-verb">auriez</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">ils/elles</span>
+                            <span class="tense-verb">auraient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tense-block">
+                    <div class="tense-name">Subjonctif Présent</div>
+                    <div class="tense-forms">
+                        <div class="tense-form">
+                            <span class="tense-person">que j'</span>
+                            <span class="tense-verb">aie</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">que tu</span>
+                            <span class="tense-verb">aies</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">qu'il/elle</span>
+                            <span class="tense-verb">ait</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">que nous</span>
+                            <span class="tense-verb">ayons</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">que vous</span>
+                            <span class="tense-verb">ayez</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">qu'ils/elles</span>
+                            <span class="tense-verb">aient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tense-block">
+                    <div class="tense-name">Impératif</div>
+                    <div class="tense-forms">
+                        <div class="tense-form">
+                            <span class="tense-person">—</span>
+                            <span class="tense-verb">—</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">2e sg.</span>
+                            <span class="tense-verb">aie</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">—</span>
+                            <span class="tense-verb">—</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">1e pl.</span>
+                            <span class="tense-verb">ayons</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">2e pl.</span>
+                            <span class="tense-verb">ayez</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">—</span>
+                            <span class="tense-verb">—</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-conjugation">
+            <h3 class="conjugation-title">Conjugaison Complète : ÊTRE</h3>
+            <div class="tenses-grid">
+                <div class="tense-block">
+                    <div class="tense-name">Imparfait</div>
+                    <div class="tense-forms">
+                        <div class="tense-form">
+                            <span class="tense-person">j'</span>
+                            <span class="tense-verb">étais</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">tu</span>
+                            <span class="tense-verb">étais</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">il/elle</span>
+                            <span class="tense-verb">était</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">nous</span>
+                            <span class="tense-verb">étions</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">vous</span>
+                            <span class="tense-verb">étiez</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">ils/elles</span>
+                            <span class="tense-verb">étaient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tense-block">
+                    <div class="tense-name">Futur Simple</div>
+                    <div class="tense-forms">
+                        <div class="tense-form">
+                            <span class="tense-person">je</span>
+                            <span class="tense-verb">serai</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">tu</span>
+                            <span class="tense-verb">seras</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">il/elle</span>
+                            <span class="tense-verb">sera</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">nous</span>
+                            <span class="tense-verb">serons</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">vous</span>
+                            <span class="tense-verb">serez</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">ils/elles</span>
+                            <span class="tense-verb">seront</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tense-block">
+                    <div class="tense-name">Passé Composé</div>
+                    <div class="tense-forms">
+                        <div class="tense-form">
+                            <span class="tense-person">j'</span>
+                            <span class="tense-verb">ai été</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">tu</span>
+                            <span class="tense-verb">as été</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">il/elle</span>
+                            <span class="tense-verb">a été</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">nous</span>
+                            <span class="tense-verb">avons été</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">vous</span>
+                            <span class="tense-verb">avez été</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">ils/elles</span>
+                            <span class="tense-verb">ont été</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tense-block">
+                    <div class="tense-name">Conditionnel Présent</div>
+                    <div class="tense-forms">
+                        <div class="tense-form">
+                            <span class="tense-person">je</span>
+                            <span class="tense-verb">serais</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">tu</span>
+                            <span class="tense-verb">serais</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">il/elle</span>
+                            <span class="tense-verb">serait</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">nous</span>
+                            <span class="tense-verb">serions</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">vous</span>
+                            <span class="tense-verb">seriez</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">ils/elles</span>
+                            <span class="tense-verb">seraient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tense-block">
+                    <div class="tense-name">Subjonctif Présent</div>
+                    <div class="tense-forms">
+                        <div class="tense-form">
+                            <span class="tense-person">que je</span>
+                            <span class="tense-verb">sois</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">que tu</span>
+                            <span class="tense-verb">sois</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">qu'il/elle</span>
+                            <span class="tense-verb">soit</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">que nous</span>
+                            <span class="tense-verb">soyons</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">que vous</span>
+                            <span class="tense-verb">soyez</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">qu'ils/elles</span>
+                            <span class="tense-verb">soient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tense-block">
+                    <div class="tense-name">Impératif</div>
+                    <div class="tense-forms">
+                        <div class="tense-form">
+                            <span class="tense-person">—</span>
+                            <span class="tense-verb">—</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">2e sg.</span>
+                            <span class="tense-verb">sois</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">—</span>
+                            <span class="tense-verb">—</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">1e pl.</span>
+                            <span class="tense-verb">soyons</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">2e pl.</span>
+                            <span class="tense-verb">soyez</span>
+                        </div>
+                        <div class="tense-form">
+                            <span class="tense-person">—</span>
+                            <span class="tense-verb">—</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-number">02</div>
+                <h3 class="section-title">Les Rôles des Auxiliaires</h3>
+            </div>
+
+            <div class="usage-section">
+                <h3 class="usage-title">Utilisations des Auxiliaires</h3>
+                <div class="usage-grid">
+                    <div class="usage-card">
+                        <h4>Formation des temps composés</h4>
+                        <p>
+                            Les auxiliaires AVOIR et ÊTRE permettent de former tous les temps composés en se combinant avec le participe passé du verbe principal.
+                        </p>
+                        <div class="usage-examples">
+                            <div class="usage-example">J'ai mangé (passé composé)</div>
+                            <div class="usage-example">Tu étais parti (plus-que-parfait)</div>
+                            <div class="usage-example">Nous aurons fini (futur antérieur)</div>
+                        </div>
+                    </div>
+
+                    <div class="usage-card">
+                        <h4>Formation de la voix passive</h4>
+                        <p>
+                            L'auxiliaire ÊTRE permet de former la voix passive en combinaison avec le participe passé du verbe, qui s'accorde avec le sujet.
+                        </p>
+                        <div class="usage-examples">
+                            <div class="usage-example">Le livre est lu par Marie</div>
+                            <div class="usage-example">Les lettres sont écrites</div>
+                            <div class="usage-example">La maison a été construite</div>
+                        </div>
+                    </div>
+
+                    <div class="usage-card">
+                        <h4>Verbes de mouvement avec ÊTRE</h4>
+                        <p>
+                            Certains verbes intransitifs exprimant un mouvement ou un changement d'état se conjuguent avec l'auxiliaire ÊTRE.
+                        </p>
+                        <div class="usage-examples">
+                            <div class="usage-example">Je suis allé au marché</div>
+                            <div class="usage-example">Elle est venue hier</div>
+                            <div class="usage-example">Nous sommes partis tôt</div>
+                        </div>
+                    </div>
+
+                    <div class="usage-card">
+                        <h4>Verbes pronominaux avec ÊTRE</h4>
+                        <p>
+                            Tous les verbes pronominaux (avec "se") se conjuguent obligatoirement avec l'auxiliaire ÊTRE aux temps composés.
+                        </p>
+                        <div class="usage-examples">
+                            <div class="usage-example">Je me suis levé(e)</div>
+                            <div class="usage-example">Tu t'es trompé(e)</div>
+                            <div class="usage-example">Ils se sont vus</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="verbs-list-section">
+            <h3 class="verbs-list-title">Les Verbes Conjugués avec ÊTRE</h3>
+            <div class="verbs-categories">
+                <div class="verb-category">
+                    <div class="category-title">Verbes de mouvement (DR MRS VANDERTRAMP)</div>
+                    <div class="verbs-tags">
+                        <div class="verb-tag">Devenir</div>
+                        <div class="verb-tag">Revenir</div>
+                        <div class="verb-tag">Monter</div>
+                        <div class="verb-tag">Rester</div>
+                        <div class="verb-tag">Sortir</div>
+                        <div class="verb-tag">Venir</div>
+                        <div class="verb-tag">Aller</div>
+                        <div class="verb-tag">Naître</div>
+                        <div class="verb-tag">Descendre</div>
+                        <div class="verb-tag">Entrer</div>
+                        <div class="verb-tag">Retourner</div>
+                        <div class="verb-tag">Tomber</div>
+                        <div class="verb-tag">Arriver</div>
+                        <div class="verb-tag">Mourir</div>
+                        <div class="verb-tag">Partir</div>
+                    </div>
+                </div>
+
+                <div class="verb-category">
+                    <div class="category-title">Verbes pronominaux (tous)</div>
+                    <div class="verbs-tags">
+                        <div class="verb-tag">Se lever</div>
+                        <div class="verb-tag">Se laver</div>
+                        <div class="verb-tag">S'habiller</div>
+                        <div class="verb-tag">Se promener</div>
+                        <div class="verb-tag">Se réveiller</div>
+                        <div class="verb-tag">Se coucher</div>
+                        <div class="verb-tag">Se dépêcher</div>
+                        <div class="verb-tag">Se souvenir</div>
+                        <div class="verb-tag">S'asseoir</div>
+                        <div class="verb-tag">Se tromper</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-table">
+            <h3 class="comparison-title">Choix de l'Auxiliaire : AVOIR ou ÊTRE ?</h3>
+            <div class="comparison-grid">
+                <div class="comparison-column">
+                    <h4>Avec AVOIR</h4>
+                    <ul class="comparison-list">
+                        <li class="comparison-item">
+                            <span class="bullet-square"></span>
+                            La majorité des verbes français
+                        </li>
+                        <li class="comparison-item">
+                            <span class="bullet-square"></span>
+                            Tous les verbes transitifs directs
+                        </li>
+                        <li class="comparison-item">
+                            <span class="bullet-square"></span>
+                            La plupart des verbes intransitifs
+                        </li>
+                        <li class="comparison-item">
+                            <span class="bullet-square"></span>
+                            Verbes exprimant une action : manger, boire, dormir, travailler
+                        </li>
+                        <li class="comparison-item">
+                            <span class="bullet-square"></span>
+                            Participe passé invariable (sauf COD placé avant)
+                        </li>
+                        <li class="comparison-item">
+                            <span class="bullet-square"></span>
+                            Exemple : J'ai mangé / Elle a dormi
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="comparison-column">
+                    <h4>Avec ÊTRE</h4>
+                    <ul class="comparison-list">
+                        <li class="comparison-item">
+                            <span class="bullet-square"></span>
+                            Les 15 verbes de mouvement (DR MRS VANDERTRAMP)
+                        </li>
+                        <li class="comparison-item">
+                            <span class="bullet-square"></span>
+                            Tous les verbes pronominaux (avec "se")
+                        </li>
+                        <li class="comparison-item">
+                            <span class="bullet-square"></span>
+                            La voix passive de tous les verbes
+                        </li>
+                        <li class="comparison-item">
+                            <span class="bullet-square"></span>
+                            Verbes exprimant mouvement ou changement d'état
+                        </li>
+                        <li class="comparison-item">
+                            <span class="bullet-square"></span>
+                            Participe passé s'accorde avec le sujet
+                        </li>
+                        <li class="comparison-item">
+                            <span class="bullet-square"></span>
+                            Exemple : Je suis parti(e) / Elle est venue
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>Accord du Participe Passé avec les Auxiliaires</h3>
+            <div class="info-box-content">
+                <p><strong>Avec l'auxiliaire AVOIR :</strong></p>
+                <ul>
+                    <li>Le participe passé <strong>ne s'accorde pas</strong> avec le sujet</li>
+                    <li>Il s'accorde avec le <strong>COD placé avant</strong> le verbe (la pomme que j'ai mangée)</li>
+                    <li>Exemples : Elle a mangé / Ils ont fini / Nous avons parlé</li>
+                </ul>
+                <p style="margin-top: 25px;"><strong>Avec l'auxiliaire ÊTRE :</strong></p>
+                <ul>
+                    <li>Le participe passé <strong>s'accorde toujours</strong> avec le sujet en genre et en nombre</li>
+                    <li>Pour les verbes pronominaux, règles particulières selon le type</li>
+                    <li>Exemples : Elle est partie / Ils sont venus / Nous sommes allés</li>
+                </ul>
+                <p style="margin-top: 25px;"><strong>Cas particuliers :</strong></p>
+                <ul>
+                    <li>Certains verbes acceptent les <strong>deux auxiliaires</strong> selon le sens (monter, descendre, sortir, passer, etc.)</li>
+                    <li>Avec AVOIR : sens transitif → J'ai monté les valises</li>
+                    <li>Avec ÊTRE : sens intransitif → Je suis monté(e) au sommet</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="intro-section" style="margin: 80px 0;">
+            <h2>Synthèse</h2>
+            <p>
+                Les auxiliaires <span class="highlight-text">AVOIR</span> et <span class="highlight-text">ÊTRE</span> sont les piliers de la conjugaison française. AVOIR est l'auxiliaire par défaut utilisé avec la majorité des verbes, tandis qu'ÊTRE s'emploie avec les verbes de mouvement, les verbes pronominaux et pour former la voix passive. La maîtrise de ces deux verbes et de leurs règles d'accord est essentielle pour conjuguer correctement tous les temps composés du français. Bien que leurs conjugaisons soient irrégulières, elles doivent être parfaitement mémorisées car elles sont utilisées constamment dans la langue française.
+            </p>
+        </div>
+
+        <footer>
+            <div class="footer-brand">Língua Academy</div>
+            <p class="footer-text">Maîtrisez les fondements de la conjugaison française</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Conjonctions de Coordination | Língua Academy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #2d3748;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Animated background bridges */
+        .background-bridges {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .bridge {
+            position: absolute;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+            animation: drawBridge 3s ease-in-out infinite;
+        }
+        
+        @keyframes drawBridge {
+            0%, 100% { stroke-dashoffset: 1000; }
+            50% { stroke-dashoffset: 0; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #5a67d8;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: #667eea;
+            font-weight: 300;
+            font-style: italic;
+        }
+        
+        .intro-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border-left: 5px solid #667eea;
+        }
+        
+        .intro-box h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: #5a67d8;
+            margin-bottom: 1rem;
+        }
+        
+        .intro-box p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
+        /* Mnémotechnique spécial */
+        .mnemonic-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 3rem;
+            border-radius: 25px;
+            margin-bottom: 3rem;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mnemonic-section::before {
+            content: '🎭';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 10rem;
+            opacity: 0.15;
+        }
+        
+        .mnemonic-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            display: inline-block;
+            transform: rotate(-2deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mnemonic-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .mnemonic-phrase {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #f5576c;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mnemonic-letters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .letter-badge {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: bounce 2s ease-in-out infinite;
+            animation-delay: calc(var(--i) * 0.1s);
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Grille des conjonctions */
+        .conjunctions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .conjunction-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--card-color);
+        }
+        
+        .conjunction-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--card-color) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+        
+        .conjunction-card:hover::before {
+            opacity: 0.1;
+        }
+        
+        .conjunction-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .conjunction-header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .conjunction-word {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--card-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .conjunction-type {
+            font-size: 0.9rem;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        
+        .conjunction-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .function-label {
+            font-weight: 600;
+            color: var(--card-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .function-text {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        
+        .examples {
+            background: rgba(0, 0, 0, 0.03);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--card-color);
+        }
+        
+        .example-label {
+            font-weight: 600;
+            color: var(--card-color);
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+        
+        .example {
+            color: #2d3748;
+            margin-bottom: 0.8rem;
+            font-style: italic;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .example::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--card-color);
+            font-weight: bold;
+        }
+        
+        .example:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Couleurs individuelles pour chaque conjonction */
+        .card-mais { --card-color: #e53e3e; }
+        .card-ou { --card-color: #dd6b20; }
+        .card-et { --card-color: #38a169; }
+        .card-donc { --card-color: #3182ce; }
+        .card-or { --card-color: #805ad5; }
+        .card-ni { --card-color: #d53f8c; }
+        .card-car { --card-color: #319795; }
+        
+        /* Section tableau récapitulatif */
+        .summary-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 25px;
+            margin-bottom: 3rem;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .summary-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: #5a67d8;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .summary-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .summary-table thead {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .summary-table th {
+            padding: 1.5rem;
+            font-weight: 600;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+        
+        .summary-table tbody tr {
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .summary-table tbody tr:nth-child(even) {
+            background: rgba(102, 126, 234, 0.05);
+        }
+        
+        .summary-table tbody tr:hover {
+            background: rgba(102, 126, 234, 0.15);
+            transform: scale(1.02);
+        }
+        
+        .summary-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .summary-table .conj-col {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        /* Section astuces */
+        .tips-section {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tips-section::before {
+            content: '💡';
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            font-size: 12rem;
+            opacity: 0.15;
+        }
+        
+        .tips-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: #d63031;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .tip-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tip-title {
+            font-weight: 600;
+            color: #d63031;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tip-title::before {
+            content: '✓';
+            background: #d63031;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        
+        .tip-content {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .conjunctions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mnemonic-phrase {
+                font-size: 2rem;
+            }
+            
+            .summary-table {
+                font-size: 0.9rem;
+            }
+            
+            .summary-table th,
+            .summary-table td {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg class="background-bridges" xmlns="http://www.w3.org/2000/svg">
+        <path class="bridge" d="M 0,100 Q 200,50 400,100" stroke-dasharray="1000" stroke-dashoffset="1000" />
+        <path class="bridge" d="M 400,200 Q 600,150 800,200" stroke-dasharray="1000" stroke-dashoffset="1000" style="animation-delay: 0.5s" />
+        <path class="bridge" d="M 800,300 Q 1000,250 1200,300" stroke-dasharray="1000" stroke-dashoffset="1000" style="animation-delay: 1s" />
+    </svg>
+
+    <div class="container">
+        <header>
+            <h1>Les Conjonctions de Coordination</h1>
+            <p class="subtitle">Les petits mots qui relient les grandes idées</p>
+        </header>
+
+        <div class="intro-box">
+            <h2>Qu'est-ce qu'une conjonction de coordination ?</h2>
+            <p>
+                Les conjonctions de coordination sont des mots invariables qui servent à relier deux mots, 
+                deux groupes de mots ou deux propositions de même nature et de même fonction. 
+                Elles créent un lien logique entre les éléments qu'elles unissent, que ce soit une opposition, 
+                une addition, une alternative, une conséquence ou une explication.
+            </p>
+        </div>
+
+        <div class="mnemonic-section">
+            <div class="mnemonic-box">
+                <div class="mnemonic-title">Le moyen mnémotechnique</div>
+                <div class="mnemonic-phrase">Mais où est donc Ornicar ?</div>
+                <div class="mnemonic-letters">
+                    <span class="letter-badge" style="--i: 0">Mais</span>
+                    <span class="letter-badge" style="--i: 1">Ou</span>
+                    <span class="letter-badge" style="--i: 2">Et</span>
+                    <span class="letter-badge" style="--i: 3">Donc</span>
+                    <span class="letter-badge" style="--i: 4">Or</span>
+                    <span class="letter-badge" style="--i: 5">Ni</span>
+                    <span class="letter-badge" style="--i: 6">Car</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="conjunctions-grid">
+            <div class="conjunction-card card-mais">
+                <div class="conjunction-header">
+                    <div class="conjunction-word">Mais</div>
+                    <div class="conjunction-type">Opposition / Restriction</div>
+                </div>
+                <div class="conjunction-content">
+                    <div class="function-label">Fonction</div>
+                    <div class="function-text">
+                        Exprime une opposition, une restriction ou une correction entre deux idées.
+                    </div>
+                    <div class="examples">
+                        <div class="example-label">Exemples :</div>
+                        <div class="example">Il est tard, mais je n'ai pas sommeil.</div>
+                        <div class="example">J'aime le chocolat, mais pas en excès.</div>
+                        <div class="example">Elle travaille beaucoup, mais elle reste optimiste.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conjunction-card card-ou">
+                <div class="conjunction-header">
+                    <div class="conjunction-word">Ou</div>
+                    <div class="conjunction-type">Alternative / Choix</div>
+                </div>
+                <div class="conjunction-content">
+                    <div class="function-label">Fonction</div>
+                    <div class="function-text">
+                        Présente une alternative, un choix entre deux possibilités ou plus.
+                    </div>
+                    <div class="examples">
+                        <div class="example-label">Exemples :</div>
+                        <div class="example">Tu préfères le thé ou le café ?</div>
+                        <div class="example">Viens maintenant ou plus tard.</div>
+                        <div class="example">Il faut choisir : rester ou partir.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conjunction-card card-et">
+                <div class="conjunction-header">
+                    <div class="conjunction-word">Et</div>
+                    <div class="conjunction-type">Addition / Liaison</div>
+                </div>
+                <div class="conjunction-content">
+                    <div class="function-label">Fonction</div>
+                    <div class="function-text">
+                        Ajoute, unit ou énumère des éléments de même nature.
+                    </div>
+                    <div class="examples">
+                        <div class="example-label">Exemples :</div>
+                        <div class="example">Marie et Pierre sont arrivés.</div>
+                        <div class="example">J'ai acheté du pain, du lait et des œufs.</div>
+                        <div class="example">Il étudie et travaille en même temps.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conjunction-card card-donc">
+                <div class="conjunction-header">
+                    <div class="conjunction-word">Donc</div>
+                    <div class="conjunction-type">Conséquence / Conclusion</div>
+                </div>
+                <div class="conjunction-content">
+                    <div class="function-label">Fonction</div>
+                    <div class="function-text">
+                        Introduit une conséquence logique, une conclusion ou un résultat.
+                    </div>
+                    <div class="examples">
+                        <div class="example-label">Exemples :</div>
+                        <div class="example">Je pense, donc je suis. (Descartes)</div>
+                        <div class="example">Il pleut, donc prends un parapluie.</div>
+                        <div class="example">Tu es malade, donc reste au lit.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conjunction-card card-or">
+                <div class="conjunction-header">
+                    <div class="conjunction-word">Or</div>
+                    <div class="conjunction-type">Transition / Opposition</div>
+                </div>
+                <div class="conjunction-content">
+                    <div class="function-label">Fonction</div>
+                    <div class="function-text">
+                        Marque une transition dans le raisonnement ou introduit un élément nouveau, parfois opposé.
+                    </div>
+                    <div class="examples">
+                        <div class="example-label">Exemples :</div>
+                        <div class="example">Je devais partir à 8h. Or, je me suis réveillé à 9h.</div>
+                        <div class="example">Tous les hommes sont mortels. Or, Socrate est un homme.</div>
+                        <div class="example">Il fait beau. Or, j'ai oublié mes lunettes.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conjunction-card card-ni">
+                <div class="conjunction-header">
+                    <div class="conjunction-word">Ni</div>
+                    <div class="conjunction-type">Négation / Addition négative</div>
+                </div>
+                <div class="conjunction-content">
+                    <div class="function-label">Fonction</div>
+                    <div class="function-text">
+                        Relie des éléments dans une phrase négative, exprimant une double négation.
+                    </div>
+                    <div class="examples">
+                        <div class="example-label">Exemples :</div>
+                        <div class="example">Il n'aime ni le sport ni la musique.</div>
+                        <div class="example">Je ne veux ni pleurer ni rire.</div>
+                        <div class="example">Elle ne parle ni français ni anglais.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conjunction-card card-car">
+                <div class="conjunction-header">
+                    <div class="conjunction-word">Car</div>
+                    <div class="conjunction-type">Explication / Cause</div>
+                </div>
+                <div class="conjunction-content">
+                    <div class="function-label">Fonction</div>
+                    <div class="function-text">
+                        Introduit une explication ou une justification, indique la cause.
+                    </div>
+                    <div class="examples">
+                        <div class="example-label">Exemples :</div>
+                        <div class="example">Je reste chez moi, car il fait froid.</div>
+                        <div class="example">Elle est heureuse, car elle a réussi.</div>
+                        <div class="example">Ferme la porte, car il y a du vent.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-section">
+            <h2>Tableau récapitulatif</h2>
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Conjonction</th>
+                        <th>Fonction</th>
+                        <th>Exemple</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="conj-col">Mais</td>
+                        <td>Opposition, restriction</td>
+                        <td><em>Il est intelligent, mais paresseux.</em></td>
+                    </tr>
+                    <tr>
+                        <td class="conj-col">Ou</td>
+                        <td>Alternative, choix</td>
+                        <td><em>Partir ou rester ?</em></td>
+                    </tr>
+                    <tr>
+                        <td class="conj-col">Et</td>
+                        <td>Addition, liaison</td>
+                        <td><em>Le chien et le chat jouent ensemble.</em></td>
+                    </tr>
+                    <tr>
+                        <td class="conj-col">Donc</td>
+                        <td>Conséquence, conclusion</td>
+                        <td><em>Il neige, donc il fait froid.</em></td>
+                    </tr>
+                    <tr>
+                        <td class="conj-col">Or</td>
+                        <td>Transition, opposition</td>
+                        <td><em>J'avais prévu de sortir. Or, il pleut.</em></td>
+                    </tr>
+                    <tr>
+                        <td class="conj-col">Ni</td>
+                        <td>Négation double</td>
+                        <td><em>Je ne bois ni café ni thé.</em></td>
+                    </tr>
+                    <tr>
+                        <td class="conj-col">Car</td>
+                        <td>Explication, cause</td>
+                        <td><em>Je suis fatigué, car j'ai peu dormi.</em></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tips-section">
+            <h2>Points importants à retenir</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-title">Invariabilité</div>
+                    <div class="tip-content">
+                        Les conjonctions de coordination sont invariables : elles ne s'accordent 
+                        jamais en genre ou en nombre.
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-title">Position</div>
+                    <div class="tip-content">
+                        Elles se placent généralement entre les éléments qu'elles coordonnent, 
+                        mais "donc" peut parfois se déplacer dans la phrase.
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-title">Ponctuation</div>
+                    <div class="tip-content">
+                        "Mais", "car", "donc" et "or" sont généralement précédés d'une virgule 
+                        quand ils relient deux propositions.
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-title">Attention "ou" / "où"</div>
+                    <div class="tip-content">
+                        Ne pas confondre "ou" (conjonction de coordination) avec "où" (pronom relatif 
+                        ou adverbe qui indique le lieu).
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-title">Usage de "ni"</div>
+                    <div class="tip-content">
+                        "Ni" s'emploie toujours dans une phrase négative et peut se répéter : 
+                        "ni... ni..." pour insister sur la double négation.
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-title">Car vs Parce que</div>
+                    <div class="tip-content">
+                        "Car" (conjonction de coordination) ne peut jamais répondre à la question "pourquoi ?", 
+                        contrairement à "parce que" (conjonction de subordination).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Língua Academy | Grammaire Française | Les Conjonctions de Coordination</p>
+        </footer>
+    </div>
+</body>
+</html>

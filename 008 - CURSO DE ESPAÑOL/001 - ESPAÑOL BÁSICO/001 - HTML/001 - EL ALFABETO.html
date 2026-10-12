@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Alfabeto Español</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 0 auto;
+            background: white;
+            page-break-after: always;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+        
+        .section {
+            margin: 25px 0;
+            padding: 25px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section.orange {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .section.green {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            color: white;
+        }
+        
+        .section.blue {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .section.pink {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+        
+        .section.purple {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .section.teal {
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+        }
+        
+        h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .section.green h2, .section.green h3 {
+            color: white;
+        }
+        
+        h3 {
+            font-size: 22px;
+            margin: 20px 0 10px 0;
+            color: #34495e;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            text-align: justify;
+        }
+        
+        .alphabet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .letter-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 5px solid;
+        }
+        
+        .letter-box:nth-child(6n+1) { border-top-color: #e74c3c; }
+        .letter-box:nth-child(6n+2) { border-top-color: #3498db; }
+        .letter-box:nth-child(6n+3) { border-top-color: #2ecc71; }
+        .letter-box:nth-child(6n+4) { border-top-color: #f39c12; }
+        .letter-box:nth-child(6n+5) { border-top-color: #9b59b6; }
+        .letter-box:nth-child(6n) { border-top-color: #1abc9c; }
+        
+        .letter-upper {
+            font-size: 48px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .letter-lower {
+            font-size: 36px;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .letter-name {
+            font-size: 16px;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+        
+        .letter-example {
+            font-size: 14px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .tip-box {
+            background: white;
+            padding: 20px;
+            border-left: 6px solid #27ae60;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tip-box h4 {
+            color: #27ae60;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .example-box {
+            background: #fff9e6;
+            border: 2px dashed #f39c12;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .example-title {
+            color: #f39c12;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .vowels-box {
+            background: white;
+            padding: 25px;
+            border: 4px solid #e74c3c;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .vowels-title {
+            color: #e74c3c;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .vowels-display {
+            font-size: 48px;
+            color: #e74c3c;
+            letter-spacing: 20px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        
+        .special-box {
+            background: white;
+            padding: 20px;
+            border: 3px solid #9b59b6;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .special-title {
+            color: #9b59b6;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>🔤 El Alfabeto Español 🔤</h1>
+            <p>Las 27 Letras del Español</p>
+        </div>
+        
+        <div class="section orange">
+            <h2>🌟 Introducción al Alfabeto</h2>
+            <p>El alfabeto español, también llamado <strong>abecedario</strong>, está compuesto por <strong>27 letras</strong>. Cada letra tiene un nombre específico y representa uno o varios sonidos en nuestro idioma. Aprender el alfabeto es el primer paso fundamental para leer y escribir correctamente en español.</p>
+            <p>El alfabeto español es muy similar al alfabeto latino usado en muchos idiomas, pero incluye una letra especial y única: la <strong>Ñ (eñe)</strong>, que es característica del español y representa un sonido que no existe en otros idiomas como el inglés.</p>
+        </div>
+        
+        <div class="section blue">
+            <h2>🎨 Las Vocales</h2>
+            
+            <div class="vowels-box">
+                <div class="vowels-title">Las 5 Vocales</div>
+                <div class="vowels-display">A E I O U</div>
+                <p style="color: #555; font-size: 16px;">Las vocales son la base de todas las palabras en español</p>
+            </div>
+            
+            <div class="alphabet-grid">
+                <div class="letter-box">
+                    <div class="letter-upper">A</div>
+                    <div class="letter-lower">a</div>
+                    <div class="letter-name">(a)</div>
+                    <div class="letter-example">Ejemplo: Amor</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">E</div>
+                    <div class="letter-lower">e</div>
+                    <div class="letter-name">(e)</div>
+                    <div class="letter-example">Ejemplo: Estrella</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">I</div>
+                    <div class="letter-lower">i</div>
+                    <div class="letter-name">(i)</div>
+                    <div class="letter-example">Ejemplo: Isla</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">O</div>
+                    <div class="letter-lower">o</div>
+                    <div class="letter-name">(o)</div>
+                    <div class="letter-example">Ejemplo: Oro</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">U</div>
+                    <div class="letter-lower">u</div>
+                    <div class="letter-name">(u)</div>
+                    <div class="letter-example">Ejemplo: Uva</div>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Dato Importante</h4>
+                <p>Las vocales son las únicas letras que pueden formar sílabas por sí solas. Todas las palabras en español tienen al menos una vocal.</p>
+            </div>
+        </div>
+        
+        <div class="section green">
+            <h2>📚 Las Consonantes (Parte 1)</h2>
+            <p style="color: white;">Las consonantes son letras que necesitan combinarse con vocales para formar sílabas. Aquí están las primeras consonantes:</p>
+            
+            <div class="alphabet-grid">
+                <div class="letter-box">
+                    <div class="letter-upper">B</div>
+                    <div class="letter-lower">b</div>
+                    <div class="letter-name">(be)</div>
+                    <div class="letter-example">Ejemplo: Bebé</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">C</div>
+                    <div class="letter-lower">c</div>
+                    <div class="letter-name">(ce)</div>
+                    <div class="letter-example">Ejemplo: Casa</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">D</div>
+                    <div class="letter-lower">d</div>
+                    <div class="letter-name">(de)</div>
+                    <div class="letter-example">Ejemplo: Dado</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">F</div>
+                    <div class="letter-lower">f</div>
+                    <div class="letter-name">(efe)</div>
+                    <div class="letter-example">Ejemplo: Familia</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">G</div>
+                    <div class="letter-lower">g</div>
+                    <div class="letter-name">(ge)</div>
+                    <div class="letter-example">Ejemplo: Gato</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">H</div>
+                    <div class="letter-lower">h</div>
+                    <div class="letter-name">(hache)</div>
+                    <div class="letter-example">Ejemplo: Hijo</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">J</div>
+                    <div class="letter-lower">j</div>
+                    <div class="letter-name">(jota)</div>
+                    <div class="letter-example">Ejemplo: Jardín</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">K</div>
+                    <div class="letter-lower">k</div>
+                    <div class="letter-name">(ka)</div>
+                    <div class="letter-example">Ejemplo: Kilo</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">L</div>
+                    <div class="letter-lower">l</div>
+                    <div class="letter-name">(ele)</div>
+                    <div class="letter-example">Ejemplo: Luna</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section pink">
+            <h2>📚 Las Consonantes (Parte 2)</h2>
+            
+            <div class="alphabet-grid">
+                <div class="letter-box">
+                    <div class="letter-upper">M</div>
+                    <div class="letter-lower">m</div>
+                    <div class="letter-name">(eme)</div>
+                    <div class="letter-example">Ejemplo: Mamá</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">N</div>
+                    <div class="letter-lower">n</div>
+                    <div class="letter-name">(ene)</div>
+                    <div class="letter-example">Ejemplo: Nido</div>
+                </div>
+                
+                <div class="letter-box" style="border-top-width: 8px; border-top-color: #e74c3c;">
+                    <div class="letter-upper">Ñ</div>
+                    <div class="letter-lower">ñ</div>
+                    <div class="letter-name">(eñe)</div>
+                    <div class="letter-example">Ejemplo: Niño</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">P</div>
+                    <div class="letter-lower">p</div>
+                    <div class="letter-name">(pe)</div>
+                    <div class="letter-example">Ejemplo: Papá</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">Q</div>
+                    <div class="letter-lower">q</div>
+                    <div class="letter-name">(cu)</div>
+                    <div class="letter-example">Ejemplo: Queso</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">R</div>
+                    <div class="letter-lower">r</div>
+                    <div class="letter-name">(ere / erre)</div>
+                    <div class="letter-example">Ejemplo: Rosa</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">S</div>
+                    <div class="letter-lower">s</div>
+                    <div class="letter-name">(ese)</div>
+                    <div class="letter-example">Ejemplo: Sol</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">T</div>
+                    <div class="letter-lower">t</div>
+                    <div class="letter-name">(te)</div>
+                    <div class="letter-example">Ejemplo: Toro</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">V</div>
+                    <div class="letter-lower">v</div>
+                    <div class="letter-name">(uve)</div>
+                    <div class="letter-example">Ejemplo: Vaca</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">W</div>
+                    <div class="letter-lower">w</div>
+                    <div class="letter-name">(doble uve)</div>
+                    <div class="letter-example">Ejemplo: Water</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">X</div>
+                    <div class="letter-lower">x</div>
+                    <div class="letter-name">(equis)</div>
+                    <div class="letter-example">Ejemplo: Xilófono</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">Y</div>
+                    <div class="letter-lower">y</div>
+                    <div class="letter-name">(ye / i griega)</div>
+                    <div class="letter-example">Ejemplo: Yo</div>
+                </div>
+                
+                <div class="letter-box">
+                    <div class="letter-upper">Z</div>
+                    <div class="letter-lower">z</div>
+                    <div class="letter-name">(zeta)</div>
+                    <div class="letter-example">Ejemplo: Zapato</div>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Letra Especial</h4>
+                <p>La <strong>Ñ (eñe)</strong> es una letra única del español. No existe en otros idiomas como el inglés o el francés, ¡es nuestra letra especial!</p>
+            </div>
+        </div>
+        
+        <div class="section purple">
+            <h2>🎯 Letras Especiales y Datos Importantes</h2>
+            
+            <div class="special-box">
+                <div class="special-title">📌 La H es muda</div>
+                <p>La letra H no tiene sonido en español. Ejemplo: "Hola" se pronuncia "ola".</p>
+            </div>
+            
+            <div class="special-box">
+                <div class="special-title">📌 Dígrafos (Dos letras, un sonido)</div>
+                <p><strong>CH:</strong> Como en "Chocolate" (antes era considerada una letra)<br>
+                <strong>LL:</strong> Como en "Llave" (antes era considerada una letra)<br>
+                <strong>RR:</strong> Como en "Perro" (sonido fuerte)<br>
+                <strong>QU:</strong> Como en "Queso" (siempre seguida de e o i)</p>
+            </div>
+            
+            <div class="special-box">
+                <div class="special-title">📌 Letras poco comunes</div>
+                <p><strong>K:</strong> Se usa principalmente en palabras extranjeras<br>
+                <strong>W:</strong> Se usa principalmente en palabras extranjeras<br>
+                <strong>X:</strong> Tiene varios sonidos según su posición</p>
+            </div>
+        </div>
+        
+        <div class="section teal">
+            <h2>✍️ Orden Alfabético Completo</h2>
+            
+            <div class="example-box">
+                <div class="example-title">🔤 Las 27 Letras en Orden:</div>
+                <p style="font-size: 20px; text-align: center; line-height: 2; letter-spacing: 3px;">
+                    <strong>A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z</strong>
+                </p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Consejos para Aprender</h4>
+                <ul>
+                    <li>Practica escribiendo cada letra en mayúscula y minúscula</li>
+                    <li>Aprende el nombre de cada letra, no solo su sonido</li>
+                    <li>Canta canciones del alfabeto para memorizar el orden</li>
+                    <li>Practica deletrear tu nombre y palabras comunes</li>
+                    <li>Recuerda que la Ñ va entre la N y la O</li>
+                </ul>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">📝 Práctica: Deletrear tu nombre</div>
+                <p>Por ejemplo, el nombre "MARÍA" se deletrea:<br>
+                <strong>Eme - A - Ere - I con acento - A</strong></p>
+                
+                <p>El nombre "JOSÉ" se deletrea:<br>
+                <strong>Jota - O - Ese - E con acento</strong></p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>¡Practica el Alfabeto Todos los Días!</strong></p>
+            <p>Conocer bien el alfabeto es la base para leer y escribir correctamente en español.</p>
+        </div>
+    </div>
+    
+    <!-- <script>
+        window.onload = function() {
+            const printBtn = document.createElement('button');
+            printBtn.textContent = '🖨️ Imprimir/Guardar como PDF';
+            printBtn.style.cssText = 'position: fixed; top: 20px; right: 20px; padding: 15px 25px; background: #667eea; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1000;';
+            printBtn.onmouseover = function() { this.style.background = '#764ba2'; };
+            printBtn.onmouseout = function() { this.style.background = '#667eea'; };
+            printBtn.onclick = function() { window.print(); };
+            document.body.appendChild(printBtn);
+        };
+    </script> -->
+</body>
+</html>

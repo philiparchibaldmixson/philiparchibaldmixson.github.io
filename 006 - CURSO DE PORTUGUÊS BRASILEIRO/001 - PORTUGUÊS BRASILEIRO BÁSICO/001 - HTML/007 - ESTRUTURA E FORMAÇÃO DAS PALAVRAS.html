@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura e Formação das Palavras em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.4em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            color: #1e3c72;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #1e3c72;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #2a5298;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .morfema-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .morfema-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+        }
+
+        .morfema-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+        }
+
+        .morfema-card.radical {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .morfema-card.afixos {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .morfema-card.desinencias {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+
+        .morfema-card.vogal {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+        }
+
+        .morfema-card h3 {
+            color: white;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .morfema-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .morfema-card .exemplo {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        .morfema-card .exemplo strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
+        .tabela-estrutura {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tabela-estrutura thead {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
+
+        .tabela-estrutura th {
+            padding: 20px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        .tabela-estrutura td {
+            padding: 18px 20px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        .tabela-estrutura tr:hover {
+            background: #f0f7ff;
+        }
+
+        .tabela-estrutura .destaque-col {
+            color: #1e3c72;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .processo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #1e3c72;
+        }
+
+        .processo-card .titulo {
+            font-size: 2em;
+            color: #1e3c72;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .processo-card .tipo {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .processo-card .descricao {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 2;
+        }
+
+        .processo-card .exemplo-box {
+            background: #f0f7ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .dicas-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .decomposicao-box {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            color: #333;
+        }
+
+        .decomposicao-box h4 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #d63031;
+            text-align: center;
+        }
+
+        .decomposicao-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .decomposicao-item .palavra {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #d63031;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .decomposicao-item .partes {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .decomposicao-item .parte {
+            background: #74b9ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .decomposicao-item .parte.radical {
+            background: #e17055;
+        }
+
+        .decomposicao-item .parte.prefixo {
+            background: #00b894;
+        }
+
+        .decomposicao-item .parte.sufixo {
+            background: #0984e3;
+        }
+
+        .decomposicao-item .parte.desinencia {
+            background: #6c5ce7;
+        }
+
+        .decomposicao-item .explicacao {
+            text-align: center;
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .formacao-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .formacao-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            color: white;
+        }
+
+        .formacao-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .formacao-card.derivacao {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .formacao-card.composicao {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .formacao-card.outros {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+
+        .formacao-card h3 {
+            color: white;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .formacao-card .descricao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .formacao-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .quiz-box {
+            background: linear-gradient(135deg, #fc466b, #3f5efb);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .quiz-box h4 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .quiz-item {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-item .pergunta {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .quiz-item .opcoes {
+            font-size: 1.1em;
+            line-height: 2;
+            padding-left: 20px;
+        }
+
+        .quiz-item .resposta {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        .fluxograma {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .fluxograma h4 {
+            text-align: center;
+            color: #1e3c72;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .fluxo-nivel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .fluxo-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .fluxo-seta {
+            font-size: 2em;
+            color: #1e3c72;
+            font-weight: bold;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .morfema-card, .destaque, .dicas-box, .quiz-box,
+            .processo-card, .decomposicao-box, .formacao-card, .fluxograma {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .morfema-grid, .formacao-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fluxo-nivel {
+                flex-direction: column;
+            }
+
+            .fluxo-seta {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔤 Estrutura e Formação das Palavras 🔤</h1>
+        <p class="subtitle">Descubra como as palavras são construídas na língua portuguesa!</p>
+
+        <div class="section">
+            <h2>📐 O que é Estrutura das Palavras?</h2>
+            <p class="intro-text">
+                A <strong>estrutura das palavras</strong> refere-se aos elementos mínimos que compõem as palavras, 
+                chamados de <strong>morfemas</strong>. Cada palavra pode ser dividida em partes menores, e cada 
+                parte tem uma função específica no significado e na gramática da palavra.
+            </p>
+
+            <div class="destaque">
+                <strong>💡 Conceito Fundamental:</strong> Morfema é a menor unidade de significado de uma língua. 
+                Não pode ser dividido em partes menores sem perder seu sentido. Por exemplo: em "gatos", temos 
+                dois morfemas: "gat-" (radical com significado de felino) e "-os" (plural masculino).
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🧩 Elementos Mórficos (Morfemas)</h2>
+            <p class="intro-text">
+                As palavras são formadas por diferentes tipos de morfemas. Vamos conhecer cada um:
+            </p>
+
+            <div class="morfema-grid">
+                <div class="morfema-card radical">
+                    <h3>Radical</h3>
+                    <div class="definicao">
+                        É a parte principal da palavra, que contém seu significado básico. Todas as palavras de 
+                        uma mesma família compartilham o mesmo radical.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • <strong>PEDR-</strong>: pedreiro, pedreira, pedregulho<br>
+                        • <strong>LIVR-</strong>: livraria, livreiro, livrete<br>
+                        • <strong>TERR-</strong>: terreno, terreiro, território<br>
+                        • <strong>MAR-</strong>: marítimo, marinheiro, maremoto
+                    </div>
+                </div>
+
+                <div class="morfema-card afixos">
+                    <h3>Afixos</h3>
+                    <div class="definicao">
+                        São morfemas que se juntam ao radical para modificar seu significado. Dividem-se em 
+                        <strong>prefixos</strong> (antes do radical) e <strong>sufixos</strong> (depois do radical).
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Prefixos: <strong>IN-</strong>feliz, <strong>DES-</strong>fazer<br>
+                        • Sufixos: feliz<strong>-MENTE</strong>, livr<strong>-ARIA</strong><br>
+                        • Juntos: <strong>IN-</strong>feliz<strong>-MENTE</strong>
+                    </div>
+                </div>
+
+                <div class="morfema-card desinencias">
+                    <h3>Desinências</h3>
+                    <div class="definicao">
+                        Indicam as flexões das palavras (gênero, número, tempo, pessoa, modo). São essenciais 
+                        para a concordância.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Nominais: gat<strong>-O</strong>, gat<strong>-A</strong>, gat<strong>-OS</strong><br>
+                        • Verbais: cant<strong>-AVA</strong>, cant<strong>-AMOS</strong><br>
+                        • Modo-Temporal: cant<strong>-ÁVA</strong>mos
+                    </div>
+                </div>
+
+                <div class="morfema-card vogal">
+                    <h3>Vogal Temática</h3>
+                    <div class="definicao">
+                        É a vogal que se junta ao radical para formar o tema. Nos verbos, indica a conjugação 
+                        (1ª, 2ª ou 3ª). Nos nomes, prepara o radical para receber desinências.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Verbos: cant<strong>-A-</strong>r, vend<strong>-E-</strong>r, part<strong>-I-</strong>r<br>
+                        • Nomes: livr<strong>-O</strong>, mes<strong>-A</strong><br>
+                        • Tema = Radical + Vogal Temática
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔍 Decomposição de Palavras</h2>
+            <p class="intro-text">
+                Vamos analisar a estrutura de algumas palavras, identificando cada morfema:
+            </p>
+
+            <div class="decomposicao-box">
+                <h4>Exemplos Práticos de Decomposição</h4>
+
+                <div class="decomposicao-item">
+                    <div class="palavra">INFELIZMENTE</div>
+                    <div class="partes">
+                        <div class="parte prefixo">IN-</div>
+                        <div class="parte radical">FELIZ</div>
+                        <div class="parte sufixo">-MENTE</div>
+                    </div>
+                    <div class="explicacao">
+                        <strong>IN-</strong> (prefixo de negação) + <strong>FELIZ</strong> (radical) + 
+                        <strong>-MENTE</strong> (sufixo que forma advérbio)
+                    </div>
+                </div>
+
+                <div class="decomposicao-item">
+                    <div class="palavra">CANTÁVAMOS</div>
+                    <div class="partes">
+                        <div class="parte radical">CANT-</div>
+                        <div class="parte vogal">-A-</div>
+                        <div class="parte desinencia">-VÁ-</div>
+                        <div class="parte desinencia">-MOS</div>
+                    </div>
+                    <div class="explicacao">
+                        <strong>CANT-</strong> (radical) + <strong>-A-</strong> (vogal temática) + 
+                        <strong>-VÁ-</strong> (desinência modo-temporal) + <strong>-MOS</strong> (desinência número-pessoal)
+                    </div>
+                </div>
+
+                <div class="decomposicao-item">
+                    <div class="palavra">GAROTINHAS</div>
+                    <div class="partes">
+                        <div class="parte radical">GAROT-</div>
+                        <div class="parte sufixo">-INH-</div>
+                        <div class="parte desinencia">-A-</div>
+                        <div class="parte desinencia">-S</div>
+                    </div>
+                    <div class="explicacao">
+                        <strong>GAROT-</strong> (radical) + <strong>-INH-</strong> (sufixo diminutivo) + 
+                        <strong>-A</strong> (desinência de gênero feminino) + <strong>-S</strong> (desinência de número plural)
+                    </div>
+                </div>
+
+                <div class="decomposicao-item">
+                    <div class="palavra">DESLEALMENTE</div>
+                    <div class="partes">
+                        <div class="parte prefixo">DES-</div>
+                        <div class="parte radical">LEAL</div>
+                        <div class="parte sufixo">-MENTE</div>
+                    </div>
+                    <div class="explicacao">
+                        <strong>DES-</strong> (prefixo de negação) + <strong>LEAL</strong> (radical) + 
+                        <strong>-MENTE</strong> (sufixo que forma advérbio)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📋 Tabela de Prefixos Comuns</h2>
+            <p class="intro-text">
+                Os prefixos modificam o sentido do radical. Conheça os principais:
+            </p>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-estrutura">
+                    <thead>
+                        <tr>
+                            <th>Prefixo</th>
+                            <th>Significado</th>
+                            <th>Exemplos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="destaque-col">IN-, I-, IM-</td>
+                            <td>Negação, privação</td>
+                            <td>Infeliz, ilegal, impossível, inútil</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">DES-, DIS-</td>
+                            <td>Negação, separação</td>
+                            <td>Desfazer, desligar, discordar, disforme</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">RE-</td>
+                            <td>Repetição, retorno</td>
+                            <td>Refazer, rever, revisitar, reconstruir</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">ANTI-</td>
+                            <td>Oposição, contra</td>
+                            <td>Antipático, antiético, anticorpo</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">PRÉ-</td>
+                            <td>Anterioridade</td>
+                            <td>Pré-escola, prever, pré-história</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">PÓS-</td>
+                            <td>Posterioridade</td>
+                            <td>Pós-guerra, pós-graduação, pós-moderno</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">SUB-</td>
+                            <td>Posição inferior</td>
+                            <td>Submarino, subterrâneo, subnutrido</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">SUPER-, SOBRE-</td>
+                            <td>Posição superior, excesso</td>
+                            <td>Supermercado, sobrevoar, supernatural</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">INTER-</td>
+                            <td>Entre, reciprocidade</td>
+                            <td>Internacional, interligar, interagir</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">EX-</td>
+                            <td>Cessação, movimento para fora</td>
+                            <td>Ex-presidente, exportar, excluir</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📋 Tabela de Sufixos Comuns</h2>
+            <p class="intro-text">
+                Os sufixos formam novas palavras alterando a classe gramatical ou o sentido:
+            </p>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-estrutura">
+                    <thead>
+                        <tr>
+                            <th>Sufixo</th>
+                            <th>Função</th>
+                            <th>Exemplos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="destaque-col">-MENTE</td>
+                            <td>Forma advérbios</td>
+                            <td>Felizmente, rapidamente, claramente</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">-ARIA, -ERIA</td>
+                            <td>Indica lugar, estabelecimento</td>
+                            <td>Livraria, padaria, confeitaria</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">-EIRO, -EIRA</td>
+                            <td>Indica profissão, agente</td>
+                            <td>Padeiro, enfermeira, pedreiro</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">-ISTA</td>
+                            <td>Indica profissão, seguidor</td>
+                            <td>Dentista, pianista, jornalista</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">-INHO, -INHA</td>
+                            <td>Diminutivo, afetividade</td>
+                            <td>Casinha, gatinho, livrinho</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">-ÃO, -ONA</td>
+                            <td>Aumentativo</td>
+                            <td>Casarão, mulherona, grandão</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">-DADE, -IDADE</td>
+                            <td>Forma substantivo abstrato</td>
+                            <td>Felicidade, bondade, lealdade</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">-ÇÃO, -SÃO</td>
+                            <td>Forma substantivo de ação</td>
+                            <td>Nação, educação, compreensão</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">-OSO, -OSA</td>
+                            <td>Forma adjetivo (abundância)</td>
+                            <td>Bondoso, carinhosa, furioso</td>
+                        </tr>
+                        <tr>
+                            <td class="destaque-col">-ÁVEL, -ÍVEL</td>
+                            <td>Possibilidade, capacidade</td>
+                            <td>Amável, visível, confiável</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏗️ Processos de Formação de Palavras</h2>
+            <p class="intro-text">
+                Existem dois processos principais de formação de palavras em português: 
+                <strong>derivação</strong> e <strong>composição</strong>.
+            </p>
+
+            <div class="fluxograma">
+                <h4>Mapa dos Processos de Formação</h4>
+                <div class="fluxo-nivel">
+                    <div class="fluxo-box">FORMAÇÃO DE PALAVRAS</div>
+                </div>
+                <div class="fluxo-nivel">
+                    <div class="fluxo-seta">↓</div>
+                </div>
+                <div class="fluxo-nivel">
+                    <div class="fluxo-box">DERIVAÇÃO</div>
+                    <div class="fluxo-box">COMPOSIÇÃO</div>
+                    <div class="fluxo-box">OUTROS</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🌱 Derivação</h2>
+            <p class="intro-text">
+                A derivação ocorre quando formamos novas palavras a partir de um radical, acrescentando 
+                afixos ou modificando a classe gramatical.
+            </p>
+
+            <div class="formacao-grid">
+                <div class="formacao-card derivacao">
+                    <h3>Prefixal</h3>
+                    <div class="descricao">
+                        Acrescenta-se um prefixo ao radical.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • feliz → <strong>IN</strong>feliz<br>
+                        • fazer → <strong>DES</strong>fazer<br>
+                        • ver → <strong>RE</strong>ver<br>
+                        • ético → <strong>ANTI</strong>ético
+                    </div>
+                </div>
+
+                <div class="formacao-card derivacao">
+                    <h3>Sufixal</h3>
+                    <div class="descricao">
+                        Acrescenta-se um sufixo ao radical.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • feliz → feliz<strong>MENTE</strong><br>
+                        • livro → livr<strong>ARIA</strong><br>
+                        • pedra → pedr<strong>EIRO</strong><br>
+                        • leal → leal<strong>DADE</strong>
+                    </div>
+                </div>
+
+                <div class="formacao-card derivacao">
+                    <h3>Prefixal e Sufixal</h3>
+                    <div class="descricao">
+                        Acrescenta-se prefixo E sufixo simultaneamente.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • feliz → <strong>IN</strong>feliz<strong>MENTE</strong><br>
+                        • leal → <strong>DES</strong>leal<strong>DADE</strong><br>
+                        • terra → <strong>DES</strong>terr<strong>AR</strong><br>
+                        • animar → <strong>DES</strong>anim<strong>ADO</strong>
+                    </div>
+                </div>
+
+                <div class="formacao-card composicao">
+                    <h3>Parassintética</h3>
+                    <div class="descricao">
+                        Prefixo e sufixo são adicionados ao mesmo tempo (não existe a forma intermediária).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • <strong>EN</strong>tard<strong>ECER</strong> (não existe "entarde" nem "tardecer")<br>
+                        • <strong>A</strong>noite<strong>CER</strong><br>
+                        • <strong>EN</strong>riqu<strong>ECER</strong><br>
+                        • <strong>A</strong>bençoa<strong>R</strong>
+                    </div>
+                </div>
+
+                <div class="formacao-card outros">
+                    <h3>Regressiva</h3>
+                    <div class="descricao">
+                        Forma substantivos a partir de verbos, retirando a parte final.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • ajudar → <strong>ajuda</strong><br>
+                        • combater → <strong>combate</strong><br>
+                        • buscar → <strong>busca</strong><br>
+                        • chorar → <strong>choro</strong>
+                    </div>
+                </div>
+
+                <div class="formacao-card outros">
+                    <h3>Imprópria</h3>
+                    <div class="descricao">
+                        Muda a classe gramatical sem alterar a forma da palavra.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • <strong>jantar</strong> (verbo) → <strong>o jantar</strong> (substantivo)<br>
+                        • <strong>verde</strong> (adj.) → <strong>o verde</strong> (subst.)<br>
+                        • <strong>mal</strong> (adv.) → <strong>o mal</strong> (subst.)
+                    </div>
+                </div>
+            </div>
+
+            <div class="destaque" style="margin-top: 30px;">
+                <strong>⚠️ Atenção:</strong> Na derivação prefixal e sufixal, é possível retirar o prefixo 
+                OU o sufixo e a palavra ainda existe (ex: "infelizmente" → "infeliz" ou "felizmente"). 
+                Na parassintética, isso não é possível!
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔗 Composição</h2>
+            <p class="intro-text">
+                A composição ocorre quando unimos dois ou mais radicais para formar uma nova palavra.
+            </p>
+
+            <div class="processo-card">
+                <div class="titulo">Composição por Justaposição</div>
+                <div class="tipo">Sem alteração fonética</div>
+                <div class="descricao">
+                    As palavras são unidas sem perder nenhum elemento. Cada radical mantém sua integridade.
+                </div>
+                <div class="exemplo-box">
+                    <strong>Exemplos:</strong><br>
+                    • <strong>passatempo</strong> = passa + tempo<br>
+                    • <strong>guarda-chuva</strong> = guarda + chuva<br>
+                    • <strong>segunda-feira</strong> = segunda + feira<br>
+                    • <strong>pontapé</strong> = ponta + pé<br>
+                    • <strong>girassol</strong> = gira + sol<br>
+                    • <strong>couve-flor</strong> = couve + flor
+                </div>
+            </div>
+
+            <div class="processo-card">
+                <div class="titulo">Composição por Aglutinação</div>
+                <div class="tipo">Com alteração fonética</div>
+                <div class="descricao">
+                    As palavras se fundem e sofrem alterações fonéticas (perda de sons, letras ou acentos).
+                </div>
+                <div class="exemplo-box">
+                    <strong>Exemplos:</strong><br>
+                    • <strong>planalto</strong> = plano + alto<br>
+                    • <strong>aguardente</strong> = água + ardente<br>
+                    • <strong>embora</strong> = em + boa + hora<br>
+                    • <strong>fidalgo</strong> = filho + de + algo<br>
+                    • <strong>petróleo</strong> = pedra + óleo<br>
+                    • <strong>vinagre</strong> = vinho + acre
+                </div>
+            </div>
+
+            <div class="dicas-box">
+                <h4>🔍 Como Diferenciar?</h4>
+                <ul>
+                    <li><strong>Justaposição:</strong> Você consegue identificar claramente os dois elementos originais</li>
+                    <li><strong>Aglutinação:</strong> Houve fusão e perda de elementos (letras, sons, acentos)</li>
+                    <li>Dica: Se tiver hífen, geralmente é justaposição (mas nem sempre!)</li>
+                    <li>Na dúvida, tente separar mentalmente as partes e ver se elas existem isoladamente</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✨ Outros Processos de Formação</h2>
+            <p class="intro-text">
+                Além de derivação e composição, existem outros processos importantes:
+            </p>
+
+            <div class="formacao-grid">
+                <div class="formacao-card derivacao">
+                    <h3>Hibridismo</h3>
+                    <div class="descricao">
+                        União de elementos de línguas diferentes.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • auto<strong>móvel</strong> (grego + latim)<br>
+                        • tele<strong>visão</strong> (grego + latim)<br>
+                        • socio<strong>logia</strong> (latim + grego)<br>
+                        • buro<strong>cracia</strong> (francês + grego)
+                    </div>
+                </div>
+
+                <div class="formacao-card composicao">
+                    <h3>Onomatopeia</h3>
+                    <div class="descricao">
+                        Palavras que imitam sons naturais ou ruídos.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • <strong>tique-taque</strong> (relógio)<br>
+                        • <strong>miau</strong> (gato)<br>
+                        • <strong>au-au</strong> (cachorro)<br>
+                        • <strong>cocoricó</strong> (galo)
+                    </div>
+                </div>
+
+                <div class="formacao-card outros">
+                    <h3>Abreviação</h3>
+                    <div class="descricao">
+                        Redução de palavras para facilitar a comunicação.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • foto<strong>grafia</strong> → <strong>foto</strong><br>
+                        • metro<strong>politano</strong> → <strong>metrô</strong><br>
+                        • cinema<strong>tógrafo</strong> → <strong>cinema</strong><br>
+                        • auto<strong>móvel</strong> → <strong>auto</strong>
+                    </div>
+                </div>
+
+                <div class="formacao-card derivacao">
+                    <h3>Sigla</h3>
+                    <div class="descricao">
+                        Formação com as letras iniciais de palavras.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • <strong>ONU</strong> (Organização das Nações Unidas)<br>
+                        • <strong>INSS</strong> (Instituto Nacional do Seguro Social)<br>
+                        • <strong>USP</strong> (Universidade de São Paulo)<br>
+                        • <strong>PIB</strong> (Produto Interno Bruto)
+                    </div>
+                </div>
+
+                <div class="formacao-card composicao">
+                    <h3>Redução</h3>
+                    <div class="descricao">
+                        Forma popular ou informal de abreviar palavras.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • <strong>prof</strong> (professor)<br>
+                        • <strong>pneu</strong> (pneumático)<br>
+                        • <strong>moto</strong> (motocicleta)<br>
+                        • <strong>quilo</strong> (quilograma)
+                    </div>
+                </div>
+
+                <div class="formacao-card outros">
+                    <h3>Neologismo</h3>
+                    <div class="descricao">
+                        Criação de palavras novas ou novos significados.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • <strong>deletar</strong> (do inglês "delete")<br>
+                        • <strong>internetês</strong> (linguagem da internet)<br>
+                        • <strong>blogueiro</strong> (de blog)<br>
+                        • <strong>printar</strong> (imprimir)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Famílias de Palavras</h2>
+            <p class="intro-text">
+                Palavras que compartilham o mesmo radical formam uma <strong>família de palavras</strong> 
+                ou <strong>família etimológica</strong>.
+            </p>
+
+            <div class="decomposicao-box">
+                <h4>Exemplos de Famílias de Palavras</h4>
+
+                <div class="decomposicao-item">
+                    <div class="palavra">Radical: TERR-</div>
+                    <div class="explicacao">
+                        <strong>Família:</strong><br>
+                        terra • terreno • terreiro • território • terrestre • terroso • 
+                        terráqueo • aterrar • aterrissagem • desterrar • enterrar • 
+                        subterrâneo • terrível • Mediterrâneo
+                    </div>
+                </div>
+
+                <div class="decomposicao-item">
+                    <div class="palavra">Radical: PEDR-</div>
+                    <div class="explicacao">
+                        <strong>Família:</strong><br>
+                        pedra • pedreiro • pedreira • pedregulho • empedrar • 
+                        apedrejar • pedrada • pedregoso • pedraria • pétreo
+                    </div>
+                </div>
+
+                <div class="decomposicao-item">
+                    <div class="palavra">Radical: LIVR-</div>
+                    <div class="explicacao">
+                        <strong>Família:</strong><br>
+                        livro • livraria • livreiro • livrete • livresco • 
+                        livramento • livrar • livre • liberdade • liberal • 
+                        libertar • libertação
+                    </div>
+                </div>
+
+                <div class="decomposicao-item">
+                    <div class="palavra">Radical: MAR-</div>
+                    <div class="explicacao">
+                        <strong>Família:</strong><br>
+                        mar • marítimo • marinha • marinheiro • maremoto • 
+                        maré • maresia • submarino • ultramar • beira-mar
+                    </div>
+                </div>
+            </div>
+
+            <div class="destaque">
+                <strong>💡 Curiosidade:</strong> Conhecer famílias de palavras ajuda a deduzir o significado 
+                de palavras desconhecidas e enriquece o vocabulário. Se você conhece "terra", pode entender 
+                facilmente "terrestre", "subterrâneo", etc.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎮 Quiz - Teste Seus Conhecimentos!</h2>
+            
+            <div class="quiz-box">
+                <h4>🧠 Desafio de Estrutura e Formação</h4>
+                
+                <div class="quiz-item">
+                    <div class="pergunta">1. Qual é o processo de formação da palavra "infelizmente"?</div>
+                    <div class="opcoes">
+                        a) Derivação prefixal<br>
+                        b) Derivação sufixal<br>
+                        c) Derivação prefixal e sufixal<br>
+                        d) Derivação parassintética
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> c) Derivação prefixal e sufixal - Tem prefixo "in-" e sufixo "-mente". 
+                        Existe "infeliz" e "felizmente" separadamente.
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">2. A palavra "planalto" é formada por qual processo?</div>
+                    <div class="opcoes">
+                        a) Composição por justaposição<br>
+                        b) Composição por aglutinação<br>
+                        c) Derivação prefixal<br>
+                        d) Derivação regressiva
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> b) Composição por aglutinação - "plano + alto" se fundiram 
+                        com perda de som (o "o" de "plano").
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">3. Em "cantávamos", a desinência "-mos" indica:</div>
+                    <div class="opcoes">
+                        a) Tempo verbal<br>
+                        b) Número e pessoa<br>
+                        c) Modo verbal<br>
+                        d) Gênero
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> b) Número e pessoa - Indica 1ª pessoa do plural (nós). 
+                        É uma desinência número-pessoal.
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">4. Qual palavra foi formada por derivação parassintética?</div>
+                    <div class="opcoes">
+                        a) Infeliz<br>
+                        b) Anoitecer<br>
+                        c) Desfazer<br>
+                        d) Felizmente
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> b) Anoitecer - Não existe "anoite" nem "noitecer" isoladamente. 
+                        O prefixo "a-" e o sufixo "-ecer" foram adicionados simultaneamente.
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">5. A palavra "busca" (substantivo) derivou de "buscar" (verbo) por:</div>
+                    <div class="opcoes">
+                        a) Derivação prefixal<br>
+                        b) Derivação sufixal<br>
+                        c) Derivação regressiva<br>
+                        d) Derivação imprópria
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> c) Derivação regressiva - Forma substantivo a partir do verbo, 
+                        "cortando" a terminação verbal.
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">6. "Guarda-chuva" é exemplo de:</div>
+                    <div class="opcoes">
+                        a) Composição por justaposição<br>
+                        b) Composição por aglutinação<br>
+                        c) Derivação prefixal<br>
+                        d) Hibridismo
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> a) Composição por justaposição - Os dois elementos 
+                        mantêm sua integridade (guarda + chuva).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Exercícios Práticos</h2>
+            
+            <div class="processo-card">
+                <div class="titulo">Exercício 1: Identifique os Morfemas</div>
+                <div class="tipo">Decomponha as palavras</div>
+                <div class="descricao">
+                    <strong>a) DESLEALDADE</strong><br>
+                    <div class="exemplo-box">
+                        Resposta: DES- (prefixo) + LEAL (radical) + -DADE (sufixo)
+                    </div>
+                    <br>
+                    <strong>b) GAROTOS</strong><br>
+                    <div class="exemplo-box">
+                        Resposta: GAROT- (radical) + -O (desinência de gênero) + -S (desinência de número)
+                    </div>
+                    <br>
+                    <strong>c) ENTRISTECER</strong><br>
+                    <div class="exemplo-box">
+                        Resposta: EN- (prefixo) + TRIST- (radical) + -ECER (sufixo) - Parassintética!
+                    </div>
+                </div>
+            </div>
+
+            <div class="processo-card">
+                <div class="titulo">Exercício 2: Classifique o Processo de Formação</div>
+                <div class="tipo">Identifique como cada palavra foi formada</div>
+                <div class="descricao">
+                    <strong>a) Beija-flor</strong> → <span style="color: #1e3c72;">Composição por justaposição</span><br>
+                    <strong>b) Aguardente</strong> → <span style="color: #1e3c72;">Composição por aglutinação</span><br>
+                    <strong>c) Rever</strong> → <span style="color: #1e3c72;">Derivação prefixal</span><br>
+                    <strong>d) Livraria</strong> → <span style="color: #1e3c72;">Derivação sufixal</span><br>
+                    <strong>e) Anoitecer</strong> → <span style="color: #1e3c72;">Derivação parassintética</span><br>
+                    <strong>f) Pesca</strong> (de pescar) → <span style="color: #1e3c72;">Derivação regressiva</span><br>
+                    <strong>g) O jantar</strong> (de jantar-verbo) → <span style="color: #1e3c72;">Derivação imprópria</span>
+                </div>
+            </div>
+
+            <div class="processo-card">
+                <div class="titulo">Exercício 3: Forme Palavras</div>
+                <div class="tipo">Use prefixos e sufixos</div>
+                <div class="descricao">
+                    A partir do radical <strong>TERR-</strong>, forme:<br><br>
+                    <div class="exemplo-box">
+                        • Profissão: TERR<strong>EIRO</strong><br>
+                        • Lugar embaixo: SUB<strong>TERR</strong>ÂNEO<br>
+                        • Relativo à terra: <strong>TERR</strong>ESTRE<br>
+                        • Extensão de terra: <strong>TERR</strong>ENO<br>
+                        • Ação de jogar terra: EN<strong>TERR</strong>AR<br>
+                        • Cheio de terra: <strong>TERR</strong>OSO
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏆 Resumo Final</h2>
+            
+            <div class="dicas-box">
+                <h4>📌 Pontos-Chave para Memorizar</h4>
+                <ul>
+                    <li><strong>Radical:</strong> Parte principal da palavra com o significado básico</li>
+                    <li><strong>Afixos:</strong> Prefixos (antes) e sufixos (depois) que modificam o sentido</li>
+                    <li><strong>Desinências:</strong> Indicam flexões (gênero, número, tempo, pessoa)</li>
+                    <li><strong>Vogal Temática:</strong> Liga o radical às desinências (especialmente em verbos)</li>
+                    <li><strong>Derivação:</strong> Forma palavras a partir de um radical + afixos</li>
+                    <li><strong>Composição:</strong> Une dois ou mais radicais (justaposição ou aglutinação)</li>
+                    <li><strong>Parassintética:</strong> Prefixo + radical + sufixo ao mesmo tempo (sem formas intermediárias)</li>
+                    <li><strong>Família de Palavras:</strong> Palavras que compartilham o mesmo radical</li>
+                </ul>
+            </div>
+
+            <div class="destaque">
+                <strong>🎓 Conclusão:</strong> Compreender a estrutura e formação das palavras é essencial 
+                para expandir seu vocabulário, escrever corretamente e interpretar textos com mais facilidade. 
+                Quando você entende como as palavras são construídas, consegue deduzir significados de palavras 
+                desconhecidas e criar novas palavras seguindo as regras da língua portuguesa!
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Dicas de Estudo</h2>
+            
+            <div class="formacao-grid">
+                <div class="formacao-card derivacao">
+                    <h3>✏️ Pratique</h3>
+                    <div class="descricao">
+                        Decomponha palavras do seu dia a dia em morfemas. Quanto mais você praticar, 
+                        mais natural se tornará identificar radicais, prefixos e sufixos.
+                    </div>
+                </div>
+
+                <div class="formacao-card composicao">
+                    <h3>📖 Leia Ativamente</h3>
+                    <div class="descricao">
+                        Ao ler, observe como as palavras são formadas. Procure famílias de palavras 
+                        e tente identificar os processos de formação utilizados.
+                    </div>
+                </div>
+
+                <div class="formacao-card outros">
+                    <h3>🔍 Use Dicionários</h3>
+                    <div class="descricao">
+                        Consulte a etimologia das palavras em dicionários. Isso ajuda a entender 
+                        a origem e formação das palavras ao longo do tempo.
+                    </div>
+                </div>
+
+                <div class="formacao-card derivacao">
+                    <h3>✨ Crie Mapas</h3>
+                    <div class="descricao">
+                        Faça mapas mentais de famílias de palavras. Coloque o radical no centro 
+                        e adicione todas as derivações que conseguir pensar.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; padding: 30px;">
+            <h2 style="margin-bottom: 20px;">🔤 Fim do Material 🔤</h2>
+            <p class="intro-text" style="margin-bottom: 0;">
+                Esperamos que este material tenha ajudado você a compreender melhor a estrutura e 
+                formação das palavras em português brasileiro. Continue estudando e explorando 
+                a fascinante arquitetura da nossa língua!
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>

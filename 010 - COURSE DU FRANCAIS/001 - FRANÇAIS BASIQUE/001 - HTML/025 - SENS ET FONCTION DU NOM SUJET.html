@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Nom Sujet - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: containerSlide 1s ease-out;
+        }
+
+        @keyframes containerSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-80px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0055A4 0%, #FFFFFF 33%, #EF4135 66%, #0055A4 100%);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 300%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255,255,255,0.3) 50%, 
+                transparent 100%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            color: #0055A4;
+            animation: titleWave 3s ease-in-out infinite;
+        }
+
+        @keyframes titleWave {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.02); }
+        }
+
+        .subtitle {
+            font-size: 1.6em;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            color: #2d3436;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+            box-shadow: 0 12px 35px rgba(106, 17, 203, 0.4);
+            animation: introFade 1.2s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes introFade {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .intro::after {
+            content: '🎯';
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 5em;
+            opacity: 0.2;
+            animation: rotate360 10s linear infinite;
+        }
+
+        @keyframes rotate360 {
+            from { transform: translateY(-50%) rotate(0deg); }
+            to { transform: translateY(-50%) rotate(360deg); }
+        }
+
+        .section {
+            margin-bottom: 45px;
+            padding: 40px;
+            background: linear-gradient(to bottom right, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            border-left: 8px solid #EF4135;
+            transition: all 0.4s ease;
+            animation: sectionAppear 0.8s ease-out;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        @keyframes sectionAppear {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section:hover {
+            transform: translateX(12px) scale(1.02);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+            border-left-color: #0055A4;
+        }
+
+        h2 {
+            color: #0055A4;
+            font-size: 2.4em;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #EF4135 0%, #ff6b6b 50%, #0055A4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.6em;
+            animation: iconBounce 3s ease-in-out infinite;
+            box-shadow: 0 6px 25px rgba(239, 65, 53, 0.4);
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.15) rotate(-8deg); }
+            75% { transform: scale(1.15) rotate(8deg); }
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 18px;
+            margin: 30px 0;
+            box-shadow: 0 10px 35px rgba(0, 85, 164, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .definition-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                rgba(255, 255, 255, 0.05) 20px,
+                rgba(255, 255, 255, 0.05) 40px
+            );
+            animation: slidePattern 15s linear infinite;
+        }
+
+        @keyframes slidePattern {
+            from { transform: translate(0, 0); }
+            to { transform: translate(40px, 40px); }
+        }
+
+        .definition-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .definition-title::before {
+            content: '📖';
+            font-size: 1.4em;
+        }
+
+        .definition-content {
+            font-size: 1.2em;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .example-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #0055A4;
+            box-shadow: 0 8px 25px rgba(0, 85, 164, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 40px rgba(0, 85, 164, 0.25);
+        }
+
+        .example-title {
+            color: #EF4135;
+            font-weight: bold;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .example-title::before {
+            content: '✓';
+            background: #EF4135;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+            animation: checkPulse 2.5s infinite;
+        }
+
+        @keyframes checkPulse {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 0 0 rgba(239, 65, 53, 0.5); 
+            }
+            50% { 
+                transform: scale(1.15); 
+                box-shadow: 0 0 0 15px rgba(239, 65, 53, 0); 
+            }
+        }
+
+        .sentence {
+            padding: 18px 25px;
+            margin: 15px 0;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+            border-radius: 12px;
+            font-size: 1.15em;
+            border-left: 5px solid #0055A4;
+            transition: all 0.3s ease;
+        }
+
+        .sentence:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .subject {
+            background: linear-gradient(135deg, #EF4135 0%, #ff6b6b 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 3px 10px rgba(239, 65, 53, 0.3);
+            animation: subjectGlow 2s infinite;
+        }
+
+        @keyframes subjectGlow {
+            0%, 100% { box-shadow: 0 3px 10px rgba(239, 65, 53, 0.3); }
+            50% { box-shadow: 0 5px 20px rgba(239, 65, 53, 0.6); }
+        }
+
+        .verb {
+            color: #0055A4;
+            font-weight: bold;
+            text-decoration: underline;
+            text-decoration-color: #0055A4;
+            text-decoration-thickness: 2px;
+        }
+
+        .question-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 6px solid #f39c12;
+            box-shadow: 0 5px 20px rgba(243, 156, 18, 0.3);
+        }
+
+        .question-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #d35400;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .question-title::before {
+            content: '❓';
+            font-size: 1.6em;
+            animation: questionRotate 2s ease-in-out infinite;
+        }
+
+        @keyframes questionRotate {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(-15deg) scale(1.15); }
+        }
+
+        .method-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px solid #0055A4;
+            transition: all 0.3s ease;
+        }
+
+        .method-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0, 85, 164, 0.2);
+            border-color: #EF4135;
+        }
+
+        .method-number {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-right: 15px;
+            box-shadow: 0 4px 15px rgba(0, 85, 164, 0.3);
+        }
+
+        .method-title {
+            color: #EF4135;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .type-card {
+            background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border: 3px solid #0055A4;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(239, 65, 53, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .type-card:hover::before {
+            left: 100%;
+        }
+
+        .type-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 85, 164, 0.3);
+            border-color: #EF4135;
+        }
+
+        .type-title {
+            color: #EF4135;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .type-title::before {
+            content: '▸';
+            color: #0055A4;
+            font-size: 1.3em;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .highlight-title {
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3em;
+        }
+
+        .highlight-title::before {
+            content: '💡';
+            font-size: 1.5em;
+        }
+
+        .steps-container {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff3cc 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .step {
+            padding: 20px;
+            margin: 15px 0;
+            background: white;
+            border-radius: 10px;
+            border-left: 5px solid #ffa500;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(255, 165, 0, 0.2);
+        }
+
+        .step-number {
+            background: #ffa500;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-left: 6px solid #f44336;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        .warning-title {
+            font-weight: bold;
+            color: #c62828;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3em;
+        }
+
+        .warning-title::before {
+            content: '⚠';
+            font-size: 1.8em;
+            animation: warningShake 1.5s infinite;
+        }
+
+        @keyframes warningShake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-12deg); }
+            75% { transform: rotate(12deg); }
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .summary-title {
+            font-size: 2em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .summary-title::before {
+            content: '📋';
+            font-size: 1.6em;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .summary-list li {
+            padding: 15px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.15em;
+        }
+
+        .summary-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ffd93d;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            font-size: 1em;
+        }
+
+        .footer-logo {
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #EF4135 0%, #0055A4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: logoShine 4s infinite;
+        }
+
+        @keyframes logoShine {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.3em;
+            }
+
+            .content {
+                padding: 30px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .types-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇫🇷 Le Nom Sujet</h1>
+            <p class="subtitle">Sens et Fonction du Nom Sujet</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <strong>🎯 Définition essentielle :</strong> Le nom sujet est l'élément de la phrase qui fait ou subit l'action exprimée par le verbe. C'est l'un des constituants fondamentaux de la phrase française, sans lequel une phrase ne peut généralement pas exister !
+            </div>
+
+            <!-- Section 1 : Définition -->
+            <div class="section">
+                <h2><span class="icon">1</span>Qu'est-ce que le sujet ?</h2>
+                
+                <div class="definition-box">
+                    <div class="definition-title">Définition complète</div>
+                    <div class="definition-content">
+                        Le <strong>sujet</strong> est le nom (ou groupe nominal) qui désigne l'être ou la chose qui effectue l'action du verbe, ou qui se trouve dans l'état exprimé par le verbe. Le verbe s'accorde toujours en nombre et en personne avec le sujet.
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">Exemples de base</div>
+                    
+                    <div class="sentence">
+                        <span class="subject">Le chat</span> <span class="verb">dort</span> sur le canapé.
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject">Marie</span> <span class="verb">mange</span> une pomme.
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject">Les enfants</span> <span class="verb">jouent</span> dans le jardin.
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject">Mon frère et ma sœur</span> <span class="verb">arrivent</span> demain.
+                    </div>
+                </div>
+
+                <div class="highlight">
+                    <div class="highlight-title">Point important</div>
+                    <p>Le sujet répond toujours à la question : <strong>"Qui est-ce qui...?"</strong> ou <strong>"Qu'est-ce qui...?"</strong> posée avant le verbe.</p>
+                </div>
+            </div>
+
+            <!-- Section 2 : Comment identifier le sujet -->
+            <div class="section">
+                <h2><span class="icon">2</span>Comment identifier le sujet ?</h2>
+                
+                <div class="question-box">
+                    <div class="question-title">Méthode principale : La question "Qui/Qu'est-ce qui ?"</div>
+                    <p>Pour trouver le sujet, il suffit de poser la question <strong>"Qui est-ce qui..."</strong> (pour une personne) ou <strong>"Qu'est-ce qui..."</strong> (pour une chose) devant le verbe.</p>
+                </div>
+
+                <div class="steps-container">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Repérez le verbe conjugué</strong> dans la phrase.
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Posez la question</strong> "Qui est-ce qui..." ou "Qu'est-ce qui..." + verbe ?
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>La réponse</strong> à cette question est le sujet.
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">Application pratique</div>
+                    
+                    <div class="sentence">
+                        <span class="subject">Le soleil</span> <span class="verb">brille</span> dans le ciel.<br>
+                        → <em>Qu'est-ce qui brille ?</em> → <strong>Le soleil</strong>
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject">Les étudiants</span> <span class="verb">travaillent</span> à la bibliothèque.<br>
+                        → <em>Qui est-ce qui travaille ?</em> → <strong>Les étudiants</strong>
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject">Cette histoire</span> <span class="verb">me passionne</span>.<br>
+                        → <em>Qu'est-ce qui me passionne ?</em> → <strong>Cette histoire</strong>
+                    </div>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-title">
+                        <span class="method-number">2</span>
+                        Méthode de l'encadrement
+                    </div>
+                    <p>On peut aussi encadrer le sujet par <strong>"C'est... qui"</strong> ou <strong>"Ce sont... qui"</strong></p>
+                    <div class="sentence" style="margin-top: 15px;">
+                        Les oiseaux chantent. → <strong>Ce sont les oiseaux qui</strong> chantent.
+                    </div>
+                    <div class="sentence">
+                        Pierre téléphone. → <strong>C'est Pierre qui</strong> téléphone.
+                    </div>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-title">
+                        <span class="method-number">3</span>
+                        Vérification par l'accord
+                    </div>
+                    <p>Le verbe s'accorde toujours avec le sujet. Changez le sujet, le verbe change aussi !</p>
+                    <div class="sentence" style="margin-top: 15px;">
+                        <span class="subject">Le chien</span> <span class="verb">aboie</span>. → <span class="subject">Les chiens</span> <span class="verb">aboient</span>.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 : Les différents types de sujets -->
+            <div class="section">
+                <h2><span class="icon">3</span>Les différents types de sujets</h2>
+                
+                <div class="types-grid">
+                    <div class="type-card">
+                        <div class="type-title">Nom propre</div>
+                        <p><strong>Définition :</strong> Désigne une personne ou un lieu spécifique.</p>
+                        <div class="sentence" style="margin-top: 15px;">
+                            <span class="subject">Paris</span> est une belle ville.
+                        </div>
+                        <div class="sentence">
+                            <span class="subject">Sophie</span> adore le chocolat.
+                        </div>
+                    </div>
+
+                    <div class="type-card">
+                        <div class="type-title">Nom commun</div>
+                        <p><strong>Définition :</strong> Désigne une catégorie générale d'êtres ou de choses.</p>
+                        <div class="sentence" style="margin-top: 15px;">
+                            <span class="subject">Le livre</span> est sur la table.
+                        </div>
+                        <div class="sentence">
+                            <span class="subject">Les voitures</span> roulent vite.
+                        </div>
+                    </div>
+
+                    <div class="type-card">
+                        <div class="type-title">Groupe nominal</div>
+                        <p><strong>Définition :</strong> Nom accompagné de ses déterminants et/ou compléments.</p>
+                        <div class="sentence" style="margin-top: 15px;">
+                            <span class="subject">Le petit garçon blond</span> joue.
+                        </div>
+                        <div class="sentence">
+                            <span class="subject">Ma sœur aînée</span> voyage.
+                        </div>
+                    </div>
+
+                    <div class="type-card">
+                        <div class="type-title">Pronom</div>
+                        <p><strong>Définition :</strong> Remplace un nom pour éviter la répétition.</p>
+                        <div class="sentence" style="margin-top: 15px;">
+                            <span class="subject">Il</span> travaille beaucoup.
+                        </div>
+                        <div class="sentence">
+                            <span class="subject">Nous</span> partons en vacances.
+                        </div>
+                    </div>
+
+                    <div class="type-card">
+                        <div class="type-title">Infinitif</div>
+                        <p><strong>Définition :</strong> Le verbe à l'infinitif peut être sujet.</p>
+                        <div class="sentence" style="margin-top: 15px;">
+                            <span class="subject">Lire</span> enrichit l'esprit.
+                        </div>
+                        <div class="sentence">
+                            <span class="subject">Voyager</span> ouvre l'esprit.
+                        </div>
+                    </div>
+
+                    <div class="type-card">
+                        <div class="type-title">Proposition</div>
+                        <p><strong>Définition :</strong> Toute une proposition peut être sujet.</p>
+                        <div class="sentence" style="margin-top: 15px;">
+                            <span class="subject">Que tu réussisses</span> me réjouit.
+                        </div>
+                        <div class="sentence">
+                            <span class="subject">Qui vivra</span> verra.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4 : Place du sujet -->
+            <div class="section">
+                <h2><span class="icon">4</span>La place du sujet dans la phrase</h2>
+                
+                <div class="example-box">
+                    <div class="example-title">Ordre normal : Sujet + Verbe</div>
+                    
+                    <div class="sentence">
+                        <span class="subject">Marie</span> <span class="verb">chante</span> une chanson.
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject">Les étoiles</span> <span class="verb">brillent</span> dans le ciel.
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">Inversion : Verbe + Sujet</div>
+                    <p style="margin-bottom: 15px;">Dans certains cas, le sujet est placé après le verbe :</p>
+                    
+                    <div class="sentence">
+                        <strong>Dans les questions :</strong><br>
+                        <span class="verb">Vient</span>-<span class="subject">il</span> demain ?
+                    </div>
+                    
+                    <div class="sentence">
+                        <strong>Après certains adverbes :</strong><br>
+                        Peut-être <span class="verb">viendra</span>-<span class="subject">t-il</span>.
+                    </div>
+                    
+                    <div class="sentence">
+                        <strong>Avec les verbes de parole :</strong><br>
+                        "Bonjour", <span class="verb">dit</span> <span class="subject">Pierre</span>.
+                    </div>
+                    
+                    <div class="sentence">
+                        <strong>En style littéraire :</strong><br>
+                        Ainsi <span class="verb">parlait</span> <span class="subject">le sage</span>.
+                    </div>
+                </div>
+
+                <div class="highlight">
+                    <div class="highlight-title">Astuce importante</div>
+                    <p>Même quand le sujet est inversé, il reste le sujet ! Le verbe s'accorde toujours avec lui, quelle que soit sa position dans la phrase.</p>
+                </div>
+            </div>
+
+            <!-- Section 5 : Accord du verbe -->
+            <div class="section">
+                <h2><span class="icon">5</span>L'accord du verbe avec le sujet</h2>
+                
+                <div class="definition-box">
+                    <div class="definition-title">Règle fondamentale</div>
+                    <div class="definition-content">
+                        Le verbe s'accorde <strong>toujours</strong> en nombre (singulier/pluriel) et en personne (1ère, 2ème, 3ème) avec son sujet.
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">Exemples d'accord</div>
+                    
+                    <div class="sentence">
+                        <span class="subject">Le chat</span> (singulier) <span class="verb">dort</span> (singulier).
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject">Les chats</span> (pluriel) <span class="verb">dorment</span> (pluriel).
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject">Tu</span> (2ème personne) <span class="verb">manges</span> (2ème personne).
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject">Nous</span> (1ère personne pluriel) <span class="verb">mangeons</span> (1ère personne pluriel).
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <div class="warning-title">Cas particulier : Plusieurs sujets</div>
+                    <p>Quand il y a plusieurs sujets, le verbe se met au pluriel :</p>
+                    <div class="sentence" style="margin-top: 15px;">
+                        <span class="subject">Marie et Pierre</span> <span class="verb">arrivent</span> (pluriel).
+                    </div>
+                    <div class="sentence">
+                        <span class="subject">Le chien, le chat et l'oiseau</span> <span class="verb">jouent</span> ensemble (pluriel).
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <div class="warning-title">Attention aux pièges !</div>
+                    <p><strong>Le verbe ne s'accorde JAMAIS avec le complément !</strong></p>
+                    <div class="sentence" style="margin-top: 15px;">
+                        ❌ <strong>Incorrect :</strong> <span class="subject">La boîte</span> de chocolats <span class="verb">sont</span> sur la table.
+                    </div>
+                    <div class="sentence">
+                        ✅ <strong>Correct :</strong> <span class="subject">La boîte</span> de chocolats <span class="verb">est</span> sur la table.<br>
+                        <em>(Le sujet est "la boîte", pas "chocolats")</em>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6 : Le sujet réel et apparent -->
+            <div class="section">
+                <h2><span class="icon">6</span>Sujet réel et sujet apparent</h2>
+                
+                <div class="example-box">
+                    <div class="example-title">Avec les verbes impersonnels</div>
+                    <p style="margin-bottom: 15px;">Certains verbes ont un <strong>sujet apparent</strong> (il) et un <strong>sujet réel</strong> qui vient après :</p>
+                    
+                    <div class="sentence">
+                        <span class="subject" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">Il</span> (apparent) <span class="verb">pleut</span> <span class="subject">des cordes</span> (réel).
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">Il</span> (apparent) <span class="verb">faut</span> <span class="subject">du courage</span> (réel).
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">Il</span> (apparent) <span class="verb">arrive</span> <span class="subject">des problèmes</span> (réel).
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">Il</span> (apparent) <span class="verb">existe</span> <span class="subject">des solutions</span> (réel).
+                    </div>
+                </div>
+
+                <div class="highlight">
+                    <div class="highlight-title">Point clé</div>
+                    <p>Le pronom "il" dans ces constructions est le <strong>sujet grammatical</strong>, mais le <strong>sujet logique</strong> (qui a vraiment du sens) vient après le verbe.</p>
+                </div>
+            </div>
+
+            <!-- Section 7 : Résumé -->
+            <div class="summary-box">
+                <div class="summary-title">Points clés à retenir</div>
+                <ul class="summary-list">
+                    <li>Le sujet est l'élément qui fait ou subit l'action du verbe</li>
+                    <li>On le trouve en posant la question "Qui/Qu'est-ce qui + verbe ?"</li>
+                    <li>Le verbe s'accorde TOUJOURS avec le sujet</li>
+                    <li>Le sujet peut être un nom, un pronom, un infinitif, une proposition</li>
+                    <li>Le sujet se place généralement avant le verbe, mais pas toujours</li>
+                    <li>Attention à ne pas confondre le sujet avec les compléments</li>
+                    <li>Plusieurs sujets = verbe au pluriel</li>
+                    <li>Il existe des sujets apparents et des sujets réels</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="footer-logo">Língua Academy</div>
+            <p>Maîtrisez la grammaire française avec clarté et précision ✨</p>
+            <p>© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

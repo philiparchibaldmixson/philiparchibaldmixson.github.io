@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transitividade Verbal em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #E67E22;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #E67E22;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #F39C12;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+            min-height: 350px; /* Altura mínima para uniformidade */
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores Adaptadas/Reutilizadas do 008 - CLASSES DE PALAVRAS */
+        .tipo-card.transitivo {
+            background: linear-gradient(135deg, #E74C3C, #C0392B); /* Transitivo */
+        }
+
+        .tipo-card.intransitivo {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD); /* Intransitivo */
+        }
+
+        .tipo-card.ligacao {
+            background: linear-gradient(135deg, #2ECC71, #16A085); /* Ligação */
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .exemplo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #E67E22;
+        }
+
+        .exemplo-card .titulo-exemplo {
+            font-size: 2em;
+            color: #E67E22;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .conteudo-exemplo {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .dicas-box {
+            background: linear-gradient(135deg, #1ABC9C, #16A085);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .tipo-card, .destaque, .dicas-box, .exemplo-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Classificação Sintática dos Verbos 🔎</h1>
+        <p class="subtitle">Entenda a Transitividade: o elo entre o verbo e seus complementos!</p>
+
+        <div class="section">
+            <h2>🎯 O que é Transitividade Verbal?</h2>
+            <p class="intro-text">
+                A **Transitividade Verbal** refere-se à relação que o verbo estabelece com o restante da oração, especialmente com seus complementos (objetos). Essa classificação é essencial para determinar o tipo de Predicado e a função sintática dos termos da frase.
+            </p>
+
+            <div class="destaque">
+                <strong>💡 O Sentido do Verbo:</strong> O verbo é classificado como transitivo quando precisa de um complemento para ter sentido completo. É classificado como intransitivo quando não precisa. E de ligação, quando apenas liga o sujeito a uma característica.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Os Três Tipos Essenciais</h2>
+            
+            <div class="tipos-grid">
+                <div class="tipo-card transitivo">
+                    <h3>1. Verbo Transitivo (VT)</h3>
+                    <div class="definicao">
+                        Verbo que exige um complemento (Objeto) para ter sentido completo. O sentido **transita** do verbo para o complemento.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Subtipos:</strong><br>
+                        • **VTD** (Direto): Sem Preposição. Ex: *Comprei **o livro**.*<br>
+                        • **VTI** (Indireto): Com Preposição. Ex: *Preciso **de ajuda**.*<br>
+                        • **VTDI** (Direto e Indireto): Com dois Objetos. Ex: *Dei **o livro** **à Maria**.*
+                    </div>
+                </div>
+
+                <div class="tipo-card intransitivo">
+                    <h3>2. Verbo Intransitivo (VI)</h3>
+                    <div class="definicao">
+                        Verbo que possui sentido completo por si só, não exigindo complemento.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • O bebê **dormiu**.<br>
+                        • O avião **caiu**.<br>
+                        • As flores **nasceram**.<br>
+                        *(Pode ser acompanhado por Adjuntos Adverbiais, que dão circunstância, mas não completam o sentido)*. Ex: *O avião caiu **ontem**.*
+                    </div>
+                </div>
+
+                <div class="tipo-card ligacao">
+                    <h3>3. Verbo de Ligação (VL)</h3>
+                    <div class="definicao">
+                        Verbo que não expressa ação, mas sim um estado ou uma mudança de estado. Sua função é ligar o Sujeito à sua característica (Predicativo do Sujeito).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos (Principais VLs):</strong><br>
+                        • Ser, estar, permanecer, continuar, ficar, tornar-se, andar, parecer.<br>
+                        • Ex: Ele **está** <span style="font-weight: bold;">doente</span>.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📝 Exemplos Detalhados</h2>
+
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">Verbo Transitivo Direto (VTD)</div>
+                <div class="conteudo-exemplo">
+                    **Frase:** Nós <span style="font-weight: bold; color: #E74C3C;">vendemos</span> **a casa**.
+                    <br>
+                    • **Verbo:** *vendemos* (VTD). Quem vende, vende **algo** (sem preposição).
+                    <br>
+                    • **Complemento:** *a casa* (Objeto Direto).
+                </div>
+            </div>
+
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">Verbo Transitivo Indireto (VTI)</div>
+                <div class="conteudo-exemplo">
+                    **Frase:** Eu <span style="font-weight: bold; color: #E74C3C;">gosto</span> **de café**.
+                    <br>
+                    • **Verbo:** *gosto* (VTI). Quem gosta, gosta **de algo** (com preposição "de").
+                    <br>
+                    • **Complemento:** *de café* (Objeto Indireto).
+                </div>
+            </div>
+
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">Verbo de Ligação (VL)</div>
+                <div class="conteudo-exemplo">
+                    **Frase:** Os alunos <span style="font-weight: bold; color: #2ECC71;">permanecem</span> **em silêncio**.
+                    <br>
+                    • **Verbo:** *permanecem* (VL). Liga o Sujeito (*Os alunos*) ao estado (*em silêncio*).
+                    <br>
+                    • **Complemento:** *em silêncio* (Predicativo do Sujeito).
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Dicas de Ouro</h2>
+            
+            <div class="dicas-box">
+                <h4>Atenção Especial (Contexto é Tudo):</h4>
+                <ul>
+                    <li>**Ambiguidade:** Muitos verbos podem ser Transitivos ou Intransitivos dependendo do contexto. Ex: *Ela **vive** (VI).* vs. *Ela **vive** a vida (VTD).*</li>
+                    <li>**Verbo Andar:** Normalmente é de Ligação (*Ele anda **triste**.*). Se significar "caminhar", é Intransitivo (*Ele **anda** pela rua.*).</li>
+                    <li>**Pergunta-Chave:** Para identificar o Objeto Direto, pergunte ao verbo: "O quê?" ou "Quem?". Para o Objeto Indireto: "De quê?", "Para quem?", "A quê?".</li>
+                    <li>**Predicativo:** Se o termo que se liga ao sujeito for uma **característica** (adjetivo ou termo com função de adjetivo), o verbo é de **Ligação**.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

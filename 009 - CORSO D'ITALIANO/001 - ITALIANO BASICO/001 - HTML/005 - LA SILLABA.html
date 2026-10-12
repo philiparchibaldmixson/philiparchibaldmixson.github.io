@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Sillaba e la Divisione Sillabica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 20%, #f093fb 40%, #4facfe 60%, #00f2fe 80%, #43e97b 100%);
+            padding: 20px;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 40px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            padding: 80px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "🔤";
+            position: absolute;
+            font-size: 350px;
+            opacity: 0.1;
+            top: -100px;
+            left: -80px;
+            animation: rotate 30s linear infinite;
+        }
+
+        header::after {
+            content: "✂️";
+            position: absolute;
+            font-size: 300px;
+            opacity: 0.1;
+            bottom: -80px;
+            right: -60px;
+            animation: rotate 25s linear infinite reverse;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 5em;
+            text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-80px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .subtitle {
+            font-size: 2em;
+            opacity: 0.95;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sillaba-display {
+            font-size: 7em;
+            margin: 30px 0;
+            font-weight: bold;
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .content {
+            padding: 80px;
+        }
+
+        .section {
+            margin-bottom: 80px;
+            padding: 70px;
+            border-radius: 35px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.15) 100%);
+            pointer-events: none;
+        }
+
+        .section:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+        }
+
+        .section-intro {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .section-tipi {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            color: white;
+        }
+
+        .section-regole {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .section-vocali {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .section-consonanti {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .section-dittonghi {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .section-gruppi {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .section-esercizi {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .section-esempi {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+
+        h2 {
+            font-size: 4em;
+            margin-bottom: 45px;
+            padding-bottom: 30px;
+            border-bottom: 7px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-intro h2,
+        .section-regole h2,
+        .section-vocali h2,
+        .section-consonanti h2 {
+            color: #2d3436;
+            border-bottom-color: rgba(0, 0, 0, 0.15);
+        }
+
+        h3 {
+            font-size: 2.8em;
+            margin: 45px 0 35px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.35);
+            border-radius: 20px;
+            border-left: 12px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .section-intro h3,
+        .section-regole h3,
+        .section-vocali h3,
+        .section-consonanti h3 {
+            background: rgba(0, 0, 0, 0.07);
+            border-left-color: rgba(0, 0, 0, 0.3);
+            color: #2d3436;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 40px;
+            border-radius: 25px;
+            margin: 35px 0;
+            border-left: 12px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-intro .box,
+        .section-regole .box,
+        .section-vocali .box,
+        .section-consonanti .box {
+            background: rgba(0, 0, 0, 0.09);
+            border-left-color: rgba(0, 0, 0, 0.25);
+        }
+
+        .definizione {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.25) 100%);
+            padding: 45px;
+            border-radius: 25px;
+            margin: 35px 0;
+            border: 5px solid rgba(255, 255, 255, 0.5);
+            font-size: 1.4em;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-intro .definizione,
+        .section-regole .definizione,
+        .section-vocali .definizione,
+        .section-consonanti .definizione {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.06) 100%);
+            border-color: rgba(0, 0, 0, 0.25);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.35);
+            padding: 45px;
+            border-radius: 25px;
+            border: 5px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-intro .card,
+        .section-regole .card,
+        .section-vocali .card,
+        .section-consonanti .card {
+            background: rgba(0, 0, 0, 0.09);
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: rotate(45deg);
+            transition: all 0.8s;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .section-intro .card:hover,
+        .section-regole .card:hover,
+        .section-vocali .card:hover,
+        .section-consonanti .card:hover {
+            border-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .card h4 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            padding-bottom: 18px;
+            border-bottom: 4px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .section-intro .card h4,
+        .section-regole .card h4,
+        .section-vocali .card h4,
+        .section-consonanti .card h4 {
+            border-bottom-color: rgba(0, 0, 0, 0.2);
+            color: #2d3436;
+        }
+
+        .esempio {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 30px;
+            border-radius: 18px;
+            margin: 25px 0;
+            border-left: 8px solid rgba(255, 255, 255, 0.6);
+            font-size: 1.3em;
+            font-weight: 500;
+        }
+
+        .section-intro .esempio,
+        .section-regole .esempio,
+        .section-vocali .esempio,
+        .section-consonanti .esempio {
+            background: rgba(0, 0, 0, 0.12);
+            border-left-color: #f5576c;
+        }
+
+        .sillaba-esempio {
+            font-size: 3em;
+            font-weight: bold;
+            text-align: center;
+            margin: 30px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            letter-spacing: 15px;
+        }
+
+        .section-intro .sillaba-esempio,
+        .section-regole .sillaba-esempio,
+        .section-vocali .sillaba-esempio,
+        .section-consonanti .sillaba-esempio {
+            background: rgba(0, 0, 0, 0.12);
+            color: #2d3436;
+        }
+
+        .divisione-sillabica {
+            font-size: 3.5em;
+            font-weight: bold;
+            text-align: center;
+            margin: 35px 0;
+            padding: 35px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+            border-radius: 20px;
+            letter-spacing: 10px;
+        }
+
+        .section-intro .divisione-sillabica,
+        .section-regole .divisione-sillabica,
+        .section-vocali .divisione-sillabica,
+        .section-consonanti .divisione-sillabica {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.08) 100%);
+            color: #2d3436;
+        }
+
+        .separatore {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .tabella {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .tabella th {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: white;
+            padding: 32px;
+            text-align: left;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        .tabella td {
+            padding: 28px 32px;
+            border-bottom: 2px solid #ecf0f1;
+            color: #2d3436;
+            font-size: 1.3em;
+        }
+
+        .tabella tr {
+            transition: all 0.4s ease;
+        }
+
+        .tabella tr:hover {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tabella tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 40px;
+            font-size: 1.2em;
+            margin: 10px;
+            font-weight: bold;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .badge:hover {
+            transform: scale(1.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .badge-aperta {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+        }
+
+        .badge-chiusa {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+        }
+
+        .badge-tonica {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+        }
+
+        .badge-atona {
+            background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+            color: white;
+        }
+
+        .badge-regola {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: white;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 6px 14px;
+            border-radius: 10px;
+            font-weight: bold;
+            color: #2d3436;
+            box-shadow: 0 4px 12px rgba(253, 203, 110, 0.6);
+        }
+
+        ul, ol {
+            margin: 30px 0 30px 40px;
+        }
+
+        li {
+            margin: 18px 0;
+            font-size: 1.3em;
+            line-height: 2;
+        }
+
+        .nota-importante {
+            background: linear-gradient(135deg, #ff7675 0%, #d63031 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            margin: 40px 0;
+            border-left: 12px solid #ffffff;
+            font-size: 1.4em;
+            box-shadow: 0 12px 35px rgba(214, 48, 49, 0.6);
+        }
+
+        .nota-importante strong {
+            font-size: 1.5em;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .regola-box {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border-left: 10px solid white;
+            font-size: 1.3em;
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.5);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: white;
+            text-align: center;
+            padding: 70px;
+            margin-top: 0;
+        }
+
+        footer p {
+            margin: 18px 0;
+            font-size: 1.4em;
+        }
+
+        .emoji-grande {
+            font-size: 7em;
+            margin: 35px 0;
+            display: block;
+            text-align: center;
+            animation: bounce 3s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-25px); }
+        }
+
+        .step {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 18px;
+            margin: 25px 0;
+            font-size: 1.3em;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(9, 132, 227, 0.4);
+            transition: all 0.4s ease;
+        }
+
+        .step:hover {
+            transform: translateX(20px);
+            box-shadow: 0 12px 35px rgba(9, 132, 227, 0.6);
+        }
+
+        .arrow {
+            text-align: center;
+            font-size: 4em;
+            color: #3498db;
+            margin: 15px 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 40px;
+            }
+            
+            h1 {
+                font-size: 3.5em;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .esempio-interattivo {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            color: #2d3436;
+        }
+
+        .esempio-interattivo h4 {
+            color: #2d3436;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .parola-divisa {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .sillaba-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            font-size: 2.5em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .sillaba-box:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .trattino {
+            font-size: 3em;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .quiz-box {
+            background: rgba(255, 255, 255, 0.35);
+            padding: 35px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border: 5px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .quiz-question {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.35);
+            border-radius: 15px;
+        }
+
+        .quiz-answer {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔤 LA SILLABA</h1>
+            <p class="subtitle">Divisione Sillabica in Italiano</p>
+            <div class="sillaba-display">SIL-LA-BA</div>
+        </header>
+
+        <div class="content">
+            <!-- INTRODUZIONE -->
+            <div class="section section-intro">
+                <h2>📚 COS'È LA SILLABA?</h2>
+                
+                <div class="definizione">
+                    <strong style="font-size: 1.6em; display: block; margin-bottom: 25px;">🔑 DEFINIZIONE</strong>
+                    La sillaba è un <span class="highlight">gruppo di suoni</span> che si pronuncia con una sola emissione di voce. Ogni sillaba contiene almeno una <span class="highlight">vocale</span>.
+                </div>
+
+                <div class="box">
+                    <h3>🎯 Caratteristiche della Sillaba</h3>
+                    <ul style="font-size: 1.4em;">
+                        <li>Ogni sillaba ha <strong>almeno UNA VOCALE</strong></li>
+                        <li>Una vocale da sola può formare una sillaba: <strong>a-mi-co</strong></li>
+                        <li>Le consonanti non possono formare sillabe da sole</li>
+                        <li>Le sillabe si pronunciano con una sola emissione di voce</li>
+                    </ul>
+                </div>
+
+                <div class="esempio-interattivo">
+                    <h4>📖 Esempio di Divisione in Sillabe</h4>
+                    <div class="parola-divisa">
+                        <div class="sillaba-box">CA</div>
+                        <div class="trattino">-</div>
+                        <div class="sillaba-box">SA</div>
+                    </div>
+                    <p style="text-align: center; font-size: 1.3em; margin-top: 20px;">
+                        La parola <strong>CASA</strong> ha <strong>2 sillabe</strong>
+                    </p>
+                </div>
+
+                <div class="esempio-interattivo">
+                    <h4>📖 Altro Esempio</h4>
+                    <div class="parola-divisa">
+                        <div class="sillaba-box">TA</div>
+                        <div class="trattino">-</div>
+                        <div class="sillaba-box">VO</div>
+                        <div class="trattino">-</div>
+                        <div class="sillaba-box">LO</div>
+                    </div>
+                    <p style="text-align: center; font-size: 1.3em; margin-top: 20px;">
+                        La parola <strong>TAVOLO</strong> ha <strong>3 sillabe</strong>
+                    </p>
+                </div>
+
+                <div class="nota-importante">
+                    <strong>⚠️ REGOLA FONDAMENTALE</strong>
+                    <p style="margin-top: 15px; font-size: 1.3em;">
+                        Ogni sillaba deve contenere <strong>almeno UNA VOCALE</strong>!<br>
+                        Le vocali sono: <strong>A, E, I, O, U</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- TIPI DI SILLABE -->
+            <div class="section section-tipi">
+                <h2>🎭 TIPI DI SILLABE</h2>
+                
+                <h3>1️⃣ Sillabe Aperte e Chiuse</h3>
+                <div class="grid">
+                    <div class="card">
+                        <h4>SILLABA APERTA</h4>
+                        <div style="margin: 25px 0;">
+                            <span class="badge badge-aperta">APERTA</span>
+                        </div>
+                        <p style="font-size: 1.3em; margin: 20px 0;">
+                            Finisce con una <strong>VOCALE</strong>
+                        </p>
+                        <div class="esempio">
+                            <strong>Esempi:</strong><br><br>
+                            • <strong>CA</strong>-sa → CA è aperta<br>
+                            • <strong>MA</strong>-re → MA è aperta<br>
+                            • <strong>VI</strong>-ta → VI è aperta<br>
+                            • <strong>SO</strong>-le → SO è aperta<br>
+                            • <strong>LU</strong>-na → LU è aperta
+                        </div>
+                        <div class="sillaba-esempio" style="background: rgba(255, 255, 255, 0.3); color: white;">
+                            C<span style="color: #2ecc71;">A</span> ✅
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>SILLABA CHIUSA</h4>
+                        <div style="margin: 25px 0;">
+                            <span class="badge badge-chiusa">CHIUSA</span>
+                        </div>
+                        <p style="font-size: 1.3em; margin: 20px 0;">
+                            Finisce con una <strong>CONSONANTE</strong>
+                        </p>
+                        <div class="esempio">
+                            <strong>Esempi:</strong><br><br>
+                            • <strong>BAL</strong>-lo → BAL è chiusa<br>
+                            • <strong>POR</strong>-ta → POR è chiusa<br>
+                            • <strong>CAM</strong>-po → CAM è chiusa<br>
+                            • <strong>FIN</strong>-to → FIN è chiusa<br>
+                            • <strong>AL</strong>-to → AL è chiusa
+                        </div>
+                        <div class="sillaba-esempio" style="background: rgba(255, 255, 255, 0.3); color: white;">
+                            BA<span style="color: #3498db;">L</span> 🔒
+                        </div>
+                    </div>
+                </div>
+
+                <h3>2️⃣ Sillabe Toniche e Atone</h3>
+                <div class="grid">
+                    <div class="card">
+                        <h4>SILLABA TONICA</h4>
+                        <div style="margin: 25px 0;">
+                            <span class="badge badge-tonica">TONICA</span>
+                        </div>
+                        <p style="font-size: 1.3em; margin: 20px 0;">
+                            È la sillaba <strong>ACCENTATA</strong>, quella che si pronuncia con più intensità
+                        </p>
+                        <div class="esempio">
+                            <strong>Esempi:</strong><br><br>
+                            • ca-<strong style="color: #e74c3c;">SA</strong> → SA è tonica<br>
+                            • <strong style="color: #e74c3c;">TA</strong>-vo-lo → TA è tonica<br>
+                            • a-mi-<strong style="color: #e74c3c;">CO</strong> → CO è tonica<br>
+                            • <strong style="color: #e74c3c;">LI</strong>-bro → LI è tonica<br>
+                            • fi-<strong style="color: #e74c3c;">NE</strong>-stra → NE è tonica
+                        </div>
+                        <div class="sillaba-esempio" style="background: rgba(255, 255, 255, 0.3); color: white;">
+                            <strong style="color: #e74c3c;">TA</strong>-vo-lo 🔊
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>SILLABA ATONA</h4>
+                        <div style="margin: 25px 0;">
+                            <span class="badge badge-atona">ATONA</span>
+                        </div>
+                        <p style="font-size: 1.3em; margin: 20px 0;">
+                            Sono le sillabe <strong>NON ACCENTATE</strong>, si pronunciano con meno intensità
+                        </p>
+                        <div class="esempio">
+                            <strong>Esempi:</strong><br><br>
+                            • <strong style="color: #95a5a6;">ca</strong>-SA → ca è atona<br>
+                            • TA-<strong style="color: #95a5a6;">vo</strong>-<strong style="color: #95a5a6;">lo</strong> → vo e lo sono atone<br>
+                            • <strong style="color: #95a5a6;">a</strong>-<strong style="color: #95a5a6;">mi</strong>-CO → a e mi sono atone<br>
+                            • LI-<strong style="color: #95a5a6;">bro</strong> → bro è atona
+                        </div>
+                        <div class="sillaba-esempio" style="background: rgba(255, 255, 255, 0.3); color: white;">
+                            TA-<strong style="color: #95a5a6;">vo</strong>-<strong style="color: #95a5a6;">lo</strong> 🔇
+                        </div>
+                    </div>
+                </div>
+
+                <div class="regola-box">
+                    <strong style="font-size: 1.6em; display: block; margin-bottom: 18px;">📏 REGOLA</strong>
+                    <p style="font-size: 1.3em; line-height: 2;">
+                        In ogni parola c'è <strong>UNA SOLA sillaba tonica</strong> (quella accentata) e tutte le altre sono <strong>atone</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- REGOLE DI DIVISIONE -->
+            <div class="section section-regole">
+                <h2>📏 REGOLE DI DIVISIONE IN SILLABE</h2>
+                
+                <div class="box">
+                    <p style="font-size: 1.4em; text-align: center; margin-bottom: 30px;">
+                        Seguire queste regole per dividere correttamente le parole in sillabe
+                    </p>
+                </div>
+
+                <h3>📋 Le 10 Regole Fondamentali</h3>
+
+                <div class="card">
+                    <h4>REGOLA 1: Una Consonante tra Due Vocali</h4>
+                    <div style="margin: 25px 0;">
+                        <span class="badge badge-regola">V + C + V</span>
+                    </div>
+                    <p style="font-size: 1.3em; margin: 20px 0;">
+                        La consonante va con la <strong>vocale che segue</strong>
+                    </p>
+                    <div class="esempio">
+                        <strong>Schema:</strong> V-CV<br><br>
+                        • ca-sa (ca-sa)<br>
+                        • ma-re (ma-re)<br>
+                        • vi-ta (vi-ta)<br>
+                        • ro-sa (ro-sa)<br>
+                        • pe-ra (pe-ra)
+                    </div>
+                    <div class="divisione-sillabica">
+                        CA<span class="separatore">-</span>SA
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>REGOLA 2: Due Consonanti Uguali (Doppie)</h4>
+                    <div style="margin: 25px 0;">
+                        <span class="badge badge-regola">V + CC + V</span>
+                    </div>
+                    <p style="font-size: 1.3em; margin: 20px 0;">
+                        Le consonanti doppie si <strong>dividono</strong>
+                    </p>
+                    <div class="esempio">
+                        <strong>Schema:</strong> VC-CV<br><br>
+                        • gat-to<br>
+                        • pal-la<br>
+                        • bot-te<br>
+                        • ros-so<br>
+                        • bel-lo
+                    </div>
+                    <div class="divisione-sillabica">
+                        GAT<span class="separatore">-</span>TO
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>REGOLA 3: Due Consonanti Diverse</h4>
+                    <div style="margin: 25px 0;">
+                        <span class="badge badge-regola">V + C₁C₂ + V</span>
+                    </div>
+                    <p style="font-size: 1.3em; margin: 20px 0;">
+                        Di solito si <strong>dividono</strong> (tranne gruppi speciali)
+                    </p>
+                    <div class="esempio">
+                        <strong>Schema:</strong> VC-CV<br><br>
+                        • por-ta<br>
+                        • cam-po<br>
+                        • pen-na<br>
+                        • sal-to<br>
+                        • car-ta
+                    </div>
+                    <div class="divisione-sillabica">
+                        POR<span class="separatore">-</span>TA
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>REGOLA 4: Gruppi Inseparabili</h4>
+                    <div style="margin: 25px 0;">
+                        <span class="badge badge-regola">NON SI DIVIDONO</span>
+                    </div>
+                    <p style="font-size: 1.3em; margin: 20px 0;">
+                        Questi gruppi <strong>NON si dividono mai</strong>:
+                    </p>
+                    <div class="esempio">
+                        <strong>Gruppi:</strong> BR, CR, DR, FR, GR, PR, TR, BL, CL, FL, GL, PL<br><br>
+                        • li-bro (NON lib-ro)<br>
+                        • a-pri-le (NON ap-ri-le)<br>
+                        • ta-bla (NON tab-la)<br>
+                        • so-pra (NON sop-ra)<br>
+                        • qua-dro (NON quad-ro)
+                    </div>
+                    <div class="divisione-sillabica">
+                        LI<span class="separatore">-</span>BRO ✅
+                    </div>
+                    <div class="nota-importante">
+                        <strong>⚠️ ATTENZIONE</strong><br>
+                        ❌ lib-ro → SBAGLIATO<br>
+                        ✅ li-bro → CORRETTO
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>REGOLA 5: Tre Consonanti</h4>
+                    <div style="margin: 25px 0;">
+                        <span class="badge badge-regola">V + CCC + V</span>
+                    </div>
+                    <p style="font-size: 1.3em; margin: 20px 0;">
+                        La prima va con la vocale precedente, le altre due con la seguente
+                    </p>
+                    <div class="esempio">
+                        <strong>Schema:</strong> VC-CCV<br><br>
+                        • al-tro<br>
+                        • en-tro<br>
+                        • sem-pre<br>
+                        • tem-pra<br>
+                        • mem-bro
+                    </div>
+                    <div class="divisione-sillabica">
+                        AL<span class="separatore">-</span>TRO
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>REGOLA 6: S + Consonante</h4>
+                    <div style="margin: 25px 0;">
+                        <span class="badge badge-regola">S + C</span>
+                    </div>
+                    <p style="font-size: 1.3em; margin: 20px 0;">
+                        S seguita da consonante <strong>NON si divide</strong>
+                    </p>
+                    <div class="esempio">
+                        <strong>Schema:</strong> V-SCV<br><br>
+                        • ca-sta (NON cas-ta)<br>
+                        • fe-sta (NON fes-ta)<br>
+                        • mo-stro (NON mos-tro)<br>
+                        • i-sco-la (NON is-co-la)<br>
+                        • pa-sta (NON pas-ta)
+                    </div>
+                    <div class="divisione-sillabica">
+                        FE<span class="separatore">-</span>STA ✅
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>REGOLA 7: Vocale Iniziale</h4>
+                    <div style="margin: 25px 0;">
+                        <span class="badge badge-regola">VOCALE DA SOLA</span>
+                    </div>
+                    <p style="font-size: 1.3em; margin: 20px 0;">
+                        Una vocale all'inizio può formare sillaba da sola
+                    </p>
+                    <div class="esempio">
+                        <strong>Esempi:</strong><br><br>
+                        • a-mi-co<br>
+                        • e-ra<br>
+                        • o-ra<br>
+                        • u-va<br>
+                        • i-so-la
+                    </div>
+                    <div class="divisione-sillabica">
+                        A<span class="separatore">-</span>MI<span class="separatore">-</span>CO
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>REGOLA 8: Dittonghi</h4>
+                    <div style="margin: 25px 0;">
+                        <span class="badge badge-regola">NON SI DIVIDONO</span>
+                    </div>
+                    <p style="font-size: 1.3em; margin: 20px 0;">
+                        Due vocali che formano dittongo <strong>NON si separano</strong>
+                    </p>
+                    <div class="esempio">
+                        <strong>Esempi:</strong><br><br>
+                        • pie-de (NON pi-e-de)<br>
+                        • uo-mo (NON u-o-mo)<br>
+                        • fiu-me (NON fi-u-me)<br>
+                        • pia-no (NON pi-a-no)<br>
+                        • guer-ra (NON gu-er-ra)
+                    </div>
+                    <div class="divisione-sillabica">
+                        PIE<span class="separatore">-</span>DE ✅
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>REGOLA 9: Iato</h4>
+                    <div style="margin: 25px 0;">
+                        <span class="badge badge-regola">SI DIVIDONO</span>
+                    </div>
+                    <p style="font-size: 1.3em; margin: 20px 0;">
+                        Due vocali che formano iato <strong>SI separano</strong>
+                    </p>
+                    <div class="esempio">
+                        <strong>Esempi:</strong><br><br>
+                        • pa-u-ra<br>
+                        • po-e-ta<br>
+                        • ma-e-stro<br>
+                        • pa-e-se<br>
+                        • be-a-to
+                    </div>
+                    <div class="divisione-sillabica">
+                        PA<span class="separatore">-</span>U<span class="separatore">-</span>RA
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>REGOLA 10: QU</h4>
+                    <div style="margin: 25px 0;">
+                        <span class="badge badge-regola">NON SI DIVIDE</span>
+                    </div>
+                    <p style="font-size: 1.3em; margin: 20px 0;">
+                        QU è sempre seguito da una vocale e <strong>non si divide mai</strong>
+                    </p>
+                    <div class="esempio">
+                        <strong>Esempi:</strong><br><br>
+                        • qua-dro<br>
+                        • que-sto<br>
+                        • qui-to<br>
+                        • ac-qua<br>
+                        • cin-que
+                    </div>
+                    <div class="divisione-sillabica">
+                        QUA<span class="separatore">-</span>DRO
+                    </div>
+                </div>
+            </div>
+
+            <!-- VOCALI -->
+            <div class="section section-vocali">
+                <h2>🔴 DIVISIONE CON LE VOCALI</h2>
+                
+                <h3>📖 Regole per le Vocali</h3>
+
+                <div class="grid">
+                    <div class="card">
+                        <h4>1️⃣ Vocale da Sola</h4>
+                        <p style="font-size: 1.3em; margin: 20px 0;">
+                            Una vocale può formare una sillaba da sola
+                        </p>
+                        <div class="esempio">
+                            • <strong>a</strong>-mi-co<br>
+                            • <strong>e</strong>-ra-no<br>
+                            • <strong>o</strong>-ra<br>
+                            • <strong>u</strong>-va<br>
+                            • <strong>i</strong>-so-la
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>2️⃣ Due Vocali Forti (A, E, O)</h4>
+                        <p style="font-size: 1.3em; margin: 20px 0;">
+                            Formano sempre IATO → si dividono
+                        </p>
+                        <div class="esempio">
+                            • po-<strong>e</strong>-ta (o-e)<br>
+                            • be-<strong>a</strong>-to (e-a)<br>
+                            • te-<strong>a</strong>-tro (e-a)<br>
+                            • a-<strong>e</strong>-re-o (a-e, e-o)<br>
+                            • ma-<strong>e</strong>-stro (a-e)
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>3️⃣ Vocale Debole Accentata</h4>
+                        <p style="font-size: 1.3em; margin: 20px 0;">
+                            I o U accentate formano IATO → si dividono
+                        </p>
+                        <div class="esempio">
+                            • pa-<strong>ù</strong>-ra<br>
+                            • z<strong>í</strong>-o<br>
+                            • m<strong>í</strong>-a<br>
+                            • far-ma-c<strong>í</strong>-a<br>
+                            • v<strong>í</strong>-a
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>4️⃣ Dittonghi</h4>
+                        <p style="font-size: 1.3em; margin: 20px 0;">
+                            Due vocali che formano dittongo NON si dividono
+                        </p>
+                        <div class="esempio">
+                            • <strong>pie</strong>-de<br>
+                            • <strong>uo</strong>-mo<br>
+                            • <strong>fiu</strong>-me<br>
+                            • <strong>pia</strong>-no<br>
+                            • m<strong>ai</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="regola-box">
+                    <strong style="font-size: 1.6em; display: block; margin-bottom: 18px;">💡 TRUCCO</strong>
+                    <p style="font-size: 1.3em; line-height: 2;">
+                        Se le vocali si pronunciano in <strong>due emissioni di voce diverse</strong> → IATO → si dividono<br>
+                        Se le vocali si pronunciano in <strong>una sola emissione di voce</strong> → DITTONGO → NON si dividono
+                    </p>
+                </div>
+            </div>
+
+            <!-- CONSONANTI -->
+            <div class="section section-consonanti">
+                <h2>🔵 DIVISIONE CON LE CONSONANTI</h2>
+                
+                <h3>📖 Regole per le Consonanti</h3>
+
+                <div class="grid">
+                    <div class="card">
+                        <h4>1️⃣ Una Consonante</h4>
+                        <p style="font-size: 1.3em; margin: 20px 0;">
+                            Va con la vocale che segue
+                        </p>
+                        <div class="divisione-sillabica">
+                            V<span class="separatore">-</span>CV
+                        </div>
+                        <div class="esempio">
+                            • ca-sa<br>
+                            • ma-re<br>
+                            • vi-ta<br>
+                            • ro-sa<br>
+                            • lu-na
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>2️⃣ Due Consonanti Uguali</h4>
+                        <p style="font-size: 1.3em; margin: 20px 0;">
+                            Si dividono sempre
+                        </p>
+                        <div class="divisione-sillabica">
+                            VC<span class="separatore">-</span>CV
+                        </div>
+                        <div class="esempio">
+                            • gat-to<br>
+                            • pal-la<br>
+                            • ros-so<br>
+                            • bel-lo<br>
+                            • bot-te
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>3️⃣ Due Consonanti Diverse</h4>
+                        <p style="font-size: 1.3em; margin: 20px 0;">
+                            Di solito si dividono (tranne gruppi speciali)
+                        </p>
+                        <div class="divisione-sillabica">
+                            VC<span class="separatore">-</span>CV
+                        </div>
+                        <div class="esempio">
+                            • por-ta<br>
+                            • cam-po<br>
+                            • sal-to<br>
+                            • pen-na<br>
+                            • car-ta
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>4️⃣ Tre Consonanti</h4>
+                        <p style="font-size: 1.3em; margin: 20px 0;">
+                            Prima consonante con vocale precedente
+                        </p>
+                        <div class="divisione-sillabica">
+                            VC<span class="separatore">-</span>CCV
+                        </div>
+                        <div class="esempio">
+                            • al-tro<br>
+                            • sem-pre<br>
+                            • en-tro<br>
+                            • tem-pra<br>
+                            • mem-bro
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRUPPI CONSONANTICI -->
+            <div class="section section-gruppi">
+                <h2>🔗 GRUPPI CONSONANTICI INSEPARABILI</h2>
+                
+                <div class="box">
+                    <p style="font-size: 1.4em; text-align: center; margin-bottom: 30px;">
+                        Questi gruppi di consonanti <span class="highlight">NON SI DIVIDONO MAI</span>
+                    </p>
+                </div>
+
+                <h3>📋 Lista Completa dei Gruppi Inseparabili</h3>
+
+                <table class="tabella">
+                    <tr>
+                        <th>Gruppo</th>
+                        <th>Tipo</th>
+                        <th>Esempi di Parole</th>
+                        <th>Divisione</th>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em;">BR</strong></td>
+                        <td>Consonante + R</td>
+                        <td>libro, febbraio, zebra</td>
+                        <td>li-bro, feb-bra-io, ze-bra</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em;">CR</strong></td>
+                        <td>Consonante + R</td>
+                        <td>crema, scrivere, lacrime</td>
+                        <td>cre-ma, scri-ve-re, la-cri-me</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em;">DR</strong></td>
+                        <td>Consonante + R</td>
+                        <td>quadro, ladrare, madre</td>
+                        <td>qua-dro, la-dra-re, ma-dre</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em;">FR</strong></td>
+                        <td>Consonante + R</td>
+                        <td>freddo, frase, Africa</td>
+                        <td>fred-do, fra-se, A-fri-ca</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em;">GR</strong></td>
+                        <td>Consonante + R</td>
+                        <td>grande,egreo, tigre</td>
+                        <td>gran-de, e-gre-o, ti-gre</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em;">PR</strong></td>
+                        <td>Consonante + R</td>
+                        <td>presto, aprile, sopra</td>
+                        <td>pre-sto, a-pri-le, so-pra</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em;">TR</strong></td>
+                        <td>Consonante + R</td>
+                        <td>treno, altro, teatro</td>
+                        <td>tre-no, al-tro, te-a-tro</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em;">BL</strong></td>
+                        <td>Consonante + L</td>
+                        <td>blu, problema, tavola</td>
+                        <td>blu, pro-ble-ma, ta-vo-la</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em;">CL</strong></td>
+                        <td>Consonante + L</td>
+                        <td>classe, bicicletta, chiclo</td>
+                        <td>clas-se, bi-ci-clet-ta, ci-clo</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em;">FL</strong></td>
+                        <td>Consonante + L</td>
+                        <td>fiore, inflazione, riflessione</td>
+                        <td>flo-re, in-fla-zio-ne, ri-fles-sio-ne</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em;">GL</strong></td>
+                        <td>Consonante + L</td>
+                        <td>gloria, regla, inglese</td>
+                        <td>glo-ria, re-gla, in-gle-se</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em;">PL</strong></td>
+                        <td>Consonante + L</td>
+                        <td>più, duplice, esempio</td>
+                        <td>più, du-pli-ce, e-sem-pio</td>
+                    </tr>
+                </table>
+
+                <div class="nota-importante">
+                    <strong>⚠️ ATTENZIONE AGLI ERRORI</strong>
+                    <p style="margin-top: 15px; font-size: 1.3em;">
+                        ❌ lib-ro → SBAGLIATO!<br>
+                        ✅ li-bro → CORRETTO!<br><br>
+                        ❌ quad-ro → SBAGLIATO!<br>
+                        ✅ qua-dro → CORRETTO!<br><br>
+                        ❌ ap-ri-le → SBAGLIATO!<br>
+                        ✅ a-pri-le → CORRETTO!
+                    </p>
+                </div>
+
+                <div class="regola-box">
+                    <strong style="font-size: 1.6em; display: block; margin-bottom: 18px;">💡 REGOLA GENERALE</strong>
+                    <p style="font-size: 1.3em; line-height: 2;">
+                        Consonante + R o Consonante + L = <strong>GRUPPO INSEPARABILE</strong><br>
+                        Questi gruppi vanno SEMPRE con la vocale che segue!
+                    </p>
+                </div>
+            </div>
+
+            <!-- ESEMPI PRATICI -->
+            <div class="section section-esempi">
+                <h2>📝 ESEMPI PRATICI COMPLETI</h2>
+                
+                <h3>🎯 Parole Divise Passo per Passo</h3>
+
+                <div class="esempio-interattivo">
+                    <h4>Esempio 1: SCUOLA</h4>
+                    <div class="step">
+                        <strong>PASSO 1:</strong> Identifica le vocali → <strong>U, O, A</strong>
+                    </div>
+                    <div class="step">
+                        <strong>PASSO 2:</strong> SC + vocale = gruppo inseparabile
+                    </div>
+                    <div class="step">
+                        <strong>PASSO 3:</strong> UO = dittongo, non si divide
+                    </div>
+                    <div class="parola-divisa">
+                        <div class="sillaba-box">SCUO</div>
+                        <div class="trattino">-</div>
+                        <div class="sillaba-box">LA</div>
+                    </div>
+                    <p style="text-align: center; font-size: 1.5em; margin-top: 20px; color: white;">
+                        <strong>SCUO-LA</strong> (2 sillabe)
+                    </p>
+                </div>
+
+                <div class="esempio-interattivo">
+                    <h4>Esempio 2: INTERESSANTE</h4>
+                    <div class="step">
+                        <strong>PASSO 1:</strong> Identifica le vocali → <strong>I, E, E, A, E</strong>
+                    </div>
+                    <div class="step">
+                        <strong>PASSO 2:</strong> Consonanti doppie (RR, SS) si dividono
+                    </div>
+                    <div class="step">
+                        <strong>PASSO 3:</strong> NT = due consonanti diverse, si dividono
+                    </div>
+                    <div class="parola-divisa">
+                        <div class="sillaba-box">IN</div>
+                        <div class="trattino">-</div>
+                        <div class="sillaba-box">TE</div>
+                        <div class="trattino">-</div>
+                        <div class="sillaba-box">RES</div>
+                        <div class="trattino">-</div>
+                        <div class="sillaba-box">SAN</div>
+                        <div class="trattino">-</div>
+                        <div class="sillaba-box">TE</div>
+                    </div>
+                    <p style="text-align: center; font-size: 1.5em; margin-top: 20px; color: white;">
+                        <strong>IN-TE-RES-SAN-TE</strong> (5 sillabe)
+                    </p>
+                </div>
+
+                <div class="esempio-interattivo">
+                    <h4>Esempio 3: PRIMAVERA</h4>
+                    <div class="step">
+                        <strong>PASSO 1:</strong> Identifica le vocali → <strong>I, A, E, A</strong>
+                    </div>
+                    <div class="step">
+                        <strong>PASSO 2:</strong> PR = gruppo inseparabile (consonante + R)
+                    </div>
+                    <div class="step">
+                        <strong>PASSO 3:</strong> M tra due vocali va con la vocale successiva
+                    </div>
+                    <div class="parola-divisa">
+                        <div class="sillaba-box">PRI</div>
+                        <div class="trattino">-</div>
+                        <div class="sillaba-box">MA</div>
+                        <div class="trattino">-</div>
+                        <div class="sillaba-box">VE</div>
+                        <div class="trattino">-</div>
+                        <div class="sillaba-box">RA</div>
+                    </div>
+                    <p style="text-align: center; font-size: 1.5em; margin-top: 20px; color: white;">
+                        <strong>PRI-MA-VE-RA</strong> (4 sillabe)
+                    </p>
+                </div>
+
+                <h3>📊 Tabella di Esempi</h3>
+                <table class="tabella">
+                    <tr>
+                        <th>Parola</th>
+                        <th>Divisione</th>
+                        <th>N° Sillabe</th>
+                        <th>Sillaba Tonica</th>
+                    </tr>
+                    <tr>
+                        <td><strong>amico</strong></td>
+                        <td>a-mi-co</td>
+                        <td>3</td>
+                        <td>mi (2ª)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>tavolo</strong></td>
+                        <td>ta-vo-lo</td>
+                        <td>3</td>
+                        <td>ta (1ª)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>bambino</strong></td>
+                        <td>bam-bi-no</td>
+                        <td>3</td>
+                        <td>bi (2ª)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>farfalla</strong></td>
+                        <td>far-fal-la</td>
+                        <td>3</td>
+                        <td>fal (2ª)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>finestra</strong></td>
+                        <td>fi-ne-stra</td>
+                        <td>3</td>
+                        <td>ne (2ª)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>quaderno</strong></td>
+                        <td>qua-der-no</td>
+                        <td>3</td>
+                        <td>der (2ª)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>automobile</strong></td>
+                        <td>au-to-mo-bi-le</td>
+                        <td>5</td>
+                        <td>bi (4ª)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>telefono</strong></td>
+                        <td>te-le-fo-no</td>
+                        <td>4</td>
+                        <td>le (2ª)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>computer</strong></td>
+                        <td>com-pu-ter</td>
+                        <td>3</td>
+                        <td>pu (2ª)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>elefante</strong></td>
+                        <td>e-le-fan-te</td>
+                        <td>4</td>
+                        <td>fan (3ª)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- ESERCIZI -->
+            <div class="section section-esercizi">
+                <h2>✏️ ESERCIZI PRATICI</h2>
+                
+                <h3>🎮 Prova a Dividere Queste Parole</h3>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">1. CASA</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> CA-SA<br>
+                        <strong>Spiegazione:</strong> Una consonante tra due vocali va con la vocale che segue
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">2. GATTO</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> GAT-TO<br>
+                        <strong>Spiegazione:</strong> Consonanti doppie si dividono sempre
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">3. LIBRO</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> LI-BRO<br>
+                        <strong>Spiegazione:</strong> BR è un gruppo inseparabile (consonante + R)
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">4. PIEDE</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> PIE-DE<br>
+                        <strong>Spiegazione:</strong> IE è un dittongo, non si divide
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">5. PAURA</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> PA-U-RA<br>
+                        <strong>Spiegazione:</strong> AU con U accentata forma iato, si divide
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">6. SCUOLA</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> SCUO-LA<br>
+                        <strong>Spiegazione:</strong> SC non si divide e UO è un dittongo
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">7. ALTRO</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> AL-TRO<br>
+                        <strong>Spiegazione:</strong> Tre consonanti: prima con vocale precedente, le altre due (TR) insieme
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">8. FESTA</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> FE-STA<br>
+                        <strong>Spiegazione:</strong> S + consonante non si divide
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">9. MAESTRO</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> MA-E-STRO<br>
+                        <strong>Spiegazione:</strong> AE sono due vocali forti, formano iato e si dividono
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">10. QUADRO</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> QUA-DRO<br>
+                        <strong>Spiegazione:</strong> QUA non si divide, DR è gruppo inseparabile
+                    </div>
+                </div>
+
+                <h3>📋 Schema Riassuntivo</h3>
+                <div class="box">
+                    <div style="font-size: 1.4em; line-height: 2.2;">
+                        <strong style="color: #2ecc71;">✅ NON SI DIVIDONO:</strong><br>
+                        • Dittonghi (pie-de, uo-mo)<br>
+                        • Gruppi BR, CR, DR, FR, GR, PR, TR<br>
+                        • Gruppi BL, CL, FL, GL, PL<br>
+                        • S + consonante (fe-sta)<br>
+                        • QU (qua-dro)<br>
+                        • CH, GH, SC, GN, GL (chi-a-ve)<br><br>
+                        
+                        <strong style="color: #e74c3c;">❌ SI DIVIDONO:</strong><br>
+                        • Consonanti doppie (gat-to)<br>
+                        • Due consonanti diverse di solito (por-ta)<br>
+                        • Iato - due vocali forti (po-e-ta)<br>
+                        • Iato - vocale debole accentata (pa-ù-ra)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="emoji-grande">🔤✂️📚</div>
+            <p style="font-size: 2.2em; margin-bottom: 25px;">La Sillaba e la Divisione Sillabica</p>
+            <p style="font-size: 1.4em;">Impara a dividere le parole correttamente!</p>
+            <p style="margin-top: 35px; opacity: 0.85; font-size: 1.3em;">
+                Ogni sillaba contiene almeno una VOCALE 🔴<br>
+                Segui le regole e diventa un esperto! 📏✨
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

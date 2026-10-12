@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Superlatif Relatif - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 25%, #30cfd0 50%, #330867 75%, #fa709a 100%);
+            background-size: 400% 400%;
+            animation: megaGradient 20s ease infinite;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes megaGradient {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 100%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 0%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 15% 25%, rgba(255,255,255,0.15) 0%, transparent 25%),
+                radial-gradient(circle at 85% 75%, rgba(255,255,255,0.15) 0%, transparent 25%),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08) 0%, transparent 40%);
+            animation: bubbleMove 15s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes bubbleMove {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.3em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+            animation: superGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes superGlow {
+            0%, 100% { 
+                box-shadow: 0 10px 30px rgba(250, 112, 154, 0.6);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 15px 50px rgba(254, 225, 64, 0.8);
+                transform: scale(1.08);
+            }
+        }
+
+        h1 {
+            color: white;
+            font-size: 3.5em;
+            text-shadow: 4px 4px 15px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+            animation: titleShine 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleShine {
+            from { 
+                text-shadow: 4px 4px 15px rgba(250, 112, 154, 0.7);
+                filter: drop-shadow(0 0 25px rgba(250, 112, 154, 0.5));
+            }
+            to { 
+                text-shadow: 4px 4px 25px rgba(48, 207, 208, 0.9);
+                filter: drop-shadow(0 0 35px rgba(48, 207, 208, 0.6));
+            }
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.8em;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #fa709a, #fee140, #30cfd0, #330867, #fa709a);
+            background-size: 400% 100%;
+            animation: rainbowFlow 6s ease infinite;
+        }
+
+        @keyframes rainbowFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        h2 {
+            color: #fa709a;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #30cfd0;
+            position: relative;
+        }
+
+        h2::after {
+            content: '👑';
+            margin-left: 15px;
+            animation: crown 2s ease-in-out infinite;
+        }
+
+        @keyframes crown {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg); 
+            }
+            25% { 
+                transform: scale(1.2) rotate(-10deg); 
+            }
+            75% { 
+                transform: scale(1.2) rotate(10deg); 
+            }
+        }
+
+        h3 {
+            color: #330867;
+            font-size: 1.9em;
+            margin: 35px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3::before {
+            content: '🏆';
+            font-size: 1.2em;
+            animation: trophy 3s ease-in-out infinite;
+        }
+
+        @keyframes trophy {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.15); }
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #fa709a15, #fee14015);
+            border-left: 6px solid #fa709a;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #2d3748;
+        }
+
+        .superlative-type {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border-top: 5px solid;
+            transition: all 0.3s ease;
+        }
+
+        .superlative-type:nth-child(1) { border-top-color: #fa709a; }
+        .superlative-type:nth-child(2) { border-top-color: #30cfd0; }
+
+        .superlative-type:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(250, 112, 154, 0.3);
+        }
+
+        .superlative-title {
+            color: #fa709a;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .superlative-title::before {
+            content: '🌟';
+            font-size: 1.3em;
+            animation: starTwinkle 2s ease-in-out infinite;
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.3); }
+        }
+
+        .formula-box {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(250, 112, 154, 0.4);
+            animation: formulaPulse 2.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes formulaPulse {
+            from { 
+                box-shadow: 0 8px 25px rgba(250, 112, 154, 0.4);
+                transform: scale(1);
+            }
+            to { 
+                box-shadow: 0 12px 40px rgba(254, 225, 64, 0.6);
+                transform: scale(1.02);
+            }
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #30cfd015, #330867015);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #30cfd0;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(48, 207, 208, 0.2);
+        }
+
+        .example {
+            color: #2d3748;
+            font-size: 1.2em;
+            line-height: 2;
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .example::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            font-size: 1.1em;
+        }
+
+        .highlight-superior {
+            background: linear-gradient(120deg, #fa709a50 0%, #fee14050 100%);
+            padding: 3px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #c0392b;
+        }
+
+        .highlight-inferior {
+            background: linear-gradient(120deg, #30cfd050 0%, #33086750 100%);
+            padding: 3px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #2c5aa0;
+        }
+
+        .highlight-irregular {
+            background: linear-gradient(120deg, #fee14050 0%, #ffa50050 100%);
+            padding: 3px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #d68910;
+        }
+
+        .visual-representation {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .visual-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid;
+        }
+
+        .visual-card:nth-child(1) { border-color: #fa709a; }
+        .visual-card:nth-child(2) { border-color: #30cfd0; }
+
+        .visual-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .visual-card h4 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .visual-icon {
+            font-size: 4em;
+            margin: 20px 0;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .visual-card:nth-child(1) .visual-icon { color: #fa709a; }
+        .visual-card:nth-child(2) .visual-icon { color: #30cfd0; }
+
+        .irregular-box {
+            background: linear-gradient(135deg, #fee14015, #ffa50015);
+            border: 3px solid #fee140;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .irregular-box::before {
+            content: '⚠️ FORMES IRRÉGULIÈRES';
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: linear-gradient(135deg, #fee140, #ffa500);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .irregular-box p {
+            margin-top: 15px;
+            color: #2d3748;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, #fa709a10, #30cfd010);
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #43e97b15, #38f9d715);
+            border: 3px dashed #43e97b;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .note-box::before {
+            content: '💡 IMPORTANT';
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .note-box p {
+            margin-top: 15px;
+            color: #2d3748;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .comparison-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .comparison-item {
+            background: linear-gradient(135deg, #fa709a10, #fee14010);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #fa709a;
+        }
+
+        .comparison-item h4 {
+            color: #330867;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .schema-box {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border: 3px solid #fa709a;
+        }
+
+        .schema-title {
+            text-align: center;
+            color: #fa709a;
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .schema-title::before,
+        .schema-title::after {
+            content: '═══';
+            color: #30cfd0;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #30cfd020, #33086720);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #30cfd0;
+        }
+
+        .tip-box h4 {
+            color: #30cfd0;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tip-box h4::before {
+            content: '🎯';
+            font-size: 1.2em;
+        }
+
+        .step-box {
+            background: linear-gradient(135deg, #fa709a10, #fee14010);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            border-left: 5px solid #fa709a;
+        }
+
+        .step-box strong {
+            color: #fa709a;
+            font-size: 1.2em;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        footer p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .emoji-decoration {
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            h2 {
+                font-size: 1.8em;
+            }
+            
+            h3 {
+                font-size: 1.5em;
+            }
+
+            .visual-representation,
+            .comparison-box {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🎓 Língua Academy</div>
+            <h1>Le Superlatif Relatif</h1>
+            <p class="subtitle">Le Degré Extrême de Signification</p>
+        </header>
+
+        <div class="content-card">
+            <h2>Qu'est-ce que le Superlatif Relatif ?</h2>
+            <div class="intro-box">
+                Le superlatif relatif permet d'exprimer le <strong style="color: #fa709a;">degré le plus élevé</strong> 
+                ou <strong style="color: #30cfd0;">le plus faible</strong> d'une qualité, en comparant un élément 
+                à <strong>un ensemble d'éléments</strong>. Il indique qu'une personne ou une chose se distingue 
+                de toutes les autres dans un groupe donné.
+            </div>
+
+            <div class="visual-representation">
+                <div class="visual-card">
+                    <h4 style="color: #fa709a;">Le Plus Haut Degré</h4>
+                    <div class="visual-icon">⬆️</div>
+                    <p style="color: #555; line-height: 1.8;">
+                        L'élément possède la qualité au <strong>maximum</strong> par rapport aux autres
+                    </p>
+                </div>
+
+                <div class="visual-card">
+                    <h4 style="color: #30cfd0;">Le Plus Bas Degré</h4>
+                    <div class="visual-icon">⬇️</div>
+                    <p style="color: #555; line-height: 1.8;">
+                        L'élément possède la qualité au <strong>minimum</strong> par rapport aux autres
+                    </p>
+                </div>
+            </div>
+
+            <h2>Les Deux Types de Superlatif Relatif</h2>
+
+            <h3>1. Le Superlatif de Supériorité</h3>
+            <div class="superlative-type">
+                <div class="superlative-title">Le/La/Les Plus... (de)</div>
+                
+                <div class="formula-box">
+                    ARTICLE DÉFINI + PLUS + adjectif + (DE + groupe)
+                </div>
+
+                <p style="margin: 20px 0; font-size: 1.15em; color: #555;">
+                    Le superlatif de supériorité indique que l'élément possède la qualité au 
+                    <strong>degré maximum</strong> dans un groupe donné.
+                </p>
+
+                <div class="example-box">
+                    <h4 style="color: #fa709a; font-size: 1.3em; margin-bottom: 15px;">Structure et Exemples :</h4>
+                    <div class="example">
+                        Marie est <span class="highlight-superior">la plus grande</span> de la classe.
+                    </div>
+                    <div class="example">
+                        C'est <span class="highlight-superior">le plus beau</span> jour de ma vie.
+                    </div>
+                    <div class="example">
+                        Ce sont <span class="highlight-superior">les plus intelligents</span> élèves de l'école.
+                    </div>
+                    <div class="example">
+                        Paris est <span class="highlight-superior">la plus visitée</span> des villes françaises.
+                    </div>
+                    <div class="example">
+                        Voici <span class="highlight-superior">les plus beaux</span> paysages du monde.
+                    </div>
+                </div>
+
+                <div class="note-box">
+                    <p>
+                        <strong>Accord de l'article :</strong> L'article défini (le/la/les) s'accorde en genre 
+                        et en nombre avec le nom qualifié.<br><br>
+                        • <strong>le</strong> plus grand (masculin singulier)<br>
+                        • <strong>la</strong> plus grande (féminin singulier)<br>
+                        • <strong>les</strong> plus grands/grandes (pluriel)
+                    </p>
+                </div>
+            </div>
+
+            <h3>2. Le Superlatif d'Infériorité</h3>
+            <div class="superlative-type">
+                <div class="superlative-title">Le/La/Les Moins... (de)</div>
+                
+                <div class="formula-box" style="background: linear-gradient(135deg, #30cfd0, #330867);">
+                    ARTICLE DÉFINI + MOINS + adjectif + (DE + groupe)
+                </div>
+
+                <p style="margin: 20px 0; font-size: 1.15em; color: #555;">
+                    Le superlatif d'infériorité indique que l'élément possède la qualité au 
+                    <strong>degré minimum</strong> dans un groupe donné.
+                </p>
+
+                <div class="example-box">
+                    <h4 style="color: #30cfd0; font-size: 1.3em; margin-bottom: 15px;">Structure et Exemples :</h4>
+                    <div class="example">
+                        Pierre est <span class="highlight-inferior">le moins grand</span> de la famille.
+                    </div>
+                    <div class="example">
+                        C'est <span class="highlight-inferior">la moins chère</span> des voitures.
+                    </div>
+                    <div class="example">
+                        Ce sont <span class="highlight-inferior">les moins difficiles</span> exercices du livre.
+                    </div>
+                    <div class="example">
+                        Elle a choisi <span class="highlight-inferior">le moins cher</span> des restaurants.
+                    </div>
+                    <div class="example">
+                        Voici <span class="highlight-inferior">les moins connus</span> des monuments.
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <h4>Usage du Superlatif d'Infériorité</h4>
+                    <p style="line-height: 1.8; color: #2d3748;">
+                        Le superlatif d'infériorité est <strong>moins fréquent</strong> que celui de supériorité 
+                        dans la langue courante. On préfère souvent reformuler avec une forme positive :<br><br>
+                        • « le moins grand » → « le plus petit »<br>
+                        • « le moins chaud » → « le plus frais / le plus froid »
+                    </p>
+                </div>
+            </div>
+
+            <h2>Les Superlatifs Irréguliers</h2>
+            <div class="irregular-box">
+                <p style="margin-top: 25px; font-size: 1.2em;">
+                    Comme pour le comparatif, certains adjectifs ont des formes <strong>irrégulières</strong> 
+                    au superlatif de supériorité.
+                </p>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Adjectif</th>
+                            <th>Forme Régulière ❌</th>
+                            <th>Forme Irrégulière ✓</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>bon(ne)</strong></td>
+                            <td style="color: #e74c3c;"><del>le plus bon</del></td>
+                            <td style="color: #27ae60; font-weight: bold;">le/la meilleur(e)</td>
+                            <td>C'est <strong>le meilleur</strong> restaurant de la ville.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>mauvais(e)</strong></td>
+                            <td style="color: #e74c3c;"><del>le plus mauvais</del></td>
+                            <td style="color: #27ae60; font-weight: bold;">le/la pire</td>
+                            <td>C'est <strong>la pire</strong> décision possible.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>petit(e)</strong></td>
+                            <td style="color: #999;">(le plus petit) possible</td>
+                            <td style="color: #27ae60; font-weight: bold;">le/la moindre</td>
+                            <td>Je n'ai pas <strong>la moindre</strong> idée.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #fee140; font-size: 1.3em; margin-bottom: 15px;">Exemples avec formes irrégulières :</h4>
+                <div class="example">
+                    <strong>LE/LA MEILLEUR(E) :</strong><br>
+                    • C'est <span class="highlight-irregular">le meilleur</span> élève de la classe.<br>
+                    • Elle a obtenu <span class="highlight-irregular">la meilleure</span> note.<br>
+                    • Ce sont <span class="highlight-irregular">les meilleurs</span> amis du monde.
+                </div>
+                <div class="example">
+                    <strong>LE/LA PIRE :</strong><br>
+                    • C'est <span class="highlight-irregular">le pire</span> film que j'ai vu.<br>
+                    • Elle a vécu <span class="highlight-irregular">la pire</span> expérience de sa vie.<br>
+                    • Ce sont <span class="highlight-irregular">les pires</span> résultats de l'année.
+                </div>
+                <div class="example">
+                    <strong>LE/LA MOINDRE :</strong><br>
+                    • Sans <span class="highlight-irregular">le moindre</span> doute.<br>
+                    • Je n'ai pas <span class="highlight-irregular">la moindre</span> envie de sortir.<br>
+                    • Il ne fait pas <span class="highlight-irregular">le moindre</span> effort.
+                </div>
+            </div>
+
+            <h2>Position de l'Adjectif au Superlatif</h2>
+            <div class="comparison-box">
+                <div class="comparison-item">
+                    <h4>Adjectif AVANT le Nom</h4>
+                    <div class="example">
+                        Le superlatif se place avant le nom, comme l'adjectif normal :
+                    </div>
+                    <div class="example" style="margin-top: 15px;">
+                        • <span class="highlight-superior">La plus belle</span> maison
+                    </div>
+                    <div class="example">
+                        • <span class="highlight-superior">Le plus grand</span> château
+                    </div>
+                    <div class="example">
+                        • <span class="highlight-superior">Les plus petites</span> villes
+                    </div>
+                </div>
+
+                <div class="comparison-item">
+                    <h4>Adjectif APRÈS le Nom</h4>
+                    <div class="example">
+                        Le superlatif se place après le nom, l'article est répété :
+                    </div>
+                    <div class="example" style="margin-top: 15px;">
+                        • La maison <span class="highlight-superior">la plus confortable</span>
+                    </div>
+                    <div class="example">
+                        • Le château <span class="highlight-superior">le plus visité</span>
+                    </div>
+                    <div class="example">
+                        • Les villes <span class="highlight-superior">les plus peuplées</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>Répétition de l'article :</strong> Quand l'adjectif se place normalement après le nom, 
+                    l'article défini est répété dans la construction du superlatif.<br><br>
+                    • Un livre <strong>intéressant</strong> → Le livre <strong>le plus intéressant</strong><br>
+                    • Une ville <strong>moderne</strong> → La ville <strong>la plus moderne</strong>
+                </p>
+            </div>
+
+            <h2>L'Expression du Groupe de Référence</h2>
+            <div class="schema-box">
+                <div class="schema-title">Avec la Préposition « DE »</div>
+                
+                <div class="step-box">
+                    <strong>1. Groupe nominal :</strong>
+                    <div style="margin-top: 10px; color: #555; line-height: 1.8;">
+                        • Le plus grand <strong>de la classe</strong><br>
+                        • La plus belle <strong>du quartier</strong><br>
+                        • Les plus intelligents <strong>de l'école</strong>
+                    </div>
+                </div>
+
+                <div class="step-box">
+                    <strong>2. Pronom :</strong>
+                    <div style="margin-top: 10px; color: #555; line-height: 1.8;">
+                        • Le plus rapide <strong>d'entre nous</strong><br>
+                        • La plus courageuse <strong>d'entre elles</strong><br>
+                        • Les plus jeunes <strong>d'entre eux</strong>
+                    </div>
+                </div>
+
+                <div class="step-box">
+                    <strong>3. Avec un verbe :</strong>
+                    <div style="margin-top: 10px; color: #555; line-height: 1.8;">
+                        • C'est le plus beau <strong>que j'aie vu</strong> (subjonctif)<br>
+                        • La plus difficile <strong>que nous ayons faite</strong><br>
+                        • Les plus intéressants <strong>qu'ils aient lus</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>Attention au subjonctif :</strong> Après un superlatif suivi de « que », on utilise 
+                    généralement le <strong>subjonctif</strong> pour exprimer un jugement ou une appréciation :<br><br>
+                    • C'est le meilleur livre <strong>que je connaisse</strong>. (subjonctif)<br>
+                    • C'est la plus belle ville <strong>que nous ayons visitée</strong>. (subjonctif)
+                </p>
+            </div>
+
+            <h2>Comparatif vs Superlatif</h2>
+            <div class="schema-box">
+                <div class="schema-title">Différences Clés</div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Critère</th>
+                                <th>Comparatif</th>
+                                <th>Superlatif Relatif</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Nombre d'éléments</strong></td>
+                                <td>Compare <strong>2 éléments</strong></td>
+                                <td>Compare <strong>1 élément à un groupe</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Structure</strong></td>
+                                <td>plus/aussi/moins... <strong>que</strong></td>
+                                <td><strong>le/la/les</strong> plus/moins... <strong>(de)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Article</strong></td>
+                                <td>Pas d'article défini</td>
+                                <td>Article défini obligatoire</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Exemple</strong></td>
+                                <td>Marie est plus grande <strong>que</strong> Sophie</td>
+                                <td>Marie est <strong>la</strong> plus grande <strong>de</strong> la classe</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h2>Exercices Pratiques</h2>
+            <div class="example-box">
+                <h4 style="color: #fa709a; font-size: 1.4em; margin-bottom: 15px;">Transformez au superlatif relatif :</h4>
+                <div class="example">1. Cette maison est grande. → C'est ___________ maison du quartier.</div>
+                <div class="example">2. Ce film est intéressant. → C'est ___________ film de l'année.</div>
+                <div class="example">3. Ces fleurs sont belles. → Ce sont ___________ fleurs du jardin.</div>
+                <div class="example">4. Ce livre est bon. → C'est ___________ livre que j'aie lu.</div>
+                <div class="example">5. Cette situation est mauvaise. → C'est ___________ situation possible.</div>
+                <div class="example">6. Cet exercice est difficile. → C'est ___________ exercice du chapitre.</div>
+                <div class="example">7. Cette voiture est rapide. → C'est ___________ voiture du marché.</div>
+                <div class="example">8. Ces étudiants sont intelligents. → Ce sont ___________ étudiants de l'université.</div>
+                <div class="example">9. Cette chanson est populaire. → C'est ___________ chanson de l'été.</div>
+                <div class="example">10. Ce restaurant est cher. → C'est ___________ restaurant de la ville.</div>
+            </div>
+
+            <div class="tip-box">
+                <h4>Méthode pour Former le Superlatif</h4>
+                <div style="line-height: 2; color: #2d3748; margin-top: 15px;">
+                    <strong>Étape 1 :</strong> Identifiez le genre et le nombre du nom<br>
+                    <strong>Étape 2 :</strong> Choisissez l'article défini approprié (le/la/les)<br>
+                    <strong>Étape 3 :</strong> Ajoutez « plus » ou « moins » + adjectif<br>
+                    <strong>Étape 4 :</strong> Accordez l'adjectif avec le nom<br>
+                    <strong>Étape 5 :</strong> Ajoutez « de + groupe » si nécessaire<br><br>
+                    <strong>Exemple :</strong> Marie (féminin singulier) → <strong>la</strong> plus grande <strong>de</strong> la classe
+                </div>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>Conseil final :</strong> Le superlatif relatif est essentiel pour exprimer l'excellence, 
+                    le record, ou la particularité d'un élément au sein d'un groupe. N'oubliez pas les trois formes 
+                    irrégulières principales : <strong>le meilleur</strong> (bon), <strong>le pire</strong> (mauvais), 
+                    et <strong>le moindre</strong> (petit - sens abstrait). Avec l'article défini, vous marquez 
+                    clairement que vous parlez d'un élément unique qui se distingue de tous les autres ! 👑
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p><span class="emoji-decoration">🎓</span> <strong>Língua Academy</strong> <span class="emoji-decoration">🎓</span></p>
+            <p>Atteignez l'excellence en français !</p>
+            <p style="font-size: 0.9em; opacity: 0.8; margin-top: 15px;">© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

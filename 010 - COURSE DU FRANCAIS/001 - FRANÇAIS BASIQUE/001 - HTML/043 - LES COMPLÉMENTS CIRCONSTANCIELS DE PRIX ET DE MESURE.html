@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les CC de Prix et de Mesure - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes scaleUp {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #002395 0%, #ffffff 50%, #ED2939 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(237, 41, 57, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0, 35, 149, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background: linear-gradient(135deg, #002395, #0035b8, #002395);
+            background-size: 200% 200%;
+            animation: gradientFlow 8s ease infinite;
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 35, 149, 0.4);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .logo {
+            font-size: 1.3em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            opacity: 0.95;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin: 20px 0;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-top: 15px;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            border: 3px solid rgba(0, 35, 149, 0.2);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .intro-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .intro-section h2::before {
+            content: '💰';
+            font-size: 1.2em;
+            animation: scaleUp 2s ease-in-out infinite;
+        }
+
+        .intro-section p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.15em;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 6px solid #002395;
+            margin: 25px 0;
+            font-size: 1.1em;
+            line-height: 1.7;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .definition-box strong {
+            color: #ED2939;
+            font-size: 1.1em;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .type-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #002395, #ED2939);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .type-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 35, 149, 0.3);
+            border-color: #002395;
+        }
+
+        .type-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .type-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .type-title {
+            color: #002395;
+            font-size: 1.7em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .type-question {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 0.95em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(237, 41, 57, 0.3);
+        }
+
+        .type-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .example-box {
+            background: rgba(237, 41, 57, 0.05);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+            border-left: 4px solid #ED2939;
+        }
+
+        .example-sentence {
+            color: #222;
+            font-size: 1.05em;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .cc-highlight {
+            color: #ED2939;
+            background: rgba(237, 41, 57, 0.1);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .measures-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .measures-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .measures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .measure-category {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 35, 149, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .measure-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 35, 149, 0.15);
+        }
+
+        .measure-category h3 {
+            color: #002395;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .measure-list {
+            list-style: none;
+        }
+
+        .measure-list li {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-left: 3px solid #ED2939;
+        }
+
+        .measure-list li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .constructions-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 1.8s ease;
+        }
+
+        .constructions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .construction-item {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .construction-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(0, 35, 149, 0.2);
+        }
+
+        .construction-item h3 {
+            color: #002395;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .construction-type {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .construction-examples {
+            margin-top: 15px;
+        }
+
+        .construction-example {
+            background: rgba(237, 41, 57, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 4px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .construction-example:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 2s ease;
+        }
+
+        .table-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+        }
+
+        th {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        th:first-child {
+            border-top-left-radius: 15px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 15px;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid rgba(0, 35, 149, 0.1);
+            font-size: 1.05em;
+            color: #333;
+        }
+
+        tr:hover {
+            background: rgba(0, 35, 149, 0.05);
+        }
+
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 15px;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 15px;
+        }
+
+        .unit-highlight {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .special-section {
+            background: linear-gradient(135deg, #002395 0%, #0041c9 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 35, 149, 0.4);
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 2.2s ease;
+        }
+
+        .special-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .special-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .special-section p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .tip-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .comparison-box {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 2.4s ease;
+        }
+
+        .comparison-box h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .comparison-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #ED2939;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 35, 149, 0.2);
+        }
+
+        .comparison-title {
+            color: #ED2939;
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .comparison-content {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #002395, #ED2939);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 2.6s ease;
+        }
+
+        .footer-content {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo {
+            font-size: 2em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .types-grid, .measures-grid, .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 30px;
+            }
+
+            .intro-section, .special-section, .measures-section {
+                padding: 25px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">⚜️ Língua Academy ⚜️</div>
+            <h1>Les Compléments Circonstanciels de Prix et de Mesure</h1>
+            <div class="subtitle">💰 📏 Combien ? À quel prix ? Quel poids ? Quelle distance ? 📏 💰</div>
+        </header>
+
+        <div class="intro-section">
+            <h2>Qu'est-ce qu'un CC de Prix et de Mesure ?</h2>
+            <p>
+                Les <strong>compléments circonstanciels de prix et de mesure</strong> sont des compléments de phrase qui indiquent 
+                <strong>une quantité chiffrée</strong> : le prix d'un objet, le poids, la longueur, la distance, la surface, 
+                le volume, la température, etc.
+            </p>
+            
+            <div class="definition-box">
+                💰 📏 <strong>Définition :</strong> Ces CC expriment une valeur numérique ou une quantité mesurable. 
+                Ils répondent aux questions : <strong>Combien ? À quel prix ? Combien pèse ? Quelle distance ? 
+                Quelle longueur ? Quel volume ?</strong>
+            </div>
+
+            <p>
+                Ces compléments sont généralement <strong>supprimables</strong> (sauf avec certains verbes comme "coûter", "peser", "mesurer"). 
+                Ils apportent une précision quantitative à l'action ou à l'objet.
+            </p>
+        </div>
+
+        <div class="types-grid">
+            <div class="type-card">
+                <div class="type-icon">💰</div>
+                <div class="type-title">CC de Prix</div>
+                <div class="type-question">Combien ? À quel prix ?</div>
+                <div class="type-description">
+                    Indique le <strong>coût, la valeur monétaire</strong> d'un objet ou d'un service.
+                </div>
+                <div class="example-box">
+                    <div class="example-sentence">
+                        J'ai acheté ce livre <span class="cc-highlight">pour 15 euros</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Cette voiture coûte <span class="cc-highlight">30 000 dollars</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Il vend son appartement <span class="cc-highlight">à prix d'or</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Nous avons payé <span class="cc-highlight">très cher</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Elle l'a obtenu <span class="cc-highlight">gratuitement</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="type-card">
+                <div class="type-icon">⚖️</div>
+                <div class="type-title">CC de Poids</div>
+                <div class="type-question">Combien pèse ? Quel poids ?</div>
+                <div class="type-description">
+                    Indique le <strong>poids, la masse</strong> d'un objet ou d'une personne.
+                </div>
+                <div class="example-box">
+                    <div class="example-sentence">
+                        Ce colis pèse <span class="cc-highlight">5 kilos</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Mon sac fait <span class="cc-highlight">deux tonnes</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Il pèse <span class="cc-highlight">75 kilogrammes</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Cette boîte ne fait que <span class="cc-highlight">100 grammes</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Le bébé pèse <span class="cc-highlight">3,5 kg</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="type-card">
+                <div class="type-icon">📏</div>
+                <div class="type-title">CC de Longueur</div>
+                <div class="type-question">Quelle longueur ? Combien mesure ?</div>
+                <div class="type-description">
+                    Indique la <strong>longueur, la hauteur, la taille</strong> d'un objet ou d'une personne.
+                </div>
+                <div class="example-box">
+                    <div class="example-sentence">
+                        Cette table mesure <span class="cc-highlight">2 mètres</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Il mesure <span class="cc-highlight">1,80 m</span>.
+                    </div>
+                    <div class="example-sentence">
+                        La tour fait <span class="cc-highlight">300 mètres de haut</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Le tissu fait <span class="cc-highlight">50 centimètres</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Elle mesure <span class="cc-highlight">1,65 m de hauteur</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="type-card">
+                <div class="type-icon">🛣️</div>
+                <div class="type-title">CC de Distance</div>
+                <div class="type-question">Quelle distance ? À quelle distance ?</div>
+                <div class="type-description">
+                    Indique la <strong>distance</strong> qui sépare deux points.
+                </div>
+                <div class="example-box">
+                    <div class="example-sentence">
+                        J'habite <span class="cc-highlight">à 5 kilomètres</span> d'ici.
+                    </div>
+                    <div class="example-sentence">
+                        Nous avons marché <span class="cc-highlight">10 km</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Paris est <span class="cc-highlight">à 500 km de Lyon</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Le magasin est <span class="cc-highlight">à deux pas</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Il a couru <span class="cc-highlight">un marathon</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="type-card">
+                <div class="type-icon">📦</div>
+                <div class="type-title">CC de Volume/Capacité</div>
+                <div class="type-question">Quel volume ? Quelle capacité ?</div>
+                <div class="type-description">
+                    Indique le <strong>volume, la capacité, la contenance</strong> d'un récipient ou d'un espace.
+                </div>
+                <div class="example-box">
+                    <div class="example-sentence">
+                        Cette bouteille contient <span class="cc-highlight">1 litre</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Le réservoir fait <span class="cc-highlight">50 litres</span>.
+                    </div>
+                    <div class="example-sentence">
+                        J'ai bu <span class="cc-highlight">deux verres</span>.
+                    </div>
+                    <div class="example-sentence">
+                        La piscine contient <span class="cc-highlight">500 m³ d'eau</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Le verre fait <span class="cc-highlight">25 cl</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="type-card">
+                <div class="type-icon">🌡️</div>
+                <div class="type-title">CC de Température</div>
+                <div class="type-question">À quelle température ? Combien de degrés ?</div>
+                <div class="type-description">
+                    Indique la <strong>température</strong> d'un lieu ou d'un objet.
+                </div>
+                <div class="example-box">
+                    <div class="example-sentence">
+                        L'eau bout <span class="cc-highlight">à 100 degrés</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Il fait <span class="cc-highlight">25°C</span> aujourd'hui.
+                    </div>
+                    <div class="example-sentence">
+                        Le four chauffe <span class="cc-highlight">à 180 degrés</span>.
+                    </div>
+                    <div class="example-sentence">
+                        La température descend <span class="cc-highlight">à -10°C</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Il fait <span class="cc-highlight">très chaud</span>.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="constructions-section">
+            <h2>🏗️ Constructions des CC de Prix et de Mesure</h2>
+
+            <div class="construction-item">
+                <h3>
+                    <span>1️⃣</span> 
+                    Groupe Nominal sans Préposition
+                    <span class="construction-type">Très fréquent</span>
+                </h3>
+                <p style="color: #555; margin: 15px 0; line-height: 1.7;">
+                    Le plus souvent, les CC de prix et de mesure sont des groupes nominaux <strong>sans préposition</strong>, 
+                    directement reliés au verbe.
+                </p>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Prix :</strong><br>
+                        Ce livre coûte <span class="cc-highlight">20 euros</span> • J'ai payé <span class="cc-highlight">500 dollars</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Poids :</strong><br>
+                        Ce sac pèse <span class="cc-highlight">3 kilos</span> • Le bébé fait <span class="cc-highlight">3,5 kg</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Longueur :</strong><br>
+                        Il mesure <span class="cc-highlight">1,80 m</span> • La table fait <span class="cc-highlight">2 mètres</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Distance :</strong><br>
+                        Nous avons marché <span class="cc-highlight">10 kilomètres</span> • Il a couru <span class="cc-highlight">5 km</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>2️⃣</span> 
+                    Groupe Nominal avec Préposition
+                    <span class="construction-type">Courant</span>
+                </h3>
+                <p style="color: #555; margin: 15px 0; line-height: 1.7;">
+                    Les CC de prix et de mesure peuvent être introduits par une préposition 
+                    (<strong>pour, à, de, etc.</strong>), surtout pour le prix.
+                </p>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Prix avec préposition :</strong><br>
+                        J'ai acheté ce livre <span class="cc-highlight">pour 15 euros</span> • Il vend sa voiture <span class="cc-highlight">à 5000 €</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Distance avec préposition :</strong><br>
+                        J'habite <span class="cc-highlight">à 3 km d'ici</span> • Paris est <span class="cc-highlight">à 500 km de Lyon</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Mesure avec "de" :</strong><br>
+                        Une table <span class="cc-highlight">de 2 mètres</span> • Un fil <span class="cc-highlight">de 50 cm de long</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>3️⃣</span> 
+                    Adverbe
+                    <span class="construction-type">Pour expressions approximatives</span>
+                </h3>
+                <p style="color: #555; margin: 15px 0; line-height: 1.7;">
+                    Des adverbes peuvent exprimer une <strong>évaluation approximative</strong> du prix ou de la mesure.
+                </p>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Prix approximatif :</strong><br>
+                        Ça coûte <span class="cc-highlight">cher</span> • Il l'a eu <span class="cc-highlight">gratuitement</span> • C'est vendu <span class="cc-highlight">bon marché</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Mesure approximative :</strong><br>
+                        Il pèse <span class="cc-highlight">lourd</span> • Ça mesure <span class="cc-highlight">long</span> • C'est <span class="cc-highlight">très grand</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>4️⃣</span> 
+                    Expression Figée
+                    <span class="construction-type">Expressions idiomatiques</span>
+                </h3>
+                <p style="color: #555; margin: 15px 0; line-height: 1.7;">
+                    Certaines expressions figées expriment le prix ou la mesure de façon imagée.
+                </p>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Expressions de prix :</strong><br>
+                        Il vend <span class="cc-highlight">à prix d'or</span> • Ça coûte <span class="cc-highlight">les yeux de la tête</span> • C'est <span class="cc-highlight">pour une bouchée de pain</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Expressions de distance :</strong><br>
+                        C'est <span class="cc-highlight">à deux pas</span> • Il habite <span class="cc-highlight">à un jet de pierre</span> • C'est <span class="cc-highlight">à portée de main</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-section">
+            <h2>📊 Unités de Mesure Courantes</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type de Mesure</th>
+                        <th>Unités Principales</th>
+                        <th>Exemples d'Usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="unit-highlight">💰 Prix</span></td>
+                        <td>euro (€), dollar ($), centime, livre (£)</td>
+                        <td>Ça coûte <strong>25 euros</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="unit-highlight">⚖️ Poids</span></td>
+                        <td>gramme (g), kilogramme (kg), tonne (t), milligramme (mg)</td>
+                        <td>Ce sac pèse <strong>3 kilos</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="unit-highlight">📏 Longueur</span></td>
+                        <td>mètre (m), centimètre (cm), kilomètre (km), millimètre (mm)</td>
+                        <td>Il mesure <strong>1,80 m</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="unit-highlight">🛣️ Distance</span></td>
+                        <td>kilomètre (km), mètre (m), mile</td>
+                        <td>J'habite à <strong>5 km</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="unit-highlight">📦 Volume</span></td>
+                        <td>litre (l), millilitre (ml), mètre cube (m³), centilitre (cl)</td>
+                        <td>Contient <strong>1 litre</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="unit-highlight">🏠 Surface</span></td>
+                        <td>mètre carré (m²), hectare (ha), kilomètre carré (km²)</td>
+                        <td>Un appartement de <strong>80 m²</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="unit-highlight">🌡️ Température</span></td>
+                        <td>degré Celsius (°C), degré Fahrenheit (°F), Kelvin (K)</td>
+                        <td>Il fait <strong>25°C</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="unit-highlight">⏱️ Durée</span></td>
+                        <td>seconde (s), minute (min), heure (h)</td>
+                        <td>Le trajet dure <strong>2 heures</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="measures-section">
+            <h2>📐 Expressions de Mesure par Catégorie</h2>
+            
+            <div class="measures-grid">
+                <div class="measure-category">
+                    <h3>💰 Prix - Expressions</h3>
+                    <ul class="measure-list">
+                        <li>Coûter cher / bon marché</li>
+                        <li>Valoir une fortune</li>
+                        <li>À prix d'or</li>
+                        <li>Pour une bouchée de pain</li>
+                        <li>Les yeux de la tête</li>
+                        <li>Hors de prix</li>
+                        <li>À bas prix</li>
+                        <li>Gratuitement / gratis</li>
+                    </ul>
+                </div>
+
+                <div class="measure-category">
+                    <h3>⚖️ Poids - Verbes</h3>
+                    <ul class="measure-list">
+                        <li>Peser X kilos</li>
+                        <li>Faire X grammes</li>
+                        <li>Être lourd / léger</li>
+                        <li>Avoir un poids de</li>
+                        <li>Atteindre X tonnes</li>
+                        <li>Ne pas dépasser</li>
+                        <li>Mesurer au poids</li>
+                    </ul>
+                </div>
+
+                <div class="measure-category">
+                    <h3>📏 Longueur - Verbes</h3>
+                    <ul class="measure-list">
+                        <li>Mesurer X mètres</li>
+                        <li>Faire X cm de long</li>
+                        <li>Avoir une hauteur de</li>
+                        <li>Atteindre X m de haut</li>
+                        <li>S'étendre sur</li>
+                        <li>Faire X de largeur</li>
+                    </ul>
+                </div>
+
+                <div class="measure-category">
+                    <h3>🛣️ Distance - Expressions</h3>
+                    <ul class="measure-list">
+                        <li>À X kilomètres</li>
+                        <li>Être situé à</li>
+                        <li>À deux pas</li>
+                        <li>À un jet de pierre</li>
+                        <li>À portée de main</li>
+                        <li>Au bout du monde</li>
+                        <li>À des années-lumière</li>
+                    </ul>
+                </div>
+
+                <div class="measure-category">
+                    <h3>📦 Volume - Expressions</h3>
+                    <ul class="measure-list">
+                        <li>Contenir X litres</li>
+                        <li>Avoir une capacité de</li>
+                        <li>Remplir X bouteilles</li>
+                        <li>Faire X mètres cubes</li>
+                        <li>Une goutte / une rasade</li>
+                        <li>Un verre plein</li>
+                    </ul>
+                </div>
+
+                <div class="measure-category">
+                    <h3>🌡️ Température - Expressions</h3>
+                    <ul class="measure-list">
+                        <li>Faire X degrés</li>
+                        <li>Atteindre X°C</li>
+                        <li>Chauffer à</li>
+                        <li>Bouillir / geler</li>
+                        <li>Il fait chaud / froid</li>
+                        <li>Température ambiante</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-box">
+            <h2>⚠️ Complément Essentiel vs Complément Circonstanciel</h2>
+            
+            <p style="text-align: center; color: #555; font-size: 1.1em; margin-bottom: 30px;">
+                Attention ! Avec certains verbes, le complément de mesure ou de prix est <strong>essentiel</strong>, 
+                pas circonstanciel.
+            </p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-title">
+                        ✅ Complément Essentiel
+                    </div>
+                    <div class="comparison-content">
+                        <strong>Non supprimable</strong><br><br>
+                        Avec les verbes <strong>coûter, peser, mesurer, valoir, durer</strong>, 
+                        le complément est essentiel :<br><br>
+                        • <em>"Ce livre coûte 20 euros"</em><br>
+                        → ❌ "Ce livre coûte" (phrase incomplète)<br><br>
+                        • <em>"Il pèse 75 kilos"</em><br>
+                        → ❌ "Il pèse" (sens incomplet)<br><br>
+                        • <em>"La tour mesure 300 mètres"</em><br>
+                        → ❌ "La tour mesure" (phrase incomplète)
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-title">
+                        ✂️ Complément Circonstanciel
+                    </div>
+                    <div class="comparison-content">
+                        <strong>Supprimable</strong><br><br>
+                        Avec d'autres verbes, le complément de prix/mesure 
+                        est circonstanciel :<br><br>
+                        • <em>"J'ai acheté ce livre pour 20 euros"</em><br>
+                        → ✅ "J'ai acheté ce livre" (phrase complète)<br><br>
+                        • <em>"Il a marché 10 kilomètres"</em><br>
+                        → ✅ "Il a marché" (phrase complète)<br><br>
+                        • <em>"Elle travaille pour 2000 euros par mois"</em><br>
+                        → ✅ "Elle travaille" (phrase complète)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="special-section">
+            <h2>💡 Conseils pour Identifier les CC de Prix et de Mesure</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>❓ Posez les bonnes questions</h4>
+                    <p>
+                        Pour identifier ces CC, posez des questions comme : 
+                        <strong>Combien ? À quel prix ? Quel poids ? Quelle distance ? Quelle longueur ?</strong>
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔢 Cherchez les nombres</h4>
+                    <p>
+                        Les CC de prix et de mesure contiennent généralement des <strong>chiffres et des unités</strong> : 
+                        10 euros, 5 kg, 2 mètres, 100 km...
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>📏 Repérez les unités de mesure</h4>
+                    <p>
+                        Identifiez les unités : <strong>kg, m, km, €, litres, °C</strong>, etc. 
+                        Elles indiquent souvent un CC de mesure ou de prix.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>✂️ Testez la suppression</h4>
+                    <p>
+                        Attention ! Avec <strong>coûter, peser, mesurer</strong>, le complément est essentiel, 
+                        donc NON supprimable. Sinon, c'est un CC.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🎯 Identifiez le verbe</h4>
+                    <p>
+                        Les verbes comme <strong>acheter, payer, marcher, courir, peser, contenir</strong> 
+                        appellent souvent un CC de prix ou de mesure.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>💭 Attention aux expressions</h4>
+                    <p>
+                        Des expressions comme <strong>"à prix d'or", "à deux pas", "pour une bouchée de pain"</strong> 
+                        sont aussi des CC de prix ou de mesure.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="intro-section">
+            <h2>🎯 Points Importants à Retenir</h2>
+            <p>
+                ✅ <strong>Les CC de prix et de mesure expriment une quantité chiffrée :</strong>
+                <br>• Prix (combien ça coûte ?) • Poids (combien ça pèse ?) • Longueur (combien ça mesure ?) 
+                • Distance (à quelle distance ?) • Volume • Température • Surface
+            </p>
+            <p>
+                ✅ <strong>Construction principale : GN sans préposition :</strong>
+                <br>• "Ce livre coûte <strong>20 euros</strong>" • "Il pèse <strong>75 kilos</strong>" 
+                • "La table mesure <strong>2 mètres</strong>"
+            </p>
+            <p>
+                ✅ <strong>Construction avec préposition (surtout pour le prix) :</strong>
+                <br>• "J'ai acheté ce livre <strong>pour 15 euros</strong>" 
+                • "J'habite <strong>à 5 km d'ici</strong>"
+            </p>
+            <p>
+                ✅ <strong>ATTENTION aux compléments essentiels :</strong>
+                <br>• Avec <strong>coûter, peser, mesurer, valoir, durer</strong> → Complément ESSENTIEL (non supprimable)
+                <br>• Avec <strong>acheter, payer, marcher, courir, etc.</strong> → Complément CIRCONSTANCIEL (supprimable)
+            </p>
+            <p>
+                ✅ <strong>Expressions idiomatiques :</strong>
+                <br>• Prix : "à prix d'or", "les yeux de la tête", "pour une bouchée de pain"
+                <br>• Distance : "à deux pas", "à un jet de pierre", "au bout du monde"
+            </p>
+            <p>
+                ✅ <strong>Unités courantes à connaître :</strong>
+                <br>• Poids : g, kg, t • Longueur : mm, cm, m, km • Volume : ml, cl, l, m³ 
+                • Prix : €, $, £ • Température : °C, °F
+            </p>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                Maîtrisez les compléments circonstanciels de prix et de mesure 
+                pour quantifier vos descriptions avec précision ! 🇫🇷 💰 📏
+            </div>
+            <div class="footer-logo">⚜️ LÍNGUA ACADEMY ⚜️</div>
+        </footer>
+    </div>
+</body>
+</html>

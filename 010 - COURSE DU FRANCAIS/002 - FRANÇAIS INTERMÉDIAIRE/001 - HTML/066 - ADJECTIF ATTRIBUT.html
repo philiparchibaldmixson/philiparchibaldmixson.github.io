@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Adjectif Attribut - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 20%, #f093fb 40%, #4facfe 60%, #00f2fe 80%, #667eea 100%);
+            background-size: 600% 600%;
+            animation: attributGradient 50s ease infinite;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes attributGradient {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 100%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 0%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 30%, rgba(255,255,255,0.25) 0%, transparent 50%),
+                radial-gradient(circle at 75% 70%, rgba(255,255,255,0.25) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.18) 0%, transparent 65%);
+            animation: attributFloat 35s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes attributFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+            50% { transform: translate(50px, -50px) scale(1.25); opacity: 0.88; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.3em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+            animation: attributPulse 5s ease-in-out infinite;
+        }
+
+        @keyframes attributPulse {
+            0%, 100% { 
+                box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 28px 80px rgba(118, 75, 162, 1);
+                transform: scale(1.2);
+            }
+        }
+
+        h1 {
+            color: white;
+            font-size: 3.8em;
+            text-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+            animation: attributGlow 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes attributGlow {
+            from { 
+                text-shadow: 5px 5px 15px rgba(102, 126, 234, 0.7);
+                filter: drop-shadow(0 0 30px rgba(102, 126, 234, 0.6));
+            }
+            to { 
+                text-shadow: 5px 5px 45px rgba(79, 172, 254, 1);
+                filter: drop-shadow(0 0 70px rgba(79, 172, 254, 1));
+            }
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.9em;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #4facfe, #00f2fe, #667eea);
+            background-size: 400% 100%;
+            animation: borderAttribut 20s ease infinite;
+        }
+
+        @keyframes borderAttribut {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.6em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 5px solid #4facfe;
+            position: relative;
+        }
+
+        h2::after {
+            content: '🔗';
+            margin-left: 15px;
+            animation: link 3.5s ease-in-out infinite;
+        }
+
+        @keyframes link {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg); 
+                opacity: 1;
+            }
+            25% { 
+                transform: scale(1.4) rotate(-15deg); 
+                opacity: 0.85;
+            }
+            75% { 
+                transform: scale(1.4) rotate(15deg); 
+                opacity: 0.85;
+            }
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 2em;
+            margin: 35px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3::before {
+            content: '🎭';
+            font-size: 1.3em;
+            animation: mask 4.5s ease-in-out infinite;
+        }
+
+        @keyframes mask {
+            0%, 100% { transform: rotateY(0deg) scale(1); }
+            50% { transform: rotateY(180deg) scale(1.3); }
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #667eea15, #4facfe15);
+            border-left: 6px solid #667eea;
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            font-size: 1.25em;
+            line-height: 1.9;
+            color: #2d3748;
+        }
+
+        .definition-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.15);
+            border: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .definition-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 75px rgba(102, 126, 234, 0.45);
+        }
+
+        .definition-title {
+            color: #667eea;
+            font-size: 1.9em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .definition-title::before {
+            content: '📘';
+            font-size: 1.4em;
+            animation: bookOpen 6s ease-in-out infinite;
+        }
+
+        @keyframes bookOpen {
+            0%, 100% { transform: rotateY(0deg); }
+            50% { transform: rotateY(180deg); }
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #4facfe15, #00f2fe15);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #4facfe;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 35px rgba(79, 172, 254, 0.28);
+        }
+
+        .example {
+            color: #2d3748;
+            font-size: 1.3em;
+            line-height: 2.2;
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .example::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+            color: #4facfe;
+            font-weight: bold;
+        }
+
+        .highlight-attribut {
+            background: linear-gradient(120deg, #667eea60 0%, #764ba260 100%);
+            padding: 5px 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #4c51bf;
+            font-size: 1.05em;
+        }
+
+        .highlight-verbe {
+            background: linear-gradient(120deg, #f093fb50 0%, #f5576c50 100%);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #c0392b;
+        }
+
+        .highlight-sujet {
+            background: linear-gradient(120deg, #4facfe50 0%, #00f2fe50 100%);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #2c5aa0;
+        }
+
+        .highlight-cod {
+            background: linear-gradient(120deg, #43e97b50 0%, #38f9d750 100%);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #1e7e34;
+        }
+
+        .type-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .type-card {
+            background: linear-gradient(135deg, #667eea10, #f093fb10);
+            padding: 30px;
+            border-radius: 15px;
+            border: 3px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .type-card:hover {
+            transform: scale(1.08);
+            box-shadow: 0 15px 55px rgba(102, 126, 234, 0.38);
+        }
+
+        .type-card h4 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .visual-schema {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .visual-schema h5 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .schema-text {
+            font-size: 1.4em;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea10, #4facfe10);
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .verbs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .verb-item {
+            background: linear-gradient(135deg, #f093fb15, #f5576c15);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #f093fb;
+            transition: all 0.3s ease;
+        }
+
+        .verb-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.35);
+        }
+
+        .verb-item strong {
+            color: #f093fb;
+            font-size: 1.3em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .comparison-table {
+            margin: 30px 0;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .comparison-table h4 {
+            color: #667eea;
+            font-size: 1.7em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .comparison-item {
+            background: linear-gradient(135deg, #667eea10, #4facfe10);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+
+        .comparison-item h5 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffd43b15, #ff8c4215);
+            border: 3px solid #ffd43b;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .warning-box::before {
+            content: '⚠️ ATTENTION';
+            position: absolute;
+            top: -15px;
+            left: 35px;
+            background: linear-gradient(135deg, #ffd43b, #ff8c42);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.95em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .warning-box p {
+            margin-top: 15px;
+            color: #2d3748;
+            line-height: 1.9;
+            font-size: 1.15em;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #43e97b15, #38f9d715);
+            border: 3px dashed #43e97b;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .note-box::before {
+            content: '💡 BON À SAVOIR';
+            position: absolute;
+            top: -15px;
+            left: 35px;
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.95em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .note-box p {
+            margin-top: 15px;
+            color: #2d3748;
+            line-height: 1.9;
+            font-size: 1.15em;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        th {
+            padding: 18px;
+            text-align: left;
+            font-size: 1.15em;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, #667eea10, #4facfe10);
+        }
+
+        .schema-box {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.18);
+            border: 4px solid #667eea;
+        }
+
+        .schema-title {
+            text-align: center;
+            color: #667eea;
+            font-size: 1.7em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .schema-title::before,
+        .schema-title::after {
+            content: '═══';
+            color: #4facfe;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #f093fb20, #f5576c20);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 3px solid #f093fb;
+        }
+
+        .tip-box h4 {
+            color: #f093fb;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tip-box h4::before {
+            content: '🎯';
+            font-size: 1.3em;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        footer p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .emoji-decoration {
+            display: inline-block;
+            animation: connect 7s ease-in-out infinite;
+        }
+
+        @keyframes connect {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            h2 {
+                font-size: 1.9em;
+            }
+            
+            h3 {
+                font-size: 1.6em;
+            }
+
+            .type-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🎓 Língua Academy</div>
+            <h1>L'Adjectif Attribut</h1>
+            <p class="subtitle">Relié au Nom par un Verbe</p>
+        </header>
+
+        <div class="content-card">
+            <h2>Qu'est-ce qu'un Adjectif Attribut ?</h2>
+            
+            <div class="definition-card">
+                <div class="definition-title">Définition</div>
+                <p style="font-size: 1.2em; line-height: 2; color: #2d3748;">
+                    L'adjectif <strong style="color: #667eea;">attribut</strong> est un adjectif qui exprime 
+                    une qualité du sujet (ou du COD) par l'<strong>intermédiaire d'un verbe</strong>. Contrairement 
+                    à l'épithète, il ne se place pas directement à côté du nom mais est <strong style="color: #f093fb;">relié 
+                    au nom par un verbe</strong>, généralement un verbe d'état.
+                </p>
+            </div>
+
+            <div class="intro-box">
+                <strong style="color: #667eea; font-size: 1.2em;">Caractéristiques principales :</strong><br><br>
+                • Relié au nom par un <strong>VERBE</strong> (souvent un verbe d'état)<br>
+                • <strong>Essentiel</strong> à la phrase : on ne peut pas le supprimer<br>
+                • S'accorde avec le sujet ou le COD qu'il qualifie<br>
+                • Exprime une caractéristique, un état ou une qualité<br>
+                • Deux types : attribut du sujet et attribut du COD
+            </div>
+
+            <div class="visual-schema">
+                <h5>Structure de Base</h5>
+                <div class="schema-text">
+                    <span class="highlight-sujet">SUJET</span> + 
+                    <span class="highlight-verbe">VERBE</span> + 
+                    <span class="highlight-attribut">ATTRIBUT</span>
+                </div>
+                <p style="text-align: center; color: #555; margin-top: 15px; font-size: 1.2em;">
+                    Exemple : <span class="highlight-sujet">Marie</span> 
+                    <span class="highlight-verbe">est</span> 
+                    <span class="highlight-attribut">heureuse</span>
+                </p>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #4facfe; font-size: 1.3em; margin-bottom: 15px;">✓ Exemples d'Adjectifs Attributs :</h4>
+                <div class="example">
+                    Le ciel <span class="highlight-verbe">est</span> <span class="highlight-attribut">bleu</span>.
+                </div>
+                <div class="example">
+                    Marie <span class="highlight-verbe">semble</span> <span class="highlight-attribut">fatiguée</span>.
+                </div>
+                <div class="example">
+                    Ces fleurs <span class="highlight-verbe">paraissent</span> <span class="highlight-attribut">magnifiques</span>.
+                </div>
+                <div class="example">
+                    Pierre <span class="highlight-verbe">reste</span> <span class="highlight-attribut">silencieux</span>.
+                </div>
+                <div class="example">
+                    Les enfants <span class="highlight-verbe">deviennent</span> <span class="highlight-attribut">grands</span>.
+                </div>
+            </div>
+
+            <h2>Les Deux Types d'Attribut</h2>
+
+            <h3>1. Attribut du Sujet</h3>
+            <div class="definition-card">
+                <div class="definition-title">Attribut du Sujet</div>
+                <p style="font-size: 1.2em; line-height: 2; color: #2d3748;">
+                    L'attribut du sujet est relié au <strong>sujet</strong> par un <strong>verbe d'état</strong>. 
+                    Il exprime une caractéristique, une qualité ou un état du sujet.
+                </p>
+            </div>
+
+            <div class="visual-schema">
+                <h5>Structure</h5>
+                <div class="schema-text">
+                    <span class="highlight-sujet">SUJET</span> + 
+                    <span class="highlight-verbe">VERBE D'ÉTAT</span> + 
+                    <span class="highlight-attribut">ATTRIBUT</span>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #667eea; font-size: 1.3em; margin-bottom: 15px;">✓ Exemples :</h4>
+                <div class="example">
+                    <span class="highlight-sujet">Marie</span> <span class="highlight-verbe">est</span> <span class="highlight-attribut">intelligente</span>.
+                </div>
+                <div class="example">
+                    <span class="highlight-sujet">Le temps</span> <span class="highlight-verbe">devient</span> <span class="highlight-attribut">mauvais</span>.
+                </div>
+                <div class="example">
+                    <span class="highlight-sujet">Ces pommes</span> <span class="highlight-verbe">semblent</span> <span class="highlight-attribut">mûres</span>.
+                </div>
+                <div class="example">
+                    <span class="highlight-sujet">Pierre</span> <span class="highlight-verbe">paraît</span> <span class="highlight-attribut">content</span>.
+                </div>
+            </div>
+
+            <h3>Les Verbes d'État</h3>
+            <div class="schema-box">
+                <div class="schema-title">Liste des Principaux Verbes d'État</div>
+                
+                <div class="verbs-grid">
+                    <div class="verb-item">
+                        <strong>être</strong>
+                        <p style="color: #666;">Le plus courant</p>
+                    </div>
+                    <div class="verb-item">
+                        <strong>devenir</strong>
+                        <p style="color: #666;">Évolution, changement</p>
+                    </div>
+                    <div class="verb-item">
+                        <strong>paraître</strong>
+                        <p style="color: #666;">Apparence</p>
+                    </div>
+                    <div class="verb-item">
+                        <strong>sembler</strong>
+                        <p style="color: #666;">Impression</p>
+                    </div>
+                    <div class="verb-item">
+                        <strong>rester</strong>
+                        <p style="color: #666;">Permanence</p>
+                    </div>
+                    <div class="verb-item">
+                        <strong>demeurer</strong>
+                        <p style="color: #666;">Permanence (soutenu)</p>
+                    </div>
+                    <div class="verb-item">
+                        <strong>avoir l'air</strong>
+                        <p style="color: #666;">Apparence</p>
+                    </div>
+                    <div class="verb-item">
+                        <strong>s'avérer</strong>
+                        <p style="color: #666;">Se révéler</p>
+                    </div>
+                    <div class="verb-item">
+                        <strong>se montrer</strong>
+                        <p style="color: #666;">Comportement</p>
+                    </div>
+                    <div class="verb-item">
+                        <strong>passer pour</strong>
+                        <p style="color: #666;">Réputation</p>
+                    </div>
+                    <div class="verb-item">
+                        <strong>se révéler</strong>
+                        <p style="color: #666;">Découverte d'état</p>
+                    </div>
+                    <div class="verb-item">
+                        <strong>se faire</strong>
+                        <p style="color: #666;">Devenir progressif</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #f093fb; font-size: 1.3em; margin-bottom: 15px;">✓ Exemples avec Différents Verbes d'État :</h4>
+                <div class="example">
+                    Le ciel <strong>est</strong> bleu.
+                </div>
+                <div class="example">
+                    Marie <strong>devient</strong> médecin.
+                </div>
+                <div class="example">
+                    Pierre <strong>paraît</strong> fatigué.
+                </div>
+                <div class="example">
+                    Elle <strong>semble</strong> heureuse.
+                </div>
+                <div class="example">
+                    Il <strong>reste</strong> calme.
+                </div>
+                <div class="example">
+                    Tu <strong>as l'air</strong> préoccupé.
+                </div>
+                <div class="example">
+                    Ce projet <strong>s'avère</strong> difficile.
+                </div>
+                <div class="example">
+                    Elle <strong>se montre</strong> courageuse.
+                </div>
+            </div>
+
+            <h3>2. Attribut du COD</h3>
+            <div class="definition-card">
+                <div class="definition-title">Attribut du COD</div>
+                <p style="font-size: 1.2em; line-height: 2; color: #2d3748;">
+                    L'attribut du COD (Complément d'Objet Direct) est relié au <strong>COD</strong> par certains 
+                    verbes. Il exprime une caractéristique du COD.
+                </p>
+            </div>
+
+            <div class="visual-schema">
+                <h5>Structure</h5>
+                <div class="schema-text">
+                    <span class="highlight-sujet">SUJET</span> + 
+                    <span class="highlight-verbe">VERBE</span> + 
+                    <span class="highlight-cod">COD</span> + 
+                    <span class="highlight-attribut">ATTRIBUT</span>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>Verbes introduisant un attribut du COD :</strong><br><br>
+                    • <strong>Rendre</strong> : rendre quelqu'un heureux<br>
+                    • <strong>Trouver</strong> : trouver quelque chose intéressant<br>
+                    • <strong>Juger</strong> : juger quelqu'un compétent<br>
+                    • <strong>Estimer</strong> : estimer quelqu'un capable<br>
+                    • <strong>Considérer</strong> : considérer quelque chose important<br>
+                    • <strong>Croire</strong> : croire quelqu'un innocent<br>
+                    • <strong>Faire</strong> : faire quelqu'un roi<br>
+                    • <strong>Nommer</strong> : nommer quelqu'un directeur<br>
+                    • <strong>Élire</strong> : élire quelqu'un président<br>
+                    • <strong>Tenir pour</strong> : tenir quelqu'un pour responsable
+                </p>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #43e97b; font-size: 1.3em; margin-bottom: 15px;">✓ Exemples d'Attribut du COD :</h4>
+                <div class="example">
+                    Je <span class="highlight-verbe">trouve</span> <span class="highlight-cod">ce livre</span> <span class="highlight-attribut">passionnant</span>.
+                </div>
+                <div class="example">
+                    Elle <span class="highlight-verbe">rend</span> <span class="highlight-cod">ses parents</span> <span class="highlight-attribut">fiers</span>.
+                </div>
+                <div class="example">
+                    Nous <span class="highlight-verbe">jugeons</span> <span class="highlight-cod">cette décision</span> <span class="highlight-attribut">sage</span>.
+                </div>
+                <div class="example">
+                    On l'<span class="highlight-verbe">a élu</span> <span class="highlight-attribut">président</span>.
+                </div>
+                <div class="example">
+                    Je <span class="highlight-verbe">considère</span> <span class="highlight-cod">ce projet</span> <span class="highlight-attribut">urgent</span>.
+                </div>
+                <div class="example">
+                    Le tribunal l'<span class="highlight-verbe">a déclaré</span> <span class="highlight-attribut">innocent</span>.
+                </div>
+            </div>
+
+            <h2>Accord de l'Attribut</h2>
+
+            <h3>Accord de l'Attribut du Sujet</h3>
+            <div class="definition-card">
+                <div class="definition-title">Règle d'Accord</div>
+                <p style="font-size: 1.2em; line-height: 2; color: #2d3748;">
+                    L'attribut du sujet s'accorde en <strong style="color: #667eea;">genre</strong> et en 
+                    <strong style="color: #4facfe;">nombre</strong> avec le <strong>sujet</strong>.
+                </p>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sujet</th>
+                            <th>Genre/Nombre</th>
+                            <th>Verbe</th>
+                            <th>Attribut</th>
+                            <th>Exemple Complet</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pierre</strong></td>
+                            <td>Masc. Sing.</td>
+                            <td>est</td>
+                            <td>content</td>
+                            <td>Pierre est <strong>content</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marie</strong></td>
+                            <td>Fém. Sing.</td>
+                            <td>est</td>
+                            <td>contente</td>
+                            <td>Marie est <strong>contente</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Les garçons</strong></td>
+                            <td>Masc. Plur.</td>
+                            <td>sont</td>
+                            <td>contents</td>
+                            <td>Les garçons sont <strong>contents</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Les filles</strong></td>
+                            <td>Fém. Plur.</td>
+                            <td>sont</td>
+                            <td>contentes</td>
+                            <td>Les filles sont <strong>contentes</strong>.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Accord de l'Attribut du COD</h3>
+            <div class="definition-card">
+                <div class="definition-title">Règle d'Accord</div>
+                <p style="font-size: 1.2em; line-height: 2; color: #2d3748;">
+                    L'attribut du COD s'accorde en <strong style="color: #667eea;">genre</strong> et en 
+                    <strong style="color: #4facfe;">nombre</strong> avec le <strong>COD</strong>.
+                </p>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>COD</th>
+                            <th>Genre/Nombre</th>
+                            <th>Verbe</th>
+                            <th>Attribut du COD</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>ce livre</strong></td>
+                            <td>Masc. Sing.</td>
+                            <td>trouve</td>
+                            <td>intéressant</td>
+                            <td>Je trouve ce livre <strong>intéressant</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>cette histoire</strong></td>
+                            <td>Fém. Sing.</td>
+                            <td>trouve</td>
+                            <td>intéressante</td>
+                            <td>Je trouve cette histoire <strong>intéressante</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ces livres</strong></td>
+                            <td>Masc. Plur.</td>
+                            <td>trouve</td>
+                            <td>intéressants</td>
+                            <td>Je trouve ces livres <strong>intéressants</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ces histoires</strong></td>
+                            <td>Fém. Plur.</td>
+                            <td>trouve</td>
+                            <td>intéressantes</td>
+                            <td>Je trouve ces histoires <strong>intéressantes</strong>.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="warning-box">
+                <p>
+                    <strong>ERREUR FRÉQUENTE :</strong> Ne pas accorder l'attribut !<br><br>
+                    ❌ <del>Marie est content.</del> (mauvais accord)<br>
+                    ✓ Marie est <strong>contente</strong>. (accord correct)<br><br>
+                    ❌ <del>Les filles sont content.</del> (pas d'accord)<br>
+                    ✓ Les filles sont <strong>contentes</strong>. (accord correct)<br><br>
+                    ❌ <del>Je trouve cette idée intéressant.</del><br>
+                    ✓ Je trouve cette idée <strong>intéressante</strong>.
+                </p>
+            </div>
+
+            <h2>Différences : Épithète, Apposition, Attribut</h2>
+            <div class="comparison-table">
+                <h4>Les Trois Fonctions de l'Adjectif</h4>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h5>ÉPITHÈTE</h5>
+                        <div style="line-height: 2; color: #2d3748; margin-top: 15px;">
+                            <strong style="color: #667eea;">• Sans verbe</strong><br>
+                            Directement avec le nom<br><br>
+                            <strong style="color: #667eea;">• Sans virgule</strong><br>
+                            Attachée au nom<br><br>
+                            <strong style="color: #667eea;">• Supprimable</strong><br>
+                            Pas essentielle<br><br>
+                            <strong style="color: #667eea;">• Exemple :</strong><br>
+                            Une <strong>belle</strong> maison
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <h5>APPOSITION</h5>
+                        <div style="line-height: 2; color: #2d3748; margin-top: 15px;">
+                            <strong style="color: #f093fb;">• Sans verbe</strong><br>
+                            Séparée du nom<br><br>
+                            <strong style="color: #f093fb;">• Avec virgule(s)</strong><br>
+                            Détachée du nom<br><br>
+                            <strong style="color: #f093fb;">• Supprimable</strong><br>
+                            Information complémentaire<br><br>
+                            <strong style="color: #f093fb;">• Exemple :</strong><br>
+                            Marie, <strong>heureuse</strong>, sourit.
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <h5>ATTRIBUT</h5>
+                        <div style="line-height: 2; color: #2d3748; margin-top: 15px;">
+                            <strong style="color: #4facfe;">• Avec un verbe</strong><br>
+                            Reliée par un verbe<br><br>
+                            <strong style="color: #4facfe;">• Sans virgule</strong><br>
+                            Après le verbe<br><br>
+                            <strong style="color: #4facfe;">• NON supprimable</strong><br>
+                            Essentielle à la phrase<br><br>
+                            <strong style="color: #4facfe;">• Exemple :</strong><br>
+                            Marie <strong>est</strong> heureuse.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #667eea; font-size: 1.3em; margin-bottom: 15px;">Comparaison avec le Même Adjectif :</h4>
+                <div class="example">
+                    <strong>ÉPITHÈTE :</strong> J'ai acheté une <span style="background: #667eea30; padding: 2px 8px; border-radius: 4px;">belle</span> voiture.
+                    <br><small style="color: #666;">(directement avec le nom, sans verbe)</small>
+                </div>
+                <div class="example">
+                    <strong>APPOSITION :</strong> Ma voiture, <span style="background: #f093fb30; padding: 2px 8px; border-radius: 4px;">belle</span>, attire les regards.
+                    <br><small style="color: #666;">(séparée par des virgules, sans verbe)</small>
+                </div>
+                <div class="example">
+                    <strong>ATTRIBUT :</strong> Ma voiture <strong>est</strong> <span style="background: #4facfe30; padding: 2px 8px; border-radius: 4px;">belle</span>.
+                    <br><small style="color: #666;">(reliée par le verbe « est »)</small>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <h4>Test Simple de Distinction</h4>
+                <p style="line-height: 2; color: #2d3748;">
+                    Pour savoir quelle fonction a l'adjectif :<br><br>
+                    <strong>1. Y a-t-il un verbe entre l'adjectif et le nom ?</strong><br>
+                    • OUI → c'est un <strong>ATTRIBUT</strong><br>
+                    • NON → continuez au test 2<br><br>
+                    <strong>2. Y a-t-il des virgules autour de l'adjectif ?</strong><br>
+                    • OUI → c'est une <strong>APPOSITION</strong><br>
+                    • NON → c'est une <strong>ÉPITHÈTE</strong><br><br>
+                    <strong>Exemple de test :</strong><br>
+                    « Marie est heureuse » → Verbe « est » présent → <strong>ATTRIBUT</strong> ! 🔗
+                </p>
+            </div>
+
+            <h2>Exercices Pratiques</h2>
+            <div class="example-box">
+                <h4 style="color: #667eea; font-size: 1.4em; margin-bottom: 15px;">Identifiez l'adjectif attribut et dites s'il est attribut du sujet ou du COD :</h4>
+                <div class="example">1. Le ciel est bleu.</div>
+                <div class="example">2. Marie trouve ce film intéressant.</div>
+                <div class="example">3. Les enfants semblent fatigués.</div>
+                <div class="example">4. Nous jugeons cette décision importante.</div>
+                <div class="example">5. Pierre devient grand.</div>
+                <div class="example">6. Elle rend ses parents fiers.</div>
+                <div class="example">7. Tu as l'air préoccupé.</div>
+                <div class="example">8. Je considère ce projet urgent.</div>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #4facfe; font-size: 1.4em; margin-bottom: 15px;">Accordez les adjectifs attributs :</h4>
+                <div class="example">1. Marie est (content) ___________.</div>
+                <div class="example">2. Les filles semblent (fatigué) ___________.</div>
+                <div class="example">3. Pierre et Paul sont (intelligent) ___________.</div>
+                <div class="example">4. Ces fleurs paraissent (fané) ___________.</div>
+                <div class="example">5. Je trouve cette idée (intéressant) ___________.</div>
+                <div class="example">6. Nous jugeons ces décisions (important) ___________.</div>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #f093fb; font-size: 1.4em; margin-bottom: 15px;">Distinguez : Épithète, Apposition ou Attribut ?</h4>
+                <div class="example">1. Marie est heureuse. → ___________</div>
+                <div class="example">2. Une belle maison. → ___________</div>
+                <div class="example">3. Marie, heureuse, sourit. → ___________</div>
+                <div class="example">4. Le chat dort. Il est noir. → ___________ (pour "noir")</div>
+                <div class="example">5. Fatigué, Pierre rentra. → ___________</div>
+                <div class="example">6. Je trouve ce livre passionnant. → ___________ (pour "passionnant")</div>
+                <div class="example">7. Un grand château. → ___________</div>
+                <div class="example">8. Le temps devient mauvais. → ___________ (pour "mauvais")</div>
+            </div>
+
+            <div class="tip-box">
+                <h4>Méthode de Reconnaissance de l'Attribut</h4>
+                <p style="line-height: 2; color: #2d3748;">
+                    Pour identifier un adjectif attribut :<br><br>
+                    <strong>1.</strong> Cherchez les <strong>verbes</strong> dans la phrase<br>
+                    <strong>2.</strong> Est-ce un verbe d'état (être, sembler, paraître...) ?<br>
+                    <strong>3.</strong> Y a-t-il un adjectif après ce verbe ?<br>
+                    <strong>4.</strong> Cet adjectif qualifie-t-il le sujet ? → <strong>Attribut du sujet</strong><br>
+                    <strong>5.</strong> Ou qualifie-t-il le COD ? → <strong>Attribut du COD</strong><br><br>
+                    <strong>Test de suppression :</strong> Essayez de supprimer l'adjectif.<br>
+                    • Si la phrase n'a plus de sens → c'est un <strong>ATTRIBUT</strong> !<br>
+                    • Si la phrase reste correcte → c'est une <strong>ÉPITHÈTE</strong> ou une <strong>APPOSITION</strong> ! 🎭
+                </p>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>En résumé :</strong> L'adjectif attribut est une fonction essentielle qui relie 
+                    l'adjectif au nom par l'intermédiaire d'un verbe. Il existe deux types : l'attribut du sujet 
+                    (avec les verbes d'état) et l'attribut du COD (avec des verbes comme trouver, juger, rendre). 
+                    L'attribut s'accorde avec le mot qu'il qualifie et est <strong>indispensable</strong> à la phrase : 
+                    on ne peut pas le supprimer. Maîtriser l'attribut est fondamental pour construire des phrases 
+                    correctes et exprimer des états, des caractéristiques et des jugements ! 🔗
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p><span class="emoji-decoration">🎓</span> <strong>Língua Academy</strong> <span class="emoji-decoration">🎓</span></p>
+            <p>Maîtrisez toutes les fonctions de l'adjectif !</p>
+            <p style="font-size: 0.9em; opacity: 0.8; margin-top: 15px;">© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

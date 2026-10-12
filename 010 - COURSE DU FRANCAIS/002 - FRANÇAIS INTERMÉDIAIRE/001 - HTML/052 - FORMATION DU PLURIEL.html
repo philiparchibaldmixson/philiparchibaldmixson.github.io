@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation du Pluriel des Adjectifs Qualificatifs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "✖";
+            position: absolute;
+            font-size: 300px;
+            opacity: 0.1;
+            top: -80px;
+            right: -50px;
+            transform: rotate(15deg);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 45px;
+            border-left: 6px solid #667eea;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .intro h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .intro p {
+            line-height: 1.9;
+            color: #2d3748;
+            font-size: 1.1em;
+        }
+
+        .rule-section {
+            margin-bottom: 50px;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .rule-section:nth-child(2) { animation-delay: 0.1s; }
+        .rule-section:nth-child(3) { animation-delay: 0.2s; }
+        .rule-section:nth-child(4) { animation-delay: 0.3s; }
+        .rule-section:nth-child(5) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .rule-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 25px 35px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+        }
+
+        .rule-number {
+            background: white;
+            color: #4facfe;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6em;
+            font-weight: bold;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .rule-title {
+            font-size: 1.7em;
+            font-weight: bold;
+        }
+
+        .rule-content {
+            background: #f8faff;
+            padding: 35px;
+            border-radius: 12px;
+            border: 2px solid #e0e7ff;
+        }
+
+        .rule-explanation {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 5px solid #4facfe;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .rule-explanation strong {
+            color: #4facfe;
+            font-size: 1.15em;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .example-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #667eea;
+        }
+
+        .example-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .number-comparison {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .singular {
+            flex: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.25em;
+            font-weight: bold;
+        }
+
+        .arrow {
+            font-size: 2.2em;
+            color: #4facfe;
+            font-weight: bold;
+        }
+
+        .plural {
+            flex: 1;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.25em;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: #f5576c;
+            font-weight: bold;
+            background: #fff5f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.15em;
+        }
+
+        td {
+            padding: 20px;
+            border-bottom: 1px solid #e0e7ff;
+            font-size: 1.05em;
+        }
+
+        tr:hover {
+            background: #f8faff;
+        }
+
+        .exception-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 25px;
+            border: 2px solid #fcb69f;
+            box-shadow: 0 5px 20px rgba(252, 182, 159, 0.3);
+        }
+
+        .exception-box h4 {
+            color: #c94b1f;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .exception-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .exception-item {
+            background: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border-left: 6px solid #4facfe;
+            box-shadow: 0 5px 20px rgba(168, 237, 234, 0.4);
+        }
+
+        .tip-box h3 {
+            color: #4facfe;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.4em;
+        }
+
+        .special-case {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 3px solid #fdcb6e;
+        }
+
+        .special-case h3 {
+            color: #d63031;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .accord-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .accord-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #d63031;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .accord-card h4 {
+            color: #d63031;
+            margin-bottom: 10px;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 15px;
+            margin-top: 50px;
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+        }
+
+        .summary-box h2 {
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            text-align: center;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .summary-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .summary-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+
+        .summary-item h4 {
+            margin-bottom: 12px;
+            font-size: 1.3em;
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.95em;
+        }
+
+        .icon {
+            display: inline-block;
+            font-size: 1.5em;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-top: 12px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.7;
+            color: #2d3748;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✖️ Formation du Pluriel</h1>
+            <p class="subtitle">Les Adjectifs Qualificatifs en Français</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <h2><span class="icon">📖</span> Introduction</h2>
+                <p>En français, l'adjectif qualificatif s'accorde en nombre avec le nom qu'il qualifie. Pour former le pluriel d'un adjectif, plusieurs règles s'appliquent selon la terminaison de l'adjectif au singulier. Découvrons ensemble toutes ces règles de transformation !</p>
+            </div>
+
+            <div class="rule-section">
+                <div class="rule-header">
+                    <div class="rule-number">1</div>
+                    <div class="rule-title">Règle Générale : Ajout du -s</div>
+                </div>
+                <div class="rule-content">
+                    <div class="rule-explanation">
+                        <strong>Règle :</strong> Pour former le pluriel, on ajoute simplement un <span class="highlight">-s</span> à la fin de l'adjectif singulier.
+                    </div>
+                    
+                    <div class="examples-grid">
+                        <div class="example-card">
+                            <div class="number-comparison">
+                                <div class="singular">grand</div>
+                                <div class="arrow">→</div>
+                                <div class="plural">grands</div>
+                            </div>
+                        </div>
+                        <div class="example-card">
+                            <div class="number-comparison">
+                                <div class="singular">petite</div>
+                                <div class="arrow">→</div>
+                                <div class="plural">petites</div>
+                            </div>
+                        </div>
+                        <div class="example-card">
+                            <div class="number-comparison">
+                                <div class="singular">intelligent</div>
+                                <div class="arrow">→</div>
+                                <div class="plural">intelligents</div>
+                            </div>
+                        </div>
+                        <div class="example-card">
+                            <div class="number-comparison">
+                                <div class="singular">amusant</div>
+                                <div class="arrow">→</div>
+                                <div class="plural">amusants</div>
+                            </div>
+                        </div>
+                        <div class="example-card">
+                            <div class="number-comparison">
+                                <div class="singular">bleu</div>
+                                <div class="arrow">→</div>
+                                <div class="plural">bleus</div>
+                            </div>
+                        </div>
+                        <div class="example-card">
+                            <div class="number-comparison">
+                                <div class="singular">forte</div>
+                                <div class="arrow">→</div>
+                                <div class="plural">fortes</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <h3><span class="icon">💡</span> À savoir</h3>
+                        <p>Cette règle s'applique à la majorité des adjectifs en français. C'est la forme la plus courante du pluriel !</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-section">
+                <div class="rule-header">
+                    <div class="rule-number">2</div>
+                    <div class="rule-title">Adjectifs terminés par -s ou -x</div>
+                </div>
+                <div class="rule-content">
+                    <div class="rule-explanation">
+                        <strong>Règle :</strong> Les adjectifs qui se terminent déjà par <span class="highlight">-s</span> ou <span class="highlight">-x</span> au singulier <strong>ne changent pas</strong> au pluriel.
+                    </div>
+                    
+                    <table>
+                        <tr>
+                            <th>Terminaison</th>
+                            <th>Singulier</th>
+                            <th>Pluriel</th>
+                        </tr>
+                        <tr>
+                            <td><strong>-s</strong></td>
+                            <td>gris</td>
+                            <td>gris</td>
+                        </tr>
+                        <tr>
+                            <td><strong>-s</strong></td>
+                            <td>français</td>
+                            <td>français</td>
+                        </tr>
+                        <tr>
+                            <td><strong>-s</strong></td>
+                            <td>épais</td>
+                            <td>épais</td>
+                        </tr>
+                        <tr>
+                            <td><strong>-x</strong></td>
+                            <td>heureux</td>
+                            <td>heureux</td>
+                        </tr>
+                        <tr>
+                            <td><strong>-x</strong></td>
+                            <td>jaloux</td>
+                            <td>jaloux</td>
+                        </tr>
+                        <tr>
+                            <td><strong>-x</strong></td>
+                            <td>doux</td>
+                            <td>doux</td>
+                        </tr>
+                    </table>
+
+                    <div class="examples-grid">
+                        <div class="example-card">
+                            <div class="number-comparison">
+                                <div class="singular">bas</div>
+                                <div class="arrow">→</div>
+                                <div class="plural">bas</div>
+                            </div>
+                        </div>
+                        <div class="example-card">
+                            <div class="number-comparison">
+                                <div class="singular">précis</div>
+                                <div class="arrow">→</div>
+                                <div class="plural">précis</div>
+                            </div>
+                        </div>
+                        <div class="example-card">
+                            <div class="number-comparison">
+                                <div class="singular">généreux</div>
+                                <div class="arrow">→</div>
+                                <div class="plural">généreux</div>
+                            </div>
+                        </div>
+                        <div class="example-card">
+                            <div class="number-comparison">
+                                <div class="singular">vieux</div>
+                                <div class="arrow">→</div>
+                                <div class="plural">vieux</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-section">
+                <div class="rule-header">
+                    <div class="rule-number">3</div>
+                    <div class="rule-title">Adjectifs en -eau → -eaux</div>
+                </div>
+                <div class="rule-content">
+                    <div class="rule-explanation">
+                        <strong>Règle :</strong> Les adjectifs terminés par <span class="highlight">-eau</span> prennent un <span class="highlight">-x</span> au pluriel au lieu du -s.
+                    </div>
+                    
+                    <div class="examples-grid">
+                        <div class="example-card">
+                            <div class="number-comparison">
+                                <div class="singular">beau</div>
+                                <div class="arrow">→</div>
+                                <div class="plural">beaux</div>
+                            </div>
+                        </div>
+                        <div class="example-card">
+                            <div class="number-comparison">
+                                <div class="singular">nouveau</div>
+                                <div class="arrow">→</div>
+                                <div class="plural">nouveaux</div>
+                            </div>
+                        </div>
+                        <div class="example-card">
+                            <div class="number-comparison">
+                                <div class="singular">jumeau</div>
+                                <div class="arrow">→</div>
+                                <div class="plural">jumeaux</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <h3><span class="icon">✨</span> Exemples en contexte</h3>
+                        <ul>
+                            <li>Un <strong>beau</strong> garçon → Des <strong>beaux</strong> garçons</li>
+                            <li>Un <strong>nouveau</strong> livre → Des <strong>nouveaux</strong> livres</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-section">
+                <div class="rule-header">
+                    <div class="rule-number">4</div>
+                    <div class="rule-title">Adjectifs en -al → -aux</div>
+                </div>
+                <div class="rule-content">
+                    <div class="rule-explanation">
+                        <strong>Règle :</strong> La plupart des adjectifs terminés par <span class="highlight">-al</span> se transforment en <span class="highlight">-aux</span> au pluriel.
+                    </div>
+                    
+                    <table>
+                        <tr>
+                            <th>Singulier</th>
+                            <th>Pluriel</th>
+                            <th>Exemple</th>
+                        </tr>
+                        <tr>
+                            <td><strong>royal</strong></td>
+                            <td>royaux</td>
+                            <td>Un palais royal → Des palais royaux</td>
+                        </tr>
+                        <tr>
+                            <td><strong>national</strong></td>
+                            <td>nationaux</td>
+                            <td>Un hymne national → Des hymnes nationaux</td>
+                        </tr>
+                        <tr>
+                            <td><strong>normal</strong></td>
+                            <td>normaux</td>
+                            <td>Un comportement normal → Des comportements normaux</td>
+                        </tr>
+                        <tr>
+                            <td><strong>loyal</strong></td>
+                            <td>loyaux</td>
+                            <td>Un ami loyal → Des amis loyaux</td>
+                        </tr>
+                        <tr>
+                            <td><strong>génial</strong></td>
+                            <td>géniaux</td>
+                            <td>Un homme génial → Des hommes géniaux</td>
+                        </tr>
+                        <tr>
+                            <td><strong>spécial</strong></td>
+                            <td>spéciaux</td>
+                            <td>Un moment spécial → Des moments spéciaux</td>
+                        </tr>
+                    </table>
+
+                    <div class="exception-box">
+                        <h4><span class="icon">⚠️</span> Exceptions importantes :</h4>
+                        <p>Certains adjectifs en -al prennent simplement un <strong>-s</strong> au pluriel :</p>
+                        <div class="exception-list">
+                            <div class="exception-item">banal → banals</div>
+                            <div class="exception-item">fatal → fatals</div>
+                            <div class="exception-item">naval → navals</div>
+                            <div class="exception-item">natal → natals</div>
+                            <div class="exception-item">final → finals</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="special-case">
+                <h3><span class="icon">🎯</span> Cas Spécial : Accord avec Plusieurs Noms</h3>
+                <p style="margin-bottom: 20px; line-height: 1.8; color: #2d3748;">Lorsqu'un adjectif qualifie <strong>plusieurs noms</strong>, l'accord suit des règles particulières :</p>
+                
+                <div class="accord-grid">
+                    <div class="accord-card">
+                        <h4>1️⃣ Noms du même genre</h4>
+                        <p><strong>L'adjectif se met au pluriel</strong> et prend le genre des noms.</p>
+                        <p style="margin-top: 10px; color: #667eea;">✓ Une table et une chaise <span class="highlight">blanches</span></p>
+                        <p style="color: #667eea;">✓ Un chapeau et un manteau <span class="highlight">noirs</span></p>
+                    </div>
+
+                    <div class="accord-card">
+                        <h4>2️⃣ Noms de genres différents</h4>
+                        <p><strong>L'adjectif se met au masculin pluriel</strong> (le masculin l'emporte).</p>
+                        <p style="margin-top: 10px; color: #667eea;">✓ Un garçon et une fille <span class="highlight">intelligents</span></p>
+                        <p style="color: #667eea;">✓ Une robe et un pantalon <span class="highlight">neufs</span></p>
+                    </div>
+
+                    <div class="accord-card">
+                        <h4>3️⃣ Adjectif avant les noms</h4>
+                        <p>Si l'adjectif est placé <strong>avant</strong> les noms, il peut s'accorder seulement avec le premier nom.</p>
+                        <p style="margin-top: 10px; color: #667eea;">✓ De <span class="highlight">belles</span> fleurs et arbres</p>
+                    </div>
+
+                    <div class="accord-card">
+                        <h4>4️⃣ Adjectif après les noms</h4>
+                        <p>Si l'adjectif est placé <strong>après</strong> les noms, il s'accorde avec tous les noms au pluriel.</p>
+                        <p style="margin-top: 10px; color: #667eea;">✓ Des fleurs et des arbres <span class="highlight">magnifiques</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <h3><span class="icon">🎓</span> Astuces de Mémorisation</h3>
+                <ul>
+                    <li><strong>Règle générale :</strong> + s (la plus fréquente)</li>
+                    <li><strong>Déjà -s ou -x :</strong> Pas de changement (invariable)</li>
+                    <li><strong>-eau :</strong> Penser à "beaux" et "nouveaux" pour retenir le -x</li>
+                    <li><strong>-al :</strong> Généralement -aux, sauf les exceptions (banals, fatals, navals, natals, finals)</li>
+                    <li><strong>Plusieurs noms :</strong> Genre différent = masculin pluriel</li>
+                </ul>
+            </div>
+
+            <div class="summary-box">
+                <h2>📋 Tableau Récapitulatif</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Règle Générale</h4>
+                        <p>+ s<br><br>petit → petits<br>grande → grandes</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Déjà -s ou -x</h4>
+                        <p>Invariable<br><br>gris → gris<br>heureux → heureux</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>-eau → -eaux</h4>
+                        <p>Ajout de x<br><br>beau → beaux<br>nouveau → nouveaux</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>-al → -aux</h4>
+                        <p>Transformation<br><br>royal → royaux<br>normal → normaux</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Exceptions -al</h4>
+                        <p>+ s seulement<br><br>banal → banals<br>fatal → fatals</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Plusieurs noms</h4>
+                        <p>Genre mixte<br><br>Masculin pluriel<br>(le masculin l'emporte)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>✖️ Grammaire Française - Formation du Pluriel des Adjectifs © 2024</p>
+            <p style="margin-top: 12px; opacity: 0.85;">Maîtrisez l'accord en nombre !</p>
+        </footer>
+    </div>
+</body>
+</html>

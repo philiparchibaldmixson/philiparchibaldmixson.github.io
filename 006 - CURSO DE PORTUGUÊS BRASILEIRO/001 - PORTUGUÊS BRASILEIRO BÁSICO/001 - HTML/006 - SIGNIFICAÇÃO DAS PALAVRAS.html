@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Significação das Palavras em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #5E3A8C 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .conceitos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .conceito-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            color: white;
+        }
+
+        .conceito-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .conceito-card.sinonimia {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+        }
+
+        .conceito-card.antonimia {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+        }
+
+        .conceito-card.homonimia {
+            background: linear-gradient(135deg, #F7DC6F, #F39C12);
+        }
+
+        .conceito-card.paronimia {
+            background: linear-gradient(135deg, #BB8FCE, #9B59B6);
+        }
+
+        .conceito-card.polissemia {
+            background: linear-gradient(135deg, #E91E63, #D81159);
+        }
+
+        .conceito-card.hiperonimia {
+            background: linear-gradient(135deg, #52B788, #2D6A4F);
+        }
+
+        .conceito-card h3 {
+            color: white;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .conceito-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .conceito-card .exemplo {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        .conceito-card .exemplo strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
+        .tabela-palavras {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tabela-palavras thead {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .tabela-palavras th {
+            padding: 20px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        .tabela-palavras td {
+            padding: 18px 20px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        .tabela-palavras tr:hover {
+            background: #f5f5f5;
+        }
+
+        .tabela-palavras .palavra-destaque {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .exemplo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #667eea;
+        }
+
+        .exemplo-card .titulo {
+            font-size: 2em;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .tipo {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .significados {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 2;
+        }
+
+        .exemplo-card .frase {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .dicas-box {
+            background: linear-gradient(135deg, #52B788, #2D6A4F);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "📝";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        .comparacao-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .comparacao-item {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .comparacao-item.item1 {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+        }
+
+        .comparacao-item.item2 {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+        }
+
+        .comparacao-item h4 {
+            color: white;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .comparacao-item .conteudo {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            font-size: 1.1em;
+            line-height: 2;
+        }
+
+        .quiz-box {
+            background: linear-gradient(135deg, #E91E63, #D81159);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .quiz-box h4 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .quiz-item {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-item .pergunta {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .quiz-item .opcoes {
+            font-size: 1.1em;
+            line-height: 2;
+            padding-left: 20px;
+        }
+
+        .quiz-item .resposta {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        .sentido-card {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            color: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .sentido-card h4 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sentido-item {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .sentido-item .numero {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .sentido-item .explicacao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .sentido-item .exemplo-frase {
+            background: rgba(255,255,255,0.2);
+            padding: 12px;
+            border-radius: 8px;
+            font-style: italic;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #5E3A8C 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .conceito-card, .destaque, .dicas-box, .quiz-box,
+            .comparacao-item, .exemplo-card, .sentido-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .comparacao-box {
+                grid-template-columns: 1fr;
+            }
+
+            .conceitos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Significação das Palavras 📚</h1>
+        <p class="subtitle">Entenda os múltiplos significados e relações entre as palavras!</p>
+
+        <div class="section">
+            <h2>📖 O que é Significação das Palavras?</h2>
+            <p class="intro-text">
+                <strong>Significação</strong> é o estudo das relações de sentido entre as palavras. 
+                Uma mesma palavra pode ter vários significados dependendo do contexto, e palavras diferentes 
+                podem ter significados iguais ou parecidos. Compreender essas relações é fundamental para 
+                dominar a língua portuguesa e se comunicar com clareza e precisão.
+            </p>
+
+            <div class="destaque">
+                <strong>💡 Importante:</strong> O significado das palavras não é fixo! Ele pode mudar com 
+                o contexto, a região, o tempo e até mesmo a intenção do falante. Por isso, estudar 
+                significação nos ajuda a compreender melhor os textos e a nos expressarmos corretamente.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Principais Relações de Significado</h2>
+            <p class="intro-text">
+                As palavras podem se relacionar de diversas formas. Conheça os principais tipos:
+            </p>
+
+            <div class="conceitos-grid">
+                <div class="conceito-card sinonimia">
+                    <h3>Sinonímia</h3>
+                    <div class="definicao">
+                        Palavras com significados semelhantes ou iguais.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Bonito = Belo = Formoso<br>
+                        • Feliz = Alegre = Contente<br>
+                        • Casa = Lar = Residência<br>
+                        • Rápido = Veloz = Célere
+                    </div>
+                </div>
+
+                <div class="conceito-card antonimia">
+                    <h3>Antonímia</h3>
+                    <div class="definicao">
+                        Palavras com significados opostos ou contrários.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Bonito ≠ Feio<br>
+                        • Feliz ≠ Triste<br>
+                        • Grande ≠ Pequeno<br>
+                        • Claro ≠ Escuro
+                    </div>
+                </div>
+
+                <div class="conceito-card homonimia">
+                    <h3>Homonímia</h3>
+                    <div class="definicao">
+                        Palavras com mesma pronúncia ou grafia, mas significados diferentes.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • São (santo / verbo ser / saudável)<br>
+                        • Manga (fruta / parte da roupa)<br>
+                        • Cela (quarto) / Sela (assento)
+                    </div>
+                </div>
+
+                <div class="conceito-card paronimia">
+                    <h3>Paronímia</h3>
+                    <div class="definicao">
+                        Palavras com grafia e pronúncia parecidas, mas significados diferentes.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Ratificar (confirmar) / Retificar (corrigir)<br>
+                        • Eminente (notável) / Iminente (próximo)<br>
+                        • Cavaleiro / Cavalheiro
+                    </div>
+                </div>
+
+                <div class="conceito-card polissemia">
+                    <h3>Polissemia</h3>
+                    <div class="definicao">
+                        Uma palavra com múltiplos significados relacionados entre si.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Cabeça (parte do corpo / líder / inteligência)<br>
+                        • Pé (parte do corpo / base / medida)<br>
+                        • Linha (fio / fila / raciocínio)
+                    </div>
+                </div>
+
+                <div class="conceito-card hiperonimia">
+                    <h3>Hiperonímia e Hiponímia</h3>
+                    <div class="definicao">
+                        Relação de generalização (hiperônimo) e especificação (hipônimo).
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplos:</strong><br>
+                        • Fruta (hiperônimo) → Maçã, Banana (hipônimos)<br>
+                        • Veículo → Carro, Moto<br>
+                        • Animal → Cachorro, Gato
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔄 Sinônimos - Palavras Irmãs</h2>
+            <p class="intro-text">
+                Os sinônimos são palavras que têm significados muito parecidos, mas nem sempre são 
+                intercambiáveis em todos os contextos. Existem diferentes graus de sinonímia:
+            </p>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-palavras">
+                    <thead>
+                        <tr>
+                            <th>Palavra</th>
+                            <th>Sinônimos</th>
+                            <th>Contexto de Uso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="palavra-destaque">Bonito</td>
+                            <td>Belo, lindo, formoso, atraente</td>
+                            <td>Todos intercambiáveis na maioria dos contextos</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Morrer</td>
+                            <td>Falecer, perecer, expirar, bater as botas</td>
+                            <td>"Falecer" é mais formal; "bater as botas" é informal</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Criança</td>
+                            <td>Menino, garoto, infante, petiz, fedelho</td>
+                            <td>"Infante" é formal; "fedelho" pode ser pejorativo</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Inteligente</td>
+                            <td>Esperto, sabido, astuto, sagaz, perspicaz</td>
+                            <td>"Astuto" e "sagaz" têm conotação de esperteza</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Gordo</td>
+                            <td>Obeso, corpulento, roliço, rechonchudo</td>
+                            <td>"Obeso" é técnico; "roliço" é mais suave</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="destaque" style="margin-top: 30px;">
+                <strong>⚠️ Atenção:</strong> Nem sempre sinônimos perfeitos existem! Muitas vezes há 
+                diferenças sutis de significado, tom, formalidade ou conotação. Por exemplo: "casa" e 
+                "lar" são sinônimos, mas "lar" tem uma carga emocional mais forte.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⚡ Antônimos - Palavras Opostas</h2>
+            <p class="intro-text">
+                Os antônimos expressam ideias opostas. Podem ser formados por:
+            </p>
+
+            <h3>1. Palavras Diferentes</h3>
+            <div class="tabela-wrapper">
+                <table class="tabela-palavras">
+                    <thead>
+                        <tr>
+                            <th>Palavra</th>
+                            <th>Antônimo</th>
+                            <th>Exemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="palavra-destaque">Amor</td>
+                            <td>Ódio</td>
+                            <td>O amor vence o ódio</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Alto</td>
+                            <td>Baixo</td>
+                            <td>Edifício alto e baixo</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Rápido</td>
+                            <td>Lento</td>
+                            <td>Corredor rápido e lento</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Claro</td>
+                            <td>Escuro</td>
+                            <td>Dia claro e noite escura</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>2. Por Prefixos de Negação</h3>
+            <div class="tabela-wrapper">
+                <table class="tabela-palavras">
+                    <thead>
+                        <tr>
+                            <th>Prefixo</th>
+                            <th>Palavra Original</th>
+                            <th>Antônimo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>IN-</strong></td>
+                            <td>Feliz / Capaz / Útil</td>
+                            <td>Infeliz / Incapaz / Inútil</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DES-</strong></td>
+                            <td>Fazer / Ligar / Cobrir</td>
+                            <td>Desfazer / Desligar / Descobrir</td>
+                        </tr>
+                        <tr>
+                            <td><strong>A-</strong></td>
+                            <td>Normal / Típico / Moral</td>
+                            <td>Anormal / Atípico / Amoral</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ANTI-</strong></td>
+                            <td>Social / Higiênico / Pático</td>
+                            <td>Antissocial / Anti-higiênico / Antipático</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>👥 Homônimos - Palavras Gêmeas</h2>
+            <p class="intro-text">
+                Os homônimos são divididos em três categorias:
+            </p>
+
+            <div class="comparacao-box">
+                <div class="comparacao-item item1">
+                    <h4>Homógrafos</h4>
+                    <div class="conteudo">
+                        <strong>Mesma grafia, mesma pronúncia</strong><br><br>
+                        • <strong>São:</strong> santo / verbo ser / saudável<br>
+                        • <strong>Manga:</strong> fruta / parte da roupa<br>
+                        • <strong>Banco:</strong> assento / instituição financeira<br>
+                        • <strong>Vela:</strong> de cera / de barco<br>
+                        • <strong>Letra:</strong> caractere / música
+                    </div>
+                </div>
+
+                <div class="comparacao-item item2">
+                    <h4>Homófonos</h4>
+                    <div class="conteudo">
+                        <strong>Grafia diferente, mesma pronúncia</strong><br><br>
+                        • <strong>Cela</strong> (quarto) / <strong>Sela</strong> (assento)<br>
+                        • <strong>Conserto</strong> (reparo) / <strong>Concerto</strong> (musical)<br>
+                        • <strong>Cessão</strong> (ato de ceder) / <strong>Sessão</strong> (reunião) / <strong>Seção</strong> (divisão)<br>
+                        • <strong>Coser</strong> (costurar) / <strong>Cozer</strong> (cozinhar)
+                    </div>
+                </div>
+            </div>
+
+            <div class="exemplo-card">
+                <div class="titulo">MANGA - Exemplo de Homônimo Perfeito</div>
+                <div class="tipo">Homógrafo e Homófono</div>
+                <div class="significados">
+                    <strong>1.</strong> Fruta tropical amarela e doce<br>
+                    <div class="frase">"Eu adoro comer manga no verão."</div>
+                    <br>
+                    <strong>2.</strong> Parte da roupa que cobre o braço<br>
+                    <div class="frase">"A manga da camisa está rasgada."</div>
+                    <br>
+                    <strong>3.</strong> Tubo para regar jardim (mangueira)<br>
+                    <div class="frase">"Pegue a manga para molhar as plantas."</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔀 Parônimos - Palavras Primas</h2>
+            <p class="intro-text">
+                Os parônimos são palavras parecidas mas com significados diferentes. São fontes comuns de confusão:
+            </p>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-palavras">
+                    <thead>
+                        <tr>
+                            <th>Palavra 1</th>
+                            <th>Significado</th>
+                            <th>Palavra 2</th>
+                            <th>Significado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="palavra-destaque">Absolver</td>
+                            <td>Perdoar, inocentar</td>
+                            <td class="palavra-destaque">Absorver</td>
+                            <td>Sugar, aspirar</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Cavaleiro</td>
+                            <td>Que anda a cavalo</td>
+                            <td class="palavra-destaque">Cavalheiro</td>
+                            <td>Homem educado</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Comprimento</td>
+                            <td>Extensão, tamanho</td>
+                            <td class="palavra-destaque">Cumprimento</td>
+                            <td>Saudação</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Deferir</td>
+                            <td>Conceder, aprovar</td>
+                            <td class="palavra-destaque">Diferir</td>
+                            <td>Ser diferente, adiar</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Descrição</td>
+                            <td>Ato de descrever</td>
+                            <td class="palavra-destaque">Discrição</td>
+                            <td>Qualidade de discreto</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Eminente</td>
+                            <td>Importante, notável</td>
+                            <td class="palavra-destaque">Iminente</td>
+                            <td>Prestes a acontecer</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Emigrar</td>
+                            <td>Sair do país</td>
+                            <td class="palavra-destaque">Imigrar</td>
+                            <td>Entrar no país</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Flagrante</td>
+                            <td>Evidente, no ato</td>
+                            <td class="palavra-destaque">Fragrante</td>
+                            <td>Perfumado</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Infligir</td>
+                            <td>Aplicar pena</td>
+                            <td class="palavra-destaque">Infringir</td>
+                            <td>Violar, transgredir</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Ratificar</td>
+                            <td>Confirmar, validar</td>
+                            <td class="palavra-destaque">Retificar</td>
+                            <td>Corrigir, emendar</td>
+                        </tr>
+                        <tr>
+                            <td class="palavra-destaque">Tráfego</td>
+                            <td>Trânsito de veículos</td>
+                            <td class="palavra-destaque">Tráfico</td>
+                            <td>Comércio ilegal</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="dicas-box">
+                <h4>📚 Dicas para Não Confundir Parônimos</h4>
+                <ul>
+                    <li>Crie frases-exemplo com cada palavra e memorize o contexto de uso</li>
+                    <li>Associe o significado com a etimologia ou origem da palavra</li>
+                    <li>Pratique exercícios de completar lacunas usando parônimos</li>
+                    <li>Consulte o dicionário sempre que tiver dúvidas</li>
+                    <li>Faça uma lista personalizada dos parônimos que você mais confunde</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎭 Polissemia - Uma Palavra, Vários Sentidos</h2>
+            <p class="intro-text">
+                A polissemia ocorre quando uma palavra possui múltiplos significados relacionados entre si. 
+                É diferente da homonímia porque os significados têm conexão semântica.
+            </p>
+
+            <div class="sentido-card">
+                <h4>Palavra: CABEÇA</h4>
+                <div class="sentido-item">
+                    <div class="numero">Sentido 1: Parte do corpo</div>
+                    <div class="explicacao">Extremidade superior do corpo humano onde ficam o cérebro, olhos, boca, etc.</div>
+                    <div class="exemplo-frase">"Ele bateu a cabeça na porta."</div>
+                </div>
+                <div class="sentido-item">
+                    <div class="numero">Sentido 2: Líder ou chefe</div>
+                    <div class="explicacao">Pessoa que comanda ou dirige um grupo.</div>
+                    <div class="exemplo-frase">"Maria é a cabeça da equipe."</div>
+                </div>
+                <div class="sentido-item">
+                    <div class="numero">Sentido 3: Inteligência ou juízo</div>
+                    <div class="explicacao">Capacidade de raciocínio e bom senso.</div>
+                    <div class="exemplo-frase">"Use a cabeça antes de decidir!"</div>
+                </div>
+                <div class="sentido-item">
+                    <div class="numero">Sentido 4: Unidade de contagem (gado)</div>
+                    <div class="explicacao">Forma de contar animais, especialmente gado.</div>
+                    <div class="exemplo-frase">"O fazendeiro tem 100 cabeças de gado."</div>
+                </div>
+            </div>
+
+            <div class="exemplo-card">
+                <div class="titulo">PÉ - Outro Exemplo de Polissemia</div>
+                <div class="tipo">Palavra Polissêmica</div>
+                <div class="significados">
+                    <strong>1.</strong> Parte do corpo (anatomia)<br>
+                    <div class="frase">"Machuquei o pé jogando futebol."</div>
+                    <br>
+                    <strong>2.</strong> Base ou suporte<br>
+                    <div class="frase">"O pé da mesa está quebrado."</div>
+                    <br>
+                    <strong>3.</strong> Planta inteira<br>
+                    <div class="frase">"Plantei um pé de tomate no quintal."</div>
+                    <br>
+                    <strong>4.</strong> Medida antiga<br>
+                    <div class="frase">"A sala tem dez pés de comprimento."</div>
+                </div>
+            </div>
+
+            <div class="destaque">
+                <strong>🔍 Diferença: Polissemia vs Homonímia</strong><br><br>
+                <strong>Polissemia:</strong> Os significados têm relação entre si (Ex: "cabeça" - todos os sentidos se relacionam com "topo" ou "principal")<br><br>
+                <strong>Homonímia:</strong> Os significados não têm relação (Ex: "manga" - fruta e roupa não têm conexão semântica)
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🌳 Hiperonímia e Hiponímia - Relações Hierárquicas</h2>
+            <p class="intro-text">
+                Essas relações estabelecem hierarquias de significado: palavras mais gerais (hiperônimos) 
+                e palavras mais específicas (hipônimos).
+            </p>
+
+            <div class="exemplo-card">
+                <div class="titulo">HIPERÔNIMO: Fruta</div>
+                <div class="tipo">Palavra Geral</div>
+                <div class="significados">
+                    <strong>Hipônimos (palavras específicas):</strong><br>
+                    • Maçã • Banana • Laranja • Uva • Morango • Abacaxi • Melancia • Mamão
+                    <br><br>
+                    <strong>Exemplo de uso:</strong><br>
+                    <div class="frase">"Comprei várias frutas na feira: maçã, banana e laranja."</div>
+                    <div class="frase" style="margin-top: 10px;">"Fruta" é o hiperônimo que engloba todas as outras.</div>
+                </div>
+            </div>
+
+            <div class="conceitos-grid">
+                <div class="conceito-card hiperonimia">
+                    <h3>Veículo</h3>
+                    <div class="definicao">
+                        Hiperônimo (palavra geral)
+                    </div>
+                    <div class="exemplo">
+                        <strong>Hipônimos:</strong><br>
+                        • Carro<br>
+                        • Moto<br>
+                        • Caminhão<br>
+                        • Ônibus<br>
+                        • Bicicleta<br>
+                        • Avião
+                    </div>
+                </div>
+
+                <div class="conceito-card polissemia">
+                    <h3>Animal</h3>
+                    <div class="definicao">
+                        Hiperônimo (palavra geral)
+                    </div>
+                    <div class="exemplo">
+                        <strong>Hipônimos:</strong><br>
+                        • Cachorro<br>
+                        • Gato<br>
+                        • Leão<br>
+                        • Pássaro<br>
+                        • Peixe<br>
+                        • Cobra
+                    </div>
+                </div>
+
+                <div class="conceito-card sinonimia">
+                    <h3>Móvel</h3>
+                    <div class="definicao">
+                        Hiperônimo (palavra geral)
+                    </div>
+                    <div class="exemplo">
+                        <strong>Hipônimos:</strong><br>
+                        • Mesa<br>
+                        • Cadeira<br>
+                        • Sofá<br>
+                        • Armário<br>
+                        • Cama<br>
+                        • Estante
+                    </div>
+                </div>
+
+                <div class="conceito-card antonimia">
+                    <h3>Cor</h3>
+                    <div class="definicao">
+                        Hiperônimo (palavra geral)
+                    </div>
+                    <div class="exemplo">
+                        <strong>Hipônimos:</strong><br>
+                        • Vermelho<br>
+                        • Azul<br>
+                        • Verde<br>
+                        • Amarelo<br>
+                        • Preto<br>
+                        • Branco
+                    </div>
+                </div>
+            </div>
+
+            <div class="destaque" style="margin-top: 30px;">
+                <strong>💡 Importância:</strong> Conhecer essas relações hierárquicas ajuda a organizar 
+                o vocabulário mentalmente e facilita a compreensão de textos, pois permite identificar 
+                quando um autor usa termos gerais ou específicos propositalmente.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎮 Quiz - Teste Seus Conhecimentos!</h2>
+            
+            <div class="quiz-box">
+                <h4>🧠 Desafio de Significação</h4>
+                
+                <div class="quiz-item">
+                    <div class="pergunta">1. Qual a relação entre as palavras "bonito" e "feio"?</div>
+                    <div class="opcoes">
+                        a) Sinonímia<br>
+                        b) Antonímia<br>
+                        c) Homonímia<br>
+                        d) Paronímia
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> b) Antonímia - São palavras com significados opostos.
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">2. "Cela" (quarto de prisão) e "sela" (assento de cavalo) são exemplos de:</div>
+                    <div class="opcoes">
+                        a) Sinônimos<br>
+                        b) Homógrafos<br>
+                        c) Homófonos<br>
+                        d) Polissemia
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> c) Homófonos - Têm a mesma pronúncia mas grafia diferente.
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">3. A palavra "manga" (fruta e parte da roupa) é exemplo de:</div>
+                    <div class="opcoes">
+                        a) Sinonímia<br>
+                        b) Antonímia<br>
+                        c) Homonímia<br>
+                        d) Paronímia
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> c) Homonímia - Mesma grafia e som, significados diferentes sem relação.
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">4. "Ratificar" e "retificar" são:</div>
+                    <div class="opcoes">
+                        a) Sinônimos<br>
+                        b) Antônimos<br>
+                        c) Homônimos<br>
+                        d) Parônimos
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> d) Parônimos - Palavras parecidas com significados diferentes.
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <div class="pergunta">5. Quando "cabeça" significa "líder" ou "parte do corpo", estamos falando de:</div>
+                    <div class="opcoes">
+                        a) Homonímia<br>
+                        b) Polissemia<br>
+                        c) Antonímia<br>
+                        d) Paronímia
+                    </div>
+                    <div class="resposta">
+                        <strong>✅ Resposta:</strong> b) Polissemia - Múltiplos significados relacionados entre si.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✨ Aplicações Práticas</h2>
+            <p class="intro-text">
+                Entender a significação das palavras é essencial para:
+            </p>
+
+            <div class="conceitos-grid">
+                <div class="conceito-card sinonimia">
+                    <h3>📝 Redação</h3>
+                    <div class="definicao">
+                        Use sinônimos para evitar repetições e enriquecer seu texto.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplo:</strong><br>
+                        Em vez de repetir "bonito" várias vezes, use: belo, formoso, atraente, encantador.
+                    </div>
+                </div>
+
+                <div class="conceito-card antonimia">
+                    <h3>📖 Interpretação</h3>
+                    <div class="definicao">
+                        Reconheça polissemia e homonímia para entender o contexto correto.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplo:</strong><br>
+                        "Banco" pode ser assento ou instituição financeira - o contexto define!
+                    </div>
+                </div>
+
+                <div class="conceito-card homonimia">
+                    <h3>✍️ Ortografia</h3>
+                    <div class="definicao">
+                        Diferencie homófonos e parônimos para escrever corretamente.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplo:</strong><br>
+                        "Conserto" (reparo) vs "Concerto" (apresentação musical)
+                    </div>
+                </div>
+
+                <div class="conceito-card paronimia">
+                    <h3>🗣️ Comunicação</h3>
+                    <div class="definicao">
+                        Escolha a palavra exata para transmitir sua mensagem com precisão.
+                    </div>
+                    <div class="exemplo">
+                        <strong>Exemplo:</strong><br>
+                        "Ratificar" (confirmar) é diferente de "retificar" (corrigir)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Exercícios Práticos</h2>
+            
+            <div class="exemplo-card">
+                <div class="titulo">Exercício 1: Identifique a Relação</div>
+                <div class="tipo">Complete com a relação correta</div>
+                <div class="significados">
+                    <strong>a)</strong> Casa e Lar = _______________ (Sinonímia)<br>
+                    <strong>b)</strong> Grande e Pequeno = _______________ (Antonímia)<br>
+                    <strong>c)</strong> São (verbo) e São (santo) = _______________ (Homonímia)<br>
+                    <strong>d)</strong> Cavaleiro e Cavalheiro = _______________ (Paronímia)<br>
+                    <strong>e)</strong> Pé (parte do corpo e base) = _______________ (Polissemia)
+                </div>
+            </div>
+
+            <div class="exemplo-card">
+                <div class="titulo">Exercício 2: Complete as Frases</div>
+                <div class="tipo">Escolha a palavra correta</div>
+                <div class="significados">
+                    <strong>a)</strong> Vou _______________ (ratificar/retificar) o erro no documento.<br>
+                    <div class="frase">Resposta: retificar (corrigir)</div>
+                    <br>
+                    <strong>b)</strong> O juiz decidiu _______________ (absolver/absorver) o réu.<br>
+                    <div class="frase">Resposta: absolver (inocentar)</div>
+                    <br>
+                    <strong>c)</strong> O perigo é _______________ (eminente/iminente).<br>
+                    <div class="frase">Resposta: iminente (prestes a acontecer)</div>
+                    <br>
+                    <strong>d)</strong> Assisti a um _______________ (conserto/concerto) de piano.<br>
+                    <div class="frase">Resposta: concerto (apresentação musical)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏆 Resumo Final</h2>
+            
+            <div class="dicas-box">
+                <h4>📌 Pontos-Chave para Memorizar</h4>
+                <ul>
+                    <li><strong>Sinônimos:</strong> Palavras com significados semelhantes (bonito = belo)</li>
+                    <li><strong>Antônimos:</strong> Palavras com significados opostos (bonito ≠ feio)</li>
+                    <li><strong>Homônimos:</strong> Mesma grafia/som, significados diferentes sem relação (manga: fruta e roupa)</li>
+                    <li><strong>Parônimos:</strong> Grafia/som parecidos, significados diferentes (cavaleiro ≠ cavalheiro)</li>
+                    <li><strong>Polissemia:</strong> Uma palavra, vários significados relacionados (cabeça: corpo, líder, juízo)</li>
+                    <li><strong>Hiperônimos/Hipônimos:</strong> Relação geral-específico (fruta → maçã, banana)</li>
+                </ul>
+            </div>
+
+            <div class="destaque">
+                <strong>🎓 Conclusão:</strong> Dominar a significação das palavras é fundamental para uma 
+                comunicação eficaz em português. Continue praticando e consultando dicionários sempre que 
+                tiver dúvidas. A riqueza do nosso vocabulário está justamente nessas relações complexas e 
+                fascinantes entre as palavras!
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; padding: 30px;">
+            <h2 style="margin-bottom: 20px;">📚 Fim do Material 📚</h2>
+            <p class="intro-text" style="margin-bottom: 0;">
+                Esperamos que este material tenha ajudado você a compreender melhor a significação 
+                das palavras em português brasileiro. Continue estudando e praticando!
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tudo sobre Verbos em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #E67E22;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #E67E22;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #F39C12;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores Adaptadas/Reutilizadas do 008 - CLASSES DE PALAVRAS */
+        .tipo-card.conjugacao {
+            background: linear-gradient(135deg, #E74C3C, #C0392B); /* Conjugação */
+        }
+
+        .tipo-card.transitividade {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD); /* Transitividade */
+        }
+
+        .tipo-card.modo {
+            background: linear-gradient(135deg, #3498DB, #2980B9); /* Modo */
+        }
+
+        .tipo-card.tempo {
+            background: linear-gradient(135deg, #2ECC71, #16A085); /* Tempo */
+        }
+        
+        .tipo-card.forma-nominal {
+            background: linear-gradient(135deg, #F1C40F, #F39C12); /* Formas Nominais */
+            color: #333;
+        }
+        
+        .tipo-card.voz {
+            background: linear-gradient(135deg, #1ABC9C, #16A085); /* Vozes */
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .exemplo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #E67E22;
+        }
+
+        .exemplo-card .titulo-exemplo {
+            font-size: 2em;
+            color: #E67E22;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .conteudo-exemplo {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
+        .tabela-substantivos {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tabela-substantivos thead {
+            background: linear-gradient(135deg, #E67E22, #F39C12);
+            color: white;
+        }
+
+        .tabela-substantivos th {
+            padding: 20px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        .tabela-substantivos td {
+            padding: 18px 20px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        .tabela-substantivos tr:hover {
+            background: #fff8e8;
+        }
+
+        .tabela-substantivos .destaque-col {
+            color: #E67E22;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .dicas-box {
+            background: linear-gradient(135deg, #1ABC9C, #16A085);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .tipo-card, .destaque, .dicas-box, .exemplo-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏃 Verbos 🏃</h1>
+        <p class="subtitle">A classe de palavras que expressa ação, estado, ou fenômeno!</p>
+
+        <div class="section">
+            <h2>🎯 O que é Verbo?</h2>
+            <p class="intro-text">
+                O **Verbo** é a classe de palavras variável que indica um acontecimento representado no tempo, 
+                ou seja, exprime **ação**, **estado**, **mudança de estado** ou **fenômeno da natureza**. 
+                É a palavra central do predicado de uma oração.
+            </p>
+
+            <div class="destaque">
+                <strong>💡 O Coração da Oração:</strong> O verbo é a única palavra da língua portuguesa que se 
+                flexiona em 5 categorias: **Número** (singular/plural), **Pessoa** (1ª, 2ª, 3ª), **Modo** (indicativo, subjuntivo, imperativo), **Tempo** (presente, passado, futuro) e **Voz** (ativa, 
+                passiva, reflexiva).
+            </div>
+
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">Verbo vs. Substantivo (Exemplos)</div>
+                <div class="conteudo-exemplo">
+                    • **Ação:** O aluno <span style="font-weight: bold; color: #E74C3C;">estudou</span> a matéria.<br>
+                    • **Estado:** O céu <span style="font-weight: bold; color: #E74C3C;">estava</span> nublado.<br>
+                    • **Fenômeno:** <span style="font-weight: bold; color: #E74C3C;">Choverá</span> muito hoje.<br>
+                    • **Mudança de Estado:** Ele <span style="font-weight: bold; color: #E74C3C;">ficou</span> contente.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Classificação e Flexão do Verbo</h2>
+            
+            <h3>1. Quanto à Conjugação (Terminação)</h3>
+            <div class="tipos-grid">
+                <div class="tipo-card conjugacao">
+                    <h3>1ª Conjugação</h3>
+                    <div class="definicao">
+                        Verbos terminados em **-AR** (falar, amar, felicitar).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Cant**ar**<br>
+                        • And**ar**<br>
+                        • Est**ar**
+                    </div>
+                </div>
+
+                <div class="tipo-card conjugacao">
+                    <h3>2ª Conjugação</h3>
+                    <div class="definicao">
+                        Verbos terminados em **-ER** (comer, vender, beber).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Com**er**<br>
+                        • Vend**er**<br>
+                        • T**er** (e Pôr, que vem de Poer)
+                    </div>
+                </div>
+
+                <div class="tipo-card conjugacao">
+                    <h3>3ª Conjugação</h3>
+                    <div class="definicao">
+                        Verbos terminados em **-IR** (dormir, dividir, partir).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • Part**ir**<br>
+                        • Sorr**ir**<br>
+                        • Sent**ir**
+                    </div>
+                </div>
+            </div>
+            
+            <h3>2. Quanto às Formas Nominais</h3>
+            <div class="tipos-grid">
+                <div class="tipo-card forma-nominal">
+                    <h3>Infinitivo</h3>
+                    <div class="definicao">
+                        Nome do verbo (termina em R). Exprime a ação em si, sem tempo.
+                    </div>
+                    <div class="exemplos">
+                        • Corr**er**<br>
+                        • Faz**er**<br>
+                        • Vend**er**
+                    </div>
+                </div>
+                
+                <div class="tipo-card forma-nominal">
+                    <h3>Gerúndio</h3>
+                    <div class="definicao">
+                        Ação em andamento (termina em NDO).
+                    </div>
+                    <div class="exemplos">
+                        • Corr**endo**<br>
+                        • Faz**endo**<br>
+                        • Vend**endo**
+                    </div>
+                </div>
+
+                <div class="tipo-card forma-nominal">
+                    <h3>Particípio</h3>
+                    <div class="definicao">
+                        Ação finalizada (termina em DO/DA). Usado em tempos compostos.
+                    </div>
+                    <div class="exemplos">
+                        • Corr**ido**<br>
+                        • Feit**o** (irregular)<br>
+                        • Vend**ido**
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⏱️ Modos e Tempos Verbais</h2>
+
+            <div class="tipos-grid">
+                <div class="tipo-card modo">
+                    <h3>Modo Indicativo</h3>
+                    <div class="definicao">
+                        Expressa uma certeza, uma realidade, um fato que acontece, aconteceu ou acontecerá.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Tempos:</strong><br>
+                        • Presente<br>
+                        • Pretérito (Perfeito, Imperfeito, Mais-que-perfeito)<br>
+                        • Futuro (do Presente, do Pretérito)<br>
+                        <span style="font-weight: bold;">Ex:</span> Ele <span style="font-weight: bold;">chegou</span> na hora.
+                    </div>
+                </div>
+
+                <div class="tipo-card modo">
+                    <h3>Modo Subjuntivo</h3>
+                    <div class="definicao">
+                        Expressa uma dúvida, uma incerteza, uma possibilidade ou um desejo.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Tempos:</strong><br>
+                        • Presente (Que eu...)<br>
+                        • Pretérito Imperfeito (Se eu...)<br>
+                        • Futuro (Quando eu... e Se eu...)<br>
+                        <span style="font-weight: bold;">Ex:</span> Espero que ele <span style="font-weight: bold;">chegue</span> a tempo.
+                    </div>
+                </div>
+                
+                <div class="tipo-card modo">
+                    <h3>Modo Imperativo</h3>
+                    <div class="definicao">
+                        Expressa uma ordem, um pedido, um conselho ou uma súplica.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Formas:</strong><br>
+                        • Afirmativo (Faça, Diga)<br>
+                        • Negativo (Não faça, Não diga)<br>
+                        <span style="font-weight: bold;">Ex:</span> <span style="font-weight: bold;">Corra</span> já para cá!
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🗣️ Vozes Verbais e Transitividade</h2>
+
+            <h3>Vozes Verbais</h3>
+            <div class="tipos-grid">
+                <div class="tipo-card voz">
+                    <h3>Voz Ativa</h3>
+                    <div class="definicao">
+                        O sujeito pratica a ação verbal.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Ex:</strong><br>
+                        • **O aluno** (sujeito) <span style="font-weight: bold;">fez</span> o trabalho.
+                    </div>
+                </div>
+
+                <div class="tipo-card voz">
+                    <h3>Voz Passiva</h3>
+                    <div class="definicao">
+                        O sujeito recebe a ação verbal (paciente).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Ex:</strong><br>
+                        • O trabalho <span style="font-weight: bold;">foi feito</span> **pelo aluno** (agente da passiva).
+                    </div>
+                </div>
+                
+                <div class="tipo-card voz">
+                    <h3>Voz Reflexiva</h3>
+                    <div class="definicao">
+                        O sujeito pratica e recebe a ação ao mesmo tempo.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Ex:</strong><br>
+                        • O garoto <span style="font-weight: bold;">machucou-se</span>. (Machucou a si mesmo).
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Transitividade (Ligação do Verbo)</h3>
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">Verbos Transitivos e Intransitivos</div>
+                <div class="conteudo-exemplo">
+                    • **V. Intransitivo (VI):** Não precisa de complemento. (Ex: O bebê <span style="font-weight: bold;">dormiu</span>.)<br>
+                    • **V. Transitivo Direto (VTD):** Pede objeto sem preposição. (Ex: O aluno <span style="font-weight: bold;">leu</span> **o livro**.)<br>
+                    • **V. Transitivo Indireto (VTI):** Pede objeto com preposição. (Ex: Ele <span style="font-weight: bold;">precisa</span> **de ajuda**.)<br>
+                    • **V. Transitivo Direto e Indireto (VTDI):** Pede dois objetos. (Ex: Eu <span style="font-weight: bold;">dei</span> **o presente** **à menina**.)<br>
+                    • **V. de Ligação (VL):** Liga o sujeito a uma característica (Predicativo do Sujeito). (Ex: Ele <span style="font-weight: bold;">é</span> **bonito**.)
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Dicas Finais</h2>
+            
+            <div class="dicas-box">
+                <h4>Para Dominar os Verbos:</h4>
+                <ul>
+                    <li>A raiz de um verbo (radical) é o que se repete em todas as conjugações (Ex: CANTar, CANTamos, CANTava).</li>
+                    <li>Verbos Irregulares (ter, ser, ir, vir, pôr) precisam de atenção especial, pois o radical muda (Eu **sou** / Eu **fui**).</li>
+                    <li>A Locução Verbal é a combinação de dois ou mais verbos (Ex: Vou estudar, Tinha feito), onde o último é o principal e o primeiro é o auxiliar.</li>
+                    <li>Sempre que um verbo estiver ligado a uma preposição, ele será, no mínimo, Transitivo Indireto.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

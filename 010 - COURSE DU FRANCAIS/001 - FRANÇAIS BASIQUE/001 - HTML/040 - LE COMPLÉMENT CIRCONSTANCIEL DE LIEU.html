@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Complément Circonstanciel de Lieu - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #002395 0%, #ffffff 50%, #ED2939 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(237, 41, 57, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0, 35, 149, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background: linear-gradient(135deg, #002395, #0035b8, #002395);
+            background-size: 200% 200%;
+            animation: gradientFlow 8s ease infinite;
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 35, 149, 0.4);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .logo {
+            font-size: 1.3em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            opacity: 0.95;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 20px 0;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-top: 15px;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            border: 3px solid rgba(0, 35, 149, 0.2);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .intro-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .intro-section h2::before {
+            content: '📍';
+            font-size: 1.2em;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .intro-section p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.15em;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 6px solid #002395;
+            margin: 25px 0;
+            font-size: 1.1em;
+            line-height: 1.7;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .definition-box strong {
+            color: #ED2939;
+            font-size: 1.1em;
+        }
+
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .question-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .question-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #002395, #ED2939);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .question-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 35, 149, 0.3);
+            border-color: #002395;
+        }
+
+        .question-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .question-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .question-title {
+            color: #002395;
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .question-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .example-box {
+            background: rgba(237, 41, 57, 0.05);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+            border-left: 4px solid #ED2939;
+        }
+
+        .example-sentence {
+            color: #222;
+            font-size: 1.05em;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .cc-highlight {
+            color: #ED2939;
+            background: rgba(237, 41, 57, 0.1);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .constructions-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .constructions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .construction-item {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.03), rgba(237, 41, 57, 0.03));
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 2px solid rgba(0, 35, 149, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .construction-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 35, 149, 0.15);
+            border-color: #002395;
+        }
+
+        .construction-item h3 {
+            color: #002395;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .construction-type {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .construction-examples {
+            margin-top: 15px;
+        }
+
+        .construction-example {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 4px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .construction-example:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .special-section {
+            background: linear-gradient(135deg, #002395 0%, #0041c9 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 35, 149, 0.4);
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1.8s ease;
+        }
+
+        .special-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .special-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .special-section p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .tip-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prepositions-box {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 2s ease;
+        }
+
+        .prepositions-box h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .prep-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .prep-item {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 35, 149, 0.3);
+            transition: all 0.3s ease;
+            animation: slideIn 1s ease;
+        }
+
+        .prep-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 35, 149, 0.5);
+        }
+
+        .comparison-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 2.2s ease;
+        }
+
+        .comparison-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .comparison-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            border-color: #002395;
+            transform: translateY(-5px);
+        }
+
+        .comparison-title {
+            color: #ED2939;
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .comparison-examples {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #002395, #ED2939);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 2.4s ease;
+        }
+
+        .footer-content {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo {
+            font-size: 2em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .questions-grid, .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 30px;
+            }
+
+            .intro-section, .constructions-section, .special-section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">⚜️ Língua Academy ⚜️</div>
+            <h1>Le Complément Circonstanciel de Lieu</h1>
+            <div class="subtitle">📍 Où ? D'où ? Par où ? Jusqu'où ? 📍</div>
+        </header>
+
+        <div class="intro-section">
+            <h2>Qu'est-ce qu'un CC de Lieu ?</h2>
+            <p>
+                Le <strong>complément circonstanciel de lieu</strong> (CC de lieu) est un complément de phrase qui indique 
+                le <strong>lieu où se déroule l'action</strong> exprimée par le verbe. Il peut préciser la position, 
+                l'origine, la destination, le passage ou la direction d'une action.
+            </p>
+            
+            <div class="definition-box">
+                📌 <strong>Définition :</strong> Le CC de lieu exprime l'endroit où se passe l'action, d'où elle vient, 
+                par où elle passe, ou vers où elle se dirige. Il répond aux questions : <strong>Où ? D'où ? Par où ? 
+                Vers où ? Jusqu'où ?</strong>
+            </div>
+
+            <p>
+                Le CC de lieu est <strong>supprimable</strong> et <strong>déplaçable</strong> dans la phrase. 
+                Il n'est pas indispensable au sens de base de la phrase, mais apporte une précision sur la localisation.
+            </p>
+        </div>
+
+        <div class="questions-grid">
+            <div class="question-card">
+                <div class="question-icon">📍</div>
+                <div class="question-title">OÙ ?</div>
+                <div class="question-description">
+                    Indique la <strong>position, la localisation</strong> où se déroule l'action.
+                </div>
+                <div class="example-box">
+                    <div class="example-sentence">
+                        Je travaille <span class="cc-highlight">au bureau</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Les enfants jouent <span class="cc-highlight">dans le jardin</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Elle habite <span class="cc-highlight">à Paris</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-icon">🔙</div>
+                <div class="question-title">D'OÙ ?</div>
+                <div class="question-description">
+                    Indique l'<strong>origine, la provenance</strong> de l'action ou du sujet.
+                </div>
+                <div class="example-box">
+                    <div class="example-sentence">
+                        Il vient <span class="cc-highlight">de Lyon</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Nous revenons <span class="cc-highlight">du marché</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Le train arrive <span class="cc-highlight">de Marseille</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-icon">🛤️</div>
+                <div class="question-title">PAR OÙ ?</div>
+                <div class="question-description">
+                    Indique le <strong>passage, l'itinéraire</strong> emprunté pour l'action.
+                </div>
+                <div class="example-box">
+                    <div class="example-sentence">
+                        Passons <span class="cc-highlight">par la forêt</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Il est entré <span class="cc-highlight">par la fenêtre</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Nous irons <span class="cc-highlight">par l'autoroute</span>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-icon">➡️</div>
+                <div class="question-title">VERS OÙ ? / JUSQU'OÙ ?</div>
+                <div class="question-description">
+                    Indique la <strong>destination, la direction</strong> vers laquelle se fait l'action.
+                </div>
+                <div class="example-box">
+                    <div class="example-sentence">
+                        Elle se dirige <span class="cc-highlight">vers la gare</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Nous marcherons <span class="cc-highlight">jusqu'au lac</span>.
+                    </div>
+                    <div class="example-sentence">
+                        Va <span class="cc-highlight">chez le médecin</span>.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="constructions-section">
+            <h2>🏗️ Constructions du CC de Lieu</h2>
+
+            <div class="construction-item">
+                <h3>
+                    <span>1️⃣</span> 
+                    Groupe Nominal avec Préposition
+                    <span class="construction-type">Le plus fréquent</span>
+                </h3>
+                <p style="color: #555; margin: 15px 0; line-height: 1.7;">
+                    Le CC de lieu est le plus souvent introduit par une préposition de lieu 
+                    (<strong>à, de, en, dans, sur, sous, chez, vers, par, jusqu'à, etc.</strong>) 
+                    suivie d'un groupe nominal.
+                </p>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Préposition À :</strong><br>
+                        Je vais <span class="cc-highlight">à l'école</span> • Elle est <span class="cc-highlight">à la maison</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Préposition DANS :</strong><br>
+                        Les clés sont <span class="cc-highlight">dans le tiroir</span> • Il nage <span class="cc-highlight">dans la piscine</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Préposition SUR :</strong><br>
+                        Le livre est <span class="cc-highlight">sur la table</span> • Elle marche <span class="cc-highlight">sur le trottoir</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Préposition CHEZ :</strong><br>
+                        Je vais <span class="cc-highlight">chez mes parents</span> • Il travaille <span class="cc-highlight">chez Google</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>2️⃣</span> 
+                    Adverbe de Lieu
+                    <span class="construction-type">Construction simple</span>
+                </h3>
+                <p style="color: #555; margin: 15px 0; line-height: 1.7;">
+                    Le CC de lieu peut être un adverbe ou une locution adverbiale de lieu.
+                </p>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Adverbes simples :</strong><br>
+                        Viens <span class="cc-highlight">ici</span> • Reste <span class="cc-highlight">là</span> • Allons <span class="cc-highlight">ailleurs</span> • Je vais <span class="cc-highlight">partout</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Locutions adverbiales :</strong><br>
+                        Regarde <span class="cc-highlight">en haut</span> • Monte <span class="cc-highlight">en bas</span> • Va <span class="cc-highlight">à droite</span> • Tourne <span class="cc-highlight">à gauche</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>3️⃣</span> 
+                    Groupe Nominal sans Préposition
+                    <span class="construction-type">Plus rare</span>
+                </h3>
+                <p style="color: #555; margin: 15px 0; line-height: 1.7;">
+                    Certains groupes nominaux peuvent être CC de lieu sans préposition 
+                    (expressions figées, noms de pays sans article, etc.).
+                </p>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">Expressions figées :</strong><br>
+                        Il habite <span class="cc-highlight">rue Victor Hugo</span> • Elle arrive <span class="cc-highlight">place de la République</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>4️⃣</span> 
+                    Proposition Subordonnée
+                    <span class="construction-type">Moins fréquent</span>
+                </h3>
+                <p style="color: #555; margin: 15px 0; line-height: 1.7;">
+                    Le CC de lieu peut être une proposition subordonnée introduite par "où" ou "d'où".
+                </p>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        Je vais <span class="cc-highlight">où tu veux</span> • Restez <span class="cc-highlight">où vous êtes</span> • Il vient <span class="cc-highlight">d'où je viens</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="prepositions-box">
+            <h2>🗺️ Prépositions de Lieu Courantes</h2>
+            <div class="prep-grid">
+                <div class="prep-item">À</div>
+                <div class="prep-item">DE</div>
+                <div class="prep-item">EN</div>
+                <div class="prep-item">DANS</div>
+                <div class="prep-item">SUR</div>
+                <div class="prep-item">SOUS</div>
+                <div class="prep-item">CHEZ</div>
+                <div class="prep-item">VERS</div>
+                <div class="prep-item">PAR</div>
+                <div class="prep-item">ENTRE</div>
+                <div class="prep-item">PARMI</div>
+                <div class="prep-item">JUSQU'À</div>
+                <div class="prep-item">DEVANT</div>
+                <div class="prep-item">DERRIÈRE</div>
+                <div class="prep-item">PRÈS DE</div>
+                <div class="prep-item">LOIN DE</div>
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <h2>⚖️ À vs EN vs DANS</h2>
+            <p style="text-align: center; color: #555; font-size: 1.1em; margin-bottom: 30px;">
+                Ces trois prépositions peuvent exprimer le lieu, mais leur emploi varie selon le contexte.
+            </p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-title">
+                        📌 Préposition À
+                    </div>
+                    <div class="comparison-examples">
+                        <strong>Usage :</strong><br>
+                        • Villes : <em>Je vais <strong>à Paris</strong></em><br>
+                        • Lieux précis : <em>Je suis <strong>à l'école</strong></em><br>
+                        • Destinations : <em>Il va <strong>au cinéma</strong></em><br>
+                        • Avec "chez" : <em>Je vais <strong>chez Marie</strong></em>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-title">
+                        🌍 Préposition EN
+                    </div>
+                    <div class="comparison-examples">
+                        <strong>Usage :</strong><br>
+                        • Pays féminins : <em>Je vais <strong>en France</strong></em><br>
+                        • Régions : <em>Il habite <strong>en Bretagne</strong></em><br>
+                        • Continents : <em>Nous vivons <strong>en Europe</strong></em><br>
+                        • Sans article : <em>Elle est <strong>en ville</strong></em>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-title">
+                        📦 Préposition DANS
+                    </div>
+                    <div class="comparison-examples">
+                        <strong>Usage :</strong><br>
+                        • À l'intérieur de : <em>Les clés sont <strong>dans le sac</strong></em><br>
+                        • Pays masculins : <em>Je vais <strong>dans le Maroc</strong></em><br>
+                        • Avec article : <em>Il est <strong>dans la cuisine</strong></em><br>
+                        • Espaces clos : <em>Elle nage <strong>dans la piscine</strong></em>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="special-section">
+            <h2>💡 Conseils pour Identifier le CC de Lieu</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>❓ Posez les bonnes questions</h4>
+                    <p>
+                        Pour trouver le CC de lieu, posez les questions : <strong>Où ? D'où ? Par où ? Vers où ?</strong> 
+                        après le verbe. La réponse sera le CC de lieu.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔄 Testez la mobilité</h4>
+                    <p>
+                        Le CC de lieu est généralement <strong>déplaçable</strong> dans la phrase. 
+                        Essayez de le déplacer au début ou à la fin : si la phrase reste correcte, c'est un CC !
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>✂️ Testez la suppression</h4>
+                    <p>
+                        Le CC de lieu est <strong>supprimable</strong>. Enlevez-le : si la phrase garde un sens 
+                        (même si elle est moins précise), c'est bien un CC de lieu.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔍 Cherchez les prépositions</h4>
+                    <p>
+                        Repérez les prépositions de lieu (<strong>à, dans, sur, chez, vers, etc.</strong>). 
+                        Elles introduisent souvent un CC de lieu.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="intro-section">
+            <h2>🎯 Points Importants à Retenir</h2>
+            <p>
+                ✅ <strong>Le CC de lieu répond à plusieurs questions différentes :</strong>
+                <br>• Où ? (position), D'où ? (origine), Par où ? (passage), Vers où ? (direction)
+            </p>
+            <p>
+                ✅ <strong>Il est généralement supprimable et déplaçable :</strong>
+                <br>• "Je travaille au bureau" → "Au bureau, je travaille" → "Je travaille"
+            </p>
+            <p>
+                ✅ <strong>Les prépositions varient selon le type de lieu :</strong>
+                <br>• Villes : à Paris • Pays féminins : en France • Pays masculins : au Portugal • Chez + personne
+            </p>
+            <p>
+                ✅ <strong>Ne confondez pas avec les compléments essentiels de lieu :</strong>
+                <br>• "Il va à Paris" → "à Paris" est COI (essentiel avec "aller"), pas CC
+                <br>• "Il travaille à Paris" → "à Paris" est CC (supprimable)
+            </p>
+            <p>
+                ✅ <strong>Plusieurs CC de lieu peuvent coexister dans une phrase :</strong>
+                <br>• "Je vais de Paris à Lyon par l'autoroute" (origine + destination + passage)
+            </p>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                Maîtrisez le complément circonstanciel de lieu 
+                pour situer vos actions avec précision ! 🇫🇷 📍
+            </div>
+            <div class="footer-logo">⚜️ LÍNGUA ACADEMY ⚜️</div>
+        </footer>
+    </div>
+</body>
+</html>

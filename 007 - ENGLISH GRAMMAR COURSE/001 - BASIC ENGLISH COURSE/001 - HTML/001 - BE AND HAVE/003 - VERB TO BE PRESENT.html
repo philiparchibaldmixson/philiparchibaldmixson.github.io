@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verb To Be Guide</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 0 auto;
+            background: white;
+            page-break-after: always;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+        
+        .section {
+            margin: 25px 0;
+            padding: 25px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section.orange {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .section.green {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            color: black;
+        }
+        
+        .section.blue {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .section.pink {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+        
+        .section.purple {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .section.teal {
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+        }
+        
+        h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .section.green h2, .section.green h3 {
+            color: white;
+        }
+        
+        h3 {
+            font-size: 22px;
+            margin: 20px 0 10px 0;
+            color: #34495e;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            text-align: justify;
+        }
+        
+        .verb-box {
+            background: white;
+            padding: 20px;
+            border-left: 6px solid #667eea;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .verb-title {
+            color: #667eea;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .verb-form {
+            color: #e74c3c;
+            font-style: italic;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .verb-desc {
+            color: #555;
+            font-size: 16px;
+        }
+        
+        .example-box {
+            background: #fff9e6;
+            border: 2px dashed #f39c12;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .example-title {
+            color: #f39c12;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .tip-box {
+            background: white;
+            padding: 20px;
+            border-left: 6px solid #27ae60;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tip-box h4 {
+            color: #27ae60;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .conjugation-table {
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .conjugation-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .conjugation-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 18px;
+        }
+        
+        .conjugation-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 16px;
+        }
+        
+        .conjugation-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .pronoun {
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .form-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            border-top: 4px solid #3498db;
+        }
+        
+        .form-type {
+            font-weight: bold;
+            color: #3498db;
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+        
+        .form-text {
+            color: #555;
+            font-size: 15px;
+        }
+        
+        .negative-box {
+            background: #ffe6e6;
+            border: 2px solid #e74c3c;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .negative-title {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .question-box {
+            background: #e6f3ff;
+            border: 2px solid #3498db;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .question-title {
+            color: #3498db;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>📘 The Verb "TO BE" Guide 📘</h1>
+            <p>Master the Most Important Verb in English</p>
+        </div>
+        
+        <div class="section orange">
+            <h2>🌟 What is the Verb "To Be"?</h2>
+            <p>The verb "to be" is the most fundamental and frequently used verb in the English language. It is an irregular verb, which means it doesn't follow the standard conjugation patterns of regular verbs. The verb "to be" is essential for describing states of being, identities, characteristics, locations, and conditions.</p>
+            <p>Understanding how to use "to be" correctly is crucial because it appears in countless everyday sentences and serves as the foundation for more advanced grammar structures like continuous tenses and passive voice.</p>
+        </div>
+        
+        <div class="section blue">
+            <h2>📋 Present Tense Forms</h2>
+            <p>The verb "to be" has three forms in the present tense: <strong>am, is, and are</strong>. The form you use depends on the subject of the sentence.</p>
+            
+            <div class="conjugation-table">
+                <table>
+                    <tr>
+                        <th>Pronoun</th>
+                        <th>Verb Form</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td class="pronoun">I</td>
+                        <td><strong>am</strong></td>
+                        <td>I am a student.</td>
+                    </tr>
+                    <tr>
+                        <td class="pronoun">You</td>
+                        <td><strong>are</strong></td>
+                        <td>You are my friend.</td>
+                    </tr>
+                    <tr>
+                        <td class="pronoun">He / She / It</td>
+                        <td><strong>is</strong></td>
+                        <td>He is tall. She is smart. It is cold.</td>
+                    </tr>
+                    <tr>
+                        <td class="pronoun">We</td>
+                        <td><strong>are</strong></td>
+                        <td>We are happy.</td>
+                    </tr>
+                    <tr>
+                        <td class="pronoun">You (plural)</td>
+                        <td><strong>are</strong></td>
+                        <td>You are welcome.</td>
+                    </tr>
+                    <tr>
+                        <td class="pronoun">They</td>
+                        <td><strong>are</strong></td>
+                        <td>They are teachers.</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Memory Tip</h4>
+                <p><strong>AM</strong> = I<br>
+                <strong>IS</strong> = He, She, It (singular)<br>
+                <strong>ARE</strong> = You, We, They (plural or "you")</p>
+            </div>
+        </div>
+        
+        <div class="section green">
+            <h2>🎯 Uses of the Verb "To Be"</h2>
+            <p style="color: white;">The verb "to be" has several important functions in English sentences:</p>
+            
+            <div class="verb-box">
+                <div class="verb-title">1. Identity & Occupation</div>
+                <div class="verb-desc">To say who or what someone/something is</div>
+                <div class="example-box">
+                    <p>• I am Maria.<br>
+                    • She is a doctor.<br>
+                    • They are students.</p>
+                </div>
+            </div>
+            
+            <div class="verb-box">
+                <div class="verb-title">2. Descriptions & Characteristics</div>
+                <div class="verb-desc">To describe qualities, feelings, or states</div>
+                <div class="example-box">
+                    <p>• The book is interesting.<br>
+                    • We are tired.<br>
+                    • He is tall and strong.</p>
+                </div>
+            </div>
+            
+            <div class="verb-box">
+                <div class="verb-title">3. Location & Position</div>
+                <div class="verb-desc">To indicate where someone or something is</div>
+                <div class="example-box">
+                    <p>• I am at home.<br>
+                    • The keys are on the table.<br>
+                    • She is in the classroom.</p>
+                </div>
+            </div>
+            
+            <div class="verb-box">
+                <div class="verb-title">4. Time & Weather</div>
+                <div class="verb-desc">To talk about time and weather conditions</div>
+                <div class="example-box">
+                    <p>• It is 3 o'clock.<br>
+                    • It is sunny today.<br>
+                    • Today is Monday.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section pink">
+            <h2>🔄 Contractions (Short Forms)</h2>
+            <p>In informal English, we often use contractions with the verb "to be" to make speech and writing more natural and conversational.</p>
+            
+            <div class="form-grid">
+                <div class="form-item">
+                    <div class="form-type">I am → I'm</div>
+                    <div class="form-text">"I'm happy to see you."</div>
+                </div>
+                <div class="form-item">
+                    <div class="form-type">You are → You're</div>
+                    <div class="form-text">"You're a good friend."</div>
+                </div>
+                <div class="form-item">
+                    <div class="form-type">He is → He's</div>
+                    <div class="form-text">"He's my brother."</div>
+                </div>
+                <div class="form-item">
+                    <div class="form-type">She is → She's</div>
+                    <div class="form-text">"She's very kind."</div>
+                </div>
+                <div class="form-item">
+                    <div class="form-type">It is → It's</div>
+                    <div class="form-text">"It's a beautiful day."</div>
+                </div>
+                <div class="form-item">
+                    <div class="form-type">We are → We're</div>
+                    <div class="form-text">"We're ready to go."</div>
+                </div>
+                <div class="form-item">
+                    <div class="form-type">They are → They're</div>
+                    <div class="form-text">"They're at school."</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section purple">
+            <h2>❌ Negative Form</h2>
+            <p>To make negative sentences with "to be," add <strong>not</strong> after the verb. You can also use contractions in negative forms.</p>
+            
+            <div class="negative-box">
+                <div class="negative-title">Full Forms:</div>
+                <p>• I am not tired.<br>
+                • You are not late.<br>
+                • He is not at home.<br>
+                • We are not ready.<br>
+                • They are not students.</p>
+            </div>
+            
+            <div class="negative-box">
+                <div class="negative-title">Contracted Forms:</div>
+                <p>• I'm not / I am not (only one option)<br>
+                • You aren't / You're not<br>
+                • He isn't / He's not<br>
+                • She isn't / She's not<br>
+                • It isn't / It's not<br>
+                • We aren't / We're not<br>
+                • They aren't / They're not</p>
+            </div>
+        </div>
+        
+        <div class="section teal">
+            <h2>❓ Question Form</h2>
+            <p>To form questions with "to be," simply move the verb before the subject. This is called inversion.</p>
+            
+            <div class="question-box">
+                <div class="question-title">Yes/No Questions:</div>
+                <p>• <strong>Am</strong> I late?<br>
+                • <strong>Are</strong> you ready?<br>
+                • <strong>Is</strong> he your teacher?<br>
+                • <strong>Are</strong> we on time?<br>
+                • <strong>Are</strong> they from Brazil?</p>
+            </div>
+            
+            <div class="question-box">
+                <div class="question-title">Wh- Questions (Information Questions):</div>
+                <p>• <strong>Where</strong> are you from?<br>
+                • <strong>What</strong> is your name?<br>
+                • <strong>Who</strong> is that person?<br>
+                • <strong>How</strong> are you?<br>
+                • <strong>Why</strong> is she upset?</p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Short Answers</h4>
+                <p><strong>Question:</strong> Are you a student?<br>
+                <strong>Answer:</strong> Yes, I am. / No, I'm not.<br><br>
+                <strong>Question:</strong> Is she tired?<br>
+                <strong>Answer:</strong> Yes, she is. / No, she isn't.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Keep Practicing the Verb "To Be"!</strong></p>
+            <p>This is the foundation of English grammar. Master it and everything else becomes easier!</p>
+        </div>
+    </div>
+    
+    <!-- <script>
+        window.onload = function() {
+            const printBtn = document.createElement('button');
+            printBtn.textContent = '🖨️ Print/Save as PDF';
+            printBtn.style.cssText = 'position: fixed; top: 20px; right: 20px; padding: 15px 25px; background: #667eea; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1000;';
+            printBtn.onmouseover = function() { this.style.background = '#764ba2'; };
+            printBtn.onmouseout = function() { this.style.background = '#667eea'; };
+            printBtn.onclick = function() { window.print(); };
+            document.body.appendChild(printBtn);
+        };
+    </script> -->
+</body>
+</html>

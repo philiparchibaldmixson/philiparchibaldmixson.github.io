@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modes et Temps Verbaux | Grammaire Française</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --indigo-deep: #1E3A5F;
+            --indigo-bright: #2E5C8A;
+            --gold-metallic: #C9A961;
+            --terracotta: #C7754C;
+            --sand-light: #F5EFE6;
+            --ivory: #FDFBF7;
+            --steel-gray: #6B7280;
+            --charcoal: #2D3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--ivory);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Geometric pattern background */
+        .geometric-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-image: 
+                repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(30, 58, 95, 0.02) 50px, rgba(30, 58, 95, 0.02) 51px),
+                repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(30, 58, 95, 0.02) 50px, rgba(30, 58, 95, 0.02) 51px);
+        }
+
+        /* Decorative corner elements */
+        .corner-decoration {
+            position: fixed;
+            width: 200px;
+            height: 200px;
+            z-index: -1;
+        }
+
+        .corner-decoration::before,
+        .corner-decoration::after {
+            content: '';
+            position: absolute;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.15), transparent);
+        }
+
+        .corner-top-left {
+            top: 0;
+            left: 0;
+        }
+
+        .corner-top-left::before {
+            width: 150px;
+            height: 150px;
+            top: 0;
+            left: 0;
+            border-top: 3px solid rgba(201, 169, 97, 0.3);
+            border-left: 3px solid rgba(201, 169, 97, 0.3);
+        }
+
+        .corner-bottom-right {
+            bottom: 0;
+            right: 0;
+        }
+
+        .corner-bottom-right::before {
+            width: 150px;
+            height: 150px;
+            bottom: 0;
+            right: 0;
+            border-bottom: 3px solid rgba(199, 117, 76, 0.3);
+            border-right: 3px solid rgba(199, 117, 76, 0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        /* Header with Art Deco style */
+        header {
+            padding: 100px 0 80px;
+            position: relative;
+            text-align: center;
+        }
+
+        .header-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ornament-line {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-metallic), transparent);
+        }
+
+        .ornament-diamond {
+            width: 12px;
+            height: 12px;
+            background: var(--gold-metallic);
+            transform: rotate(45deg);
+            box-shadow: 0 0 15px rgba(201, 169, 97, 0.5);
+        }
+
+        .academy-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--indigo-deep);
+        }
+
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 5.5rem;
+            font-weight: 900;
+            color: var(--indigo-deep);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-out 0.2s backwards;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .title-divider {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-metallic), var(--terracotta));
+            margin: 25px auto;
+            position: relative;
+            animation: expandWidth 1s ease-out 0.4s backwards;
+        }
+
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 100px; }
+        }
+
+        .title-divider::before,
+        .title-divider::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--gold-metallic);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .title-divider::before { left: -15px; }
+        .title-divider::after { right: -15px; }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--steel-gray);
+            font-weight: 400;
+            max-width: 850px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        /* Decorative hero card */
+        .hero-card {
+            background: white;
+            padding: 70px;
+            margin: 70px 0;
+            position: relative;
+            border: 3px solid var(--sand-light);
+            box-shadow: 
+                0 25px 70px rgba(30, 58, 95, 0.1),
+                inset 0 0 0 1px rgba(201, 169, 97, 0.2);
+            animation: fadeIn 1s ease-out 0.8s backwards;
+        }
+
+        .hero-card::before,
+        .hero-card::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--gold-metallic);
+        }
+
+        .hero-card::before {
+            top: 20px;
+            left: 20px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .hero-card::after {
+            bottom: 20px;
+            right: 20px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .hero-card h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            color: var(--indigo-deep);
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .hero-card p {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--charcoal);
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .emphasis {
+            color: var(--indigo-bright);
+            font-weight: 600;
+        }
+
+        /* Section styling */
+        .section {
+            margin: 90px 0;
+            animation: fadeIn 1s ease-out backwards;
+        }
+
+        .section:nth-child(4) { animation-delay: 1s; }
+        .section:nth-child(5) { animation-delay: 1.2s; }
+        .section:nth-child(6) { animation-delay: 1.4s; }
+        .section:nth-child(7) { animation-delay: 1.6s; }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--indigo-deep), var(--indigo-bright));
+            color: white;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(30, 58, 95, 0.3);
+        }
+
+        .section-number::before,
+        .section-number::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--gold-metallic);
+        }
+
+        .section-number::before {
+            top: -8px;
+            left: -8px;
+        }
+
+        .section-number::after {
+            bottom: -8px;
+            right: -8px;
+        }
+
+        .section-title {
+            font-family: 'Merriweather', serif;
+            font-size: 3rem;
+            color: var(--indigo-deep);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-intro {
+            font-size: 1.1rem;
+            color: var(--steel-gray);
+            max-width: 900px;
+            margin: 25px auto 0;
+            line-height: 1.9;
+        }
+
+        /* Mode cards grid */
+        .modes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 35px;
+            margin: 50px 0;
+        }
+
+        .mode-card {
+            background: white;
+            padding: 45px;
+            position: relative;
+            border: 2px solid var(--sand-light);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 35px rgba(30, 58, 95, 0.08);
+        }
+
+        .mode-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .mode-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(30, 58, 95, 0.15);
+            border-color: var(--gold-metallic);
+        }
+
+        .mode-card:hover::before {
+            opacity: 1;
+        }
+
+        .mode-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mode-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--gold-metallic), var(--terracotta));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            position: relative;
+            box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
+        }
+
+        .mode-icon::before {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .mode-name {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+            color: var(--indigo-deep);
+            font-weight: 700;
+        }
+
+        .mode-description {
+            font-size: 1rem;
+            color: var(--charcoal);
+            line-height: 1.85;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mode-examples {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mode-example {
+            font-family: 'Merriweather', serif;
+            font-size: 1.05rem;
+            color: var(--indigo-bright);
+            padding-left: 25px;
+            position: relative;
+            font-style: italic;
+        }
+
+        .mode-example::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--terracotta);
+            font-style: normal;
+        }
+
+        /* Tenses table */
+        .tenses-section {
+            background: white;
+            padding: 60px;
+            margin: 70px 0;
+            border: 3px solid var(--sand-light);
+            position: relative;
+            box-shadow: 0 20px 60px rgba(30, 58, 95, 0.1);
+        }
+
+        .tenses-section::before,
+        .tenses-section::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+        }
+
+        .tenses-section::before {
+            top: -2px;
+            left: -2px;
+            border-top: 3px solid var(--gold-metallic);
+            border-left: 3px solid var(--gold-metallic);
+        }
+
+        .tenses-section::after {
+            bottom: -2px;
+            right: -2px;
+            border-bottom: 3px solid var(--terracotta);
+            border-right: 3px solid var(--terracotta);
+        }
+
+        .tenses-title {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            color: var(--indigo-deep);
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tenses-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .tense-category {
+            border: 2px solid var(--sand-light);
+            padding: 35px;
+            background: var(--ivory);
+            transition: all 0.3s ease;
+        }
+
+        .tense-category:hover {
+            background: white;
+            border-color: var(--gold-metallic);
+        }
+
+        .tense-category-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5rem;
+            color: var(--indigo-deep);
+            margin-bottom: 15px;
+            font-weight: 700;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gold-metallic);
+        }
+
+        .tense-list {
+            list-style: none;
+        }
+
+        .tense-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--sand-light);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tense-item:last-child {
+            border-bottom: none;
+        }
+
+        .tense-bullet {
+            width: 8px;
+            height: 8px;
+            background: var(--terracotta);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .tense-name {
+            font-weight: 600;
+            color: var(--indigo-bright);
+            flex: 1;
+        }
+
+        /* Conjugation examples */
+        .conjugation-showcase {
+            margin: 60px 0;
+        }
+
+        .conjugation-card {
+            background: white;
+            padding: 50px;
+            margin-bottom: 40px;
+            border: 2px solid var(--sand-light);
+            box-shadow: 0 15px 45px rgba(30, 58, 95, 0.08);
+        }
+
+        .conjugation-title {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            color: var(--indigo-deep);
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .conjugation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .conjugation-example {
+            background: var(--sand-light);
+            padding: 25px;
+            border-left: 4px solid var(--gold-metallic);
+            transition: all 0.3s ease;
+        }
+
+        .conjugation-example:hover {
+            background: var(--ivory);
+            border-left-color: var(--terracotta);
+            transform: translateX(5px);
+        }
+
+        .conjugation-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--steel-gray);
+            margin-bottom: 10px;
+        }
+
+        .conjugation-text {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2rem;
+            color: var(--indigo-deep);
+            font-weight: 600;
+        }
+
+        /* Info boxes */
+        .info-panel {
+            background: linear-gradient(135deg, var(--indigo-deep), var(--indigo-bright));
+            padding: 50px;
+            margin: 60px 0;
+            color: white;
+            position: relative;
+            border: 3px solid var(--indigo-deep);
+            box-shadow: 0 20px 60px rgba(30, 58, 95, 0.3);
+        }
+
+        .info-panel::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            pointer-events: none;
+        }
+
+        .info-panel-title {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-panel-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-panel-content ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .info-panel-content li {
+            padding: 12px 0 12px 30px;
+            position: relative;
+        }
+
+        .info-panel-content li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--gold-metallic);
+            font-size: 0.8rem;
+        }
+
+        .info-panel-content strong {
+            color: var(--gold-metallic);
+            font-weight: 600;
+        }
+
+        /* Comparison table */
+        .comparison-table {
+            background: white;
+            padding: 50px;
+            margin: 60px 0;
+            border: 3px solid var(--sand-light);
+            box-shadow: 0 15px 45px rgba(30, 58, 95, 0.1);
+        }
+
+        .comparison-title {
+            font-family: 'Merriweather', serif;
+            font-size: 2.3rem;
+            color: var(--indigo-deep);
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .comparison-column {
+            border: 2px solid var(--sand-light);
+            padding: 35px;
+            background: var(--ivory);
+        }
+
+        .comparison-column h4 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.6rem;
+            color: var(--indigo-deep);
+            margin-bottom: 25px;
+            font-weight: 700;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--gold-metallic);
+        }
+
+        .comparison-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--sand-light);
+            font-size: 1rem;
+            color: var(--charcoal);
+        }
+
+        .comparison-item:last-child {
+            border-bottom: none;
+        }
+
+        .bullet-point {
+            color: var(--terracotta);
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 120px;
+            padding: 80px 0;
+            text-align: center;
+            border-top: 3px solid var(--sand-light);
+            position: relative;
+            animation: fadeIn 1s ease-out 1.8s backwards;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold-metallic), transparent);
+        }
+
+        .footer-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-diamond {
+            width: 10px;
+            height: 10px;
+            background: var(--gold-metallic);
+            transform: rotate(45deg);
+        }
+
+        .footer-text {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            color: var(--indigo-deep);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .footer-tagline {
+            font-size: 1rem;
+            color: var(--steel-gray);
+            font-weight: 400;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 40px;
+            }
+
+            .tenses-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .conjugation-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px;
+            }
+
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            .modes-grid,
+            .conjugation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card,
+            .tenses-section,
+            .info-panel,
+            .comparison-table {
+                padding: 35px 25px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="geometric-bg"></div>
+    <div class="corner-decoration corner-top-left"></div>
+    <div class="corner-decoration corner-bottom-right"></div>
+
+    <div class="container">
+        <header>
+            <div class="header-ornament">
+                <div class="ornament-line"></div>
+                <div class="ornament-diamond"></div>
+                <span class="academy-name">Língua Academy</span>
+                <div class="ornament-diamond"></div>
+                <div class="ornament-line"></div>
+            </div>
+            <h1>Modes & Temps</h1>
+            <div class="title-divider"></div>
+            <p class="subtitle">
+                Une exploration complète du système verbal français : les modes qui expriment l'attitude du locuteur et les temps qui situent l'action dans la chronologie
+            </p>
+        </header>
+
+        <div class="hero-card">
+            <h2>Les Fondements du Système Verbal</h2>
+            <p>
+                Le système verbal français s'articule autour de deux concepts fondamentaux : les <span class="emphasis">modes</span> et les <span class="emphasis">temps</span>. Les modes indiquent la manière dont l'action est envisagée (fait réel, souhaité, conditionnel, ordonné), tandis que les temps situent l'action dans le passé, le présent ou le futur. Ensemble, ils forment un système riche et nuancé qui permet d'exprimer avec précision toutes les nuances de la pensée et de l'action.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2 class="section-title">Les Sept Modes Verbaux</h2>
+                <p class="section-intro">
+                    La langue française possède sept modes verbaux, chacun avec sa fonction propre et ses caractéristiques distinctes. Quatre sont des modes personnels (avec conjugaison selon les personnes) et trois sont des modes impersonnels.
+                </p>
+            </div>
+
+            <div class="modes-grid">
+                <div class="mode-card">
+                    <div class="mode-header">
+                        <div class="mode-icon">I</div>
+                        <h3 class="mode-name">Indicatif</h3>
+                    </div>
+                    <p class="mode-description">
+                        Le mode de la réalité et de la certitude. Il exprime des faits réels, des actions certaines ou considérées comme telles. C'est le mode le plus utilisé en français, celui de l'affirmation objective.
+                    </p>
+                    <div class="mode-examples">
+                        <div class="mode-example">Je mange une pomme</div>
+                        <div class="mode-example">Il pleuvait hier</div>
+                        <div class="mode-example">Nous irons au cinéma demain</div>
+                    </div>
+                </div>
+
+                <div class="mode-card">
+                    <div class="mode-header">
+                        <div class="mode-icon">S</div>
+                        <h3 class="mode-name">Subjonctif</h3>
+                    </div>
+                    <p class="mode-description">
+                        Le mode du doute, du souhait, de la possibilité et de la subjectivité. Il exprime une action envisagée dans la pensée, incertaine, souhaitée ou redoutée. Souvent utilisé après "que" dans les propositions subordonnées.
+                    </p>
+                    <div class="mode-examples">
+                        <div class="mode-example">Il faut que tu viennes</div>
+                        <div class="mode-example">Je souhaite qu'elle réussisse</div>
+                        <div class="mode-example">Bien qu'il soit tard</div>
+                    </div>
+                </div>
+
+                <div class="mode-card">
+                    <div class="mode-header">
+                        <div class="mode-icon">C</div>
+                        <h3 class="mode-name">Conditionnel</h3>
+                    </div>
+                    <p class="mode-description">
+                        Le mode de l'éventualité, de l'hypothèse et de la politesse. Il présente l'action comme soumise à une condition. Il exprime aussi le futur dans le passé et permet d'atténuer une demande.
+                    </p>
+                    <div class="mode-examples">
+                        <div class="mode-example">J'aimerais un café</div>
+                        <div class="mode-example">Si j'étais riche, je voyagerais</div>
+                        <div class="mode-example">Il a dit qu'il viendrait</div>
+                    </div>
+                </div>
+
+                <div class="mode-card">
+                    <div class="mode-header">
+                        <div class="mode-icon">!</div>
+                        <h3 class="mode-name">Impératif</h3>
+                    </div>
+                    <p class="mode-description">
+                        Le mode de l'ordre, du conseil et de la prière. Il sert à exprimer un ordre, une demande, une interdiction ou une invitation. Il ne se conjugue qu'à trois personnes (tu, nous, vous) sans pronom sujet.
+                    </p>
+                    <div class="mode-examples">
+                        <div class="mode-example">Mange ta soupe !</div>
+                        <div class="mode-example">Partons maintenant</div>
+                        <div class="mode-example">Soyez patients</div>
+                    </div>
+                </div>
+
+                <div class="mode-card">
+                    <div class="mode-header">
+                        <div class="mode-icon">∞</div>
+                        <h3 class="mode-name">Infinitif</h3>
+                    </div>
+                    <p class="mode-description">
+                        Le mode impersonnel qui donne le nom du verbe. L'infinitif présente l'action de manière générale, sans indication de personne ni de nombre. Il peut avoir une valeur nominale et s'utilise souvent après un autre verbe.
+                    </p>
+                    <div class="mode-examples">
+                        <div class="mode-example">Manger est un plaisir</div>
+                        <div class="mode-example">Je veux partir</div>
+                        <div class="mode-example">Défense de fumer</div>
+                    </div>
+                </div>
+
+                <div class="mode-card">
+                    <div class="mode-header">
+                        <div class="mode-icon">P</div>
+                        <h3 class="mode-name">Participe</h3>
+                    </div>
+                    <p class="mode-description">
+                        Mode impersonnel qui a deux formes : présent et passé. Le participe présent exprime une action en cours, le participe passé une action accomplie. Ils peuvent avoir valeur d'adjectif et servent à former les temps composés.
+                    </p>
+                    <div class="mode-examples">
+                        <div class="mode-example">En mangeant (participe présent)</div>
+                        <div class="mode-example">Mangé (participe passé)</div>
+                        <div class="mode-example">Un enfant souriant</div>
+                    </div>
+                </div>
+
+                <div class="mode-card">
+                    <div class="mode-header">
+                        <div class="mode-icon">G</div>
+                        <h3 class="mode-name">Gérondif</h3>
+                    </div>
+                    <p class="mode-description">
+                        Mode impersonnel formé avec "en" + participe présent. Il exprime la simultanéité, la manière, la cause ou la condition. Il indique qu'une action se déroule en même temps qu'une autre.
+                    </p>
+                    <div class="mode-examples">
+                        <div class="mode-example">En marchant dans la rue</div>
+                        <div class="mode-example">Elle chante en travaillant</div>
+                        <div class="mode-example">En partant tôt, tu arriveras à l'heure</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h3 class="info-panel-title">Modes Personnels vs Modes Impersonnels</h3>
+            <div class="info-panel-content">
+                <p><strong>Modes personnels</strong> : se conjuguent selon les personnes (je, tu, il, nous, vous, ils)</p>
+                <ul>
+                    <li><strong>Indicatif</strong> : le mode de la réalité (10 temps)</li>
+                    <li><strong>Subjonctif</strong> : le mode de la subjectivité (4 temps)</li>
+                    <li><strong>Conditionnel</strong> : le mode de l'hypothèse (2 temps)</li>
+                    <li><strong>Impératif</strong> : le mode de l'ordre (2 temps)</li>
+                </ul>
+                <p style="margin-top: 25px;"><strong>Modes impersonnels</strong> : ne se conjuguent pas selon les personnes</p>
+                <ul>
+                    <li><strong>Infinitif</strong> : forme nominale du verbe (présent et passé)</li>
+                    <li><strong>Participe</strong> : forme adjectivale (présent et passé)</li>
+                    <li><strong>Gérondif</strong> : exprime la simultanéité</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2 class="section-title">Les Temps de l'Indicatif</h2>
+                <p class="section-intro">
+                    L'indicatif est le mode qui possède le plus de temps : dix au total. Ces temps permettent d'exprimer avec précision le moment de l'action et son aspect (accompli ou non accompli).
+                </p>
+            </div>
+
+            <div class="tenses-section">
+                <h3 class="tenses-title">Les 10 Temps de l'Indicatif</h3>
+                <div class="tenses-grid">
+                    <div class="tense-category">
+                        <h4 class="tense-category-title">Temps Simples</h4>
+                        <ul class="tense-list">
+                            <li class="tense-item">
+                                <div class="tense-bullet"></div>
+                                <span class="tense-name">Présent</span>
+                            </li>
+                            <li class="tense-item">
+                                <div class="tense-bullet"></div>
+                                <span class="tense-name">Imparfait</span>
+                            </li>
+                            <li class="tense-item">
+                                <div class="tense-bullet"></div>
+                                <span class="tense-name">Passé simple</span>
+                            </li>
+                            <li class="tense-item">
+                                <div class="tense-bullet"></div>
+                                <span class="tense-name">Futur simple</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tense-category">
+                        <h4 class="tense-category-title">Temps Composés</h4>
+                        <ul class="tense-list">
+                            <li class="tense-item">
+                                <div class="tense-bullet"></div>
+                                <span class="tense-name">Passé composé</span>
+                            </li>
+                            <li class="tense-item">
+                                <div class="tense-bullet"></div>
+                                <span class="tense-name">Plus-que-parfait</span>
+                            </li>
+                            <li class="tense-item">
+                                <div class="tense-bullet"></div>
+                                <span class="tense-name">Passé antérieur</span>
+                            </li>
+                            <li class="tense-item">
+                                <div class="tense-bullet"></div>
+                                <span class="tense-name">Futur antérieur</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tense-category">
+                        <h4 class="tense-category-title">Temps Surcomposés</h4>
+                        <ul class="tense-list">
+                            <li class="tense-item">
+                                <div class="tense-bullet"></div>
+                                <span class="tense-name">Passé surcomposé</span>
+                            </li>
+                            <li class="tense-item">
+                                <div class="tense-bullet"></div>
+                                <span class="tense-name">Plus-que-parfait surcomposé</span>
+                            </li>
+                        </ul>
+                        <p style="margin-top: 15px; font-size: 0.9rem; color: var(--steel-gray);">
+                            Les temps surcomposés sont rares et principalement utilisés à l'oral dans certaines régions.
+                        </p>
+                    </div>
+
+                    <div class="tense-category">
+                        <h4 class="tense-category-title">Correspondances</h4>
+                        <p style="margin-bottom: 15px; font-size: 0.95rem; color: var(--steel-gray);">
+                            Chaque temps simple a son correspondant composé :
+                        </p>
+                        <ul class="tense-list">
+                            <li class="tense-item">
+                                <div class="tense-bullet"></div>
+                                <span class="tense-name">Présent → Passé composé</span>
+                            </li>
+                            <li class="tense-item">
+                                <div class="tense-bullet"></div>
+                                <span class="tense-name">Imparfait → Plus-que-parfait</span>
+                            </li>
+                            <li class="tense-item">
+                                <div class="tense-bullet"></div>
+                                <span class="tense-name">Passé simple → Passé antérieur</span>
+                            </li>
+                            <li class="tense-item">
+                                <div class="tense-bullet"></div>
+                                <span class="tense-name">Futur simple → Futur antérieur</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conjugation-showcase">
+                <div class="conjugation-card">
+                    <h4 class="conjugation-title">Présent de l'Indicatif</h4>
+                    <div class="conjugation-grid">
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Action actuelle</div>
+                            <div class="conjugation-text">Je mange maintenant</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Vérité générale</div>
+                            <div class="conjugation-text">La terre tourne</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Habitude</div>
+                            <div class="conjugation-text">Il fume beaucoup</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Futur proche</div>
+                            <div class="conjugation-text">Je pars demain</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Passé récent</div>
+                            <div class="conjugation-text">Elle arrive à l'instant</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Présent de narration</div>
+                            <div class="conjugation-text">Et soudain, il apparaît</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conjugation-card">
+                    <h4 class="conjugation-title">Imparfait</h4>
+                    <div class="conjugation-grid">
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Action passée durée</div>
+                            <div class="conjugation-text">Je travaillais là-bas</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Habitude passée</div>
+                            <div class="conjugation-text">Il jouait au tennis</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Description</div>
+                            <div class="conjugation-text">Il faisait beau</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Action en cours</div>
+                            <div class="conjugation-text">Je dormais quand...</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Politesse</div>
+                            <div class="conjugation-text">Je voulais vous voir</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Condition</div>
+                            <div class="conjugation-text">Si j'étais riche...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conjugation-card">
+                    <h4 class="conjugation-title">Passé Composé</h4>
+                    <div class="conjugation-grid">
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Action achevée</div>
+                            <div class="conjugation-text">J'ai mangé ce matin</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Action ponctuelle</div>
+                            <div class="conjugation-text">Il est tombé soudain</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Succession d'actions</div>
+                            <div class="conjugation-text">Je suis entré, j'ai vu</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Résultat présent</div>
+                            <div class="conjugation-text">J'ai fini (c'est fait)</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Passé récent</div>
+                            <div class="conjugation-text">Elle vient de partir</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Expérience de vie</div>
+                            <div class="conjugation-text">J'ai vécu à Paris</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conjugation-card">
+                    <h4 class="conjugation-title">Futur Simple</h4>
+                    <div class="conjugation-grid">
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Action future</div>
+                            <div class="conjugation-text">Je partirai demain</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Ordre atténué</div>
+                            <div class="conjugation-text">Tu feras tes devoirs</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Promesse</div>
+                            <div class="conjugation-text">Je viendrai, promis</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Vérité générale future</div>
+                            <div class="conjugation-text">Il sera toujours là</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Supposition</div>
+                            <div class="conjugation-text">Ce sera lui</div>
+                        </div>
+                        <div class="conjugation-example">
+                            <div class="conjugation-label">Futur proche oral</div>
+                            <div class="conjugation-text">J'arrive tout de suite</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-table">
+            <h3 class="comparison-title">Passé Composé vs Imparfait</h3>
+            <div class="comparison-grid">
+                <div class="comparison-column">
+                    <h4>Passé Composé</h4>
+                    <div class="comparison-item">
+                        <span class="bullet-point">▸</span> Actions ponctuelles et délimitées
+                    </div>
+                    <div class="comparison-item">
+                        <span class="bullet-point">▸</span> Actions achevées, terminées
+                    </div>
+                    <div class="comparison-item">
+                        <span class="bullet-point">▸</span> Succession d'événements
+                    </div>
+                    <div class="comparison-item">
+                        <span class="bullet-point">▸</span> Premier plan du récit
+                    </div>
+                    <div class="comparison-item">
+                        <span class="bullet-point">▸</span> Changement d'état soudain
+                    </div>
+                    <div class="comparison-item">
+                        <span class="bullet-point">▸</span> Durée précise et limitée
+                    </div>
+                    <div class="comparison-item">
+                        <span class="bullet-point">▸</span> "Hier, j'ai mangé une pomme"
+                    </div>
+                </div>
+
+                <div class="comparison-column">
+                    <h4>Imparfait</h4>
+                    <div class="comparison-item">
+                        <span class="bullet-point">▸</span> Actions continues et non délimitées
+                    </div>
+                    <div class="comparison-item">
+                        <span class="bullet-point">▸</span> Actions en cours, non terminées
+                    </div>
+                    <div class="comparison-item">
+                        <span class="bullet-point">▸</span> Actions habituelles, répétées
+                    </div>
+                    <div class="comparison-item">
+                        <span class="bullet-point">▸</span> Arrière-plan du récit, décor
+                    </div>
+                    <div class="comparison-item">
+                        <span class="bullet-point">▸</span> État, description
+                    </div>
+                    <div class="comparison-item">
+                        <span class="bullet-point">▸</span> Durée indéterminée
+                    </div>
+                    <div class="comparison-item">
+                        <span class="bullet-point">▸</span> "Avant, je mangeais des pommes"
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h3 class="info-panel-title">Points Essentiels à Retenir</h3>
+            <div class="info-panel-content">
+                <ul>
+                    <li><strong>7 modes</strong> : 4 personnels (indicatif, subjonctif, conditionnel, impératif) et 3 impersonnels (infinitif, participe, gérondif)</li>
+                    <li><strong>L'indicatif</strong> possède 10 temps dont 4 temps simples et 4 temps composés principaux</li>
+                    <li><strong>Les temps composés</strong> se forment avec un auxiliaire (être ou avoir) + participe passé</li>
+                    <li><strong>Le mode</strong> indique l'attitude du locuteur (certitude, doute, ordre, hypothèse)</li>
+                    <li><strong>Le temps</strong> situe l'action dans la chronologie (passé, présent, futur)</li>
+                    <li><strong>L'aspect</strong> indique si l'action est accomplie (temps composés) ou non accomplie (temps simples)</li>
+                    <li><strong>Chaque temps</strong> a des emplois spécifiques au-delà de sa simple valeur temporelle</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-ornament">
+                <div class="footer-diamond"></div>
+                <div class="footer-diamond"></div>
+                <div class="footer-diamond"></div>
+            </div>
+            <div class="footer-text">Língua Academy</div>
+            <p class="footer-tagline">L'excellence de la grammaire française dans toute sa splendeur</p>
+        </footer>
+    </div>
+</body>
+</html>

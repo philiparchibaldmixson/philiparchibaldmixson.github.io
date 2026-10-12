@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personnes, Nombres et Verbes Impersonnels | Grammaire Française</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Spectral:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink-soft: #FF6B9D;
+            --purple-light: #B084CC;
+            --cyan-bright: #4ECDC4;
+            --yellow-warm: #FFE66D;
+            --green-mint: #A8E6CF;
+            --blue-sky: #89CFF0;
+            --peach: #FFB5A7;
+            --lavender: #C9B1E5;
+            --bg-cream: #FFF9F5;
+            --text-dark: #2D3142;
+            --text-gray: #6B7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, var(--bg-cream) 0%, #FFF5F0 100%);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Floating elements background */
+        .floating-shapes {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--pink-soft), transparent);
+            border-radius: 50%;
+            top: 10%;
+            right: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, var(--cyan-bright), transparent);
+            border-radius: 50%;
+            bottom: 15%;
+            left: 8%;
+            animation-delay: -5s;
+        }
+
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--purple-light), transparent);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+            50% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+            75% {
+                transform: translate(20px, 10px) scale(1.05);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1350px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+
+        /* Colorful header */
+        header {
+            padding: 100px 0 80px;
+            position: relative;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--pink-soft), var(--purple-light));
+            color: white;
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.3);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+
+        h1 {
+            font-family: 'Spectral', serif;
+            font-size: 6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--pink-soft), var(--purple-light), var(--cyan-bright));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            animation: slideDown 1s ease-out 0.2s backwards;
+        }
+
+        .subtitle {
+            font-size: 1.35rem;
+            color: var(--text-gray);
+            max-width: 850px;
+            font-weight: 400;
+            animation: slideDown 1s ease-out 0.4s backwards;
+        }
+
+        /* Gradient intro card */
+        .intro-card {
+            background: white;
+            padding: 60px;
+            border-radius: 30px;
+            margin: 70px 0;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            animation: scaleIn 1s ease-out 0.6s backwards;
+            overflow: hidden;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .intro-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--pink-soft), var(--purple-light), var(--cyan-bright), var(--yellow-warm));
+            border-radius: 30px 30px 0 0;
+        }
+
+        .intro-card h2 {
+            font-family: 'Spectral', serif;
+            font-size: 2.8rem;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .intro-card p {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--text-gray);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--pink-soft), var(--purple-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        /* Section with gradient numbers */
+        .section {
+            margin: 90px 0;
+            animation: scaleIn 1s ease-out backwards;
+        }
+
+        .section:nth-child(4) { animation-delay: 0.8s; }
+        .section:nth-child(5) { animation-delay: 1s; }
+        .section:nth-child(6) { animation-delay: 1.2s; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .section-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--pink-soft), var(--purple-light));
+            color: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            box-shadow: 0 12px 35px rgba(255, 107, 157, 0.3);
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .section-number::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 22px;
+            background: inherit;
+            opacity: 0.3;
+            z-index: -1;
+            filter: blur(15px);
+        }
+
+        .section-title {
+            font-family: 'Spectral', serif;
+            font-size: 3rem;
+            color: var(--text-dark);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .section-intro {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            line-height: 1.9;
+        }
+
+        /* Colorful cards grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .person-card {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .person-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--pink-soft), var(--purple-light));
+        }
+
+        .person-card:nth-child(1)::before {
+            background: linear-gradient(90deg, var(--pink-soft), var(--peach));
+        }
+
+        .person-card:nth-child(2)::before {
+            background: linear-gradient(90deg, var(--cyan-bright), var(--blue-sky));
+        }
+
+        .person-card:nth-child(3)::before {
+            background: linear-gradient(90deg, var(--purple-light), var(--lavender));
+        }
+
+        .person-card:nth-child(4)::before {
+            background: linear-gradient(90deg, var(--yellow-warm), var(--peach));
+        }
+
+        .person-card:nth-child(5)::before {
+            background: linear-gradient(90deg, var(--green-mint), var(--cyan-bright));
+        }
+
+        .person-card:nth-child(6)::before {
+            background: linear-gradient(90deg, var(--lavender), var(--pink-soft));
+        }
+
+        .person-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .person-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--pink-soft), var(--purple-light));
+            color: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.3);
+        }
+
+        .person-card:nth-child(1) .person-icon {
+            background: linear-gradient(135deg, var(--pink-soft), var(--peach));
+        }
+
+        .person-card:nth-child(2) .person-icon {
+            background: linear-gradient(135deg, var(--cyan-bright), var(--blue-sky));
+        }
+
+        .person-card:nth-child(3) .person-icon {
+            background: linear-gradient(135deg, var(--purple-light), var(--lavender));
+        }
+
+        .person-card:nth-child(4) .person-icon {
+            background: linear-gradient(135deg, var(--yellow-warm), var(--peach));
+        }
+
+        .person-card:nth-child(5) .person-icon {
+            background: linear-gradient(135deg, var(--green-mint), var(--cyan-bright));
+        }
+
+        .person-card:nth-child(6) .person-icon {
+            background: linear-gradient(135deg, var(--lavender), var(--pink-soft));
+        }
+
+        .person-card h4 {
+            font-family: 'Spectral', serif;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .person-description {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .person-examples {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .example-tag {
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(176, 132, 204, 0.1));
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-family: 'Spectral', serif;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Impersonal verbs section with special styling */
+        .impersonal-section {
+            background: linear-gradient(135deg, var(--pink-soft), var(--purple-light));
+            padding: 80px;
+            border-radius: 35px;
+            margin: 80px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(255, 107, 157, 0.3);
+        }
+
+        .impersonal-section::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .impersonal-section h3 {
+            font-family: 'Spectral', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .impersonal-intro {
+            font-size: 1.25rem;
+            line-height: 2;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .impersonal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .impersonal-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .impersonal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+        }
+
+        .impersonal-card h4 {
+            font-family: 'Spectral', serif;
+            font-size: 1.9rem;
+            background: linear-gradient(135deg, var(--pink-soft), var(--purple-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .impersonal-card p {
+            color: var(--text-gray);
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+
+        .impersonal-examples {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .impersonal-example {
+            background: var(--bg-cream);
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-family: 'Spectral', serif;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            border-left: 4px solid var(--cyan-bright);
+        }
+
+        /* Info boxes with gradient accents */
+        .info-box {
+            background: white;
+            padding: 50px;
+            border-radius: 28px;
+            margin: 50px 0;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--cyan-bright), var(--green-mint), var(--yellow-warm));
+        }
+
+        .info-box-title {
+            font-family: 'Spectral', serif;
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .info-box-content {
+            font-size: 1.05rem;
+            color: var(--text-gray);
+            line-height: 1.9;
+        }
+
+        .info-box-content ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .info-box-content li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .info-box-content li::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            background: linear-gradient(135deg, var(--pink-soft), var(--cyan-bright));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .info-box-content strong {
+            background: linear-gradient(135deg, var(--pink-soft), var(--purple-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        /* Conjugation table */
+        .conjugation-table {
+            background: white;
+            padding: 50px;
+            border-radius: 28px;
+            margin: 60px 0;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .conjugation-title {
+            font-family: 'Spectral', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--pink-soft), var(--purple-light), var(--cyan-bright));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .conjugation-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .conjugation-block {
+            background: var(--bg-cream);
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 5px solid var(--cyan-bright);
+        }
+
+        .conjugation-block:nth-child(odd) {
+            border-left-color: var(--pink-soft);
+        }
+
+        .conjugation-block h5 {
+            font-family: 'Spectral', serif;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .conjugation-list {
+            list-style: none;
+        }
+
+        .conjugation-item {
+            padding: 10px 0;
+            font-size: 1.05rem;
+            color: var(--text-gray);
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .conjugation-item:last-child {
+            border-bottom: none;
+        }
+
+        .conjugation-person {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .conjugation-form {
+            font-family: 'Spectral', serif;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--pink-soft), var(--purple-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Comparison section */
+        .comparison-section {
+            background: linear-gradient(135deg, var(--cyan-bright), var(--blue-sky));
+            padding: 70px;
+            border-radius: 35px;
+            margin: 80px 0;
+            color: white;
+            box-shadow: 0 20px 60px rgba(78, 205, 196, 0.3);
+        }
+
+        .comparison-title {
+            font-family: 'Spectral', serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 800;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .comparison-column {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .comparison-column h4 {
+            font-family: 'Spectral', serif;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--cyan-bright), var(--blue-sky));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .comparison-point {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            color: var(--text-gray);
+            font-size: 1.05rem;
+        }
+
+        .comparison-point:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 120px;
+            padding: 70px 0;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--pink-soft), var(--purple-light), var(--cyan-bright), var(--yellow-warm));
+            border-radius: 10px;
+        }
+
+        .footer-logo {
+            font-family: 'Spectral', serif;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--pink-soft), var(--purple-light), var(--cyan-bright));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            color: var(--text-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 35px;
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .conjugation-grid,
+            .comparison-grid,
+            .impersonal-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px;
+            }
+
+            h1 {
+                font-size: 4rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-card,
+            .impersonal-section,
+            .comparison-section,
+            .info-box,
+            .conjugation-table {
+                padding: 40px 25px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section-number {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="header-badge">
+                <div class="badge-dot"></div>
+                <span>Língua Academy</span>
+            </div>
+            <h1>Personnes, Nombres<br>& Verbes Impersonnels</h1>
+            <p class="subtitle">
+                Découvrez comment le français organise la conjugaison selon les personnes grammaticales et le nombre, ainsi que les verbes particuliers qui échappent à cette logique : les verbes impersonnels
+            </p>
+        </header>
+
+        <div class="intro-card">
+            <h2>Les Fondements de la Conjugaison</h2>
+            <p>
+                La conjugaison française repose sur deux piliers essentiels : les <span class="highlight">personnes</span> (qui effectue l'action) et le <span class="highlight">nombre</span> (combien effectuent l'action). Ces catégories permettent d'identifier précisément le sujet du verbe. Cependant, certains verbes, appelés <span class="highlight">impersonnels</span>, ne suivent pas cette logique et se conjuguent uniquement à la troisième personne du singulier avec le pronom neutre "il".
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <div>
+                    <h3 class="section-title">Les Six Personnes Grammaticales</h3>
+                    <p class="section-intro">
+                        La grammaire française distingue six personnes grammaticales qui combinent la notion de personne (1ère, 2ème, 3ème) et de nombre (singulier, pluriel). Chaque personne possède son pronom personnel sujet caractéristique.
+                    </p>
+                </div>
+            </div>
+
+            <div class="cards-grid">
+                <div class="person-card">
+                    <div class="person-icon">1S</div>
+                    <h4>Première personne du singulier</h4>
+                    <p class="person-description">
+                        La personne qui parle. Le locuteur se désigne lui-même.
+                    </p>
+                    <div class="person-examples">
+                        <div class="example-tag">Je parle</div>
+                        <div class="example-tag">J'aime</div>
+                        <div class="example-tag">Je suis</div>
+                    </div>
+                </div>
+
+                <div class="person-card">
+                    <div class="person-icon">2S</div>
+                    <h4>Deuxième personne du singulier</h4>
+                    <p class="person-description">
+                        La personne à qui l'on parle. Le locuteur s'adresse à une seule personne.
+                    </p>
+                    <div class="person-examples">
+                        <div class="example-tag">Tu parles</div>
+                        <div class="example-tag">Tu aimes</div>
+                        <div class="example-tag">Tu es</div>
+                    </div>
+                </div>
+
+                <div class="person-card">
+                    <div class="person-icon">3S</div>
+                    <h4>Troisième personne du singulier</h4>
+                    <p class="person-description">
+                        La personne ou la chose dont on parle. Quelqu'un ou quelque chose d'autre que le locuteur et l'interlocuteur.
+                    </p>
+                    <div class="person-examples">
+                        <div class="example-tag">Il/Elle parle</div>
+                        <div class="example-tag">Il/Elle aime</div>
+                        <div class="example-tag">Il/Elle est</div>
+                    </div>
+                </div>
+
+                <div class="person-card">
+                    <div class="person-icon">1P</div>
+                    <h4>Première personne du pluriel</h4>
+                    <p class="person-description">
+                        Les personnes qui parlent. Le locuteur se désigne avec d'autres personnes.
+                    </p>
+                    <div class="person-examples">
+                        <div class="example-tag">Nous parlons</div>
+                        <div class="example-tag">Nous aimons</div>
+                        <div class="example-tag">Nous sommes</div>
+                    </div>
+                </div>
+
+                <div class="person-card">
+                    <div class="person-icon">2P</div>
+                    <h4>Deuxième personne du pluriel</h4>
+                    <p class="person-description">
+                        Les personnes à qui l'on parle. Le locuteur s'adresse à plusieurs personnes ou utilise le vouvoiement.
+                    </p>
+                    <div class="person-examples">
+                        <div class="example-tag">Vous parlez</div>
+                        <div class="example-tag">Vous aimez</div>
+                        <div class="example-tag">Vous êtes</div>
+                    </div>
+                </div>
+
+                <div class="person-card">
+                    <div class="person-icon">3P</div>
+                    <h4>Troisième personne du pluriel</h4>
+                    <p class="person-description">
+                        Les personnes ou les choses dont on parle. Plusieurs personnes ou choses autres que le locuteur et l'interlocuteur.
+                    </p>
+                    <div class="person-examples">
+                        <div class="example-tag">Ils/Elles parlent</div>
+                        <div class="example-tag">Ils/Elles aiment</div>
+                        <div class="example-tag">Ils/Elles sont</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="conjugation-table">
+            <h3 class="conjugation-title">Exemple de Conjugaison : Verbe PARLER (présent)</h3>
+            <div class="conjugation-grid">
+                <div class="conjugation-block">
+                    <h5>Singulier</h5>
+                    <ul class="conjugation-list">
+                        <li class="conjugation-item">
+                            <span class="conjugation-person">1ère personne</span>
+                            <span class="conjugation-form">je parle</span>
+                        </li>
+                        <li class="conjugation-item">
+                            <span class="conjugation-person">2ème personne</span>
+                            <span class="conjugation-form">tu parles</span>
+                        </li>
+                        <li class="conjugation-item">
+                            <span class="conjugation-person">3ème personne</span>
+                            <span class="conjugation-form">il/elle parle</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="conjugation-block">
+                    <h5>Pluriel</h5>
+                    <ul class="conjugation-list">
+                        <li class="conjugation-item">
+                            <span class="conjugation-person">1ère personne</span>
+                            <span class="conjugation-form">nous parlons</span>
+                        </li>
+                        <li class="conjugation-item">
+                            <span class="conjugation-person">2ème personne</span>
+                            <span class="conjugation-form">vous parlez</span>
+                        </li>
+                        <li class="conjugation-item">
+                            <span class="conjugation-person">3ème personne</span>
+                            <span class="conjugation-form">ils/elles parlent</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3 class="info-box-title">Points Importants sur les Personnes</h3>
+            <div class="info-box-content">
+                <ul>
+                    <li><strong>Le pronom "on"</strong> : souvent utilisé à l'oral pour remplacer "nous", se conjugue à la 3ème personne du singulier (On parle = Nous parlons)</li>
+                    <li><strong>Le vouvoiement</strong> : "vous" peut désigner une seule personne (politesse) ou plusieurs personnes, mais se conjugue toujours au pluriel</li>
+                    <li><strong>Les pronoms sujets</strong> : en français, ils sont généralement obligatoires (contrairement à l'espagnol ou l'italien)</li>
+                    <li><strong>Accord du verbe</strong> : le verbe s'accorde toujours avec son sujet en personne et en nombre</li>
+                    <li><strong>À l'impératif</strong> : seules trois personnes sont utilisées (tu, nous, vous) et le pronom sujet est omis</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <div>
+                    <h3 class="section-title">Les Verbes Impersonnels</h3>
+                    <p class="section-intro">
+                        Les verbes impersonnels constituent une catégorie particulière qui échappe à la logique des personnes et des nombres. Ils ne se conjuguent qu'à la troisième personne du singulier avec le pronom "il" qui ne représente aucune réalité concrète.
+                    </p>
+                </div>
+            </div>
+
+            <div class="impersonal-section">
+                <h3>Qu'est-ce qu'un verbe impersonnel ?</h3>
+                <p class="impersonal-intro">
+                    Un verbe impersonnel est un verbe qui ne s'emploie qu'à la troisième personne du singulier avec le pronom sujet "il". Ce "il" est un sujet apparent, grammatical, qui ne désigne aucune personne ni aucune chose. Il s'agit d'un pronom neutre, impersonnel, utilisé pour des raisons de construction syntaxique.
+                </p>
+
+                <div class="impersonal-grid">
+                    <div class="impersonal-card">
+                        <h4>Verbes Météorologiques</h4>
+                        <p>
+                            Ces verbes décrivent les phénomènes météorologiques et naturels. Ils sont essentiellement impersonnels.
+                        </p>
+                        <div class="impersonal-examples">
+                            <div class="impersonal-example">Il pleut depuis ce matin</div>
+                            <div class="impersonal-example">Il neige en montagne</div>
+                            <div class="impersonal-example">Il vente très fort</div>
+                            <div class="impersonal-example">Il grêle parfois en été</div>
+                            <div class="impersonal-example">Il tonne au loin</div>
+                            <div class="impersonal-example">Il gèle cette nuit</div>
+                        </div>
+                    </div>
+
+                    <div class="impersonal-card">
+                        <h4>Verbe FALLOIR</h4>
+                        <p>
+                            Ce verbe exprime la nécessité, l'obligation. Il est toujours impersonnel et ne possède pas d'autres formes.
+                        </p>
+                        <div class="impersonal-examples">
+                            <div class="impersonal-example">Il faut partir maintenant</div>
+                            <div class="impersonal-example">Il faudra être prudent</div>
+                            <div class="impersonal-example">Il fallait y penser</div>
+                            <div class="impersonal-example">Il faut que tu viennes</div>
+                            <div class="impersonal-example">Il faudrait réfléchir</div>
+                        </div>
+                    </div>
+
+                    <div class="impersonal-card">
+                        <h4>Expressions Impersonnelles</h4>
+                        <p>
+                            De nombreuses expressions utilisent une construction impersonnelle pour exprimer une appréciation, un jugement ou une situation.
+                        </p>
+                        <div class="impersonal-examples">
+                            <div class="impersonal-example">Il est important de réussir</div>
+                            <div class="impersonal-example">Il est possible qu'il vienne</div>
+                            <div class="impersonal-example">Il est nécessaire de partir</div>
+                            <div class="impersonal-example">Il est évident que...</div>
+                            <div class="impersonal-example">Il est interdit de fumer</div>
+                            <div class="impersonal-example">Il vaut mieux attendre</div>
+                        </div>
+                    </div>
+
+                    <div class="impersonal-card">
+                        <h4>Verbes à Emploi Impersonnel</h4>
+                        <p>
+                            Certains verbes peuvent s'utiliser de façon impersonnelle même s'ils existent aussi sous forme personnelle.
+                        </p>
+                        <div class="impersonal-examples">
+                            <div class="impersonal-example">Il arrive que je me trompe</div>
+                            <div class="impersonal-example">Il se passe quelque chose</div>
+                            <div class="impersonal-example">Il existe une solution</div>
+                            <div class="impersonal-example">Il manque deux personnes</div>
+                            <div class="impersonal-example">Il reste du pain</div>
+                            <div class="impersonal-example">Il convient de réfléchir</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3 class="info-box-title">Caractéristiques des Verbes Impersonnels</h3>
+            <div class="info-box-content">
+                <ul>
+                    <li><strong>Sujet apparent "il"</strong> : ce pronom ne représente rien de concret, c'est un sujet grammatical obligatoire</li>
+                    <li><strong>Conjugaison limitée</strong> : uniquement à la 3ème personne du singulier à tous les temps et modes</li>
+                    <li><strong>Pas de forme personnelle</strong> : on ne peut pas dire *"je pleus" ou *"tu faux"</li>
+                    <li><strong>Sujet réel possible</strong> : parfois, un sujet réel apparaît après le verbe (Il manque deux élèves)</li>
+                    <li><strong>Auxiliaire AVOIR</strong> : aux temps composés, ces verbes utilisent "avoir" (Il a plu, Il a fallu)</li>
+                    <li><strong>Pas d'accord</strong> : le participe passé reste invariable (Il a fallu / Il avait fallu)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <h3 class="comparison-title">Verbes Personnels vs Impersonnels</h3>
+            <div class="comparison-grid">
+                <div class="comparison-column">
+                    <h4>Verbes Personnels</h4>
+                    <div class="comparison-point">
+                        Se conjuguent à toutes les personnes
+                    </div>
+                    <div class="comparison-point">
+                        Le sujet "il/elle" désigne quelqu'un ou quelque chose
+                    </div>
+                    <div class="comparison-point">
+                        Six formes différentes par temps
+                    </div>
+                    <div class="comparison-point">
+                        Sujet identifiable et concret
+                    </div>
+                    <div class="comparison-point">
+                        "Je parle, tu parles, il parle..."
+                    </div>
+                    <div class="comparison-point">
+                        Accord du participe passé possible
+                    </div>
+                    <div class="comparison-point">
+                        Peuvent avoir tous les modes
+                    </div>
+                </div>
+
+                <div class="comparison-column">
+                    <h4>Verbes Impersonnels</h4>
+                    <div class="comparison-point">
+                        Se conjuguent uniquement à la 3ème personne singulier
+                    </div>
+                    <div class="comparison-point">
+                        Le sujet "il" ne désigne rien (pronom neutre)
+                    </div>
+                    <div class="comparison-point">
+                        Une seule forme par temps
+                    </div>
+                    <div class="comparison-point">
+                        Pas de sujet réel identifiable
+                    </div>
+                    <div class="comparison-point">
+                        "Il pleut, il faut, il neige..."
+                    </div>
+                    <div class="comparison-point">
+                        Participe passé toujours invariable
+                    </div>
+                    <div class="comparison-point">
+                        Modes limités (pas d'impératif)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3 class="info-box-title">Cas Particuliers et Subtilités</h3>
+            <div class="info-box-content">
+                <p><strong>Verbes occasionnellement impersonnels :</strong></p>
+                <ul>
+                    <li><strong>Arriver :</strong> "Il arrive un malheur" (impersonnel) vs "Je arrive" (personnel)</li>
+                    <li><strong>Manquer :</strong> "Il manque du sel" (impersonnel) vs "Tu me manques" (personnel)</li>
+                    <li><strong>Rester :</strong> "Il reste deux places" (impersonnel) vs "Je reste ici" (personnel)</li>
+                    <li><strong>Sembler :</strong> "Il semble que..." (impersonnel) vs "Elle semble fatiguée" (personnel)</li>
+                </ul>
+                <p style="margin-top: 20px;"><strong>Construction avec sujet réel :</strong></p>
+                <ul>
+                    <li>Dans "Il manque trois élèves", "trois élèves" est le sujet réel, "il" est le sujet apparent</li>
+                    <li>On pourrait reformuler : "Trois élèves manquent" (forme personnelle)</li>
+                    <li>La construction impersonnelle permet de mettre l'accent sur l'information (les élèves qui manquent)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-box" style="margin: 80px 0;">
+            <h3 class="info-box-title">En Résumé</h3>
+            <div class="info-box-content">
+                <ul>
+                    <li>Le français possède <strong>six personnes grammaticales</strong> combinant personne (1ère, 2ème, 3ème) et nombre (singulier, pluriel)</li>
+                    <li>Chaque personne a son <strong>pronom personnel sujet</strong> caractéristique (je, tu, il/elle, nous, vous, ils/elles)</li>
+                    <li>Le verbe s'accorde toujours avec son sujet en <strong>personne et en nombre</strong></li>
+                    <li>Les <strong>verbes impersonnels</strong> ne se conjuguent qu'à la 3ème personne du singulier avec "il" neutre</li>
+                    <li>Le "il" impersonnel ne représente <strong>aucune réalité concrète</strong>, c'est un sujet grammatical</li>
+                    <li>Certains verbes sont <strong>essentiellement impersonnels</strong> (pleuvoir, falloir) tandis que d'autres ont un <strong>emploi occasionnellement impersonnel</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-logo">Língua Academy</div>
+            <p class="footer-text">L'art d'explorer la grammaire française avec clarté et élégance</p>
+        </footer>
+    </div>
+</body>
+</html>

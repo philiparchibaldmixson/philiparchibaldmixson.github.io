@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Adjectif en Apposition - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 20%, #30cfd0 40%, #667eea 60%, #764ba2 80%, #fa709a 100%);
+            background-size: 600% 600%;
+            animation: appositionGradient 45s ease infinite;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes appositionGradient {
+            0% { background-position: 0% 50%; }
+            20% { background-position: 30% 80%; }
+            40% { background-position: 80% 100%; }
+            60% { background-position: 100% 40%; }
+            80% { background-position: 40% 0%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.22) 0%, transparent 45%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.22) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, transparent 60%);
+            animation: appositionFloat 30s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes appositionFloat {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+            33% { transform: translate(45px, -45px) scale(1.2) rotate(120deg); opacity: 0.9; }
+            66% { transform: translate(-45px, 45px) scale(0.9) rotate(240deg); opacity: 0.95; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.3em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+            animation: appositionPulse 4.5s ease-in-out infinite;
+        }
+
+        @keyframes appositionPulse {
+            0%, 100% { 
+                box-shadow: 0 10px 30px rgba(250, 112, 154, 0.6);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 25px 75px rgba(254, 225, 64, 1);
+                transform: scale(1.18);
+            }
+        }
+
+        h1 {
+            color: white;
+            font-size: 3.8em;
+            text-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+            animation: appositionGlow 5.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes appositionGlow {
+            from { 
+                text-shadow: 5px 5px 15px rgba(250, 112, 154, 0.7);
+                filter: drop-shadow(0 0 30px rgba(250, 112, 154, 0.6));
+            }
+            to { 
+                text-shadow: 5px 5px 40px rgba(48, 207, 208, 1);
+                filter: drop-shadow(0 0 65px rgba(48, 207, 208, 0.95));
+            }
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.9em;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #fa709a, #fee140, #30cfd0, #667eea, #764ba2, #fa709a);
+            background-size: 400% 100%;
+            animation: borderApposition 18s ease infinite;
+        }
+
+        @keyframes borderApposition {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        h2 {
+            color: #fa709a;
+            font-size: 2.6em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 5px solid #30cfd0;
+            position: relative;
+        }
+
+        h2::after {
+            content: '✂️';
+            margin-left: 15px;
+            animation: scissors 3s ease-in-out infinite;
+        }
+
+        @keyframes scissors {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg); 
+                opacity: 1;
+            }
+            25% { 
+                transform: scale(1.3) rotate(-20deg); 
+                opacity: 0.8;
+            }
+            50% { 
+                transform: scale(1) rotate(0deg); 
+                opacity: 1;
+            }
+            75% { 
+                transform: scale(1.3) rotate(20deg); 
+                opacity: 0.8;
+            }
+        }
+
+        h3 {
+            color: #667eea;
+            font-size: 2em;
+            margin: 35px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3::before {
+            content: '🔖';
+            font-size: 1.3em;
+            animation: bookmark 4s ease-in-out infinite;
+        }
+
+        @keyframes bookmark {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(15deg); }
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #fa709a15, #fee14015);
+            border-left: 6px solid #fa709a;
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            font-size: 1.25em;
+            line-height: 1.9;
+            color: #2d3748;
+        }
+
+        .definition-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.15);
+            border: 4px solid #fa709a;
+            transition: all 0.3s ease;
+        }
+
+        .definition-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 70px rgba(250, 112, 154, 0.4);
+        }
+
+        .definition-title {
+            color: #fa709a;
+            font-size: 1.9em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .definition-title::before {
+            content: '📋';
+            font-size: 1.4em;
+            animation: clipboard 5s ease-in-out infinite;
+        }
+
+        @keyframes clipboard {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.2); }
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #30cfd015, #667eea15);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #30cfd0;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 35px rgba(48, 207, 208, 0.25);
+        }
+
+        .example {
+            color: #2d3748;
+            font-size: 1.3em;
+            line-height: 2.2;
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .example::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+            color: #30cfd0;
+            font-weight: bold;
+        }
+
+        .highlight-apposition {
+            background: linear-gradient(120deg, #fa709a60 0%, #fee14060 100%);
+            padding: 5px 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #c0392b;
+            font-size: 1.05em;
+        }
+
+        .highlight-nom {
+            background: linear-gradient(120deg, #30cfd050 0%, #667eea50 100%);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #2c5aa0;
+        }
+
+        .highlight-virgule {
+            color: #fa709a;
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+
+        .comma-visual {
+            display: inline-block;
+            color: #fa709a;
+            font-size: 2em;
+            font-weight: bold;
+            animation: commaFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes commaFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .position-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .position-card {
+            background: linear-gradient(135deg, #fa709a10, #30cfd010);
+            padding: 30px;
+            border-radius: 15px;
+            border: 3px solid #fa709a;
+            transition: all 0.3s ease;
+        }
+
+        .position-card:hover {
+            transform: scale(1.08);
+            box-shadow: 0 15px 50px rgba(250, 112, 154, 0.35);
+        }
+
+        .position-card h4 {
+            color: #fa709a;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .visual-schema {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .visual-schema h5 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .schema-text {
+            font-size: 1.4em;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #fa709a10, #30cfd010);
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .comparison-table {
+            margin: 30px 0;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .comparison-table h4 {
+            color: #fa709a;
+            font-size: 1.7em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .comparison-item {
+            background: linear-gradient(135deg, #667eea10, #30cfd010);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+
+        .comparison-item h5 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 25px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border-top: 5px solid;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:nth-child(odd) { border-top-color: #fa709a; }
+        .value-card:nth-child(even) { border-top-color: #30cfd0; }
+
+        .value-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 55px rgba(250, 112, 154, 0.3);
+        }
+
+        .value-title {
+            color: #fa709a;
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .value-title::before {
+            content: '💡';
+            font-size: 1.3em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffd43b15, #ff8c4215);
+            border: 3px solid #ffd43b;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .warning-box::before {
+            content: '⚠️ ATTENTION';
+            position: absolute;
+            top: -15px;
+            left: 35px;
+            background: linear-gradient(135deg, #ffd43b, #ff8c42);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.95em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .warning-box p {
+            margin-top: 15px;
+            color: #2d3748;
+            line-height: 1.9;
+            font-size: 1.15em;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #43e97b15, #38f9d715);
+            border: 3px dashed #43e97b;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .note-box::before {
+            content: '💡 BON À SAVOIR';
+            position: absolute;
+            top: -15px;
+            left: 35px;
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.95em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .note-box p {
+            margin-top: 15px;
+            color: #2d3748;
+            line-height: 1.9;
+            font-size: 1.15em;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            color: white;
+        }
+
+        th {
+            padding: 18px;
+            text-align: left;
+            font-size: 1.15em;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, #fa709a10, #30cfd010);
+        }
+
+        .schema-box {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.18);
+            border: 4px solid #fa709a;
+        }
+
+        .schema-title {
+            text-align: center;
+            color: #fa709a;
+            font-size: 1.7em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .schema-title::before,
+        .schema-title::after {
+            content: '═══';
+            color: #30cfd0;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 3px solid #667eea;
+        }
+
+        .tip-box h4 {
+            color: #667eea;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tip-box h4::before {
+            content: '🎯';
+            font-size: 1.3em;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        footer p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .emoji-decoration {
+            display: inline-block;
+            animation: detach 6s ease-in-out infinite;
+        }
+
+        @keyframes detach {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-15px); }
+            75% { transform: translateX(15px); }
+        }
+
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            h2 {
+                font-size: 1.9em;
+            }
+            
+            h3 {
+                font-size: 1.6em;
+            }
+
+            .position-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🎓 Língua Academy</div>
+            <h1>L'Adjectif en Apposition</h1>
+            <p class="subtitle">Épithète Détachée</p>
+        </header>
+
+        <div class="content-card">
+            <h2>Qu'est-ce qu'un Adjectif en Apposition ?</h2>
+            
+            <div class="definition-card">
+                <div class="definition-title">Définition</div>
+                <p style="font-size: 1.2em; line-height: 2; color: #2d3748;">
+                    L'adjectif en apposition (aussi appelé <strong style="color: #fa709a;">épithète détachée</strong>) 
+                    est un adjectif qui qualifie le nom mais qui en est <strong>séparé par une virgule</strong> ou 
+                    des virgules. Il apporte une <strong style="color: #30cfd0;">information supplémentaire</strong> 
+                    ou <strong>explicative</strong> sur le nom.
+                </p>
+            </div>
+
+            <div class="intro-box">
+                <strong style="color: #fa709a; font-size: 1.2em;">Caractéristiques principales :</strong><br><br>
+                • Séparé du nom par des <span class="comma-visual">,</span> <strong>VIRGULES</strong><br>
+                • Apporte une information <strong>explicative ou circonstancielle</strong><br>
+                • Peut généralement être <strong>supprimé</strong> sans altérer la structure de la phrase<br>
+                • Peut être placé <strong>avant, après</strong> ou <strong>au milieu</strong> de la phrase<br>
+                • S'accorde avec le nom qu'il qualifie
+            </div>
+
+            <div class="visual-schema">
+                <h5>Structure avec Virgules</h5>
+                <div class="schema-text">
+                    <span class="highlight-nom">NOM</span><span class="highlight-virgule">,</span> 
+                    <span class="highlight-apposition">ADJECTIF</span><span class="highlight-virgule">,</span> 
+                    suite de la phrase
+                </div>
+                <p style="text-align: center; color: #555; margin-top: 15px; font-size: 1.2em;">
+                    Exemple : Le <span class="highlight-nom">chat</span><span class="highlight-virgule">,</span> 
+                    <span class="highlight-apposition">noir</span><span class="highlight-virgule">,</span> dort sur le canapé.
+                </p>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #30cfd0; font-size: 1.3em; margin-bottom: 15px;">✓ Exemples d'Adjectifs en Apposition :</h4>
+                <div class="example">
+                    <span class="highlight-apposition">Épuisé</span>, Pierre s'est endormi immédiatement.
+                </div>
+                <div class="example">
+                    Marie, <span class="highlight-apposition">heureuse</span>, a souri à tout le monde.
+                </div>
+                <div class="example">
+                    Les enfants, <span class="highlight-apposition">ravis</span>, applaudissaient le spectacle.
+                </div>
+                <div class="example">
+                    <span class="highlight-apposition">Furieux</span>, le directeur convoqua tous les employés.
+                </div>
+                <div class="example">
+                    La maison, <span class="highlight-apposition">ancienne et délabrée</span>, menaçait de s'effondrer.
+                </div>
+            </div>
+
+            <h2>Position de l'Apposition</h2>
+
+            <div class="position-grid">
+                <div class="position-card">
+                    <h4>En Début de Phrase</h4>
+                    <div class="visual-schema">
+                        <div class="schema-text" style="font-size: 1.2em;">
+                            <span class="highlight-apposition">ADJ.</span><span class="highlight-virgule">,</span> 
+                            <span class="highlight-nom">NOM</span> + verbe...
+                        </div>
+                    </div>
+                    <div class="example-box" style="margin-top: 20px;">
+                        <div class="example" style="font-size: 1.1em;">
+                            <strong>Fatigué</strong>, Paul rentra chez lui.
+                        </div>
+                        <div class="example" style="font-size: 1.1em;">
+                            <strong>Content</strong>, il sourit.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="position-card">
+                    <h4>Après le Nom (Incise)</h4>
+                    <div class="visual-schema">
+                        <div class="schema-text" style="font-size: 1.2em;">
+                            <span class="highlight-nom">NOM</span><span class="highlight-virgule">,</span> 
+                            <span class="highlight-apposition">ADJ.</span><span class="highlight-virgule">,</span> verbe...
+                        </div>
+                    </div>
+                    <div class="example-box" style="margin-top: 20px;">
+                        <div class="example" style="font-size: 1.1em;">
+                            Paul, <strong>fatigué</strong>, rentra.
+                        </div>
+                        <div class="example" style="font-size: 1.1em;">
+                            Marie, <strong>joyeuse</strong>, dansait.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="position-card">
+                    <h4>En Fin de Phrase</h4>
+                    <div class="visual-schema">
+                        <div class="schema-text" style="font-size: 1.2em;">
+                            <span class="highlight-nom">NOM</span> + verbe...<span class="highlight-virgule">,</span> 
+                            <span class="highlight-apposition">ADJ.</span>
+                        </div>
+                    </div>
+                    <div class="example-box" style="margin-top: 20px;">
+                        <div class="example" style="font-size: 1.1em;">
+                            Paul rentra, <strong>fatigué</strong>.
+                        </div>
+                        <div class="example" style="font-size: 1.1em;">
+                            Elle sourit, <strong>heureuse</strong>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>Mobilité :</strong> L'adjectif en apposition est très mobile dans la phrase. Il peut 
+                    être déplacé à différents endroits sans changer le sens fondamental de la phrase, bien que 
+                    cela puisse modifier l'effet stylistique.
+                </p>
+            </div>
+
+            <h2>Différences avec l'Épithète Liée</h2>
+
+            <div class="comparison-table">
+                <h4>Épithète Liée vs Apposition</h4>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h5>ÉPITHÈTE LIÉE</h5>
+                        <div style="line-height: 2; color: #2d3748; margin-top: 15px;">
+                            <strong style="color: #667eea;">• Sans virgule</strong><br>
+                            Directement attachée au nom<br><br>
+                            <strong style="color: #667eea;">• Information essentielle</strong><br>
+                            Fait partie intégrante du groupe nominal<br><br>
+                            <strong style="color: #667eea;">• Exemple :</strong><br>
+                            Un <strong>grand</strong> homme<br>
+                            Une maison <strong>blanche</strong>
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <h5>APPOSITION</h5>
+                        <div style="line-height: 2; color: #2d3748; margin-top: 15px;">
+                            <strong style="color: #fa709a;">• Avec virgule(s)</strong><br>
+                            Détachée du nom<br><br>
+                            <strong style="color: #fa709a;">• Information complémentaire</strong><br>
+                            Peut être supprimée<br><br>
+                            <strong style="color: #fa709a;">• Exemple :</strong><br>
+                            L'homme, <strong>grand</strong>, entra.<br>
+                            La maison, <strong>blanche</strong>, brille.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #fa709a; font-size: 1.3em; margin-bottom: 15px;">Comparaison Directe :</h4>
+                <div class="example">
+                    <strong>ÉPITHÈTE LIÉE :</strong> J'ai vu un <span style="background: #667eea30; padding: 2px 8px; border-radius: 4px;">vieux château</span>.
+                    <br><small style="color: #666;">(« vieux » fait partie intégrante du groupe nominal)</small>
+                </div>
+                <div class="example">
+                    <strong>APPOSITION :</strong> J'ai vu un château, <span style="background: #fa709a30; padding: 2px 8px; border-radius: 4px;">vieux</span>, au sommet de la colline.
+                    <br><small style="color: #666;">(« vieux » ajoute une précision complémentaire)</small>
+                </div>
+            </div>
+
+            <h2>Les Valeurs de l'Apposition</h2>
+
+            <h3>1. Valeur Explicative</h3>
+            <div class="value-card">
+                <div class="value-title">Explication ou Précision</div>
+                <p style="line-height: 1.9; color: #2d3748; margin-bottom: 15px;">
+                    L'adjectif en apposition apporte une <strong>explication</strong> ou une <strong>caractéristique 
+                    supplémentaire</strong> sur le nom.
+                </p>
+                <div class="example-box">
+                    <div class="example">
+                        Le <span class="highlight-nom">professeur</span>, <span class="highlight-apposition">très patient</span>, 
+                        expliquait encore une fois.
+                    </div>
+                    <div class="example">
+                        Cette <span class="highlight-nom">voiture</span>, <span class="highlight-apposition">rouge et rapide</span>, 
+                        attire tous les regards.
+                    </div>
+                </div>
+            </div>
+
+            <h3>2. Valeur Causale</h3>
+            <div class="value-card">
+                <div class="value-title">Exprime une Cause</div>
+                <p style="line-height: 1.9; color: #2d3748; margin-bottom: 15px;">
+                    L'adjectif en apposition peut exprimer la <strong>raison</strong> ou la <strong>cause</strong> 
+                    de l'action principale.
+                </p>
+                <div class="example-box">
+                    <div class="example">
+                        <span class="highlight-apposition">Fatigué</span>, il s'est couché tôt.
+                        <br><small style="color: #666;">(= Parce qu'il était fatigué)</small>
+                    </div>
+                    <div class="example">
+                        <span class="highlight-apposition">Malade</span>, elle n'a pas pu venir.
+                        <br><small style="color: #666;">(= Parce qu'elle était malade)</small>
+                    </div>
+                    <div class="example">
+                        <span class="highlight-apposition">Furieux</span>, Pierre a claqué la porte.
+                        <br><small style="color: #666;">(= Parce qu'il était furieux)</small>
+                    </div>
+                </div>
+            </div>
+
+            <h3>3. Valeur Temporelle</h3>
+            <div class="value-card">
+                <div class="value-title">Situe dans le Temps</div>
+                <p style="line-height: 1.9; color: #2d3748; margin-bottom: 15px;">
+                    L'adjectif peut indiquer le <strong>moment</strong> ou l'<strong>état</strong> dans lequel 
+                    se trouve le sujet au moment de l'action.
+                </p>
+                <div class="example-box">
+                    <div class="example">
+                        <span class="highlight-apposition">Jeune</span>, il aimait l'aventure.
+                        <br><small style="color: #666;">(= Quand il était jeune)</small>
+                    </div>
+                    <div class="example">
+                        <span class="highlight-apposition">Enfant</span>, elle vivait à Paris.
+                        <br><small style="color: #666;">(= Quand elle était enfant)</small>
+                    </div>
+                </div>
+            </div>
+
+            <h3>4. Valeur Concessive</h3>
+            <div class="value-card">
+                <div class="value-title">Opposition ou Concession</div>
+                <p style="line-height: 1.9; color: #2d3748; margin-bottom: 15px;">
+                    L'adjectif peut exprimer une <strong>opposition</strong> ou une <strong>concession</strong> 
+                    par rapport à l'action principale.
+                </p>
+                <div class="example-box">
+                    <div class="example">
+                        <span class="highlight-apposition">Fatigué</span>, il continua à travailler.
+                        <br><small style="color: #666;">(= Bien qu'il soit fatigué)</small>
+                    </div>
+                    <div class="example">
+                        <span class="highlight-apposition">Pauvre</span>, il était généreux.
+                        <br><small style="color: #666;">(= Bien qu'il soit pauvre)</small>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Accord de l'Apposition</h2>
+            <div class="definition-card">
+                <div class="definition-title">Règle d'Accord</div>
+                <p style="font-size: 1.2em; line-height: 2; color: #2d3748;">
+                    L'adjectif en apposition s'accorde en <strong style="color: #fa709a;">genre</strong> et en 
+                    <strong style="color: #30cfd0;">nombre</strong> avec le <strong>nom qu'il qualifie</strong>, 
+                    même s'il en est séparé par une ou plusieurs virgules.
+                </p>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nom Qualifié</th>
+                            <th>Genre/Nombre</th>
+                            <th>Adjectif en Apposition</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pierre</strong></td>
+                            <td>Masc. Sing.</td>
+                            <td>fatigué</td>
+                            <td>Pierre, <strong>fatigué</strong>, rentra.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marie</strong></td>
+                            <td>Fém. Sing.</td>
+                            <td>fatiguée</td>
+                            <td>Marie, <strong>fatiguée</strong>, rentra.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Les garçons</strong></td>
+                            <td>Masc. Plur.</td>
+                            <td>contents</td>
+                            <td>Les garçons, <strong>contents</strong>, jouaient.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Les filles</strong></td>
+                            <td>Fém. Plur.</td>
+                            <td>contentes</td>
+                            <td>Les filles, <strong>contentes</strong>, jouaient.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="warning-box">
+                <p>
+                    <strong>Ne confondez pas !</strong> Même si l'adjectif en apposition est séparé du nom 
+                    par une virgule et peut être éloigné de celui-ci, il doit <strong>TOUJOURS</strong> 
+                    s'accorder avec le nom qu'il qualifie.<br><br>
+                    ❌ <del>Marie, fatigué, s'endormit.</del><br>
+                    ✓ Marie, <strong>fatiguée</strong>, s'endormit.
+                </p>
+            </div>
+
+            <h2>Ponctuation : Les Virgules</h2>
+            <div class="schema-box">
+                <div class="schema-title">Règles de Ponctuation</div>
+                
+                <div style="background: linear-gradient(135deg, #fa709a10, #30cfd010); padding: 30px; border-radius: 15px; margin: 20px 0;">
+                    <h4 style="color: #fa709a; font-size: 1.4em; margin-bottom: 20px;">Les virgules sont OBLIGATOIRES</h4>
+                    
+                    <div style="margin: 20px 0;">
+                        <strong style="color: #667eea; font-size: 1.2em;">Position 1 : Début de phrase</strong>
+                        <div style="margin: 15px 0; padding: 15px; background: white; border-radius: 8px;">
+                            <span class="highlight-apposition">Adjectif</span><span class="highlight-virgule">,</span> 
+                            sujet + verbe...
+                            <br><br>
+                            Exemple : <strong>Épuisé</strong>, Pierre s'endormit.
+                        </div>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <strong style="color: #667eea; font-size: 1.2em;">Position 2 : Milieu de phrase (incise)</strong>
+                        <div style="margin: 15px 0; padding: 15px; background: white; border-radius: 8px;">
+                            Sujet<span class="highlight-virgule">,</span> <span class="highlight-apposition">adjectif</span><span class="highlight-virgule">,</span> verbe...
+                            <br><br>
+                            Exemple : Pierre, <strong>épuisé</strong>, s'endormit.
+                        </div>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <strong style="color: #667eea; font-size: 1.2em;">Position 3 : Fin de phrase</strong>
+                        <div style="margin: 15px 0; padding: 15px; background: white; border-radius: 8px;">
+                            Sujet + verbe...<span class="highlight-virgule">,</span> <span class="highlight-apposition">adjectif</span>.
+                            <br><br>
+                            Exemple : Pierre s'endormit, <strong>épuisé</strong>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <p>
+                    <strong>ERREUR FRÉQUENTE :</strong> Oublier les virgules !<br><br>
+                    ❌ <del>Fatigué Pierre rentra.</del> (manque la virgule)<br>
+                    ✓ <strong>Fatigué,</strong> Pierre rentra.<br><br>
+                    ❌ <del>Marie contente sourit.</del> (manque les virgules)<br>
+                    ✓ Marie<strong>,</strong> contente<strong>,</strong> sourit.
+                </p>
+            </div>
+
+            <h2>Différence : Apposition vs Attribut</h2>
+            <div class="comparison-table">
+                <h4>Apposition vs Attribut du Sujet</h4>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h5>APPOSITION</h5>
+                        <div style="line-height: 2; color: #2d3748; margin-top: 15px;">
+                            <strong style="color: #fa709a;">• Séparée par virgule</strong><br>
+                            Information complémentaire<br><br>
+                            <strong style="color: #fa709a;">• Pas de verbe d'état</strong><br>
+                            Pas essentielle au verbe<br><br>
+                            <strong style="color: #fa709a;">• Exemple :</strong><br>
+                            Marie, <strong>heureuse</strong>, danse.
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <h5>ATTRIBUT</h5>
+                        <div style="line-height: 2; color: #2d3748; margin-top: 15px;">
+                            <strong style="color: #30cfd0;">• Pas de virgule</strong><br>
+                            Information essentielle<br><br>
+                            <strong style="color: #30cfd0;">• Avec verbe d'état</strong><br>
+                            Essentielle à la phrase<br><br>
+                            <strong style="color: #30cfd0;">• Exemple :</strong><br>
+                            Marie <strong>est</strong> heureuse.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #667eea; font-size: 1.3em; margin-bottom: 15px;">Test de Distinction :</h4>
+                <div class="example">
+                    <strong>APPOSITION :</strong> Marie, <span style="background: #fa709a30; padding: 2px 8px; border-radius: 4px;">joyeuse</span>, chantait.
+                    <br><small style="color: #666;">→ On peut supprimer « joyeuse » : Marie chantait.</small>
+                </div>
+                <div class="example">
+                    <strong>ATTRIBUT :</strong> Marie <strong>était</strong> <span style="background: #30cfd030; padding: 2px 8px; border-radius: 4px;">joyeuse</span>.
+                    <br><small style="color: #666;">→ On ne peut pas supprimer « joyeuse » sans détruire la phrase.</small>
+                </div>
+            </div>
+
+            <h2>Exercices Pratiques</h2>
+            <div class="example-box">
+                <h4 style="color: #fa709a; font-size: 1.4em; margin-bottom: 15px;">Ajoutez les virgules nécessaires :</h4>
+                <div class="example">1. Fatigué Pierre s'est couché tôt.</div>
+                <div class="example">2. Les enfants ravis applaudissaient.</div>
+                <div class="example">3. Heureuse Marie a souri.</div>
+                <div class="example">4. Le chat noir dort sur le canapé.</div>
+                <div class="example">5. Furieux le directeur convoqua tout le monde.</div>
+                <div class="example">6. Marie contente de son résultat dansait de joie.</div>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #30cfd0; font-size: 1.4em; margin-bottom: 15px;">Accordez les adjectifs en apposition :</h4>
+                <div class="example">1. Marie, (fatigué) ___________, s'endormit.</div>
+                <div class="example">2. Les filles, (content) ___________, chantaient.</div>
+                <div class="example">3. (Furieux) ___________, Pierre claqua la porte.</div>
+                <div class="example">4. Les garçons, (ravi) ___________, applaudissaient.</div>
+                <div class="example">5. Sophie, (heureux) ___________, souriait.</div>
+            </div>
+
+            <div class="example-box">
+                <h4 style="color: #667eea; font-size: 1.4em; margin-bottom: 15px;">Identifiez : Épithète liée, Apposition, ou Attribut ?</h4>
+                <div class="example">1. Marie est heureuse. → ___________</div>
+                <div class="example">2. Une belle maison. → ___________</div>
+                <div class="example">3. Marie, heureuse, sourit. → ___________</div>
+                <div class="example">4. Le chat noir dort. → ___________</div>
+                <div class="example">5. Fatigué, il s'endormit. → ___________</div>
+                <div class="example">6. Le livre est intéressant. → ___________</div>
+            </div>
+
+            <div class="tip-box">
+                <h4>Méthode de Reconnaissance</h4>
+                <p style="line-height: 2; color: #2d3748;">
+                    Pour identifier un adjectif en apposition :<br><br>
+                    <strong>1.</strong> Cherchez les <strong>virgules</strong> dans la phrase<br>
+                    <strong>2.</strong> Vérifiez si l'adjectif entre virgules qualifie un nom<br>
+                    <strong>3.</strong> Essayez de <strong>supprimer</strong> l'adjectif → si la phrase reste correcte, c'est une apposition<br>
+                    <strong>4.</strong> Vérifiez qu'il n'y a <strong>pas de verbe d'état</strong> (être, sembler, paraître...)<br><br>
+                    <strong>Astuce :</strong> L'apposition ajoute une nuance explicative mais n'est pas indispensable 
+                    à la structure de la phrase ! ✂️
+                </p>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>En résumé :</strong> L'adjectif en apposition (ou épithète détachée) est un adjectif 
+                    séparé du nom par des virgules qui apporte une information complémentaire, explicative ou 
+                    circonstancielle. Mobile dans la phrase, il peut exprimer différentes valeurs (explicative, 
+                    causale, temporelle, concessive). Les virgules sont <strong>obligatoires</strong> et l'accord 
+                    avec le nom qualifié est <strong>impératif</strong>. Maîtriser l'apposition enrichit considérablement 
+                    votre style et permet des phrases plus nuancées ! 🔖
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p><span class="emoji-decoration">🎓</span> <strong>Língua Academy</strong> <span class="emoji-decoration">🎓</span></p>
+            <p>Affinez votre expression en français !</p>
+            <p style="font-size: 0.9em; opacity: 0.8; margin-top: 15px;">© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

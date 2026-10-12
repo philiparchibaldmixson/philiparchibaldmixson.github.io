@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noms Simples et Noms Composés</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 6px solid #667eea;
+        }
+
+        .intro p {
+            line-height: 1.9;
+            color: #2d3436;
+            font-size: 1.15em;
+        }
+
+        .dual-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .dual-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .type-card {
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .type-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .type-card.simple {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .type-card.compose {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            color: white;
+        }
+
+        .type-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .type-icon {
+            font-size: 4em;
+            margin-bottom: 10px;
+        }
+
+        .type-title {
+            font-size: 2.2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .type-card.simple .type-title {
+            color: white;
+        }
+
+        .type-definition {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            color: #2d3436;
+            font-size: 1.1em;
+            line-height: 1.7;
+            border-left: 5px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .caracteristiques {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .caracteristiques h4 {
+            color: #2d3436;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .caracteristiques ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .caracteristiques li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .caracteristiques li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .exemples-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .exemples-box h4 {
+            color: #e74c3c;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .exemple-item {
+            background: white;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            font-size: 1.05em;
+            color: #2d3436;
+        }
+
+        .exemple-item strong {
+            color: #e74c3c;
+            font-size: 1.1em;
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 2.5em;
+            margin: 50px 0 30px 0;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #4facfe;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .structures-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 35px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .structures-box h3 {
+            color: #2d3436;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .structure-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .structure-item h4 {
+            color: #e74c3c;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .structure-item .formule {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #2d3436;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .structure-item .exemples-inline {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .structure-item .exemples-inline strong {
+            color: #667eea;
+        }
+
+        .pluriel-box {
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            padding: 35px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .pluriel-box h3 {
+            color: #2d3436;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .regle-pluriel {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #fa709a;
+        }
+
+        .regle-pluriel h4 {
+            color: #d63031;
+            font-size: 1.4em;
+            margin-bottom: 12px;
+        }
+
+        .regle-pluriel p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.05em;
+            margin-bottom: 10px;
+        }
+
+        .regle-pluriel .exemple-pluriel {
+            background: #e8f5e9;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin: 8px 0;
+            border-left: 3px solid #27ae60;
+        }
+
+        .trait-union-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 6px solid #e74c3c;
+        }
+
+        .trait-union-box h3 {
+            color: #2d3436;
+            font-size: 1.9em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .trait-union-box .info-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .trait-union-box .info-item h4 {
+            color: #c23616;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .astuce-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-left: 6px solid #e17055;
+        }
+
+        .astuce-box h3 {
+            color: #d63031;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .astuce-box p {
+            color: #2d3436;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .tableau-box {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.2em;
+        }
+
+        td {
+            padding: 18px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 1.05em;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .exemples-visuels {
+            background: linear-gradient(135deg, #a8ff78 0%, #78ffd6 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .exemples-visuels h3 {
+            color: #2d3436;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .exemple-visuel-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exemple-visuel-item .mot {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .exemple-visuel-item .decomposition {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .partie {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            padding: 15px 25px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .plus {
+            font-size: 2em;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .explication {
+            text-align: center;
+            color: #555;
+            font-size: 1.05em;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .citation {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 6px solid #667eea;
+            font-style: italic;
+            font-size: 1.2em;
+            color: #2d3436;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            font-size: 1.1em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .fleche {
+            display: inline-block;
+            color: #e74c3c;
+            font-size: 1.5em;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔤 Les Noms</h1>
+            <p class="subtitle">Noms Simples et Noms Composés</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <p>
+                    En français, les noms peuvent être <strong>simples</strong> ou <strong>composés</strong>. 
+                    Cette distinction repose sur leur structure : un nom simple est formé d'un seul élément, 
+                    tandis qu'un nom composé est formé de plusieurs éléments réunis. Découvrons ensemble 
+                    ces deux catégories et leurs particularités ! 🎯
+                </p>
+            </div>
+
+            <h2 class="section-title">Les Deux Types de Noms</h2>
+
+            <div class="dual-section">
+                <div class="type-card simple">
+                    <div class="type-header">
+                        <div class="type-icon">🔵</div>
+                        <div class="type-title">Noms Simples</div>
+                    </div>
+
+                    <div class="type-definition">
+                        <strong>Définition :</strong> Un nom simple est un nom formé d'<strong>un seul mot</strong>, 
+                        d'<strong>un seul élément</strong>. Il ne peut pas être décomposé en plusieurs parties 
+                        significatives reliées.
+                    </div>
+
+                    <div class="caracteristiques">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Formé d'un seul mot indivisible</li>
+                            <li>Pas de trait d'union, pas d'espace</li>
+                            <li>Un seul radical (base du mot)</li>
+                            <li>Peut avoir un préfixe ou un suffixe</li>
+                        </ul>
+                    </div>
+
+                    <div class="exemples-box">
+                        <h4>🔹 Exemples :</h4>
+                        <div class="exemple-item">
+                            <strong>Êtres vivants :</strong> chat, chien, enfant, arbre
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Objets :</strong> table, chaise, livre, stylo
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Lieux :</strong> maison, école, ville, jardin
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Sentiments :</strong> joie, tristesse, peur, amour
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Concepts :</strong> temps, espace, liberté, paix
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Avec préfixe :</strong> malheur, départ, refaire
+                        </div>
+                    </div>
+                </div>
+
+                <div class="type-card compose">
+                    <div class="type-header">
+                        <div class="type-icon">🔷</div>
+                        <div class="type-title">Noms Composés</div>
+                    </div>
+
+                    <div class="type-definition">
+                        <strong>Définition :</strong> Un nom composé est un nom formé de <strong>plusieurs mots</strong> 
+                        reliés ensemble (avec ou sans trait d'union) qui forment une <strong>unité de sens</strong>. 
+                        Chaque élément garde son sens, mais ensemble ils désignent une seule réalité.
+                    </div>
+
+                    <div class="caracteristiques">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Formé de deux mots ou plus</li>
+                            <li>Reliés par un trait d'union, une préposition ou soudés</li>
+                            <li>Forme une unité de sens indissociable</li>
+                            <li>Désigne une réalité unique et précise</li>
+                        </ul>
+                    </div>
+
+                    <div class="exemples-box">
+                        <h4>🔹 Exemples :</h4>
+                        <div class="exemple-item">
+                            <strong>Avec trait d'union :</strong> arc-en-ciel, grand-père, porte-monnaie
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Avec préposition :</strong> pomme de terre, machine à laver, salle de bain
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Soudés :</strong> portefeuille, portemanteau, bonhomme
+                        </div>
+                        <div class="exemple-item">
+                            <strong>Multiples éléments :</strong> arc-en-ciel, compte-gouttes, va-et-vient
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Structures des Noms Composés</h2>
+
+            <div class="structures-box">
+                <h3>🏗️ Les Différentes Constructions</h3>
+                
+                <div class="structure-item">
+                    <h4>1. Nom + Nom</h4>
+                    <div class="formule">nom + nom</div>
+                    <div class="exemples-inline">
+                        <strong>Exemples :</strong> chou-fleur, wagon-restaurant, oiseau-mouche, timbre-poste
+                    </div>
+                </div>
+
+                <div class="structure-item">
+                    <h4>2. Nom + Préposition + Nom</h4>
+                    <div class="formule">nom + de/à + nom</div>
+                    <div class="exemples-inline">
+                        <strong>Exemples :</strong> pomme de terre, arc-en-ciel, machine à laver, fer à repasser, 
+                        salle de bain, chef-d'œuvre
+                    </div>
+                </div>
+
+                <div class="structure-item">
+                    <h4>3. Adjectif + Nom</h4>
+                    <div class="formule">adjectif + nom</div>
+                    <div class="exemples-inline">
+                        <strong>Exemples :</strong> grand-père, belle-mère, petit-fils, haute-fidélité, 
+                        rouge-gorge
+                    </div>
+                </div>
+
+                <div class="structure-item">
+                    <h4>4. Verbe + Nom</h4>
+                    <div class="formule">verbe + nom</div>
+                    <div class="exemples-inline">
+                        <strong>Exemples :</strong> porte-monnaie, tire-bouchon, chasse-neige, gratte-ciel, 
+                        couvre-lit, essuie-glace
+                    </div>
+                </div>
+
+                <div class="structure-item">
+                    <h4>5. Nom + Adjectif</h4>
+                    <div class="formule">nom + adjectif</div>
+                    <div class="exemples-inline">
+                        <strong>Exemples :</strong> coffre-fort, libre-service, plate-forme
+                    </div>
+                </div>
+
+                <div class="structure-item">
+                    <h4>6. Mot + Mot (autres combinaisons)</h4>
+                    <div class="formule">diverses structures</div>
+                    <div class="exemples-inline">
+                        <strong>Exemples :</strong> va-et-vient, passe-partout, laissez-passer, savoir-faire
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Exemples Visuels</h2>
+
+            <div class="exemples-visuels">
+                <h3>🎨 Décomposition des Noms Composés</h3>
+
+                <div class="exemple-visuel-item">
+                    <div class="mot">arc-en-ciel</div>
+                    <div class="decomposition">
+                        <span class="partie">arc</span>
+                        <span class="plus">+</span>
+                        <span class="partie">en</span>
+                        <span class="plus">+</span>
+                        <span class="partie">ciel</span>
+                    </div>
+                    <div class="explication">nom + préposition + nom</div>
+                </div>
+
+                <div class="exemple-visuel-item">
+                    <div class="mot">porte-monnaie</div>
+                    <div class="decomposition">
+                        <span class="partie">porte</span>
+                        <span class="plus">+</span>
+                        <span class="partie">monnaie</span>
+                    </div>
+                    <div class="explication">verbe + nom (objet qui porte la monnaie)</div>
+                </div>
+
+                <div class="exemple-visuel-item">
+                    <div class="mot">grand-père</div>
+                    <div class="decomposition">
+                        <span class="partie">grand</span>
+                        <span class="plus">+</span>
+                        <span class="partie">père</span>
+                    </div>
+                    <div class="explication">adjectif + nom (le père du père ou de la mère)</div>
+                </div>
+
+                <div class="exemple-visuel-item">
+                    <div class="mot">pomme de terre</div>
+                    <div class="decomposition">
+                        <span class="partie">pomme</span>
+                        <span class="plus">+</span>
+                        <span class="partie">de</span>
+                        <span class="plus">+</span>
+                        <span class="partie">terre</span>
+                    </div>
+                    <div class="explication">nom + préposition + nom (tubercule souterrain)</div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Le Pluriel des Noms Composés</h2>
+
+            <div class="pluriel-box">
+                <h3>📝 Règles de Formation du Pluriel</h3>
+                
+                <div class="regle-pluriel">
+                    <h4>1. Nom + Nom : Les deux prennent la marque du pluriel</h4>
+                    <p><strong>Règle :</strong> Généralement, les deux noms s'accordent.</p>
+                    <div class="exemple-pluriel">
+                        un chou-fleur <span class="fleche">→</span> des choux-fleurs
+                    </div>
+                    <div class="exemple-pluriel">
+                        un wagon-restaurant <span class="fleche">→</span> des wagons-restaurants
+                    </div>
+                </div>
+
+                <div class="regle-pluriel">
+                    <h4>2. Adjectif + Nom : Les deux s'accordent</h4>
+                    <p><strong>Règle :</strong> L'adjectif et le nom prennent tous deux la marque du pluriel.</p>
+                    <div class="exemple-pluriel">
+                        un grand-père <span class="fleche">→</span> des grands-pères
+                    </div>
+                    <div class="exemple-pluriel">
+                        un coffre-fort <span class="fleche">→</span> des coffres-forts
+                    </div>
+                </div>
+
+                <div class="regle-pluriel">
+                    <h4>3. Verbe + Nom : Seul le nom s'accorde (parfois)</h4>
+                    <p><strong>Règle :</strong> Le verbe reste invariable. Le nom peut s'accorder selon le sens.</p>
+                    <div class="exemple-pluriel">
+                        un tire-bouchon <span class="fleche">→</span> des tire-bouchons
+                    </div>
+                    <div class="exemple-pluriel">
+                        un gratte-ciel <span class="fleche">→</span> des gratte-ciel (invariable)
+                    </div>
+                    <div class="exemple-pluriel">
+                        un porte-monnaie <span class="fleche">→</span> des porte-monnaie (invariable)
+                    </div>
+                </div>
+
+                <div class="regle-pluriel">
+                    <h4>4. Nom + Préposition + Nom : Seul le premier nom s'accorde</h4>
+                    <p><strong>Règle :</strong> Seul le premier nom prend la marque du pluriel.</p>
+                    <div class="exemple-pluriel">
+                        une pomme de terre <span class="fleche">→</span> des pommes de terre
+                    </div>
+                    <div class="exemple-pluriel">
+                        un arc-en-ciel <span class="fleche">→</span> des arcs-en-ciel
+                    </div>
+                </div>
+
+                <div class="regle-pluriel">
+                    <h4>5. Mots invariables : Pas de changement</h4>
+                    <p><strong>Règle :</strong> Les noms composés avec des mots invariables ne changent pas.</p>
+                    <div class="exemple-pluriel">
+                        un passe-partout <span class="fleche">→</span> des passe-partout
+                    </div>
+                    <div class="exemple-pluriel">
+                        un va-et-vient <span class="fleche">→</span> des va-et-vient
+                    </div>
+                </div>
+            </div>
+
+            <div class="trait-union-box">
+                <h3>➖ Le Trait d'Union</h3>
+                
+                <div class="info-item">
+                    <h4>Quand l'utiliser ?</h4>
+                    <p>
+                        Le trait d'union relie les éléments d'un nom composé pour former une unité lexicale. 
+                        Il n'y a <strong>jamais d'espace</strong> avant ou après le trait d'union.
+                    </p>
+                </div>
+
+                <div class="info-item">
+                    <h4>Exceptions importantes</h4>
+                    <p>
+                        • Certains noms composés s'écrivent <strong>en un seul mot</strong> : portefeuille, 
+                        portemanteau, bonhomme<br>
+                        • D'autres s'écrivent <strong>avec une préposition</strong> : pomme de terre, 
+                        machine à laver, salle de bain<br>
+                        • L'orthographe peut varier : <strong>weekend</strong> ou <strong>week-end</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="astuce-box">
+                <h3>💡 Astuces pour Reconnaître un Nom Composé</h3>
+                <p>
+                    <strong>1. Vérifiez l'unité de sens :</strong> Les éléments forment-ils une seule réalité ?<br>
+                    → <span class="highlight">arc-en-ciel</span> = phénomène unique (pas juste un arc dans le ciel)<br><br>
+                    
+                    <strong>2. Cherchez les liaisons :</strong> Y a-t-il un trait d'union ou une préposition ?<br>
+                    → <span class="highlight">pomme de terre</span>, <span class="highlight">porte-monnaie</span><br><br>
+                    
+                    <strong>3. Testez la séparation :</strong> Peut-on supprimer un élément sans perdre le sens ?<br>
+                    → Si NON, c'est probablement un nom composé<br><br>
+                    
+                    <strong>4. Consultez le dictionnaire :</strong> En cas de doute, le dictionnaire indique 
+                    si c'est un mot composé et comment l'orthographier !
+                </p>
+            </div>
+
+            <h2 class="section-title">Tableau Comparatif</h2>
+
+            <div class="tableau-box">
+                <table>
+                    <tr>
+                        <th>Critère</th>
+                        <th>Nom Simple</th>
+                        <th>Nom Composé</th>
+                    </tr>
+                    <tr>
+                        <td>Structure</td>
+                        <td>Un seul mot</td>
+                        <td>Plusieurs mots reliés</td>
+                    </tr>
+                    <tr>
+                        <td>Liaison</td>
+                        <td>Aucune</td>
+                        <td>Trait d'union, préposition ou soudure</td>
+                    </tr>
+                    <tr>
+                        <td>Exemples</td>
+                        <td>chien, table, fleur</td>
+                        <td>arc-en-ciel, pomme de terre</td>
+                    </tr>
+                    <tr>
+                        <td>Pluriel</td>
+                        <td>Règle simple : +s ou +x</td>
+                        <td>Règles variables selon structure</td>
+                    </tr>
+                    <tr>
+                        <td>Sens</td>
+                        <td>Direct et unique</td>
+                        <td>Union de plusieurs sens</td>
+                    </tr>
+                    <tr>
+                        <td>Fréquence</td>
+                        <td>Très fréquents</td>
+                        <td>Nombreux mais moins fréquents</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="structures-box">
+                <h3>📚 Noms Composés Courants à Connaître</h3>
+                
+                <div class="structure-item">
+                    <h4>Famille et Relations</h4>
+                    <div class="exemples-inline">
+                        grand-père, grand-mère, beau-père, belle-mère, arrière-grand-père, 
+                        petit-fils, petite-fille, belle-sœur, beau-frère
+                    </div>
+                </div>
+
+                <div class="structure-item">
+                    <h4>Nature et Animaux</h4>
+                    <div class="exemples-inline">
+                        arc-en-ciel, rouge-gorge, oiseau-mouche, chou-fleur, pomme de terre, 
+                        cheval-vapeur, poisson-chat
+                    </div>
+                </div>
+
+                <div class="structure-item">
+                    <h4>Objets du Quotidien</h4>
+                    <div class="exemples-inline">
+                        porte-monnaie, tire-bouchon, ouvre-boîte, essuie-glace, gratte-ciel, 
+                        lave-vaisselle, machine à laver, fer à repasser
+                    </div>
+                </div>
+
+                <div class="structure-item">
+                    <h4>Lieux et Espaces</h4>
+                    <div class="exemples-inline">
+                        salle de bain, chambre à coucher, salle à manger, hôtel de ville, 
+                        chemin de fer, place de marché
+                    </div>
+                </div>
+
+                <div class="structure-item">
+                    <h4>Temps et Moments</h4>
+                    <div class="exemples-inline">
+                        week-end, après-midi, arrière-saison, avant-hier, lendemain
+                    </div>
+                </div>
+            </div>
+
+            <div class="pluriel-box">
+                <h3>⚠️ Cas Particuliers et Pièges</h3>
+                
+                <div class="regle-pluriel">
+                    <h4>Attention aux exceptions !</h4>
+                    <p>
+                        Certains noms composés ont une orthographe particulière ou un pluriel irrégulier :
+                    </p>
+                    <div class="exemple-pluriel">
+                        <strong>garde</strong> : un garde-boue → des garde-boue (invariable)<br>
+                        mais : un garde-côte → des gardes-côtes (garde = personne)
+                    </div>
+                    <div class="exemple-pluriel">
+                        <strong>demi</strong> : une demi-heure → des demi-heures<br>
+                        (demi reste invariable devant un nom)
+                    </div>
+                    <div class="exemple-pluriel">
+                        <strong>Mots soudés</strong> : un portefeuille → des portefeuilles<br>
+                        un bonhomme → des bonshommes
+                    </div>
+                </div>
+            </div>
+
+            <div class="astuce-box">
+                <h3>🎯 Conseil Pratique</h3>
+                <p>
+                    Pour maîtriser les noms composés et leur pluriel, la meilleure méthode est de 
+                    <strong>consulter un dictionnaire</strong> en cas de doute. L'orthographe des noms 
+                    composés peut être complexe et comporte de nombreuses exceptions. N'hésitez pas à 
+                    vérifier ! 📖<br><br>
+                    
+                    De plus, certains noms composés ont vu leur orthographe <strong>rectifiée en 1990</strong>. 
+                    Par exemple : <em>portemonnaie</em> (en un mot) est accepté aux côtés de <em>porte-monnaie</em>.
+                </p>
+            </div>
+
+            <div class="citation">
+                « Les noms simples sont la base de la langue, les noms composés en sont la richesse. 
+                Ensemble, ils permettent d'exprimer toute la diversité du monde qui nous entoure ! » 📚✨
+            </div>
+        </div>
+
+        <footer>
+            <p>🎨 Maîtrisez les noms simples et composés pour enrichir votre vocabulaire ! 🎨</p>
+        </footer>
+    </div>
+</body>
+</html>

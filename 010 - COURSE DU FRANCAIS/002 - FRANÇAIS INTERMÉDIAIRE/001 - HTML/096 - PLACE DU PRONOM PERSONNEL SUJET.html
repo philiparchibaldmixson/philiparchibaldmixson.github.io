@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place du Pronom Personnel Sujet - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #d32f2f 0%, #f44336 50%, #e57373 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0055A4 0%, #EF4135 50%, #FFFFFF 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: rotate 25s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3.2em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .brand {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            z-index: 2;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h2 {
+            color: #0055A4;
+            font-size: 2.3em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #EF4135;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3 {
+            color: #EF4135;
+            font-size: 1.7em;
+            margin: 30px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.2em;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 6px solid #0055A4;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-box p {
+            font-size: 1.2em;
+            color: #1a237e;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #f57c00;
+        }
+
+        .definition-box h4 {
+            color: #e65100;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .definition-box p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .position-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            padding: 35px;
+            border-radius: 18px;
+            margin: 30px 0;
+            border: 3px solid #0055A4;
+            box-shadow: 0 8px 25px rgba(0, 85, 164, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .position-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 85, 164, 0.25);
+            border-color: #EF4135;
+        }
+
+        .position-title {
+            color: #0055A4;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #EF4135;
+        }
+
+        .exemple {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #4caf50;
+            transition: all 0.3s ease;
+        }
+
+        .exemple:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .exemple strong {
+            color: #2e7d32;
+            font-size: 1.15em;
+        }
+
+        .exemple em {
+            color: #1b5e20;
+            font-style: normal;
+            font-weight: 600;
+            background: rgba(76, 175, 80, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+
+        .visual-schema {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #8e24aa;
+        }
+
+        .schema-title {
+            color: #4a148c;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .schema-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .schema-box {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            min-width: 120px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .sujet-box {
+            background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+            color: white;
+            border: 3px solid #1976d2;
+        }
+
+        .verbe-box {
+            background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%);
+            color: white;
+            border: 3px solid #388e3c;
+        }
+
+        .complement-box {
+            background: linear-gradient(135deg, #ffb74d 0%, #ffa726 100%);
+            color: white;
+            border: 3px solid #f57c00;
+        }
+
+        .arrow-schema {
+            font-size: 2em;
+            color: #8e24aa;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #d35400;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #00897b;
+        }
+
+        .note-box strong {
+            color: #004d40;
+            font-size: 1.15em;
+        }
+
+        .grammar-point {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #c2185b;
+        }
+
+        .grammar-point h4 {
+            color: #880e4f;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #e53935;
+        }
+
+        .warning-box strong {
+            color: #c62828;
+            font-size: 1.15em;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .comparison-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 3px solid #0277bd;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(2, 119, 189, 0.3);
+        }
+
+        .comparison-item h5 {
+            color: #01579b;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.15em;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 2px solid #e0e0e0;
+            transition: background 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        tr:hover td {
+            background: #f5f5f5;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        li {
+            margin: 12px 0;
+            line-height: 1.9;
+            font-size: 1.05em;
+        }
+
+        .special-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .special-list li::before {
+            content: "🔹";
+            margin-right: 10px;
+        }
+
+        .inversion-box {
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #0277bd;
+        }
+
+        .inversion-box h5 {
+            color: #01579b;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .step-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #0277bd;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #0277bd;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.7em;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .schema-flow {
+                flex-direction: column;
+            }
+
+            .arrow-schema {
+                transform: rotate(90deg);
+            }
+
+            .brand {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">Língua Academy</div>
+            <h1>Place du Pronom Personnel Sujet</h1>
+            <p class="subtitle">Maîtriser toutes les positions du pronom sujet</p>
+        </header>
+
+        <div class="content">
+            <!-- Introduction -->
+            <div class="section">
+                <div class="intro-box">
+                    <p>
+                        En français, le pronom personnel <strong>sujet</strong> a une place bien définie dans la phrase. 
+                        Contrairement à d'autres langues, le sujet est <span class="highlight">obligatoire</span> en français 
+                        et sa position varie selon le type de phrase.
+                    </p>
+                    <p>
+                        Comprendre la <strong>place du pronom sujet</strong> est essentiel pour :
+                    </p>
+                    <ul style="margin-top: 15px;">
+                        <li>Construire des phrases <strong>correctes</strong></li>
+                        <li>Poser des <strong>questions</strong> correctement</li>
+                        <li>Comprendre les <strong>nuances</strong> du français</li>
+                        <li>Parler de manière <strong>naturelle</strong></li>
+                    </ul>
+                </div>
+
+                <div class="definition-box">
+                    <h4>📚 Rappel : Le pronom personnel sujet</h4>
+                    <p>
+                        Le pronom personnel <strong>sujet</strong> désigne la personne ou la chose qui fait l'action du verbe. 
+                        En français, il est <span class="highlight">obligatoire</span> devant chaque verbe conjugué.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        <strong>Formes :</strong> je, tu, il/elle/on, nous, vous, ils/elles
+                    </p>
+                </div>
+            </div>
+
+            <!-- Position 1: Position normale -->
+            <div class="section">
+                <h2><span class="icon">📍</span>Position normale : Sujet AVANT le verbe</h2>
+
+                <div class="position-card">
+                    <div class="position-title">
+                        <span>1️⃣</span> Règle générale : SUJET + VERBE
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        Dans la <strong>phrase déclarative</strong> (affirmative ou négative), le pronom sujet se place 
+                        <span class="highlight">TOUJOURS AVANT le verbe</span>.
+                    </p>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Structure de base</div>
+                        <div class="schema-flow">
+                            <div class="schema-box sujet-box">SUJET</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box verbe-box">VERBE</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box complement-box">COMPLÉMENT</div>
+                        </div>
+                    </div>
+
+                    <h3>📖 Phrases affirmatives</h3>
+
+                    <div class="exemple">
+                        <strong>1ère personne :</strong><br>
+                        <em><strong style="color: #1976d2;">Je</strong> <strong style="color: #388e3c;">mange</strong> une pomme.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>2ème personne :</strong><br>
+                        <em><strong style="color: #1976d2;">Tu</strong> <strong style="color: #388e3c;">travailles</strong> beaucoup.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>3ème personne :</strong><br>
+                        <em><strong style="color: #1976d2;">Il</strong> <strong style="color: #388e3c;">dort</strong> profondément.</em><br>
+                        <em><strong style="color: #1976d2;">Elle</strong> <strong style="color: #388e3c;">étudie</strong> le français.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>1ère personne pluriel :</strong><br>
+                        <em><strong style="color: #1976d2;">Nous</strong> <strong style="color: #388e3c;">partons</strong> demain.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>2ème personne pluriel :</strong><br>
+                        <em><strong style="color: #1976d2;">Vous</strong> <strong style="color: #388e3c;">arrivez</strong> à quelle heure ?</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>3ème personne pluriel :</strong><br>
+                        <em><strong style="color: #1976d2;">Ils</strong> <strong style="color: #388e3c;">jouent</strong> au football.</em><br>
+                        <em><strong style="color: #1976d2;">Elles</strong> <strong style="color: #388e3c;">chantent</strong> bien.</em>
+                    </div>
+
+                    <h3>📖 Phrases négatives</h3>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Structure négative</div>
+                        <div class="schema-flow">
+                            <div class="schema-box sujet-box">SUJET</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box">NE</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box verbe-box">VERBE</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box">PAS</div>
+                        </div>
+                    </div>
+
+                    <div class="exemple">
+                        <em><strong style="color: #1976d2;">Je</strong> ne <strong style="color: #388e3c;">mange</strong> pas de viande.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <em><strong style="color: #1976d2;">Tu</strong> ne <strong style="color: #388e3c;">travailles</strong> pas aujourd'hui.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <em><strong style="color: #1976d2;">Il</strong> ne <strong style="color: #388e3c;">dort</strong> pas bien.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <em><strong style="color: #1976d2;">Nous</strong> ne <strong style="color: #388e3c;">partons</strong> pas en vacances.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <em><strong style="color: #1976d2;">Ils</strong> ne <strong style="color: #388e3c;">comprennent</strong> pas le problème.</em>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Important :</strong> En français, le pronom sujet est <strong>obligatoire</strong>. 
+                        On ne peut jamais l'omettre, même quand le contexte est clair.
+                        <ul style="margin-top: 10px;">
+                            <li>✅ <em><strong>Je</strong> mange.</em></li>
+                            <li>❌ <em>Mange.</em> (incorrect en français standard)</li>
+                            <li>⚠️ <em>Mange !</em> (correct seulement à l'impératif)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Position 2: Temps composés -->
+            <div class="section">
+                <h2><span class="icon">⏰</span>Position avec les temps composés</h2>
+
+                <div class="position-card">
+                    <div class="position-title">
+                        <span>2️⃣</span> SUJET + AUXILIAIRE + PARTICIPE PASSÉ
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        Aux temps composés (passé composé, plus-que-parfait, futur antérieur...), le pronom sujet se place 
+                        <span class="highlight">avant l'auxiliaire</span> (avoir ou être).
+                    </p>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Structure temps composé</div>
+                        <div class="schema-flow">
+                            <div class="schema-box sujet-box">SUJET</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box verbe-box">AUXILIAIRE</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box complement-box">PARTICIPE</div>
+                        </div>
+                    </div>
+
+                    <h3>📖 Passé composé</h3>
+
+                    <div class="exemple">
+                        <strong>Avec AVOIR :</strong><br>
+                        <em><strong style="color: #1976d2;">J'</strong>ai mangé.</em><br>
+                        <em><strong style="color: #1976d2;">Tu</strong> as travaillé.</em><br>
+                        <em><strong style="color: #1976d2;">Il</strong> a fini.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Avec ÊTRE :</strong><br>
+                        <em><strong style="color: #1976d2;">Je</strong> suis allé(e).</em><br>
+                        <em><strong style="color: #1976d2;">Elle</strong> est partie.</em><br>
+                        <em><strong style="color: #1976d2;">Nous</strong> sommes arrivés.</em>
+                    </div>
+
+                    <h3>📖 Plus-que-parfait</h3>
+
+                    <div class="exemple">
+                        <em><strong style="color: #1976d2;">J'</strong>avais mangé avant ton arrivée.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <em><strong style="color: #1976d2;">Tu</strong> étais parti quand je suis arrivé.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <em><strong style="color: #1976d2;">Ils</strong> avaient fini leur travail.</em>
+                    </div>
+
+                    <h3>📖 Forme négative aux temps composés</h3>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Structure négative temps composé</div>
+                        <div class="schema-flow">
+                            <div class="schema-box sujet-box">SUJET</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box">NE</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box verbe-box">AUXILIAIRE</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box">PAS</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box complement-box">PARTICIPE</div>
+                        </div>
+                    </div>
+
+                    <div class="exemple">
+                        <em><strong style="color: #1976d2;">Je</strong> n'ai pas mangé.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <em><strong style="color: #1976d2;">Tu</strong> n'es pas parti.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <em><strong style="color: #1976d2;">Ils</strong> n'ont pas compris.</em>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Position 3: Avec infinitif -->
+            <div class="section">
+                <h2><span class="icon">🎯</span>Position avec un infinitif</h2>
+
+                <div class="position-card">
+                    <div class="position-title">
+                        <span>3️⃣</span> SUJET + VERBE conjugué + INFINITIF
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        Quand un verbe est suivi d'un infinitif, le pronom sujet se place 
+                        <span class="highlight">avant le verbe conjugué</span>, pas devant l'infinitif.
+                    </p>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Structure avec infinitif</div>
+                        <div class="schema-flow">
+                            <div class="schema-box sujet-box">SUJET</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box verbe-box">VERBE conjugué</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box complement-box">INFINITIF</div>
+                        </div>
+                    </div>
+
+                    <h3>📖 Verbes modaux + infinitif</h3>
+
+                    <div class="exemple">
+                        <strong>POUVOIR :</strong><br>
+                        <em><strong style="color: #1976d2;">Je</strong> peux venir.</em><br>
+                        <em><strong style="color: #1976d2;">Tu</strong> peux partir.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>VOULOIR :</strong><br>
+                        <em><strong style="color: #1976d2;">Il</strong> veut dormir.</em><br>
+                        <em><strong style="color: #1976d2;">Elle</strong> veut étudier.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>DEVOIR :</strong><br>
+                        <em><strong style="color: #1976d2;">Nous</strong> devons partir.</em><br>
+                        <em><strong style="color: #1976d2;">Vous</strong> devez travailler.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>SAVOIR :</strong><br>
+                        <em><strong style="color: #1976d2;">Ils</strong> savent nager.</em><br>
+                        <em><strong style="color: #1976d2;">Elles</strong> savent conduire.</em>
+                    </div>
+
+                    <h3>📖 Autres verbes + infinitif</h3>
+
+                    <div class="exemple">
+                        <strong>ALLER :</strong><br>
+                        <em><strong style="color: #1976d2;">Je</strong> vais manger.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>AIMER :</strong><br>
+                        <em><strong style="color: #1976d2;">Tu</strong> aimes danser.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>PRÉFÉRER :</strong><br>
+                        <em><strong style="color: #1976d2;">Il</strong> préfère rester ici.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>COMMENCER À :</strong><br>
+                        <em><strong style="color: #1976d2;">Nous</strong> commençons à comprendre.</em>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Règle importante :</strong> Le sujet ne se répète jamais devant l'infinitif.
+                        <ul style="margin-top: 10px;">
+                            <li>✅ <em><strong>Je</strong> veux partir.</em></li>
+                            <li>❌ <em><strong>Je</strong> veux <strong>je</strong> partir.</em> (incorrect)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Position 4: Inversion sujet-verbe -->
+            <div class="section">
+                <h2><span class="icon">❓</span>Inversion sujet-verbe (forme interrogative)</h2>
+
+                <div class="position-card">
+                    <div class="position-title">
+                        <span>4️⃣</span> VERBE - SUJET ? (Question formelle)
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        Dans la <strong>forme interrogative soutenue</strong>, le pronom sujet se place 
+                        <span class="highlight">APRÈS le verbe</span>, relié par un trait d'union.
+                    </p>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Structure interrogative avec inversion</div>
+                        <div class="schema-flow">
+                            <div class="schema-box verbe-box">VERBE</div>
+                            <span class="arrow-schema">-</span>
+                            <div class="schema-box sujet-box">SUJET</div>
+                            <span class="arrow-schema">?</span>
+                        </div>
+                    </div>
+
+                    <h3>📖 Inversion simple (temps simples)</h3>
+
+                    <div class="inversion-box">
+                        <h5>Présent</h5>
+                        <div class="exemple">
+                            <em>Manges<strong>-tu</strong> ?</em> (registre soutenu)<br>
+                            <em>Est<strong>-ce</strong> que tu manges ?</em> (registre courant)<br>
+                            <em>Tu manges ?</em> (registre familier - intonation)
+                        </div>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>2ème personne singulier :</strong><br>
+                        <em>Pars<strong>-tu</strong> demain ?</em><br>
+                        <em>Viens<strong>-tu</strong> avec nous ?</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>3ème personne singulier :</strong><br>
+                        <em>Mange<strong>-t-il</strong> ici ?</em> (avec T euphonique)<br>
+                        <em>Dort<strong>-elle</strong> bien ?</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>1ère personne pluriel :</strong><br>
+                        <em>Partons<strong>-nous</strong> maintenant ?</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>2ème personne pluriel :</strong><br>
+                        <em>Travaillez<strong>-vous</strong> ici ?</em><br>
+                        <em>Voulez<strong>-vous</strong> du café ?</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>3ème personne pluriel :</strong><br>
+                        <em>Viennent<strong>-ils</strong> ce soir ?</em><br>
+                        <em>Comprennent<strong>-elles</strong> le français ?</em>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Le T euphonique</strong>
+                        <p style="margin-top: 10px;">
+                            Quand le verbe se termine par une <strong>voyelle</strong> et le pronom commence par une voyelle 
+                            (il, elle, on), on ajoute un <strong>-T-</strong> entre les deux pour faciliter la prononciation.
+                        </p>
+                        <ul style="margin-top: 10px;">
+                            <li>✅ <em>Mange<strong>-t-il</strong> ?</em> (verbe en -e + il)</li>
+                            <li>✅ <em>A<strong>-t-elle</strong> compris ?</em> (verbe en -a + elle)</li>
+                            <li>✅ <em>Viendra<strong>-t-on</strong> ?</em> (verbe en -a + on)</li>
+                            <li>❌ <em>Mange-il ?</em> (incorrect, difficile à prononcer)</li>
+                        </ul>
+                    </div>
+
+                    <h3>📖 Inversion aux temps composés</h3>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Structure interrogative temps composé</div>
+                        <div class="schema-flow">
+                            <div class="schema-box verbe-box">AUXILIAIRE</div>
+                            <span class="arrow-schema">-</span>
+                            <div class="schema-box sujet-box">SUJET</div>
+                            <span class="arrow-schema">→</span>
+                            <div class="schema-box complement-box">PARTICIPE</div>
+                            <span class="arrow-schema">?</span>
+                        </div>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Passé composé avec AVOIR :</strong><br>
+                        <em>As<strong>-tu</strong> mangé ?</em><br>
+                        <em>A<strong>-t-il</strong> compris ?</em><br>
+                        <em>Avez<strong>-vous</strong> fini ?</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Passé composé avec ÊTRE :</strong><br>
+                        <em>Es<strong>-tu</strong> parti ?</em><br>
+                        <em>Est<strong>-elle</strong> arrivée ?</em><br>
+                        <em>Êtes<strong>-vous</strong> venus ?</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Plus-que-parfait :</strong><br>
+                        <em>Avais<strong>-tu</strong> mangé avant ?</em><br>
+                        <em>Était<strong>-il</strong> parti quand tu es arrivé ?</em>
+                    </div>
+
+                    <h3>📖 Inversion avec infinitif</h3>
+
+                    <div class="exemple">
+                        <em>Peux<strong>-tu</strong> venir ?</em><br>
+                        <em>Veut<strong>-il</strong> partir ?</em><br>
+                        <em>Devons<strong>-nous</strong> rester ?</em><br>
+                        <em>Pouvez<strong>-vous</strong> m'aider ?</em>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Registres de langue :</strong>
+                        <p style="margin-top: 10px;">Il existe 3 façons de poser une question en français :</p>
+                        <ul style="margin-top: 10px;">
+                            <li><strong>Soutenu :</strong> <em>Viens<strong>-tu</strong> ?</em> (inversion)</li>
+                            <li><strong>Courant :</strong> <em>Est-ce que tu viens ?</em> (avec "est-ce que")</li>
+                            <li><strong>Familier :</strong> <em>Tu viens ?</em> (intonation montante)</li>
+                        </ul>
+                    </div>
+
+                    <div class="grammar-point">
+                        <h4>⚠️ Cas particulier : 1ère personne du singulier (JE)</h4>
+                        <p>L'inversion avec <strong>JE</strong> est rare au présent (sauf avec quelques verbes comme être, avoir, pouvoir, devoir). 
+                        On préfère utiliser "est-ce que".</p>
+                        <ul style="margin-top: 10px;">
+                            <li>✅ Courant : <em>Est-ce que <strong>je</strong> peux venir ?</em></li>
+                            <li>⚠️ Rare : <em>Puis<strong>-je</strong> venir ?</em> (très soutenu)</li>
+                            <li>✅ Courant : <em>Est-ce que <strong>j'</strong>ai raison ?</em></li>
+                            <li>⚠️ Littéraire : <em>Ai<strong>-je</strong> raison ?</em></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Position 5: Propositions subordonnées -->
+            <div class="section">
+                <h2><span class="icon">🔗</span>Position dans les propositions subordonnées</h2>
+
+                <div class="position-card">
+                    <div class="position-title">
+                        <span>5️⃣</span> Dans les subordonnées : SUJET avant le verbe
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        Dans les propositions subordonnées, le pronom sujet garde sa position 
+                        <span class="highlight">normale avant le verbe</span>, même après un mot de liaison.
+                    </p>
+
+                    <h3>📖 Subordonnées relatives</h3>
+
+                    <div class="exemple">
+                        <em>C'est le livre <strong>que</strong> <strong style="color: #1976d2;">je</strong> lis.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <em>Voici la maison <strong>où</strong> <strong style="color: #1976d2;">nous</strong> habitons.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <em>L'homme <strong>qui</strong> parle est mon professeur.</em>
+                    </div>
+
+                    <h3>📖 Subordonnées conjonctives</h3>
+
+                    <div class="exemple">
+                        <strong>Avec QUE :</strong><br>
+                        <em>Je pense <strong>que</strong> <strong style="color: #1976d2;">tu</strong> as raison.</em><br>
+                        <em>Il dit <strong>que</strong> <strong style="color: #1976d2;">nous</strong> devons partir.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Avec QUAND :</strong><br>
+                        <em><strong>Quand</strong> <strong style="color: #1976d2;">je</strong> serai grand, je voyagerai.</em><br>
+                        <em><strong>Quand</strong> <strong style="color: #1976d2;">elle</strong> arrive, nous commençons.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Avec SI :</strong><br>
+                        <em><strong>Si</strong> <strong style="color: #1976d2;">tu</strong> veux, nous pouvons sortir.</em><br>
+                        <em><strong>Si</strong> <strong style="color: #1976d2;">il</strong> fait beau, nous irons à la plage.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Avec PARCE QUE :</strong><br>
+                        <em>Je reste à la maison <strong>parce qu'</strong><strong style="color: #1976d2;">il</strong> pleut.</em><br>
+                        <em><strong>Parce que</strong> <strong style="color: #1976d2;">nous</strong> sommes fatigués, nous rentrons.</em>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Règle :</strong> Dans une subordonnée, l'ordre reste 
+                        <strong>CONJONCTION + SUJET + VERBE</strong>, jamais d'inversion.
+                        <ul style="margin-top: 10px;">
+                            <li>✅ <em>Je pense <strong>que tu</strong> as raison.</em></li>
+                            <li>❌ <em>Je pense que as-tu raison.</em> (incorrect)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Position 6: Cas particuliers -->
+            <div class="section">
+                <h2><span class="icon">⚡</span>Cas particuliers et exceptions</h2>
+
+                <div class="position-card">
+                    <div class="position-title">
+                        <span>6️⃣</span> Situations spéciales
+                    </div>
+
+                    <h3>📖 Impératif : Absence du pronom sujet</h3>
+
+                    <div class="grammar-point">
+                        <h4>L'impératif</h4>
+                        <p>À l'impératif, le pronom sujet <strong>disparaît complètement</strong>. 
+                        On ne l'utilise jamais.</p>
+                    </div>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-item" style="border-color: #388e3c;">
+                            <h5 style="color: #388e3c;">Indicatif (avec sujet)</h5>
+                            <div class="exemple" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-color: #388e3c;">
+                                <em><strong style="color: #1976d2;">Tu</strong> manges.</em><br>
+                                <em><strong style="color: #1976d2;">Nous</strong> partons.</em><br>
+                                <em><strong style="color: #1976d2;">Vous</strong> venez.</em>
+                            </div>
+                        </div>
+
+                        <div class="comparison-item" style="border-color: #f57c00;">
+                            <h5 style="color: #f57c00;">Impératif (sans sujet)</h5>
+                            <div class="exemple" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-color: #f57c00;">
+                                <em>Mange !</em> (pas de "tu")<br>
+                                <em>Partons !</em> (pas de "nous")<br>
+                                <em>Venez !</em> (pas de "vous")
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>📖 Incises et dialogues</h3>
+
+                    <div class="exemple">
+                        <strong>Incises (verbes de parole) :</strong><br>
+                        <em>"Bonjour," dit<strong>-il</strong>.</em><br>
+                        <em>"Je pars," répond<strong>-elle</strong>.</em><br>
+                        <em>"Attention !" crie<strong>-t-il</strong>.</em>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Dans les incises :</strong> Le sujet se place <strong>après</strong> le verbe, 
+                        avec un trait d'union et un T euphonique si nécessaire.
+                    </div>
+
+                    <h3>📖 Constructions emphatiques (C'est... qui/que)</h3>
+
+                    <div class="exemple">
+                        <strong>Mise en relief du sujet :</strong><br>
+                        <em>C'est <strong style="color: #1976d2;">moi</strong> qui parle.</em><br>
+                        <em>C'est <strong style="color: #1976d2;">lui</strong> qui a raison.</em><br>
+                        <em>Ce sont <strong style="color: #1976d2;">eux</strong> qui ont gagné.</em>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Astuce :</strong> Dans "C'est... qui", on utilise le pronom <strong>tonique</strong> 
+                        (moi, toi, lui, elle, nous, vous, eux, elles), puis le verbe s'accorde avec ce pronom.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau récapitulatif -->
+            <div class="section">
+                <h2><span class="icon">📊</span>Tableau récapitulatif</h2>
+
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Type de phrase</th>
+                            <th>Structure</th>
+                            <th>Exemple</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Déclarative affirmative</strong></td>
+                            <td>SUJET + VERBE</td>
+                            <td><em><strong>Je</strong> mange.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Déclarative négative</strong></td>
+                            <td>SUJET + NE + VERBE + PAS</td>
+                            <td><em><strong>Je</strong> ne mange pas.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Temps composé</strong></td>
+                            <td>SUJET + AUXILIAIRE + PARTICIPE</td>
+                            <td><em><strong>J'</strong>ai mangé.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Avec infinitif</strong></td>
+                            <td>SUJET + VERBE conjugué + INFINITIF</td>
+                            <td><em><strong>Je</strong> veux partir.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Interrogative (inversion)</strong></td>
+                            <td>VERBE - SUJET ?</td>
+                            <td><em>Manges-<strong>tu</strong> ?</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Interrogative (est-ce que)</strong></td>
+                            <td>Est-ce que + SUJET + VERBE ?</td>
+                            <td><em>Est-ce que <strong>tu</strong> manges ?</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Subordonnée</strong></td>
+                            <td>CONJONCTION + SUJET + VERBE</td>
+                            <td><em>Je pense que <strong>tu</strong> as raison.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Impératif</strong></td>
+                            <td>VERBE (sans sujet)</td>
+                            <td><em>Mange !</em></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Exercices pratiques -->
+            <div class="section">
+                <h2><span class="icon">✏️</span>Exercices pratiques</h2>
+
+                <div class="grammar-point">
+                    <h4>🎯 Placez correctement le pronom sujet</h4>
+
+                    <div class="exemple">
+                        <strong>1.</strong> Phrase affirmative : <em>_____ mange une pomme. (je)</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong>Je</strong> mange une pomme.</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>2.</strong> Interrogative (inversion) : <em>Viens _____ avec nous ? (tu)</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Viens-<strong>tu</strong> avec nous ?</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>3.</strong> Temps composé : <em>_____ ai fini mon travail. (je)</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong>J'</strong>ai fini mon travail.</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>4.</strong> Négative : <em>_____ ne parle pas français. (il)</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong>Il</strong> ne parle pas français.</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>5.</strong> Interrogative temps composé : <em>As _____ mangé ? (tu)</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : As-<strong>tu</strong> mangé ?</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>6.</strong> Avec infinitif : <em>_____ veux partir maintenant. (je)</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong>Je</strong> veux partir maintenant.</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>7.</strong> Subordonnée : <em>Je pense que _____ as raison. (tu)</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Je pense que <strong>tu</strong> as raison.</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>8.</strong> Interrogative avec T : <em>Mange _____ ici ? (il)</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Mange-<strong>t-il</strong> ici ?</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Récapitulatif final -->
+            <div class="section">
+                <h2><span class="icon">📝</span>Récapitulatif final</h2>
+
+                <div class="grammar-point">
+                    <h4>✅ Points essentiels à retenir</h4>
+                    <ul class="special-list">
+                        <li>Position <strong>normale</strong> : SUJET + VERBE (phrases déclaratives)</li>
+                        <li>Aux temps composés : SUJET + AUXILIAIRE + PARTICIPE</li>
+                        <li>Avec infinitif : SUJET + VERBE conjugué + INFINITIF</li>
+                        <li>Forme interrogative soutenue : <strong>VERBE - SUJET ?</strong> (inversion)</li>
+                        <li>T euphonique si verbe en voyelle + il/elle/on</li>
+                        <li>Dans les subordonnées : ordre normal (pas d'inversion)</li>
+                        <li>À l'impératif : <strong>pas de pronom sujet</strong></li>
+                        <li>Le pronom sujet est <strong>obligatoire</strong> en français</li>
+                    </ul>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 Pour progresser :</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Pratiquez les 3 formes interrogatives (inversion, est-ce que, intonation)</li>
+                        <li>Faites attention au T euphonique dans les questions</li>
+                        <li>Mémorisez : pas de sujet à l'impératif</li>
+                        <li>Rappelez-vous : le sujet est toujours obligatoire (sauf impératif)</li>
+                        <li>Entraînez-vous avec des dialogues pour maîtriser l'inversion</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <strong>⚠️ Erreurs fréquentes à éviter :</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Oublier le sujet dans une phrase déclarative</li>
+                        <li>Oublier le T euphonique : <em>Mange-il ?</em> au lieu de <em>Mange-<strong>t</strong>-il ?</em></li>
+                        <li>Mettre un sujet à l'impératif : <em>Mange !</em> pas <em>Tu mange !</em></li>
+                        <li>Faire l'inversion dans une subordonnée</li>
+                        <li>Répéter le sujet devant l'infinitif</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p><strong>Língua Academy</strong> - Excellence en enseignement des langues</p>
+            <p style="margin-top: 10px;">📚 Maîtrisez la place du pronom personnel sujet</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">© 2024 Língua Academy - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

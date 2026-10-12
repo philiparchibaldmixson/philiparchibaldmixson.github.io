@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Accord des Adjectifs Composés - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fc466b 0%, #3f5efb 50%, #8e2de2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 30%, rgba(255,255,255,0.1) 70%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(255,255,255,0.1) 30%, rgba(255,255,255,0.1) 70%, transparent 70%);
+            background-size: 100px 100px;
+            animation: movePattern 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes movePattern {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100px, 100px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            background: linear-gradient(135deg, #fc466b, #3f5efb);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.3em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { 
+                box-shadow: 0 10px 30px rgba(252, 70, 107, 0.4);
+            }
+            50% { 
+                box-shadow: 0 10px 40px rgba(63, 94, 251, 0.6);
+            }
+        }
+
+        h1 {
+            color: white;
+            font-size: 3em;
+            text-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+            margin-bottom: 10px;
+            animation: glow 2.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { 
+                text-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+                filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+            }
+            to { 
+                text-shadow: 4px 4px 20px rgba(255,255,255,0.6);
+                filter: drop-shadow(0 0 20px rgba(255,255,255,0.6));
+            }
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.5em;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #fc466b, #3f5efb, #8e2de2, #fc466b);
+            background-size: 300% 100%;
+            animation: gradientSlide 4s ease infinite;
+        }
+
+        @keyframes gradientSlide {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        h2 {
+            color: #fc466b;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #3f5efb;
+            position: relative;
+        }
+
+        h2::after {
+            content: '✨';
+            margin-left: 15px;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { 
+                opacity: 1; 
+                transform: scale(1) rotate(0deg); 
+            }
+            50% { 
+                opacity: 0.5; 
+                transform: scale(1.3) rotate(180deg); 
+            }
+        }
+
+        h3 {
+            color: #3f5efb;
+            font-size: 1.8em;
+            margin: 35px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3::before {
+            content: '🔷';
+            font-size: 1.2em;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .rule-box {
+            background: linear-gradient(135deg, #fc466b15, #3f5efb15);
+            border-left: 6px solid #fc466b;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(252, 70, 107, 0.3);
+        }
+
+        .rule-title {
+            font-weight: bold;
+            color: #fc466b;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .rule-title::before {
+            content: '▶';
+            color: #3f5efb;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #3f5efb15, #8e2de215);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #3f5efb;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(63, 94, 251, 0.2);
+        }
+
+        .example {
+            color: #2d3748;
+            font-size: 1.2em;
+            line-height: 2;
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .example::before {
+            content: '💬';
+            position: absolute;
+            left: 0;
+            font-size: 1.1em;
+        }
+
+        .correct {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .incorrect {
+            color: #e74c3c;
+            font-weight: bold;
+            text-decoration: line-through;
+        }
+
+        .highlight-pink {
+            background: linear-gradient(120deg, #fc466b50 0%, #f093fb50 100%);
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #c0392b;
+        }
+
+        .highlight-blue {
+            background: linear-gradient(120deg, #3f5efb50 0%, #8e2de250 100%);
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .type-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-top: 5px solid #fc466b;
+            transition: all 0.3s ease;
+        }
+
+        .type-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(252, 70, 107, 0.3);
+        }
+
+        .type-card h4 {
+            color: #3f5efb;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .type-card h4::before {
+            content: '📌';
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #feca5715, #ff6b6b15);
+            border: 3px dashed #fc466b;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .note-box::before {
+            content: '💡 IMPORTANT';
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: linear-gradient(135deg, #fc466b, #3f5efb);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .note-box p {
+            margin-top: 15px;
+            color: #2d3748;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .schema-box {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border: 3px solid #fc466b;
+        }
+
+        .schema-title {
+            text-align: center;
+            color: #fc466b;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .schema-title::before,
+        .schema-title::after {
+            content: '═══';
+            color: #3f5efb;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 25px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        thead {
+            background: linear-gradient(135deg, #fc466b, #3f5efb);
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, #fc466b10, #3f5efb10);
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #3f5efb20, #8e2de220);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #3f5efb;
+        }
+
+        .tip-box h4 {
+            color: #3f5efb;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tip-box h4::before {
+            content: '💡';
+            font-size: 1.2em;
+        }
+
+        .exception-box {
+            background: linear-gradient(135deg, #feca5720, #ff6b6b20);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #feca57;
+        }
+
+        .exception-box h4 {
+            color: #ff6b6b;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .exception-box h4::before {
+            content: '⚠️';
+            font-size: 1.2em;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        footer p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .emoji-decoration {
+            display: inline-block;
+            animation: swing 3s ease-in-out infinite;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(20deg); }
+            75% { transform: rotate(-20deg); }
+        }
+
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.6em;
+            }
+            
+            h3 {
+                font-size: 1.4em;
+            }
+
+            .type-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🎓 Língua Academy</div>
+            <h1>L'Accord des Adjectifs</h1>
+            <p class="subtitle">Composés</p>
+        </header>
+
+        <div class="content-card">
+            <h2>Qu'est-ce qu'un Adjectif Composé ?</h2>
+            <p style="font-size: 1.2em; line-height: 1.8; color: #2d3748; margin-bottom: 20px;">
+                Un adjectif composé est formé de <strong style="color: #fc466b;">deux ou plusieurs mots</strong> 
+                reliés par un trait d'union. L'accord de ces adjectifs dépend de la <strong style="color: #3f5efb;">nature grammaticale</strong> 
+                de chacun de leurs éléments. Découvrons les différents cas !
+            </p>
+
+            <div class="tip-box">
+                <h4>Principe Général</h4>
+                <p style="line-height: 1.8; color: #2d3748;">
+                    <strong>Règle d'or :</strong> Dans un adjectif composé, seuls les <strong>adjectifs</strong> 
+                    s'accordent en genre et en nombre. Les autres éléments (adverbes, noms, préfixes) restent 
+                    <strong>invariables</strong>.
+                </p>
+            </div>
+
+            <h2>Les Différents Types d'Adjectifs Composés</h2>
+
+            <h3>Type 1 : Adjectif + Adjectif</h3>
+            <div class="rule-box">
+                <div class="rule-title">Les DEUX adjectifs s'accordent</div>
+                <p style="margin: 15px 0; font-size: 1.1em; color: #555;">
+                    Quand les deux éléments sont des adjectifs qui qualifient tous les deux le nom, 
+                    ils s'accordent tous les deux.
+                </p>
+                <div class="example-box">
+                    <div class="example">
+                        Un enfant <span class="highlight-pink">sourd</span>-<span class="highlight-pink">muet</span> 
+                        → Des enfants <span class="correct">sourds-muets</span>
+                    </div>
+                    <div class="example">
+                        Une fille <span class="highlight-pink">sourde</span>-<span class="highlight-pink">muette</span> 
+                        → Des filles <span class="correct">sourdes-muettes</span>
+                    </div>
+                    <div class="example">
+                        Un fruit <span class="highlight-pink">aigre</span>-<span class="highlight-pink">doux</span> 
+                        → Des fruits <span class="correct">aigres-doux</span>
+                    </div>
+                    <div class="example">
+                        Une sauce <span class="highlight-pink">aigre</span>-<span class="highlight-pink">douce</span> 
+                        → Des sauces <span class="correct">aigres-douces</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>Exemples courants :</strong> sourd-muet, clair-obscur, aigre-doux, tragicomique, 
+                    franco-allemand, gréco-latin, premier-né, dernier-né
+                </p>
+            </div>
+
+            <h3>Type 2 : Adverbe + Adjectif</h3>
+            <div class="rule-box">
+                <div class="rule-title">Adverbe INVARIABLE + Adjectif VARIABLE</div>
+                <p style="margin: 15px 0; font-size: 1.1em; color: #555;">
+                    L'adverbe reste invariable, seul l'adjectif s'accorde.
+                </p>
+                <div class="example-box">
+                    <div class="example">
+                        Un homme <span class="highlight-blue">bien</span>-<span class="highlight-pink">pensant</span> 
+                        → Des hommes <span class="correct">bien-pensants</span>
+                    </div>
+                    <div class="example">
+                        Une idée <span class="highlight-blue">bien</span>-<span class="highlight-pink">pensante</span> 
+                        → Des idées <span class="correct">bien-pensantes</span>
+                    </div>
+                    <div class="example">
+                        Un enfant <span class="highlight-blue">nouveau</span>-<span class="highlight-pink">né</span> 
+                        → Des enfants <span class="correct">nouveau-nés</span>
+                    </div>
+                    <div class="example">
+                        Une fille <span class="highlight-blue">nouveau</span>-<span class="highlight-pink">née</span> 
+                        → Des filles <span class="correct">nouveau-nées</span>
+                    </div>
+                    <div class="example">
+                        Un projet <span class="highlight-blue">mal</span>-<span class="highlight-pink">conçu</span> 
+                        → Des projets <span class="correct">mal-conçus</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exception-box">
+                <h4>Exception : « Tout »</h4>
+                <p style="line-height: 1.8; color: #2d3748;">
+                    L'adverbe <strong>« tout »</strong> peut s'accorder devant un adjectif féminin commençant 
+                    par une consonne ou un h aspiré :<br>
+                    • Des filles tout heureuses<br>
+                    • Des filles <strong>toutes</strong> contentes (accord devant consonne)
+                </p>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>Adverbes courants :</strong> bien, mal, peu, non, tout, très, fort, tout, semi, quasi
+                </p>
+            </div>
+
+            <h3>Type 3 : Adjectif + Nom (ou Nom + Adjectif)</h3>
+            <div class="rule-box">
+                <div class="rule-title">Nom INVARIABLE + Adjectif VARIABLE</div>
+                <p style="margin: 15px 0; font-size: 1.1em; color: #555;">
+                    Le nom reste invariable, seul l'adjectif s'accorde.
+                </p>
+                <div class="example-box">
+                    <div class="example">
+                        Une politique <span class="highlight-blue">court</span>-<span class="highlight-pink">termiste</span> 
+                        → Des politiques <span class="correct">court-termistes</span>
+                    </div>
+                    <div class="example">
+                        Un billet <span class="highlight-pink">vert</span>-<span class="highlight-blue">pomme</span> 
+                        → Des billets <span class="correct">vert-pomme</span> (pomme = nom, invariable)
+                    </div>
+                    <div class="example">
+                        Une robe <span class="highlight-pink">bleu</span>-<span class="highlight-blue">ciel</span> 
+                        → Des robes <span class="correct">bleu-ciel</span> (ciel = nom, invariable)
+                    </div>
+                </div>
+            </div>
+
+            <div class="exception-box">
+                <h4>Cas Particulier : Adjectifs de Couleur</h4>
+                <p style="line-height: 1.8; color: #2d3748; margin-bottom: 10px;">
+                    Quand deux adjectifs de couleur sont associés :
+                </p>
+                <div class="example">
+                    • Des yeux <span class="correct">bleu-vert</span> (les deux sont invariables)
+                </div>
+                <div class="example">
+                    • Des chemises <span class="correct">rose-orange</span> (les deux sont invariables)
+                </div>
+                <div class="example">
+                    • Des foulards <span class="correct">rouge-noir</span> (les deux sont invariables)
+                </div>
+            </div>
+
+            <h3>Type 4 : Préfixe + Adjectif</h3>
+            <div class="rule-box">
+                <div class="rule-title">Préfixe INVARIABLE + Adjectif VARIABLE</div>
+                <p style="margin: 15px 0; font-size: 1.1em; color: #555;">
+                    Les préfixes restent invariables, seul l'adjectif s'accorde.
+                </p>
+                <div class="example-box">
+                    <div class="example">
+                        Un produit <span class="highlight-blue">ultra</span>-<span class="highlight-pink">rapide</span> 
+                        → Des produits <span class="correct">ultra-rapides</span>
+                    </div>
+                    <div class="example">
+                        Une voiture <span class="highlight-blue">super</span>-<span class="highlight-pink">puissante</span> 
+                        → Des voitures <span class="correct">super-puissantes</span>
+                    </div>
+                    <div class="example">
+                        Un bâtiment <span class="highlight-blue">archi</span>-<span class="highlight-pink">connu</span> 
+                        → Des bâtiments <span class="correct">archi-connus</span>
+                    </div>
+                    <div class="example">
+                        Une pièce <span class="highlight-blue">semi</span>-<span class="highlight-pink">circulaire</span> 
+                        → Des pièces <span class="correct">semi-circulaires</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>Préfixes courants :</strong> ultra-, super-, extra-, hyper-, archi-, semi-, 
+                    anti-, pro-, néo-, pré-, post-, mini-, maxi-
+                </p>
+            </div>
+
+            <h2>Tableau Récapitulatif</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Composition</th>
+                            <th>Accord</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Type 1</strong></td>
+                            <td>Adjectif + Adjectif</td>
+                            <td>Les deux s'accordent</td>
+                            <td>sourds-muets, aigres-douces</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Type 2</strong></td>
+                            <td>Adverbe + Adjectif</td>
+                            <td>Seul l'adjectif s'accorde</td>
+                            <td>bien-pensants, nouveau-nées</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Type 3</strong></td>
+                            <td>Nom + Adjectif</td>
+                            <td>Seul l'adjectif s'accorde</td>
+                            <td>court-termistes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Type 3bis</strong></td>
+                            <td>Adjectif + Nom</td>
+                            <td>Aucun accord (couleurs)</td>
+                            <td>bleu-ciel, vert-pomme</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Type 4</strong></td>
+                            <td>Préfixe + Adjectif</td>
+                            <td>Seul l'adjectif s'accorde</td>
+                            <td>ultra-rapides, semi-circulaires</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Type 5</strong></td>
+                            <td>Deux couleurs</td>
+                            <td>Aucun accord</td>
+                            <td>bleu-vert, rose-orange</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Cas Particuliers et Exceptions</h2>
+
+            <div class="type-grid">
+                <div class="type-card">
+                    <h4>Grand + Nom</h4>
+                    <p style="line-height: 1.8; color: #2d3748;">
+                        Généralement invariable :<br>
+                        • Des grand-mères<br>
+                        • Des grand-parents<br>
+                        <strong>Exception :</strong><br>
+                        • Des grandes-duchesses
+                    </p>
+                </div>
+
+                <div class="type-card">
+                    <h4>Nu, Demi, Semi</h4>
+                    <p style="line-height: 1.8; color: #2d3748;">
+                        <strong>Avant le nom :</strong> invariables<br>
+                        • Nu-pieds, demi-heure<br>
+                        <strong>Après le nom :</strong> accordent<br>
+                        • Pieds nus, heures demies
+                    </p>
+                </div>
+
+                <div class="type-card">
+                    <h4>Mort, Ivre</h4>
+                    <p style="line-height: 1.8; color: #2d3748;">
+                        Ces adjectifs s'accordent toujours :<br>
+                        • Des ivres-morts<br>
+                        • Des mortes-nées<br>
+                        • Des ivres-mortes
+                    </p>
+                </div>
+
+                <div class="type-card">
+                    <h4>Franc, Frais</h4>
+                    <p style="line-height: 1.8; color: #2d3748;">
+                        S'accordent généralement :<br>
+                        • Des francs-tireurs<br>
+                        • Des franches-parleuses<br>
+                        • Des fraîches-émoulues
+                    </p>
+                </div>
+            </div>
+
+            <h2>Méthode Pratique</h2>
+            <div class="schema-box">
+                <div class="schema-title">Comment Accorder un Adjectif Composé ?</div>
+                <div style="padding: 20px;">
+                    <div style="background: linear-gradient(135deg, #fc466b10, #3f5efb10); padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        <strong style="color: #fc466b; font-size: 1.2em;">Étape 1 :</strong> 
+                        Identifiez la nature de chaque élément
+                        <div style="margin-top: 10px; color: #555;">
+                            → Est-ce un adjectif, un adverbe, un nom, ou un préfixe ?
+                        </div>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #fc466b10, #3f5efb10); padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        <strong style="color: #3f5efb; font-size: 1.2em;">Étape 2 :</strong> 
+                        Appliquez la règle correspondante
+                        <div style="margin-top: 10px; color: #555;">
+                            → Seuls les adjectifs s'accordent
+                        </div>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #fc466b10, #3f5efb10); padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        <strong style="color: #8e2de2; font-size: 1.2em;">Étape 3 :</strong> 
+                        Vérifiez les exceptions
+                        <div style="margin-top: 10px; color: #555;">
+                            → Consultez la liste des cas particuliers
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Exercices Pratiques</h2>
+            <div class="example-box">
+                <h4 style="color: #fc466b; font-size: 1.4em; margin-bottom: 15px;">Accordez correctement les adjectifs composés :</h4>
+                <div class="example">1. Des enfants (sourd-muet) ___________</div>
+                <div class="example">2. Des personnes (bien-pensant) ___________</div>
+                <div class="example">3. Des robes (bleu-ciel) ___________</div>
+                <div class="example">4. Des voitures (ultra-rapide) ___________</div>
+                <div class="example">5. Des sauces (aigre-doux) ___________</div>
+                <div class="example">6. Des bébés (nouveau-né) ___________</div>
+                <div class="example">7. Des yeux (vert-bleu) ___________</div>
+                <div class="example">8. Des analyses (court-termiste) ___________</div>
+                <div class="example">9. Des idées (mal-conçu) ___________</div>
+                <div class="example">10. Des pièces (semi-circulaire) ___________</div>
+            </div>
+
+            <div class="tip-box">
+                <h4>Astuce Mémorisationnelle</h4>
+                <p style="line-height: 1.8; color: #2d3748;">
+                    Retenez cette phrase simple : <strong>« Seuls les adjectifs dansent, les autres restent fixes ! »</strong> 
+                    Dans un adjectif composé, seuls les vrais adjectifs s'accordent en genre et en nombre. 
+                    Tout le reste (adverbes, noms, préfixes) reste invariable. 🎯
+                </p>
+            </div>
+
+            <div class="note-box">
+                <p>
+                    <strong>Conseil final :</strong> En cas de doute sur la nature d'un élément, consultez 
+                    un dictionnaire. La plupart des dictionnaires indiquent clairement si un mot est un 
+                    adjectif, un nom, un adverbe, etc. Cette simple vérification vous permettra d'appliquer 
+                    la bonne règle d'accord !
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p><span class="emoji-decoration">🎓</span> <strong>Língua Academy</strong> <span class="emoji-decoration">🎓</span></p>
+            <p>Maîtrisez la grammaire française avec précision !</p>
+            <p style="font-size: 0.9em; opacity: 0.8; margin-top: 15px;">© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

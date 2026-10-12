@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pluriel des Noms d'Origine Étrangère - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ee0979 0%, #ff6a00 50%, #ffd200 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .flag-colors {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .flag-bar {
+            width: 80px;
+            height: 8px;
+            border-radius: 4px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .blue { background: #002395; }
+        .white { background: #ffffff; }
+        .red { background: #ED2939; }
+
+        h1 {
+            color: #fff;
+            font-size: 4.5em;
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(255, 255, 255, 1),
+                             0 0 40px rgba(255, 210, 0, 0.9),
+                             0 0 50px rgba(255, 106, 0, 0.7);
+            }
+        }
+
+        .subtitle {
+            color: #fff;
+            font-size: 1.7em;
+            font-weight: 300;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+        }
+
+        h2 {
+            color: #ee0979;
+            font-size: 2.7em;
+            margin-bottom: 25px;
+            border-bottom: 5px solid #ff6a00;
+            padding-bottom: 12px;
+            display: inline-block;
+        }
+
+        h3 {
+            color: #ff6a00;
+            font-size: 2em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #333;
+            line-height: 1.9;
+            font-size: 1.15em;
+            margin-bottom: 15px;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 35px;
+            color: white;
+            margin: 30px 0;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+            animation: scaleIn 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .intro-box p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.25em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .language-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: slideInRight 0.8s ease-out;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .language-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.2) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .language-section:hover {
+            transform: translateX(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .language-section h3 {
+            color: #fff;
+            font-size: 2.3em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .language-section p {
+            color: rgba(255, 255, 255, 0.95);
+            position: relative;
+            z-index: 1;
+        }
+
+        .flag-icon {
+            font-size: 3em;
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            75% { transform: rotate(-10deg); }
+        }
+
+        .word-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 20px;
+            align-items: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .singular-box, .plural-box {
+            padding: 25px 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.6em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .singular-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .plural-box {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+
+        .singular-box:hover, .plural-box:hover {
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .arrow {
+            font-size: 3.5em;
+            color: #fff;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.25); opacity: 0.7; }
+        }
+
+        .example-list {
+            list-style: none;
+            padding-left: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .example-list li {
+            padding: 18px;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 12px;
+            border-left: 6px solid #fff;
+            transition: all 0.3s ease;
+            font-size: 1.2em;
+            color: #fff;
+        }
+
+        .example-list li:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffd200 0%, #ff6a00 100%);
+            color: #333;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .note-box {
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .note-box h4 {
+            color: #fff;
+            font-size: 1.5em;
+            margin-bottom: 12px;
+        }
+
+        .note-box p {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            color: #333;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: wiggle 3s ease-in-out infinite;
+            border: 4px solid #fdcb6e;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(1deg); }
+            75% { transform: rotate(-1deg); }
+        }
+
+        .tip-box strong {
+            display: block;
+            font-size: 1.7em;
+            margin-bottom: 15px;
+            color: #d63031;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+        }
+
+        th {
+            color: white;
+            padding: 22px;
+            text-align: left;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        td {
+            padding: 20px 22px;
+            border-bottom: 2px solid #e8e8e8;
+            color: #333;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        tr:nth-child(even) {
+            background: #fff5f8;
+        }
+
+        tr:hover {
+            background: #ffe6f0;
+            transform: scale(1.01);
+        }
+
+        .special-card {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            border-radius: 20px;
+            padding: 35px;
+            margin: 25px 0;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .special-card h3 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 5px;
+            font-size: 1em;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .badge-french {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+
+        .badge-original {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .badge-both {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            color: #333;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 1.1em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8em;
+            }
+
+            .content-card {
+                padding: 25px;
+            }
+
+            .word-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="flag-colors">
+                <div class="flag-bar blue"></div>
+                <div class="flag-bar white"></div>
+                <div class="flag-bar red"></div>
+            </div>
+            <h1>🌍 Pluriel des Noms d'Origine Étrangère</h1>
+            <p class="subtitle">Les Emprunts Linguistiques et leurs Pluriels</p>
+        </header>
+
+        <div class="content-card">
+            <h2>Introduction</h2>
+            <div class="intro-box">
+                <p>Le français a <strong>emprunté</strong> de nombreux mots à d'autres langues au fil des siècles. Ces mots d'<strong>origine étrangère</strong> posent souvent des questions sur leur pluriel : doit-on suivre les règles françaises ou conserver le pluriel de la langue d'origine ? La réponse varie selon le degré d'intégration du mot dans la langue française !</p>
+            </div>
+            
+            <div class="tip-box">
+                <strong>💡 Principe Général</strong>
+                <p>Plus un mot étranger est <strong>francisé</strong> (intégré dans la langue française), plus il suit les règles françaises du pluriel. Les mots récemment empruntés peuvent garder leur pluriel d'origine ou accepter les deux formes !</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Mots d'Origine Anglaise</h2>
+            
+            <div class="language-section">
+                <h3><span class="flag-icon">🇬🇧</span> Anglais → Français</h3>
+                <p><strong>La plupart des mots anglais prennent un -S au pluriel en français (règle française)</strong></p>
+
+                <div class="note-box">
+                    <h4>📌 Mots Totalement Francisés</h4>
+                    <p>Ces mots suivent complètement les règles françaises :</p>
+                </div>
+
+                <div class="word-grid">
+                    <div class="singular-box">un sandwich</div>
+                    <div class="arrow">→</div>
+                    <div class="plural-box">des sandwich<span class="highlight">es</span></div>
+                </div>
+
+                <ul class="example-list">
+                    <li>un club → des club<span class="highlight">s</span></li>
+                    <li>un film → des film<span class="highlight">s</span></li>
+                    <li>un parking → des parking<span class="highlight">s</span></li>
+                    <li>un weekend → des weekend<span class="highlight">s</span></li>
+                    <li>un jean → des jean<span class="highlight">s</span></li>
+                    <li>un pull → des pull<span class="highlight">s</span></li>
+                    <li>un blog → des blog<span class="highlight">s</span></li>
+                    <li>un test → des test<span class="highlight">s</span></li>
+                    <li>un toast → des toast<span class="highlight">s</span></li>
+                    <li>un tunnel → des tunnel<span class="highlight">s</span></li>
+                </ul>
+
+                <div class="note-box">
+                    <h4>⚠️ Cas Particuliers et Hésitations</h4>
+                    <p>Certains mots acceptent deux pluriels ou gardent leur forme anglaise :</p>
+                </div>
+
+                <ul class="example-list">
+                    <li><strong>match</strong> → des match<span class="highlight">s</span> OU des match (les deux acceptés)</li>
+                    <li><strong>gentleman</strong> → des gentlem<span class="highlight">en</span> (pluriel anglais conservé)</li>
+                    <li><strong>baby-sitter</strong> → des baby-sitter<span class="highlight">s</span></li>
+                    <li><strong>zoom</strong> → des zoom<span class="highlight">s</span></li>
+                    <li><strong>dollar</strong> → des dollar<span class="highlight">s</span></li>
+                    <li><strong>hamburger</strong> → des hamburger<span class="highlight">s</span></li>
+                </ul>
+
+                <div class="note-box">
+                    <h4>🎵 Termes Musicaux Anglais</h4>
+                    <ul class="example-list">
+                        <li>un rock → des rock<span class="highlight">s</span></li>
+                        <li>un blues → des blues (invariable)</li>
+                        <li>un jazz → des jazz (invariable)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Mots d'Origine Italienne</h2>
+            
+            <div class="language-section" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                <h3><span class="flag-icon">🇮🇹</span> Italien → Français</h3>
+                <p><strong>Les mots italiens francisés prennent généralement un -S</strong></p>
+
+                <div class="note-box">
+                    <h4>📌 Mots Francisés</h4>
+                </div>
+
+                <div class="word-grid">
+                    <div class="singular-box">un scénario</div>
+                    <div class="arrow">→</div>
+                    <div class="plural-box">des scénario<span class="highlight">s</span></div>
+                </div>
+
+                <ul class="example-list">
+                    <li>un piano → des piano<span class="highlight">s</span></li>
+                    <li>un soprano → des soprano<span class="highlight">s</span></li>
+                    <li>un concerto → des concerto<span class="highlight">s</span></li>
+                    <li>un solo → des solo<span class="highlight">s</span></li>
+                    <li>un casino → des casino<span class="highlight">s</span></li>
+                    <li>un fiasco → des fiasco<span class="highlight">s</span></li>
+                    <li>un maestro → des maestro<span class="highlight">s</span></li>
+                </ul>
+
+                <div class="note-box">
+                    <h4>🎨 Termes Artistiques et Musicaux</h4>
+                    <p>Ces mots peuvent garder leur pluriel italien en -I ou prendre un -S français :</p>
+                </div>
+
+                <ul class="example-list">
+                    <li><strong>graffiti</strong> → des graffiti<span class="highlight">s</span> (français) OU des graffiti (italien, déjà pluriel)</li>
+                    <li><strong>confetti</strong> → des confetti<span class="highlight">s</span> (français) OU des confetti (italien, déjà pluriel)</li>
+                    <li><strong>spaghetti</strong> → des spaghetti (invariable, déjà pluriel en italien)</li>
+                    <li><strong>macaroni</strong> → des macaroni (invariable, déjà pluriel en italien)</li>
+                    <li><strong>ravioli</strong> → des ravioli (invariable, déjà pluriel en italien)</li>
+                </ul>
+
+                <div class="note-box">
+                    <h4>🍕 Termes Culinaires</h4>
+                    <ul class="example-list">
+                        <li>une pizza → des pizza<span class="highlight">s</span></li>
+                        <li>un espresso → des espresso<span class="highlight">s</span></li>
+                        <li>un cappuccino → des cappuccino<span class="highlight">s</span></li>
+                        <li>un tiramisu → des tiramisu<span class="highlight">s</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Mots d'Origine Latine</h2>
+            
+            <div class="language-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <h3><span class="flag-icon">🏛️</span> Latin → Français</h3>
+                <p><strong>Les mots latins peuvent garder leur pluriel latin ou être francisés</strong></p>
+
+                <div class="note-box">
+                    <h4>📌 Pluriels Latins Conservés (-UM → -A)</h4>
+                </div>
+
+                <ul class="example-list">
+                    <li><strong>maximum</strong> → des maxim<span class="highlight">a</span> (latin) OU des maximum<span class="highlight">s</span> (français)</li>
+                    <li><strong>minimum</strong> → des minim<span class="highlight">a</span> (latin) OU des minimum<span class="highlight">s</span> (français)</li>
+                    <li><strong>curriculum</strong> → des curricul<span class="highlight">a</span> (latin) OU des curriculum<span class="highlight">s</span> (français)</li>
+                    <li><strong>erratum</strong> → des errat<span class="highlight">a</span> (latin pluriel conservé)</li>
+                    <li><strong>referendum</strong> → des referend<span class="highlight">a</span> (latin) OU des referendum<span class="highlight">s</span> (français)</li>
+                </ul>
+
+                <div class="note-box">
+                    <h4>📌 Pluriels Latins (-US → -I)</h4>
+                </div>
+
+                <ul class="example-list">
+                    <li><strong>stimulus</strong> → des stimul<span class="highlight">i</span> (latin) OU des stimulus (invariable)</li>
+                    <li><strong>campus</strong> → des campu<span class="highlight">s</span> (français, invariable)</li>
+                    <li><strong>virus</strong> → des virus (invariable en français)</li>
+                </ul>
+
+                <div class="note-box">
+                    <h4>📌 Mots Complètement Francisés</h4>
+                </div>
+
+                <ul class="example-list">
+                    <li>un album → des album<span class="highlight">s</span></li>
+                    <li>un forum → des forum<span class="highlight">s</span></li>
+                    <li>un aquarium → des aquarium<span class="highlight">s</span></li>
+                    <li>un géranium → des géranium<span class="highlight">s</span></li>
+                    <li>un sanatorium → des sanatorium<span class="highlight">s</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Mots d'Autres Origines</h2>
+            
+            <div class="language-section" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                <h3><span class="flag-icon">🇩🇪</span> Allemand</h3>
+                
+                <ul class="example-list">
+                    <li>un leitmotiv → des leitmotiv<span class="highlight">s</span></li>
+                    <li>un land → des länd<span class="highlight">er</span> (pluriel allemand) OU des land<span class="highlight">s</span></li>
+                    <li>un lied → des lied<span class="highlight">er</span> (pluriel allemand conservé)</li>
+                    <li>un diktat → des diktat<span class="highlight">s</span></li>
+                </ul>
+            </div>
+
+            <div class="language-section" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                <h3 style="color: #6c5ce7;"><span class="flag-icon">🇪🇸</span> Espagnol</h3>
+                
+                <ul class="example-list" style="color: #333;">
+                    <li>un patio → des patio<span class="highlight">s</span></li>
+                    <li>un toréador → des toréador<span class="highlight">s</span></li>
+                    <li>un embargo → des embargo<span class="highlight">s</span></li>
+                    <li>un gringo → des gringo<span class="highlight">s</span></li>
+                </ul>
+            </div>
+
+            <div class="language-section" style="background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);">
+                <h3><span class="flag-icon">🇯🇵</span> Japonais</h3>
+                
+                <ul class="example-list">
+                    <li>un kimono → des kimono<span class="highlight">s</span></li>
+                    <li>un tsunami → des tsunami<span class="highlight">s</span></li>
+                    <li>un samouraï → des samouraï<span class="highlight">s</span></li>
+                    <li>un karaté → des karaté<span class="highlight">s</span> (invariable)</li>
+                    <li>un sushi → des sushi<span class="highlight">s</span></li>
+                </ul>
+            </div>
+
+            <div class="language-section" style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);">
+                <h3 style="color: #d63031;"><span class="flag-icon">🇦🇪</span> Arabe</h3>
+                
+                <ul class="example-list" style="color: #333;">
+                    <li>un souk → des souk<span class="highlight">s</span></li>
+                    <li>un caïd → des caïd<span class="highlight">s</span></li>
+                    <li>un fellah → des fellah<span class="highlight">s</span> OU des fellah<span class="highlight">in</span> (pluriel arabe)</li>
+                    <li>un couscous → des couscous (invariable)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Tableau Récapitulatif par Langue d'Origine</h2>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Langue d'Origine</th>
+                            <th>Mot Singulier</th>
+                            <th>Pluriel Français</th>
+                            <th>Pluriel d'Origine</th>
+                            <th>Statut</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>🇬🇧 Anglais</strong></td>
+                            <td>sandwich</td>
+                            <td>sandwichs / sandwiches</td>
+                            <td>sandwiches</td>
+                            <td><span class="badge badge-both">Les deux</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>🇬🇧 Anglais</strong></td>
+                            <td>gentleman</td>
+                            <td>—</td>
+                            <td>gentlemen</td>
+                            <td><span class="badge badge-original">Origine</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>🇮🇹 Italien</strong></td>
+                            <td>scénario</td>
+                            <td>scénarios</td>
+                            <td>scenari</td>
+                            <td><span class="badge badge-french">Français</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>🇮🇹 Italien</strong></td>
+                            <td>spaghetti</td>
+                            <td>—</td>
+                            <td>spaghetti (déjà pluriel)</td>
+                            <td><span class="badge badge-original">Origine</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>🏛️ Latin</strong></td>
+                            <td>maximum</td>
+                            <td>maximums</td>
+                            <td>maxima</td>
+                            <td><span class="badge badge-both">Les deux</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>🏛️ Latin</strong></td>
+                            <td>virus</td>
+                            <td>virus (invariable)</td>
+                            <td>—</td>
+                            <td><span class="badge badge-french">Français</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>🇩🇪 Allemand</strong></td>
+                            <td>lied</td>
+                            <td>—</td>
+                            <td>lieder</td>
+                            <td><span class="badge badge-original">Origine</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>🇪🇸 Espagnol</strong></td>
+                            <td>patio</td>
+                            <td>patios</td>
+                            <td>patios</td>
+                            <td><span class="badge badge-french">Français</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>🇯🇵 Japonais</strong></td>
+                            <td>kimono</td>
+                            <td>kimonos</td>
+                            <td>kimono</td>
+                            <td><span class="badge badge-french">Français</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>🇦🇪 Arabe</strong></td>
+                            <td>souk</td>
+                            <td>souks</td>
+                            <td>aswaq</td>
+                            <td><span class="badge badge-french">Français</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Principes Généraux</h2>
+            
+            <div class="special-card">
+                <h3>📋 Règles de Base pour les Emprunts</h3>
+                <ul class="example-list">
+                    <li>
+                        <strong>1. Mots totalement intégrés :</strong><br>
+                        Suivent les règles françaises → ajout de -S
+                    </li>
+                    <li>
+                        <strong>2. Mots d'usage courant :</strong><br>
+                        Généralement francisés avec -S
+                    </li>
+                    <li>
+                        <strong>3. Termes techniques ou savants :</strong><br>
+                        Peuvent garder le pluriel d'origine (surtout latin, allemand)
+                    </li>
+                    <li>
+                        <strong>4. Mots récents :</strong><br>
+                        Période de transition → les deux formes acceptées
+                    </li>
+                    <li>
+                        <strong>5. Mots déjà au pluriel :</strong><br>
+                        Restent invariables (spaghetti, confetti...)
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Conseils Pratiques</strong>
+                <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
+                    <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                        <strong>✓ Privilégiez le pluriel français</strong> pour les mots courants (sandwichs, pizzas, scénarios)
+                    </li>
+                    <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                        <strong>✓ Conservez le pluriel d'origine</strong> pour les termes très spécialisés ou récents
+                    </li>
+                    <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                        <strong>✓ Consultez un dictionnaire</strong> en cas de doute (les deux formes sont souvent acceptées)
+                    </li>
+                    <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                        <strong>✓ Soyez cohérent</strong> dans vos écrits (choisissez une forme et gardez-la)
+                    </li>
+                    <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                        <strong>✓ Les mots en -I italien</strong> (spaghetti, graffiti) sont souvent déjà au pluriel
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Évolution de la Langue</h2>
+            
+            <div class="tip-box">
+                <strong>🔄 Processus de Francisation</strong>
+                <p>Les mots étrangers passent par plusieurs étapes d'intégration :</p>
+                <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
+                    <li style="padding: 15px; margin: 12px 0; background: rgba(255,255,255,0.4); border-radius: 10px;">
+                        <strong>Étape 1 : Emprunt initial</strong><br>
+                        Le mot garde sa forme et son pluriel d'origine<br>
+                        <em>Exemple : "gentlemen" (pluriel anglais conservé)</em>
+                    </li>
+                    <li style="padding: 15px; margin: 12px 0; background: rgba(255,255,255,0.4); border-radius: 10px;">
+                        <strong>Étape 2 : Usage courant</strong><br>
+                        Les deux pluriels coexistent<br>
+                        <em>Exemple : "maximums" ou "maxima"</em>
+                    </li>
+                    <li style="padding: 15px; margin: 12px 0; background: rgba(255,255,255,0.4); border-radius: 10px;">
+                        <strong>Étape 3 : Francisation complète</strong><br>
+                        Le pluriel français s'impose<br>
+                        <em>Exemple : "albums", "pianos", "scénarios"</em>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="special-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <h3>⚡ Points Clés à Retenir</h3>
+                <ul class="example-list">
+                    <li>La <strong>tendance générale</strong> est à la francisation (ajout de -S)</li>
+                    <li>Plus un mot est <strong>ancien</strong> en français, plus il suit les règles françaises</li>
+                    <li>Les termes <strong>techniques</strong> gardent parfois leur pluriel d'origine</li>
+                    <li>Beaucoup de mots acceptent <strong>deux formes</strong> de pluriel</li>
+                    <li>En cas de doute, le <strong>pluriel français (-S)</strong> est généralement acceptable</li>
+                    <li>Les dictionnaires sont vos <strong>meilleurs alliés</strong> pour ces cas particuliers</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <div class="flag-colors">
+                <div class="flag-bar blue"></div>
+                <div class="flag-bar white"></div>
+                <div class="flag-bar red"></div>
+            </div>
+            <p>✨ <strong>Língua Academy</strong> - Explorez la richesse du français international ! ✨</p>
+            <p>© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verbes Transitifs et Intransitifs | Grammaire Française</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-deep: #1B2B3A;
+            --teal-accent: #2D8B8C;
+            --coral-soft: #E8916A;
+            --cream-light: #FFF8F3;
+            --sand-warm: #F4E8D8;
+            --text-primary: #2C3E50;
+            --text-secondary: #5A6C7D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream-light);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Geometric background pattern */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .bg-pattern::before,
+        .bg-pattern::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .bg-pattern::before {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(45, 139, 140, 0.15) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        .bg-pattern::after {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(232, 145, 106, 0.12) 0%, transparent 70%);
+            bottom: -150px;
+            left: -100px;
+            animation: pulse 20s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.4; }
+            50% { transform: scale(1.1) rotate(5deg); opacity: 0.6; }
+        }
+
+        /* Container */
+        .wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header Section */
+        header {
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--teal-accent), #258686);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            animation: slideDown 0.8s ease-out;
+            box-shadow: 0 4px 20px rgba(45, 139, 140, 0.3);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--navy-deep);
+            margin-bottom: 20px;
+            line-height: 1.1;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .title-accent {
+            color: var(--teal-accent);
+            position: relative;
+            display: inline-block;
+        }
+
+        .title-accent::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: rgba(45, 139, 140, 0.2);
+            z-index: -1;
+            transform: skewX(-12deg);
+        }
+
+        .lead-text {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        /* Hero Definition Card */
+        .hero-definition {
+            background: white;
+            border-radius: 24px;
+            padding: 60px;
+            margin: 60px 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .hero-definition::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--teal-accent), var(--coral-soft));
+        }
+
+        .hero-definition h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--navy-deep);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .hero-definition p {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--text-secondary);
+        }
+
+        /* Split Layout */
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        /* Section Cards */
+        .section-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 1s ease-out backwards;
+            position: relative;
+        }
+
+        .section-card:nth-child(1) { animation-delay: 0.7s; }
+        .section-card:nth-child(2) { animation-delay: 0.85s; }
+
+        .section-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .section-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .transitif-icon {
+            background: linear-gradient(135deg, var(--teal-accent), #1F7475);
+        }
+
+        .intransitif-icon {
+            background: linear-gradient(135deg, var(--coral-soft), #D67A54);
+        }
+
+        .section-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem;
+            color: var(--navy-deep);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-card .definition {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 35px;
+            padding: 25px;
+            background: var(--sand-warm);
+            border-radius: 12px;
+            border-left: 4px solid var(--teal-accent);
+        }
+
+        /* Subcategory Sections */
+        .subcategory-block {
+            margin: 50px 0;
+            padding: 45px;
+            background: linear-gradient(135deg, rgba(255, 248, 243, 0.8), rgba(244, 232, 216, 0.6));
+            border-radius: 20px;
+            border: 2px solid rgba(45, 139, 140, 0.1);
+            animation: fadeInUp 1s ease-out backwards;
+        }
+
+        .subcategory-block:nth-of-type(3) { animation-delay: 1s; }
+        .subcategory-block:nth-of-type(4) { animation-delay: 1.15s; }
+        .subcategory-block:nth-of-type(5) { animation-delay: 1.3s; }
+
+        .subcategory-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--navy-deep);
+            margin-bottom: 25px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .subcategory-number {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--teal-accent), var(--coral-soft));
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .subcategory-description {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.9;
+        }
+
+        /* Examples Grid */
+        .examples-grid {
+            display: grid;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .example-item {
+            background: white;
+            padding: 25px 30px;
+            border-radius: 14px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 65px;
+            font-size: 1.1rem;
+            border-left: 4px solid transparent;
+        }
+
+        .example-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+            border-left-color: var(--teal-accent);
+        }
+
+        .example-item::before {
+            content: '→';
+            position: absolute;
+            left: 25px;
+            font-size: 1.8rem;
+            color: var(--teal-accent);
+            font-weight: 700;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .verb-highlight {
+            font-weight: 700;
+            color: var(--navy-deep);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-style: italic;
+        }
+
+        .complement {
+            color: var(--teal-accent);
+            font-weight: 600;
+        }
+
+        .preposition {
+            color: var(--coral-soft);
+            font-weight: 600;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: linear-gradient(135deg, rgba(45, 139, 140, 0.08), rgba(45, 139, 140, 0.03));
+            padding: 25px 30px;
+            border-radius: 14px;
+            margin-top: 25px;
+            border-left: 5px solid var(--teal-accent);
+            font-size: 0.98rem;
+            color: var(--text-primary);
+        }
+
+        .info-box-title {
+            font-weight: 700;
+            color: var(--teal-accent);
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(232, 145, 106, 0.1), rgba(232, 145, 106, 0.05));
+            border-left-color: var(--coral-soft);
+        }
+
+        .warning-box .info-box-title {
+            color: var(--coral-soft);
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            margin: 70px 0;
+            animation: fadeInUp 1s ease-out 1.45s backwards;
+        }
+
+        .comparison-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--navy-deep);
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background: white;
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .comparison-column h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--navy-deep);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--teal-accent);
+            font-weight: 700;
+        }
+
+        .comparison-column:last-child h3 {
+            border-bottom-color: var(--coral-soft);
+        }
+
+        .comparison-item {
+            padding: 20px;
+            margin-bottom: 15px;
+            background: var(--sand-warm);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-item:hover {
+            background: var(--cream-light);
+            transform: scale(1.02);
+        }
+
+        .comparison-item strong {
+            color: var(--navy-deep);
+            font-weight: 600;
+        }
+
+        /* Special Cases Section */
+        .special-cases {
+            background: white;
+            padding: 60px;
+            border-radius: 24px;
+            margin: 60px 0;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            animation: fadeInUp 1s ease-out 1.6s backwards;
+        }
+
+        .special-cases h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--navy-deep);
+            margin-bottom: 35px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .case-item {
+            margin-bottom: 35px;
+            padding: 30px;
+            background: var(--cream-light);
+            border-radius: 16px;
+            border-left: 5px solid var(--coral-soft);
+        }
+
+        .case-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--navy-deep);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .case-item p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .case-examples {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .mini-example {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            margin-top: 80px;
+            border-top: 2px solid var(--sand-warm);
+            animation: fadeIn 1s ease-out 1.8s backwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--teal-accent);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .footer-tagline {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .split-container,
+            .comparison-grid,
+            .case-examples {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            .section-card,
+            .hero-definition,
+            .comparison-grid {
+                padding: 35px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .wrapper {
+                padding: 0 20px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .lead-text {
+                font-size: 1.1rem;
+            }
+
+            .section-card,
+            .hero-definition,
+            .subcategory-block,
+            .special-cases {
+                padding: 30px 25px;
+            }
+
+            .example-item {
+                padding-left: 50px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+
+    <div class="wrapper">
+        <header>
+            <div class="header-badge">Língua Academy</div>
+            <h1>Verbes <span class="title-accent">Transitifs</span><br>et <span class="title-accent">Intransitifs</span></h1>
+            <p class="lead-text">Maîtrisez la distinction essentielle entre les verbes qui prennent un complément d'objet et ceux qui n'en ont pas besoin</p>
+        </header>
+
+        <div class="hero-definition">
+            <h2>Comprendre la transitivité</h2>
+            <p>La transitivité d'un verbe désigne sa capacité à avoir un complément d'objet. Cette propriété fondamentale détermine la structure des phrases françaises et influence la conjugaison aux temps composés. Un verbe transitif "transporte" l'action du sujet vers un complément, tandis qu'un verbe intransitif exprime une action complète en elle-même.</p>
+        </div>
+
+        <div class="split-container">
+            <div class="section-card">
+                <div class="section-icon transitif-icon">VT</div>
+                <h2>Verbes Transitifs</h2>
+                <div class="definition">
+                    Un verbe transitif est un verbe qui se construit avec un complément d'objet. L'action passe du sujet au complément. On distingue les transitifs directs et les transitifs indirects.
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-icon intransitif-icon">VI</div>
+                <h2>Verbes Intransitifs</h2>
+                <div class="definition">
+                    Un verbe intransitif exprime une action qui ne se transmet pas à un complément d'objet. L'action reste centrée sur le sujet et se suffit à elle-même.
+                </div>
+            </div>
+        </div>
+
+        <div class="subcategory-block">
+            <h3 class="subcategory-title">
+                <span class="subcategory-number">1</span>
+                Verbes Transitifs Directs (VTD)
+            </h3>
+            <p class="subcategory-description">
+                Le complément d'objet direct (COD) est relié au verbe sans préposition. Il répond aux questions "qui ?" ou "quoi ?". On peut généralement le remplacer par les pronoms le, la, les.
+            </p>
+
+            <div class="examples-grid">
+                <div class="example-item">
+                    Marie <span class="verb-highlight">mange</span> <span class="complement">une pomme</span>
+                </div>
+                <div class="example-item">
+                    Les enfants <span class="verb-highlight">regardent</span> <span class="complement">la télévision</span>
+                </div>
+                <div class="example-item">
+                    J'<span class="verb-highlight">aime</span> <span class="complement">le chocolat</span>
+                </div>
+                <div class="example-item">
+                    Nous <span class="verb-highlight">écrivons</span> <span class="complement">une lettre</span>
+                </div>
+                <div class="example-item">
+                    Il <span class="verb-highlight">prend</span> <span class="complement">son sac</span>
+                </div>
+                <div class="example-item">
+                    Tu <span class="verb-highlight">lis</span> <span class="complement">un roman</span>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-title">Test de reconnaissance</div>
+                Pour identifier un COD, posez la question "Le sujet + verbe + quoi/qui ?"<br>
+                Exemple : Marie mange <strong>quoi ?</strong> → une pomme (COD)
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-title">Pronoms personnels COD</div>
+                me, te, le/la, nous, vous, les<br>
+                <em>J'aime le chocolat</em> → <strong>Je l'aime</strong>
+            </div>
+        </div>
+
+        <div class="subcategory-block">
+            <h3 class="subcategory-title">
+                <span class="subcategory-number">2</span>
+                Verbes Transitifs Indirects (VTI)
+            </h3>
+            <p class="subcategory-description">
+                Le complément d'objet indirect (COI) est relié au verbe par une préposition (à, de, en, sur, etc.). On peut généralement le remplacer par les pronoms lui, leur, en, y.
+            </p>
+
+            <div class="examples-grid">
+                <div class="example-item">
+                    Je <span class="verb-highlight">parle</span> <span class="preposition">à</span> <span class="complement">mon professeur</span>
+                </div>
+                <div class="example-item">
+                    Elle <span class="verb-highlight">pense</span> <span class="preposition">à</span> <span class="complement">ses vacances</span>
+                </div>
+                <div class="example-item">
+                    Nous <span class="verb-highlight">discutons</span> <span class="preposition">de</span> <span class="complement">ce projet</span>
+                </div>
+                <div class="example-item">
+                    Il <span class="verb-highlight">téléphone</span> <span class="preposition">à</span> <span class="complement">sa sœur</span>
+                </div>
+                <div class="example-item">
+                    Tu <span class="verb-highlight">doutes</span> <span class="preposition">de</span> <span class="complement">cette solution</span>
+                </div>
+                <div class="example-item">
+                    Vous <span class="verb-highlight">réfléchissez</span> <span class="preposition">à</span> <span class="complement">l'avenir</span>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-title">Prépositions courantes</div>
+                <strong>à</strong> : parler à, penser à, répondre à, téléphoner à, obéir à<br>
+                <strong>de</strong> : parler de, se souvenir de, douter de, profiter de, se méfier de
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-title">Pronoms personnels COI</div>
+                me, te, lui, nous, vous, leur (+ en, y pour les choses)<br>
+                <em>Je parle à mon professeur</em> → <strong>Je lui parle</strong><br>
+                <em>Je pense à mes vacances</em> → <strong>J'y pense</strong>
+            </div>
+        </div>
+
+        <div class="subcategory-block">
+            <h3 class="subcategory-title">
+                <span class="subcategory-number">3</span>
+                Verbes Intransitifs
+            </h3>
+            <p class="subcategory-description">
+                Ces verbes expriment une action complète qui ne nécessite pas de complément d'objet. Ils peuvent cependant être accompagnés de compléments circonstanciels (temps, lieu, manière, etc.).
+            </p>
+
+            <div class="examples-grid">
+                <div class="example-item">
+                    Le soleil <span class="verb-highlight">brille</span> dans le ciel
+                </div>
+                <div class="example-item">
+                    Les oiseaux <span class="verb-highlight">chantent</span> le matin
+                </div>
+                <div class="example-item">
+                    Elle <span class="verb-highlight">dort</span> profondément
+                </div>
+                <div class="example-item">
+                    Nous <span class="verb-highlight">marchons</span> dans la forêt
+                </div>
+                <div class="example-item">
+                    Il <span class="verb-highlight">court</span> tous les jours
+                </div>
+                <div class="example-item">
+                    Tu <span class="verb-highlight">nages</span> très bien
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-title">Verbes intransitifs courants</div>
+                aller, venir, partir, arriver, tomber, rester, mourir, naître, dormir, marcher, courir, nager, voler, briller, exister, etc.
+            </div>
+
+            <div class="warning-box info-box">
+                <div class="info-box-title">Aux temps composés</div>
+                Beaucoup de verbes intransitifs se conjuguent avec l'auxiliaire <strong>être</strong> :<br>
+                <em>Il est parti</em>, <em>Elle est arrivée</em>, <em>Nous sommes tombés</em>
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <h2 class="comparison-title">Tableau Comparatif</h2>
+            <div class="comparison-grid">
+                <div class="comparison-column">
+                    <h3>Verbes Transitifs</h3>
+                    <div class="comparison-item">
+                        <strong>Complément d'objet :</strong> Obligatoire ou fortement attendu
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Construction :</strong> Avec ou sans préposition
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Questions :</strong> Qui ? Quoi ? À qui ? De quoi ?
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Pronoms :</strong> le, la, les, lui, leur, en, y
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Auxiliaire :</strong> Généralement AVOIR
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Forme passive :</strong> Possible (pour les transitifs directs)
+                    </div>
+                </div>
+
+                <div class="comparison-column">
+                    <h3>Verbes Intransitifs</h3>
+                    <div class="comparison-item">
+                        <strong>Complément d'objet :</strong> Impossible
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Construction :</strong> Seul ou avec compléments circonstanciels
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Questions :</strong> Où ? Quand ? Comment ? Pourquoi ?
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Pronoms :</strong> Pas de pronoms COD/COI
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Auxiliaire :</strong> Souvent ÊTRE (verbes de mouvement)
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Forme passive :</strong> Impossible
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="special-cases">
+            <h2>Cas Particuliers et Pièges</h2>
+
+            <div class="case-item">
+                <h4>1. Verbes à double construction</h4>
+                <p>Certains verbes peuvent être transitifs ou intransitifs selon le contexte, avec parfois un changement de sens.</p>
+                <div class="case-examples">
+                    <div class="mini-example">
+                        <strong>Monter</strong> (intransitif) : Il monte au 3ème étage
+                    </div>
+                    <div class="mini-example">
+                        <strong>Monter</strong> (transitif) : Il monte les escaliers
+                    </div>
+                    <div class="mini-example">
+                        <strong>Passer</strong> (intransitif) : Le temps passe vite
+                    </div>
+                    <div class="mini-example">
+                        <strong>Passer</strong> (transitif) : Il passe l'examen
+                    </div>
+                    <div class="mini-example">
+                        <strong>Sortir</strong> (intransitif) : Elle sort ce soir
+                    </div>
+                    <div class="mini-example">
+                        <strong>Sortir</strong> (transitif) : Elle sort le chien
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-item">
+                <h4>2. Verbes transitifs indirects vs compléments circonstanciels</h4>
+                <p>Attention à ne pas confondre un COI avec un complément circonstanciel introduit par une préposition.</p>
+                <div class="case-examples">
+                    <div class="mini-example">
+                        <strong>COI :</strong> Je pense à Marie (complément essentiel)
+                    </div>
+                    <div class="mini-example">
+                        <strong>CC :</strong> Je marche dans le parc (complément facultatif)
+                    </div>
+                    <div class="mini-example">
+                        <strong>COI :</strong> Il parle de son projet (complément essentiel)
+                    </div>
+                    <div class="mini-example">
+                        <strong>CC :</strong> Il parle avec passion (complément facultatif)
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-item">
+                <h4>3. Changement d'auxiliaire selon la transitivité</h4>
+                <p>Quand un verbe peut être transitif ou intransitif, l'auxiliaire peut changer aux temps composés.</p>
+                <div class="case-examples">
+                    <div class="mini-example">
+                        <strong>Intransitif + ÊTRE :</strong> Elle est descendue
+                    </div>
+                    <div class="mini-example">
+                        <strong>Transitif + AVOIR :</strong> Elle a descendu la valise
+                    </div>
+                    <div class="mini-example">
+                        <strong>Intransitif + ÊTRE :</strong> Nous sommes sortis
+                    </div>
+                    <div class="mini-example">
+                        <strong>Transitif + AVOIR :</strong> Nous avons sorti les poubelles
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-item">
+                <h4>4. Verbes transitifs à construction fixe</h4>
+                <p>Certains verbes exigent toujours une préposition spécifique devant leur complément.</p>
+                <div class="case-examples">
+                    <div class="mini-example">
+                        Commencer <strong>à</strong> + infinitif / <strong>par</strong> + nom
+                    </div>
+                    <div class="mini-example">
+                        Finir <strong>de</strong> + infinitif / <strong>par</strong> + infinitif
+                    </div>
+                    <div class="mini-example">
+                        S'intéresser <strong>à</strong>, se souvenir <strong>de</strong>
+                    </div>
+                    <div class="mini-example">
+                        Rêver <strong>de</strong>, croire <strong>en</strong>/<strong>à</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-brand">Língua Academy</div>
+            <p class="footer-tagline">Excellence et élégance dans l'apprentissage du français</p>
+        </footer>
+    </div>
+</body>
+</html>

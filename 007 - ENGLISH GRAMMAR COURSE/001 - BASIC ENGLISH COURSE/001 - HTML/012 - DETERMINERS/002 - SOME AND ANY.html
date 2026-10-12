@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Determiners: Some and Any</title>
+  <style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        color: #333;
+        background: white;
+    }
+    
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 0 auto;
+        background: white;
+        page-break-after: always;
+    }
+    
+    .header {
+        text-align: center;
+        padding: 35px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+    
+    .header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+        font-size: 18px;
+        opacity: 0.95;
+    }
+    
+    .section {
+        margin: 25px 0;
+        padding: 25px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .section.orange {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+    
+    .section.green {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        color: black;
+    }
+    
+    .section.blue {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .section.pink {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+    
+    .section.purple {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    }
+    
+    .section.teal {
+        background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    }
+    
+    .section.coral {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+    
+    h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    
+    .section.green h2, .section.green h3 {
+        color: white;
+    }
+    
+    h3 {
+        font-size: 22px;
+        margin: 20px 0 10px 0;
+        color: #34495e;
+    }
+    
+    p {
+        margin-bottom: 15px;
+        font-size: 16px;
+        text-align: justify;
+    }
+    
+    .verb-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #667eea;
+        margin: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .verb-title {
+        color: #667eea;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    
+    .verb-form {
+        color: #e74c3c;
+        font-style: italic;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .verb-desc {
+        color: #555;
+        font-size: 16px;
+    }
+    
+    .example-box {
+        background: #fff9e6;
+        border: 2px dashed #f39c12;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .example-title {
+        color: #f39c12;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .tip-box {
+        background: white;
+        padding: 20px;
+        border-left: 6px solid #27ae60;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .tip-box h4 {
+        color: #27ae60;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    
+    ul {
+        margin-left: 30px;
+        margin-bottom: 15px;
+    }
+    
+    li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    
+    .structure-table {
+        width: 100%;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .structure-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .structure-table th {
+        background: #667eea;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+    }
+    
+    .structure-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+    }
+    
+    .structure-table tr:nth-child(even) {
+        background: #f8f9fa;
+    }
+    
+    .structure-label {
+        font-weight: bold;
+        color: #3498db;
+    }
+    
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .form-item {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        border-top: 4px solid #3498db;
+    }
+    
+    .form-type {
+        font-weight: bold;
+        color: #3498db;
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+    
+    .form-text {
+        color: #555;
+        font-size: 15px;
+    }
+    
+    .negative-box {
+        background: #ffe6e6;
+        border: 2px solid #e74c3c;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .negative-title {
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .question-box {
+        background: #e6f3ff;
+        border: 2px solid #3498db;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .question-title {
+        color: #3498db;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .comparison-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #9b59b6;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .comparison-title {
+        color: #9b59b6;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .alternative-box {
+        background: white;
+        padding: 20px;
+        border: 3px solid #e67e22;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .alternative-title {
+        color: #e67e22;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .error-box {
+        background: #fff5f5;
+        border: 2px solid #c0392b;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .error-title {
+        color: #c0392b;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    
+    @media print {
+        body {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>🧮 DETERMINERS: SOME & ANY 🧮</h1>
+      <p>Using “Some” and “Any” to Talk About Quantity</p>
+    </div>
+
+    <div class="section orange">
+      <h2>🌟 What Are “Some” and “Any”?</h2>
+      <p><strong>Some</strong> and <strong>any</strong> are determiners used to talk about <u>an unknown quantity</u> of something. We use them before plural countable nouns and uncountable nouns.</p>
+      <ul>
+        <li><strong>Some</strong> → used in positive statements and offers</li>
+        <li><strong>Any</strong> → used in negative statements and questions</li>
+      </ul>
+    </div>
+
+    <div class="section blue">
+      <h2>📋 Structure</h2>
+      <table class="structure-table">
+        <tr>
+          <th>Type</th>
+          <th>Use</th>
+          <th>Example</th>
+        </tr>
+        <tr>
+          <td>Positive</td>
+          <td>Some</td>
+          <td>I have <strong>some</strong> friends.</td>
+        </tr>
+        <tr>
+          <td>Negative</td>
+          <td>Any</td>
+          <td>I don’t have <strong>any</strong> money.</td>
+        </tr>
+        <tr>
+          <td>Question</td>
+          <td>Any</td>
+          <td>Do you have <strong>any</strong> questions?</td>
+        </tr>
+        <tr>
+          <td>Offer / Request</td>
+          <td>Some</td>
+          <td>Would you like <strong>some</strong> coffee?</td>
+        </tr>
+      </table>
+      <div class="tip-box">
+        <h4>💡 Quick Tip</h4>
+        <p>Use “some” when you expect a “yes” or are being polite. Use “any” in general questions or negatives.</p>
+      </div>
+    </div>
+
+    <div class="section green">
+      <h2>🎯 Common Examples</h2>
+      <h4>✅ Using “Some”</h4>
+      <ul>
+        <li>I have <strong>some</strong> apples.</li>
+        <li>She bought <strong>some</strong> milk.</li>
+        <li>We need <strong>some</strong> help.</li>
+        <li>Would you like <strong>some</strong> tea?</li>
+        <li>Can I have <strong>some</strong> water?</li>
+      </ul>
+      <h4>✅ Using “Any”</h4>
+      <ul>
+        <li>Do you have <strong>any</strong> sugar?</li>
+        <li>I don’t have <strong>any</strong> time.</li>
+        <li>He didn’t bring <strong>any</strong> snacks.</li>
+        <li>Are there <strong>any</strong> questions?</li>
+        <li>She didn’t make <strong>any</strong> mistakes.</li>
+      </ul>
+    </div>
+
+    <div class="section pink">
+      <h2>📝 More Sentences</h2>
+      <h4>✅ Positive</h4>
+      <p>• I need <strong>some</strong> information.<br>
+         • They brought <strong>some</strong> drinks.<br>
+         • We have <strong>some</strong> ideas.</p>
+      <h4>✅ Negative</h4>
+      <p>• I don’t want <strong>any</strong> trouble.<br>
+         • He didn’t eat <strong>any</strong> vegetables.<br>
+         • We don’t have <strong>any</strong> chairs left.</p>
+      <h4>✅ Questions</h4>
+      <p>• Do you want <strong>some</strong> juice?<br>
+         • Do you have <strong>any</strong> pens?<br>
+         • Can I borrow <strong>some</strong> paper?</p>
+    </div>
+
+    <div class="section purple">
+      <h2>📌 Compare: “Some” vs “Any”</h2>
+      <table class="structure-table">
+        <tr>
+          <th>Some</th>
+          <th>Any</th>
+        </tr>
+        <tr>
+          <td>I have <strong>some</strong> friends.</td>
+          <td>I don’t have <strong>any</strong> friends.</td>
+        </tr>
+        <tr>
+          <td>She bought <strong>some</strong> apples.</td>
+          <td>Did she buy <strong>any</strong> apples?</td>
+        </tr>
+        <tr>
+          <td>Would you like <strong>some</strong> coffee?</td>
+          <td>Do you have <strong>any</strong> coffee?</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section coral">
+      <h2>🔄 Real-Life Sentences</h2>
+      <ul>
+        <li>We need <strong>some</strong> volunteers for the event.</li>
+        <li>I didn’t see <strong>any</strong> mistakes in your essay.</li>
+        <li>Can I have <strong>some</strong> more rice?</li>
+        <li>Do you have <strong>any</strong> questions before we start?</li>
+        <li>She gave me <strong>some</strong> advice.</li>
+      </ul>
+    </div>
+
+    <div class="section orange">
+      <h2>⚠️ Common Mistakes to Avoid</h2>
+      <div class="error-box">
+        <p>❌ I don’t have some money.<br>✅ I don’t have <strong>any</strong> money.</p>
+        <p>❌ Do you want any tea?<br>✅ Do you want <strong>some</strong> tea?</p>
+        <p>❌ She didn’t buy some apples.<br>✅ She didn’t buy <strong>any</strong> apples.</p>
+        <p>❌ Can I have any help?<br>✅ Can I have <strong>some</strong> help?</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Use “some” in positive sentences and polite offers. Use “any” in negatives and questions!</strong></p>
+      <p>Practice with countable and uncountable nouns to sound natural and confident in English!</p>
+    </div>
+  </div>
+</body>
+</html>

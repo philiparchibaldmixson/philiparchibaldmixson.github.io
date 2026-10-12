@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Complément Circonstanciel de But - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes target {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #002395 0%, #ffffff 50%, #ED2939 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(237, 41, 57, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0, 35, 149, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background: linear-gradient(135deg, #002395, #0035b8, #002395);
+            background-size: 200% 200%;
+            animation: gradientFlow 8s ease infinite;
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 35, 149, 0.4);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .logo {
+            font-size: 1.3em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            opacity: 0.95;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 20px 0;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-top: 15px;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            border: 3px solid rgba(0, 35, 149, 0.2);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .intro-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .intro-section h2::before {
+            content: '🎯';
+            font-size: 1.2em;
+            animation: target 2s ease-in-out infinite;
+        }
+
+        .intro-section p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.15em;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 6px solid #002395;
+            margin: 25px 0;
+            font-size: 1.1em;
+            line-height: 1.7;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .definition-box strong {
+            color: #ED2939;
+            font-size: 1.1em;
+        }
+
+        .questions-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .questions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .question-box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #ED2939;
+            transition: all 0.3s ease;
+        }
+
+        .question-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(0, 35, 149, 0.2);
+        }
+
+        .question-title {
+            color: #ED2939;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .question-examples {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .cc-highlight {
+            color: #ED2939;
+            background: rgba(237, 41, 57, 0.1);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .constructions-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .constructions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .construction-item {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.03), rgba(237, 41, 57, 0.03));
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 2px solid rgba(0, 35, 149, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .construction-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 35, 149, 0.15);
+            border-color: #002395;
+        }
+
+        .construction-item h3 {
+            color: #002395;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .construction-type {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .construction-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .construction-examples {
+            margin-top: 15px;
+        }
+
+        .construction-example {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 4px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .construction-example:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .prepositions-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 1.8s ease;
+        }
+
+        .prepositions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .prep-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .prep-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #002395;
+            transition: all 0.3s ease;
+        }
+
+        .prep-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 35, 149, 0.2);
+        }
+
+        .prep-title {
+            color: #002395;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prep-description {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .prep-examples {
+            list-style: none;
+            padding: 0;
+        }
+
+        .prep-examples li {
+            background: rgba(237, 41, 57, 0.05);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-left: 3px solid #ED2939;
+        }
+
+        .prep-examples li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .distinction-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 2s ease;
+        }
+
+        .distinction-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .distinction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .distinction-card {
+            background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05));
+            padding: 30px;
+            border-radius: 20px;
+            border-top: 5px solid #ED2939;
+            transition: all 0.3s ease;
+        }
+
+        .distinction-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 35, 149, 0.15);
+        }
+
+        .distinction-title {
+            color: #ED2939;
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .distinction-content {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .conjonctions-section {
+            background: linear-gradient(135deg, rgba(237, 41, 57, 0.05), rgba(0, 35, 149, 0.05));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            animation: fadeInUp 2.2s ease;
+        }
+
+        .conjonctions-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .conjonction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .conjonction-item {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 35, 149, 0.3);
+            transition: all 0.3s ease;
+            animation: slideIn 1s ease;
+        }
+
+        .conjonction-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 35, 149, 0.5);
+        }
+
+        .special-section {
+            background: linear-gradient(135deg, #002395 0%, #0041c9 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 35, 149, 0.4);
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 2.4s ease;
+        }
+
+        .special-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .special-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .special-section p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .tip-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .table-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            animation: fadeInUp 2.6s ease;
+        }
+
+        .table-section h2 {
+            color: #002395;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+        }
+
+        th {
+            background: linear-gradient(135deg, #002395, #0041c9);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        th:first-child {
+            border-top-left-radius: 15px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 15px;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid rgba(0, 35, 149, 0.1);
+            font-size: 1.05em;
+            color: #333;
+        }
+
+        tr:hover {
+            background: rgba(0, 35, 149, 0.05);
+        }
+
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 15px;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 15px;
+        }
+
+        .type-highlight {
+            background: linear-gradient(135deg, #ED2939, #ff4757);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #002395, #ED2939);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 2.8s ease;
+        }
+
+        .footer-content {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo {
+            font-size: 2em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .distinction-grid, .prep-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 30px;
+            }
+
+            .intro-section, .special-section, .constructions-section {
+                padding: 25px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">⚜️ Língua Academy ⚜️</div>
+            <h1>Le Complément Circonstanciel de But</h1>
+            <div class="subtitle">🎯 Pour quoi faire ? Dans quel but ? Afin de quoi ? 🎯</div>
+        </header>
+
+        <div class="intro-section">
+            <h2>Qu'est-ce qu'un CC de But ?</h2>
+            <p>
+                Le <strong>complément circonstanciel de but</strong> (CC de but) est un complément de phrase qui indique 
+                <strong>l'objectif, l'intention, la finalité</strong> de l'action exprimée par le verbe. Il exprime ce qu'on 
+                veut obtenir, atteindre ou éviter.
+            </p>
+            
+            <div class="definition-box">
+                🎯 <strong>Définition :</strong> Le CC de but précise l'intention, l'objectif visé par l'action. 
+                Il répond aux questions : <strong>Pour quoi faire ? Dans quel but ? Afin de quoi ? Pour quelle finalité ? 
+                En vue de quoi ? Dans quelle intention ?</strong>
+            </div>
+
+            <p>
+                Le CC de but exprime toujours une action <strong>future ou potentielle</strong> par rapport à l'action principale. 
+                C'est ce qu'on cherche à réaliser, à obtenir ou à éviter.
+            </p>
+            <p>
+                Le CC de but est généralement <strong>supprimable</strong> et <strong>déplaçable</strong> dans la phrase.
+            </p>
+        </div>
+
+        <div class="questions-section">
+            <h2>❓ Les Questions pour Identifier le CC de But</h2>
+            
+            <div class="question-box">
+                <div class="question-title">
+                    🎯 Pour quoi faire ? / Dans quel but ?
+                </div>
+                <div class="question-examples">
+                    <strong>La question la plus courante pour identifier le CC de but :</strong><br><br>
+                    • Il travaille <span class="cc-highlight">pour réussir</span>. → <em>Pour quoi faire travaille-t-il ?</em><br>
+                    • Je pars <span class="cc-highlight">afin de te voir</span>. → <em>Dans quel but pars-tu ?</em><br>
+                    • Elle étudie <span class="cc-highlight">en vue de l'examen</span>. → <em>En vue de quoi étudie-t-elle ?</em><br>
+                    • Nous économisons <span class="cc-highlight">pour acheter une maison</span>. → <em>Pour quoi faire ?</em>
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="question-title">
+                    🎓 Afin de quoi ? / En vue de quoi ?
+                </div>
+                <div class="question-examples">
+                    <strong>Pour exprimer une finalité précise :</strong><br><br>
+                    • Il s'entraîne <span class="cc-highlight">afin de gagner</span>. → <em>Afin de quoi s'entraîne-t-il ?</em><br>
+                    • Elle se prépare <span class="cc-highlight">en vue du concours</span>. → <em>En vue de quoi se prépare-t-elle ?</em><br>
+                    • Ils travaillent <span class="cc-highlight">dans le but de réussir</span>. → <em>Dans quel but travaillent-ils ?</em>
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="question-title">
+                    🚫 Pour éviter quoi ? / De peur de quoi ?
+                </div>
+                <div class="question-examples">
+                    <strong>Pour un but négatif (éviter quelque chose) :</strong><br><br>
+                    • Il se cache <span class="cc-highlight">de peur d'être vu</span>. → <em>De peur de quoi ?</em><br>
+                    • Elle court <span class="cc-highlight">de crainte d'arriver en retard</span>. → <em>De crainte de quoi ?</em><br>
+                    • Nous partons tôt <span class="cc-highlight">pour éviter les embouteillages</span>. → <em>Pour éviter quoi ?</em>
+                </div>
+            </div>
+        </div>
+
+        <div class="constructions-section">
+            <h2>🏗️ Constructions du CC de But</h2>
+
+            <div class="construction-item">
+                <h3>
+                    <span>1️⃣</span> 
+                    Infinitif avec Préposition
+                    <span class="construction-type">Très fréquent</span>
+                </h3>
+                <div class="construction-description">
+                    Le CC de but est très souvent exprimé par un infinitif précédé d'une préposition 
+                    (<strong>pour, afin de, de peur de, de crainte de, en vue de, dans le but de, etc.</strong>).
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">POUR + infinitif (le plus courant) :</strong><br>
+                        Il travaille <span class="cc-highlight">pour réussir</span> • Elle étudie <span class="cc-highlight">pour apprendre</span> • Nous économisons <span class="cc-highlight">pour acheter une maison</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">AFIN DE + infinitif (plus soutenu) :</strong><br>
+                        Je pars tôt <span class="cc-highlight">afin d'arriver à l'heure</span> • Il s'entraîne <span class="cc-highlight">afin de gagner</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">DE PEUR DE + infinitif (but négatif) :</strong><br>
+                        Il se cache <span class="cc-highlight">de peur d'être vu</span> • Elle se tait <span class="cc-highlight">de peur de dire une bêtise</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">DE CRAINTE DE + infinitif (but négatif) :</strong><br>
+                        Il court <span class="cc-highlight">de crainte d'arriver en retard</span> • Elle vérifie tout <span class="cc-highlight">de crainte d'oublier quelque chose</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">EN VUE DE + infinitif (finalité précise) :</strong><br>
+                        Elle s'entraîne <span class="cc-highlight">en vue de la compétition</span> • Ils se préparent <span class="cc-highlight">en vue de partir</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">DANS LE BUT DE + infinitif (formel) :</strong><br>
+                        Nous agissons <span class="cc-highlight">dans le but de trouver une solution</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>2️⃣</span> 
+                    Proposition Subordonnée Conjonctive
+                    <span class="construction-type">Très courant</span>
+                </h3>
+                <div class="construction-description">
+                    Le CC de but peut être une proposition subordonnée introduite par une conjonction de subordination 
+                    (<strong>pour que, afin que, de peur que, de crainte que, de sorte que, etc.</strong>) 
+                    suivie du <strong>subjonctif</strong>.
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">POUR QUE + subjonctif (le plus courant) :</strong><br>
+                        Je t'explique <span class="cc-highlight">pour que tu comprennes</span> • Il parle fort <span class="cc-highlight">pour qu'on l'entende</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">AFIN QUE + subjonctif (plus soutenu) :</strong><br>
+                        Elle part tôt <span class="cc-highlight">afin qu'il puisse arriver à l'heure</span> • Nous agissons <span class="cc-highlight">afin que tout soit prêt</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">DE PEUR QUE + NE + subjonctif (but négatif) :</strong><br>
+                        Il se cache <span class="cc-highlight">de peur qu'on ne le voie</span> • Elle se tait <span class="cc-highlight">de peur qu'il ne se fâche</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">DE CRAINTE QUE + NE + subjonctif (but négatif) :</strong><br>
+                        Je ferme la porte <span class="cc-highlight">de crainte qu'il ne fasse froid</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">DE SORTE QUE + subjonctif (conséquence voulue) :</strong><br>
+                        Parle clairement <span class="cc-highlight">de sorte qu'on te comprenne</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>3️⃣</span> 
+                    Groupe Nominal avec Préposition
+                    <span class="construction-type">Courant</span>
+                </h3>
+                <div class="construction-description">
+                    Le CC de but peut être un groupe nominal précédé d'une préposition ou locution prépositionnelle 
+                    (<strong>pour, en vue de, dans le but de, en prévision de, etc.</strong>).
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        <strong style="color: #002395;">POUR + nom :</strong><br>
+                        Il travaille <span class="cc-highlight">pour la réussite</span> • Elle lutte <span class="cc-highlight">pour la liberté</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">EN VUE DE + nom :</strong><br>
+                        Elle se prépare <span class="cc-highlight">en vue de l'examen</span> • Ils économisent <span class="cc-highlight">en vue du voyage</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">DANS LE BUT DE + nom :</strong><br>
+                        Nous agissons <span class="cc-highlight">dans le but d'une amélioration</span>
+                    </div>
+                    <div class="construction-example">
+                        <strong style="color: #002395;">EN PRÉVISION DE + nom :</strong><br>
+                        Il fait des réserves <span class="cc-highlight">en prévision de l'hiver</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>4️⃣</span> 
+                    Adverbe ou Locution Adverbiale
+                    <span class="construction-type">Moins fréquent</span>
+                </h3>
+                <div class="construction-description">
+                    Certains adverbes ou locutions peuvent exprimer le but, bien que ce soit rare.
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        Il agit <span class="cc-highlight">intentionnellement</span> (= dans l'intention de...) • Elle fait ça <span class="cc-highlight">exprès</span> (= dans le but de...)
+                    </div>
+                </div>
+            </div>
+
+            <div class="construction-item">
+                <h3>
+                    <span>5️⃣</span> 
+                    Relative de But
+                    <span class="construction-type">Rare, style soutenu</span>
+                </h3>
+                <div class="construction-description">
+                    Une proposition relative peut exprimer le but avec <strong>"où" + subjonctif</strong> (style littéraire).
+                </div>
+                <div class="construction-examples">
+                    <div class="construction-example">
+                        Je cherche un endroit <span class="cc-highlight">où je puisse travailler</span> (= pour y travailler)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="prepositions-section">
+            <h2>🔑 Prépositions et Locutions de But</h2>
+            
+            <div class="prep-grid">
+                <div class="prep-card">
+                    <div class="prep-title">
+                        🎯 POUR
+                    </div>
+                    <div class="prep-description">
+                        Préposition la plus courante pour exprimer le but. Suivie d'un <strong>infinitif ou d'un nom</strong>.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il travaille pour réussir</li>
+                        <li>Elle étudie pour l'examen</li>
+                        <li>Nous économisons pour acheter une maison</li>
+                        <li>Je pars pour te voir</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        📚 AFIN DE
+                    </div>
+                    <div class="prep-description">
+                        Plus soutenu que "pour". Exprime une <strong>finalité précise</strong>. Suivi d'un infinitif.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Je pars tôt afin d'arriver à l'heure</li>
+                        <li>Il s'entraîne afin de gagner</li>
+                        <li>Elle révise afin de réussir</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        😰 DE PEUR DE
+                    </div>
+                    <div class="prep-description">
+                        Exprime un <strong>but négatif</strong> : éviter quelque chose de désagréable. Suivi d'un infinitif.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il se cache de peur d'être vu</li>
+                        <li>Elle se tait de peur de dire une bêtise</li>
+                        <li>Je pars de peur d'être en retard</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        😨 DE CRAINTE DE
+                    </div>
+                    <div class="prep-description">
+                        Synonyme plus soutenu de "de peur de". Exprime la <strong>crainte</strong>. Suivi d'un infinitif.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il court de crainte d'arriver en retard</li>
+                        <li>Elle vérifie tout de crainte d'oublier</li>
+                        <li>Je me dépêche de crainte de manquer le train</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        👁️ EN VUE DE
+                    </div>
+                    <div class="prep-description">
+                        Exprime une <strong>finalité précise, un objectif clair</strong>. Suivi d'un infinitif ou d'un nom.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Elle s'entraîne en vue de la compétition</li>
+                        <li>Il se prépare en vue de partir</li>
+                        <li>Nous étudions en vue de l'examen</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        🎓 DANS LE BUT DE
+                    </div>
+                    <div class="prep-description">
+                        Expression formelle pour le but. Suivi d'un infinitif ou d'un nom.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Nous agissons dans le but de trouver une solution</li>
+                        <li>Il travaille dans le but de réussir</li>
+                        <li>Elle étudie dans le but d'apprendre</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        📅 EN PRÉVISION DE
+                    </div>
+                    <div class="prep-description">
+                        Exprime un but en se <strong>préparant à l'avance</strong>. Suivi d'un nom.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il fait des réserves en prévision de l'hiver</li>
+                        <li>Nous nous préparons en prévision de la tempête</li>
+                        <li>Elle économise en prévision de ses études</li>
+                    </ul>
+                </div>
+
+                <div class="prep-card">
+                    <div class="prep-title">
+                        ⚠️ HISTOIRE DE
+                    </div>
+                    <div class="prep-description">
+                        Familier, exprime un but <strong>simple, sans grande importance</strong>. Suivi d'un infinitif.
+                    </div>
+                    <ul class="prep-examples">
+                        <li>Il passe histoire de dire bonjour</li>
+                        <li>Je regarde histoire de voir</li>
+                        <li>Elle appelle histoire de prendre des nouvelles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="conjonctions-section">
+            <h2>🔗 Conjonctions de Subordination de But</h2>
+            
+            <div class="conjonction-grid">
+                <div class="conjonction-item">POUR QUE + subjonctif</div>
+                <div class="conjonction-item">AFIN QUE + subjonctif</div>
+                <div class="conjonction-item">DE PEUR QUE + NE + subjonctif</div>
+                <div class="conjonction-item">DE CRAINTE QUE + NE + subjonctif</div>
+                <div class="conjonction-item">DE SORTE QUE + subjonctif</div>
+                <div class="conjonction-item">DE FAÇON QUE + subjonctif</div>
+                <div class="conjonction-item">DE MANIÈRE QUE + subjonctif</div>
+                <div class="conjonction-item">EN SORTE QUE + subjonctif</div>
+            </div>
+        </div>
+
+        <div class="distinction-section">
+            <h2>⚖️ Distinctions Importantes</h2>
+            
+            <div class="distinction-grid">
+                <div class="distinction-card">
+                    <div class="distinction-title">
+                        🎯 CC de But
+                    </div>
+                    <div class="distinction-content">
+                        <strong>Pour quoi faire ? Dans quelle intention ?</strong><br><br>
+                        Exprime l'<strong>objectif, l'intention</strong> (action future/potentielle).<br><br>
+                        <em>Exemples :</em><br>
+                        • "Il travaille <strong>pour réussir</strong>" (but)<br>
+                        → Pour quoi faire ? Pour réussir (intention)<br><br>
+                        • "Je pars <strong>afin de te voir</strong>" (but)<br>
+                        → Dans quel but ? Pour te voir (objectif)<br><br>
+                        ➡️ Indique l'<strong>intention, l'objectif</strong> 🎯
+                    </div>
+                </div>
+
+                <div class="distinction-card">
+                    <div class="distinction-title">
+                        🔍 CC de Cause
+                    </div>
+                    <div class="distinction-content">
+                        <strong>Pourquoi ? Pour quelle raison ?</strong><br><br>
+                        Explique la <strong>raison, l'origine</strong> (action passée/présente).<br><br>
+                        <em>Exemples :</em><br>
+                        • "Il est puni <strong>pour avoir menti</strong>" (cause)<br>
+                        → Pourquoi est-il puni ? Parce qu'il a menti (raison)<br><br>
+                        • "Je pars <strong>parce qu'il pleut</strong>" (cause)<br>
+                        → Pourquoi pars-je ? Parce qu'il pleut (raison)<br><br>
+                        ➡️ Explique la <strong>raison</strong> 🔍
+                    </div>
+                </div>
+
+                <div class="distinction-card">
+                    <div class="distinction-title">
+                        💫 CC de Conséquence
+                    </div>
+                    <div class="distinction-content">
+                        <strong>Quel résultat ? Quelle conséquence ?</strong><br><br>
+                        Exprime le <strong>résultat, l'effet obtenu</strong>.<br><br>
+                        <em>Exemples :</em><br>
+                        • "Il travaille dur, <strong>si bien qu'il réussit</strong>" (conséquence)<br>
+                        → Quel résultat ? Il réussit (effet obtenu)<br><br>
+                        • "Il pleut, <strong>donc je reste</strong>" (conséquence)<br>
+                        → Résultat de la pluie : je reste<br><br>
+                        ➡️ Exprime le <strong>résultat</strong> 💫
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 30px; background: linear-gradient(135deg, rgba(0, 35, 149, 0.05), rgba(237, 41, 57, 0.05)); border-radius: 20px; border-left: 6px solid #002395;">
+                <h3 style="color: #002395; margin-bottom: 20px; font-size: 1.5em;">📌 Règle de Distinction Rapide</h3>
+                <p style="color: #555; line-height: 1.8; font-size: 1.1em; margin-bottom: 15px;">
+                    <strong style="color: #ED2939;">BUT</strong> → Exprime l'<strong>intention</strong> (ce qu'on veut obtenir) 🎯<br>
+                    <em>"Il travaille <strong>pour réussir</strong>"</em> (objectif futur : la réussite)
+                </p>
+                <p style="color: #555; line-height: 1.8; font-size: 1.1em; margin-bottom: 15px;">
+                    <strong style="color: #ED2939;">CAUSE</strong> → Explique la <strong>raison</strong> (pourquoi ça arrive) 🔍<br>
+                    <em>"Il est puni <strong>pour avoir menti</strong>"</em> (raison passée : le mensonge)
+                </p>
+                <p style="color: #555; line-height: 1.8; font-size: 1.1em;">
+                    <strong style="color: #ED2939;">CONSÉQUENCE</strong> → Exprime le <strong>résultat</strong> (ce qui se passe) 💫<br>
+                    <em>"Il travaille dur, <strong>si bien qu'il réussit</strong>"</em> (résultat obtenu : la réussite)
+                </p>
+            </div>
+        </div>
+
+        <div class="table-section">
+            <h2>📊 Tableau : POUR + infinitif (But vs Cause)</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Expression</th>
+                        <th>Sens</th>
+                        <th>Temps</th>
+                        <th>Exemple</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="type-highlight">POUR + infinitif présent</span></td>
+                        <td>BUT (intention)</td>
+                        <td>Action future</td>
+                        <td>Il travaille <strong>pour réussir</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">POUR + infinitif passé</span></td>
+                        <td>CAUSE (raison)</td>
+                        <td>Action passée</td>
+                        <td>Il est puni <strong>pour avoir menti</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">POUR QUE + subjonctif</span></td>
+                        <td>BUT (intention)</td>
+                        <td>Action future</td>
+                        <td>Je t'aide <strong>pour que tu réussisses</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">DE PEUR DE + infinitif</span></td>
+                        <td>BUT négatif (éviter)</td>
+                        <td>Action à éviter</td>
+                        <td>Il se cache <strong>de peur d'être vu</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-highlight">AFIN DE + infinitif</span></td>
+                        <td>BUT (finalité)</td>
+                        <td>Action future</td>
+                        <td>Je pars tôt <strong>afin d'arriver à l'heure</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="special-section">
+            <h2>💡 Conseils pour Identifier le CC de But</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>❓ Posez "Pour quoi faire ?"</h4>
+                    <p>
+                        Pour identifier un CC de but, posez la question <strong>"Pour quoi faire ?"</strong>, 
+                        <strong>"Dans quel but ?"</strong> ou <strong>"Afin de quoi ?"</strong>
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🔍 Cherchez "pour" et "afin de"</h4>
+                    <p>
+                        Les expressions <strong>"pour", "afin de", "en vue de", "dans le but de"</strong> 
+                        introduisent presque toujours un CC de but.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🎯 Le but = intention future</h4>
+                    <p>
+                        Le but exprime toujours une <strong>intention, un objectif futur</strong> 
+                        ou potentiel par rapport à l'action principale.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>📚 Attention au subjonctif</h4>
+                    <p>
+                        Les conjonctions de but (<strong>pour que, afin que, de peur que</strong>) 
+                        sont TOUJOURS suivies du <strong>subjonctif</strong>.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>⚖️ BUT vs CAUSE avec "POUR"</h4>
+                    <p>
+                        <strong>POUR + infinitif présent</strong> = BUT ✅<br>
+                        <strong>POUR + infinitif passé</strong> = CAUSE<br>
+                        "Il travaille pour réussir" (but) ≠ "Il est puni pour avoir menti" (cause)
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>✂️ Testez la suppression</h4>
+                    <p>
+                        Le CC de but est généralement <strong>supprimable</strong> : 
+                        "Il travaille pour réussir" → "Il travaille" ✅
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="intro-section">
+            <h2>🎯 Points Importants à Retenir</h2>
+            <p>
+                ✅ <strong>Le CC de but exprime l'intention, l'objectif :</strong>
+                <br>• Il répond à "Pour quoi faire ?", "Dans quel but ?", "Afin de quoi ?"
+                <br>• Le but est toujours une action future ou potentielle
+            </p>
+            <p>
+                ✅ <strong>Principales prépositions de but :</strong>
+                <br>• <strong>POUR</strong> : la plus courante (pour + infinitif/nom)
+                <br>• <strong>AFIN DE</strong> : plus soutenu (afin de + infinitif)
+                <br>• <strong>DE PEUR DE / DE CRAINTE DE</strong> : but négatif (éviter quelque chose)
+                <br>• <strong>EN VUE DE</strong> : finalité précise (en vue de + infinitif/nom)
+                <br>• <strong>DANS LE BUT DE</strong> : formel (dans le but de + infinitif)
+            </p>
+            <p>
+                ✅ <strong>Principales conjonctions de but :</strong>
+                <br>• <strong>POUR QUE + subjonctif</strong> : la plus courante
+                <br>• <strong>AFIN QUE + subjonctif</strong> : plus soutenu
+                <br>• <strong>DE PEUR QUE + NE + subjonctif</strong> : but négatif
+                <br>• <strong>DE CRAINTE QUE + NE + subjonctif</strong> : but négatif
+                <br>• Toutes les conjonctions de but sont suivies du SUBJONCTIF
+            </p>
+            <p>
+                ✅ <strong>Distinction BUT vs CAUSE vs CONSÉQUENCE :</strong>
+                <br>• <strong>BUT</strong> : intention (ce qu'on veut obtenir) → "Il travaille pour réussir"
+                <br>• <strong>CAUSE</strong> : raison (pourquoi ça arrive) → "Il est puni pour avoir menti"
+                <br>• <strong>CONSÉQUENCE</strong> : résultat (ce qui se passe) → "Il travaille, si bien qu'il réussit"
+            </p>
+            <p>
+                ✅ <strong>Règle importante avec "POUR" :</strong>
+                <br>• <strong>POUR + infinitif présent</strong> = BUT (action future)
+                <br>• <strong>POUR + infinitif passé</strong> = CAUSE (action passée)
+                <br>• "pour réussir" (but) ≠ "pour avoir réussi" (cause)
+            </p>
+            <p>
+                ✅ <strong>Le "NE" explétif avec DE PEUR QUE / DE CRAINTE QUE :</strong>
+                <br>• On ajoute "ne" (sans valeur négative) après ces conjonctions
+                <br>• "Il se cache de peur qu'on ne le voie" (≠ ne... pas)
+            </p>
+            <p>
+                ✅ <strong>Le CC de but est supprimable et déplaçable :</strong>
+                <br>• "Il travaille pour réussir" → "Il travaille" (suppression) ✅
+                <br>• "Pour réussir, il travaille" (déplacement) ✅
+            </p>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                Maîtrisez le complément circonstanciel de but 
+                pour exprimer vos intentions et objectifs avec précision ! 🇫🇷 🎯
+            </div>
+            <div class="footer-logo">⚜️ LÍNGUA ACADEMY ⚜️</div>
+        </footer>
+    </div>
+</body>
+</html>

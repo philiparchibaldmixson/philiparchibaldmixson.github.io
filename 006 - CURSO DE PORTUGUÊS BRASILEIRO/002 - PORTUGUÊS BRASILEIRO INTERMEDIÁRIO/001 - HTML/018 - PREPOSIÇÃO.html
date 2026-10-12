@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preposição em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #E67E22;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #E67E22;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #F39C12;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores Adaptadas/Reutilizadas do 008 - CLASSES DE PALAVRAS */
+        .tipo-card.essenciais {
+            background: linear-gradient(135deg, #E74C3C, #C0392B); /* Essenciais */
+        }
+
+        .tipo-card.acidentais {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD); /* Acidentais */
+        }
+
+        .tipo-card.combinacao {
+            background: linear-gradient(135deg, #3498DB, #2980B9); /* Combinação */
+        }
+
+        .tipo-card.contracao {
+            background: linear-gradient(135deg, #2ECC71, #16A085); /* Contração */
+        }
+        
+        .tipo-card.locucao {
+            background: linear-gradient(135deg, #1ABC9C, #16A085); /* Locução */
+        }
+        
+        .tipo-card.semantica {
+            background: linear-gradient(135deg, #F1C40F, #F39C12); /* Semântica */
+            color: #333;
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .exemplo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #E67E22;
+        }
+
+        .exemplo-card .titulo-exemplo {
+            font-size: 2em;
+            color: #E67E22;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .conteudo-exemplo {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .dicas-box {
+            background: linear-gradient(135deg, #1ABC9C, #16A085);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .tipo-card, .destaque, .dicas-box, .exemplo-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔗 Preposição 🔗</h1>
+        <p class="subtitle">A palavra invariável que liga termos, estabelecendo relação de sentido!</p>
+
+        <div class="section">
+            <h2>🎯 O que é Preposição?</h2>
+            <p class="intro-text">
+                A **Preposição** é a classe de palavras **invariável** que tem a função de ligar duas palavras, 
+                estabelecendo uma relação de sentido entre elas. A palavra anterior (regente) exige ou 
+                é regida pela preposição, e a palavra seguinte (regida) a completa, dando um sentido 
+                novo à primeira.
+            </p>
+
+            <div class="destaque">
+                <strong>💡 Funções da Preposição:</strong><br>
+                A preposição é um elemento de coesão, essencial para a regência verbal e nominal, 
+                pois introduz complementos e adjuntos, sendo um "conectivo" de subordinação.
+            </div>
+
+            <div class="exemplo-card">
+                <div class="titulo-exemplo">O Poder de Ligação e Sentido</div>
+                <div class="conteudo-exemplo">
+                    • Sem preposição: **Livro** <span style="font-weight: bold; color: #E74C3C;">Mesa</span> (Sem sentido completo)<br>
+                    • Com preposição: **Livro** <span style="font-weight: bold; color: #3498DB;">de</span> **Mesa** (Relação de Finalidade)<br>
+                    • Com preposição: **Livro** <span style="font-weight: bold; color: #3498DB;">sobre</span> **Mesa** (Relação de Lugar/Posição)
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Classificação da Preposição</h2>
+            <p class="intro-text">
+                As preposições podem ser classificadas de acordo com sua origem ou função.
+            </p>
+
+            <h3>Tipos Básicos</h3>
+            <div class="tipos-grid">
+                <div class="tipo-card essenciais">
+                    <h3>1. Essenciais (Puras)</h3>
+                    <div class="definicao">
+                        Palavras que só funcionam como preposição.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **a, ante, após, até, com, contra, de, desde, em, entre, para, perante, por, sem, sob, sobre, trás.**
+                    </div>
+                </div>
+
+                <div class="tipo-card acidentais">
+                    <h3>2. Acidentais</h3>
+                    <div class="definicao">
+                        Palavras de outras classes gramaticais (advérbio, adjetivo, verbo) que, por um contexto, funcionam como preposição.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **Como** (*Ex: Ele agiu como pai*).<br>
+                        • **Segundo** (*Ex: Fiz o trabalho segundo a regra*).<br>
+                        • **Conforme**, **Durante**, **Salvo**.
+                    </div>
+                </div>
+            </div>
+
+            <h3>Formação e Junção</h3>
+            <div class="tipos-grid">
+                <div class="tipo-card combinacao">
+                    <h3>3. Combinação</h3>
+                    <div class="definicao">
+                        A preposição se junta a outra palavra **sem que haja perda ou alteração de som**.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **a** + **o** = **ao**<br>
+                        • **a** + **a** = **à** (com crase)
+                    </div>
+                </div>
+
+                <div class="tipo-card contracao">
+                    <h3>4. Contração</h3>
+                    <div class="definicao">
+                        A preposição se junta a outra palavra e **ocorre perda ou alteração fonética** (muda o som ou a escrita).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **de** + **o** = **do**<br>
+                        • **em** + **a** = **na**<br>
+                        • **por** + **o** = **pelo**
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tipos-grid">
+                <div class="tipo-card locucao">
+                    <h3>5. Locução Prepositiva</h3>
+                    <div class="definicao">
+                        Duas ou mais palavras (geralmente advérbio/adjetivo + preposição) que funcionam como preposição. SEMPRE terminam em uma preposição.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **Abaixo de**<br>
+                        • **A fim de**<br>
+                        • **Junto a**<br>
+                        • **Em vez de**
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 Relações Semânticas Mais Comuns</h2>
+            
+            <div class="tipo-card semantica">
+                <h3>O Sentido das Preposições (de, em, por, com)</h3>
+                <div class="definicao">
+                    A preposição, mesmo sendo uma palavra vazia de sentido sozinha, estabelece diversos tipos de relação entre as palavras que liga, enriquecendo o texto.
+                </div>
+                <div class="exemplos">
+                    <strong>Relações:</strong><br>
+                    • **Posse/Origem:** Casa **de** João. (Posse)<br>
+                    • **Instrumento:** Ferido **por** faca. (Instrumento)<br>
+                    • **Lugar:** Morar **em** Paris. (Lugar)<br>
+                    • **Tempo:** Viajar **em** Janeiro. (Tempo)<br>
+                    • **Companhia:** Sair **com** amigos. (Companhia)<br>
+                    • **Causa:** Tiritar **de** frio. (Causa)
+                </div>
+            </div>
+
+            <div class="dicas-box">
+                <h4>Atenção Especial (Dicas de Ouro):</h4>
+                <ul>
+                    <li>**"DE" e "EM":** São as preposições mais versáteis, usadas em diversas contrações, como *do, da, neste, naquela, disso*.</li>
+                    <li>**CRASO:** Ocorre a crase quando há a união da preposição **a** com o artigo **a(s)** ou com pronomes demonstrativos **aquele(s)**, **aquela(s)**, **aquilo**.</li>
+                    <li>**Regência:** Sempre que um verbo ou nome exigir a presença de uma preposição específica, estamos falando de **Regência** (Ex: *Quem precisa, precisa **de** algo*).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

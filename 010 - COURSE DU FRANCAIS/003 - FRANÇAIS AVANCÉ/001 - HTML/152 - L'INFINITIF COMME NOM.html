@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Infinitif Employé Comme Nom | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #6366f1;
+            --color-secondary: #8b5cf6;
+            --color-accent: #ec4899;
+            --color-success: #10b981;
+            --color-warning: #f59e0b;
+            --color-info: #06b6d4;
+            --color-bg: #f8fafc;
+            --color-surface: #ffffff;
+            --color-text: #1e293b;
+            --color-text-light: #64748b;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 3s;
+        }
+
+        .blob-3 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            top: 50%;
+            left: 50%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(100px, -100px) scale(1.1); }
+            50% { transform: translate(-100px, 100px) scale(0.9); }
+            75% { transform: translate(100px, 100px) scale(1.05); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .header-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            padding: 70px 60px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-label {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 5em;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 25px;
+            line-height: 1.1;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: var(--color-text-light);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Intro Section */
+        .intro-section {
+            margin-bottom: 80px;
+        }
+
+        .intro-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 50px 60px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-card p {
+            font-size: 1.15em;
+            line-height: 1.9;
+            color: var(--color-text);
+        }
+
+        /* Section Header */
+        .section-header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-number {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--section-color-1), var(--section-color-2));
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            font-size: 1.1em;
+            color: var(--color-text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Functions Grid */
+        .functions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .function-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 0;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .function-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--card-gradient-1), var(--card-gradient-2));
+            padding: 40px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+        }
+
+        .card-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-header h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-subtitle {
+            font-size: 0.95em;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .function-card.sujet {
+            --card-gradient-1: #667eea;
+            --card-gradient-2: #764ba2;
+        }
+
+        .function-card.cod {
+            --card-gradient-1: #f093fb;
+            --card-gradient-2: #f5576c;
+        }
+
+        .function-card.coi {
+            --card-gradient-1: #4facfe;
+            --card-gradient-2: #00f2fe;
+        }
+
+        .function-card.attribut {
+            --card-gradient-1: #43e97b;
+            --card-gradient-2: #38f9d7;
+        }
+
+        .function-card.apposition {
+            --card-gradient-1: #fa709a;
+            --card-gradient-2: #fee140;
+        }
+
+        .function-card.complement {
+            --card-gradient-1: #30cfd0;
+            --card-gradient-2: #330867;
+        }
+
+        .card-body {
+            padding: 40px;
+        }
+
+        .definition {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--card-gradient-1);
+        }
+
+        .definition p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: var(--color-text);
+        }
+
+        .exemples-section h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 20px;
+        }
+
+        .exemple {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--card-gradient-1);
+            transition: all 0.3s ease;
+        }
+
+        .exemple:hover {
+            background: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transform: translateX(5px);
+        }
+
+        .exemple-text {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .exemple-explication {
+            font-size: 1em;
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        /* Characteristics Section */
+        .characteristics-section {
+            margin-bottom: 80px;
+        }
+
+        .characteristics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .characteristic-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .characteristic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--char-color-1), var(--char-color-2));
+        }
+
+        .characteristic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .characteristic-card:nth-child(1) {
+            --char-color-1: #667eea;
+            --char-color-2: #764ba2;
+        }
+
+        .characteristic-card:nth-child(2) {
+            --char-color-1: #f093fb;
+            --char-color-2: #f5576c;
+        }
+
+        .characteristic-card:nth-child(3) {
+            --char-color-1: #4facfe;
+            --char-color-2: #00f2fe;
+        }
+
+        .characteristic-card:nth-child(4) {
+            --char-color-1: #43e97b;
+            --char-color-2: #38f9d7;
+        }
+
+        .characteristic-card:nth-child(5) {
+            --char-color-1: #fa709a;
+            --char-color-2: #fee140;
+        }
+
+        .characteristic-card:nth-child(6) {
+            --char-color-1: #30cfd0;
+            --char-color-2: #330867;
+        }
+
+        .characteristic-card h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 15px;
+        }
+
+        .characteristic-card p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: var(--color-text-light);
+        }
+
+        .characteristic-exemple {
+            margin-top: 15px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));
+            border-radius: 12px;
+            font-style: italic;
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        /* Usage Tips */
+        .tips-section {
+            margin-bottom: 80px;
+        }
+
+        .tips-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tip-item {
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));
+            border-radius: 16px;
+            border-left: 4px solid var(--tip-color);
+            transition: all 0.3s ease;
+        }
+
+        .tip-item:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(139, 92, 246, 0.08));
+            transform: translateX(5px);
+        }
+
+        .tip-item:nth-child(1) { --tip-color: #667eea; }
+        .tip-item:nth-child(2) { --tip-color: #f093fb; }
+        .tip-item:nth-child(3) { --tip-color: #4facfe; }
+        .tip-item:nth-child(4) { --tip-color: #43e97b; }
+        .tip-item:nth-child(5) { --tip-color: #fa709a; }
+        .tip-item:nth-child(6) { --tip-color: #30cfd0; }
+
+        .tip-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--tip-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .tip-item h5 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 12px;
+        }
+
+        .tip-item p {
+            font-size: 1em;
+            line-height: 1.7;
+            color: var(--color-text-light);
+        }
+
+        /* Examples Section */
+        .examples-showcase {
+            margin-bottom: 80px;
+        }
+
+        .showcase-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+        }
+
+        .showcase-item {
+            padding: 30px;
+            background: linear-gradient(135deg, var(--showcase-gradient-1), var(--showcase-gradient-2));
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .showcase-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .showcase-item:nth-child(1) {
+            --showcase-gradient-1: #667eea;
+            --showcase-gradient-2: #764ba2;
+        }
+
+        .showcase-item:nth-child(2) {
+            --showcase-gradient-1: #f093fb;
+            --showcase-gradient-2: #f5576c;
+        }
+
+        .showcase-item:nth-child(3) {
+            --showcase-gradient-1: #4facfe;
+            --showcase-gradient-2: #00f2fe;
+        }
+
+        .showcase-item:nth-child(4) {
+            --showcase-gradient-1: #43e97b;
+            --showcase-gradient-2: #38f9d7;
+        }
+
+        .showcase-label {
+            font-size: 0.9em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .showcase-text {
+            font-size: 1.3em;
+            font-weight: 600;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .showcase-note {
+            font-size: 0.95em;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 50px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            font-size: 1em;
+            color: var(--color-text-light);
+        }
+
+        @media (max-width: 1024px) {
+            .functions-grid,
+            .characteristics-grid,
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 3em;
+            }
+
+            .section-title {
+                font-size: 2.5em;
+            }
+
+            .card-header h3 {
+                font-size: 1.8em;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .function-card,
+        .characteristic-card,
+        .tip-item,
+        .showcase-item {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        <div class="bg-blob blob-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="header-card">
+                <div class="header-label">Mode Infinitif</div>
+                <h1>
+                    L'Infinitif Employé<br>
+                    Comme <span class="gradient-text">Nom</span>
+                </h1>
+                <p class="subtitle">
+                    Quand le verbe devient nom : les six fonctions grammaticales essentielles de l'infinitif substantivé
+                </p>
+            </div>
+        </header>
+
+        <div class="intro-section">
+            <div class="intro-card">
+                <p>
+                    L'infinitif français possède une double nature fascinante : il est à la fois <strong>verbe</strong> et <strong>nom</strong>. Lorsqu'il fonctionne comme nom, l'infinitif peut occuper toutes les positions grammaticales typiques d'un substantif : sujet, complément d'objet, attribut, apposition, complément du nom ou de l'adjectif. Cette polyvalence fait de l'infinitif un outil linguistique d'une richesse exceptionnelle, permettant d'exprimer des actions, des états ou des concepts de manière abstraite et générale. Comprendre ces six fonctions grammaticales est essentiel pour maîtriser pleinement les subtilités de la langue française.
+                </p>
+            </div>
+        </div>
+
+        <!-- LES 6 FONCTIONS -->
+        <div class="section-header" style="--section-color-1: #667eea; --section-color-2: #764ba2;">
+            <div class="section-number" style="display: flex;">6</div>
+            <h2 class="section-title">Les Six Fonctions Grammaticales</h2>
+            <p class="section-description">L'infinitif peut occuper six positions nominales dans la phrase</p>
+        </div>
+
+        <div class="functions-grid">
+            <!-- SUJET -->
+            <div class="function-card sujet">
+                <div class="card-header">
+                    <span class="card-icon">👑</span>
+                    <h3>Infinitif Sujet</h3>
+                    <div class="card-subtitle">Fonction Principale</div>
+                </div>
+                <div class="card-body">
+                    <div class="definition">
+                        <p>
+                            L'infinitif peut être le <strong>sujet du verbe</strong>, c'est-à-dire l'élément qui fait l'action ou dont on parle. Il répond à la question « Qui ? » ou « Qu'est-ce qui ? » posée avant le verbe.
+                        </p>
+                    </div>
+
+                    <div class="exemples-section">
+                        <h4>Exemples Détaillés</h4>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Fumer nuit gravement à la santé. »</div>
+                            <div class="exemple-explication">
+                                <strong>Analyse :</strong> « Fumer » est le sujet du verbe « nuit ». Question : Qu'est-ce qui nuit ? → Fumer. L'infinitif désigne l'action en elle-même, de façon générale et impersonnelle.
+                            </div>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Apprendre demande de la patience et du temps. »</div>
+                            <div class="exemple-explication">
+                                <strong>Analyse :</strong> « Apprendre » est sujet de « demande ». Question : Qu'est-ce qui demande ? → Apprendre. L'infinitif représente l'activité d'apprentissage en général.
+                            </div>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Voyager ouvre l'esprit. »</div>
+                            <div class="exemple-explication">
+                                <strong>Analyse :</strong> « Voyager » est sujet de « ouvre ». Cette structure met en valeur l'action comme thème principal de la phrase et lui confère une dimension universelle.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COD -->
+            <div class="function-card cod">
+                <div class="card-header">
+                    <span class="card-icon">🎯</span>
+                    <h3>Infinitif COD</h3>
+                    <div class="card-subtitle">Complément d'Objet Direct</div>
+                </div>
+                <div class="card-body">
+                    <div class="definition">
+                        <p>
+                            L'infinitif peut être <strong>complément d'objet direct</strong>, c'est-à-dire qu'il complète directement le verbe sans préposition. Il répond à la question « Quoi ? » posée après le verbe.
+                        </p>
+                    </div>
+
+                    <div class="exemples-section">
+                        <h4>Exemples Détaillés</h4>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« J'aime lire des romans policiers. »</div>
+                            <div class="exemple-explication">
+                                <strong>Analyse :</strong> « Lire » est COD du verbe « aime ». Question : J'aime quoi ? → Lire. L'infinitif se construit directement après le verbe, sans préposition intermédiaire.
+                            </div>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Il préfère partir tôt le matin. »</div>
+                            <div class="exemple-explication">
+                                <strong>Analyse :</strong> « Partir » est COD de « préfère ». Question : Il préfère quoi ? → Partir. Construction directe typique des verbes de préférence ou de sentiment.
+                            </div>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Elle déteste attendre. »</div>
+                            <div class="exemple-explication">
+                                <strong>Analyse :</strong> « Attendre » est COD de « déteste ». L'infinitif exprime l'objet du sentiment négatif, sans besoin de préposition avec le verbe « détester ».
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COI -->
+            <div class="function-card coi">
+                <div class="card-header">
+                    <span class="card-icon">🔗</span>
+                    <h3>Infinitif COI</h3>
+                    <div class="card-subtitle">Complément d'Objet Indirect</div>
+                </div>
+                <div class="card-body">
+                    <div class="definition">
+                        <p>
+                            L'infinitif peut être <strong>complément d'objet indirect</strong>, introduit par une préposition (à, de). Il complète le verbe indirectement et répond aux questions « À quoi ? », « De quoi ? ».
+                        </p>
+                    </div>
+
+                    <div class="exemples-section">
+                        <h4>Exemples Détaillés</h4>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Il rêve de voyager autour du monde. »</div>
+                            <div class="exemple-explication">
+                                <strong>Analyse :</strong> « Voyager » est COI de « rêve », introduit par la préposition « de ». Question : Il rêve de quoi ? → De voyager. La préposition est imposée par le verbe « rêver ».
+                            </div>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Elle commence à comprendre la situation. »</div>
+                            <div class="exemple-explication">
+                                <strong>Analyse :</strong> « Comprendre » est COI de « commence », introduit par « à ». Question : Elle commence à quoi ? → À comprendre. Le verbe « commencer » exige la préposition « à ».
+                            </div>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Nous hésitons à prendre cette décision. »</div>
+                            <div class="exemple-explication">
+                                <strong>Analyse :</strong> « Prendre » est COI de « hésitons » avec la préposition « à ». Chaque verbe a sa préposition spécifique qu'il faut mémoriser.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ATTRIBUT -->
+            <div class="function-card attribut">
+                <div class="card-header">
+                    <span class="card-icon">⚖️</span>
+                    <h3>Infinitif Attribut du Sujet</h3>
+                    <div class="card-subtitle">Après Verbe d'État</div>
+                </div>
+                <div class="card-body">
+                    <div class="definition">
+                        <p>
+                            L'infinitif peut être <strong>attribut du sujet</strong> après un verbe d'état (être, sembler, devenir, paraître, rester). Il qualifie ou définit le sujet par l'intermédiaire du verbe.
+                        </p>
+                    </div>
+
+                    <div class="exemples-section">
+                        <h4>Exemples Détaillés</h4>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Partir, c'est mourir un peu. »</div>
+                            <div class="exemple-explication">
+                                <strong>Analyse :</strong> « Mourir un peu » est attribut du sujet « partir » par l'intermédiaire du verbe « être » (c'est). Structure expressive qui crée une équivalence entre deux actions.
+                            </div>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Son but est de réussir ses examens. »</div>
+                            <div class="exemple-explication">
+                                <strong>Analyse :</strong> « Réussir » est attribut du sujet « but » via le verbe « être ». L'infinitif définit et précise le contenu du but.
+                            </div>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Le plus important reste de garder espoir. »</div>
+                            <div class="exemple-explication">
+                                <strong>Analyse :</strong> « Garder espoir » est attribut du sujet « le plus important » via « rester ». L'infinitif caractérise ce qui est important.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- APPOSITION -->
+            <div class="function-card apposition">
+                <div class="card-header">
+                    <span class="card-icon">📌</span>
+                    <h3>Infinitif en Apposition</h3>
+                    <div class="card-subtitle">Précision Explicative</div>
+                </div>
+                <div class="card-body">
+                    <div class="definition">
+                        <p>
+                            L'infinitif peut être <strong>mis en apposition</strong> à un nom, c'est-à-dire placé à côté pour le préciser, l'expliquer ou le reformuler. Généralement séparé par une virgule ou un deux-points.
+                        </p>
+                    </div>
+
+                    <div class="exemples-section">
+                        <h4>Exemples Détaillés</h4>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Il n'avait qu'une idée : partir au plus vite. »</div>
+                            <div class="exemple-explication">
+                                <strong>Analyse :</strong> « Partir au plus vite » est en apposition à « idée », introduit par deux-points. L'infinitif explicite le contenu de l'idée.
+                            </div>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Son rêve, devenir astronaute, ne l'a jamais quitté. »</div>
+                            <div class="exemple-explication">
+                                <strong>Analyse :</strong> « Devenir astronaute » est en apposition à « rêve », encadré de virgules. L'infinitif précise la nature du rêve.
+                            </div>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Ma passion : photographier la nature. »</div>
+                            <div class="exemple-explication">
+                                <strong>Analyse :</strong> « Photographier » est en apposition à « passion ». Structure elliptique qui met en relief le contenu de la passion.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMPLÉMENT DU NOM -->
+            <div class="function-card complement">
+                <div class="card-header">
+                    <span class="card-icon">🔧</span>
+                    <h3>Infinitif Complément</h3>
+                    <div class="card-subtitle">Du Nom ou de l'Adjectif</div>
+                </div>
+                <div class="card-body">
+                    <div class="definition">
+                        <p>
+                            L'infinitif peut être <strong>complément du nom</strong> (relié par « de » ou « à ») ou <strong>complément de l'adjectif</strong>. Il précise le sens du nom ou de l'adjectif auquel il se rapporte.
+                        </p>
+                    </div>
+
+                    <div class="exemples-section">
+                        <h4>Exemples Détaillés</h4>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« L'envie de partir le tenaillait. »</div>
+                            <div class="exemple-explication">
+                                <strong>Complément du nom :</strong> « Partir » complète le nom « envie » via la préposition « de ». L'infinitif précise l'objet de l'envie.
+                            </div>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Une machine à laver / Un fer à repasser. »</div>
+                            <div class="exemple-explication">
+                                <strong>Complément du nom :</strong> « Laver » et « repasser » complètent les noms « machine » et « fer » avec « à ». L'infinitif indique la fonction de l'objet.
+                            </div>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Il est facile à convaincre. »</div>
+                            <div class="exemple-explication">
+                                <strong>Complément de l'adjectif :</strong> « Convaincre » complète l'adjectif « facile » via « à ». L'infinitif précise en quoi consiste la facilité.
+                            </div>
+                        </div>
+
+                        <div class="exemple">
+                            <div class="exemple-text">« Je suis heureux de vous rencontrer. »</div>
+                            <div class="exemple-explication">
+                                <strong>Complément de l'adjectif :</strong> « Rencontrer » complète « heureux » avec « de ». L'infinitif indique la cause du bonheur.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARACTÉRISTIQUES -->
+        <div class="characteristics-section">
+            <div class="section-header" style="--section-color-1: #f093fb; --section-color-2: #f5576c;">
+                <div class="section-number" style="display: flex;">✨</div>
+                <h2 class="section-title">Caractéristiques Particulières</h2>
+                <p class="section-description">Six propriétés essentielles de l'infinitif nominal</p>
+            </div>
+
+            <div class="characteristics-grid">
+                <div class="characteristic-card">
+                    <h4>Nature Hybride</h4>
+                    <p>
+                        L'infinitif garde sa nature verbale (peut avoir des compléments) tout en fonctionnant comme un nom. Cette double nature est unique en français et en fait un outil linguistique d'une richesse exceptionnelle.
+                    </p>
+                    <div class="characteristic-exemple">
+                        « Lire des romans » — « lire » est nom (sujet) mais garde son COD « des romans »
+                    </div>
+                </div>
+
+                <div class="characteristic-card">
+                    <h4>Avec ou Sans Article</h4>
+                    <p>
+                        L'infinitif peut fonctionner comme nom sans article (le plus fréquent) ou être précédé d'un article défini (le, la, l') quand il est complètement substantivé et lexicalisé.
+                    </p>
+                    <div class="characteristic-exemple">
+                        Sans article : « Fumer nuit » / Avec article : « Le rire est bienfaisant »
+                    </div>
+                </div>
+
+                <div class="characteristic-card">
+                    <h4>Genre Masculin</h4>
+                    <p>
+                        Lorsqu'il est substantivé, l'infinitif est toujours de <strong>genre masculin</strong>. Cette règle est absolue et sans exception, facilitant l'accord des déterminants et adjectifs.
+                    </p>
+                    <div class="characteristic-exemple">
+                        « Le vivre et le couvert » / « Un sourire » (masculin)
+                    </div>
+                </div>
+
+                <div class="characteristic-card">
+                    <h4>Nombre Singulier</h4>
+                    <p>
+                        L'infinitif substantivé est généralement au <strong>singulier</strong>. Quelques rares infinitifs complètement lexicalisés peuvent se mettre au pluriel (les rires, les sourires).
+                    </p>
+                    <div class="characteristic-exemple">
+                        Singulier : « Le boire et le manger » / Pluriel rare : « Des sourires éclatants »
+                    </div>
+                </div>
+
+                <div class="characteristic-card">
+                    <h4>Prépositions Spécifiques</h4>
+                    <p>
+                        Chaque verbe impose sa propre préposition devant l'infinitif COI. Il faut mémoriser ces constructions : « à » (commencer à), « de » (rêver de), « pour » (servir pour).
+                    </p>
+                    <div class="characteristic-exemple">
+                        « Hésiter à partir » / « Rêver de voyager » / « Servir à nettoyer »
+                    </div>
+                </div>
+
+                <div class="characteristic-card">
+                    <h4>Valeur Générale</h4>
+                    <p>
+                        L'infinitif nominal exprime souvent une action de <strong>portée générale</strong>, abstraite, non rattachée à un agent particulier. Il convient aux vérités générales et maximes.
+                    </p>
+                    <div class="characteristic-exemple">
+                        « Travailler, c'est exister » — valeur universelle et intemporelle
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONSEILS -->
+        <div class="tips-section">
+            <div class="section-header" style="--section-color-1: #4facfe; --section-color-2: #00f2fe;">
+                <div class="section-number" style="display: flex;">💡</div>
+                <h2 class="section-title">Conseils Pratiques</h2>
+                <p class="section-description">Six clés pour maîtriser l'infinitif nominal</p>
+            </div>
+
+            <div class="tips-container">
+                <div class="tips-grid">
+                    <div class="tip-item">
+                        <div class="tip-number" style="display: flex;">1</div>
+                        <h5>Identifier la Fonction</h5>
+                        <p>
+                            Pour identifier la fonction de l'infinitif, posez les bonnes questions : « Qui/Quoi ? » (sujet), « Quoi ? » (COD), « À/De quoi ? » (COI). La question révèle la fonction grammaticale.
+                        </p>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-number" style="display: flex;">2</div>
+                        <h5>Mémoriser les Prépositions</h5>
+                        <p>
+                            Créez des listes de verbes par préposition : verbes + « de » (rêver, cesser, oublier), verbes + « à » (apprendre, commencer, hésiter), verbes sans préposition (aimer, vouloir, pouvoir).
+                        </p>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-number" style="display: flex;">3</div>
+                        <h5>Reconnaître le Double Rôle</h5>
+                        <p>
+                            L'infinitif peut être nom ET conserver ses compléments verbaux. « Lire des livres » : « lire » est sujet (nom) mais garde « des livres » comme COD (verbe). Cette dualité enrichit l'expression.
+                        </p>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-number" style="display: flex;">4</div>
+                        <h5>Utiliser comme Sujet</h5>
+                        <p>
+                            L'infinitif sujet crée des phrases élégantes et générales : « Partir, c'est... », « Réussir demande... ». Structure fréquente dans les maximes, proverbes et vérités générales.
+                        </p>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-number" style="display: flex;">5</div>
+                        <h5>Distinguer COD et COI</h5>
+                        <p>
+                            COD = pas de préposition (J'aime lire). COI = préposition obligatoire (Je rêve de partir). La présence ou absence de préposition est le critère de distinction fondamental.
+                        </p>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-number" style="display: flex;">6</div>
+                        <h5>Enrichir son Style</h5>
+                        <p>
+                            Variez les structures avec l'infinitif pour un style plus sophistiqué. Alternez infinitif sujet, COD, apposition pour créer un rythme dynamique et éviter la monotonie.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXEMPLES SHOWCASE -->
+        <div class="examples-showcase">
+            <div class="section-header" style="--section-color-1: #43e97b; --section-color-2: #38f9d7;">
+                <div class="section-number" style="display: flex;">📝</div>
+                <h2 class="section-title">Exemples Contrastés</h2>
+                <p class="section-description">Quatre situations comparatives pour mieux comprendre</p>
+            </div>
+
+            <div class="showcase-container">
+                <div class="showcase-grid">
+                    <div class="showcase-item">
+                        <div class="showcase-label">Infinitif vs Nom Commun</div>
+                        <div class="showcase-text">
+                            « Le rire est contagieux. » (infinitif substantivé)<br>
+                            « Le fou rire nous a saisis. » (nom commun)
+                        </div>
+                        <div class="showcase-note">
+                            « Rire » infinitif exprime l'action générale ; « fou rire » est un nom composé désignant un état précis.
+                        </div>
+                    </div>
+
+                    <div class="showcase-item">
+                        <div class="showcase-label">Avec et Sans Préposition</div>
+                        <div class="showcase-text">
+                            « J'aime voyager. » (COD sans préposition)<br>
+                            « Je rêve de voyager. » (COI avec préposition)
+                        </div>
+                        <div class="showcase-note">
+                            Le verbe « aimer » se construit directement, « rêver » exige la préposition « de ». La préposition est imposée par le verbe.
+                        </div>
+                    </div>
+
+                    <div class="showcase-item">
+                        <div class="showcase-label">Sujet vs Attribut</div>
+                        <div class="showcase-text">
+                            « Partir demande du courage. » (sujet)<br>
+                            « Mon souhait est de partir. » (attribut)
+                        </div>
+                        <div class="showcase-note">
+                            Dans le premier cas, « partir » fait l'action (sujet). Dans le second, il définit le souhait via « être » (attribut).
+                        </div>
+                    </div>
+
+                    <div class="showcase-item">
+                        <div class="showcase-label">Complément Nom vs Adjectif</div>
+                        <div class="showcase-text">
+                            « L'envie de partir » (complément du nom)<br>
+                            « Heureux de partir » (complément de l'adjectif)
+                        </div>
+                        <div class="showcase-note">
+                            L'infinitif complète soit un nom (envie), soit un adjectif (heureux). La structure est similaire mais la fonction diffère.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-logo">Língua Academy</div>
+            <div class="footer-text">Excellence en enseignement du français • Grammaire moderne et sophistiquée</div>
+        </footer>
+    </div>
+</body>
+</html>

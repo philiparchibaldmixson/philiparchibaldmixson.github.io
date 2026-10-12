@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Pronom Personnel Explétif - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1565c0 0%, #1976d2 50%, #42a5f5 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0055A4 0%, #EF4135 50%, #FFFFFF 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: rotate 25s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3.2em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .brand {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            z-index: 2;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h2 {
+            color: #0055A4;
+            font-size: 2.3em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #EF4135;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3 {
+            color: #EF4135;
+            font-size: 1.7em;
+            margin: 30px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.2em;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 6px solid #0055A4;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-box p {
+            font-size: 1.2em;
+            color: #1a237e;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #f57c00;
+        }
+
+        .definition-box h4 {
+            color: #e65100;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .definition-box p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .expletif-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            padding: 35px;
+            border-radius: 18px;
+            margin: 30px 0;
+            border: 3px solid #0055A4;
+            box-shadow: 0 8px 25px rgba(0, 85, 164, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .expletif-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 85, 164, 0.25);
+            border-color: #EF4135;
+        }
+
+        .expletif-title {
+            color: #0055A4;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #EF4135;
+        }
+
+        .exemple {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #4caf50;
+            transition: all 0.3s ease;
+        }
+
+        .exemple:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .exemple strong {
+            color: #2e7d32;
+            font-size: 1.15em;
+        }
+
+        .exemple em {
+            color: #1b5e20;
+            font-style: normal;
+            font-weight: 600;
+            background: rgba(76, 175, 80, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+
+        .pronom-expletif {
+            background: linear-gradient(135deg, #ce93d8 0%, #ba68c8 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #d35400;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #00897b;
+        }
+
+        .note-box strong {
+            color: #004d40;
+            font-size: 1.15em;
+        }
+
+        .grammar-point {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #c2185b;
+        }
+
+        .grammar-point h4 {
+            color: #880e4f;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #e53935;
+        }
+
+        .warning-box strong {
+            color: #c62828;
+            font-size: 1.15em;
+        }
+
+        .visual-schema {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #8e24aa;
+        }
+
+        .schema-title {
+            color: #4a148c;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .schema-content {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            font-size: 1.15em;
+            line-height: 2;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .comparison-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 3px solid #0277bd;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(2, 119, 189, 0.3);
+        }
+
+        .comparison-item h5 {
+            color: #01579b;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .avec-expletif {
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #0277bd;
+        }
+
+        .sans-expletif {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #c2185b;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.15em;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 2px solid #e0e0e0;
+            transition: background 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        tr:hover td {
+            background: #f5f5f5;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        li {
+            margin: 12px 0;
+            line-height: 1.9;
+            font-size: 1.05em;
+        }
+
+        .special-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .special-list li::before {
+            content: "🔹";
+            margin-right: 10px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.7em;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brand {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">Língua Academy</div>
+            <h1>Le Pronom Personnel Explétif</h1>
+            <p class="subtitle">Pronoms sans fonction grammaticale mais riches de sens</p>
+        </header>
+
+        <div class="content">
+            <!-- Introduction -->
+            <div class="section">
+                <div class="intro-box">
+                    <p>
+                        Le <strong>pronom personnel explétif</strong> (aussi appelé <strong>pronom pléonastique</strong>) 
+                        est un pronom qui n'a pas de fonction grammaticale stricte mais qui ajoute une 
+                        <span class="highlight">nuance stylistique, affective ou emphatique</span> à la phrase.
+                    </p>
+                    <p>
+                        Caractéristiques du pronom explétif :
+                    </p>
+                    <ul style="margin-top: 15px;">
+                        <li>Peut être <strong>supprimé</strong> sans changer le sens de base</li>
+                        <li>Ajoute une <strong>nuance expressive</strong> ou stylistique</li>
+                        <li>Courant dans le <strong>langage familier</strong> et littéraire</li>
+                        <li>Renforce l'<strong>implication personnelle</strong> du sujet</li>
+                    </ul>
+                </div>
+
+                <div class="definition-box">
+                    <h4>📚 Définition</h4>
+                    <p>
+                        <strong>Explétif :</strong> Du latin "expletus" (rempli). Un élément <span class="highlight">qui remplit</span> 
+                        la phrase sans avoir de fonction grammaticale obligatoire.
+                    </p>
+                    <p style="margin-top: 10px;">
+                        Le pronom explétif est facultatif sur le plan grammatical mais apporte une 
+                        <strong>valeur expressive</strong> importante.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Type 1: SE explétif -->
+            <div class="section">
+                <h2><span class="icon">🔤</span>Type 1 : Le pronom SE explétif</h2>
+
+                <div class="expletif-card">
+                    <div class="expletif-title">
+                        <span>1️⃣</span> SE dans les verbes pronominaux à nuance expressive
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        Certains verbes peuvent s'utiliser avec ou sans le pronom <strong>SE</strong>. 
+                        Quand <strong>SE</strong> est ajouté, il n'a pas de fonction réfléchie mais ajoute une 
+                        <span class="highlight">nuance stylistique</span>.
+                    </p>
+
+                    <h3>📖 S'EN ALLER (partir avec nuance)</h3>
+
+                    <div class="comparison-grid">
+                        <div class="sans-expletif">
+                            <h5>Sans SE (neutre)</h5>
+                            <div class="exemple">
+                                <em>Je vais maintenant.</em><br>
+                                <em>Il va demain.</em><br>
+                                <em>Nous allons bientôt.</em>
+                            </div>
+                            <p style="margin-top: 10px; font-weight: bold; color: #666;">
+                                → Simple déplacement, ton neutre
+                            </p>
+                        </div>
+
+                        <div class="avec-expletif">
+                            <h5>Avec SE (expressif)</h5>
+                            <div class="exemple">
+                                <em>Je <span class="pronom-expletif">m'en</span> vais maintenant.</em><br>
+                                <em>Il <span class="pronom-expletif">s'en</span> va demain.</em><br>
+                                <em>Nous <span class="pronom-expletif">nous en</span> allons bientôt.</em>
+                            </div>
+                            <p style="margin-top: 10px; font-weight: bold; color: #666;">
+                                → Départ définitif, abandon, séparation
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Nuance de S'EN ALLER :</strong>
+                        <p style="margin-top: 10px;">
+                            <strong>S'en aller</strong> implique souvent :
+                        </p>
+                        <ul style="margin-top: 10px;">
+                            <li>Un départ <strong>définitif</strong> ou prolongé</li>
+                            <li>Une notion d'<strong>abandon</strong> ou de séparation</li>
+                            <li>Une dimension <strong>émotionnelle</strong></li>
+                            <li>Dans le langage familier : mourir (il s'en est allé)</li>
+                        </ul>
+                    </div>
+
+                    <h3>📖 SE MOURIR (mourir avec intensité)</h3>
+
+                    <div class="comparison-grid">
+                        <div class="sans-expletif">
+                            <h5>MOURIR (factuel)</h5>
+                            <div class="exemple">
+                                <em>Il meurt de faim.</em><br>
+                                <em>Elle meurt de soif.</em><br>
+                                <em>Je meurs d'ennui.</em>
+                            </div>
+                            <p style="margin-top: 10px; font-weight: bold; color: #666;">
+                                → Constat direct, ton neutre
+                            </p>
+                        </div>
+
+                        <div class="avec-expletif">
+                            <h5>SE MOURIR (dramatique)</h5>
+                            <div class="exemple">
+                                <em>Il <span class="pronom-expletif">se</span> meurt de faim.</em><br>
+                                <em>Elle <span class="pronom-expletif">se</span> meurt de soif.</em><br>
+                                <em>Je <span class="pronom-expletif">me</span> meurs d'ennui.</em>
+                            </div>
+                            <p style="margin-top: 10px; font-weight: bold; color: #666;">
+                                → Processus lent, agonie, intensité dramatique
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Nuance de SE MOURIR :</strong>
+                        <p style="margin-top: 10px;">
+                            <strong>Se mourir</strong> (style littéraire) exprime :
+                        </p>
+                        <ul style="margin-top: 10px;">
+                            <li>Un processus <strong>lent et progressif</strong></li>
+                            <li>Une <strong>agonie</strong> ou déchéance</li>
+                            <li>Une dimension <strong>poétique</strong> ou dramatique</li>
+                            <li>Souvent utilisé au sens figuré (se mourir d'amour, d'ennui)</li>
+                        </ul>
+                    </div>
+
+                    <h3>📖 SE RIRE DE (se moquer avec mépris)</h3>
+
+                    <div class="exemple">
+                        <strong>Avec SE (expressif) :</strong><br>
+                        <em>Il <span class="pronom-expletif">se</span> rit de nos efforts.</em><br>
+                        <em>Elle <span class="pronom-expletif">se</span> rit des obstacles.</em><br>
+                        <em>Ils <span class="pronom-expletif">se</span> rient de tout.</em>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Nuance de SE RIRE DE :</strong>
+                        <p style="margin-top: 10px;">
+                            <strong>Se rire de</strong> (littéraire) signifie :
+                        </p>
+                        <ul style="margin-top: 10px;">
+                            <li>Se moquer avec <strong>mépris</strong> ou dédain</li>
+                            <li>Mépriser, ne pas prendre au sérieux</li>
+                            <li>Affronter sans crainte (se rire du danger)</li>
+                        </ul>
+                    </div>
+
+                    <h3>📖 SE JOUER DE (triompher facilement)</h3>
+
+                    <div class="exemple">
+                        <strong>Avec SE (expressif) :</strong><br>
+                        <em>Il <span class="pronom-expletif">se</span> joue de ses adversaires.</em><br>
+                        <em>Elle <span class="pronom-expletif">se</span> joue des difficultés.</em><br>
+                        <em>L'équipe <span class="pronom-expletif">se</span> joue de tous ses rivaux.</em>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Nuance de SE JOUER DE :</strong>
+                        <p style="margin-top: 10px;">
+                            <strong>Se jouer de</strong> exprime :
+                        </p>
+                        <ul style="margin-top: 10px;">
+                            <li>Vaincre ou surmonter <strong>facilement</strong></li>
+                            <li>Triompher sans effort</li>
+                            <li>Dominer complètement</li>
+                        </ul>
+                    </div>
+
+                    <h3>📖 SE TAIRE (silence volontaire)</h3>
+
+                    <div class="comparison-grid">
+                        <div class="sans-expletif">
+                            <h5>TAIRE (faire taire quelque chose)</h5>
+                            <div class="exemple">
+                                <em>Il tait ses sentiments.</em><br>
+                                <em>Elle tait la vérité.</em>
+                            </div>
+                            <p style="margin-top: 10px; font-weight: bold; color: #666;">
+                                → Verbe transitif, cacher quelque chose
+                            </p>
+                        </div>
+
+                        <div class="avec-expletif">
+                            <h5>SE TAIRE (garder le silence)</h5>
+                            <div class="exemple">
+                                <em>Je <span class="pronom-expletif">me</span> tais.</em><br>
+                                <em>Tais-<span class="pronom-expletif">toi</span> !</em><br>
+                                <em>Il <span class="pronom-expletif">se</span> tait.</em>
+                            </div>
+                            <p style="margin-top: 10px; font-weight: bold; color: #666;">
+                                → Verbe pronominal, cesser de parler
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ SE TAIRE : cas particulier :</strong>
+                        <p style="margin-top: 10px;">
+                            <strong>Se taire</strong> est devenu un véritable verbe pronominal, le SE n'est donc 
+                            plus vraiment "explétif" au sens strict. On ne peut pas dire *"Je tais" pour "je me tais".
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Type 2: Datif éthique -->
+            <div class="section">
+                <h2><span class="icon">💬</span>Type 2 : Le datif éthique (ou datif d'intérêt)</h2>
+
+                <div class="expletif-card">
+                    <div class="expletif-title">
+                        <span>2️⃣</span> Pronom complément sans fonction grammaticale
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        Le <strong>datif éthique</strong> est un pronom personnel (me, te, lui, nous, vous) ajouté 
+                        à la phrase pour marquer l'<span class="highlight">intérêt personnel</span> ou 
+                        l'<span class="highlight">implication affective</span> du sujet ou du destinataire.
+                    </p>
+
+                    <h3>📖 Avec ME / TE (intérêt personnel)</h3>
+
+                    <div class="visual-schema">
+                        <div class="schema-title">Datif éthique : marquer l'implication personnelle</div>
+                        <div class="schema-content">
+                            <p style="text-align: center;">
+                                Le pronom <strong>n'est pas complément du verbe</strong> mais exprime 
+                                l'intérêt ou l'émotion du locuteur
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-grid">
+                        <div class="sans-expletif">
+                            <h5>Sans datif (neutre)</h5>
+                            <div class="exemple">
+                                <em>Il mange tout le gâteau.</em><br>
+                                <em>Regarde ce spectacle !</em><br>
+                                <em>Il boit toute la bouteille.</em><br>
+                                <em>Prends un café.</em>
+                            </div>
+                            <p style="margin-top: 10px; font-weight: bold; color: #666;">
+                                → Simple constat, ton neutre
+                            </p>
+                        </div>
+
+                        <div class="avec-expletif">
+                            <h5>Avec datif (expressif)</h5>
+                            <div class="exemple">
+                                <em>Il <span class="pronom-expletif">me</span> mange tout le gâteau !</em><br>
+                                <em>Regarde-<span class="pronom-expletif">moi</span> ce spectacle !</em><br>
+                                <em>Il <span class="pronom-expletif">te</span> boit toute la bouteille !</em><br>
+                                <em>Prends-<span class="pronom-expletif">toi</span> un bon café.</em>
+                            </div>
+                            <p style="margin-top: 10px; font-weight: bold; color: #666;">
+                                → Surprise, admiration, indignation
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Plus d'exemples avec datif éthique :</strong><br>
+                        <em>Regarde-<span class="pronom-expletif">moi</span> ça !</em> (surprise, admiration)<br>
+                        <em>Il <span class="pronom-expletif">me</span> lui a donné une gifle !</em> (indignation)<br>
+                        <em>Écoute-<span class="pronom-expletif">moi</span> ce bruit !</em> (attirer l'attention)<br>
+                        <em>Regarde-<span class="pronom-expletif">toi</span> dans quel état tu es !</em> (constat alarmant)<br>
+                        <em>Il <span class="pronom-expletif">nous</span> fait une de ces scènes !</em> (exagération dramatique)
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Fonctions du datif éthique :</strong>
+                        <ul style="margin-top: 10px;">
+                            <li><strong>Surprise :</strong> Il <em>me</em> arrive toujours en retard !</li>
+                            <li><strong>Admiration :</strong> Regarde-<em>moi</em> ce coucher de soleil !</li>
+                            <li><strong>Indignation :</strong> Il <em>me</em> lui a volé son argent !</li>
+                            <li><strong>Implication :</strong> Prends-<em>toi</em> un bon repos</li>
+                            <li><strong>Familiarité :</strong> très courant dans le langage oral</li>
+                        </ul>
+                    </div>
+
+                    <h3>📖 Expressions courantes avec datif éthique</h3>
+
+                    <div class="exemple">
+                        <strong>Regarde-moi ça ! / Regarde un peu ça !</strong><br>
+                        <em>Regarde-<span class="pronom-expletif">moi</span> ça ! Il pleut encore !</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(expression de surprise ou mécontentement)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Écoute-moi ça !</strong><br>
+                        <em>Écoute-<span class="pronom-expletif">moi</span> ça ! Quel silence !</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(attirer l'attention sur quelque chose d'inhabituel)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Fais-moi le plaisir de...</strong><br>
+                        <em>Fais-<span class="pronom-expletif">moi</span> le plaisir de te taire !</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(ordre impératif atténué par la formule de politesse)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Il me fait une de ces têtes !</strong><br>
+                        <em>Il <span class="pronom-expletif">me</span> fait une de ces têtes !</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(expression d'étonnement face à l'apparence de quelqu'un)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Tu vas me faire le plaisir de...</strong><br>
+                        <em>Tu vas <span class="pronom-expletif">me</span> faire le plaisir de ranger ta chambre !</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(ordre déguisé en demande polie)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Type 3: Pronom de renforcement -->
+            <div class="section">
+                <h2><span class="icon">💪</span>Type 3 : Pronom de renforcement ou d'emphase</h2>
+
+                <div class="expletif-card">
+                    <div class="expletif-title">
+                        <span>3️⃣</span> Renforcer l'action ou l'état
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        Certains pronoms sont ajoutés pour <span class="highlight">renforcer</span> ou 
+                        <span class="highlight">intensifier</span> l'action décrite par le verbe.
+                    </p>
+
+                    <h3>📖 SE dans certaines expressions figées</h3>
+
+                    <div class="exemple">
+                        <strong>S'enfuir (fuir avec intensité) :</strong><br>
+                        <em>Les voleurs <span class="pronom-expletif">se</span> sont enfuis.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(plus intense que "ont fui")</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>S'envoler (voler avec légèreté) :</strong><br>
+                        <em>L'oiseau <span class="pronom-expletif">s'</span>est envolé.</em><br>
+                        <em>Les feuilles <span class="pronom-expletif">s'</span>envolent au vent.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(le SE ajoute une nuance de légèreté)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>S'écrouler (tomber brutalement) :</strong><br>
+                        <em>Le bâtiment <span class="pronom-expletif">s'</span>est écroulé.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(effondrement total et soudain)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>S'échapper (partir furtivement) :</strong><br>
+                        <em>Le prisonnier <span class="pronom-expletif">s'</span>est échappé.</em><br>
+                        <span style="font-size: 0.95em; color: #666;">(évasion, fuite secrète)</span>
+                    </div>
+
+                    <h3>📖 Verbes avec nuance différente</h3>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-item">
+                            <h5>APERCEVOIR vs S'APERCEVOIR</h5>
+                            <div class="sans-expletif">
+                                <strong>Apercevoir :</strong><br>
+                                <em>J'aperçois un oiseau.</em><br>
+                                <span style="font-size: 0.95em; color: #666;">(voir brièvement)</span>
+                            </div>
+                            <div class="avec-expletif" style="margin-top: 15px;">
+                                <strong>S'apercevoir de :</strong><br>
+                                <em>Je <span class="pronom-expletif">m'</span>aperçois de mon erreur.</em><br>
+                                <span style="font-size: 0.95em; color: #666;">(réaliser, prendre conscience)</span>
+                            </div>
+                        </div>
+
+                        <div class="comparison-item">
+                            <h5>DOUTER vs SE DOUTER</h5>
+                            <div class="sans-expletif">
+                                <strong>Douter de :</strong><br>
+                                <em>Je doute de sa sincérité.</em><br>
+                                <span style="font-size: 0.95em; color: #666;">(avoir des doutes sur)</span>
+                            </div>
+                            <div class="avec-expletif" style="margin-top: 15px;">
+                                <strong>Se douter de :</strong><br>
+                                <em>Je <span class="pronom-expletif">me</span> doute qu'il ment.</em><br>
+                                <span style="font-size: 0.95em; color: #666;">(soupçonner, pressentir)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Attention au changement de sens :</strong>
+                        <p style="margin-top: 10px;">
+                            Dans certains cas, l'ajout du SE change complètement le sens du verbe. 
+                            Il ne s'agit plus vraiment d'un pronom "explétif" mais d'un changement lexical :
+                        </p>
+                        <ul style="margin-top: 10px;">
+                            <li><strong>Douter de</strong> (avoir des doutes) ≠ <strong>Se douter de</strong> (soupçonner)</li>
+                            <li><strong>Apercevoir</strong> (voir) ≠ <strong>S'apercevoir</strong> (réaliser)</li>
+                            <li><strong>Plaindre</strong> (avoir pitié) ≠ <strong>Se plaindre</strong> (se lamenter)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registre de langue -->
+            <div class="section">
+                <h2><span class="icon">🗣️</span>Registre de langue et usage</h2>
+
+                <div class="expletif-card">
+                    <div class="expletif-title">
+                        <span>4️⃣</span> Quand utiliser les pronoms explétifs ?
+                    </div>
+
+                    <h3>📖 Registre FAMILIER (datif éthique)</h3>
+
+                    <div class="grammar-point">
+                        <h4>Langage oral et familier</h4>
+                        <p style="margin-top: 10px;">
+                            Le datif éthique est <strong>très courant</strong> dans le français oral familier :
+                        </p>
+                        <ul style="margin-top: 10px;">
+                            <li><em>Il me lui a dit ses quatre vérités !</em></li>
+                            <li><em>Regarde-moi ça !</em></li>
+                            <li><em>Il te dort jusqu'à midi !</em></li>
+                            <li><em>Prends-toi un bon café.</em></li>
+                        </ul>
+                    </div>
+
+                    <h3>📖 Registre LITTÉRAIRE (se mourir, se rire de)</h3>
+
+                    <div class="grammar-point">
+                        <h4>Style littéraire et soutenu</h4>
+                        <p style="margin-top: 10px;">
+                            Certains verbes avec SE explétif appartiennent au registre littéraire :
+                        </p>
+                        <ul style="margin-top: 10px;">
+                            <li><em>Il se meurt d'amour.</em> (littéraire, poétique)</li>
+                            <li><em>Elle se rit des obstacles.</em> (soutenu)</li>
+                            <li><em>Il se joue de tous ses rivaux.</em> (élégant)</li>
+                        </ul>
+                    </div>
+
+                    <h3>📖 Registre COURANT (s'en aller)</h3>
+
+                    <div class="grammar-point">
+                        <h4>Usage courant et naturel</h4>
+                        <p style="margin-top: 10px;">
+                            <strong>S'en aller</strong> est utilisé naturellement à tous les registres :
+                        </p>
+                        <ul style="margin-top: 10px;">
+                            <li><em>Je m'en vais.</em> (courant)</li>
+                            <li><em>Allez, je m'en vais !</em> (familier)</li>
+                            <li><em>Il s'en est allé pour toujours.</em> (soutenu, mort)</li>
+                        </ul>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Conseils d'usage :</strong>
+                        <ul style="margin-top: 10px;">
+                            <li><strong>À l'oral :</strong> Le datif éthique est très naturel et courant</li>
+                            <li><strong>À l'écrit formel :</strong> Éviter le datif éthique, privilégier les formes neutres</li>
+                            <li><strong>En littérature :</strong> "Se mourir", "se rire de" ajoutent une touche poétique</li>
+                            <li><strong>Usage général :</strong> "S'en aller" est accepté à tous les niveaux</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau récapitulatif -->
+            <div class="section">
+                <h2><span class="icon">📊</span>Tableau récapitulatif</h2>
+
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Type</th>
+                            <th>Pronom</th>
+                            <th>Exemple</th>
+                            <th>Nuance apportée</th>
+                        </tr>
+                        <tr>
+                            <td><strong>SE explétif</strong></td>
+                            <td>se/s'</td>
+                            <td><em>Je <strong>m'en</strong> vais.</em></td>
+                            <td>Départ définitif, abandon</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SE explétif</strong></td>
+                            <td>se/s'</td>
+                            <td><em>Il <strong>se</strong> meurt.</em></td>
+                            <td>Agonie lente, dramatisation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SE explétif</strong></td>
+                            <td>se/s'</td>
+                            <td><em>Il <strong>se</strong> rit de nous.</em></td>
+                            <td>Mépris, dédain</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Datif éthique</strong></td>
+                            <td>me/te/nous</td>
+                            <td><em>Regarde-<strong>moi</strong> ça !</em></td>
+                            <td>Surprise, admiration</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Datif éthique</strong></td>
+                            <td>me/te</td>
+                            <td><em>Il <strong>me</strong> mange tout !</em></td>
+                            <td>Indignation, exagération</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Renforcement</strong></td>
+                            <td>se/s'</td>
+                            <td><em>L'oiseau <strong>s'</strong>envole.</em></td>
+                            <td>Légèreté, grâce du mouvement</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Exercices pratiques -->
+            <div class="section">
+                <h2><span class="icon">✏️</span>Exercices pratiques</h2>
+
+                <div class="grammar-point">
+                    <h4>🎯 Identifiez le pronom explétif et sa nuance</h4>
+
+                    <div class="exemple">
+                        <strong>1.</strong> <em>Je m'en vais maintenant.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong>"m'en"</strong> = départ définitif, séparation</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>2.</strong> <em>Regarde-moi ce désordre !</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong>"moi"</strong> = datif éthique, surprise/mécontentement</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>3.</strong> <em>Il se meurt d'ennui.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong>"se"</strong> = intensité dramatique, agonie lente</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>4.</strong> <em>Elle se rit des dangers.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong>"se"</strong> = mépris, absence de crainte</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>5.</strong> <em>Il me lui a donné une gifle !</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong>"me"</strong> = datif éthique, indignation du locuteur</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>6.</strong> <em>L'oiseau s'est envolé.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong>"s'"</strong> = légèreté, grâce du mouvement</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>7.</strong> <em>Prends-toi un bon café.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong>"toi"</strong> = datif éthique, conseil bienveillant</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>8.</strong> <em>Il se joue de tous ses adversaires.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : <strong>"se"</strong> = facilité, domination complète</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Récapitulatif final -->
+            <div class="section">
+                <h2><span class="icon">📝</span>Récapitulatif final</h2>
+
+                <div class="grammar-point">
+                    <h4>✅ Points essentiels à retenir</h4>
+                    <ul class="special-list">
+                        <li>Le pronom explétif n'a pas de <strong>fonction grammaticale stricte</strong></li>
+                        <li>Il ajoute une <strong>nuance expressive, affective ou stylistique</strong></li>
+                        <li><strong>SE explétif :</strong> s'en aller, se mourir, se rire de, se jouer de</li>
+                        <li><strong>Datif éthique :</strong> marque l'implication personnelle (me, te, nous)</li>
+                        <li>Peut être <strong>supprimé</strong> sans changer le sens de base</li>
+                        <li>Très courant dans le <strong>langage familier</strong> (datif éthique)</li>
+                        <li>Utilisé aussi en <strong>style littéraire</strong> (se mourir, se rire de)</li>
+                    </ul>
+                </div>
+
+                <div class="visual-schema">
+                    <div class="schema-title">Les trois types de pronoms explétifs</div>
+                    <div class="schema-content">
+                        <p style="font-weight: bold; margin-bottom: 15px; font-size: 1.2em;">
+                            1. SE EXPLÉTIF
+                        </p>
+                        <p style="margin-bottom: 20px;">
+                            <em>Je <strong>m'en</strong> vais / Il <strong>se</strong> meurt / Elle <strong>se</strong> rit de tout</em>
+                        </p>
+                        
+                        <p style="font-weight: bold; margin-bottom: 15px; font-size: 1.2em;">
+                            2. DATIF ÉTHIQUE
+                        </p>
+                        <p style="margin-bottom: 20px;">
+                            <em>Regarde-<strong>moi</strong> ça ! / Il <strong>me</strong> mange tout !</em>
+                        </p>
+
+                        <p style="font-weight: bold; margin-bottom: 15px; font-size: 1.2em;">
+                            3. RENFORCEMENT
+                        </p>
+                        <p>
+                            <em>L'oiseau <strong>s'</strong>envole / Le prisonnier <strong>s'</strong>échappe</em>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 Pour progresser :</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Écoutez le français oral pour repérer les datifs éthiques</li>
+                        <li>Lisez de la littérature pour observer "se mourir", "se rire de"</li>
+                        <li>Utilisez "s'en aller" naturellement au lieu de "aller" (plus expressif)</li>
+                        <li>Dans vos écrits formels, évitez le datif éthique</li>
+                        <li>Comprenez la nuance apportée par chaque pronom explétif</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <strong>⚠️ Erreurs fréquentes à éviter :</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Utiliser le datif éthique dans un texte formel</li>
+                        <li>Confondre "se mourir" (littéraire) avec "mourir" (courant)</li>
+                        <li>Oublier que certains verbes changent de sens avec SE (douter/se douter)</li>
+                        <li>Abuser des pronoms explétifs (peut sembler affecté)</li>
+                        <li>Ne pas adapter le registre au contexte</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p><strong>Língua Academy</strong> - Excellence en enseignement des langues</p>
+            <p style="margin-top: 10px;">📚 Maîtrisez les pronoms personnels explétifs en français</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">© 2024 Língua Academy - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

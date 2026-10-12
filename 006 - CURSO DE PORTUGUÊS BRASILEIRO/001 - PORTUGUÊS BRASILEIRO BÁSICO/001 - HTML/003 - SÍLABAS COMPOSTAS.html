@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sílabas Compostas em Português Brasileiro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #9D50BB 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .silabas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .silaba-box {
+            color: white;
+            padding: 25px 15px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.6em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .silaba-box:hover {
+            transform: scale(1.1);
+        }
+
+        .silaba-box.bra { background: linear-gradient(135deg, #FF6B6B, #FF8E53); }
+        .silaba-box.cra { background: linear-gradient(135deg, #4ECDC4, #44A08D); }
+        .silaba-box.dra { background: linear-gradient(135deg, #45B7D1, #2E86AB); }
+        .silaba-box.fra { background: linear-gradient(135deg, #F7DC6F, #F39C12); }
+        .silaba-box.gra { background: linear-gradient(135deg, #BB8FCE, #9B59B6); }
+        .silaba-box.pra { background: linear-gradient(135deg, #06FFA5, #00CC88); }
+        .silaba-box.tra { background: linear-gradient(135deg, #90E0EF, #48CAE4); }
+        .silaba-box.vra { background: linear-gradient(135deg, #FFD60A, #FFC300); }
+
+        .silaba-box.bla { background: linear-gradient(135deg, #E91E63, #D81159); }
+        .silaba-box.cla { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .silaba-box.fla { background: linear-gradient(135deg, #52B788, #2D6A4F); }
+        .silaba-box.gla { background: linear-gradient(135deg, #FF6B9D, #E91E63); }
+        .silaba-box.pla { background: linear-gradient(135deg, #C77DFF, #9D4EDD); }
+        .silaba-box.tla { background: linear-gradient(135deg, #4EA8DE, #3F8CCA); }
+        .silaba-box.vla { background: linear-gradient(135deg, #5390D9, #4361EE); }
+
+        .exemplos-palavras {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .palavra-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .palavra-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .palavra-card .palavra {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .palavra-card .silabas {
+            font-size: 1.2em;
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .palavra-card .emoji {
+            font-size: 2.5em;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .tipo-card.encontro-consonantal {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+        }
+
+        .tipo-card.digrafo {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+        }
+
+        .tipo-card.encontro-vocabico {
+            background: linear-gradient(135deg, #F7DC6F, #F39C12);
+        }
+
+        .tipo-card h3 {
+            color: white;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card p {
+            color: white;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
+        .tabela-silabas {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tabela-silabas thead {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .tabela-silabas th {
+            padding: 20px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        .tabela-silabas td {
+            padding: 18px 20px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        .tabela-silabas tr:hover {
+            background: #f5f5f5;
+        }
+
+        .regras-box {
+            background: linear-gradient(135deg, #52B788, #2D6A4F);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .regras-box h4 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .regras-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .regras-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .regras-box li:before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+        }
+
+        .quadro-comparativo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .comparativo-item {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+        }
+
+        .comparativo-item h4 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .comparativo-item p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .comparativo-item .exemplo-destaque {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #9D50BB 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .tipo-card, .silaba-box, .palavra-card, .destaque,
+            .regras-box, .comparativo-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .silabas-grid {
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+                gap: 12px;
+            }
+
+            .silaba-box {
+                font-size: 1.3em;
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔤 Sílabas Compostas em Português 🔤</h1>
+        <p class="subtitle">Aprenda sobre encontros consonantais, dígrafos e muito mais!</p>
+
+        <div class="section">
+            <h2>🎯 O que são Sílabas Compostas?</h2>
+            <p class="intro-text">
+                <strong>Sílabas compostas</strong> são aquelas formadas por mais de uma consoante junto com vogais. 
+                Elas incluem os <strong>encontros consonantais</strong> e os <strong>dígrafos</strong>, 
+                que tornam nossa língua mais rica e complexa!
+            </p>
+
+            <div class="destaque">
+                <strong>💡 Importante:</strong> As sílabas compostas são fundamentais para formar palavras mais 
+                elaboradas em português. Elas aparecem em palavras do nosso dia a dia como "Brasil", "livro", 
+                "trabalho", "quadro" e muitas outras!
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Tipos de Sílabas Compostas</h2>
+            <div class="tipos-grid">
+                <div class="tipo-card encontro-consonantal">
+                    <h3>Encontro Consonantal</h3>
+                    <p>Duas ou mais consoantes juntas, cada uma mantendo seu som próprio.</p>
+                    <div class="exemplos">
+                        bra • cla • dra • gra • pra • tra • fla
+                    </div>
+                </div>
+
+                <div class="tipo-card digrafo">
+                    <h3>Dígrafo</h3>
+                    <p>Duas letras que juntas representam um único som.</p>
+                    <div class="exemplos">
+                        ch • lh • nh • rr • ss • qu • gu • sc
+                    </div>
+                </div>
+
+                <div class="tipo-card encontro-vocabico">
+                    <h3>Encontro Vocálico</h3>
+                    <p>Duas ou mais vogais juntas (ditongo, tritongo, hiato).</p>
+                    <div class="exemplos">
+                        pai • céu • mãe • Paraguai • saúde
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔡 Encontros Consonantais com R</h2>
+            <p class="intro-text">
+                Os encontros consonantais com a letra <strong>R</strong> são os mais comuns e importantes 
+                em português. Eles aparecem em milhares de palavras!
+            </p>
+
+            <h3>Família BRA, BRE, BRI, BRO, BRU</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box bra">BRA</div>
+                <div class="silaba-box bra">BRE</div>
+                <div class="silaba-box bra">BRI</div>
+                <div class="silaba-box bra">BRO</div>
+                <div class="silaba-box bra">BRU</div>
+            </div>
+
+            <h3>Família CRA, CRE, CRI, CRO, CRU</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box cra">CRA</div>
+                <div class="silaba-box cra">CRE</div>
+                <div class="silaba-box cra">CRI</div>
+                <div class="silaba-box cra">CRO</div>
+                <div class="silaba-box cra">CRU</div>
+            </div>
+
+            <h3>Família DRA, DRE, DRI, DRO, DRU</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box dra">DRA</div>
+                <div class="silaba-box dra">DRE</div>
+                <div class="silaba-box dra">DRI</div>
+                <div class="silaba-box dra">DRO</div>
+                <div class="silaba-box dra">DRU</div>
+            </div>
+
+            <h3>Família FRA, FRE, FRI, FRO, FRU</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box fra">FRA</div>
+                <div class="silaba-box fra">FRE</div>
+                <div class="silaba-box fra">FRI</div>
+                <div class="silaba-box fra">FRO</div>
+                <div class="silaba-box fra">FRU</div>
+            </div>
+
+            <h3>Família GRA, GRE, GRI, GRO, GRU</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box gra">GRA</div>
+                <div class="silaba-box gra">GRE</div>
+                <div class="silaba-box gra">GRI</div>
+                <div class="silaba-box gra">GRO</div>
+                <div class="silaba-box gra">GRU</div>
+            </div>
+
+            <h3>Família PRA, PRE, PRI, PRO, PRU</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box pra">PRA</div>
+                <div class="silaba-box pra">PRE</div>
+                <div class="silaba-box pra">PRI</div>
+                <div class="silaba-box pra">PRO</div>
+                <div class="silaba-box pra">PRU</div>
+            </div>
+
+            <h3>Família TRA, TRE, TRI, TRO, TRU</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box tra">TRA</div>
+                <div class="silaba-box tra">TRE</div>
+                <div class="silaba-box tra">TRI</div>
+                <div class="silaba-box tra">TRO</div>
+                <div class="silaba-box tra">TRU</div>
+            </div>
+
+            <h3>Família VRA, VRE, VRI, VRO, VRU</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box vra">VRA</div>
+                <div class="silaba-box vra">VRE</div>
+                <div class="silaba-box vra">VRI</div>
+                <div class="silaba-box vra">VRO</div>
+                <div class="silaba-box vra">VRU</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔤 Encontros Consonantais com L</h2>
+            <p class="intro-text">
+                Os encontros consonantais com a letra <strong>L</strong> também são muito usados 
+                e criam palavras bonitas e importantes!
+            </p>
+
+            <h3>Família BLA, BLE, BLI, BLO, BLU</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box bla">BLA</div>
+                <div class="silaba-box bla">BLE</div>
+                <div class="silaba-box bla">BLI</div>
+                <div class="silaba-box bla">BLO</div>
+                <div class="silaba-box bla">BLU</div>
+            </div>
+
+            <h3>Família CLA, CLE, CLI, CLO, CLU</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box cla">CLA</div>
+                <div class="silaba-box cla">CLE</div>
+                <div class="silaba-box cla">CLI</div>
+                <div class="silaba-box cla">CLO</div>
+                <div class="silaba-box cla">CLU</div>
+            </div>
+
+            <h3>Família FLA, FLE, FLI, FLO, FLU</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box fla">FLA</div>
+                <div class="silaba-box fla">FLE</div>
+                <div class="silaba-box fla">FLI</div>
+                <div class="silaba-box fla">FLO</div>
+                <div class="silaba-box fla">FLU</div>
+            </div>
+
+            <h3>Família GLA, GLE, GLI, GLO, GLU</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box gla">GLA</div>
+                <div class="silaba-box gla">GLE</div>
+                <div class="silaba-box gla">GLI</div>
+                <div class="silaba-box gla">GLO</div>
+                <div class="silaba-box gla">GLU</div>
+            </div>
+
+            <h3>Família PLA, PLE, PLI, PLO, PLU</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box pla">PLA</div>
+                <div class="silaba-box pla">PLE</div>
+                <div class="silaba-box pla">PLI</div>
+                <div class="silaba-box pla">PLO</div>
+                <div class="silaba-box pla">PLU</div>
+            </div>
+
+            <h3>Família TLA, TLE, TLI, TLO, TLU</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box tla">TLA</div>
+                <div class="silaba-box tla">TLE</div>
+                <div class="silaba-box tla">TLI</div>
+                <div class="silaba-box tla">TLO</div>
+                <div class="silaba-box tla">TLU</div>
+            </div>
+
+            <h3>Família VLA, VLE, VLI, VLO, VLU</h3>
+            <div class="silabas-grid">
+                <div class="silaba-box vla">VLA</div>
+                <div class="silaba-box vla">VLE</div>
+                <div class="silaba-box vla">VLI</div>
+                <div class="silaba-box vla">VLO</div>
+                <div class="silaba-box vla">VLU</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Exemplos de Palavras com Sílabas Compostas</h2>
+            
+            <h3>Com encontros consonantais (R)</h3>
+            <div class="exemplos-palavras">
+                <div class="palavra-card">
+                    <div class="palavra">BRASIL</div>
+                    <div class="silabas">Bra-sil</div>
+                    <div class="emoji">🇧🇷</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">LIVRO</div>
+                    <div class="silabas">Li-vro</div>
+                    <div class="emoji">📚</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">TRABALHO</div>
+                    <div class="silabas">Tra-ba-lho</div>
+                    <div class="emoji">💼</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">DRAGÃO</div>
+                    <div class="silabas">Dra-gão</div>
+                    <div class="emoji">🐉</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">FRIO</div>
+                    <div class="silabas">Fri-o</div>
+                    <div class="emoji">❄️</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">GRATIDÃO</div>
+                    <div class="silabas">Gra-ti-dão</div>
+                    <div class="emoji">🙏</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">PRAIA</div>
+                    <div class="silabas">Prai-a</div>
+                    <div class="emoji">🏖️</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">TREM</div>
+                    <div class="silabas">Trem</div>
+                    <div class="emoji">🚂</div>
+                </div>
+            </div>
+
+            <h3>Com encontros consonantais (L)</h3>
+            <div class="exemplos-palavras">
+                <div class="palavra-card">
+                    <div class="palavra">BLUSA</div>
+                    <div class="silabas">Blu-sa</div>
+                    <div class="emoji">👕</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">CLASSE</div>
+                    <div class="silabas">Clas-se</div>
+                    <div class="emoji">🏫</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">FLOR</div>
+                    <div class="silabas">Flor</div>
+                    <div class="emoji">🌸</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">GLOBO</div>
+                    <div class="silabas">Glo-bo</div>
+                    <div class="emoji">🌍</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">PLANTA</div>
+                    <div class="silabas">Plan-ta</div>
+                    <div class="emoji">🌱</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">ATLETA</div>
+                    <div class="silabas">A-tle-ta</div>
+                    <div class="emoji">🏃</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎓 Dígrafos - Duas Letras, Um Som</h2>
+            <p class="intro-text">
+                Os <strong>dígrafos</strong> são pares de letras que representam um único som. 
+                Eles são diferentes dos encontros consonantais porque não mantêm sons separados!
+            </p>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-silabas">
+                    <thead>
+                        <tr>
+                            <th>Dígrafo</th>
+                            <th>Som</th>
+                            <th>Exemplos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>CH</strong></td>
+                            <td>Som de "x"</td>
+                            <td>cha-ve, chu-va, ma-chu-ca-do</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LH</strong></td>
+                            <td>Som de "lh"</td>
+                            <td>fi-lho, o-lho, ba-ra-lho</td>
+                        </tr>
+                        <tr>
+                            <td><strong>NH</strong></td>
+                            <td>Som de "nh"</td>
+                            <td>ni-nho, ba-nho, so-nho</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RR</strong></td>
+                            <td>R forte</td>
+                            <td>car-ro, bar-ro, fer-ro</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SS</strong></td>
+                            <td>S forte</td>
+                            <td>pas-so, mas-sa, os-so</td>
+                        </tr>
+                        <tr>
+                            <td><strong>QU</strong></td>
+                            <td>Som de "k"</td>
+                            <td>quei-jo, qua-dro, quem</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GU</strong></td>
+                            <td>Som de "g"</td>
+                            <td>guer-ra, gui-tar-ra, á-gua</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SC</strong></td>
+                            <td>Som de "s"</td>
+                            <td>nas-cer, cres-cer, des-cer</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SÇ</strong></td>
+                            <td>Som de "s"</td>
+                            <td>nas-ça, cres-ça, des-ça</td>
+                        </tr>
+                        <tr>
+                            <td><strong>XC</strong></td>
+                            <td>Som de "s"</td>
+                            <td>ex-ce-to, ex-ce-len-te, ex-ce-der</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⚖️ Diferença: Encontro Consonantal x Dígrafo</h2>
+            <div class="quadro-comparativo">
+                <div class="comparativo-item">
+                    <h4>Encontro Consonantal</h4>
+                    <p>Cada consoante mantém seu som original. Você consegue ouvir as duas letras separadamente.</p>
+                    <div class="exemplo-destaque">
+                        BRA-VO • CRI-ME • DRA-MA • FLO-RES-TA
+                    </div>
+                </div>
+
+                <div class="comparativo-item">
+                    <h4>Dígrafo</h4>
+                    <p>As duas letras juntas produzem um som único. Não é possível separar os sons.</p>
+                    <div class="exemplo-destaque">
+                        CHA-VE • FI-LHO • CAR-RO • PAS-SO
+                    </div>
+                </div>
+            </div>
+
+            <div class="destaque" style="margin-top: 30px;">
+                <strong>🎯 Dica para lembrar:</strong> No encontro consonantal você ouve dois sons (como "pr" em "prato"). 
+                No dígrafo você ouve apenas um som (como "ch" em "chave", que soa como "x").
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📐 Regras de Separação Silábica</h2>
+            <div class="regras-box">
+                <h4>Regras Importantes:</h4>
+                <ul>
+                    <li><strong>Encontros consonantais inseparáveis:</strong> BR, CR, DR, FR, GR, PR, TR, VR (e com L) ficam juntos na mesma sílaba: BRA-SIL, CRI-ME, FLO-RES-TA</li>
+                    <li><strong>Dígrafos inseparáveis:</strong> CH, LH, NH, GU, QU ficam na mesma sílaba: CHA-VE, FI-LHO, NI-NHO</li>
+                    <li><strong>Dígrafos separáveis:</strong> RR, SS, SC, SÇ, XC são separados: CAR-RO, PAS-SO, NAS-CER</li>
+                    <li><strong>Encontros consonantais separáveis:</strong> Consoantes de grupos diferentes se separam: CAR-TA, POR-TA, AP-TO</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎨 Outros Tipos de Encontros Consonantais</h2>
+            <p class="intro-text">
+                Além dos encontros com R e L, existem outros encontros consonantais importantes:
+            </p>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-silabas">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Letras</th>
+                            <th>Exemplos de Palavras</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Com N</strong></td>
+                            <td>gn, pn, mn</td>
+                            <td>dig-no, pneu-má-ti-co, am-né-sia</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Com S</strong></td>
+                            <td>bs, ps, cs</td>
+                            <td>ob-ser-var, psi-có-lo-go, ac-ção (Portugal)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Com T</strong></td>
+                            <td>pt, ct, ft</td>
+                            <td>ap-to, pac-to, af-ta</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Triplos</strong></td>
+                            <td>str, spr, scr</td>
+                            <td>mons-tro, es-prei-tar, es-cre-ver</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🌟 Exemplos Especiais</h2>
+            
+            <h3>Palavras com múltiplos encontros consonantais</h3>
+            <div class="exemplos-palavras">
+                <div class="palavra-card">
+                    <div class="palavra">BRINCADEIRA</div>
+                    <div class="silabas">Brin-ca-dei-ra</div>
+                    <div class="emoji">🎮</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">CONSTRUÇÃO</div>
+                    <div class="silabas">Cons-tru-ção</div>
+                    <div class="emoji">🏗️</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">TRANSPORTE</div>
+                    <div class="silabas">Trans-por-te</div>
+                    <div class="emoji">🚚</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">PRIMAVERA</div>
+                    <div class="silabas">Pri-ma-ve-ra</div>
+                    <div class="emoji">🌺</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">PROBLEMA</div>
+                    <div class="silabas">Pro-ble-ma</div>
+                    <div class="emoji">🤔</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">FRANCISCO</div>
+                    <div class="silabas">Fran-cis-co</div>
+                    <div class="emoji">👤</div>
+                </div>
+            </div>
+
+            <h3>Palavras com dígrafos</h3>
+            <div class="exemplos-palavras">
+                <div class="palavra-card">
+                    <div class="palavra">CACHORRO</div>
+                    <div class="silabas">Ca-chor-ro</div>
+                    <div class="emoji">🐕</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">PASSARINHO</div>
+                    <div class="silabas">Pas-sa-ri-nho</div>
+                    <div class="emoji">🐦</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">AQUÁRIO</div>
+                    <div class="silabas">A-quá-rio</div>
+                    <div class="emoji">🐠</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">GUITARRA</div>
+                    <div class="silabas">Gui-tar-ra</div>
+                    <div class="emoji">🎸</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">EXCESSO</div>
+                    <div class="silabas">Ex-ces-so</div>
+                    <div class="emoji">➕</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">CRESCER</div>
+                    <div class="silabas">Cres-cer</div>
+                    <div class="emoji">📈</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💪 Exercícios Práticos</h2>
+            <div class="destaque">
+                <h3 style="margin-bottom: 15px;">Identifique os encontros consonantais e dígrafos:</h3>
+                <p style="margin-bottom: 10px;"><strong>1.</strong> TRABALHO → tra-ba-lho (Encontro: TR)</p>
+                <p style="margin-bottom: 10px;"><strong>2.</strong> CARROSSEL → car-ros-sel (Dígrafos: RR, SS)</p>
+                <p style="margin-bottom: 10px;"><strong>3.</strong> CLASSE → clas-se (Encontro: CL, Dígrafo: SS)</p>
+                <p style="margin-bottom: 10px;"><strong>4.</strong> FLORESTA → flo-res-ta (Encontro: FL)</p>
+                <p style="margin-bottom: 10px;"><strong>5.</strong> PINGUIM → pin-guim (Dígrafo: GU)</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✨ Curiosidades sobre Sílabas Compostas</h2>
+            <div class="quadro-comparativo">
+                <div class="comparativo-item">
+                    <h4>🌍 Origem das Palavras</h4>
+                    <p>Muitas palavras com encontros consonantais vêm do latim e do grego, como "problema" (do grego), "prazer" (do latim).</p>
+                </div>
+
+                <div class="comparativo-item">
+                    <h4>📚 Riqueza da Língua</h4>
+                    <p>O português tem mais de 20 tipos diferentes de encontros consonantais, tornando nossa língua muito expressiva!</p>
+                </div>
+
+                <div class="comparativo-item">
+                    <h4>🎯 Aprendizado</h4>
+                    <p>Dominar as sílabas compostas é essencial para ler e escrever corretamente palavras mais complexas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎪 Palavras Desafiadoras</h2>
+            <p class="intro-text">
+                Algumas palavras têm várias sílabas compostas juntas. Veja estas palavras desafiadoras:
+            </p>
+
+            <div class="exemplos-palavras">
+                <div class="palavra-card">
+                    <div class="palavra">TREM</div>
+                    <div class="silabas">Monossílaba: TREM</div>
+                    <div class="emoji">🚂</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">TRATOR</div>
+                    <div class="silabas">Tra-tor</div>
+                    <div class="emoji">🚜</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">BRADESCO</div>
+                    <div class="silabas">Bra-des-co</div>
+                    <div class="emoji">🏦</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">ESCREVER</div>
+                    <div class="silabas">Es-cre-ver</div>
+                    <div class="emoji">✍️</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">DESCREVER</div>
+                    <div class="silabas">Des-cre-ver</div>
+                    <div class="emoji">📝</div>
+                </div>
+                <div class="palavra-card">
+                    <div class="palavra">INSTRUMENTO</div>
+                    <div class="silabas">Ins-tru-men-to</div>
+                    <div class="emoji">🎺</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏆 Resumo Final</h2>
+            <div class="regras-box" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                <h4>Pontos-Chave para Lembrar:</h4>
+                <ul>
+                    <li><strong>Encontros Consonantais:</strong> Duas consoantes juntas, cada uma com seu som (BR, CR, FL, etc.)</li>
+                    <li><strong>Dígrafos:</strong> Duas letras que formam um som único (CH, LH, NH, RR, SS, etc.)</li>
+                    <li><strong>Separação:</strong> Alguns ficam juntos (BR, CH), outros se separam (RR, SS)</li>
+                    <li><strong>Prática:</strong> Quanto mais você ler e escrever, mais natural fica identificar as sílabas compostas!</li>
+                    <li><strong>Importância:</strong> Dominar sílabas compostas melhora sua leitura, escrita e ortografia!</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

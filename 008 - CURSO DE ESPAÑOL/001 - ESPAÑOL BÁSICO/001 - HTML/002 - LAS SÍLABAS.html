@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Sílabas en Español</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 0 auto;
+            background: white;
+            page-break-after: always;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+        
+        .section {
+            margin: 25px 0;
+            padding: 25px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section.orange {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .section.green {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            color: white;
+        }
+        
+        .section.blue {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .section.pink {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+        
+        .section.purple {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .section.teal {
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+        }
+        
+        .section.coral {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+        
+        h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .section.green h2, .section.green h3 {
+            color: white;
+        }
+        
+        h3 {
+            font-size: 22px;
+            margin: 20px 0 10px 0;
+            color: #34495e;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            text-align: justify;
+        }
+        
+        .syllable-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .syllable-box {
+            background: white;
+            padding: 15px 10px;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid #3498db;
+        }
+        
+        .syllable-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .tip-box {
+            background: white;
+            padding: 20px;
+            border-left: 6px solid #27ae60;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tip-box h4 {
+            color: #27ae60;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .example-box {
+            background: #fff9e6;
+            border: 2px dashed #f39c12;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .example-title {
+            color: #f39c12;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .type-box {
+            background: white;
+            padding: 20px;
+            border: 3px solid #9b59b6;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .type-title {
+            color: #9b59b6;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .word-example {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .word-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 5px;
+        }
+        
+        .word-syllables {
+            font-size: 20px;
+            color: #3498db;
+            letter-spacing: 3px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>📖 Las Sílabas en Español 📖</h1>
+            <p>Guía Completa de Todas las Combinaciones</p>
+        </div>
+        
+        <div class="section orange">
+            <h2>🌟 ¿Qué es una Sílaba?</h2>
+            <p>Una <strong>sílaba</strong> es un sonido o conjunto de sonidos que se pronuncian juntos en una sola emisión de voz. Toda sílaba en español debe contener al menos una vocal, ya que las vocales son el núcleo de las sílabas.</p>
+            <p>Las sílabas son las unidades básicas de pronunciación y nos ayudan a dividir las palabras para leerlas y escribirlas correctamente. Conocer las sílabas es fundamental para aprender a leer, escribir con acentos correctos y mejorar la pronunciación.</p>
+            
+            <div class="tip-box">
+                <h4>💡 Regla de Oro</h4>
+                <p><strong>Toda sílaba necesita al menos UNA VOCAL.</strong><br>
+                Las vocales son: A, E, I, O, U</p>
+            </div>
+        </div>
+        
+        <div class="section blue">
+            <h2>🎯 Sílabas Simples - Consonante + Vocal</h2>
+            <p>Las sílabas más básicas se forman combinando una consonante con una vocal. Estas son las primeras que aprendemos y las más comunes.</p>
+            
+            <h3>Familia de la B</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">ba</div></div>
+                <div class="syllable-box"><div class="syllable-text">be</div></div>
+                <div class="syllable-box"><div class="syllable-text">bi</div></div>
+                <div class="syllable-box"><div class="syllable-text">bo</div></div>
+                <div class="syllable-box"><div class="syllable-text">bu</div></div>
+            </div>
+            
+            <h3>Familia de la C</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">ca</div></div>
+                <div class="syllable-box"><div class="syllable-text">ce</div></div>
+                <div class="syllable-box"><div class="syllable-text">ci</div></div>
+                <div class="syllable-box"><div class="syllable-text">co</div></div>
+                <div class="syllable-box"><div class="syllable-text">cu</div></div>
+            </div>
+            
+            <h3>Familia de la D</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">da</div></div>
+                <div class="syllable-box"><div class="syllable-text">de</div></div>
+                <div class="syllable-box"><div class="syllable-text">di</div></div>
+                <div class="syllable-box"><div class="syllable-text">do</div></div>
+                <div class="syllable-box"><div class="syllable-text">du</div></div>
+            </div>
+            
+            <h3>Familia de la F</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">fa</div></div>
+                <div class="syllable-box"><div class="syllable-text">fe</div></div>
+                <div class="syllable-box"><div class="syllable-text">fi</div></div>
+                <div class="syllable-box"><div class="syllable-text">fo</div></div>
+                <div class="syllable-box"><div class="syllable-text">fu</div></div>
+            </div>
+            
+            <h3>Familia de la G</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">ga</div></div>
+                <div class="syllable-box"><div class="syllable-text">gue</div></div>
+                <div class="syllable-box"><div class="syllable-text">gui</div></div>
+                <div class="syllable-box"><div class="syllable-text">go</div></div>
+                <div class="syllable-box"><div class="syllable-text">gu</div></div>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Nota sobre G y C</h4>
+                <p>La G con e, i necesita una U: gue, gui (guerra, guiso)<br>
+                La C con e, i suena suave: ce, ci (cena, cine)</p>
+            </div>
+        </div>
+        
+        <div class="section green">
+            <h2>📚 Más Familias Silábicas</h2>
+            
+            <h3 style="color: white;">Familia de la J</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">ja</div></div>
+                <div class="syllable-box"><div class="syllable-text">je</div></div>
+                <div class="syllable-box"><div class="syllable-text">ji</div></div>
+                <div class="syllable-box"><div class="syllable-text">jo</div></div>
+                <div class="syllable-box"><div class="syllable-text">ju</div></div>
+            </div>
+            
+            <h3 style="color: white;">Familia de la L</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">la</div></div>
+                <div class="syllable-box"><div class="syllable-text">le</div></div>
+                <div class="syllable-box"><div class="syllable-text">li</div></div>
+                <div class="syllable-box"><div class="syllable-text">lo</div></div>
+                <div class="syllable-box"><div class="syllable-text">lu</div></div>
+            </div>
+            
+            <h3 style="color: white;">Familia de la M</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">ma</div></div>
+                <div class="syllable-box"><div class="syllable-text">me</div></div>
+                <div class="syllable-box"><div class="syllable-text">mi</div></div>
+                <div class="syllable-box"><div class="syllable-text">mo</div></div>
+                <div class="syllable-box"><div class="syllable-text">mu</div></div>
+            </div>
+            
+            <h3 style="color: white;">Familia de la N</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">na</div></div>
+                <div class="syllable-box"><div class="syllable-text">ne</div></div>
+                <div class="syllable-box"><div class="syllable-text">ni</div></div>
+                <div class="syllable-box"><div class="syllable-text">no</div></div>
+                <div class="syllable-box"><div class="syllable-text">nu</div></div>
+            </div>
+            
+            <h3 style="color: white;">Familia de la Ñ</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">ña</div></div>
+                <div class="syllable-box"><div class="syllable-text">ñe</div></div>
+                <div class="syllable-box"><div class="syllable-text">ñi</div></div>
+                <div class="syllable-box"><div class="syllable-text">ño</div></div>
+                <div class="syllable-box"><div class="syllable-text">ñu</div></div>
+            </div>
+            
+            <h3 style="color: white;">Familia de la P</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">pa</div></div>
+                <div class="syllable-box"><div class="syllable-text">pe</div></div>
+                <div class="syllable-box"><div class="syllable-text">pi</div></div>
+                <div class="syllable-box"><div class="syllable-text">po</div></div>
+                <div class="syllable-box"><div class="syllable-text">pu</div></div>
+            </div>
+        </div>
+        
+        <div class="section pink">
+            <h2>🔤 Familias Silábicas Finales</h2>
+            
+            <h3>Familia de la R</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">ra</div></div>
+                <div class="syllable-box"><div class="syllable-text">re</div></div>
+                <div class="syllable-box"><div class="syllable-text">ri</div></div>
+                <div class="syllable-box"><div class="syllable-text">ro</div></div>
+                <div class="syllable-box"><div class="syllable-text">ru</div></div>
+            </div>
+            
+            <h3>Familia de la S</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">sa</div></div>
+                <div class="syllable-box"><div class="syllable-text">se</div></div>
+                <div class="syllable-box"><div class="syllable-text">si</div></div>
+                <div class="syllable-box"><div class="syllable-text">so</div></div>
+                <div class="syllable-box"><div class="syllable-text">su</div></div>
+            </div>
+            
+            <h3>Familia de la T</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">ta</div></div>
+                <div class="syllable-box"><div class="syllable-text">te</div></div>
+                <div class="syllable-box"><div class="syllable-text">ti</div></div>
+                <div class="syllable-box"><div class="syllable-text">to</div></div>
+                <div class="syllable-box"><div class="syllable-text">tu</div></div>
+            </div>
+            
+            <h3>Familia de la V</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">va</div></div>
+                <div class="syllable-box"><div class="syllable-text">ve</div></div>
+                <div class="syllable-box"><div class="syllable-text">vi</div></div>
+                <div class="syllable-box"><div class="syllable-text">vo</div></div>
+                <div class="syllable-box"><div class="syllable-text">vu</div></div>
+            </div>
+            
+            <h3>Familia de la Y</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">ya</div></div>
+                <div class="syllable-box"><div class="syllable-text">ye</div></div>
+                <div class="syllable-box"><div class="syllable-text">yi</div></div>
+                <div class="syllable-box"><div class="syllable-text">yo</div></div>
+                <div class="syllable-box"><div class="syllable-text">yu</div></div>
+            </div>
+            
+            <h3>Familia de la Z</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">za</div></div>
+                <div class="syllable-box"><div class="syllable-text">ze</div></div>
+                <div class="syllable-box"><div class="syllable-text">zi</div></div>
+                <div class="syllable-box"><div class="syllable-text">zo</div></div>
+                <div class="syllable-box"><div class="syllable-text">zu</div></div>
+            </div>
+        </div>
+        
+        <div class="section purple">
+            <h2>🎨 Sílabas Compuestas (con R y L)</h2>
+            <p>Las sílabas compuestas se forman con consonante + R o L + vocal. Son muy comunes en español.</p>
+            
+            <h3>Familia BR, CR, DR, FR, GR, PR, TR</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">bra</div></div>
+                <div class="syllable-box"><div class="syllable-text">bre</div></div>
+                <div class="syllable-box"><div class="syllable-text">bri</div></div>
+                <div class="syllable-box"><div class="syllable-text">bro</div></div>
+                <div class="syllable-box"><div class="syllable-text">bru</div></div>
+            </div>
+            
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">cra</div></div>
+                <div class="syllable-box"><div class="syllable-text">cre</div></div>
+                <div class="syllable-box"><div class="syllable-text">cri</div></div>
+                <div class="syllable-box"><div class="syllable-text">cro</div></div>
+                <div class="syllable-box"><div class="syllable-text">cru</div></div>
+            </div>
+            
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">dra</div></div>
+                <div class="syllable-box"><div class="syllable-text">dre</div></div>
+                <div class="syllable-box"><div class="syllable-text">dri</div></div>
+                <div class="syllable-box"><div class="syllable-text">dro</div></div>
+                <div class="syllable-box"><div class="syllable-text">dru</div></div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">📝 Ejemplos con R:</div>
+                <p><strong>brazo, crema, dragón, fruta, grande, premio, tren</strong></p>
+            </div>
+            
+            <h3>Familia BL, CL, FL, GL, PL</h3>
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">bla</div></div>
+                <div class="syllable-box"><div class="syllable-text">ble</div></div>
+                <div class="syllable-box"><div class="syllable-text">bli</div></div>
+                <div class="syllable-box"><div class="syllable-text">blo</div></div>
+                <div class="syllable-box"><div class="syllable-text">blu</div></div>
+            </div>
+            
+            <div class="syllable-grid">
+                <div class="syllable-box"><div class="syllable-text">cla</div></div>
+                <div class="syllable-box"><div class="syllable-text">cle</div></div>
+                <div class="syllable-box"><div class="syllable-text">cli</div></div>
+                <div class="syllable-box"><div class="syllable-text">clo</div></div>
+                <div class="syllable-box"><div class="syllable-text">clu</div></div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">📝 Ejemplos con L:</div>
+                <p><strong>blanco, clavo, flor, globo, plato</strong></p>
+            </div>
+        </div>
+        
+        <div class="section teal">
+            <h2>🔠 Sílabas Especiales</h2>
+            
+            <div class="type-box">
+                <div class="type-title">CH - Dígrafo (dos letras, un sonido)</div>
+                <div class="syllable-grid">
+                    <div class="syllable-box"><div class="syllable-text">cha</div></div>
+                    <div class="syllable-box"><div class="syllable-text">che</div></div>
+                    <div class="syllable-box"><div class="syllable-text">chi</div></div>
+                    <div class="syllable-box"><div class="syllable-text">cho</div></div>
+                    <div class="syllable-box"><div class="syllable-text">chu</div></div>
+                </div>
+                <p style="margin-top: 10px;"><strong>Ejemplos:</strong> chocolate, leche, chile, choque, chupar</p>
+            </div>
+            
+            <div class="type-box">
+                <div class="type-title">LL - Dígrafo</div>
+                <div class="syllable-grid">
+                    <div class="syllable-box"><div class="syllable-text">lla</div></div>
+                    <div class="syllable-box"><div class="syllable-text">lle</div></div>
+                    <div class="syllable-box"><div class="syllable-text">lli</div></div>
+                    <div class="syllable-box"><div class="syllable-text">llo</div></div>
+                    <div class="syllable-box"><div class="syllable-text">llu</div></div>
+                </div>
+                <p style="margin-top: 10px;"><strong>Ejemplos:</strong> llama, llave, lluvia, pollo</p>
+            </div>
+            
+            <div class="type-box">
+                <div class="type-title">RR - Sonido fuerte (solo entre vocales)</div>
+                <div class="syllable-grid">
+                    <div class="syllable-box"><div class="syllable-text">rra</div></div>
+                    <div class="syllable-box"><div class="syllable-text">rre</div></div>
+                    <div class="syllable-box"><div class="syllable-text">rri</div></div>
+                    <div class="syllable-box"><div class="syllable-text">rro</div></div>
+                    <div class="syllable-box"><div class="syllable-text">rru</div></div>
+                </div>
+                <p style="margin-top: 10px;"><strong>Ejemplos:</strong> perro, carro, tierra, burro</p>
+            </div>
+            
+            <div class="type-box">
+                <div class="type-title">QU - Siempre con e o i</div>
+                <div class="syllable-grid">
+                    <div class="syllable-box"><div class="syllable-text">que</div></div>
+                    <div class="syllable-box"><div class="syllable-text">qui</div></div>
+                </div>
+                <p style="margin-top: 10px;"><strong>Ejemplos:</strong> queso, quiero, quince, máquina</p>
+            </div>
+        </div>
+        
+        <div class="section coral">
+            <h2>📊 Tipos de Palabras según sus Sílabas</h2>
+            
+            <div class="type-box">
+                <div class="type-title">Monosílabas (1 sílaba)</div>
+                <div class="word-example">
+                    <div class="word-text">sol</div>
+                    <div class="word-syllables">sol</div>
+                </div>
+                <div class="word-example">
+                    <div class="word-text">pan</div>
+                    <div class="word-syllables">pan</div>
+                </div>
+                <p><strong>Más ejemplos:</strong> luz, mar, dos, tres, voz, paz</p>
+            </div>
+            
+            <div class="type-box">
+                <div class="type-title">Bisílabas (2 sílabas)</div>
+                <div class="word-example">
+                    <div class="word-text">casa</div>
+                    <div class="word-syllables">ca - sa</div>
+                </div>
+                <div class="word-example">
+                    <div class="word-text">niño</div>
+                    <div class="word-syllables">ni - ño</div>
+                </div>
+                <p><strong>Más ejemplos:</strong> perro, gato, mesa, libro, agua</p>
+            </div>
+            
+            <div class="type-box">
+                <div class="type-title">Trisílabas (3 sílabas)</div>
+                <div class="word-example">
+                    <div class="word-text">manzana</div>
+                    <div class="word-syllables">man - za - na</div>
+                </div>
+                <div class="word-example">
+                    <div class="word-text">música</div>
+                    <div class="word-syllables">mú - si - ca</div>
+                </div>
+                <p><strong>Más ejemplos:</strong> camisa, ventana, pelota, zapato</p>
+            </div>
+            
+            <div class="type-box">
+                <div class="type-title">Polisílabas (4 o más sílabas)</div>
+                <div class="word-example">
+                    <div class="word-text">mariposa</div>
+                    <div class="word-syllables">ma - ri - po - sa</div>
+                </div>
+                <div class="word-example">
+                    <div class="word-text">universidad</div>
+                    <div class="word-syllables">u - ni - ver - si - dad</div>
+                </div>
+                <p><strong>Más ejemplos:</strong> computadora, refrigerador, biblioteca</p>
+            </div>
+        </div>
+        
+        <div class="section blue">
+            <h2>✍️ Ejercicios de Práctica</h2>
+            
+            <div class="example-box">
+                <div class="example-title">🎯 Divide estas palabras en sílabas:</div>
+                <p><strong>1.</strong> Teléfono → te - lé - fo - no</p>
+                <p><strong>2.</strong> Chocolate → cho - co - la - te</p>
+                <p><strong>3.</strong> Estrella → es - tre - lla</p>
+                <p><strong>4.</strong> Mariposa → ma - ri - po - sa</p>
+                <p><strong>5.</strong> Computadora → com - pu - ta - do - ra</p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Consejos para Dividir Sílabas</h4>
+                <ul>
+                    <li>Cada sílaba debe tener al menos una vocal</li>
+                    <li>Las consonantes entre vocales se unen a la vocal siguiente</li>
+                    <li>Los dígrafos (ch, ll, rr) no se separan</li>
+                    <li>Las consonantes dobles juntas se separan: per-ro, ca-rro</li>
+                    <li>Los grupos consonánticos con R o L (br, cl, pr, etc.) no se separan</li>
+                    <li>Para practicar, pronuncia lentamente dando palmadas</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section orange">
+            <h2>🎵 Las Vocales: El Corazón de las Sílabas</h2>
+            
+            <div class="type-box">
+                <div class="type-title">Vocales Fuertes: A, E, O</div>
+                <p>Estas vocales siempre forman sílabas separadas cuando están juntas:</p>
+                <div class="word-example">
+                    <div class="word-text">teatro</div>
+                    <div class="word-syllables">te - a - tro</div>
+                </div>
+                <div class="word-example">
+                    <div class="word-text">peor</div>
+                    <div class="word-syllables">pe - or</div>
+                </div>
+            </div>
+            
+            <div class="type-box">
+                <div class="type-title">Vocales Débiles: I, U</div>
+                <p>Pueden formar diptongos (dos vocales en una sílaba):</p>
+                <div class="word-example">
+                    <div class="word-text">aire</div>
+                    <div class="word-syllables">ai - re</div>
+                </div>
+                <div class="word-example">
+                    <div class="word-text">auto</div>
+                    <div class="word-syllables">au - to</div>
+                </div>
+                <div class="word-example">
+                    <div class="word-text">ciudad</div>
+                    <div class="word-syllables">ciu - dad</div>
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">📝 Diptongos Comunes:</div>
+                <p><strong>ai:</strong> baile, aire, país<br>
+                <strong>au:</strong> auto, causa, jaula<br>
+                <strong>ei:</strong> peine, reina, seis<br>
+                <strong>eu:</strong> Europa, deuda, eucalipto<br>
+                <strong>oi:</strong> oigo, boina, heroico<br>
+                <strong>ou:</strong> bou (poco común)<br>
+                <strong>ia:</strong> piano, media, familia<br>
+                <strong>ie:</strong> cielo, tierra, miel<br>
+                <strong>io:</strong> radio, precio, labios<br>
+                <strong>iu:</strong> ciudad, viuda, triunfo<br>
+                <strong>ua:</strong> agua, cuatro, lengua<br>
+                <strong>ue:</strong> puerta, escuela, fuego<br>
+                <strong>ui:</strong> ruido, cuidado, muy<br>
+                <strong>uo:</strong> cuota, antiguo, residuo</p>
+            </div>
+        </div>
+        
+        <div class="section green">
+            <h2>🌈 Sílabas Inversas y Trabadas</h2>
+            <p style="color: white;">Además de las sílabas directas (consonante + vocal), existen otros tipos importantes:</p>
+            
+            <div class="type-box">
+                <div class="type-title">Sílabas Inversas (Vocal + Consonante)</div>
+                <p>La consonante viene después de la vocal:</p>
+                <div class="syllable-grid">
+                    <div class="syllable-box"><div class="syllable-text">al</div></div>
+                    <div class="syllable-box"><div class="syllable-text">el</div></div>
+                    <div class="syllable-box"><div class="syllable-text">il</div></div>
+                    <div class="syllable-box"><div class="syllable-text">ol</div></div>
+                    <div class="syllable-box"><div class="syllable-text">ul</div></div>
+                </div>
+                <div class="syllable-grid">
+                    <div class="syllable-box"><div class="syllable-text">ar</div></div>
+                    <div class="syllable-box"><div class="syllable-text">er</div></div>
+                    <div class="syllable-box"><div class="syllable-text">ir</div></div>
+                    <div class="syllable-box"><div class="syllable-text">or</div></div>
+                    <div class="syllable-box"><div class="syllable-text">ur</div></div>
+                </div>
+                <p style="margin-top: 10px;"><strong>Ejemplos:</strong> alto, árbol, isla, orden, último</p>
+            </div>
+            
+            <div class="type-box">
+                <div class="type-title">Sílabas Trabadas (Consonante + Vocal + Consonante)</div>
+                <p>La sílaba termina en consonante:</p>
+                <div class="syllable-grid">
+                    <div class="syllable-box"><div class="syllable-text">pas</div></div>
+                    <div class="syllable-box"><div class="syllable-text">tor</div></div>
+                    <div class="syllable-box"><div class="syllable-text">pan</div></div>
+                    <div class="syllable-box"><div class="syllable-text">mar</div></div>
+                    <div class="syllable-box"><div class="syllable-text">col</div></div>
+                </div>
+                <div class="word-example">
+                    <div class="word-text">pastor</div>
+                    <div class="word-syllables">pas - tor</div>
+                </div>
+                <div class="word-example">
+                    <div class="word-text">cantar</div>
+                    <div class="word-syllables">can - tar</div>
+                </div>
+                <p><strong>Ejemplos:</strong> hospital, libertad, canción, perfecto</p>
+            </div>
+        </div>
+        
+        <div class="section pink">
+            <h2>🎪 Palabras Completas Divididas</h2>
+            
+            <div class="example-box">
+                <div class="example-title">📚 Ejemplos de División Silábica:</div>
+                
+                <div class="word-example">
+                    <div class="word-text">MARIPOSA</div>
+                    <div class="word-syllables">ma - ri - po - sa</div>
+                </div>
+                
+                <div class="word-example">
+                    <div class="word-text">ESCUELA</div>
+                    <div class="word-syllables">es - cue - la</div>
+                </div>
+                
+                <div class="word-example">
+                    <div class="word-text">CHOCOLATE</div>
+                    <div class="word-syllables">cho - co - la - te</div>
+                </div>
+                
+                <div class="word-example">
+                    <div class="word-text">COMPUTADORA</div>
+                    <div class="word-syllables">com - pu - ta - do - ra</div>
+                </div>
+                
+                <div class="word-example">
+                    <div class="word-text">REFRIGERADOR</div>
+                    <div class="word-syllables">re - fri - ge - ra - dor</div>
+                </div>
+                
+                <div class="word-example">
+                    <div class="word-text">BICICLETA</div>
+                    <div class="word-syllables">bi - ci - cle - ta</div>
+                </div>
+                
+                <div class="word-example">
+                    <div class="word-text">DICCIONARIO</div>
+                    <div class="word-syllables">dic - cio - na - rio</div>
+                </div>
+                
+                <div class="word-example">
+                    <div class="word-text">CONSTRUCCIÓN</div>
+                    <div class="word-syllables">cons - truc - ción</div>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Reglas Importantes de Separación</h4>
+                <ul>
+                    <li><strong>Vocales fuertes juntas se separan:</strong> le-er, ca-er, hé-ro-e</li>
+                    <li><strong>Dos consonantes iguales se separan:</strong> pe-rro, ca-rro, a-cción</li>
+                    <li><strong>Grupos con R y L no se separan:</strong> li-bro, pla-to, a-gra-da-ble</li>
+                    <li><strong>La H no impide diptongos:</strong> ahu-mar, prohi-bir</li>
+                    <li><strong>Una consonante entre vocales va con la segunda:</strong> ma-no, pe-lo</li>
+                </ul>
+            </div>
+        </div>

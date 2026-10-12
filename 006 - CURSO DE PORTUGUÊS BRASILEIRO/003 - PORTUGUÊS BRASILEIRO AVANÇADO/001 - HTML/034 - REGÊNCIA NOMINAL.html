@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regência Nominal em Português</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* CSS EXATO do ARQUIVO 004 - ORTOGRAFIA */
+        body {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E7D6E 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #2E7D6E; /* Cor principal adaptada do tema */
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #4ECDC4;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #44A08D; /* Cor secundária adaptada do tema */
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+            min-height: 350px;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores adaptadas do tema 004 */
+        .tipo-card.conceito {
+            background: linear-gradient(135deg, #FF6B6B, #EE5A5A); /* Vermelho/Conceito */
+        }
+
+        .tipo-card.adjetivos {
+            background: linear-gradient(135deg, #8338EC, #6C23D6); /* Roxo/Adjetivos */
+        }
+
+        .tipo-card.substantivos {
+            background: linear-gradient(135deg, #FFC300, #FFAD00); /* Amarelo/Substantivos */
+            color: #333;
+        }
+
+        .tipo-card.adverbios {
+            background: linear-gradient(135deg, #00B4D8, #00A6CC); /* Azul/Advérbios */
+        }
+
+        .tipo-card.dupla-regencia {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D); /* Verde Água/Dupla Regência */
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+        
+        /* Ajuste de contraste para o card amarelo */
+        .tipo-card.substantivos .exemplos {
+            background: rgba(0,0,0,0.1); 
+            color: #333;
+        }
+
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .dicas-box {
+            /* Cor adaptada do arquivo 004 */
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "💡"; /* Ícone adaptado */
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗣️ Regência Nominal e o Complemento Nominal 🗣️</h1>
+        <p class="subtitle">O estudo da preposição exigida pelos Nomes (Substantivos, Adjetivos e Advérbios)!</p>
+
+        <div class="section">
+            <h2>🎯 Conceito e Diferença da Regência Verbal</h2>
+            <p class="intro-text">
+                A **Regência Nominal** estuda a relação entre um **nome** (termo regente) e o seu **complemento nominal** (termo regido). O nome, por ter um sentido incompleto (transitivo nominal), exige sempre uma preposição para se ligar ao seu complemento. Os nomes regentes podem ser **substantivos, adjetivos ou advérbios**.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card conceito">
+                    <h3>1. Nome Regente e Complemento Nominal</h3>
+                    <div class="definicao">
+                        Em um Complemento Nominal (CN), o termo regido completa o sentido do nome (Substantivo, Adjetivo ou Advérbio). O CN é sempre introduzido por **preposição**.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Estrutura:</strong><br>
+                        • Nome Regente + Preposição + Complemento Nominal.<br>
+                        • Ex: Tenho **medo** *de* escuro.
+                    </div>
+                </div>
+
+                <div class="tipo-card conceito" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+                    <h3>2. Diferença: CN vs. Adjunto Adnominal</h3>
+                    <div class="definicao">
+                        O CN é o **paciente** da ação (sofre/recebe). O Adjunto Adnominal (AA) é o **agente** (pratica/possui). A diferença é crucial.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **CN (Paciente):** A destruição *da cidade*. (A cidade foi destruída)<br>
+                        • **AA (Agente):** O amor *da mãe*. (A mãe ama)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Nomes e Suas Preposições Comuns</h2>
+            <p class="intro-text">
+                Embora muitos nomes aceitem mais de uma preposição, a norma culta consagra certas regências.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card adjetivos">
+                    <h3>3. Adjetivos (Principais Regências)</h3>
+                    <div class="definicao">
+                        Alguns adjetivos e as preposições que mais frequentemente exigem.
+                    </div>
+                    <div class="exemplos">
+                        <strong>A + Preposição:</strong><br>
+                        • Acessível **a**<br>
+                        • Grato **a** (ou **por**)<br>
+                        • Necessário **a**<br>
+                        • Nocivo **a**<br>
+                        • Responsável **por** (ou **de**)
+                    </div>
+                </div>
+
+                <div class="tipo-card substantivos">
+                    <h3>4. Substantivos (Principais Regências)</h3>
+                    <div class="definicao">
+                        Substantivos que, por terem um sentido transitivo (derivados de verbos), exigem preposição.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Substantivo + Preposição:</strong><br>
+                        • Admiração **a**, **por**<br>
+                        • Aversão **a**, **por**<br>
+                        • Medo **de**<br>
+                        • Obediência **a**<br>
+                        • Pavor **de**
+                    </div>
+                </div>
+
+                <div class="tipo-card adverbios">
+                    <h3>5. Advérbios</h3>
+                    <div class="definicao">
+                        Advérbios terminados em "-mente" (derivados de adjetivos) costumam manter a mesma regência preposicional do adjetivo que lhes deu origem.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Advérbio → Adjetivo:</strong><br>
+                        • Favoravelmente **a** (vem de *favorável a*)<br>
+                        • Paralelamente **a**<br>
+                        • Felizmente **com** (vem de *feliz com*)<br>
+                        • Contrariamente **a**
+                    </div>
+                </div>
+                
+                <div class="tipo-card dupla-regencia">
+                    <h3>6. Casos de Dupla Regência Aceita</h3>
+                    <div class="definicao">
+                        Certos nomes aceitam duas ou mais preposições sem alteração significativa de sentido.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Nome + Mais de Uma Preposição:</strong><br>
+                        • Curioso **de** / **por**<br>
+                        • Ansioso **de** / **por** / **para**<br>
+                        • Dúvida **acerca de** / **sobre**<br>
+                        • Capaz **de** / **para**
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 Dicas de Ouro</h2>
+            
+            <div class="dicas-box">
+                <h4>Regras Essenciais da Regência Nominal:</h4>
+                <ul>
+                    <li>**Preposição Fixa:** Muitos nomes exigem uma preposição fixa, especialmente adjetivos. Memorizar as regências mais comuns é fundamental. Ex: *Alheio* **a**, *Contente* **com**.</li>
+                    <li>**Conectivo da Ideia:** Na regência nominal, a preposição funciona como um conector que expressa o tipo de relação (posse, causa, finalidade, etc.) entre o nome e seu complemento.</li>
+                    <li>**"De" é o Coringa:** A preposição **de** é a mais utilizada na regência nominal e em complementos nominais, sendo a opção correta para a maioria dos substantivos.</li>
+                    <li>**Cuidado com a Regência Verbal:** Um nome (substantivo) derivado de um verbo muitas vezes herda a mesma regência preposicional. Ex: *Obedecer* **a** (verbo) → *Obediência* **a** (substantivo).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

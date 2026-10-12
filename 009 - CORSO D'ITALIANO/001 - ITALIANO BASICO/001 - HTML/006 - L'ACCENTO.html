@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Accento - Tonico e Grafico</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 16%, #f093fb 33%, #4facfe 50%, #00f2fe 66%, #43e97b 83%, #fa709a 100%);
+            padding: 20px;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 45px;
+            box-shadow: 0 45px 110px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 33%, #667eea 66%, #764ba2 100%);
+            color: white;
+            padding: 90px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "´";
+            position: absolute;
+            font-size: 500px;
+            opacity: 0.12;
+            top: -150px;
+            left: -100px;
+            animation: rotate 40s linear infinite;
+            font-weight: bold;
+        }
+
+        header::after {
+            content: "`";
+            position: absolute;
+            font-size: 450px;
+            opacity: 0.12;
+            bottom: -120px;
+            right: -80px;
+            animation: rotate 35s linear infinite reverse;
+            font-weight: bold;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 5.5em;
+            text-shadow: 6px 6px 18px rgba(0, 0, 0, 0.4);
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 1;
+            animation: glow 3s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 6px 6px 18px rgba(0, 0, 0, 0.4); }
+            50% { text-shadow: 6px 6px 30px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.3); }
+        }
+
+        .subtitle {
+            font-size: 2.2em;
+            opacity: 0.95;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        .accento-display {
+            font-size: 8em;
+            margin: 35px 0;
+            font-weight: bold;
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: 0.9; }
+        }
+
+        .content {
+            padding: 90px;
+        }
+
+        .section {
+            margin-bottom: 90px;
+            padding: 80px;
+            border-radius: 40px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+            transition: all 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.18) 100%);
+            pointer-events: none;
+        }
+
+        .section:hover {
+            transform: translateY(-18px);
+            box-shadow: 0 35px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .section-intro {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .section-tonico {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            color: white;
+        }
+
+        .section-grafico {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .section-tipi {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .section-regole {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .section-acuto-grave {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .section-quando {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .section-errori {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .section-esercizi {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+
+        h2 {
+            font-size: 4.5em;
+            margin-bottom: 50px;
+            padding-bottom: 35px;
+            border-bottom: 8px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
+        }
+
+        .section-intro h2,
+        .section-grafico h2,
+        .section-tipi h2,
+        .section-regole h2 {
+            color: #2d3436;
+            border-bottom-color: rgba(0, 0, 0, 0.15);
+        }
+
+        h3 {
+            font-size: 3em;
+            margin: 50px 0 40px 0;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 25px;
+            border-left: 15px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .section-intro h3,
+        .section-grafico h3,
+        .section-tipi h3,
+        .section-regole h3 {
+            background: rgba(0, 0, 0, 0.08);
+            border-left-color: rgba(0, 0, 0, 0.35);
+            color: #2d3436;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.45);
+            padding: 45px;
+            border-radius: 28px;
+            margin: 40px 0;
+            border-left: 15px solid rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+        }
+
+        .section-intro .box,
+        .section-grafico .box,
+        .section-tipi .box,
+        .section-regole .box {
+            background: rgba(0, 0, 0, 0.1);
+            border-left-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .definizione {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.3) 100%);
+            padding: 50px;
+            border-radius: 28px;
+            margin: 40px 0;
+            border: 6px solid rgba(255, 255, 255, 0.6);
+            font-size: 1.5em;
+            font-weight: 500;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .section-intro .definizione,
+        .section-grafico .definizione,
+        .section-tipi .definizione,
+        .section-regole .definizione {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.14) 0%, rgba(0, 0, 0, 0.08) 100%);
+            border-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            margin: 45px 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 50px;
+            border-radius: 28px;
+            border: 6px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-intro .card,
+        .section-grafico .card,
+        .section-tipi .card,
+        .section-regole .card {
+            background: rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 0, 0, 0.25);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transform: rotate(45deg);
+            transition: all 0.8s;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.04);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .section-intro .card:hover,
+        .section-grafico .card:hover,
+        .section-tipi .card:hover,
+        .section-regole .card:hover {
+            border-color: rgba(0, 0, 0, 0.45);
+        }
+
+        .card h4 {
+            font-size: 2.8em;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 5px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .section-intro .card h4,
+        .section-grafico .card h4,
+        .section-tipi .card h4,
+        .section-regole .card h4 {
+            border-bottom-color: rgba(0, 0, 0, 0.25);
+            color: #2d3436;
+        }
+
+        .esempio {
+            background: rgba(255, 255, 255, 0.45);
+            padding: 35px;
+            border-radius: 20px;
+            margin: 28px 0;
+            border-left: 10px solid rgba(255, 255, 255, 0.7);
+            font-size: 1.4em;
+            font-weight: 500;
+        }
+
+        .section-intro .esempio,
+        .section-grafico .esempio,
+        .section-tipi .esempio,
+        .section-regole .esempio {
+            background: rgba(0, 0, 0, 0.14);
+            border-left-color: #f5576c;
+        }
+
+        .parola-accentata {
+            font-size: 4em;
+            font-weight: bold;
+            text-align: center;
+            margin: 35px 0;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.45);
+            border-radius: 25px;
+            letter-spacing: 5px;
+        }
+
+        .section-intro .parola-accentata,
+        .section-grafico .parola-accentata,
+        .section-tipi .parola-accentata,
+        .section-regole .parola-accentata {
+            background: rgba(0, 0, 0, 0.14);
+            color: #2d3436;
+        }
+
+        .accento-tonico {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.3em;
+            text-decoration: underline;
+            text-decoration-color: #e74c3c;
+            text-decoration-thickness: 4px;
+        }
+
+        .tabella {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 45px 0;
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+        }
+
+        .tabella th {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: white;
+            padding: 35px;
+            text-align: left;
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+
+        .tabella td {
+            padding: 32px 35px;
+            border-bottom: 3px solid #ecf0f1;
+            color: #2d3436;
+            font-size: 1.4em;
+        }
+
+        .tabella tr {
+            transition: all 0.4s ease;
+        }
+
+        .tabella tr:hover {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .tabella tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 16px 32px;
+            border-radius: 45px;
+            font-size: 1.3em;
+            margin: 12px;
+            font-weight: bold;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+            transition: all 0.4s ease;
+        }
+
+        .badge:hover {
+            transform: scale(1.25);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+        }
+
+        .badge-tronca {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+        }
+
+        .badge-piana {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+        }
+
+        .badge-sdrucciola {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+        }
+
+        .badge-bisdrucciola {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: white;
+        }
+
+        .badge-acuto {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+        }
+
+        .badge-grave {
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            color: white;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: bold;
+            color: #2d3436;
+            box-shadow: 0 5px 15px rgba(253, 203, 110, 0.6);
+        }
+
+        ul, ol {
+            margin: 35px 0 35px 45px;
+        }
+
+        li {
+            margin: 20px 0;
+            font-size: 1.4em;
+            line-height: 2.1;
+        }
+
+        .nota-importante {
+            background: linear-gradient(135deg, #ff7675 0%, #d63031 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 28px;
+            margin: 45px 0;
+            border-left: 15px solid #ffffff;
+            font-size: 1.5em;
+            box-shadow: 0 15px 40px rgba(214, 48, 49, 0.6);
+        }
+
+        .nota-importante strong {
+            font-size: 1.6em;
+            display: block;
+            margin-bottom: 25px;
+        }
+
+        .regola-box {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            margin: 35px 0;
+            border-left: 12px solid white;
+            font-size: 1.4em;
+            box-shadow: 0 12px 35px rgba(108, 92, 231, 0.6);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: white;
+            text-align: center;
+            padding: 80px;
+            margin-top: 0;
+        }
+
+        footer p {
+            margin: 20px 0;
+            font-size: 1.5em;
+        }
+
+        .emoji-grande {
+            font-size: 8em;
+            margin: 40px 0;
+            display: block;
+            text-align: center;
+            animation: bounce 3s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .confronto-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            margin: 40px 0;
+        }
+
+        .confronto-item {
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+            transition: all 0.5s ease;
+        }
+
+        .confronto-item:hover {
+            transform: scale(1.08);
+        }
+
+        .confronto-tonico {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+        }
+
+        .confronto-grafico {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+        }
+
+        .confronto-item h4 {
+            font-size: 2.8em;
+            margin-bottom: 28px;
+            border-bottom: 4px solid rgba(255, 255, 255, 0.6);
+            padding-bottom: 18px;
+        }
+
+        .confronto-item .icon {
+            font-size: 7em;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 45px;
+            }
+            
+            h1 {
+                font-size: 3.8em;
+            }
+            
+            .grid, .confronto-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .esempio-interattivo {
+            background: white;
+            padding: 45px;
+            border-radius: 25px;
+            margin: 35px 0;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+            color: #2d3436;
+        }
+
+        .esempio-interattivo h4 {
+            color: #2d3436;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+        }
+
+        .quiz-box {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 40px;
+            border-radius: 25px;
+            margin: 35px 0;
+            border: 6px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .quiz-question {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 28px;
+            padding: 28px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 18px;
+        }
+
+        .quiz-answer {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            padding: 28px;
+            border-radius: 18px;
+            margin-top: 25px;
+            font-size: 1.4em;
+        }
+
+        .errore-comune {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
+            padding: 35px;
+            border-radius: 20px;
+            margin: 25px 0;
+            border-left: 10px solid #e74c3c;
+        }
+
+        .errore-comune h5 {
+            font-size: 2em;
+            margin-bottom: 18px;
+            color: #e74c3c;
+        }
+
+        .step {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            margin: 28px 0;
+            font-size: 1.4em;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(9, 132, 227, 0.5);
+            transition: all 0.4s ease;
+        }
+
+        .step:hover {
+            transform: translateX(25px);
+            box-shadow: 0 15px 40px rgba(9, 132, 227, 0.7);
+        }
+
+        .schema-visivo {
+            background: white;
+            padding: 50px;
+            border-radius: 28px;
+            margin: 40px 0;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+        }
+
+        .schema-visivo h4 {
+            color: #2d3436;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .parola-schema {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin: 35px 0;
+            flex-wrap: wrap;
+        }
+
+        .sillaba-normale {
+            background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+            color: white;
+            padding: 22px 35px;
+            border-radius: 18px;
+            font-size: 2.8em;
+            font-weight: bold;
+            box-shadow: 0 6px 18px rgba(149, 165, 166, 0.5);
+        }
+
+        .sillaba-tonica {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 28px 45px;
+            border-radius: 18px;
+            font-size: 3.5em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        .trattino-schema {
+            font-size: 3.5em;
+            color: #bdc3c7;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>L'ACCENTO 📣</h1>
+            <p class="subtitle">Accento Tonico • Accento Grafico</p>
+            <div class="accento-display">à è ì ò ù</div>
+        </header>
+
+        <div class="content">
+            <!-- INTRODUZIONE -->
+            <div class="section section-intro">
+                <h2>📚 COS'È L'ACCENTO?</h2>
+                
+                <div class="definizione">
+                    <strong style="font-size: 1.7em; display: block; margin-bottom: 28px;">🔑 DEFINIZIONE</strong>
+                    L'accento è l'<span class="highlight">intensità maggiore</span> con cui si pronuncia una sillaba rispetto alle altre nella stessa parola. È come un "colpo di voce" che rende una sillaba più forte delle altre.
+                </div>
+
+                <div class="confronto-box">
+                    <div class="confronto-tonico">
+                        <div class="icon">🗣️</div>
+                        <h4>ACCENTO TONICO</h4>
+                        <p style="font-size: 1.6em; margin: 25px 0;">
+                            L'accento che si <strong>PRONUNCIA</strong>
+                        </p>
+                        <div class="parola-accentata" style="background: rgba(255, 255, 255, 0.3); color: white;">
+                            c<span class="accento-tonico">a</span>-sa
+                        </div>
+                        <p style="font-size: 1.4em; margin-top: 25px;">
+                            Tutte le parole hanno un accento tonico!
+                        </p>
+                    </div>
+                    <div class="confronto-grafico">
+                        <div class="icon">✍️</div>
+                        <h4>ACCENTO GRAFICO</h4>
+                        <p style="font-size: 1.6em; margin: 25px 0;">
+                            L'accento che si <strong>SCRIVE</strong>
+                        </p>
+                        <div class="parola-accentata" style="background: rgba(255, 255, 255, 0.3); color: white;">
+                            citt<span style="color: #ffeaa7;">à</span>
+                        </div>
+                        <p style="font-size: 1.4em; margin-top: 25px;">
+                            Solo alcune parole hanno l'accento grafico!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h3>🎯 Differenza Fondamentale</h3>
+                    <div style="font-size: 1.5em; line-height: 2.3;">
+                        <strong style="color: #e74c3c;">ACCENTO TONICO:</strong> Tutte le parole ce l'hanno (si sente quando parliamo)<br>
+                        <strong style="color: #3498db;">ACCENTO GRAFICO:</strong> Solo alcune parole ce l'hanno (si vede quando scriviamo)
+                    </div>
+                </div>
+
+                <div class="esempio-interattivo">
+                    <h4>📖 Esempio Pratico</h4>
+                    <div class="parola-schema">
+                        <div class="sillaba-normale">TA</div>
+                        <div class="trattino-schema">-</div>
+                        <div class="sillaba-tonica">VO</div>
+                        <div class="trattino-schema">-</div>
+                        <div class="sillaba-normale">LO</div>
+                    </div>
+                    <p style="text-align: center; font-size: 1.6em; margin-top: 25px;">
+                        In <strong>TAVOLO</strong> l'accento tonico cade su <span style="color: #e74c3c; font-weight: bold;">VO</span><br>
+                        Ma NON si scrive l'accento grafico → tavolo (non tavòlo)
+                    </p>
+                </div>
+
+                <div class="nota-importante">
+                    <strong>⚠️ RICORDA</strong>
+                    <p style="margin-top: 18px; font-size: 1.4em;">
+                        <strong>TUTTE</strong> le parole italiane hanno un accento tonico (quello che si pronuncia)<br>
+                        <strong>SOLO ALCUNE</strong> parole hanno l'accento grafico (quello che si scrive)
+                    </p>
+                </div>
+            </div>
+
+            <!-- ACCENTO TONICO -->
+            <div class="section section-tonico">
+                <h2>🗣️ L'ACCENTO TONICO</h2>
+                
+                <div class="definizione">
+                    <strong style="font-size: 1.7em; display: block; margin-bottom: 28px;">📖 DEFINIZIONE</strong>
+                    L'accento tonico è l'<span class="highlight">intensità</span> con cui si pronuncia una sillaba. La sillaba su cui cade l'accento si chiama <span class="highlight">sillaba tonica</span>, le altre sono <span class="highlight">sillabe atone</span>.
+                </div>
+
+                <div class="box">
+                    <h3>🎵 Come Funziona</h3>
+                    <p style="font-size: 1.5em; margin: 25px 0;">
+                        In ogni parola italiana c'è <strong>UNA SOLA</strong> sillaba che si pronuncia con più forza: la <strong>sillaba tonica</strong>.
+                    </p>
+                </div>
+
+                <div class="schema-visivo">
+                    <h4>Esempio Visivo: TELEFONO</h4>
+                    <div class="parola-schema">
+                        <div class="sillaba-normale">te</div>
+                        <div class="trattino-schema">-</div>
+                        <div class="sillaba-tonica">LÉ</div>
+                        <div class="trattino-schema">-</div>
+                        <div class="sillaba-normale">fo</div>
+                        <div class="trattino-schema">-</div>
+                        <div class="sillaba-normale">no</div>
+                    </div>
+                    <p style="text-align: center; font-size: 1.5em; margin-top: 30px; color: #2d3436;">
+                        La sillaba <strong style="color: #e74c3c;">LÉ</strong> è tonica (si pronuncia più forte)<br>
+                        Le altre sillabe (te, fo, no) sono atone
+                    </p>
+                </div>
+
+                <div class="grid">
+                    <div class="card">
+                        <h4>SILLABA TONICA</h4>
+                        <div style="margin: 25px 0;">
+                            <span class="badge-tronca badge">TONICA 🔊</span>
+                        </div>
+                        <p style="font-size: 1.4em; margin: 22px 0;">
+                            La sillaba che si pronuncia con <strong>maggiore intensità</strong>
+                        </p>
+                        <div class="esempio">
+                            • c<strong style="color: #e74c3c;">A</strong>-sa<br>
+                            • <strong style="color: #e74c3c;">TA</strong>-vo-lo<br>
+                            • te-<strong style="color: #e74c3c;">LÉ</strong>-fo-no<br>
+                            • a-mi-<strong style="color: #e74c3c;">CO</strong><br>
+                            • li-<strong style="color: #e74c3c;">BRO</strong>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>SILLABE ATONE</h4>
+                        <div style="margin: 25px 0;">
+                            <span class="badge-atona badge" style="background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);">ATONE 🔇</span>
+                        </div>
+                        <p style="font-size: 1.4em; margin: 22px 0;">
+                            Le sillabe che si pronunciano con <strong>minore intensità</strong>
+                        </p>
+                        <div class="esempio">
+                            • <strong style="color: #95a5a6;">ca</strong>-SA<br>
+                            • ta-<strong style="color: #95a5a6;">vo</strong>-<strong style="color: #95a5a6;">lo</strong><br>
+                            • <strong style="color: #95a5a6;">te</strong>-LÉ-<strong style="color: #95a5a6;">fo</strong>-<strong style="color: #95a5a6;">no</strong><br>
+                            • <strong style="color: #95a5a6;">a</strong>-<strong style="color: #95a5a6;">mi</strong>-CO<br>
+                            • <strong style="color: #95a5a6;">li</strong>-BRO
+                        </div>
+                    </div>
+                </div>
+
+                <div class="regola-box">
+                    <strong style="font-size: 1.7em; display: block; margin-bottom: 20px;">📏 REGOLA FONDAMENTALE</strong>
+                    <p style="font-size: 1.4em; line-height: 2.2;">
+                        Ogni parola italiana ha <strong>UNA E UNA SOLA</strong> sillaba tonica.<br>
+                        Tutte le altre sillabe sono atone.
+                    </p>
+                </div>
+            </div>
+
+            <!-- TIPI DI PAROLE -->
+            <div class="section section-tipi">
+                <h2>🎭 CLASSIFICAZIONE DELLE PAROLE</h2>
+                
+                <div class="box">
+                    <p style="font-size: 1.5em; text-align: center; margin-bottom: 35px;">
+                        Le parole italiane si classificano in base alla <span class="highlight">posizione dell'accento tonico</span>
+                    </p>
+                </div>
+
+                <h3>📋 I 4 Tipi Principali</h3>
+
+                <div class="card">
+                    <h4>1️⃣ PAROLE TRONCHE</h4>
+                    <div style="margin: 28px 0;">
+                        <span class="badge badge-tronca">TRONCHE</span>
+                    </div>
+                    <p style="font-size: 1.5em; margin: 25px 0;">
+                        Accento sull'<strong>ULTIMA</strong> sillaba
+                    </p>
+                    <div class="schema-visivo">
+                        <div class="parola-schema">
+                            <div class="sillaba-normale">cit</div>
+                            <div class="trattino-schema">-</div>
+                            <div class="sillaba-tonica">TÀ</div>
+                        </div>
+                    </div>
+                    <div class="esempio">
+                        <strong>Esempi:</strong><br><br>
+                        • citt<strong style="color: #e74c3c;">à</strong><br>
+                        • caff<strong style="color: #e74c3c;">è</strong><br>
+                        • virt<strong style="color: #e74c3c;">ù</strong><br>
+                        • perch<strong style="color: #e74c3c;">é</strong><br>
+                        • lass<strong style="color: #e74c3c;">ù</strong>
+                    </div>
+                    <div class="nota-importante">
+                        <strong>⚠️ IMPORTANTE</strong><br>
+                        Le parole tronche hanno <strong>SEMPRE</strong> l'accento grafico!
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>2️⃣ PAROLE PIANE</h4>
+                    <div style="margin: 28px 0;">
+                        <span class="badge badge-piana">PIANE</span>
+                    </div>
+                    <p style="font-size: 1.5em; margin: 25px 0;">
+                        Accento sulla <strong>PENULTIMA</strong> sillaba
+                    </p>
+                    <div class="schema-visivo">
+                        <div class="parola-schema">
+                            <div class="sillaba-normale">ca</div>
+                            <div class="trattino-schema">-</div>
+                            <div class="sillaba-tonica">SA</div>
+                        </div>
+                    </div>
+                    <div class="esempio">
+                        <strong>Esempi:</strong><br><br>
+                        • c<strong style="color: #e74c3c;">a</strong>-sa<br>
+                        • t<strong style="color: #e74c3c;">a</strong>-vo-lo<br>
+                        • a-m<strong style="color: #e74c3c;">i</strong>-co<br>
+                        • l<strong style="color: #e74c3c;">i</strong>-bro<br>
+                        • s<strong style="color: #e74c3c;">o</strong>-le
+                    </div>
+                    <div class="regola-box">
+                        <strong>📏 NOTA</strong><br>
+                        Le parole piane sono le più comuni in italiano (circa 80%)!<br>
+                        Di solito NON hanno l'accento grafico.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>3️⃣ PAROLE SDRUCCIOLE</h4>
+                    <div style="margin: 28px 0;">
+                        <span class="badge badge-sdrucciola">SDRUCCIOLE</span>
+                    </div>
+                    <p style="font-size: 1.5em; margin: 25px 0;">
+                        Accento sulla <strong>TERZULTIMA</strong> sillaba
+                    </p>
+                    <div class="schema-visivo">
+                        <div class="parola-schema">
+                            <div class="sillaba-tonica">TÉ</div>
+                            <div class="trattino-schema">-</div>
+                            <div class="sillaba-normale">le</div>
+                            <div class="trattino-schema">-</div>
+                            <div class="sillaba-normale">fo</div>
+                            <div class="trattino-schema">-</div>
+                            <div class="sillaba-normale">no</div>
+                        </div>
+                    </div>
+                    <div class="esempio">
+                        <strong>Esempi:</strong><br><br>
+                        • t<strong style="color: #e74c3c;">é</strong>-le-fo-no<br>
+                        • t<strong style="color: #e74c3c;">a</strong>-vo-la<br>
+                        • <strong style="color: #e74c3c;">al</strong>-be-ro<br>
+                        • m<strong style="color: #e74c3c;">e</strong>-di-co<br>
+                        • z<strong style="color: #e74c3c;">uc</strong>-che-ro
+                    </div>
+                    <div class="regola-box">
+                        <strong>📏 NOTA</strong><br>
+                        Le parole sdrucciole di solito NON hanno l'accento grafico.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>4️⃣ PAROLE BISDRUCCIOLE</h4>
+                    <div style="margin: 28px 0;">
+                        <span class="badge badge-bisdrucciola">BISDRUCCIOLE</span>
+                    </div>
+                    <p style="font-size: 1.5em; margin: 25px 0;">
+                        Accento sulla <strong>QUARTULTIMA</strong> sillaba (o oltre)
+                    </p>
+                    <div class="schema-visivo">
+                        <div class="parola-schema">
+                            <div class="sillaba-tonica">DÌ</div>
+                            <div class="trattino-schema">-</div>
+                            <div class="sillaba-normale">gli</div>
+                            <div class="trattino-schema">-</div>
+                            <div class="sillaba-normale">e</div>
+                            <div class="trattino-schema">-</div>
+                            <div class="sillaba-normale">lo</div>
+                        </div>
+                    </div>
+                    <div class="esempio">
+                        <strong>Esempi:</strong><br><br>
+                        • d<strong style="color: #e74c3c;">i</strong>-glie-lo<br>
+                        • <strong style="color: #e74c3c;">man</strong>-da-me-lo<br>
+                        • r<strong style="color: #e74c3c;">e</strong>-ci-ta-no<br>
+                        • <strong style="color: #e74c3c;">a</strong>-bi-ta-no<br>
+                        • <strong style="color: #e74c3c;">por</strong>-ta-me-lo
+                    </div>
+                    <div class="regola-box">
+                        <strong>📏 NOTA</strong><br>
+                        Le bisdrucciole sono rare e si trovano soprattutto nelle forme verbali con pronomi (mandamelo, diglielo).
+                    </div>
+                </div>
+
+                <h3>📊 Schema Riassuntivo</h3>
+                <table class="tabella">
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Posizione Accento</th>
+                        <th>Esempio</th>
+                        <th>Schema</th>
+                        <th>Frequenza</th>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: #e74c3c; font-size: 1.4em;">TRONCHE</strong></td>
+                        <td>Ultima sillaba</td>
+                        <td>citt<strong>à</strong>, caff<strong>è</strong></td>
+                        <td>...TÀ</td>
+                        <td>Rara</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: #3498db; font-size: 1.4em;">PIANE</strong></td>
+                        <td>Penultima sillaba</td>
+                        <td>c<strong>a</strong>-sa, t<strong>a</strong>-vo-lo</td>
+                        <td>...TÀ-ta</td>
+                        <td>Molto comune (80%)</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: #2ecc71; font-size: 1.4em;">SDRUCCIOLE</strong></td>
+                        <td>Terzultima sillaba</td>
+                        <td>t<strong>é</strong>-le-fo-no</td>
+                        <td>...TÀ-ta-ta</td>
+                        <td>Comune</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: #9b59b6; font-size: 1.4em;">BISDRUCCIOLE</strong></td>
+                        <td>Quartultima sillaba</td>
+                        <td>d<strong>ì</strong>-glie-lo</td>
+                        <td>...TÀ-ta-ta-ta</td>
+                        <td>Rara</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- ACCENTO GRAFICO -->
+            <div class="section section-grafico">
+                <h2>✍️ L'ACCENTO GRAFICO</h2>
+                
+                <div class="definizione">
+                    <strong style="font-size: 1.7em; display: block; margin-bottom: 28px;">📖 DEFINIZIONE</strong>
+                    L'accento grafico è il <span class="highlight">segno</span> che si scrive su alcune parole per indicare dove cade l'accento tonico. In italiano si usa sulle vocali: <span class="highlight">à è ì ò ù</span>
+                </div>
+
+                <div class="box">
+                    <h3>📝 I Segni dell'Accento</h3>
+                    <div class="parola-accentata" style="font-size: 5em;">
+                        à   è   ì   ò   ù
+                    </div>
+                    <p style="font-size: 1.5em; text-align: center; margin-top: 30px;">
+                        L'accento grafico si mette sopra le vocali
+                    </p>
+                </div>
+
+                <div class="nota-importante">
+                    <strong>⚠️ ATTENZIONE</strong>
+                    <p style="margin-top: 18px; font-size: 1.4em;">
+                        L'accento grafico è <strong>DIVERSO</strong> dall'apostrofo!<br><br>
+                        ✅ ACCENTO: <strong>è</strong> (segno sulla vocale)<br>
+                        ❌ APOSTROFO: <strong>l'</strong> (segno dopo la lettera)
+                    </p>
+                </div>
+            </div>
+
+            <!-- ACUTO E GRAVE -->
+            <div class="section section-acuto-grave">
+                <h2>📐 ACCENTO ACUTO E ACCENTO GRAVE</h2>
+                
+                <div class="box">
+                    <p style="font-size: 1.5em; text-align: center; margin-bottom: 35px;">
+                        Esistono due tipi di accento grafico in italiano
+                    </p>
+                </div>
+
+                <div class="confronto-box">
+                    <div style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); color: white; padding: 45px; border-radius: 25px; text-align: center;">
+                        <div style="font-size: 7em; margin: 30px 0;">é í</div>
+                        <h4 style="font-size: 3em; margin-bottom: 25px; border-bottom: 4px solid rgba(255, 255, 255, 0.5); padding-bottom: 18px;">ACCENTO ACUTO</h4>
+                        <p style="font-size: 1.6em; margin: 25px 0;">
+                            Va dall'alto verso destra ↗️<br>
+                            Si usa per E e I <strong>chiuse</strong>
+                        </p>
+                        <div class="esempio" style="background: rgba(255, 255, 255, 0.3); border-left-color: white; color: white; font-size: 1.5em;">
+                            • perch<strong>é</strong><br>
+                            • affinch<strong>é</strong><br>
+                            • poich<strong>é</strong><br>
+                            • bench<strong>é</strong>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); color: white; padding: 45px; border-radius: 25px; text-align: center;">
+                        <div style="font-size: 7em; margin: 30px 0;">à è ì ò ù</div>
+                        <h4 style="font-size: 3em; margin-bottom: 25px; border-bottom: 4px solid rgba(255, 255, 255, 0.5); padding-bottom: 18px;">ACCENTO GRAVE</h4>
+                        <p style="font-size: 1.6em; margin: 25px 0;">
+                            Va dall'alto verso sinistra ↖️<br>
+                            Si usa per A, E, I, O, U <strong>aperte</strong>
+                        </p>
+                        <div class="esempio" style="background: rgba(255, 255, 255, 0.3); border-left-color: white; color: white; font-size: 1.5em;">
+                            • citt<strong>à</strong><br>
+                            • caff<strong>è</strong><br>
+                            • cos<strong>ì</strong><br>
+                            • per<strong>ò</strong><br>
+                            • virt<strong>ù</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="regola-box">
+                    <strong style="font-size: 1.7em; display: block; margin-bottom: 20px;">📏 REGOLA PRATICA</strong>
+                    <p style="font-size: 1.4em; line-height: 2.2;">
+                        <strong>ACCENTO ACUTO (é, í):</strong> Vocale chiusa, suono più stretto<br>
+                        <strong>ACCENTO GRAVE (à, è, ì, ò, ù):</strong> Vocale aperta, suono più largo<br><br>
+                        Nella pratica moderna, si usa quasi sempre l'accento <strong>GRAVE</strong> (`)
+                    </p>
+                </div>
+
+                <div class="nota-importante">
+                    <strong>💡 NOTA IMPORTANTE</strong>
+                    <p style="margin-top: 18px; font-size: 1.4em;">
+                        Nella scrittura quotidiana, molte persone usano solo l'accento grave (`)<br>
+                        L'accento acuto (´) si usa principalmente in testi formali e con parole come: perché, affinché, poiché, benché
+                    </p>
+                </div>
+            </div>
+
+            <!-- QUANDO SI USA -->
+            <div class="section section-quando">
+                <h2>❓ QUANDO SI USA L'ACCENTO GRAFICO</h2>
+                
+                <div class="box">
+                    <p style="font-size: 1.5em; text-align: center; margin-bottom: 35px;">
+                        L'accento grafico si scrive <strong>OBBLIGATORIAMENTE</strong> in questi casi
+                    </p>
+                </div>
+
+                <h3>📋 Casi Obbligatori</h3>
+
+                <div class="card">
+                    <h4>1️⃣ PAROLE TRONCHE</h4>
+                    <p style="font-size: 1.5em; margin: 25px 0;">
+                        Tutte le parole con accento sull'<strong>ultima sillaba</strong>
+                    </p>
+                    <div class="esempio">
+                        <strong>Esempi:</strong><br><br>
+                        • citt<strong>à</strong> (città)<br>
+                        • caff<strong>è</strong> (caffè)<br>
+                        • virt<strong>ù</strong> (virtù)<br>
+                        • perch<strong>é</strong> (perché)<br>
+                        • cos<strong>ì</strong> (così)<br>
+                        • falc<strong>ò</strong> (falcò)<br>
+                        • tabu<strong>ù</strong> (tabù)
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>2️⃣ MONOSILLABI ACCENTATI</h4>
+                    <p style="font-size: 1.5em; margin: 25px 0;">
+                        Alcune parole di una sola sillaba per distinguerle da altre uguali
+                    </p>
+                    <table class="tabella">
+                        <tr>
+                            <th>Con Accento</th>
+                            <th>Significato</th>
+                            <th>Senza Accento</th>
+                            <th>Significato</th>
+                        </tr>
+                        <tr>
+                            <td><strong style="font-size: 1.5em;">è</strong></td>
+                            <td>verbo essere (3ª pers.)</td>
+                            <td><strong style="font-size: 1.5em;">e</strong></td>
+                            <td>congiunzione</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="font-size: 1.5em;">dà</strong></td>
+                            <td>verbo dare</td>
+                            <td><strong style="font-size: 1.5em;">da</strong></td>
+                            <td>preposizione</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="font-size: 1.5em;">dì</strong></td>
+                            <td>giorno</td>
+                            <td><strong style="font-size: 1.5em;">di</strong></td>
+                            <td>preposizione</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="font-size: 1.5em;">là</strong></td>
+                            <td>avverbio di luogo</td>
+                            <td><strong style="font-size: 1.5em;">la</strong></td>
+                            <td>articolo/pronome</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="font-size: 1.5em;">lì</strong></td>
+                            <td>avverbio di luogo</td>
+                            <td><strong style="font-size: 1.5em;">li</strong></td>
+                            <td>pronome</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="font-size: 1.5em;">né</strong></td>
+                            <td>congiunzione negativa</td>
+                            <td><strong style="font-size: 1.5em;">ne</strong></td>
+                            <td>pronome/avverbio</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="font-size: 1.5em;">sé</strong></td>
+                            <td>pronome riflessivo</td>
+                            <td><strong style="font-size: 1.5em;">se</strong></td>
+                            <td>congiunzione/pronome</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="font-size: 1.5em;">sì</strong></td>
+                            <td>avverbio affermativo</td>
+                            <td><strong style="font-size: 1.5em;">si</strong></td>
+                            <td>pronome riflessivo</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="font-size: 1.5em;">tè</strong></td>
+                            <td>bevanda</td>
+                            <td><strong style="font-size: 1.5em;">te</strong></td>
+                            <td>pronome</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h4>3️⃣ QUI, QUA, SU, GIÙ</h4>
+                    <p style="font-size: 1.5em; margin: 25px 0;">
+                        Alcuni avverbi prendono l'accento
+                    </p>
+                    <div class="esempio">
+                        ✅ pi<strong>ù</strong> (avverbio)<br>
+                        ✅ gi<strong>ù</strong> (avverbio)<br>
+                        ✅ ci<strong>ò</strong> (pronome)<br><br>
+                        ❌ qui (NO accento)<br>
+                        ❌ qua (NO accento)<br>
+                        ❌ su (NO accento)
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>4️⃣ FORME VERBALI</h4>
+                    <p style="font-size: 1.5em; margin: 25px 0;">
+                        Alcune forme verbali alla terza persona plurale
+                    </p>
+                    <div class="esempio">
+                        <strong>Esempi:</strong><br><br>
+                        • d<strong>à</strong>nno (verbo dare) vs danno (nome)<br>
+                        • s<strong>ì</strong>ano (congiuntivo di essere)<br>
+                        • àncora (ancora = di nuovo) vs ancóra (strumento navale)
+                    </div>
+                </div>
+
+                <h3>❌ Quando NON si usa</h3>
+                <div class="box">
+                    <div style="font-size: 1.5em; line-height: 2.3;">
+                        <strong style="color: #2d3436;">NON si usa l'accento grafico su:</strong><br><br>
+                        ❌ Parole piane (casa, tavolo, amico)<br>
+                        ❌ Parole sdrucciole (telefono, tavola, medico)<br>
+                        ❌ Parole bisdrucciole (diglielo, portamelo)<br>
+                        ❌ Monosillabi che non creano ambiguità (me, tu, no, su, qui, qua)<br>
+                        ❌ Nomi propri (tranne rare eccezioni)
+                    </div>
+                </div>
+            </div>
+
+            <!-- REGOLE -->
+            <div class="section section-regole">
+                <h2>📏 REGOLE PRATICHE</h2>
+                
+                <h3>🎯 Come Capire Dove Cade l'Accento</h3>
+
+                <div class="step">
+                    <strong>PASSO 1:</strong> Pronuncia la parola ad alta voce
+                </div>
+
+                <div class="step">
+                    <strong>PASSO 2:</strong> Individua quale sillaba pronuncia con più forza
+                </div>
+
+                <div class="step">
+                    <strong>PASSO 3:</strong> Quella è la sillaba tonica!
+                </div>
+
+                <div class="esempio-interattivo">
+                    <h4>Esempio Pratico: TELEFONO</h4>
+                    <p style="font-size: 1.4em; margin: 20px 0;">Pronuncia: te-LÉ-fo-no</p>
+                    <p style="font-size: 1.4em; margin: 20px 0;">La sillaba che si pronuncia più forte è: <strong style="color: #e74c3c;">LÉ</strong></p>
+                    <div class="parola-schema">
+                        <div class="sillaba-normale">te</div>
+                        <div class="trattino-schema">-</div>
+                        <div class="sillaba-tonica">LÉ</div>
+                        <div class="trattino-schema">-</div>
+                        <div class="sillaba-normale">fo</div>
+                        <div class="trattino-schema">-</div>
+                        <div class="sillaba-normale">no</div>
+                    </div>
+                </div>
+
+                <h3>💡 Trucchi per Ricordare</h3>
+                <div class="grid">
+                    <div class="card">
+                        <h4>Trucco 1: La Regola dell'80%</h4>
+                        <p style="font-size: 1.4em; margin: 20px 0;">
+                            La maggior parte delle parole italiane (circa 80%) sono <strong>PIANE</strong> (accento sulla penultima)
+                        </p>
+                        <div class="esempio">
+                            casa, tavolo, libro, sole, mare, fiore, amico, penna
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>Trucco 2: Tronche = Accento Scritto</h4>
+                        <p style="font-size: 1.4em; margin: 20px 0;">
+                            Se l'accento cade sull'ultima sillaba, <strong>DEVI</strong> scriverlo
+                        </p>
+                        <div class="esempio">
+                            città, caffè, virtù, però, così
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>Trucco 3: Monosillabi Ambigui</h4>
+                        <p style="font-size: 1.4em; margin: 20px 0;">
+                            L'accento distingue parole uguali con significati diversi
+                        </p>
+                        <div class="esempio">
+                            è (verbo) vs e (congiunzione)<br>
+                            dà (verbo) vs da (preposizione)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="regola-box">
+                    <strong style="font-size: 1.7em; display: block; margin-bottom: 20px;">📏 REGOLA D'ORO</strong>
+                    <p style="font-size: 1.4em; line-height: 2.2;">
+                        In caso di dubbio:<br>
+                        1. Pronuncia la parola ad alta voce<br>
+                        2. Individua la sillaba più forte<br>
+                        3. Se è l'ultima sillaba → scrivi l'accento<br>
+                        4. Se non è l'ultima → di solito NON si scrive
+                    </p>
+                </div>
+            </div>
+
+            <!-- ERRORI COMUNI -->
+            <div class="section section-errori">
+                <h2>❌ ERRORI COMUNI DA EVITARE</h2>
+                
+                <h3>🚫 Gli Errori Più Frequenti</h3>
+
+                <div class="errore-comune">
+                    <h5>ERRORE 1: Confondere È con E</h5>
+                    <div style="font-size: 1.4em; margin-top: 20px;">
+                        ❌ <strong>E</strong> bello (verbo essere) → SBAGLIATO<br>
+                        ✅ <strong>È</strong> bello → CORRETTO<br><br>
+                        ❌ Paolo <strong>è</strong> Maria → SBAGLIATO<br>
+                        ✅ Paolo <strong>e</strong> Maria → CORRETTO
+                    </div>
+                </div>
+
+                <div class="errore-comune">
+                    <h5>ERRORE 2: Mettere l'accento dove non serve</h5>
+                    <div style="font-size: 1.4em; margin-top: 20px;">
+                        ❌ casà, tavolò, libró → SBAGLIATO<br>
+                        ✅ casa, tavolo, libro → CORRETTO<br><br>
+                        Le parole piane NON hanno l'accento grafico!
+                    </div>
+                </div>
+
+                <div class="errore-comune">
+                    <h5>ERRORE 3: Dimenticare l'accento sulle tronche</h5>
+                    <div style="font-size: 1.4em; margin-top: 20px;">
+                        ❌ citta, caffe, virtu → SBAGLIATO<br>
+                        ✅ citt<strong>à</strong>, caff<strong>è</strong>, virt<strong>ù</strong> → CORRETTO<br><br>
+                        Le parole tronche DEVONO avere l'accento!
+                    </div>
+                </div>
+
+                <div class="errore-comune">
+                    <h5>ERRORE 4: Confondere DA e DÀ</h5>
+                    <div style="font-size: 1.4em; margin-top: 20px;">
+                        ❌ Lui <strong>da</strong> un libro a Maria (verbo dare) → SBAGLIATO<br>
+                        ✅ Lui <strong>dà</strong> un libro a Maria → CORRETTO<br><br>
+                        ❌ Vengo <strong>dà</strong> casa (preposizione) → SBAGLIATO<br>
+                        ✅ Vengo <strong>da</strong> casa → CORRETTO
+                    </div>
+                </div>
+
+                <div class="errore-comune">
+                    <h5>ERRORE 5: Qual'è con l'apostrofo</h5>
+                    <div style="font-size: 1.4em; margin-top: 20px;">
+                        ❌ Qual'<strong>è</strong> → SBAGLIATO<br>
+                        ✅ Qual <strong>è</strong> → CORRETTO<br><br>
+                        "Qual" è un troncamento, non un'elisione!
+                    </div>
+                </div>
+
+                <div class="errore-comune">
+                    <h5>ERRORE 6: Un pò invece di un po'</h5>
+                    <div style="font-size: 1.4em; margin-top: 20px;">
+                        ❌ un p<strong>ò</strong> → SBAGLIATO (accento)<br>
+                        ✅ un p<strong>o'</strong> → CORRETTO (apostrofo)<br><br>
+                        È l'apostrofo del troncamento di "poco"!
+                    </div>
+                </div>
+
+                <div class="nota-importante">
+                    <strong>⚠️ TRUCCO PER RICORDARE</strong>
+                    <p style="margin-top: 18px; font-size: 1.4em;">
+                        Per capire se serve l'accento sui monosillabi, prova a sostituire la parola:<br><br>
+                        "Lui <strong>dà</strong> un libro" → puoi dire "Lui <strong>dona</strong> un libro" = verbo = accento SÌ<br>
+                        "Vengo <strong>da</strong> casa" → non puoi dire "Vengo dona casa" = preposizione = accento NO
+                    </p>
+                </div>
+            </div>
+
+            <!-- ESERCIZI -->
+            <div class="section section-esercizi">
+                <h2>✏️ ESERCIZI PRATICI</h2>
+                
+                <h3>🎮 Metti alla Prova le Tue Conoscenze!</h3>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">1. Dove cade l'accento in TELEFONO?</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> Sulla seconda sillaba → te-<strong>LÉ</strong>-fo-no<br>
+                        <strong>Tipo:</strong> Parola SDRUCCIOLA (accento sulla terzultima)<br>
+                        <strong>Accento grafico:</strong> NO (le sdrucciole non lo hanno)
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">2. Come si scrive: "citta" o "città"?</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> <strong>città</strong> (con l'accento)<br>
+                        <strong>Motivo:</strong> È una parola TRONCA (accento sull'ultima sillaba)<br>
+                        Le parole tronche hanno SEMPRE l'accento grafico!
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">3. "e" o "è"? → Paolo ___ Maria sono amici</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> Paolo <strong>e</strong> Maria sono amici<br>
+                        <strong>Motivo:</strong> È una congiunzione (unisce due nomi)<br>
+                        "è" con l'accento è il verbo essere!
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">4. "da" o "dà"? → Lui ___ un libro a Maria</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> Lui <strong>dà</strong> un libro a Maria<br>
+                        <strong>Motivo:</strong> È il verbo DARE (3ª persona singolare)<br>
+                        "da" senza accento è la preposizione!
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">5. Dove cade l'accento in CASA?</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> Sulla prima sillaba → <strong>CA</strong>-sa<br>
+                        <strong>Tipo:</strong> Parola PIANA (accento sulla penultima)<br>
+                        <strong>Accento grafico:</strong> NO (le piane non lo hanno)
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">6. "Qual è" o "Qual'è"?</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> <strong>Qual è</strong> (senza apostrofo)<br>
+                        <strong>Motivo:</strong> "Qual" è un troncamento, non un'elisione<br>
+                        Si può dire "qual buon vento", quindi NO apostrofo!
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">7. Classifica la parola MEDICO</div>
+                    <div class="quiz-answer">
+                        <strong>Divisione:</strong> <strong>MÉ</strong>-di-co<br>
+                        <strong>Accento tonico:</strong> Prima sillaba (MÉ)<br>
+                        <strong>Tipo:</strong> SDRUCCIOLA (accento sulla terzultima)<br>
+                        <strong>Accento grafico:</strong> NO
+                    </div>
+                </div>
+
+                <div class="quiz-box">
+                    <div class="quiz-question">8. "più" o "piu"?</div>
+                    <div class="quiz-answer">
+                        <strong>Risposta:</strong> <strong>più</strong> (con l'accento)<br>
+                        <strong>Motivo:</strong> È un avverbio che richiede sempre l'accento<br>
+                        Anche: giù (con accento), ma qui e qua (senza accento)
+                    </div>
+                </div>
+
+                <h3>📋 Tabella di Riepilogo</h3>
+                <table class="tabella">
+                    <tr>
+                        <th>Tipo di Parola</th>
+                        <th>Posizione Accento</th>
+                        <th>Accento Grafico?</th>
+                        <th>Esempi</th>
+                    </tr>
+                    <tr>
+                        <td><strong>TRONCHE</strong></td>
+                        <td>Ultima sillaba</td>
+                        <td style="background: rgba(46, 204, 113, 0.2);">✅ SÌ (sempre)</td>
+                        <td>città, caffè, virtù</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PIANE</strong></td>
+                        <td>Penultima sillaba</td>
+                        <td style="background: rgba(231, 76, 60, 0.2);">❌ NO</td>
+                        <td>casa, tavolo, libro</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SDRUCCIOLE</strong></td>
+                        <td>Terzultima sillaba</td>
+                        <td style="background: rgba(231, 76, 60, 0.2);">❌ NO</td>
+                        <td>telefono, tavola, medico</td>
+                    </tr>
+                    <tr>
+                        <td><strong>BISDRUCCIOLE</strong></td>
+                        <td>Quartultima sillaba</td>
+                        <td style="background: rgba(231, 76, 60, 0.2);">❌ NO</td>
+                        <td>diglielo, portamelo</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MONOSILLABI</strong></td>
+                        <td>Unica sillaba</td>
+                        <td style="background: rgba(243, 156, 18, 0.2);">⚠️ DIPENDE</td>
+                        <td>è (sì), e (no), dà (sì), da (no)</td>
+                    </tr>
+                </table>
+
+                <div class="regola-box">
+                    <strong style="font-size: 1.7em; display: block; margin-bottom: 20px;">🎯 SCHEMA FINALE</strong>
+                    <div style="font-size: 1.4em; line-height: 2.3;">
+                        <strong>ACCENTO TONICO:</strong> Tutte le parole ce l'hanno (quello che si pronuncia)<br>
+                        <strong>ACCENTO GRAFICO:</strong> Solo alcune ce l'hanno (quello che si scrive)<br><br>
+                        <strong style="color: #2ecc71;">✅ SI SCRIVE su:</strong> Tronche, alcuni monosillabi (è, dà, più, giù)<br>
+                        <strong style="color: #e74c3c;">❌ NON SI SCRIVE su:</strong> Piane, sdrucciole, bisdrucciole
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="emoji-grande">📣 à è ì ò ù 📚</div>
+            <p style="font-size: 2.5em; margin-bottom: 28px;">L'Accento in Italiano</p>
+            <p style="font-size: 1.5em;">Accento Tonico e Accento Grafico</p>
+            <p style="margin-top: 40px; opacity: 0.85; font-size: 1.4em;">
+                🗣️ Tutte le parole hanno l'accento TONICO<br>
+                ✍️ Solo alcune hanno l'accento GRAFICO<br>
+                📏 Impara le regole e non sbaglierai più! ✨
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

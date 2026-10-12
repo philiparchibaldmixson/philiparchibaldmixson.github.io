@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Sujet Non Exprimé - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 35px 95px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            animation: containerAppear 1.3s ease-out;
+        }
+
+        @keyframes containerAppear {
+            from {
+                opacity: 0;
+                transform: translateY(-120px) scale(0.85) rotateX(15deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotateX(0deg);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0055A4 0%, #FFFFFF 25%, #EF4135 50%, #FFFFFF 75%, #0055A4 100%);
+            padding: 65px 45px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                60deg,
+                transparent,
+                transparent 30px,
+                rgba(255, 255, 255, 0.08) 30px,
+                rgba(255, 255, 255, 0.08) 60px
+            );
+            animation: headerPattern 25s linear infinite;
+        }
+
+        @keyframes headerPattern {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(60px, 60px) rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            color: #0055A4;
+            animation: titleFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-12px) scale(1.03); }
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+
+        .subsubtitle {
+            font-size: 1.4em;
+            color: #EF4135;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 55px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 22px;
+            margin-bottom: 50px;
+            font-size: 1.3em;
+            box-shadow: 0 18px 45px rgba(106, 17, 203, 0.5);
+            animation: introSlide 1.2s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes introSlide {
+            from {
+                opacity: 0;
+                transform: translateX(-150px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .intro::after {
+            content: '👻';
+            position: absolute;
+            right: 35px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 7em;
+            opacity: 0.2;
+            animation: ghostFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes ghostFloat {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-50%) translateX(-15px); }
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 45px;
+            background: linear-gradient(to bottom right, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 24px;
+            border-left: 10px solid #EF4135;
+            transition: all 0.5s ease;
+            animation: sectionFade 1s ease-out;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        @keyframes sectionFade {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section:hover {
+            transform: translateX(18px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+            border-left-color: #0055A4;
+        }
+
+        h2 {
+            color: #0055A4;
+            font-size: 2.6em;
+            margin-bottom: 35px;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #EF4135 0%, #ff6b6b 50%, #0055A4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.8em;
+            animation: iconRotate 5s ease-in-out infinite;
+            box-shadow: 0 10px 35px rgba(239, 65, 53, 0.5);
+        }
+
+        @keyframes iconRotate {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.25) rotate(-15deg); }
+            75% { transform: scale(1.25) rotate(15deg); }
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 35px 0;
+            box-shadow: 0 12px 40px rgba(0, 85, 164, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .definition-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: definitionShine 3s infinite;
+        }
+
+        @keyframes definitionShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .definition-title {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .definition-title::before {
+            content: '📖';
+            font-size: 1.6em;
+        }
+
+        .definition-content {
+            font-size: 1.25em;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 35px;
+        }
+
+        .case-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            border: 4px solid #0055A4;
+            box-shadow: 0 10px 35px rgba(0, 85, 164, 0.15);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(239, 65, 53, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .case-card:hover::before {
+            left: 100%;
+        }
+
+        .case-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 55px rgba(0, 85, 164, 0.3);
+            border-color: #EF4135;
+        }
+
+        .case-title {
+            color: #EF4135;
+            font-size: 1.7em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .case-title::before {
+            content: '▸';
+            color: #0055A4;
+            font-size: 1.5em;
+        }
+
+        .case-description {
+            font-size: 1.1em;
+            color: #636e72;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sentence {
+            padding: 22px 28px;
+            margin: 18px 0;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+            border-radius: 14px;
+            font-size: 1.25em;
+            border-left: 6px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sentence:hover {
+            transform: translateX(18px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .subject-hidden {
+            background: linear-gradient(135deg, #ff6b6b 0%, #EF4135 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 10px;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(239, 65, 53, 0.4);
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        .verb {
+            color: #0055A4;
+            font-weight: bold;
+            text-decoration: underline;
+            text-decoration-color: #0055A4;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 4px;
+        }
+
+        .explanation {
+            color: #667eea;
+            font-style: italic;
+            margin-top: 8px;
+            font-size: 0.95em;
+        }
+
+        .example-box {
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            margin: 30px 0;
+            border: 4px solid #0055A4;
+            box-shadow: 0 10px 35px rgba(0, 85, 164, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 50px rgba(0, 85, 164, 0.25);
+        }
+
+        .example-title {
+            color: #EF4135;
+            font-weight: bold;
+            font-size: 1.6em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .example-title::before {
+            content: '✓';
+            background: #EF4135;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            animation: checkExpand 3s infinite;
+        }
+
+        @keyframes checkExpand {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 0 0 rgba(239, 65, 53, 0.7); 
+            }
+            50% { 
+                transform: scale(1.25); 
+                box-shadow: 0 0 0 25px rgba(239, 65, 53, 0); 
+            }
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 35px;
+            border-radius: 20px;
+            margin: 35px 0;
+            border-left: 7px solid #f39c12;
+            box-shadow: 0 10px 30px rgba(243, 156, 18, 0.4);
+        }
+
+        .highlight-title {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: #d35400;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .highlight-title::before {
+            content: '💡';
+            font-size: 2em;
+            animation: bulbGlow 2.5s infinite;
+        }
+
+        @keyframes bulbGlow {
+            0%, 100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+            50% { opacity: 0.7; transform: scale(1.25); filter: brightness(1.5); }
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-left: 7px solid #f44336;
+            padding: 32px;
+            border-radius: 18px;
+            margin: 32px 0;
+        }
+
+        .warning-title {
+            font-weight: bold;
+            color: #c62828;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.5em;
+        }
+
+        .warning-title::before {
+            content: '⚠';
+            font-size: 2.2em;
+            animation: warningBounce 2s infinite;
+        }
+
+        @keyframes warningBounce {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            10%, 30%, 50%, 70%, 90% { transform: rotate(-18deg) scale(1.15); }
+            20%, 40%, 60%, 80% { transform: rotate(18deg) scale(1.15); }
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 25px;
+            font-size: 1.4em;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 25px;
+            border-bottom: 3px solid #e9ecef;
+            font-size: 1.15em;
+        }
+
+        .comparison-table tr:hover {
+            background: linear-gradient(to right, #f8f9fa 0%, #e8f4f8 100%);
+        }
+
+        .steps-container {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 35px;
+            border-radius: 18px;
+            margin: 30px 0;
+        }
+
+        .step {
+            padding: 25px;
+            margin: 18px 0;
+            background: white;
+            border-radius: 12px;
+            border-left: 6px solid #4caf50;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateX(15px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+        }
+
+        .step-number {
+            background: #4caf50;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-right: 15px;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .type-item {
+            background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%);
+            padding: 30px;
+            border-radius: 18px;
+            border: 3px solid #0055A4;
+            transition: all 0.4s ease;
+        }
+
+        .type-item:hover {
+            transform: translateY(-12px) scale(1.05);
+            box-shadow: 0 18px 50px rgba(0, 85, 164, 0.3);
+            border-color: #EF4135;
+        }
+
+        .type-title {
+            color: #EF4135;
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 25px;
+            margin: 50px 0;
+            box-shadow: 0 18px 55px rgba(102, 126, 234, 0.5);
+        }
+
+        .summary-title {
+            font-size: 2.4em;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .summary-title::before {
+            content: '📋';
+            font-size: 2em;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .summary-list li {
+            padding: 20px 0;
+            padding-left: 45px;
+            position: relative;
+            font-size: 1.25em;
+        }
+
+        .summary-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ffd93d;
+            font-weight: bold;
+            font-size: 1.7em;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: white;
+            text-align: center;
+            padding: 50px;
+            font-size: 1em;
+        }
+
+        .footer-logo {
+            font-size: 2.6em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #EF4135 0%, #0055A4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: logoShine 5s infinite;
+        }
+
+        @keyframes logoShine {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.6em;
+            }
+
+            .content {
+                padding: 35px;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .case-grid,
+            .types-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇫🇷 Le Sujet Non Exprimé</h1>
+            <p class="subtitle">Sujet et Complément d'Agent</p>
+            <p class="subsubtitle">Grammaire Française</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <strong>👻 Concept fascinant :</strong> En français, le sujet n'est pas toujours exprimé dans la phrase ! Il peut être sous-entendu, implicite ou omis selon le contexte. Cette particularité grammaticale est essentielle pour comprendre la construction de nombreuses phrases françaises.
+            </div>
+
+            <!-- Section 1 : Définition -->
+            <div class="section">
+                <h2><span class="icon">1</span>Qu'est-ce qu'un sujet non exprimé ?</h2>
+                
+                <div class="definition-box">
+                    <div class="definition-title">Définition</div>
+                    <div class="definition-content">
+                        Un <strong>sujet non exprimé</strong> (ou sujet implicite) est un sujet qui n'apparaît pas dans la phrase mais qui est néanmoins compris par le contexte, la conjugaison du verbe ou la construction de la phrase. Le verbe s'accorde avec ce sujet même s'il n'est pas visible.
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">Exemples de base</div>
+                    
+                    <div class="sentence">
+                        <span class="verb">Viens</span> ici !
+                        <div class="explanation">→ Sujet sous-entendu : <span class="subject-hidden">(tu)</span></div>
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="verb">Mangeons</span> ensemble !
+                        <div class="explanation">→ Sujet sous-entendu : <span class="subject-hidden">(nous)</span></div>
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="verb">Finissez</span> votre travail.
+                        <div class="explanation">→ Sujet sous-entendu : <span class="subject-hidden">(vous)</span></div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <div class="highlight-title">Point important</div>
+                    <p>Même si le sujet n'est pas exprimé, le verbe s'accorde avec lui ! La terminaison du verbe nous indique quel est le sujet sous-entendu.</p>
+                </div>
+            </div>
+
+            <!-- Section 2 : Les cas de sujet non exprimé -->
+            <div class="section">
+                <h2><span class="icon">2</span>Les différents cas</h2>
+                
+                <div class="case-grid">
+                    <div class="case-card">
+                        <div class="case-title">1. Mode Impératif</div>
+                        <div class="case-description">
+                            À l'impératif, le sujet n'est JAMAIS exprimé. Il est toujours sous-entendu.
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="verb">Regarde</span> ce paysage !
+                            <div class="explanation"><span class="subject-hidden">(tu)</span> regarde</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="verb">Partons</span> maintenant.
+                            <div class="explanation"><span class="subject-hidden">(nous)</span> partons</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="verb">Écoutez</span> attentivement.
+                            <div class="explanation"><span class="subject-hidden">(vous)</span> écoutez</div>
+                        </div>
+
+                        <div class="sentence">
+                            <span class="verb">Soyons</span> courageux !
+                            <div class="explanation"><span class="subject-hidden">(nous)</span> soyons</div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <div class="case-title">2. Mode Infinitif</div>
+                        <div class="case-description">
+                            L'infinitif n'a pas de sujet exprimé. Le sujet est déterminé par le contexte.
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="verb">Traverser</span> la rue est dangereux.
+                            <div class="explanation">→ Sujet général (action)</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            Ne pas <span class="verb">fumer</span>.
+                            <div class="explanation">→ Ordre général (vous/tout le monde)</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="verb">Tourner</span> à droite.
+                            <div class="explanation">→ Instruction (vous)</div>
+                        </div>
+
+                        <div class="sentence">
+                            <span class="verb">Agiter</span> avant emploi.
+                            <div class="explanation">→ Mode d'emploi (vous)</div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <div class="case-title">3. Mode Participe</div>
+                        <div class="case-description">
+                            Le participe présent ou passé peut avoir un sujet non exprimé.
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="verb">Arrivé</span> à Paris, je suis allé à l'hôtel.
+                            <div class="explanation">→ Sujet sous-entendu : <span class="subject-hidden">(je)</span></div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="verb">Sachant</span> la vérité, elle a tout avoué.
+                            <div class="explanation">→ Sujet sous-entendu : <span class="subject-hidden">(elle)</span></div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="verb">Fatigués</span>, nous sommes rentrés.
+                            <div class="explanation">→ Sujet sous-entendu : <span class="subject-hidden">(nous)</span></div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <div class="case-title">4. Ellipse du sujet</div>
+                        <div class="case-description">
+                            Dans certaines constructions, le sujet est omis pour éviter la répétition.
+                        </div>
+                        
+                        <div class="sentence">
+                            Marie chante et <span class="verb">danse</span>.
+                            <div class="explanation">→ Sujet omis : <span class="subject-hidden">(Marie)</span> danse</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            Pierre lit, Paul <span class="verb">écrit</span>.
+                            <div class="explanation">→ <span class="subject-hidden">(Paul)</span> est répété</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            Je lis et <span class="verb">comprends</span> le texte.
+                            <div class="explanation">→ Sujet omis : <span class="subject-hidden">(je)</span> comprends</div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <div class="case-title">5. Propositions subordonnées</div>
+                        <div class="case-description">
+                            Dans certaines subordonnées, le sujet peut être omis.
+                        </div>
+                        
+                        <div class="sentence">
+                            Avant de <span class="verb">partir</span>, ferme la porte.
+                            <div class="explanation">→ Sujet sous-entendu : <span class="subject-hidden">(tu)</span></div>
+                        </div>
+                        
+                        <div class="sentence">
+                            Pour <span class="verb">réussir</span>, il faut travailler.
+                            <div class="explanation">→ Sujet général (on/tout le monde)</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            Après avoir <span class="verb">mangé</span>, nous sommes partis.
+                            <div class="explanation">→ Sujet sous-entendu : <span class="subject-hidden">(nous)</span></div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <div class="case-title">6. Phrases nominales</div>
+                        <div class="case-description">
+                            Certaines phrases sans verbe sous-entendent un sujet.
+                        </div>
+                        
+                        <div class="sentence">
+                            Magnifique, ce tableau !
+                            <div class="explanation">→ <span class="subject-hidden">(Ce tableau est)</span> magnifique</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            Extraordinaire !
+                            <div class="explanation">→ <span class="subject-hidden">(C'est/Cela est)</span> extraordinaire</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            Quel courage !
+                            <div class="explanation">→ Exclamation sans sujet ni verbe exprimés</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 : L'impératif en détail -->
+            <div class="section">
+                <h2><span class="icon">3</span>L'impératif : Le cas le plus courant</h2>
+                
+                <div class="definition-box">
+                    <div class="definition-title">Règle fondamentale</div>
+                    <div class="definition-content">
+                        À l'impératif, le sujet n'est JAMAIS écrit. Il est toujours sous-entendu et correspond à la personne à qui l'on s'adresse : tu, nous ou vous.
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">Les trois personnes de l'impératif</div>
+                    
+                    <div class="sentence">
+                        <strong>2ème personne du singulier (tu) :</strong><br>
+                        <span class="verb">Mange</span> ta soupe !
+                        <div class="explanation">→ <span class="subject-hidden">(Tu)</span> mange ta soupe</div>
+                    </div>
+                    
+                    <div class="sentence">
+                        <strong>1ère personne du pluriel (nous) :</strong><br>
+                        <span class="verb">Allons</span> au cinéma !
+                        <div class="explanation">→ <span class="subject-hidden">(Nous)</span> allons au cinéma</div>
+                    </div>
+                    
+                    <div class="sentence">
+                        <strong>2ème personne du pluriel (vous) :</strong><br>
+                        <span class="verb">Faites</span> attention !
+                        <div class="explanation">→ <span class="subject-hidden">(Vous)</span> faites attention</div>
+                    </div>
+                </div>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Indicatif (sujet exprimé)</th>
+                            <th>Impératif (sujet non exprimé)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Tu</strong> viens ici.</td>
+                            <td><strong>Viens</strong> ici !</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nous</strong> partons maintenant.</td>
+                            <td><strong>Partons</strong> maintenant !</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vous</strong> écoutez le professeur.</td>
+                            <td><strong>Écoutez</strong> le professeur !</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tu</strong> finis ton travail.</td>
+                            <td><strong>Finis</strong> ton travail !</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nous</strong> sommes patients.</td>
+                            <td><strong>Soyons</strong> patients !</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="warning-box">
+                    <div class="warning-title">Attention à l'erreur courante !</div>
+                    <p><strong>❌ Incorrect :</strong> <em>"Tu viens ici !"</em> (à l'impératif, on ne met pas le sujet)</p>
+                    <p style="margin-top: 10px;"><strong>✅ Correct :</strong> <em>"Viens ici !"</em></p>
+                </div>
+            </div>
+
+            <!-- Section 4 : L'infinitif de narration -->
+            <div class="section">
+                <h2><span class="icon">4</span>L'infinitif de narration et d'instruction</h2>
+                
+                <div class="types-grid">
+                    <div class="type-item">
+                        <div class="type-title">📖 Infinitif de narration</div>
+                        <p style="margin-bottom: 15px;">Employé dans les récits, souvent avec "et" ou "de" :</p>
+                        
+                        <div class="sentence">
+                            Et la grenouille de <span class="verb">sauter</span> !
+                            <div class="explanation">→ = et la grenouille sauta</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            Les enfants de <span class="verb">rire</span> !
+                            <div class="explanation">→ = les enfants rirent</div>
+                        </div>
+                    </div>
+
+                    <div class="type-item">
+                        <div class="type-title">📋 Infinitif d'instruction</div>
+                        <p style="margin-bottom: 15px;">Utilisé dans les modes d'emploi, recettes, panneaux :</p>
+                        
+                        <div class="sentence">
+                            <span class="verb">Couper</span> les légumes en dés.
+                            <div class="explanation">→ (Vous devez) couper</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            Ne pas <span class="verb">dépasser</span> la dose prescrite.
+                            <div class="explanation">→ (Vous ne devez pas) dépasser</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="verb">Tourner</span> à gauche après le feu.
+                            <div class="explanation">→ (Vous devez) tourner</div>
+                        </div>
+                    </div>
+
+                    <div class="type-item">
+                        <div class="type-title">🚫 Infinitif de défense</div>
+                        <p style="margin-bottom: 15px;">Exprime une interdiction générale :</p>
+                        
+                        <div class="sentence">
+                            Ne pas <span class="verb">fumer</span>.
+                            <div class="explanation">→ Défense de fumer</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            Ne pas <span class="verb">toucher</span>.
+                            <div class="explanation">→ Il est interdit de toucher</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            Ne pas <span class="verb">marcher</span> sur la pelouse.
+                            <div class="explanation">→ Interdiction de marcher</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5 : Le participe -->
+            <div class="section">
+                <h2><span class="icon">5</span>Le participe avec sujet non exprimé</h2>
+                
+                <div class="highlight-box">
+                    <div class="highlight-title">Règle importante</div>
+                    <p>Quand un participe (présent ou passé) commence une phrase ou une proposition, son sujet non exprimé doit être le même que le sujet de la proposition principale.</p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">Participe présent</div>
+                    
+                    <div class="sentence">
+                        <span class="verb">Sachant</span> la vérité, <strong>il</strong> a tout avoué.
+                        <div class="explanation">→ <span class="subject-hidden">(Il)</span> sachant = C'est lui qui sait</div>
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="verb">Ayant</span> faim, <strong>nous</strong> sommes allés au restaurant.
+                        <div class="explanation">→ <span class="subject-hidden">(Nous)</span> ayant faim</div>
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="verb">Étant</span> malade, <strong>elle</strong> est restée chez elle.
+                        <div class="explanation">→ <span class="subject-hidden">(Elle)</span> étant malade</div>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">Participe passé</div>
+                    
+                    <div class="sentence">
+                        <span class="verb">Arrivé</span> à la gare, <strong>je</strong> suis monté dans le train.
+                        <div class="explanation">→ <span class="subject-hidden">(Je)</span> arrivé</div>
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="verb">Fatigués</span> par le voyage, <strong>nous</strong> nous sommes reposés.
+                        <div class="explanation">→ <span class="subject-hidden">(Nous)</span> fatigués</div>
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="verb">Surpris</span> par la nouvelle, <strong>ils</strong> n'ont rien dit.
+                        <div class="explanation">→ <span class="subject-hidden">(Ils)</span> surpris</div>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <div class="warning-title">Erreur fréquente : Le participe détaché</div>
+                    <p><strong>❌ Incorrect :</strong> <em>"Arrivé à Paris, la Tour Eiffel m'a impressionné."</em></p>
+                    <p style="margin: 10px 0; padding-left: 20px; font-style: italic; color: #666;">
+                        → Ce n'est pas la Tour Eiffel qui est arrivée !
+                    </p>
+                    <p><strong>✅ Correct :</strong> <em>"Arrivé à Paris, j'ai été impressionné par la Tour Eiffel."</em></p>
+                </div>
+            </div>
+
+            <!-- Section 6 : Comment identifier le sujet non exprimé -->
+            <div class="section">
+                <h2><span class="icon">6</span>Comment identifier le sujet non exprimé ?</h2>
+                
+                <div class="steps-container">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Identifiez le mode du verbe</strong> : impératif, infinitif, participe ?
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Analysez la terminaison</strong> du verbe pour connaître la personne.
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Regardez le contexte</strong> : qui parle ? à qui ? de quoi ?
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Trouvez le sujet logique</strong> dans la phrase principale si c'est une subordonnée.
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Reformulez mentalement</strong> la phrase avec le sujet exprimé pour vérifier.
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">Exercice d'identification</div>
+                    
+                    <div class="sentence">
+                        <strong>Phrase :</strong> "Parti tôt, il a évité les embouteillages."<br>
+                        <div class="explanation">
+                            → Sujet non exprimé de "Parti" : <span class="subject-hidden">(il)</span><br>
+                            → Vérification : "Étant parti tôt, il a évité..."
+                        </div>
+                    </div>
+                    
+                    <div class="sentence">
+                        <strong>Phrase :</strong> "Écoutez bien cette explication !"<br>
+                        <div class="explanation">
+                            → Mode : Impératif<br>
+                            → Terminaison : -ez = 2ème personne du pluriel<br>
+                            → Sujet : <span class="subject-hidden">(vous)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sentence">
+                        <strong>Phrase :</strong> "Ne pas déranger."<br>
+                        <div class="explanation">
+                            → Mode : Infinitif de défense<br>
+                            → Sujet général : <span class="subject-hidden">(vous / tout le monde)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 7 : Résumé -->
+            <div class="summary-box">
+                <div class="summary-title">Points clés à retenir</div>
+                <ul class="summary-list">
+                    <li>Le sujet non exprimé est sous-entendu mais le verbe s'accorde avec lui</li>
+                    <li>À l'impératif, le sujet n'est JAMAIS exprimé (tu, nous, vous)</li>
+                    <li>L'infinitif n'a pas de sujet déterminé (sujet général ou contextuel)</li>
+                    <li>Le participe a un sujet non exprimé qui doit être le même que celui de la principale</li>
+                    <li>Dans les phrases coordonnées, on peut omettre le sujet pour éviter la répétition</li>
+                    <li>Les panneaux, modes d'emploi utilisent l'infinitif sans sujet</li>
+                    <li>Le contexte permet toujours d'identifier le sujet sous-entendu</li>
+                    <li>Attention aux erreurs de participe détaché (incohérence de sujet)</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="footer-logo">Língua Academy</div>
+            <p>Maîtrisez les subtilités invisibles de la grammaire française ✨</p>
+            <p>© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

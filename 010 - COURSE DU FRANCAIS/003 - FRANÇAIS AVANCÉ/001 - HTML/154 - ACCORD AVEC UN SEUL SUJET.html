@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Accord du Verbe avec le Sujet | Língua Academy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #2d3748;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 30px;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+            padding: 60px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .header::after {
+            content: '✓';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            font-size: 400px;
+            color: rgba(255,255,255,0.03);
+            font-weight: bold;
+        }
+        
+        .header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -1px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .content {
+            padding: 60px 50px;
+        }
+        
+        .intro-section {
+            text-align: center;
+            margin-bottom: 70px;
+            padding: 40px;
+            background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
+            border-radius: 20px;
+            border-left: 6px solid #667eea;
+        }
+        
+        .intro-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2em;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .intro-section p {
+            font-size: 1.15em;
+            color: #4a5568;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .rule-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border-left: 8px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .rule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+        
+        .rule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.2);
+        }
+        
+        .rule-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2em;
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 600;
+        }
+        
+        .rule-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .rule-explanation {
+            font-size: 1.1em;
+            color: #4a5568;
+            margin-bottom: 30px;
+            padding-left: 65px;
+            line-height: 1.8;
+        }
+        
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            padding-left: 65px;
+        }
+        
+        .example-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .example-item:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            transform: translateX(10px);
+        }
+        
+        .example-sentence {
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 12px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .example-item:hover .example-sentence {
+            color: #ffffff;
+        }
+        
+        .example-analysis {
+            font-size: 0.95em;
+            opacity: 0.85;
+            padding-top: 12px;
+            border-top: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        .example-item:hover .example-analysis {
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .highlight-subject {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        
+        .example-item:hover .highlight-subject {
+            background: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+        
+        .highlight-verb {
+            background: linear-gradient(120deg, #fa709a 0%, #fee140 100%);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        
+        .example-item:hover .highlight-verb {
+            background: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+        
+        .special-cases {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 50px;
+            border-left: 8px solid #fdcb6e;
+        }
+        
+        .special-cases h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2em;
+            color: #2d3748;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .special-cases h3::before {
+            content: '⚠️';
+            font-size: 1.2em;
+        }
+        
+        .special-case-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #e17055;
+        }
+        
+        .special-case-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .special-case-title {
+            font-weight: 600;
+            font-size: 1.15em;
+            color: #2d3748;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .special-case-title::before {
+            content: '▸';
+            color: #e17055;
+            font-size: 1.3em;
+        }
+        
+        .special-case-example {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1em;
+            padding-left: 30px;
+            margin-top: 10px;
+            color: #4a5568;
+            font-style: italic;
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 20px;
+            padding: 35px;
+            margin-top: 50px;
+            border-left: 8px solid #fa709a;
+        }
+        
+        .tip-box h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8em;
+            color: #2d3748;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tip-box h3::before {
+            content: '💡';
+            font-size: 1.2em;
+        }
+        
+        .tip-content {
+            font-size: 1.05em;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
+        .summary-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+            padding: 50px;
+            border-radius: 20px;
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .summary-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .summary-content {
+            font-size: 1.15em;
+            line-height: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px;
+            background: #f8f9fa;
+            color: #718096;
+            font-size: 0.95em;
+        }
+        
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            .header {
+                padding: 40px 30px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .header .subtitle {
+                font-size: 1em;
+            }
+            
+            .content {
+                padding: 40px 25px;
+            }
+            
+            .rule-card {
+                padding: 25px;
+            }
+            
+            .rule-explanation,
+            .examples-grid {
+                padding-left: 0;
+            }
+            
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>L'Accord du Verbe avec le Sujet</h1>
+            <div class="subtitle">Un seul sujet · La règle fondamentale</div>
+        </div>
+        
+        <div class="content">
+            <div class="intro-section">
+                <h2>La Règle d'Or de la Conjugaison</h2>
+                <p>En français, le verbe s'accorde <strong>toujours</strong> en personne et en nombre avec son sujet. C'est la règle fondamentale de la conjugaison française, le pilier sur lequel repose toute la grammaire verbale.</p>
+            </div>
+            
+            <div class="rule-card">
+                <h3>
+                    <span class="rule-number">1</span>
+                    Sujet à la 1ère personne du singulier (je)
+                </h3>
+                <div class="rule-explanation">
+                    Le verbe se conjugue à la première personne du singulier. Le sujet <em>je</em> impose sa marque personnelle au verbe.
+                </div>
+                <div class="examples-grid">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Je</span> <span class="highlight-verb">chante</span> une chanson.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "chanter" prend la terminaison -e (1ère pers. sing.)
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Je</span> <span class="highlight-verb">finis</span> mon travail.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "finir" prend la terminaison -is (1ère pers. sing.)
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Je</span> <span class="highlight-verb">vais</span> à Paris.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "aller" (irrégulier) à la 1ère personne du singulier
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Je</span> <span class="highlight-verb">suis</span> étudiant.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "être" (irrégulier) à la 1ère personne du singulier
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rule-card">
+                <h3>
+                    <span class="rule-number">2</span>
+                    Sujet à la 2ème personne du singulier (tu)
+                </h3>
+                <div class="rule-explanation">
+                    Le verbe se conjugue à la deuxième personne du singulier, généralement avec la terminaison <strong>-s</strong> (sauf exceptions).
+                </div>
+                <div class="examples-grid">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Tu</span> <span class="highlight-verb">parles</span> français.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "parler" prend la terminaison -es (2ème pers. sing.)
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Tu</span> <span class="highlight-verb">choisis</span> ton destin.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "choisir" prend la terminaison -is (2ème pers. sing.)
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Tu</span> <span class="highlight-verb">peux</span> réussir.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "pouvoir" (irrégulier) se termine par -x
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Tu</span> <span class="highlight-verb">as</span> raison.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "avoir" (irrégulier) à la 2ème personne du singulier
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rule-card">
+                <h3>
+                    <span class="rule-number">3</span>
+                    Sujet à la 3ème personne du singulier (il/elle/on)
+                </h3>
+                <div class="rule-explanation">
+                    Le verbe se conjugue à la troisième personne du singulier. C'est la personne utilisée pour parler de quelqu'un ou quelque chose.
+                </div>
+                <div class="examples-grid">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Il</span> <span class="highlight-verb">mange</span> une pomme.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "manger" prend la terminaison -e (3ème pers. sing.)
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Elle</span> <span class="highlight-verb">réfléchit</span> longtemps.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "réfléchir" prend la terminaison -it (3ème pers. sing.)
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">On</span> <span class="highlight-verb">attend</span> le bus.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "attendre" prend la terminaison -d (3ème pers. sing.)
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Le chat</span> <span class="highlight-verb">dort</span> sur le canapé.
+                        </div>
+                        <div class="example-analysis">
+                            Un nom sujet (masculin singulier) = 3ème personne du singulier
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rule-card">
+                <h3>
+                    <span class="rule-number">4</span>
+                    Sujet à la 1ère personne du pluriel (nous)
+                </h3>
+                <div class="rule-explanation">
+                    Le verbe se conjugue à la première personne du pluriel, généralement avec la terminaison <strong>-ons</strong>.
+                </div>
+                <div class="examples-grid">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Nous</span> <span class="highlight-verb">étudions</span> le français.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "étudier" prend la terminaison -ons (1ère pers. plur.)
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Nous</span> <span class="highlight-verb">finissons</span> à 18 heures.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "finir" prend la terminaison -issons (1ère pers. plur.)
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Nous</span> <span class="highlight-verb">sommes</span> contents.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "être" (irrégulier) à la 1ère personne du pluriel
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Nous</span> <span class="highlight-verb">allons</span> au cinéma.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "aller" (irrégulier) à la 1ère personne du pluriel
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rule-card">
+                <h3>
+                    <span class="rule-number">5</span>
+                    Sujet à la 2ème personne du pluriel (vous)
+                </h3>
+                <div class="rule-explanation">
+                    Le verbe se conjugue à la deuxième personne du pluriel, généralement avec la terminaison <strong>-ez</strong>. Cette forme est aussi utilisée pour le vouvoiement.
+                </div>
+                <div class="examples-grid">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Vous</span> <span class="highlight-verb">parlez</span> bien anglais.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "parler" prend la terminaison -ez (2ème pers. plur.)
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Vous</span> <span class="highlight-verb">choisissez</span> votre menu.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "choisir" prend la terminaison -issez (2ème pers. plur.)
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Vous</span> <span class="highlight-verb">êtes</span> intelligent.
+                        </div>
+                        <div class="example-analysis">
+                            Vouvoiement singulier : verbe au pluriel, adjectif au singulier
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Vous</span> <span class="highlight-verb">faites</span> du sport.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "faire" (irrégulier) à la 2ème personne du pluriel
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rule-card">
+                <h3>
+                    <span class="rule-number">6</span>
+                    Sujet à la 3ème personne du pluriel (ils/elles)
+                </h3>
+                <div class="rule-explanation">
+                    Le verbe se conjugue à la troisième personne du pluriel, généralement avec la terminaison <strong>-ent</strong>.
+                </div>
+                <div class="examples-grid">
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Ils</span> <span class="highlight-verb">dansent</span> toute la nuit.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "danser" prend la terminaison -ent (3ème pers. plur.)
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Elles</span> <span class="highlight-verb">réussissent</span> leurs examens.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "réussir" prend la terminaison -issent (3ème pers. plur.)
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Les enfants</span> <span class="highlight-verb">jouent</span> dans le jardin.
+                        </div>
+                        <div class="example-analysis">
+                            Un nom pluriel sujet = 3ème personne du pluriel
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-sentence">
+                            <span class="highlight-subject">Ils</span> <span class="highlight-verb">ont</span> du talent.
+                        </div>
+                        <div class="example-analysis">
+                            Le verbe "avoir" (irrégulier) à la 3ème personne du pluriel
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="special-cases">
+                <h3>Cas Particuliers à Retenir</h3>
+                
+                <div class="special-case-item">
+                    <div class="special-case-title">Sujet inversé (questions)</div>
+                    <div class="special-case-example">
+                        "Parles-tu français ?" → Le verbe s'accorde toujours avec "tu" (2ème pers. sing.)<br>
+                        "Viennent-ils demain ?" → Le verbe s'accorde avec "ils" (3ème pers. plur.)
+                    </div>
+                </div>
+                
+                <div class="special-case-item">
+                    <div class="special-case-title">Sujet éloigné du verbe</div>
+                    <div class="special-case-example">
+                        "Le livre que j'ai acheté hier <strong>est</strong> intéressant."<br>
+                        → Le verbe "être" s'accorde avec "le livre" (singulier), pas avec "j'" ni "hier"
+                    </div>
+                </div>
+                
+                <div class="special-case-item">
+                    <div class="special-case-title">Qui (pronom relatif sujet)</div>
+                    <div class="special-case-example">
+                        "C'est moi qui <strong>parle</strong>." → "qui" reprend "moi" (1ère pers. sing.)<br>
+                        "C'est toi qui <strong>décides</strong>." → "qui" reprend "toi" (2ème pers. sing.)<br>
+                        "Ce sont eux qui <strong>viennent</strong>." → "qui" reprend "eux" (3ème pers. plur.)
+                    </div>
+                </div>
+                
+                <div class="special-case-item">
+                    <div class="special-case-title">Nom collectif singulier</div>
+                    <div class="special-case-example">
+                        "La foule <strong>applaudit</strong>." → Sujet singulier = verbe au singulier<br>
+                        "Le groupe <strong>arrive</strong>." → Même si plusieurs personnes, le sujet est singulier
+                    </div>
+                </div>
+                
+                <div class="special-case-item">
+                    <div class="special-case-title">On = nous (familier)</div>
+                    <div class="special-case-example">
+                        "On <strong>va</strong> au cinéma ?" → Verbe toujours à la 3ème personne du singulier<br>
+                        Même si "on" signifie "nous", le verbe reste au singulier !
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <h3>Astuce Pratique</h3>
+                <div class="tip-content">
+                    <strong>Pour ne jamais vous tromper :</strong><br><br>
+                    1️⃣ <strong>Identifiez le sujet</strong> en posant la question "Qui est-ce qui + verbe ?" ou "Qu'est-ce qui + verbe ?"<br><br>
+                    2️⃣ <strong>Déterminez la personne et le nombre</strong> du sujet (je = 1ère sing., nous = 1ère plur., etc.)<br><br>
+                    3️⃣ <strong>Conjuguez le verbe</strong> selon cette personne et ce nombre, même si le sujet est éloigné !
+                </div>
+            </div>
+            
+            <div class="summary-section">
+                <h3>En Résumé</h3>
+                <div class="summary-content">
+                    Le verbe s'accorde <strong>toujours</strong> en personne et en nombre avec son sujet.<br>
+                    Cette règle est <strong>absolue</strong> et ne souffre aucune exception.<br>
+                    Peu importe où se trouve le sujet dans la phrase,<br>
+                    peu importe ce qui sépare le sujet du verbe :<br>
+                    <strong>l'accord reste obligatoire</strong> !
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-logo">Língua Academy</div>
+            <div>Excellence en Grammaire Française</div>
+        </div>
+    </div>
+</body>
+</html>

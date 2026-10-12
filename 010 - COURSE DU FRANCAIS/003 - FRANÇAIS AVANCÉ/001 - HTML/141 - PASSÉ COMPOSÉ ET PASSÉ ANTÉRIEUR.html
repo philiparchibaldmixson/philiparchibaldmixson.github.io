@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Passé Composé & Le Passé Antérieur | Língua Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --electric-red: #ff0033;
+            --bright-blue: #0055ff;
+            --vibrant-yellow: #ffdd00;
+            --deep-black: #0a0a0a;
+            --pure-white: #ffffff;
+            --light-gray: #f5f5f5;
+            --medium-gray: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--pure-white);
+            color: var(--deep-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Grid background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--medium-gray) 1px, transparent 1px),
+                linear-gradient(90deg, var(--medium-gray) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Color blocks decoration */
+        .color-block {
+            position: fixed;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .block-red {
+            width: 200px;
+            height: 200px;
+            background: var(--electric-red);
+            top: 10%;
+            right: 5%;
+            opacity: 0.1;
+            animation: float-block 20s ease-in-out infinite;
+        }
+
+        .block-blue {
+            width: 150px;
+            height: 150px;
+            background: var(--bright-blue);
+            bottom: 15%;
+            left: 8%;
+            opacity: 0.1;
+            animation: float-block 25s ease-in-out infinite reverse;
+        }
+
+        .block-yellow {
+            width: 180px;
+            height: 180px;
+            background: var(--vibrant-yellow);
+            top: 50%;
+            right: 15%;
+            opacity: 0.1;
+            animation: float-block 22s ease-in-out infinite;
+        }
+
+        @keyframes float-block {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, 20px); }
+        }
+
+        /* Content */
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero - Bold geometric */
+        .hero {
+            min-height: 90vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+        }
+
+        .hero-left {
+            background: var(--electric-red);
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg) translate(50%, -50%);
+        }
+
+        .hero-right {
+            background: var(--deep-black);
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-right::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 250px;
+            height: 250px;
+            background: var(--bright-blue);
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+            opacity: 0.3;
+        }
+
+        .brand-label {
+            font-family: 'Archivo', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .hero-left .brand-label {
+            color: var(--pure-white);
+        }
+
+        .hero-right .brand-label {
+            color: var(--vibrant-yellow);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Archivo', sans-serif;
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 900;
+            line-height: 0.95;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            animation: slideUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-left .hero-title {
+            color: var(--pure-white);
+        }
+
+        .hero-right .hero-title {
+            color: var(--pure-white);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            max-width: 500px;
+            animation: slideUp 1s ease-out 0.4s both;
+        }
+
+        .hero-left .hero-description {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-right .hero-description {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .structure-badge {
+            display: inline-block;
+            background: var(--vibrant-yellow);
+            color: var(--deep-black);
+            padding: 1rem 2.5rem;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 2rem;
+            animation: slideUp 1s ease-out 0.6s both;
+            box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .structure-badge:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-right .structure-badge {
+            background: var(--bright-blue);
+            color: var(--pure-white);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-family: 'Archivo', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--electric-red);
+            margin-bottom: 1rem;
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: var(--light-gray);
+        }
+
+        .section-title {
+            font-family: 'Archivo', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .section-intro {
+            font-size: 1.2rem;
+            max-width: 900px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* Structure grid - Bauhaus inspired */
+        .structure-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .structure-block {
+            background: var(--light-gray);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 8px 8px 0 var(--deep-black);
+            transition: all 0.3s ease;
+        }
+
+        .structure-block:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0 var(--deep-black);
+        }
+
+        .structure-header {
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .structure-block:nth-child(1) .structure-header {
+            background: var(--electric-red);
+            color: var(--pure-white);
+        }
+
+        .structure-block:nth-child(2) .structure-header {
+            background: var(--bright-blue);
+            color: var(--pure-white);
+        }
+
+        .structure-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .structure-title {
+            font-family: 'Archivo', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .structure-formula {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 1rem 1.5rem;
+            background: rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .structure-body {
+            padding: 2.5rem;
+        }
+
+        .structure-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .structure-examples {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .example-line {
+            background: var(--pure-white);
+            padding: 1.5rem;
+            border-left: 4px solid var(--deep-black);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .example-line:hover {
+            border-left-width: 8px;
+            padding-left: 2rem;
+        }
+
+        /* Conjugation blocks */
+        .conjugation-section {
+            background: var(--light-gray);
+            padding: 6rem 4rem;
+            margin: 6rem 0;
+        }
+
+        .conjugation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .conjugation-block {
+            background: var(--pure-white);
+            border: 4px solid var(--deep-black);
+            position: relative;
+        }
+
+        .conjugation-block::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            border: 2px solid var(--deep-black);
+            pointer-events: none;
+        }
+
+        .conjugation-header {
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .conjugation-block:nth-child(1) .conjugation-header {
+            background: var(--electric-red);
+            color: var(--pure-white);
+        }
+
+        .conjugation-block:nth-child(2) .conjugation-header {
+            background: var(--bright-blue);
+            color: var(--pure-white);
+        }
+
+        .conjugation-block:nth-child(3) .conjugation-header {
+            background: var(--vibrant-yellow);
+            color: var(--deep-black);
+        }
+
+        .conjugation-block:nth-child(4) .conjugation-header {
+            background: var(--deep-black);
+            color: var(--pure-white);
+        }
+
+        .conjugation-verb {
+            font-family: 'Archivo', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .conjugation-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+
+        .conjugation-body {
+            padding: 2rem;
+        }
+
+        .conjugation-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .conjugation-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1rem;
+            background: var(--light-gray);
+            transition: all 0.2s ease;
+        }
+
+        .conjugation-item:hover {
+            background: var(--vibrant-yellow);
+            padding-left: 1.5rem;
+        }
+
+        .item-pronoun {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .item-verb {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .auxiliary {
+            color: var(--electric-red);
+        }
+
+        /* Usage comparison - asymmetric grid */
+        .usage-asymmetric {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .usage-main {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .usage-card {
+            background: var(--pure-white);
+            border: 4px solid var(--deep-black);
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .usage-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0 var(--deep-black);
+        }
+
+        .usage-card::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 30px;
+            width: 60px;
+            height: 4px;
+        }
+
+        .usage-card:nth-child(1)::before {
+            background: var(--electric-red);
+        }
+
+        .usage-card:nth-child(2)::before {
+            background: var(--bright-blue);
+        }
+
+        .usage-card:nth-child(3)::before {
+            background: var(--vibrant-yellow);
+        }
+
+        .usage-number {
+            font-family: 'Archivo', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .usage-card:nth-child(1) .usage-number {
+            color: var(--electric-red);
+        }
+
+        .usage-card:nth-child(2) .usage-number {
+            color: var(--bright-blue);
+        }
+
+        .usage-card:nth-child(3) .usage-number {
+            color: var(--vibrant-yellow);
+        }
+
+        .usage-title {
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .usage-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .usage-example {
+            background: var(--light-gray);
+            padding: 1rem 1.5rem;
+            border-left: 4px solid var(--deep-black);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+        }
+
+        .usage-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-block {
+            background: var(--deep-black);
+            color: var(--pure-white);
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .sidebar-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--vibrant-yellow);
+        }
+
+        .sidebar-title {
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-text {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Formation timeline */
+        .formation-timeline {
+            background: var(--electric-red);
+            padding: 6rem 4rem;
+            margin: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .formation-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg) translate(50%, -50%);
+        }
+
+        .formation-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .formation-title {
+            font-family: 'Archivo', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--pure-white);
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .step-block {
+            background: var(--pure-white);
+            padding: 2.5rem;
+            position: relative;
+            border: 4px solid var(--deep-black);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--vibrant-yellow);
+            border: 4px solid var(--deep-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+
+        .step-title {
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            padding-top: 1rem;
+        }
+
+        .step-text {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .step-example {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: var(--light-gray);
+            border-left: 4px solid var(--electric-red);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Key differences table */
+        .differences-section {
+            padding: 6rem 0;
+        }
+
+        .differences-table {
+            display: grid;
+            gap: 1.5rem;
+            margin: 4rem 0;
+        }
+
+        .difference-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .difference-cell {
+            background: var(--light-gray);
+            padding: 2rem;
+            border: 4px solid var(--deep-black);
+            position: relative;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+        }
+
+        .difference-row:nth-child(odd) .difference-cell:first-child {
+            background: var(--electric-red);
+            color: var(--pure-white);
+        }
+
+        .difference-row:nth-child(even) .difference-cell:first-child {
+            background: var(--bright-blue);
+            color: var(--pure-white);
+        }
+
+        .difference-content {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Tips grid */
+        .tips-modern {
+            padding: 6rem 0;
+            background: var(--light-gray);
+        }
+
+        .tips-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .tip-block {
+            background: var(--pure-white);
+            border: 4px solid var(--deep-black);
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .tip-block:hover {
+            transform: translateY(-8px);
+        }
+
+        .tip-block::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 2rem;
+            width: 80px;
+            height: 8px;
+        }
+
+        .tip-block:nth-child(1)::before,
+        .tip-block:nth-child(4)::before {
+            background: var(--electric-red);
+        }
+
+        .tip-block:nth-child(2)::before,
+        .tip-block:nth-child(5)::before {
+            background: var(--bright-blue);
+        }
+
+        .tip-block:nth-child(3)::before,
+        .tip-block:nth-child(6)::before {
+            background: var(--vibrant-yellow);
+        }
+
+        .tip-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tip-heading {
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .tip-description {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--deep-black);
+            color: var(--pure-white);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40%;
+            height: 100%;
+            background: var(--electric-red);
+            opacity: 0.1;
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+        }
+
+        footer::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: var(--bright-blue);
+            opacity: 0.1;
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-brand {
+            font-family: 'Archivo', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--vibrant-yellow);
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero,
+            .structure-grid,
+            .conjugation-grid,
+            .usage-asymmetric {
+                grid-template-columns: 1fr;
+            }
+
+            .tips-grid-modern {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-left,
+            .hero-right {
+                padding: 3rem 2rem;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .conjugation-section,
+            .formation-timeline,
+            .tips-modern {
+                padding: 4rem 2rem;
+            }
+
+            .tips-grid-modern {
+                grid-template-columns: 1fr;
+            }
+
+            .difference-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .reveal-block {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal-block.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative color blocks -->
+    <div class="color-block block-red"></div>
+    <div class="color-block block-blue"></div>
+    <div class="color-block block-yellow"></div>
+
+    <div class="content">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-left">
+                <div class="brand-label">Língua Academy</div>
+                <h1 class="hero-title">Passé<br>Composé</h1>
+                <p class="hero-description">
+                    Le temps du passé le plus utilisé à l'oral. Il exprime une action terminée dans le passé avec des conséquences dans le présent.
+                </p>
+                <div class="structure-badge">Auxiliaire + Participe</div>
+            </div>
+            <div class="hero-right">
+                <div class="brand-label">Língua Academy</div>
+                <h1 class="hero-title">Passé<br>Antérieur</h1>
+                <p class="hero-description">
+                    Un temps littéraire rare qui exprime une action passée immédiatement antérieure à une autre action passée exprimée au passé simple.
+                </p>
+                <div class="structure-badge">Passé Simple aux. + PP</div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Structure -->
+            <section class="section reveal-block">
+                <div class="section-header">
+                    <div class="section-tag">/// Structure</div>
+                    <h2 class="section-title">Temps Composés</h2>
+                    <p class="section-intro">
+                        Ces deux temps partagent une structure similaire : auxiliaire (ÊTRE ou AVOIR) + participe passé. La différence réside dans la conjugaison de l'auxiliaire.
+                    </p>
+                </div>
+
+                <div class="structure-grid">
+                    <div class="structure-block">
+                        <div class="structure-header">
+                            <div class="structure-label">Formation</div>
+                            <h3 class="structure-title">Passé Composé</h3>
+                            <div class="structure-formula">
+                                AVOIR/ÊTRE (présent) + PARTICIPE PASSÉ
+                            </div>
+                        </div>
+                        <div class="structure-body">
+                            <p class="structure-description">
+                                Le passé composé se forme avec l'auxiliaire AVOIR ou ÊTRE conjugué au présent, suivi du participe passé du verbe.
+                            </p>
+                            <div class="structure-examples">
+                                <div class="example-line">
+                                    J'<strong>ai</strong> mangé (avoir au présent + PP)
+                                </div>
+                                <div class="example-line">
+                                    Tu <strong>es</strong> parti (être au présent + PP)
+                                </div>
+                                <div class="example-line">
+                                    Nous <strong>avons</strong> fini (avoir au présent + PP)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="structure-block">
+                        <div class="structure-header">
+                            <div class="structure-label">Formation</div>
+                            <h3 class="structure-title">Passé Antérieur</h3>
+                            <div class="structure-formula">
+                                AVOIR/ÊTRE (passé simple) + PARTICIPE PASSÉ
+                            </div>
+                        </div>
+                        <div class="structure-body">
+                            <p class="structure-description">
+                                Le passé antérieur se forme avec l'auxiliaire AVOIR ou ÊTRE conjugué au passé simple, suivi du participe passé du verbe.
+                            </p>
+                            <div class="structure-examples">
+                                <div class="example-line">
+                                    J'<strong>eus</strong> mangé (avoir au passé simple + PP)
+                                </div>
+                                <div class="example-line">
+                                    Tu <strong>fus</strong> parti (être au passé simple + PP)
+                                </div>
+                                <div class="example-line">
+                                    Nous <strong>eûmes</strong> fini (avoir au passé simple + PP)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conjugations -->
+            <section class="conjugation-section reveal-block">
+                <div class="section-header">
+                    <div class="section-tag">/// Conjugaisons</div>
+                    <h2 class="section-title">Exemples Complets</h2>
+                </div>
+
+                <div class="conjugation-grid">
+                    <div class="conjugation-block">
+                        <div class="conjugation-header">
+                            <h3 class="conjugation-verb">Parler</h3>
+                            <p class="conjugation-time">Passé Composé</p>
+                        </div>
+                        <div class="conjugation-body">
+                            <div class="conjugation-list">
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Je</span>
+                                    <span class="item-verb"><span class="auxiliary">ai</span> parlé</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Tu</span>
+                                    <span class="item-verb"><span class="auxiliary">as</span> parlé</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Il/Elle</span>
+                                    <span class="item-verb"><span class="auxiliary">a</span> parlé</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Nous</span>
+                                    <span class="item-verb"><span class="auxiliary">avons</span> parlé</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Vous</span>
+                                    <span class="item-verb"><span class="auxiliary">avez</span> parlé</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Ils/Elles</span>
+                                    <span class="item-verb"><span class="auxiliary">ont</span> parlé</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conjugation-block">
+                        <div class="conjugation-header">
+                            <h3 class="conjugation-verb">Aller</h3>
+                            <p class="conjugation-time">Passé Composé</p>
+                        </div>
+                        <div class="conjugation-body">
+                            <div class="conjugation-list">
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Je</span>
+                                    <span class="item-verb"><span class="auxiliary">suis</span> allé(e)</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Tu</span>
+                                    <span class="item-verb"><span class="auxiliary">es</span> allé(e)</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Il/Elle</span>
+                                    <span class="item-verb"><span class="auxiliary">est</span> allé(e)</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Nous</span>
+                                    <span class="item-verb"><span class="auxiliary">sommes</span> allé(e)s</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Vous</span>
+                                    <span class="item-verb"><span class="auxiliary">êtes</span> allé(e)(s)</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Ils/Elles</span>
+                                    <span class="item-verb"><span class="auxiliary">sont</span> allé(e)s</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conjugation-block">
+                        <div class="conjugation-header">
+                            <h3 class="conjugation-verb">Parler</h3>
+                            <p class="conjugation-time">Passé Antérieur</p>
+                        </div>
+                        <div class="conjugation-body">
+                            <div class="conjugation-list">
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Je</span>
+                                    <span class="item-verb"><span class="auxiliary">eus</span> parlé</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Tu</span>
+                                    <span class="item-verb"><span class="auxiliary">eus</span> parlé</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Il/Elle</span>
+                                    <span class="item-verb"><span class="auxiliary">eut</span> parlé</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Nous</span>
+                                    <span class="item-verb"><span class="auxiliary">eûmes</span> parlé</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Vous</span>
+                                    <span class="item-verb"><span class="auxiliary">eûtes</span> parlé</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Ils/Elles</span>
+                                    <span class="item-verb"><span class="auxiliary">eurent</span> parlé</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conjugation-block">
+                        <div class="conjugation-header">
+                            <h3 class="conjugation-verb">Aller</h3>
+                            <p class="conjugation-time">Passé Antérieur</p>
+                        </div>
+                        <div class="conjugation-body">
+                            <div class="conjugation-list">
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Je</span>
+                                    <span class="item-verb"><span class="auxiliary">fus</span> allé(e)</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Tu</span>
+                                    <span class="item-verb"><span class="auxiliary">fus</span> allé(e)</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Il/Elle</span>
+                                    <span class="item-verb"><span class="auxiliary">fut</span> allé(e)</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Nous</span>
+                                    <span class="item-verb"><span class="auxiliary">fûmes</span> allé(e)s</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Vous</span>
+                                    <span class="item-verb"><span class="auxiliary">fûtes</span> allé(e)(s)</span>
+                                </div>
+                                <div class="conjugation-item">
+                                    <span class="item-pronoun">Ils/Elles</span>
+                                    <span class="item-verb"><span class="auxiliary">furent</span> allé(e)s</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Usage -->
+            <section class="section reveal-block">
+                <div class="section-header">
+                    <div class="section-tag">/// Utilisation</div>
+                    <h2 class="section-title">Quand les utiliser ?</h2>
+                </div>
+
+                <div class="usage-asymmetric">
+                    <div class="usage-main">
+                        <div class="usage-card">
+                            <div class="usage-number">01</div>
+                            <h3 class="usage-title">Actions terminées</h3>
+                            <p class="usage-text">
+                                Le passé composé exprime une action qui s'est terminée dans le passé, mais qui peut avoir des conséquences dans le présent.
+                            </p>
+                            <div class="usage-example">
+                                J'ai mangé ce matin. (action terminée)
+                            </div>
+                            <div class="usage-example">
+                                Elle est partie à Paris hier. (elle n'est plus ici)
+                            </div>
+                        </div>
+
+                        <div class="usage-card">
+                            <div class="usage-number">02</div>
+                            <h3 class="usage-title">Actions répétées</h3>
+                            <p class="usage-text">
+                                Le passé composé peut aussi exprimer des actions qui se sont répétées un nombre de fois déterminé dans le passé.
+                            </p>
+                            <div class="usage-example">
+                                J'ai visité ce musée trois fois.
+                            </div>
+                            <div class="usage-example">
+                                Nous avons déménagé cinq fois en dix ans.
+                            </div>
+                        </div>
+
+                        <div class="usage-card">
+                            <div class="usage-number">03</div>
+                            <h3 class="usage-title">Antériorité immédiate</h3>
+                            <p class="usage-text">
+                                Le passé antérieur exprime une action passée qui s'est produite juste avant une autre action passée (exprimée au passé simple).
+                            </p>
+                            <div class="usage-example">
+                                Quand il eut fini son travail, il sortit.
+                            </div>
+                            <div class="usage-example">
+                                Dès qu'elle fut arrivée, la fête commença.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="usage-sidebar">
+                        <div class="sidebar-block">
+                            <h3 class="sidebar-title">À l'oral</h3>
+                            <p class="sidebar-text">
+                                Le passé composé est LE temps du passé à l'oral. On l'utilise constamment dans les conversations quotidiennes.
+                            </p>
+                        </div>
+                        <div class="sidebar-block">
+                            <h3 class="sidebar-title">À l'écrit</h3>
+                            <p class="sidebar-text">
+                                Le passé antérieur est exclusivement littéraire et très rare. Il apparaît surtout dans les textes classiques après "quand", "dès que", "après que".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Formation -->
+        <section class="formation-timeline reveal-block">
+            <div class="formation-content">
+                <h2 class="formation-title">Comment former le participe passé</h2>
+                <div class="steps-grid">
+                    <div class="step-block">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Verbes en -ER</h3>
+                        <p class="step-text">
+                            Remplacez -ER par -É
+                        </p>
+                        <div class="step-example">
+                            parler → parlé<br>
+                            manger → mangé<br>
+                            étudier → étudié
+                        </div>
+                    </div>
+
+                    <div class="step-block">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Verbes en -IR (2e groupe)</h3>
+                        <p class="step-text">
+                            Remplacez -IR par -I
+                        </p>
+                        <div class="step-example">
+                            finir → fini<br>
+                            choisir → choisi<br>
+                            réussir → réussi
+                        </div>
+                    </div>
+
+                    <div class="step-block">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Verbes du 3e groupe</h3>
+                        <p class="step-text">
+                            Terminaisons variées : -U, -I, -IS, -IT, -ERT
+                        </p>
+                        <div class="step-example">
+                            vendre → vendu<br>
+                            prendre → pris<br>
+                            faire → fait<br>
+                            ouvrir → ouvert
+                        </div>
+                    </div>
+
+                    <div class="step-block">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Accord avec ÊTRE</h3>
+                        <p class="step-text">
+                            Le participe passé s'accorde avec le sujet quand l'auxiliaire est ÊTRE
+                        </p>
+                        <div class="step-example">
+                            Elle est allée<br>
+                            Ils sont partis<br>
+                            Elles sont venues
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Key differences -->
+            <section class="differences-section reveal-block">
+                <div class="section-header">
+                    <div class="section-tag">/// Comparaison</div>
+                    <h2 class="section-title">Différences clés</h2>
+                </div>
+
+                <div class="differences-table">
+                    <div class="difference-row">
+                        <div class="difference-cell">
+                            <p class="difference-content">
+                                <strong>Passé Composé :</strong> Auxiliaire au présent de l'indicatif
+                            </p>
+                        </div>
+                        <div class="difference-cell">
+                            <p class="difference-content">
+                                <strong>Passé Antérieur :</strong> Auxiliaire au passé simple
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="difference-row">
+                        <div class="difference-cell">
+                            <p class="difference-content">
+                                Très fréquent à l'oral et à l'écrit
+                            </p>
+                        </div>
+                        <div class="difference-cell">
+                            <p class="difference-content">
+                                Uniquement à l'écrit littéraire (très rare)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="difference-row">
+                        <div class="difference-cell">
+                            <p class="difference-content">
+                                Action passée avec conséquences présentes
+                            </p>
+                        </div>
+                        <div class="difference-cell">
+                            <p class="difference-content">
+                                Action passée antérieure à une autre action passée
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="difference-row">
+                        <div class="difference-cell">
+                            <p class="difference-content">
+                                Remplace le passé simple à l'oral
+                            </p>
+                        </div>
+                        <div class="difference-cell">
+                            <p class="difference-content">
+                                Utilisé après "quand", "dès que", "après que" + passé simple
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Tips -->
+        <section class="tips-modern reveal-block">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">/// Conseils</div>
+                    <h2 class="section-title">Maîtriser les temps composés</h2>
+                </div>
+
+                <div class="tips-grid-modern">
+                    <div class="tip-block">
+                        <div class="tip-icon">🎯</div>
+                        <h3 class="tip-heading">Priorité absolue</h3>
+                        <p class="tip-description">
+                            Concentrez-vous sur le passé composé. C'est le temps du passé le plus important en français moderne. Vous l'utiliserez tous les jours.
+                        </p>
+                    </div>
+
+                    <div class="tip-block">
+                        <div class="tip-icon">🔑</div>
+                        <h3 class="tip-heading">Mémorisez les auxiliaires</h3>
+                        <p class="tip-description">
+                            Apprenez par cœur les verbes qui prennent ÊTRE : DR MRS VANDERTRAMP (Devenir, Revenir, Mourir, Rester, Sortir, Venir, Aller, Naître, Descendre, Entrer, Retourner, Tomber, Rentrer, Arriver, Monter, Partir).
+                        </p>
+                    </div>
+
+                    <div class="tip-block">
+                        <div class="tip-icon">📚</div>
+                        <h3 class="tip-heading">Participes passés irréguliers</h3>
+                        <p class="tip-description">
+                            Les verbes courants ont souvent des participes passés irréguliers : être → été, avoir → eu, faire → fait, prendre → pris, voir → vu, mettre → mis, dire → dit.
+                        </p>
+                    </div>
+
+                    <div class="tip-block">
+                        <div class="tip-icon">⚠️</div>
+                        <h3 class="tip-heading">Le passé antérieur</h3>
+                        <p class="tip-description">
+                            Ne vous inquiétez pas trop du passé antérieur. Il est extrêmement rare et n'apparaît que dans la littérature classique. Concentrez-vous sur sa reconnaissance en lecture.
+                        </p>
+                    </div>
+
+                    <div class="tip-block">
+                        <div class="tip-icon">💪</div>
+                        <h3 class="tip-heading">Pratiquez quotidiennement</h3>
+                        <p class="tip-description">
+                            Racontez votre journée au passé composé : "Ce matin, je me suis levé à 7h, j'ai pris mon petit-déjeuner, puis je suis allé au travail."
+                        </p>
+                    </div>
+
+                    <div class="tip-block">
+                        <div class="tip-icon">✅</div>
+                        <h3 class="tip-heading">L'accord du participe</h3>
+                        <p class="tip-description">
+                            Avec ÊTRE, le participe passé s'accorde toujours avec le sujet. Avec AVOIR, il ne s'accorde généralement pas (sauf cas particuliers avec COD avant le verbe).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-brand">Língua Academy</div>
+                <p class="footer-tagline">// Design & Grammar Excellence</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-block').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Interactive effects
+        document.querySelectorAll('.structure-block, .usage-card, .tip-block').forEach(block => {
+            block.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Pronom Personnel Y - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1565c0 0%, #1976d2 50%, #42a5f5 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0055A4 0%, #EF4135 50%, #FFFFFF 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: rotate 25s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .brand {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            z-index: 2;
+        }
+
+        .y-highlight {
+            display: inline-block;
+            background: linear-gradient(135deg, #1976d2 0%, #2196f3 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.3em;
+            box-shadow: 0 4px 10px rgba(25, 118, 210, 0.3);
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h2 {
+            color: #0055A4;
+            font-size: 2.3em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #EF4135;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3 {
+            color: #EF4135;
+            font-size: 1.7em;
+            margin: 30px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.2em;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 6px solid #0055A4;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-box p {
+            font-size: 1.2em;
+            color: #1a237e;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #f57c00;
+        }
+
+        .definition-box h4 {
+            color: #e65100;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .definition-box p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .emploi-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            padding: 35px;
+            border-radius: 18px;
+            margin: 30px 0;
+            border: 3px solid #0055A4;
+            box-shadow: 0 8px 25px rgba(0, 85, 164, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .emploi-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 85, 164, 0.25);
+            border-color: #EF4135;
+        }
+
+        .emploi-title {
+            color: #0055A4;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #EF4135;
+        }
+
+        .exemple {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #4caf50;
+            transition: all 0.3s ease;
+        }
+
+        .exemple:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .exemple strong {
+            color: #2e7d32;
+            font-size: 1.15em;
+        }
+
+        .exemple em {
+            color: #1b5e20;
+            font-style: normal;
+            font-weight: 600;
+            background: rgba(76, 175, 80, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+
+        .transformation-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #8e24aa;
+        }
+
+        .transformation-box h5 {
+            color: #4a148c;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .transformation-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 15px;
+            align-items: center;
+            margin: 15px 0;
+        }
+
+        .phrase-avant {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .phrase-apres {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #1976d2;
+        }
+
+        .arrow-transform {
+            font-size: 2em;
+            color: #8e24aa;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #d35400;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #00897b;
+        }
+
+        .note-box strong {
+            color: #004d40;
+            font-size: 1.15em;
+        }
+
+        .grammar-point {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #c2185b;
+        }
+
+        .grammar-point h4 {
+            color: #880e4f;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #e53935;
+        }
+
+        .warning-box strong {
+            color: #c62828;
+            font-size: 1.15em;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.15em;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 2px solid #e0e0e0;
+            transition: background 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        tr:hover td {
+            background: #f5f5f5;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        li {
+            margin: 12px 0;
+            line-height: 1.9;
+            font-size: 1.05em;
+        }
+
+        .special-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .special-list li::before {
+            content: "🔹";
+            margin-right: 10px;
+        }
+
+        .position-card {
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #0277bd;
+        }
+
+        .position-card h5 {
+            color: #01579b;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .visual-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: center;
+            border: 3px solid #8e24aa;
+        }
+
+        .visual-element {
+            display: inline-block;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #6a1b9a;
+        }
+
+        .arrow {
+            display: inline-block;
+            font-size: 2em;
+            color: #8e24aa;
+            margin: 0 10px;
+        }
+
+        .expression-card {
+            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border: 3px solid #fbc02d;
+            transition: all 0.3s ease;
+        }
+
+        .expression-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(251, 192, 45, 0.3);
+        }
+
+        .expression-card .expr-title {
+            color: #f57f17;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .comparison-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #f57c00;
+        }
+
+        .comparison-box h4 {
+            color: #e65100;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .comparison-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #f57c00;
+        }
+
+        .lieu-card {
+            background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #3f51b5;
+        }
+
+        .lieu-card h5 {
+            color: #1a237e;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.7em;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .transformation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .arrow-transform {
+                transform: rotate(90deg);
+            }
+
+            .brand {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">Língua Academy</div>
+            <h1>Le Pronom Personnel <span class="y-highlight">Y</span></h1>
+            <p class="subtitle">Maîtriser tous ses emplois et ses subtilités</p>
+        </header>
+
+        <div class="content">
+            <!-- Introduction -->
+            <div class="section">
+                <div class="intro-box">
+                    <p>
+                        Le pronom <strong class="y-highlight">Y</strong> est un pronom adverbial essentiel en français. 
+                        Il est souvent considéré comme le "frère" du pronom EN, mais il remplace des compléments différents. 
+                        Son utilisation correcte rend le français plus fluide et naturel.
+                    </p>
+                    <p>
+                        Bien que moins complexe que EN, le pronom <strong>Y</strong> a des emplois spécifiques qu'il faut 
+                        maîtriser pour éviter les répétitions et parler comme un locuteur natif.
+                    </p>
+                </div>
+
+                <div class="definition-box">
+                    <h4>📚 Définition : Le pronom Y</h4>
+                    <p>
+                        <strong>Y</strong> est un <span class="highlight">pronom adverbial</span> qui remplace principalement :
+                    </p>
+                    <ul style="margin-top: 15px;">
+                        <li>Un complément introduit par la préposition <strong>À</strong></li>
+                        <li>Un <strong>lieu</strong> où l'on va, où l'on est (destination ou localisation)</li>
+                        <li>Certaines <strong>expressions figées</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Emploi 1: Remplace À + complément -->
+            <div class="section">
+                <h2><span class="icon">📌</span>Emploi 1 : Y remplace À + complément</h2>
+
+                <div class="emploi-card">
+                    <div class="emploi-title">
+                        <span>1️⃣</span> Y = À + nom (chose ou idée)
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 20px; line-height: 1.8;">
+                        Le pronom <strong>Y</strong> remplace un complément introduit par la préposition <strong>À</strong> 
+                        quand il s'agit d'une <span class="highlight">chose</span> ou d'une <span class="highlight">idée</span> 
+                        (pas une personne).
+                    </p>
+
+                    <h3>📖 Avec des verbes + À</h3>
+
+                    <div class="transformation-box">
+                        <h5>Transformation : phrase complète → phrase avec Y</h5>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Je pense <strong>à mes vacances</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>J'<strong class="y-highlight">y</strong> pense.</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Tu réfléchis <strong>au problème</strong> ?</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Tu <strong class="y-highlight">y</strong> réfléchis ?</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Elle s'intéresse <strong>à l'art</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Elle s'<strong class="y-highlight">y</strong> intéresse.</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Nous jouons <strong>au tennis</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Nous <strong class="y-highlight">y</strong> jouons.</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grammar-point">
+                        <h4>📐 Verbes fréquents suivis de À (qui utilisent Y)</h4>
+                        <ul style="columns: 2;">
+                            <li><strong>penser à</strong> → y penser</li>
+                            <li><strong>réfléchir à</strong> → y réfléchir</li>
+                            <li><strong>s'intéresser à</strong> → s'y intéresser</li>
+                            <li><strong>participer à</strong> → y participer</li>
+                            <li><strong>assister à</strong> → y assister</li>
+                            <li><strong>jouer à</strong> → y jouer</li>
+                            <li><strong>réussir à</strong> → y réussir</li>
+                            <li><strong>répondre à</strong> → y répondre</li>
+                            <li><strong>tenir à</strong> → y tenir</li>
+                            <li><strong>faire attention à</strong> → y faire attention</li>
+                            <li><strong>croire à</strong> → y croire</li>
+                            <li><strong>renoncer à</strong> → y renoncer</li>
+                        </ul>
+                    </div>
+
+                    <h3>📖 Plus d'exemples</h3>
+
+                    <div class="exemple">
+                        <strong>Penser à :</strong><br>
+                        <em>Tu penses à ton examen ? — Oui, j'<strong class="y-highlight">y</strong> pense tout le temps.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Réfléchir à :</strong><br>
+                        <em>Vous réfléchissez à ma proposition ? — Oui, nous <strong class="y-highlight">y</strong> réfléchissons.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>S'intéresser à :</strong><br>
+                        <em>Il s'intéresse à la musique ? — Oui, il s'<strong class="y-highlight">y</strong> intéresse beaucoup.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Participer à :</strong><br>
+                        <em>Elle participe au projet ? — Oui, elle <strong class="y-highlight">y</strong> participe activement.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Jouer à :</strong><br>
+                        <em>Tu joues au football ? — Non, je n'<strong class="y-highlight">y</strong> joue plus.</em>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Croire à :</strong><br>
+                        <em>Vous croyez aux fantômes ? — Non, nous n'<strong class="y-highlight">y</strong> croyons pas.</em>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Attention :</strong> Pour les <strong>personnes</strong>, on n'utilise généralement pas Y, 
+                        mais les pronoms COI (lui, leur).
+                        <ul style="margin-top: 10px;">
+                            <li>✅ <em>Je pense à mon examen → J'<strong>y</strong> pense.</em> (chose)</li>
+                            <li>✅ <em>Je pense à Marie → Je pense <strong>à elle</strong>.</em> (personne)</li>
+                            <li>❌ <em>Je pense à Marie → J'y pense.</em> (incorrect pour une personne)</li>
+                        </ul>
+                        <p style="margin-top: 10px;">
+                            <strong>Exception :</strong> Avec certains verbes comme "penser à" ou "songer à", on peut parfois 
+                            utiliser Y même pour des personnes dans un registre familier, mais c'est moins courant.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emploi 2: Remplace un lieu -->
+            <div class="section">
+                <h2><span class="icon">🗺️</span>Emploi 2 : Y remplace un lieu</h2>
+
+                <div class="emploi-card">
+                    <div class="emploi-title">
+                        <span>2️⃣</span> Y = lieu (où l'on va / où l'on est)
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 20px; line-height: 1.8;">
+                        Le pronom <strong>Y</strong> remplace un complément de lieu qui indique :
+                    </p>
+                    <ul style="font-size: 1.1em; margin-bottom: 20px;">
+                        <li>La <span class="highlight">destination</span> (où l'on va)</li>
+                        <li>La <span class="highlight">localisation</span> (où l'on est)</li>
+                    </ul>
+
+                    <h3>📖 Y = destination (où l'on va)</h3>
+
+                    <div class="transformation-box">
+                        <h5>Transformations avec lieux de destination</h5>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Je vais <strong>à Paris</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>J'<strong class="y-highlight">y</strong> vais.</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Tu vas <strong>au cinéma</strong> ?</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Tu <strong class="y-highlight">y</strong> vas ?</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Elle va <strong>en France</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Elle <strong class="y-highlight">y</strong> va.</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Nous allons <strong>chez le médecin</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Nous <strong class="y-highlight">y</strong> allons.</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lieu-card">
+                        <h5>🔜 Verbes de mouvement (destination) avec Y</h5>
+                        <div class="exemple">
+                            <strong>Aller :</strong> <em>Tu vas à la plage ? — Oui, j'<strong class="y-highlight">y</strong> vais.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Se rendre :</strong> <em>Elle se rend au bureau ? — Oui, elle s'<strong class="y-highlight">y</strong> rend.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Entrer :</strong> <em>Vous entrez dans la salle ? — Oui, nous <strong class="y-highlight">y</strong> entrons.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Retourner :</strong> <em>Il retourne en Italie ? — Oui, il <strong class="y-highlight">y</strong> retourne l'été prochain.</em>
+                        </div>
+                    </div>
+
+                    <h3>📖 Y = localisation (où l'on est)</h3>
+
+                    <div class="transformation-box">
+                        <h5>Transformations avec lieux de localisation</h5>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>J'habite <strong>à Lyon</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>J'<strong class="y-highlight">y</strong> habite.</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Tu travailles <strong>dans cette entreprise</strong> ?</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Tu <strong class="y-highlight">y</strong> travailles ?</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Elle reste <strong>à la maison</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Elle <strong class="y-highlight">y</strong> reste.</em>
+                            </div>
+                        </div>
+
+                        <div class="transformation-grid">
+                            <div class="phrase-avant">
+                                <em>Nous sommes <strong>au restaurant</strong>.</em>
+                            </div>
+                            <div class="arrow-transform">→</div>
+                            <div class="phrase-apres">
+                                <em>Nous <strong class="y-highlight">y</strong> sommes.</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lieu-card">
+                        <h5>📍 Verbes de localisation avec Y</h5>
+                        <div class="exemple">
+                            <strong>Habiter :</strong> <em>Tu habites à Rome ? — Oui, j'<strong class="y-highlight">y</strong> habite depuis 5 ans.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Travailler :</strong> <em>Elle travaille dans cette usine ? — Oui, elle <strong class="y-highlight">y</strong> travaille.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Être :</strong> <em>Vous êtes au bureau ? — Oui, nous <strong class="y-highlight">y</strong> sommes.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Rester :</strong> <em>Il reste en France ? — Oui, il <strong class="y-highlight">y</strong> reste pour les vacances.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Vivre :</strong> <em>Ils vivent au Brésil ? — Oui, ils <strong class="y-highlight">y</strong> vivent depuis 2010.</em>
+                        </div>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Important :</strong> Y peut remplacer un lieu introduit par différentes prépositions :
+                        <ul style="margin-top: 10px;">
+                            <li><strong>à</strong> + lieu : <em>à Paris → j'y vais</em></li>
+                            <li><strong>au/aux</strong> + lieu : <em>au cinéma → j'y vais</em></li>
+                            <li><strong>en</strong> + lieu : <em>en France → j'y vais</em></li>
+                            <li><strong>dans</strong> + lieu : <em>dans la salle → j'y entre</em></li>
+                            <li><strong>chez</strong> + lieu : <em>chez le dentiste → j'y vais</em></li>
+                            <li><strong>sur</strong> + lieu : <em>sur la table → j'y pose le livre</em></li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-box">
+                        <h4>🔍 Y (destination/localisation) vs EN (provenance)</h4>
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <h5 style="color: #e65100; margin-bottom: 10px;">🔜 Y = où l'on va / où l'on est</h5>
+                                <div class="exemple">
+                                    <em>Je vais <strong>à Paris</strong>.</em><br>
+                                    <em>→ J'<strong class="y-highlight">y</strong> vais.</em>
+                                </div>
+                                <div class="exemple">
+                                    <em>J'habite <strong>à Paris</strong>.</em><br>
+                                    <em>→ J'<strong class="y-highlight">y</strong> habite.</em>
+                                </div>
+                            </div>
+                            <div class="comparison-item">
+                                <h5 style="color: #e65100; margin-bottom: 10px;">🔙 EN = d'où l'on vient</h5>
+                                <div class="exemple">
+                                    <em>Je viens <strong>de Paris</strong>.</em><br>
+                                    <em>→ J'<strong>en</strong> viens.</em>
+                                </div>
+                                <div class="exemple">
+                                    <em>Je sors <strong>de Paris</strong>.</em><br>
+                                    <em>→ J'<strong>en</strong> sors.</em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Position de Y -->
+            <div class="section">
+                <h2><span class="icon">📍</span>Position du pronom Y</h2>
+
+                <div class="emploi-card">
+                    <div class="emploi-title">
+                        <span>🎯</span> Où placer Y dans la phrase ?
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        La position de <strong>Y</strong> suit les mêmes règles que les autres pronoms compléments.
+                    </p>
+
+                    <div class="position-card">
+                        <h5>1️⃣ Temps simples (présent, imparfait, futur...)</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> Y <span class="highlight">AVANT</span> le verbe</p>
+                        <div class="exemple">
+                            <strong>Présent :</strong> <em>J'<strong class="y-highlight">y</strong> vais.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Imparfait :</strong> <em>Tu <strong class="y-highlight">y</strong> pensais souvent.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Futur :</strong> <em>Elle <strong class="y-highlight">y</strong> participera demain.</em>
+                        </div>
+                    </div>
+
+                    <div class="position-card">
+                        <h5>2️⃣ Temps composés (passé composé, plus-que-parfait...)</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> Y <span class="highlight">AVANT l'auxiliaire</span></p>
+                        <div class="exemple">
+                            <strong>Passé composé :</strong> <em>J'<strong class="y-highlight">y</strong> suis allé.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Plus-que-parfait :</strong> <em>Tu <strong class="y-highlight">y</strong> avais pensé.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Futur antérieur :</strong> <em>Elle <strong class="y-highlight">y</strong> aura participé.</em>
+                        </div>
+                    </div>
+
+                    <div class="position-card">
+                        <h5>3️⃣ Avec un infinitif</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> Y <span class="highlight">AVANT l'infinitif</span></p>
+                        <div class="exemple">
+                            <strong>Exemple 1 :</strong> <em>Je vais <strong class="y-highlight">y</strong> aller.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Exemple 2 :</strong> <em>Tu dois <strong class="y-highlight">y</strong> penser.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Exemple 3 :</strong> <em>Il veut <strong class="y-highlight">y</strong> participer.</em>
+                        </div>
+                    </div>
+
+                    <div class="position-card">
+                        <h5>4️⃣ À la forme négative</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> NE + Y + verbe + PAS</p>
+                        <div class="exemple">
+                            <strong>Présent :</strong> <em>Je n'<strong class="y-highlight">y</strong> vais pas.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Passé composé :</strong> <em>Tu n'<strong class="y-highlight">y</strong> as pas pensé.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Avec infinitif :</strong> <em>Il ne veut pas <strong class="y-highlight">y</strong> aller.</em>
+                        </div>
+                    </div>
+
+                    <div class="position-card">
+                        <h5>5️⃣ À l'impératif AFFIRMATIF</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> Y <span class="highlight">APRÈS</span> le verbe (avec trait d'union)</p>
+                        <div class="exemple">
+                            <strong>2ème pers. sing. :</strong> <em>Va<strong>s</strong>-<strong class="y-highlight">y</strong> !</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>1ère pers. plur. :</strong> <em>Allons-<strong class="y-highlight">y</strong> !</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>2ème pers. plur. :</strong> <em>Allez-<strong class="y-highlight">y</strong> !</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Autres exemples :</strong><br>
+                            <em>Pense<strong>s</strong>-<strong class="y-highlight">y</strong> !</em><br>
+                            <em>Réfléchis<strong>s</strong>ez-<strong class="y-highlight">y</strong> bien !</em>
+                        </div>
+                        <div class="warning-box">
+                            <strong>⚠️ Attention :</strong> À l'impératif affirmatif avec les verbes en -ER, on ajoute un <strong>S</strong> 
+                            devant Y pour faciliter la prononciation !
+                            <ul style="margin-top: 10px;">
+                                <li>✅ <em>Va<strong>s</strong>-y !</em> (on ajoute un S)</li>
+                                <li>✅ <em>Pense<strong>s</strong>-y !</em> (on ajoute un S)</li>
+                                <li>✅ <em>Retourne<strong>s</strong>-y !</em> (on ajoute un S)</li>
+                                <li>❌ <em>Va-y !</em> (incorrect, difficile à prononcer)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="position-card">
+                        <h5>6️⃣ À l'impératif NÉGATIF</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> Y <span class="highlight">AVANT</span> le verbe</p>
+                        <div class="exemple">
+                            <strong>2ème pers. sing. :</strong> <em>N'<strong class="y-highlight">y</strong> va pas !</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>1ère pers. plur. :</strong> <em>N'<strong class="y-highlight">y</strong> allons pas !</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>2ème pers. plur. :</strong> <em>N'<strong class="y-highlight">y</strong> allez pas !</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Autres exemples :</strong><br>
+                            <em>N'<strong class="y-highlight">y</strong> pense pas !</em><br>
+                            <em>N'<strong class="y-highlight">y</strong> réfléchissez pas trop !</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expressions courantes avec Y -->
+            <div class="section">
+                <h2><span class="icon">💬</span>Expressions idiomatiques avec Y</h2>
+
+                <div class="emploi-card">
+                    <div class="emploi-title">
+                        <span>💎</span> Expressions courantes
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        Le pronom <strong>Y</strong> entre dans de nombreuses expressions figées de la langue française.
+                    </p>
+
+                    <div class="expression-card">
+                        <div class="expr-title">Allez-y ! / Vas-y !</div>
+                        <p><strong>Sens :</strong> encouragement à faire quelque chose, à commencer</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Tu hésites ? Allez, va<strong>s</strong>-<strong class="y-highlight">y</strong> !</em><br>
+                            <em>Vous pouvez commencer. Allez-<strong class="y-highlight">y</strong> !</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">Il y a</div>
+                        <p><strong>Sens :</strong> expression d'existence ou de présence (très courante)</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Il <strong class="y-highlight">y</strong> a un problème.</em><br>
+                            <em>Il <strong class="y-highlight">y</strong> a du monde aujourd'hui.</em><br>
+                            <em>Il <strong class="y-highlight">y</strong> a trois ans, j'habitais à Paris.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">Ça y est !</div>
+                        <p><strong>Sens :</strong> c'est fait !, c'est terminé !</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Ça <strong class="y-highlight">y</strong> est ! J'ai terminé mon travail !</em><br>
+                            <em>Ça <strong class="y-highlight">y</strong> est, il est parti.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">Y être pour quelque chose</div>
+                        <p><strong>Sens :</strong> avoir un rôle dans quelque chose, être responsable</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Si tu as réussi, j'<strong class="y-highlight">y</strong> suis pour quelque chose.</em><br>
+                            <em>Il n'<strong class="y-highlight">y</strong> est pour rien dans cet accident.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">Je n'y suis pour rien</div>
+                        <p><strong>Sens :</strong> ce n'est pas ma faute, je ne suis pas responsable</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Ne m'accuse pas ! Je n'<strong class="y-highlight">y</strong> suis pour rien !</em><br>
+                            <em>Il n'<strong class="y-highlight">y</strong> est pour rien, c'était un accident.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">N'y voir que du feu</div>
+                        <p><strong>Sens :</strong> ne rien remarquer, ne pas se rendre compte de la tromperie</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>J'ai copié sur lui et le professeur n'<strong class="y-highlight">y</strong> a vu que du feu.</em><br>
+                            <em>Il a triché mais personne n'<strong class="y-highlight">y</strong> a vu que du feu.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">Y aller de bon cœur</div>
+                        <p><strong>Sens :</strong> faire quelque chose avec enthousiasme</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Il <strong class="y-highlight">y</strong> va de bon cœur dans ce projet.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">Y aller franco / Y aller fort</div>
+                        <p><strong>Sens :</strong> ne pas hésiter, être direct ou exagérer</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Tu <strong class="y-highlight">y</strong> vas fort ! Ce n'est pas si grave que ça !</em><br>
+                            <em>Il n'hésite pas, il <strong class="y-highlight">y</strong> va franco.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">Y mettre du sien</div>
+                        <p><strong>Sens :</strong> faire des efforts, contribuer</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Si tu veux réussir, il faut <strong class="y-highlight">y</strong> mettre du tien.</em><br>
+                            <em>Chacun doit <strong class="y-highlight">y</strong> mettre du sien pour que ça marche.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">N'y comprendre rien</div>
+                        <p><strong>Sens :</strong> ne rien comprendre du tout</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Je n'<strong class="y-highlight">y</strong> comprends rien à ce problème de maths.</em><br>
+                            <em>Il n'<strong class="y-highlight">y</strong> comprend absolument rien.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">N'y connaître rien</div>
+                        <p><strong>Sens :</strong> ne rien savoir sur le sujet</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>En informatique, je n'<strong class="y-highlight">y</strong> connais rien.</em><br>
+                            <em>Il n'<strong class="y-highlight">y</strong> connaît rien en mécanique.</em>
+                        </div>
+                    </div>
+
+                    <div class="expression-card">
+                        <div class="expr-title">On y va ? / On y est ?</div>
+                        <p><strong>Sens :</strong> est-ce qu'on part ? / est-ce qu'on est arrivés ?</p>
+                        <div class="exemple" style="margin-top: 10px;">
+                            <em>Tu es prêt ? On <strong class="y-highlight">y</strong> va ?</em><br>
+                            <em>On <strong class="y-highlight">y</strong> est ! C'est ici !</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau récapitulatif -->
+            <div class="section">
+                <h2><span class="icon">📊</span>Tableau récapitulatif</h2>
+
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Emploi de Y</th>
+                            <th>Ce qu'il remplace</th>
+                            <th>Exemple AVANT</th>
+                            <th>Exemple APRÈS</th>
+                        </tr>
+                        <tr>
+                            <td><strong>À + chose</strong></td>
+                            <td>Complément avec À</td>
+                            <td><em>Je pense <strong>à mon examen</strong>.</em></td>
+                            <td><em>J'<strong class="y-highlight">y</strong> pense.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lieu (destination)</strong></td>
+                            <td>Où l'on va</td>
+                            <td><em>Je vais <strong>à Paris</strong>.</em></td>
+                            <td><em>J'<strong class="y-highlight">y</strong> vais.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lieu (localisation)</strong></td>
+                            <td>Où l'on est</td>
+                            <td><em>J'habite <strong>à Lyon</strong>.</em></td>
+                            <td><em>J'<strong class="y-highlight">y</strong> habite.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Expressions</strong></td>
+                            <td>Locutions figées</td>
+                            <td><em>Je vais <strong>au cinéma</strong>.</em></td>
+                            <td><em>J'<strong class="y-highlight">y</strong> vais. / Vas-<strong class="y-highlight">y</strong> !</em></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Comparaison Y vs EN -->
+            <div class="section">
+                <h2><span class="icon">⚖️</span>Comparaison complète : Y vs EN</h2>
+
+                <div class="comparison-box">
+                    <h4>🔍 Différences et points communs</h4>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-item">
+                            <h5 style="color: #1976d2; margin-bottom: 15px; font-size: 1.3em;">🔵 Pronom Y</h5>
+                            <ul style="line-height: 1.8;">
+                                <li><strong>Remplace :</strong> À + complément</li>
+                                <li><strong>Lieu :</strong> destination/localisation</li>
+                                <li><strong>Direction :</strong> où l'on va / est</li>
+                                <li><strong>Question :</strong> Où ? (destination)</li>
+                            </ul>
+                            <div class="exemple" style="margin-top: 15px;">
+                                <em>Je vais <strong>à Paris</strong>.</em><br>
+                                <em>→ J'<strong class="y-highlight">y</strong> vais.</em>
+                            </div>
+                            <div class="exemple">
+                                <em>Je pense <strong>à mon examen</strong>.</em><br>
+                                <em>→ J'<strong class="y-highlight">y</strong> pense.</em>
+                            </div>
+                        </div>
+
+                        <div class="comparison-item">
+                            <h5 style="color: #ff6f00; margin-bottom: 15px; font-size: 1.3em;">🟠 Pronom EN</h5>
+                            <ul style="line-height: 1.8;">
+                                <li><strong>Remplace :</strong> DE + complément</li>
+                                <li><strong>Lieu :</strong> provenance</li>
+                                <li><strong>Direction :</strong> d'où l'on vient</li>
+                                <li><strong>Question :</strong> D'où ? (provenance)</li>
+                            </ul>
+                            <div class="exemple" style="margin-top: 15px;">
+                                <em>Je viens <strong>de Paris</strong>.</em><br>
+                                <em>→ J'<strong>en</strong> viens.</em>
+                            </div>
+                            <div class="exemple">
+                                <em>Je parle <strong>de mon examen</strong>.</em><br>
+                                <em>→ J'<strong>en</strong> parle.</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Astuce mnémotechnique :</strong>
+                        <ul style="margin-top: 10px;">
+                            <li><strong>Y</strong> = J'<strong>Y</strong> vais (destination) 🔜</li>
+                            <li><strong>EN</strong> = J'<strong>EN</strong> viens (provenance) 🔙</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercices -->
+            <div class="section">
+                <h2><span class="icon">✏️</span>Exercices pratiques</h2>
+
+                <div class="grammar-point">
+                    <h4>🎯 Remplacez par Y</h4>
+
+                    <div class="exemple">
+                        <strong>1.</strong> <em>Je pense à mon voyage.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : J'<strong class="y-highlight">y</strong> pense.</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>2.</strong> <em>Tu vas au cinéma ?</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Tu <strong class="y-highlight">y</strong> vas ?</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>3.</strong> <em>Elle habite à Rome.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Elle <strong class="y-highlight">y</strong> habite.</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>4.</strong> <em>Nous réfléchissons au problème.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Nous <strong class="y-highlight">y</strong> réfléchissons.</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>5.</strong> <em>Vous participez à la réunion ?</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Vous <strong class="y-highlight">y</strong> participez ?</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>6.</strong> <em>Ils s'intéressent à l'histoire.</em><br>
+                        <span style="color: #880e4f; font-size: 0.95em;">→ Réponse : Ils s'<strong class="y-highlight">y</strong> intéressent.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Récapitulatif -->
+            <div class="section">
+                <h2><span class="icon">📝</span>Récapitulatif</h2>
+
+                <div class="grammar-point">
+                    <h4>✅ Points essentiels à retenir</h4>
+                    <ul class="special-list">
+                        <li><strong>Y</strong> remplace À + complément (chose, pas personne généralement)</li>
+                        <li><strong>Y</strong> remplace un lieu de destination ou localisation</li>
+                        <li>Y = où l'on va / où l'on est (≠ EN = d'où l'on vient)</li>
+                        <li>Position normale : <strong>avant le verbe</strong></li>
+                        <li>À l'impératif affirmatif : <strong>après le verbe</strong> (+ trait d'union)</li>
+                        <li>Verbes en -ER à l'impératif : ajouter un <strong>S</strong> devant Y</li>
+                        <li>Expressions courantes : <em>Il y a, Vas-y !, Ça y est !</em></li>
+                    </ul>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 Pour progresser :</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Pratiquez avec les verbes courants + À (penser à, réfléchir à...)</li>
+                        <li>Utilisez Y pour parler des lieux sans répétition</li>
+                        <li>Apprenez les expressions idiomatiques avec Y</li>
+                        <li>Faites attention à la distinction Y (destination) vs EN (provenance)</li>
+                        <li>Exercez-vous avec des dialogues quotidiens</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <strong>⚠️ Erreurs fréquentes à éviter :</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Ne pas utiliser Y pour les personnes avec À (utiliser à lui/elle/eux/elles)</li>
+                        <li>Ne pas confondre Y (destination) et EN (provenance)</li>
+                        <li>Ne pas oublier le S à l'impératif des verbes en -ER : <em>Vas-y !</em></li>
+                        <li>Ne pas dire "Tu y vas à Paris" (redondance) → dire "Tu y vas"</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p><strong>Língua Academy</strong> - Excellence en enseignement des langues</p>
+            <p style="margin-top: 10px;">📚 Maîtrisez le pronom Y et enrichissez votre français</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">© 2024 Língua Academy - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

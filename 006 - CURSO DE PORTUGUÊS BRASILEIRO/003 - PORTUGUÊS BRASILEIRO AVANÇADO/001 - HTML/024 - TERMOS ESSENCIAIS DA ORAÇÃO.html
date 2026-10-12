@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos Essenciais da Oração</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%);
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #E67E22;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #E67E22;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #F39C12;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .destaque strong {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tipo-card {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+            min-height: 350px; 
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Cores Adaptadas/Reutilizadas do 008 - CLASSES DE PALAVRAS */
+        .tipo-card.simples {
+            background: linear-gradient(135deg, #E74C3C, #C0392B); /* Sujeito Simples */
+        }
+
+        .tipo-card.composto {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD); /* Sujeito Composto */
+        }
+
+        .tipo-card.oculto {
+            background: linear-gradient(135deg, #3498DB, #2980B9); /* Sujeito Oculto/Indeterminado */
+        }
+
+        .tipo-card.inexistente {
+            background: linear-gradient(135deg, #2ECC71, #16A085); /* Sujeito Inexistente */
+        }
+
+        .tipo-card.predicado {
+            background: linear-gradient(135deg, #F1C40F, #F39C12); /* Predicado */
+            color: #333;
+        }
+        
+        .tipo-card.nominal {
+            background: linear-gradient(135deg, #1ABC9C, #16A085); /* Predicado Nominal */
+        }
+
+
+        .tipo-card h3 {
+            color: inherit;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+
+        .tipo-card .definicao {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tipo-card .exemplos {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .tipo-card.predicado .exemplos {
+            background: rgba(0,0,0,0.1); 
+            color: #333;
+        }
+        
+        .tipo-card .exemplos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .exemplo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #E67E22;
+        }
+
+        .exemplo-card .titulo-exemplo {
+            font-size: 2em;
+            color: #E67E22;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .exemplo-card .conteudo-exemplo {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .dicas-box {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .dicas-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+        }
+
+        .dicas-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dicas-box li {
+            font-size: 1.1em;
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dicas-box li:before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #F7DC6F 0%, #F39C12 50%, #E67E22 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .section, .tipo-card, .destaque, .dicas-box, .exemplo-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .tipos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗣️ Termos Essenciais da Oração 🗣️</h1>
+        <p class="subtitle">Os componentes fundamentais para a formação da oração: Sujeito e Predicado!</p>
+
+        <div class="section">
+            <h2>🎯 O que são Termos Essenciais?</h2>
+            <p class="intro-text">
+                Toda oração, em sua estrutura mais básica, possui dois elementos obrigatórios: o **Sujeito** e o **Predicado**.
+                <br><br>
+                1. O **Sujeito** é o ser (pessoa, objeto, ideia) sobre o qual se declara algo.<br>
+                2. O **Predicado** é a declaração feita sobre o sujeito, contendo sempre o verbo.
+            </p>
+
+            <div class="destaque">
+                <strong>Exemplo Clássico:</strong><br>
+                <span style="font-weight: bold; color: #1ABC9C;">Os alunos</span> <span style="font-weight: bold; color: white;">estudaram a matéria</span>.<br>
+                <span style="font-weight: bold; color: #1ABC9C;">(Sujeito)</span> <span style="font-weight: bold; color: white;">(Predicado)</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>👤 Tipos de Sujeito</h2>
+            <p class="intro-text">
+                A classificação do sujeito depende da forma como ele se apresenta na oração.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card simples">
+                    <h3>1. Sujeito Simples</h3>
+                    <div class="definicao">
+                        Possui **apenas um núcleo**. Não importa se o núcleo está no singular ou plural.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **O menino** correu.<br>
+                        • **As crianças** brincaram.
+                    </div>
+                </div>
+
+                <div class="tipo-card composto">
+                    <h3>2. Sujeito Composto</h3>
+                    <div class="definicao">
+                        Possui **dois ou mais núcleos**. O verbo concorda com a totalidade dos núcleos.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **Mãe e filho** viajaram.<br>
+                        • **O vento, a chuva e o mar** assustavam.
+                    </div>
+                </div>
+
+                <div class="tipo-card oculto">
+                    <h3>3. Sujeito Desinencial (Oculto)</h3>
+                    <div class="definicao">
+                        Não está escrito, mas pode ser identificado pela desinência (final) do verbo ou pelo contexto.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **Estudamos** a noite toda. (Sujeito: Nós)<br>
+                        • **Chegou** cedo. (Sujeito: Ele ou Ela)
+                    </div>
+                </div>
+
+                <div class="tipo-card inexistente">
+                    <h3>4. Oração Sem Sujeito</h3>
+                    <div class="definicao">
+                        Não possui sujeito, pois o fato não é atribuído a nenhum ser. Verbos são **Impessoais** e ficam na 3ª pessoa do singular.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Exemplos:</strong><br>
+                        • **Choveu** muito.<br>
+                        • **Há** bons livros aqui.<br>
+                        • **Faz** frio no sul.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Tipos de Predicado</h2>
+            <p class="intro-text">
+                O predicado é classificado de acordo com o seu **núcleo**, ou seja, a palavra mais importante que carrega a informação essencial.
+            </p>
+
+            <div class="tipos-grid">
+                <div class="tipo-card predicado">
+                    <h3>1. Predicado Verbal (PV)</h3>
+                    <div class="definicao">
+                        O **núcleo** é um **Verbo de Ação** (transitivo ou intransitivo). O verbo é a informação principal.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Verbo + Objeto/Adjunto:</strong><br>
+                        • O cão <span style="font-weight: bold;">**mordeu**</span> o osso. (Núcleo: Verbo *morder*)<br>
+                        • A água <span style="font-weight: bold;">**caiu**</span> no chão. (Núcleo: Verbo *cair*)
+                    </div>
+                </div>
+
+                <div class="tipo-card nominal">
+                    <h3>2. Predicado Nominal (PN)</h3>
+                    <div class="definicao">
+                        O **núcleo** é um **Nome** (Predicativo do Sujeito), que expressa um estado ou qualidade do sujeito. Sempre exige um Verbo de Ligação (VL).
+                    </div>
+                    <div class="exemplos">
+                        <strong>Verbo de Ligação + Predicativo:</strong><br>
+                        • Ela **está** <span style="font-weight: bold;">**feliz**</span>. (Núcleo: Nome *feliz*)<br>
+                        • O motorista **ficou** <span style="font-weight: bold;">**irritado**</span>. (Núcleo: Nome *irritado*)
+                    </div>
+                </div>
+
+                <div class="tipo-card" style="background: linear-gradient(135deg, #FF6F61, #FF5733);">
+                    <h3>3. Predicado Verbo-Nominal (PVN)</h3>
+                    <div class="definicao">
+                        Possui **dois núcleos** (um verbo de ação e um nome). O verbo de ação também expressa uma qualidade/estado.
+                    </div>
+                    <div class="exemplos">
+                        <strong>Verbo de Ação + Predicativo:</strong><br>
+                        • Os alunos **voltaram** <span style="font-weight: bold;">**cansados**</span>. (Núcleos: *voltaram* e *cansados*).<br>
+                        • Considero <span style="font-weight: bold;">o projeto **excelente**</span>. (Núcleos: *considero* e *excelente*).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Dicas de Ouro</h2>
+            
+            <div class="dicas-box">
+                <h4>Resumo e Palavras-Chave:</h4>
+                <ul>
+                    <li>**Sujeito Indeterminado (Com Verbo):** Ocorre com verbo na 3ª pessoa do plural sem referência anterior (*Telefonaram para você*), ou com o pronome 'se' como índice de indeterminação (*Precisa-se de técnicos*).</li>
+                    <li>**Predicado Nominal:** Sempre tem um Verbo de Ligação (ser, estar, ficar, etc.) e um Predicativo do Sujeito.</li>
+                    <li>**Predicado Verbo-Nominal:** Contém um verbo de ação (PV) E um predicativo (PN). O predicativo pode ser do sujeito ou do objeto.</li>
+                    <li>**Concordância:** O Verbo sempre concorda em número e pessoa com o núcleo (ou núcleos) do Sujeito.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfabeto e Fonetica Italiana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            padding: 20px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c44569 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "🔤";
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: -50px;
+            right: -50px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-alfabeto {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+        }
+
+        .section-ipa {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+        }
+
+        .section-straniere {
+            background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);
+        }
+
+        .section-digrammi {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+        }
+
+        .section-trigrammi {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+        }
+
+        .section-dittongo {
+            background: linear-gradient(135deg, #81ecec 0%, #00b894 100%);
+            color: white;
+        }
+
+        .section-trittongo {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+        }
+
+        .section-iato {
+            background: linear-gradient(135deg, #dfe6e9 0%, #b2bec3 100%);
+        }
+
+        h2 {
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .section-alfabeto h2,
+        .section-straniere h2,
+        .section-trittongo h2,
+        .section-iato h2 {
+            color: #2d3436;
+            border-bottom-color: rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            font-size: 2em;
+            margin: 30px 0 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            border-left: 6px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .alfabeto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .lettera-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lettera-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .lettera-card:hover::before {
+            opacity: 1;
+        }
+
+        .lettera-card:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            z-index: 10;
+        }
+
+        .lettera-grande {
+            font-size: 3em;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .lettera-piccola {
+            font-size: 1.8em;
+            color: #3498db;
+        }
+
+        .vocale .lettera-grande {
+            color: #e74c3c;
+        }
+
+        .consonante .lettera-grande {
+            color: #3498db;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 6px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .section-alfabeto .box,
+        .section-straniere .box,
+        .section-trittongo .box,
+        .section-iato .box {
+            background: rgba(0, 0, 0, 0.05);
+            border-left-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .esempio {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid rgba(255, 255, 255, 0.6);
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .section-alfabeto .esempio,
+        .section-straniere .esempio,
+        .section-trittongo .esempio,
+        .section-iato .esempio {
+            background: rgba(0, 0, 0, 0.08);
+            border-left-color: #e74c3c;
+        }
+
+        .ipa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .ipa-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .ipa-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .simbolo-ipa {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', sans-serif;
+        }
+
+        .descrizione-ipa {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        .tabella {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabella th {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .tabella td {
+            padding: 18px 20px;
+            border-bottom: 1px solid #ecf0f1;
+            color: #2d3436;
+            font-size: 1.05em;
+        }
+
+        .tabella tr:hover {
+            background: #f8f9fa;
+            transform: scale(1.01);
+        }
+
+        .tabella tr:last-child td {
+            border-bottom: none;
+        }
+
+        .digram-card {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 15px 0;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .digram-card:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateX(10px);
+        }
+
+        .digram-title {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .section-alfabeto .card,
+        .section-straniere .card,
+        .section-trittongo .card,
+        .section-iato .card {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h4 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .section-alfabeto .card h4,
+        .section-straniere .card h4,
+        .section-trittongo .card h4,
+        .section-iato .card h4 {
+            border-bottom-color: rgba(0, 0, 0, 0.1);
+            color: #2d3436;
+        }
+
+        .highlight {
+            background: #ffeaa7;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #2d3436;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            margin: 5px;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .badge-vocale {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .badge-consonante {
+            background: #3498db;
+            color: white;
+        }
+
+        .badge-semivocale {
+            background: #f39c12;
+            color: white;
+        }
+
+        .badge-crescente {
+            background: #27ae60;
+            color: white;
+        }
+
+        .badge-decrescente {
+            background: #8e44ad;
+            color: white;
+        }
+
+        ul {
+            margin: 15px 0 15px 25px;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 1.05em;
+        }
+
+        .parola-esempio {
+            font-size: 1.6em;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            letter-spacing: 3px;
+        }
+
+        .section-alfabeto .parola-esempio,
+        .section-straniere .parola-esempio,
+        .section-trittongo .parola-esempio,
+        .section-iato .parola-esempio {
+            background: rgba(0, 0, 0, 0.08);
+            color: #2d3436;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 0;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .emoji-grande {
+            font-size: 4em;
+            margin: 20px 0;
+            display: block;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .alfabeto-grid {
+                grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            }
+        }
+
+        .nota-importante {
+            background: linear-gradient(135deg, #ff7675 0%, #d63031 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 6px solid #ffffff;
+            font-size: 1.1em;
+            box-shadow: 0 5px 20px rgba(214, 48, 49, 0.3);
+        }
+
+        .nota-importante strong {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔤 ALFABETO E FONETICA ITALIANA 🎵</h1>
+            <p class="subtitle">Lettere, Suoni e Combinazioni della Lingua Italiana</p>
+        </header>
+
+        <div class="content">
+            <!-- ALFABETO ITALIANO -->
+            <div class="section section-alfabeto">
+                <h2>🇮🇹 L'ALFABETO ITALIANO</h2>
+                
+                <div class="box">
+                    <h3>📚 Le 21 Lettere dell'Alfabeto Italiano</h3>
+                    <p style="font-size: 1.2em; text-align: center; margin: 20px 0;">
+                        L'alfabeto italiano è composto da <span class="highlight">21 lettere</span>: 5 vocali e 16 consonanti
+                    </p>
+                </div>
+
+                <h3>🔴 VOCALI (5)</h3>
+                <div class="alfabeto-grid">
+                    <div class="lettera-card vocale">
+                        <div class="lettera-grande">A</div>
+                        <div class="lettera-piccola">a</div>
+                        <div style="margin-top: 10px; font-size: 0.9em; color: #e74c3c;">vocale</div>
+                    </div>
+                    <div class="lettera-card vocale">
+                        <div class="lettera-grande">E</div>
+                        <div class="lettera-piccola">e</div>
+                        <div style="margin-top: 10px; font-size: 0.9em; color: #e74c3c;">vocale</div>
+                    </div>
+                    <div class="lettera-card vocale">
+                        <div class="lettera-grande">I</div>
+                        <div class="lettera-piccola">i</div>
+                        <div style="margin-top: 10px; font-size: 0.9em; color: #e74c3c;">vocale</div>
+                    </div>
+                    <div class="lettera-card vocale">
+                        <div class="lettera-grande">O</div>
+                        <div class="lettera-piccola">o</div>
+                        <div style="margin-top: 10px; font-size: 0.9em; color: #e74c3c;">vocale</div>
+                    </div>
+                    <div class="lettera-card vocale">
+                        <div class="lettera-grande">U</div>
+                        <div class="lettera-piccola">u</div>
+                        <div style="margin-top: 10px; font-size: 0.9em; color: #e74c3c;">vocale</div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h4>🎵 Classificazione delle Vocali</h4>
+                    <ul>
+                        <li><strong>Vocali forti (toniche):</strong> <span class="highlight">A, E, O</span> - possono essere accentate</li>
+                        <li><strong>Vocali deboli (atone):</strong> <span class="highlight">I, U</span> - possono diventare semivocali</li>
+                        <li><strong>E aperta [ɛ]:</strong> bène, tèrra</li>
+                        <li><strong>E chiusa [e]:</strong> péra, téla</li>
+                        <li><strong>O aperta [ɔ]:</strong> còsa, nòtte</li>
+                        <li><strong>O chiusa [o]:</strong> sóle, móto</li>
+                    </ul>
+                </div>
+
+                <h3>🔵 CONSONANTI (16)</h3>
+                <div class="alfabeto-grid">
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">B</div>
+                        <div class="lettera-piccola">b</div>
+                    </div>
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">C</div>
+                        <div class="lettera-piccola">c</div>
+                    </div>
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">D</div>
+                        <div class="lettera-piccola">d</div>
+                    </div>
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">F</div>
+                        <div class="lettera-piccola">f</div>
+                    </div>
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">G</div>
+                        <div class="lettera-piccola">g</div>
+                    </div>
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">H</div>
+                        <div class="lettera-piccola">h</div>
+                    </div>
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">L</div>
+                        <div class="lettera-piccola">l</div>
+                    </div>
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">M</div>
+                        <div class="lettera-piccola">m</div>
+                    </div>
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">N</div>
+                        <div class="lettera-piccola">n</div>
+                    </div>
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">P</div>
+                        <div class="lettera-piccola">p</div>
+                    </div>
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">Q</div>
+                        <div class="lettera-piccola">q</div>
+                    </div>
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">R</div>
+                        <div class="lettera-piccola">r</div>
+                    </div>
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">S</div>
+                        <div class="lettera-piccola">s</div>
+                    </div>
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">T</div>
+                        <div class="lettera-piccola">t</div>
+                    </div>
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">V</div>
+                        <div class="lettera-piccola">v</div>
+                    </div>
+                    <div class="lettera-card consonante">
+                        <div class="lettera-grande">Z</div>
+                        <div class="lettera-piccola">z</div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h4>🔊 Note importanti sulle consonanti</h4>
+                    <ul>
+                        <li><strong>H</strong> è muta in italiano (non si pronuncia mai da sola)</li>
+                        <li><strong>C e G</strong> hanno suono dolce davanti a E, I (cena, gelo)</li>
+                        <li><strong>C e G</strong> hanno suono duro davanti a A, O, U (casa, gatto)</li>
+                        <li><strong>S e Z</strong> possono essere sorde o sonore</li>
+                        <li><strong>Q</strong> è sempre seguita da U</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- LETTERE STRANIERE -->
+            <div class="section section-straniere">
+                <h2>🌍 LETTERE STRANIERE</h2>
+                
+                <div class="box">
+                    <p style="font-size: 1.2em; text-align: center; margin: 20px 0;">
+                        Queste 5 lettere <span class="highlight">NON fanno parte</span> dell'alfabeto italiano tradizionale, ma sono usate in parole straniere
+                    </p>
+                </div>
+
+                <div class="alfabeto-grid">
+                    <div class="lettera-card" style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);">
+                        <div class="lettera-grande" style="color: #d63031;">J</div>
+                        <div class="lettera-piccola" style="color: #000;">j</div>
+                        <div style="margin-top: 10px; font-size: 0.8em; color: #2d3436;">i lunga</div>
+                    </div>
+                    <div class="lettera-card" style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);">
+                        <div class="lettera-grande" style="color: #fff;">K</div>
+                        <div class="lettera-piccola" style="color: #fff;">k</div>
+                        <div style="margin-top: 10px; font-size: 0.8em; color: #fff;">cappa</div>
+                    </div>
+                    <div class="lettera-card" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
+                        <div class="lettera-grande" style="color: #fff;">W</div>
+                        <div class="lettera-piccola" style="color: #fff;">w</div>
+                        <div style="margin-top: 10px; font-size: 0.8em; color: #fff;">doppia vu</div>
+                    </div>
+                    <div class="lettera-card" style="background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);">
+                        <div class="lettera-grande" style="color: #fff;">X</div>
+                        <div class="lettera-piccola" style="color: #fff;">x</div>
+                        <div style="margin-top: 10px; font-size: 0.8em; color: #fff;">ics</div>
+                    </div>
+                    <div class="lettera-card" style="background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);">
+                        <div class="lettera-grande" style="color: #fff;">Y</div>
+                        <div class="lettera-piccola" style="color: #fff;">y</div>
+                        <div style="margin-top: 10px; font-size: 0.8em; color: #fff;">ipsilon</div>
+                    </div>
+                </div>
+
+                <h3>📖 Esempi di Parole Straniere</h3>
+                <table class="tabella">
+                    <tr>
+                        <th>Lettera</th>
+                        <th>Parole Straniere Usate in Italiano</th>
+                        <th>Origine</th>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em; color: #d63031;">J</strong></td>
+                        <td>jeans, jolly, joystick, jazz, junior</td>
+                        <td>Inglese</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em; color: #0984e3;">K</strong></td>
+                        <td>koala, karate, karaoke, kebab, poker</td>
+                        <td>Varie lingue</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em; color: #6c5ce7;">W</strong></td>
+                        <td>weekend, web, water, whisky, windsurf</td>
+                        <td>Inglese</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em; color: #e84393;">X</strong></td>
+                        <td>xilofono, taxi, box, relax, pixel</td>
+                        <td>Greco/Inglese</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.5em; color: #00b894;">Y</strong></td>
+                        <td>yogurt, yacht, yeti, yoga, spray</td>
+                        <td>Varie lingue</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- ALFABETO FONETICO INTERNAZIONALE -->
+            <div class="section section-ipa">
+                <h2>🎤 ALFABETO FONETICO INTERNAZIONALE (IPA)</h2>
+                
+                <div class="box">
+                    <p style="font-size: 1.2em; text-align: center; margin: 20px 0;">
+                        L'IPA (International Phonetic Alphabet) è un sistema di <span class="highlight">simboli fonetici</span> usato per rappresentare i suoni della lingua parlata
+                    </p>
+                </div>
+
+                <h3>🔊 Principali Simboli IPA per l'Italiano</h3>
+
+                <h4 style="margin-top: 30px; font-size: 1.6em;">Vocali</h4>
+                <div class="ipa-grid">
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[a]</div>
+                        <div class="descrizione-ipa"><strong>A aperta</strong></div>
+                        <div class="esempio">c<strong>a</strong>sa, m<strong>a</strong>re</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[e]</div>
+                        <div class="descrizione-ipa"><strong>E chiusa</strong></div>
+                        <div class="esempio">p<strong>e</strong>ra, t<strong>e</strong>la</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[ɛ]</div>
+                        <div class="descrizione-ipa"><strong>E aperta</strong></div>
+                        <div class="esempio">b<strong>è</strong>ne, c<strong>è</strong></div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[i]</div>
+                        <div class="descrizione-ipa"><strong>I</strong></div>
+                        <div class="esempio">v<strong>i</strong>ta, l<strong>i</strong>bro</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[o]</div>
+                        <div class="descrizione-ipa"><strong>O chiusa</strong></div>
+                        <div class="esempio">s<strong>o</strong>le, v<strong>o</strong>ce</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[ɔ]</div>
+                        <div class="descrizione-ipa"><strong>O aperta</strong></div>
+                        <div class="esempio">c<strong>ò</strong>sa, n<strong>ò</strong>tte</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[u]</div>
+                        <div class="descrizione-ipa"><strong>U</strong></div>
+                        <div class="esempio">l<strong>u</strong>na, m<strong>u</strong>ro</div>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 30px; font-size: 1.6em;">Consonanti Principali</h4>
+                <div class="ipa-grid">
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[p]</div>
+                        <div class="descrizione-ipa"><strong>P</strong></div>
+                        <div class="esempio"><strong>p</strong>ane, ca<strong>p</strong>o</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[b]</div>
+                        <div class="descrizione-ipa"><strong>B</strong></div>
+                        <div class="esempio"><strong>b</strong>ello, a<strong>b</strong>ito</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[t]</div>
+                        <div class="descrizione-ipa"><strong>T</strong></div>
+                        <div class="esempio"><strong>t</strong>avolo, ga<strong>t</strong>to</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[d]</div>
+                        <div class="descrizione-ipa"><strong>D</strong></div>
+                        <div class="esempio"><strong>d</strong>ito, ra<strong>d</strong>io</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[k]</div>
+                        <div class="descrizione-ipa"><strong>C dura</strong></div>
+                        <div class="esempio"><strong>c</strong>asa, an<strong>ch</strong>e</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[g]</div>
+                        <div class="descrizione-ipa"><strong>G dura</strong></div>
+                        <div class="esempio"><strong>g</strong>atto, la<strong>gh</strong>i</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[tʃ]</div>
+                        <div class="descrizione-ipa"><strong>C dolce</strong></div>
+                        <div class="esempio"><strong>c</strong>ielo, pa<strong>c</strong>e</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[dʒ]</div>
+                        <div class="descrizione-ipa"><strong>G dolce</strong></div>
+                        <div class="esempio"><strong>g</strong>ente, <strong>g</strong>iro</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[f]</div>
+                        <div class="descrizione-ipa"><strong>F</strong></div>
+                        <div class="esempio"><strong>f</strong>iore, ca<strong>f</strong>fè</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[v]</div>
+                        <div class="descrizione-ipa"><strong>V</strong></div>
+                        <div class="esempio"><strong>v</strong>ino, a<strong>v</strong>ere</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[s]</div>
+                        <div class="descrizione-ipa"><strong>S sorda</strong></div>
+                        <div class="esempio"><strong>s</strong>ole, ca<strong>s</strong>a</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[z]</div>
+                        <div class="descrizione-ipa"><strong>S sonora</strong></div>
+                        <div class="esempio">ro<strong>s</strong>a, u<strong>s</strong>o</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[ʃ]</div>
+                        <div class="descrizione-ipa"><strong>SC dolce</strong></div>
+                        <div class="esempio"><strong>sc</strong>iare, pe<strong>sc</strong>e</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[ts]</div>
+                        <div class="descrizione-ipa"><strong>Z sorda</strong></div>
+                        <div class="esempio">sta<strong>z</strong>ione, pa<strong>z</strong>zo</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[dz]</div>
+                        <div class="descrizione-ipa"><strong>Z sonora</strong></div>
+                        <div class="esempio"><strong>z</strong>ero, a<strong>zz</strong>urro</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[m]</div>
+                        <div class="descrizione-ipa"><strong>M</strong></div>
+                        <div class="esempio"><strong>m</strong>are, ca<strong>m</strong>era</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[n]</div>
+                        <div class="descrizione-ipa"><strong>N</strong></div>
+                        <div class="esempio"><strong>n</strong>ave, ma<strong>n</strong>o</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[ɲ]</div>
+                        <div class="descrizione-ipa"><strong>GN</strong></div>
+                        <div class="esempio">ba<strong>gn</strong>o, so<strong>gn</strong>o</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[l]</div>
+                        <div class="descrizione-ipa"><strong>L</strong></div>
+                        <div class="esempio"><strong>l</strong>una, pa<strong>l</strong>la</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[ʎ]</div>
+                        <div class="descrizione-ipa"><strong>GL palatale</strong></div>
+                        <div class="esempio">fi<strong>gli</strong>o, fo<strong>gl</strong>ia</div>
+                    </div>
+                    <div class="ipa-card">
+                        <div class="simbolo-ipa">[r]</div>
+                        <div class="descrizione-ipa"><strong>R</strong></div>
+                        <div class="esempio"><strong>r</strong>osa, ca<strong>r</strong>ro</div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h4>📝 Come si usa l'IPA</h4>
+                    <p style="font-size: 1.1em;">I simboli IPA si scrivono tra parentesi quadre <strong>[ ]</strong></p>
+                    <div class="esempio">
+                        <strong>Esempio:</strong><br>
+                        <span style="font-size: 1.3em;">
+                        "ciao" si trascrive → [ˈtʃao]<br>
+                        "gatto" si trascrive → [ˈgatto]<br>
+                        "figlio" si trascrive → [ˈfiʎʎo]
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIGRAMMI -->
+            <div class="section section-digrammi">
+                <h2>🔠 DIGRAMMI</h2>
+                
+                <div class="box">
+                    <p style="font-size: 1.2em; text-align: center; margin: 20px 0;">
+                        Un digramma è un gruppo di <span class="highlight">DUE lettere</span> che rappresentano UN SOLO suono
+                    </p>
+                </div>
+
+                <div class="digram-card">
+                    <div class="digram-title">CH</div>
+                    <p><strong>Suono:</strong> [k] - C dura davanti a E, I</p>
+                    <div class="esempio">
+                        <strong>Esempi:</strong> che, chi, chiesa, chiave,ochemica, chitarra, pacchetto
+                    </div>
+                    <div class="parola-esempio">CHIESA [ˈkjɛza]</div>
+                </div>
+
+                <div class="digram-card">
+                    <div class="digram-title">GH</div>
+                    <p><strong>Suono:</strong> [g] - G dura davanti a E, I</p>
+                    <div class="esempio">
+                        <strong>Esempi:</strong> ghe, ghi, ghetto, ghiaccio, laghi, spaghetti, ghepardo
+                    </div>
+                    <div class="parola-esempio">GHIACCIO [ˈgjattʃo]</div>
+                </div>
+
+                <div class="digram-card">
+                    <div class="digram-title">SC</div>
+                    <p><strong>Suono:</strong> [ʃ] - SC dolce davanti a E, I</p>
+                    <div class="esempio">
+                        <strong>Esempi:</strong> scena, sci, pesce, scienza, uscire, sciare, scimmia
+                    </div>
+                    <div class="parola-esempio">PESCE [ˈpeʃʃe]</div>
+                </div>
+
+                <div class="digram-card">
+                    <div class="digram-title">GN</div>
+                    <p><strong>Suono:</strong> [ɲ] - N palatale (come ñ in spagnolo)</p>
+                    <div class="esempio">
+                        <strong>Esempi:</strong> gnomo, bagno, sogno, legno, gnoccchi, compagno, montagna
+                    </div>
+                    <div class="parola-esempio">BAGNO [ˈbaɲɲo]</div>
+                </div>
+
+                <div class="digram-card">
+                    <div class="digram-title">GL</div>
+                    <p><strong>Suono:</strong> [ʎ] - L palatale (davanti a I)</p>
+                    <div class="esempio">
+                        <strong>Esempi:</strong> gli, figlio, foglia, famiglia, meglio, voglio,iglia
+                    </div>
+                    <div class="parola-esempio">FAMIGLIA [faˈmiʎʎa]</div>
+                </div>
+
+                <div class="nota-importante">
+                    <strong>⚠️ ATTENZIONE:</strong> GL davanti a A, E, O, U mantiene il suono normale<br>
+                    Esempi: <strong>glicine</strong> [g-l], <strong>gladiatore</strong> [g-l], <strong>gloria</strong> [g-l]
+                </div>
+
+                <h3>🔄 Altri Digrammi Comuni</h3>
+                <table class="tabella">
+                    <tr>
+                        <th>Digramma</th>
+                        <th>Suono IPA</th>
+                        <th>Esempi</th>
+                    </tr>
+                    <tr>
+                        <td><strong>CI</strong></td>
+                        <td>[tʃ]</td>
+                        <td>cielo, ciao, arancia, camicia</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GI</strong></td>
+                        <td>[dʒ]</td>
+                        <td>giorno, oggi, magia, giallo</td>
+                    </tr>
+                    <tr>
+                        <td><strong>QU</strong></td>
+                        <td>[kw]</td>
+                        <td>quando, qui, acqua, quadro</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- TRIGRAMMI -->
+            <div class="section section-trigrammi">
+                <h2>🔠🔠🔠 TRIGRAMMI</h2>
+                
+                <div class="box">
+                    <p style="font-size: 1.2em; text-align: center; margin: 20px 0;">
+                        Un trigramma è un gruppo di <span class="highlight">TRE lettere</span> che rappresentano UN SOLO suono
+                    </p>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>🔤 SCI</h4>
+                        <p><strong>Suono:</strong> [ʃ] - SC dolce + I</p>
+                        <div class="esempio">
+                            <strong>Esempi:</strong><br>
+                            • sciare<br>
+                            • scienza<br>
+                            • scivoloso<br>
+                            • sciocco<br>
+                            • sciarpa<br>
+                            • coscienza
+                        </div>
+                        <div class="parola-esempio">SCIENZA [ˈʃɛntsa]</div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔤 SCE</h4>
+                        <p><strong>Suono:</strong> [ʃe] - SC dolce + E</p>
+                        <div class="esempio">
+                            <strong>Esempi:</strong><br>
+                            • scena<br>
+                            • discesa<br>
+                            • crescere<br>
+                            • uscente<br>
+                            • nascere<br>
+                            • scenografia
+                        </div>
+                        <div class="parola-esempio">SCENA [ˈʃɛna]</div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔤 GLI</h4>
+                        <p><strong>Suono:</strong> [ʎi] - GL palatale + I</p>
+                        <div class="esempio">
+                            <strong>Esempi:</strong><br>
+                            • gli (articolo)<br>
+                            • famiglia<br>
+                            • figlio<br>
+                            • meglio<br>
+                            • foglia<br>
+                            • aglio
+                        </div>
+                        <div class="parola-esempio">FIGLIO [ˈfiʎʎo]</div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔤 GNI</h4>
+                        <p><strong>Suono:</strong> [ɲi] - GN + I</p>
+                        <div class="esempio">
+                            <strong>Esempi:</strong><br>
+                            • ogni<br>
+                            • bisogni<br>
+                            • sogni<br>
+                            • ingegneria<br>
+                            • compagnia<br>
+                            • campagna
+                        </div>
+                        <div class="parola-esempio">OGNI [ˈoɲɲi]</div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔤 CHI</h4>
+                        <p><strong>Suono:</strong> [ki] - CH + I</p>
+                        <div class="esempio">
+                            <strong>Esempi:</strong><br>
+                            • chi (pronome)<br>
+                            • chiave<br>
+                            • chiaro<br>
+                            • occhi<br>
+                            • pacchetto<br>
+                            • chilo
+                        </div>
+                        <div class="parola-esempio">CHIAVE [ˈkjave]</div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔤 CHE</h4>
+                        <p><strong>Suono:</strong> [ke] - CH + E</p>
+                        <div class="esempio">
+                            <strong>Esempi:</strong><br>
+                            • che (pronome/congiunzione)<br>
+                            • perché<br>
+                            • anche<br>
+                            • maschera<br>
+                            • banche<br>
+                            • pacchetti
+                        </div>
+                        <div class="parola-esempio">PERCHÉ [perˈke]</div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔤 GHI</h4>
+                        <p><strong>Suono:</strong> [gi] - GH + I</p>
+                        <div class="esempio">
+                            <strong>Esempi:</strong><br>
+                            • ghiaccio<br>
+                            • ghiro<br>
+                            • spaghetti<br>
+                            • margherita<br>
+                            • ghianda<br>
+                            • ghigliottina
+                        </div>
+                        <div class="parola-esempio">GHIACCIO [ˈgjattʃo]</div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔤 GHE</h4>
+                        <p><strong>Suono:</strong> [ge] - GH + E</p>
+                        <div class="esempio">
+                            <strong>Esempi:</strong><br>
+                            • ghepardo<br>
+                            • spaghetti<br>
+                            • margherita<br>
+                            • laghe<br>
+                            • ghetto<br>
+                            • draghe
+                        </div>
+                        <div class="parola-esempio">MARGHERITA [margeˈrita]</div>
+                    </div>
+                </div>
+
+                <div class="nota-importante">
+                    <strong>💡 REGOLA GENERALE:</strong> I trigrammi si usano per mantenere la pronuncia corretta quando si aggiunge una vocale dopo un digramma!
+                </div>
+            </div>
+
+            <!-- DITTONGO -->
+            <div class="section section-dittongo">
+                <h2>🎵 IL DITTONGO</h2>
+                
+                <div class="box">
+                    <p style="font-size: 1.2em; text-align: center; margin: 20px 0;">
+                        Il dittongo è l'unione di <span class="highlight">DUE VOCALI</span> pronunciate con una sola emissione di voce, che formano una SOLA SILLABA
+                    </p>
+                </div>
+
+                <h3>📚 Struttura del Dittongo</h3>
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>SEMIVOCALE + VOCALE</h4>
+                        <p><span class="badge badge-semivocale">Semivocale</span> <span class="badge badge-vocale">Vocale Forte</span></p>
+                        <p style="margin-top: 15px;">Le semivocali sono <strong>I</strong> e <strong>U</strong> quando sono atone (non accentate)</p>
+                    </div>
+                    <div class="card">
+                        <h4>VOCALE + SEMIVOCALE</h4>
+                        <p><span class="badge badge-vocale">Vocale Forte</span> <span class="badge badge-semivocale">Semivocale</span></p>
+                        <p style="margin-top: 15px;">Le vocali forti sono <strong>A</strong>, <strong>E</strong>, <strong>O</strong></p>
+                    </div>
+                </div>
+
+                <h3>⬆️ Dittongo Ascendente (Crescente)</h3>
+                <div class="box">
+                    <p><strong>Struttura:</strong> SEMIVOCALE + VOCALE <span class="badge badge-crescente">CRESCENTE</span></p>
+                    <p>L'intensità della voce aumenta dalla semivocale alla vocale</p>
+                </div>
+
+                <table class="tabella">
+                    <tr>
+                        <th>Combinazione</th>
+                        <th>Esempi</th>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.3em; color: #27ae60;">IA</strong></td>
+                        <td>pi<strong>a</strong>no, vi<strong>a</strong>, It<strong>ia</strong>lia, f<strong>ia</strong>ba</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.3em; color: #27ae60;">IE</strong></td>
+                        <td>p<strong>ie</strong>de, p<strong>ie</strong>tra, m<strong>ie</strong>le, f<strong>ie</strong>ra</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.3em; color: #27ae60;">IO</strong></td>
+                        <td>f<strong>io</strong>re, p<strong>io</strong>vere, v<strong>io</strong>la</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.3em; color: #27ae60;">IU</strong></td>
+                        <td>f<strong>iu</strong>me, ch<strong>iu</strong>so, p<strong>iu</strong>ma</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.3em; color: #27ae60;">UA</strong></td>
+                        <td>q<strong>ua</strong>dro, sq<strong>ua</strong>la, acq<strong>ua</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.3em; color: #27ae60;">UE</strong></td>
+                        <td>q<strong>ue</strong>sto, sq<strong>ue</strong>la, g<strong>ue</strong>rra</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.3em; color: #27ae60;">UO</strong></td>
+                        <td><strong>uo</strong>mo, sc<strong>uo</strong>la, n<strong>uo</strong>vo</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.3em; color: #27ae60;">UI</strong></td>
+                        <td>q<strong>ui</strong>, l<strong>ui</strong>, c<strong>ui</strong></td>
+                    </tr>
+                </table>
+
+                <h3>⬇️ Dittongo Discendente (Decrescente)</h3>
+                <div class="box">
+                    <p><strong>Struttura:</strong> VOCALE + SEMIVOCALE <span class="badge badge-decrescente">DECRESCENTE</span></p>
+                    <p>L'intensità della voce diminuisce dalla vocale alla semivocale</p>
+                </div>
+
+                <table class="tabella">
+                    <tr>
+                        <th>Combinazione</th>
+                        <th>Esempi</th>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.3em; color: #8e44ad;">AI</strong></td>
+                        <td>m<strong>ai</strong>, p<strong>ai</strong>o, s<strong>ai</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.3em; color: #8e44ad;">EI</strong></td>
+                        <td>l<strong>ei</strong>, s<strong>ei</strong>, r<strong>ei</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.3em; color: #8e44ad;">OI</strong></td>
+                        <td>p<strong>oi</strong>, n<strong>oi</strong>, v<strong>oi</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.3em; color: #8e44ad;">AU</strong></td>
+                        <td><strong>au</strong>to, p<strong>au</strong>ra, c<strong>au</strong>sa</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="font-size: 1.3em; color: #8e44ad;">EU</strong></td>
+                        <td><strong>Eu</strong>ropa, n<strong>eu</strong>tro, m<strong>eu</strong>se</td>
+                    </tr>
+                </table>
+
+                <div class="box">
+                    <h4>✨ Esempi di Parole con Dittonghi</h4>
+                    <div class="grid-2">
+                        <div class="esempio">
+                            <strong>PI-E-DE</strong> → PIE è un dittongo ascendente (i+e)
+                        </div>
+                        <div class="esempio">
+                            <strong>AU-TO</strong> → AU è un dittongo discendente (a+u)
+                        </div>
+                        <div class="esempio">
+                            <strong>UO-MO</strong> → UO è un dittongo ascendente (u+o)
+                        </div>
+                        <div class="esempio">
+                            <strong>MAI</strong> → AI è un dittongo discendente (a+i)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRITTONGO -->
+            <div class="section section-trittongo">
+                <h2>🎶 IL TRITTONGO</h2>
+                
+                <div class="box">
+                    <p style="font-size: 1.2em; text-align: center; margin: 20px 0;">
+                        Il trittongo è l'unione di <span class="highlight">TRE VOCALI</span> pronunciate con una sola emissione di voce, che formano una SOLA SILLABA
+                    </p>
+                </div>
+
+                <div class="box">
+                    <h3>📐 Struttura del Trittongo</h3>
+                    <p style="font-size: 1.3em; text-align: center; margin: 20px 0;">
+                        <span class="badge badge-semivocale">SEMIVOCALE</span> + 
+                        <span class="badge badge-vocale">VOCALE FORTE</span> + 
+                        <span class="badge badge-semivocale">SEMIVOCALE</span>
+                    </p>
+                    <p style="text-align: center;">Schema: <strong>I/U + A/E/O + I/U</strong></p>
+                </div>
+
+                <h3>📝 Trittonghi Principali</h3>
+                <div class="grid-2">
+                    <div class="card">
+                        <h4 style="font-size: 2em; color: #e74c3c;">IUO</h4>
+                        <div class="esempio">
+                            • a<strong>iuo</strong>la<br>
+                            • m<strong>iuo</strong>vo
+                        </div>
+                        <div class="parola-esempio">AIUOLA</div>
+                    </div>
+
+                    <div class="card">
+                        <h4 style="font-size: 2em; color: #e74c3c;">UOI</h4>
+                        <div class="esempio">
+                            • t<strong>uoi</strong><br>
+                            • s<strong>uoi</strong><br>
+                            • b<strong>uoi</strong>
+                        </div>
+                        <div class="parola-esempio">TUOI</div>
+                    </div>
+
+                    <div class="card">
+                        <h4 style="font-size: 2em; color: #e74c3c;">IAI</h4>
+                        <div class="esempio">
+                            • stud<strong>iai</strong><br>
+                            • mang<strong>iai</strong><br>
+                            • camb<strong>iai</strong>
+                        </div>
+                        <div class="parola-esempio">STUDIAI</div>
+                    </div>
+
+                    <div class="card">
+                        <h4 style="font-size: 2em; color: #e74c3c;">IEI</h4>
+                        <div class="esempio">
+                            • m<strong>iei</strong><br>
+                            • ch<strong>iei</strong>desti<br>
+                            • cr<strong>iei</strong>
+                        </div>
+                        <div class="parola-esempio">MIEI</div>
+                    </div>
+
+                    <div class="card">
+                        <h4 style="font-size: 2em; color: #e74c3c;">UAI</h4>
+                        <div class="esempio">
+                            • g<strong>uai</strong><br>
+                            • acq<strong>uai</strong>o<br>
+                            • contin<strong>uai</strong>
+                        </div>
+                        <div class="parola-esempio">GUAI</div>
+                    </div>
+
+                    <div class="card">
+                        <h4 style="font-size: 2em; color: #e74c3c;">UEI</h4>
+                        <div class="esempio">
+                            • q<strong>uei</strong><br>
+                            • s<strong>uei</strong>
+                        </div>
+                        <div class="parola-esempio">QUEI</div>
+                    </div>
+                </div>
+
+                <div class="nota-importante">
+                    <strong>📌 NOTA IMPORTANTE:</strong> I trittonghi sono MOLTO RARI in italiano! La maggior parte si trova nelle forme verbali (passato remoto, congiuntivo) e in alcuni pronomi possessivi.
+                </div>
+
+                <div class="box">
+                    <h4>🔍 Come Riconoscere un Trittongo</h4>
+                    <ul style="font-size: 1.1em;">
+                        <li>Deve contenere ESATTAMENTE 3 vocali consecutive</li>
+                        <li>La vocale centrale deve essere A, E o O (vocale forte)</li>
+                        <li>Le vocali laterali devono essere I o U (semivocali)</li>
+                        <li>Tutte e tre devono pronunciarsi in una SOLA sillaba</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- IATO -->
+            <div class="section section-iato">
+                <h2>💔 LO IATO</h2>
+                
+                <div class="box">
+                    <p style="font-size: 1.2em; text-align: center; margin: 20px 0;">
+                        Lo iato (o <em>iatus</em>) è l'incontro di <span class="highlight">DUE VOCALI</span> che appartengono a SILLABE DIVERSE e si pronunciano con DUE emissioni di voce
+                    </p>
+                </div>
+
+                <div class="box" style="background: linear-gradient(135deg, #ff7675 0%, #d63031 100%); color: white;">
+                    <h3>⚠️ ATTENZIONE: Differenza con il Dittongo</h3>
+                    <div class="grid-2">
+                        <div class="card" style="background: rgba(255, 255, 255, 0.9); color: #2d3436;">
+                            <h4 style="color: #27ae60;">DITTONGO ✅</h4>
+                            <p>Due vocali = UNA sillaba</p>
+                            <div class="esempio" style="background: rgba(39, 174, 96, 0.1); border-left-color: #27ae60;">
+                                <strong>PIE-DE</strong> (2 sillabe)<br>
+                                PIE è un dittongo
+                            </div>
+                        </div>
+                        <div class="card" style="background: rgba(255, 255, 255, 0.9); color: #2d3436;">
+                            <h4 style="color: #e74c3c;">IATO ❌</h4>
+                            <p>Due vocali = DUE sillabe</p>
+                            <div class="esempio" style="background: rgba(231, 76, 60, 0.1); border-left-color: #e74c3c;">
+                                <strong>PA-U-RA</strong> (3 sillabe)<br>
+                                A-U è uno iato
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>📋 Casi di Iato</h3>
+
+                <div class="box">
+                    <h4>1️⃣ Due Vocali Forti (A, E, O) consecutive</h4>
+                    <table class="tabella">
+                        <tr>
+                            <th>Parola</th>
+                            <th>Divisione in Sillabe</th>
+                            <th>Iato</th>
+                        </tr>
+                        <tr>
+                            <td><strong>poeta</strong></td>
+                            <td>po-e-ta</td>
+                            <td>O-E</td>
+                        </tr>
+                        <tr>
+                            <td><strong>beato</strong></td>
+                            <td>be-a-to</td>
+                            <td>E-A</td>
+                        </tr>
+                        <tr>
+                            <td><strong>teatro</strong></td>
+                            <td>te-a-tro</td>
+                            <td>E-A</td>
+                        </tr>
+                        <tr>
+                            <td><strong>aereo</strong></td>
+                            <td>a-e-re-o</td>
+                            <td>A-E, E-O</td>
+                        </tr>
+                        <tr>
+                            <td><strong>maestro</strong></td>
+                            <td>ma-e-stro</td>
+                            <td>A-E</td>
+                        </tr>
+                        <tr>
+                            <td><strong>paese</strong></td>
+                            <td>pa-e-se</td>
+                            <td>A-E</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="box">
+                    <h4>2️⃣ Vocale Debole (I, U) ACCENTATA + Vocale Forte</h4>
+                    <p>Quando I o U sono accentate (hanno l'accento tonico), NON sono semivocali ma vocali piene</p>
+                    <table class="tabella">
+                        <tr>
+                            <th>Parola</th>
+                            <th>Divisione in Sillabe</th>
+                            <th>Iato</th>
+                        </tr>
+                        <tr>
+                            <td><strong>pa<mark>ù</mark>ra</strong></td>
+                            <td>pa-ù-ra</td>
+                            <td>A-Ù</td>
+                        </tr>
+                        <tr>
+                            <td><strong>z<mark>í</mark>o</strong></td>
+                            <td>zí-o</td>
+                            <td>Í-O</td>
+                        </tr>
+                        <tr>
+                            <td><strong>m<mark>í</mark>a</strong></td>
+                            <td>mí-a</td>
+                            <td>Í-A</td>
+                        </tr>
+                        <tr>
+                            <td><strong>farm<u>acì</u>a</strong></td>
+                            <td>far-ma-cì-a</td>
+                            <td>Ì-A</td>
+                        </tr>
+                        <tr>
+                            <td><strong>v<mark>í</mark>a</strong></td>
+                            <td>ví-a</td>
+                            <td>Í-A</td>
+                        </tr>
+                        <tr>
+                            <td><strong>b<mark>ú</mark>o</strong></td>
+                            <td>bú-o</td>
+                            <td>Ú-O</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="box">
+                    <h4>3️⃣ Vocale Forte + Vocale Debole (I, U) ACCENTATA</h4>
+                    <table class="tabella">
+                        <tr>
+                            <th>Parola</th>
+                            <th>Divisione in Sillabe</th>
+                            <th>Iato</th>
+                        </tr>
+                        <tr>
+                            <td><strong>pa<mark>ú</mark>ra</strong></td>
+                            <td>pa-ú-ra</td>
+                            <td>A-Ú</td>
+                        </tr>
+                        <tr>
+                            <td><strong>sa<mark>ú</mark>de</strong></td>
+                            <td>sa-ú-de</td>
+                            <td>A-Ú</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="box">
+                    <h4>4️⃣ Due Vocali Deboli (I, U) uguali</h4>
+                    <table class="tabella">
+                        <tr>
+                            <th>Parola</th>
+                            <th>Divisione in Sillabe</th>
+                            <th>Iato</th>
+                        </tr>
+                        <tr>
+                            <td><strong>zi-i</strong></td>
+                            <td>zi-i</td>
+                            <td>I-I</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="nota-importante">
+                    <strong>🔑 REGOLA D'ORO:</strong><br>
+                    C'è IATO quando:<br>
+                    1. Due vocali forti si incontrano (maestro, teatro)<br>
+                    2. Una vocale debole (I, U) è ACCENTATA (paùra, zìo, mìa)
+                </div>
+
+                <h3>📊 Confronto Dittongo vs Iato</h3>
+                <table class="tabella">
+                    <tr>
+                        <th>Parola</th>
+                        <th>Tipo</th>
+                        <th>Divisione Sillabica</th>
+                        <th>Spiegazione</th>
+                    </tr>
+                    <tr style="background: rgba(39, 174, 96, 0.1);">
+                        <td><strong>piede</strong></td>
+                        <td>DITTONGO</td>
+                        <td>PIE-DE (2 sillabe)</td>
+                        <td>I non accentata + E = dittongo</td>
+                    </tr>
+                    <tr style="background: rgba(231, 76, 60, 0.1);">
+                        <td><strong>mìa</strong></td>
+                        <td>IATO</td>
+                        <td>MÌ-A (2 sillabe)</td>
+                        <td>Ì accentata + A = iato</td>
+                    </tr>
+                    <tr style="background: rgba(39, 174, 96, 0.1);">
+                        <td><strong>uomo</strong></td>
+                        <td>DITTONGO</td>
+                        <td>UO-MO (2 sillabe)</td>
+                        <td>U non accentata + O = dittongo</td>
+                    </tr>
+                    <tr style="background: rgba(231, 76, 60, 0.1);">
+                        <td><strong>paùra</strong></td>
+                        <td>IATO</td>
+                        <td>PA-Ù-RA (3 sillabe)</td>
+                        <td>A + Ù accentata = iato</td>
+                    </tr>
+                    <tr style="background: rgba(39, 174, 96, 0.1);">
+                        <td><strong>fiore</strong></td>
+                        <td>DITTONGO</td>
+                        <td>FIO-RE (2 sillabe)</td>
+                        <td>I non accentata + O = dittongo</td>
+                    </tr>
+                    <tr style="background: rgba(231, 76, 60, 0.1);">
+                        <td><strong>poeta</strong></td>
+                        <td>IATO</td>
+                        <td>PO-E-TA (3 sillabe)</td>
+                        <td>O + E (due vocali forti) = iato</td>
+                    </tr>
+                </table>
+
+                <div class="emoji-grande">✂️</div>
+                <p style="text-align: center; font-size: 1.2em; margin-top: -10px;">
+                    Lo iato "separa" le vocali in sillabe diverse!
+                </p>
+            </div>
+
+        </div>
+
+        <footer>
+            <p style="font-size: 1.5em; margin-bottom: 15px;">🔤 Alfabeto e Fonetica Italiana 🎵</p>
+            <p>Impara lettere, suoni e combinazioni vocaliche</p>
+            <p style="margin-top: 20px; opacity: 0.8;">Studia con passione! 📚✨</p>
+        </footer>
+    </div>
+</body>
+</html>

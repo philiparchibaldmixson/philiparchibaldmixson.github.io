@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Voix Passive | Grammaire Française</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --midnight: #0F1419;
+            --slate-blue: #3D5A80;
+            --cyan-bright: #00B4D8;
+            --amber-gold: #FFA500;
+            --soft-white: #F8F9FA;
+            --pearl: #E8EBF0;
+            --charcoal: #2B2D42;
+            --sky-light: #90E0EF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--soft-white);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        .gradient-background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, 
+                var(--soft-white) 0%, 
+                var(--pearl) 50%, 
+                rgba(0, 180, 216, 0.05) 100%);
+        }
+
+        .gradient-background::before {
+            content: '';
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(0, 180, 216, 0.1) 0%, transparent 70%);
+            top: 10%;
+            right: -10%;
+            animation: morphing 20s infinite ease-in-out;
+        }
+
+        .gradient-background::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 165, 0, 0.08) 0%, transparent 70%);
+            bottom: 10%;
+            left: -10%;
+            animation: morphing 25s infinite ease-in-out reverse;
+        }
+
+        @keyframes morphing {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -40px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.95); }
+        }
+
+        /* Container */
+        .main-container {
+            max-width: 1350px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        /* Header with modern styling */
+        header {
+            padding: 90px 0 70px;
+            position: relative;
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 35px;
+            animation: slideFromLeft 0.8s ease-out;
+        }
+
+        @keyframes slideFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .academy-badge {
+            background: linear-gradient(135deg, var(--cyan-bright), var(--slate-blue));
+            color: white;
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(0, 180, 216, 0.3);
+        }
+
+        .category-tag {
+            color: var(--slate-blue);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 6rem;
+            font-weight: 700;
+            color: var(--midnight);
+            line-height: 0.95;
+            margin-bottom: 30px;
+            animation: slideFromLeft 1s ease-out 0.2s backwards;
+        }
+
+        .main-title {
+            display: block;
+            color: var(--slate-blue);
+        }
+
+        .highlight-title {
+            display: block;
+            background: linear-gradient(135deg, var(--cyan-bright), var(--amber-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .lead-paragraph {
+            font-size: 1.35rem;
+            color: var(--charcoal);
+            max-width: 850px;
+            font-weight: 400;
+            line-height: 1.9;
+            animation: slideFromLeft 1s ease-out 0.4s backwards;
+        }
+
+        /* Hero card with modern design */
+        .hero-card {
+            background: white;
+            padding: 70px;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.1);
+            margin: 70px 0;
+            position: relative;
+            overflow: hidden;
+            animation: fadeSlideUp 1s ease-out 0.6s backwards;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--cyan-bright), var(--amber-gold));
+        }
+
+        .hero-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 180, 216, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-card h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.8rem;
+            color: var(--midnight);
+            margin-bottom: 30px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-card p {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--charcoal);
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-text {
+            color: var(--cyan-bright);
+            font-weight: 700;
+        }
+
+        /* Section with number badges */
+        .content-section {
+            margin: 80px 0;
+            animation: fadeSlideUp 1s ease-out backwards;
+        }
+
+        .content-section:nth-child(4) { animation-delay: 0.8s; }
+        .content-section:nth-child(5) { animation-delay: 1s; }
+        .content-section:nth-child(6) { animation-delay: 1.2s; }
+        .content-section:nth-child(7) { animation-delay: 1.4s; }
+        .content-section:nth-child(8) { animation-delay: 1.6s; }
+        .content-section:nth-child(9) { animation-delay: 1.8s; }
+
+        .section-title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 45px;
+        }
+
+        .section-badge {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--cyan-bright), var(--slate-blue));
+            color: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: 'Raleway', sans-serif;
+            box-shadow: 0 10px 30px rgba(0, 180, 216, 0.3);
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .section-badge::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--cyan-bright), var(--amber-gold));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .section-title-wrapper:hover .section-badge::before {
+            opacity: 1;
+        }
+
+        .section-title-wrapper h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.6rem;
+            color: var(--midnight);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            color: var(--charcoal);
+            margin-bottom: 40px;
+            line-height: 1.9;
+            max-width: 900px;
+        }
+
+        /* Formula box with modern styling */
+        .formula-box {
+            background: linear-gradient(135deg, var(--midnight), var(--slate-blue));
+            color: white;
+            padding: 50px;
+            border-radius: 25px;
+            margin: 50px 0;
+            box-shadow: 0 20px 60px rgba(15, 20, 25, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .formula-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 180, 216, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .formula-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .formula-content {
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .formula-element {
+            color: var(--sky-light);
+            font-weight: 700;
+        }
+
+        .formula-plus {
+            color: var(--amber-gold);
+            margin: 0 20px;
+        }
+
+        /* Transformation cards */
+        .transformation-grid {
+            display: grid;
+            grid-template-columns: 1fr 80px 1fr;
+            gap: 0;
+            margin: 50px 0;
+            align-items: center;
+        }
+
+        .transform-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .transform-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .transform-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: var(--slate-blue);
+        }
+
+        .voice-active-label {
+            color: var(--cyan-bright);
+        }
+
+        .voice-passive-label {
+            color: var(--amber-gold);
+        }
+
+        .transform-sentence {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.4rem;
+            color: var(--midnight);
+            line-height: 1.8;
+        }
+
+        .arrow-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .transform-arrow {
+            font-size: 3rem;
+            color: var(--cyan-bright);
+            font-weight: 700;
+        }
+
+        .subject-active {
+            color: var(--cyan-bright);
+            font-weight: 700;
+        }
+
+        .verb-active {
+            color: var(--midnight);
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-color: var(--cyan-bright);
+            text-decoration-thickness: 2px;
+        }
+
+        .object-active {
+            color: var(--amber-gold);
+            font-weight: 700;
+        }
+
+        .subject-passive {
+            color: var(--amber-gold);
+            font-weight: 700;
+        }
+
+        .verb-passive {
+            color: var(--midnight);
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-color: var(--amber-gold);
+            text-decoration-thickness: 2px;
+        }
+
+        .agent-passive {
+            color: var(--cyan-bright);
+            font-weight: 700;
+        }
+
+        /* Examples grid */
+        .examples-grid {
+            display: grid;
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .example-card {
+            background: white;
+            padding: 30px 35px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--cyan-bright);
+            position: relative;
+        }
+
+        .example-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-card::before {
+            content: '→';
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--cyan-bright);
+            font-weight: 700;
+        }
+
+        .example-text {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.25rem;
+            color: var(--midnight);
+            line-height: 1.7;
+        }
+
+        /* Info boxes with gradient borders */
+        .info-box {
+            background: white;
+            padding: 35px 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--cyan-bright), var(--amber-gold));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .info-box-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.6rem;
+            color: var(--midnight);
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--cyan-bright), var(--slate-blue));
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .info-content {
+            font-size: 1.05rem;
+            color: var(--charcoal);
+            line-height: 1.9;
+        }
+
+        .info-content ul {
+            margin-top: 15px;
+            margin-left: 25px;
+        }
+
+        .info-content li {
+            margin-bottom: 12px;
+        }
+
+        .info-content strong {
+            color: var(--cyan-bright);
+            font-weight: 700;
+        }
+
+        /* Tenses table */
+        .tenses-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .tense-card {
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
+            transition: all 0.3s ease;
+        }
+
+        .tense-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+        }
+
+        .tense-name {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.4rem;
+            color: var(--slate-blue);
+            margin-bottom: 20px;
+            font-weight: 700;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--cyan-bright);
+        }
+
+        .tense-examples {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tense-example {
+            font-size: 1.05rem;
+            color: var(--charcoal);
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .tense-example::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--amber-gold);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* Comparison section */
+        .comparison-section {
+            background: white;
+            padding: 60px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            margin: 60px 0;
+        }
+
+        .comparison-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.8rem;
+            color: var(--midnight);
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .comparison-column h4 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.8rem;
+            color: var(--midnight);
+            margin-bottom: 30px;
+            font-weight: 700;
+            padding-bottom: 15px;
+            border-bottom: 4px solid var(--cyan-bright);
+        }
+
+        .comparison-column:last-child h4 {
+            border-bottom-color: var(--amber-gold);
+        }
+
+        .comparison-point {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--pearl);
+            font-size: 1.05rem;
+            color: var(--charcoal);
+        }
+
+        .comparison-point:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--cyan-bright);
+            font-weight: 700;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 100px;
+            padding: 70px 0;
+            text-align: center;
+            border-top: 3px solid var(--pearl);
+            animation: fadeIn 1s ease-out 2s backwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .footer-brand {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, var(--cyan-bright), var(--amber-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            color: var(--slate-blue);
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-container {
+                padding: 0 40px;
+            }
+
+            h1 {
+                font-size: 4.5rem;
+            }
+
+            .tenses-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .transformation-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .arrow-container {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 0 25px;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .hero-card,
+            .comparison-section {
+                padding: 40px 30px;
+            }
+
+            .section-badge {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+
+            .section-title-wrapper h3 {
+                font-size: 2rem;
+            }
+
+            .formula-content {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-background"></div>
+
+    <div class="main-container">
+        <header>
+            <div class="top-bar">
+                <div class="academy-badge">Língua Academy</div>
+                <div class="category-tag">Grammaire Française</div>
+            </div>
+            <h1>
+                <span class="main-title">La Voix</span>
+                <span class="highlight-title">Passive</span>
+            </h1>
+            <p class="lead-paragraph">
+                Découvrez la voix passive, cette construction qui permet de mettre l'accent sur l'action subie plutôt que sur celui qui la réalise, transformant ainsi la perspective et la dynamique de la phrase française.
+            </p>
+        </header>
+
+        <div class="hero-card">
+            <h2>Définition Fondamentale</h2>
+            <p>
+                La <span class="highlight-text">voix passive</span> est une forme de conjugaison dans laquelle le sujet grammatical subit l'action exprimée par le verbe au lieu de la réaliser. Contrairement à la voix active où le sujet agit, à la voix passive le sujet est passif : il reçoit l'action. Cette construction modifie profondément la perspective de la phrase en déplaçant l'attention de l'agent (celui qui fait) vers le patient (celui qui subit).
+            </p>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title-wrapper">
+                <div class="section-badge">1</div>
+                <h3>Structure et Formation</h3>
+            </div>
+            <p class="section-description">
+                La voix passive se forme avec l'auxiliaire "être" conjugué au temps voulu, suivi du participe passé du verbe. Le participe passé s'accorde toujours en genre et en nombre avec le sujet de la phrase passive.
+            </p>
+
+            <div class="formula-box">
+                <h4 class="formula-title">Formule de construction</h4>
+                <div class="formula-content">
+                    <span class="formula-element">Sujet</span>
+                    <span class="formula-plus">+</span>
+                    <span class="formula-element">ÊTRE (conjugué)</span>
+                    <span class="formula-plus">+</span>
+                    <span class="formula-element">Participe Passé (accordé)</span>
+                    <span class="formula-plus">+</span>
+                    <span class="formula-element">par + Agent (facultatif)</span>
+                </div>
+            </div>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <p class="example-text">
+                        <span class="subject-passive">Le gâteau</span> <span class="verb-passive">est préparé</span> <span class="agent-passive">par le chef</span>
+                    </p>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">
+                        <span class="subject-passive">Les lettres</span> <span class="verb-passive">sont envoyées</span> <span class="agent-passive">par la secrétaire</span>
+                    </p>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">
+                        <span class="subject-passive">La décision</span> <span class="verb-passive">a été prise</span> <span class="agent-passive">par le conseil</span>
+                    </p>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">
+                        <span class="subject-passive">Les résultats</span> <span class="verb-passive">seront annoncés</span> <span class="agent-passive">par le directeur</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title-wrapper">
+                <div class="section-badge">2</div>
+                <h3>Transformation Actif → Passif</h3>
+            </div>
+            <p class="section-description">
+                Pour transformer une phrase active en phrase passive, on effectue trois opérations principales : le complément d'objet direct devient le sujet, le sujet devient le complément d'agent, et le verbe se met à la forme passive.
+            </p>
+
+            <div class="transformation-grid">
+                <div class="transform-card">
+                    <div class="transform-label voice-active-label">Voix Active</div>
+                    <p class="transform-sentence">
+                        <span class="subject-active">Le professeur</span> <span class="verb-active">corrige</span> <span class="object-active">les copies</span>
+                    </p>
+                </div>
+                <div class="arrow-container">
+                    <div class="transform-arrow">→</div>
+                </div>
+                <div class="transform-card">
+                    <div class="transform-label voice-passive-label">Voix Passive</div>
+                    <p class="transform-sentence">
+                        <span class="subject-passive">Les copies</span> <span class="verb-passive">sont corrigées</span> <span class="agent-passive">par le professeur</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="transformation-grid">
+                <div class="transform-card">
+                    <div class="transform-label voice-active-label">Voix Active</div>
+                    <p class="transform-sentence">
+                        <span class="subject-active">Mozart</span> <span class="verb-active">a composé</span> <span class="object-active">cette symphonie</span>
+                    </p>
+                </div>
+                <div class="arrow-container">
+                    <div class="transform-arrow">→</div>
+                </div>
+                <div class="transform-card">
+                    <div class="transform-label voice-passive-label">Voix Passive</div>
+                    <p class="transform-sentence">
+                        <span class="subject-passive">Cette symphonie</span> <span class="verb-passive">a été composée</span> <span class="agent-passive">par Mozart</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="transformation-grid">
+                <div class="transform-card">
+                    <div class="transform-label voice-active-label">Voix Active</div>
+                    <p class="transform-sentence">
+                        <span class="subject-active">La tempête</span> <span class="verb-active">détruira</span> <span class="object-active">la maison</span>
+                    </p>
+                </div>
+                <div class="arrow-container">
+                    <div class="transform-arrow">→</div>
+                </div>
+                <div class="transform-card">
+                    <div class="transform-label voice-passive-label">Voix Passive</div>
+                    <p class="transform-sentence">
+                        <span class="subject-passive">La maison</span> <span class="verb-passive">sera détruite</span> <span class="agent-passive">par la tempête</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-icon">!</span>
+                    Règles de transformation
+                </h4>
+                <div class="info-content">
+                    <ul>
+                        <li><strong>COD devient Sujet :</strong> Le complément d'objet direct de la phrase active devient le sujet de la phrase passive</li>
+                        <li><strong>Sujet devient Agent :</strong> Le sujet de la phrase active devient le complément d'agent (introduit par "par")</li>
+                        <li><strong>Verbe se transforme :</strong> Le verbe actif devient "être + participe passé" au même temps</li>
+                        <li><strong>Accord obligatoire :</strong> Le participe passé s'accorde avec le nouveau sujet</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title-wrapper">
+                <div class="section-badge">3</div>
+                <h3>Le Complément d'Agent</h3>
+            </div>
+            <p class="section-description">
+                Le complément d'agent indique qui fait l'action dans une phrase passive. Il est introduit par la préposition "par" (ou parfois "de"). Cependant, il n'est pas toujours obligatoire et peut être omis.
+            </p>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-icon">✓</span>
+                    Avec complément d'agent
+                </h4>
+                <div class="info-content">
+                    Lorsque l'agent est important ou connu, on le mentionne :
+                </div>
+            </div>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <p class="example-text">
+                        Le tableau a été peint <span class="agent-passive">par Picasso</span>
+                    </p>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">
+                        La découverte a été faite <span class="agent-passive">par les chercheurs</span>
+                    </p>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">
+                        Le discours sera prononcé <span class="agent-passive">par le président</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 40px;">
+                <h4 class="info-box-title">
+                    <span class="info-icon">∅</span>
+                    Sans complément d'agent
+                </h4>
+                <div class="info-content">
+                    L'agent est souvent omis quand il est inconnu, évident ou sans importance :
+                </div>
+            </div>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <p class="example-text">
+                        <span class="subject-passive">La porte</span> <span class="verb-passive">a été ouverte</span>
+                    </p>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">
+                        <span class="subject-passive">Des erreurs</span> <span class="verb-passive">ont été commises</span>
+                    </p>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">
+                        <span class="subject-passive">Le français</span> <span class="verb-passive">est parlé</span> dans de nombreux pays
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 40px;">
+                <h4 class="info-box-title">
+                    <span class="info-icon">≈</span>
+                    Préposition "de" au lieu de "par"
+                </h4>
+                <div class="info-content">
+                    Dans certains cas, on utilise "de" au lieu de "par" :
+                    <ul>
+                        <li>Avec les verbes exprimant un sentiment ou un état : <strong>être aimé de, être respecté de, être connu de</strong></li>
+                        <li>Dans des expressions figées : <strong>couvert de, entouré de, bordé de, précédé de, suivi de</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <p class="example-text">
+                        Il est <span class="verb-passive">aimé</span> <span class="agent-passive">de tous</span>
+                    </p>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">
+                        Le jardin est <span class="verb-passive">entouré</span> <span class="agent-passive">d'arbres</span>
+                    </p>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">
+                        La ville est <span class="verb-passive">connue</span> <span class="agent-passive">de tous les touristes</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title-wrapper">
+                <div class="section-badge">4</div>
+                <h3>La Voix Passive aux Différents Temps</h3>
+            </div>
+            <p class="section-description">
+                La voix passive peut s'employer à tous les temps. Le temps de l'auxiliaire "être" détermine le temps de la phrase passive. Le participe passé reste invariable dans sa forme, seul l'auxiliaire se conjugue.
+            </p>
+
+            <div class="tenses-grid">
+                <div class="tense-card">
+                    <h4 class="tense-name">Présent</h4>
+                    <div class="tense-examples">
+                        <div class="tense-example">La lettre <strong>est écrite</strong> par Marie</div>
+                        <div class="tense-example">Les livres <strong>sont lus</strong> par les élèves</div>
+                    </div>
+                </div>
+
+                <div class="tense-card">
+                    <h4 class="tense-name">Passé Composé</h4>
+                    <div class="tense-examples">
+                        <div class="tense-example">La lettre <strong>a été écrite</strong> par Marie</div>
+                        <div class="tense-example">Les livres <strong>ont été lus</strong> par les élèves</div>
+                    </div>
+                </div>
+
+                <div class="tense-card">
+                    <h4 class="tense-name">Imparfait</h4>
+                    <div class="tense-examples">
+                        <div class="tense-example">La lettre <strong>était écrite</strong> par Marie</div>
+                        <div class="tense-example">Les livres <strong>étaient lus</strong> par les élèves</div>
+                    </div>
+                </div>
+
+                <div class="tense-card">
+                    <h4 class="tense-name">Plus-que-parfait</h4>
+                    <div class="tense-examples">
+                        <div class="tense-example">La lettre <strong>avait été écrite</strong> par Marie</div>
+                        <div class="tense-example">Les livres <strong>avaient été lus</strong> par les élèves</div>
+                    </div>
+                </div>
+
+                <div class="tense-card">
+                    <h4 class="tense-name">Futur Simple</h4>
+                    <div class="tense-examples">
+                        <div class="tense-example">La lettre <strong>sera écrite</strong> par Marie</div>
+                        <div class="tense-example">Les livres <strong>seront lus</strong> par les élèves</div>
+                    </div>
+                </div>
+
+                <div class="tense-card">
+                    <h4 class="tense-name">Futur Antérieur</h4>
+                    <div class="tense-examples">
+                        <div class="tense-example">La lettre <strong>aura été écrite</strong> par Marie</div>
+                        <div class="tense-example">Les livres <strong>auront été lus</strong> par les élèves</div>
+                    </div>
+                </div>
+
+                <div class="tense-card">
+                    <h4 class="tense-name">Conditionnel Présent</h4>
+                    <div class="tense-examples">
+                        <div class="tense-example">La lettre <strong>serait écrite</strong> par Marie</div>
+                        <div class="tense-example">Les livres <strong>seraient lus</strong> par les élèves</div>
+                    </div>
+                </div>
+
+                <div class="tense-card">
+                    <h4 class="tense-name">Subjonctif Présent</h4>
+                    <div class="tense-examples">
+                        <div class="tense-example">Il faut que la lettre <strong>soit écrite</strong></div>
+                        <div class="tense-example">Il faut que les livres <strong>soient lus</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title-wrapper">
+                <div class="section-badge">5</div>
+                <h3>Quand Utiliser la Voix Passive ?</h3>
+            </div>
+            <p class="section-description">
+                La voix passive n'est pas simplement une alternative à la voix active. Elle a des usages spécifiques et remplit des fonctions communicatives particulières qui justifient son emploi dans certaines situations.
+            </p>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-icon">1</span>
+                    Mettre l'accent sur l'action ou le résultat
+                </h4>
+                <div class="info-content">
+                    Quand on veut insister sur ce qui est fait plutôt que sur qui le fait.
+                </div>
+            </div>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <p class="example-text">
+                        <span class="subject-passive">Un nouveau vaccin</span> <span class="verb-passive">a été développé</span>
+                    </p>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">
+                        <span class="subject-passive">La tour Eiffel</span> <span class="verb-passive">a été construite</span> en 1889
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-icon">2</span>
+                    L'agent est inconnu ou sans importance
+                </h4>
+                <div class="info-content">
+                    Quand on ne sait pas ou qu'on ne veut pas préciser qui fait l'action.
+                </div>
+            </div>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <p class="example-text">
+                        <span class="subject-passive">Ma voiture</span> <span class="verb-passive">a été volée</span> cette nuit
+                    </p>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">
+                        <span class="subject-passive">Le français</span> <span class="verb-passive">est parlé</span> dans de nombreux pays
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-icon">3</span>
+                    Style objectif et impersonnel
+                </h4>
+                <div class="info-content">
+                    Dans les textes scientifiques, administratifs ou journalistiques pour plus d'objectivité.
+                </div>
+            </div>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <p class="example-text">
+                        <span class="subject-passive">Les données</span> <span class="verb-passive">ont été analysées</span> selon le protocole
+                    </p>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">
+                        <span class="subject-passive">La décision</span> <span class="verb-passive">sera communiquée</span> demain
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-icon">4</span>
+                    Éviter la responsabilité ou atténuer
+                </h4>
+                <div class="info-content">
+                    Pour rendre le discours moins direct ou éviter d'accuser directement.
+                </div>
+            </div>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <p class="example-text">
+                        <span class="subject-passive">Des erreurs</span> <span class="verb-passive">ont été commises</span>
+                    </p>
+                </div>
+                <div class="example-card">
+                    <p class="example-text">
+                        <span class="subject-passive">Votre demande</span> <span class="verb-passive">a été refusée</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-title-wrapper">
+                <div class="section-badge">6</div>
+                <h3>Restrictions et Impossibilités</h3>
+            </div>
+            <p class="section-description">
+                Tous les verbes ne peuvent pas se mettre à la voix passive. Il existe des restrictions importantes qu'il faut connaître pour éviter les erreurs.
+            </p>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-icon">✗</span>
+                    Verbes qui ne peuvent PAS être au passif
+                </h4>
+                <div class="info-content">
+                    <ul>
+                        <li><strong>Verbes intransitifs :</strong> Ils n'ont pas de COD donc pas de passif possible (dormir, courir, marcher, aller, venir, etc.)</li>
+                        <li><strong>Verbes transitifs indirects :</strong> Avec un COI introduit par préposition (parler à, penser à, téléphoner à, obéir à, etc.)</li>
+                        <li><strong>Verbes d'état :</strong> être, sembler, paraître, devenir, rester</li>
+                        <li><strong>Verbes impersonnels :</strong> Il pleut, il faut, il neige, etc.</li>
+                        <li><strong>Avoir, posséder, comporter, comprendre :</strong> dans leur sens de possession</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4 class="info-box-title">
+                    <span class="info-icon">!</span>
+                    Cas limites à éviter
+                </h4>
+                <div class="info-content">
+                    Certains verbes peuvent techniquement se mettre au passif mais le résultat est lourd ou peu naturel. Il vaut mieux les éviter :
+                    <ul>
+                        <li>❌ <em>"Il a été eu par le vendeur"</em> → ✓ <em>"Le vendeur l'a eu"</em></li>
+                        <li>❌ <em>"La maison est possédée par eux"</em> → ✓ <em>"Ils possèdent la maison"</em></li>
+                        <li>❌ <em>"Trois personnes sont comprises par ce groupe"</em> → ✓ <em>"Ce groupe comprend trois personnes"</em></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <h2 class="comparison-title">Voix Active vs Voix Passive</h2>
+            <div class="comparison-grid">
+                <div class="comparison-column">
+                    <h4>Voix Active</h4>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Le sujet fait l'action
+                    </div>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Sujet = agent actif
+                    </div>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Construction directe et simple
+                    </div>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Style dynamique et vivant
+                    </div>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Met l'accent sur l'agent
+                    </div>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Forme naturelle et courante
+                    </div>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Possible avec tous les verbes
+                    </div>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Phrases généralement plus courtes
+                    </div>
+                </div>
+
+                <div class="comparison-column">
+                    <h4>Voix Passive</h4>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Le sujet subit l'action
+                    </div>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Sujet = patient passif
+                    </div>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Construction avec être + participe passé
+                    </div>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Style plus formel et objectif
+                    </div>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Met l'accent sur l'action/le résultat
+                    </div>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Forme moins spontanée, plus réfléchie
+                    </div>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Seulement avec verbes transitifs directs
+                    </div>
+                    <div class="comparison-point">
+                        <span class="check-icon">→</span> Phrases souvent plus longues
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box" style="margin: 60px 0;">
+            <h4 class="info-box-title">
+                <span class="info-icon">✓</span>
+                Points Essentiels à Retenir
+            </h4>
+            <div class="info-content">
+                <ul>
+                    <li>La voix passive se forme avec <strong>ÊTRE + PARTICIPE PASSÉ</strong> (accordé avec le sujet)</li>
+                    <li>Seuls les <strong>verbes transitifs directs</strong> peuvent se mettre au passif</li>
+                    <li>Le <strong>complément d'agent</strong> (par/de + agent) est souvent facultatif</li>
+                    <li>La voix passive met l'accent sur <strong>l'action subie</strong> plutôt que sur l'agent</li>
+                    <li>Elle est privilégiée dans un <strong>style objectif et impersonnel</strong></li>
+                    <li>Le temps de l'auxiliaire "être" détermine le <strong>temps de la phrase passive</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-brand">Língua Academy</div>
+            <p class="footer-text">Maîtrisez les nuances de la langue française</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujet Réel et Sujet Apparent - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            animation: containerReveal 1.4s ease-out;
+        }
+
+        @keyframes containerReveal {
+            from {
+                opacity: 0;
+                transform: translateY(-150px) scale(0.8) rotateX(20deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotateX(0deg);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0055A4 0%, #FFFFFF 20%, #EF4135 40%, #FFFFFF 60%, #0055A4 80%, #EF4135 100%);
+            padding: 70px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: headerDots 30s linear infinite;
+        }
+
+        @keyframes headerDots {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(60px, 60px) rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 4.2em;
+            margin-bottom: 22px;
+            text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.35);
+            position: relative;
+            z-index: 1;
+            color: #0055A4;
+            animation: titleWave 5s ease-in-out infinite;
+        }
+
+        @keyframes titleWave {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.04); }
+        }
+
+        .subtitle {
+            font-size: 1.9em;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            color: #2d3436;
+            margin-bottom: 12px;
+        }
+
+        .subsubtitle {
+            font-size: 1.5em;
+            color: #EF4135;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 60px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 25px;
+            margin-bottom: 55px;
+            font-size: 1.35em;
+            box-shadow: 0 20px 50px rgba(106, 17, 203, 0.5);
+            animation: introAppear 1.3s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes introAppear {
+            from {
+                opacity: 0;
+                transform: translateX(-180px) rotateY(-15deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) rotateY(0deg);
+            }
+        }
+
+        .intro::after {
+            content: '🔍';
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 8em;
+            opacity: 0.15;
+            animation: magnifyPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes magnifyPulse {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.2); }
+        }
+
+        .section {
+            margin-bottom: 55px;
+            padding: 50px;
+            background: linear-gradient(to bottom right, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 26px;
+            border-left: 12px solid #EF4135;
+            transition: all 0.5s ease;
+            animation: sectionSlideUp 1s ease-out;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        @keyframes sectionSlideUp {
+            from { opacity: 0; transform: translateY(70px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section:hover {
+            transform: translateX(20px) scale(1.02);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.15);
+            border-left-color: #0055A4;
+        }
+
+        h2 {
+            color: #0055A4;
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .icon {
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #EF4135 0%, #ff6b6b 50%, #0055A4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 2em;
+            animation: iconSpin 6s ease-in-out infinite;
+            box-shadow: 0 12px 40px rgba(239, 65, 53, 0.6);
+        }
+
+        @keyframes iconSpin {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.3) rotate(-20deg); }
+            75% { transform: scale(1.3) rotate(20deg); }
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 35px;
+            margin: 40px 0;
+            align-items: stretch;
+        }
+
+        .subject-card {
+            background: white;
+            padding: 40px;
+            border-radius: 22px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+            transition: all 0.5s ease;
+            border: 5px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.15), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .subject-card:hover::before {
+            left: 100%;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-18px) scale(1.06);
+            box-shadow: 0 25px 65px rgba(0, 0, 0, 0.25);
+        }
+
+        .subject-card.apparent {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ebff 100%);
+        }
+
+        .subject-card.real {
+            border-color: #EF4135;
+            background: linear-gradient(135deg, #fff8f8 0%, #ffe8e8 100%);
+        }
+
+        .subject-title {
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 4px solid;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subject-card.apparent .subject-title {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .subject-card.real .subject-title {
+            color: #EF4135;
+            border-bottom-color: #EF4135;
+        }
+
+        .vs-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #0055A4;
+            animation: vsRotate 3s infinite;
+        }
+
+        @keyframes vsRotate {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+            50% { transform: scale(1.4) rotate(180deg); opacity: 1; }
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 22px;
+            margin: 40px 0;
+            box-shadow: 0 15px 50px rgba(0, 85, 164, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .definition-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 25px,
+                rgba(255, 255, 255, 0.05) 25px,
+                rgba(255, 255, 255, 0.05) 50px
+            );
+            animation: patternSlide 20s linear infinite;
+        }
+
+        @keyframes patternSlide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .definition-title {
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .definition-title::before {
+            content: '📖';
+            font-size: 1.8em;
+        }
+
+        .definition-content {
+            font-size: 1.3em;
+            line-height: 2;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sentence {
+            padding: 25px 32px;
+            margin: 20px 0;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+            border-radius: 16px;
+            font-size: 1.3em;
+            border-left: 7px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sentence:hover {
+            transform: translateX(20px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .subject-apparent {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 10px;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 5px 18px rgba(102, 126, 234, 0.5);
+            animation: apparentGlow 3s infinite;
+        }
+
+        @keyframes apparentGlow {
+            0%, 100% { box-shadow: 0 5px 18px rgba(102, 126, 234, 0.5); }
+            50% { box-shadow: 0 8px 30px rgba(102, 126, 234, 0.8); }
+        }
+
+        .subject-real {
+            background: linear-gradient(135deg, #EF4135 0%, #ff6b6b 100%);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 10px;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 5px 18px rgba(239, 65, 53, 0.5);
+            animation: realGlow 3s infinite;
+        }
+
+        @keyframes realGlow {
+            0%, 100% { box-shadow: 0 5px 18px rgba(239, 65, 53, 0.5); }
+            50% { box-shadow: 0 8px 30px rgba(239, 65, 53, 0.8); }
+        }
+
+        .verb {
+            color: #0055A4;
+            font-weight: bold;
+            text-decoration: underline;
+            text-decoration-color: #0055A4;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 4px;
+        }
+
+        .explanation {
+            color: #636e72;
+            font-style: italic;
+            margin-top: 12px;
+            font-size: 1em;
+            padding-left: 20px;
+        }
+
+        .example-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 35px 0;
+            border: 5px solid #0055A4;
+            box-shadow: 0 12px 40px rgba(0, 85, 164, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 18px 55px rgba(0, 85, 164, 0.25);
+        }
+
+        .example-title {
+            color: #EF4135;
+            font-weight: bold;
+            font-size: 1.8em;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .example-title::before {
+            content: '✓';
+            background: #EF4135;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            animation: checkBounce 3.5s infinite;
+        }
+
+        @keyframes checkBounce {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg); 
+                box-shadow: 0 0 0 0 rgba(239, 65, 53, 0.8); 
+            }
+            50% { 
+                transform: scale(1.3) rotate(360deg); 
+                box-shadow: 0 0 0 30px rgba(239, 65, 53, 0); 
+            }
+        }
+
+        .verbs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 35px;
+        }
+
+        .verb-card {
+            background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%);
+            padding: 35px;
+            border-radius: 20px;
+            border: 4px solid #0055A4;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .verb-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(239, 65, 53, 0.12), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .verb-card:hover::before {
+            left: 100%;
+        }
+
+        .verb-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 85, 164, 0.3);
+            border-color: #EF4135;
+        }
+
+        .verb-card-title {
+            color: #EF4135;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .verb-card-title::before {
+            content: '▸';
+            color: #0055A4;
+            font-size: 1.6em;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 40px;
+            border-radius: 22px;
+            margin: 40px 0;
+            border-left: 8px solid #f39c12;
+            box-shadow: 0 12px 35px rgba(243, 156, 18, 0.4);
+        }
+
+        .highlight-title {
+            font-size: 1.7em;
+            font-weight: bold;
+            color: #d35400;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .highlight-title::before {
+            content: '💡';
+            font-size: 2.2em;
+            animation: bulbFlash 3s infinite;
+        }
+
+        @keyframes bulbFlash {
+            0%, 100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+            50% { opacity: 0.6; transform: scale(1.3); filter: brightness(1.8); }
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-left: 8px solid #f44336;
+            padding: 38px;
+            border-radius: 20px;
+            margin: 38px 0;
+        }
+
+        .warning-title {
+            font-weight: bold;
+            color: #c62828;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 1.6em;
+        }
+
+        .warning-title::before {
+            content: '⚠';
+            font-size: 2.5em;
+            animation: warningSwing 2.5s infinite;
+        }
+
+        @keyframes warningSwing {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            10%, 30%, 50%, 70%, 90% { transform: rotate(-20deg) scale(1.2); }
+            20%, 40%, 60%, 80% { transform: rotate(20deg) scale(1.2); }
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 35px 0;
+        }
+
+        .analysis-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .analysis-table th {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 28px;
+            font-size: 1.5em;
+            text-align: left;
+        }
+
+        .analysis-table td {
+            padding: 28px;
+            border-bottom: 3px solid #e9ecef;
+            font-size: 1.2em;
+        }
+
+        .analysis-table tr:hover {
+            background: linear-gradient(to right, #f8f9fa 0%, #e8f4f8 100%);
+        }
+
+        .steps-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 35px 0;
+        }
+
+        .step {
+            padding: 28px;
+            margin: 20px 0;
+            background: white;
+            border-radius: 14px;
+            border-left: 7px solid #4caf50;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateX(18px);
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.25);
+        }
+
+        .step-number {
+            background: #4caf50;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.4em;
+            margin-right: 18px;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 55px;
+            border-radius: 28px;
+            margin: 55px 0;
+            box-shadow: 0 20px 65px rgba(102, 126, 234, 0.6);
+        }
+
+        .summary-title {
+            font-size: 2.6em;
+            margin-bottom: 38px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .summary-title::before {
+            content: '📋';
+            font-size: 2.2em;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .summary-list li {
+            padding: 22px 0;
+            padding-left: 50px;
+            position: relative;
+            font-size: 1.3em;
+        }
+
+        .summary-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ffd93d;
+            font-weight: bold;
+            font-size: 1.9em;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: white;
+            text-align: center;
+            padding: 55px;
+            font-size: 1em;
+        }
+
+        .footer-logo {
+            font-size: 2.8em;
+            font-weight: bold;
+            margin-bottom: 22px;
+            background: linear-gradient(135deg, #EF4135 0%, #0055A4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: logoWave 6s infinite;
+        }
+
+        @keyframes logoWave {
+            0%, 100% { opacity: 1; transform: scale(1) translateY(0); }
+            50% { opacity: 0.85; transform: scale(1.08) translateY(-8px); }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8em;
+            }
+
+            .content {
+                padding: 40px;
+            }
+
+            h2 {
+                font-size: 2.2em;
+            }
+
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+
+            .vs-divider {
+                transform: rotate(90deg);
+                margin: 25px 0;
+            }
+
+            .verbs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇫🇷 Sujet Réel et Sujet Apparent</h1>
+            <p class="subtitle">Sujet et Complément d'Agent</p>
+            <p class="subsubtitle">Grammaire Française</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <strong>🔍 Distinction fondamentale :</strong> En français, certaines constructions impersonnelles présentent deux sujets : un <strong>sujet apparent</strong> (grammatical) qui est toujours "il", et un <strong>sujet réel</strong> (logique) qui porte le véritable sens de la phrase. Cette dualité est essentielle pour comprendre la structure de nombreuses phrases françaises !
+            </div>
+
+            <!-- Section 1 : Comparaison Sujet Apparent vs Sujet Réel -->
+            <div class="section">
+                <h2><span class="icon">1</span>Sujet Apparent vs Sujet Réel</h2>
+                
+                <div class="comparison-container">
+                    <div class="subject-card apparent">
+                        <div class="subject-title">🔵 Sujet Apparent</div>
+                        <div class="definition-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <div class="definition-title">Définition</div>
+                            <p>Le <strong>sujet apparent</strong> (ou sujet grammatical) est le pronom "il" qui ne représente rien de précis. C'est le sujet formel de la phrase.</p>
+                        </div>
+                        <div class="sentence" style="background: linear-gradient(135deg, #f0f3ff 0%, #e0e7ff 100%);">
+                            <span class="subject-apparent">Il</span> <span class="verb">pleut</span>.
+                        </div>
+                        <div class="sentence" style="background: linear-gradient(135deg, #f0f3ff 0%, #e0e7ff 100%);">
+                            <span class="subject-apparent">Il</span> <span class="verb">faut</span> du courage.
+                        </div>
+                        <div class="sentence" style="background: linear-gradient(135deg, #f0f3ff 0%, #e0e7ff 100%);">
+                            <span class="subject-apparent">Il</span> <span class="verb">est</span> arrivé un accident.
+                        </div>
+                        <p style="margin-top: 20px; font-style: italic; color: #667eea;">
+                            ✓ Toujours à la 3ème personne du singulier<br>
+                            ✓ Toujours le pronom "il"<br>
+                            ✓ Ne peut pas être remplacé
+                        </p>
+                    </div>
+
+                    <div class="vs-divider">⇄</div>
+
+                    <div class="subject-card real">
+                        <div class="subject-title">🔴 Sujet Réel</div>
+                        <div class="definition-box" style="background: linear-gradient(135deg, #EF4135 0%, #c0392b 100%);">
+                            <div class="definition-title">Définition</div>
+                            <p>Le <strong>sujet réel</strong> (ou sujet logique) est l'élément qui porte vraiment le sens. C'est ce qui fait réellement l'action ou subit l'état.</p>
+                        </div>
+                        <div class="sentence">
+                            <span class="subject-real">La pluie</span> tombe.
+                            <div class="explanation">→ sens réel de "il pleut"</div>
+                        </div>
+                        <div class="sentence">
+                            <span class="subject-real">du courage</span>
+                            <div class="explanation">→ ce qui est nécessaire</div>
+                        </div>
+                        <div class="sentence">
+                            <span class="subject-real">un accident</span>
+                            <div class="explanation">→ ce qui est arrivé</div>
+                        </div>
+                        <p style="margin-top: 20px; font-style: italic; color: #EF4135;">
+                            ✓ Peut varier en nombre<br>
+                            ✓ Porte le sens véritable<br>
+                            ✓ Souvent placé après le verbe
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2 : Définitions détaillées -->
+            <div class="section">
+                <h2><span class="icon">2</span>Définitions et Caractéristiques</h2>
+                
+                <div class="definition-box">
+                    <div class="definition-title">Le Sujet Apparent</div>
+                    <div class="definition-content">
+                        Le sujet apparent est un <strong>pronom impersonnel "il"</strong> qui sert uniquement à la construction grammaticale de la phrase. Il ne désigne aucune personne ni aucune chose concrète. Il est obligatoire car en français, un verbe conjugué doit avoir un sujet.
+                    </div>
+                </div>
+
+                <div class="definition-box">
+                    <div class="definition-title">Le Sujet Réel</div>
+                    <div class="definition-content">
+                        Le sujet réel est l'<strong>élément qui a vraiment du sens</strong> dans la phrase. C'est lui qui fait l'action ou qui subit l'état exprimé par le verbe. Il apparaît généralement après le verbe et peut être un nom, un groupe nominal, un infinitif ou une proposition.
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">Analyse comparative</div>
+                    
+                    <div class="sentence">
+                        <span class="subject-apparent">Il</span> <span class="verb">arrive</span> <span class="subject-real">des touristes</span>.
+                        <div class="explanation">
+                            → Sujet apparent : <strong>Il</strong> (grammatical)<br>
+                            → Sujet réel : <strong>des touristes</strong> (logique) - ce sont eux qui arrivent
+                        </div>
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject-apparent">Il</span> <span class="verb">faut</span> <span class="subject-real">de la patience</span>.
+                        <div class="explanation">
+                            → Sujet apparent : <strong>Il</strong> (grammatical)<br>
+                            → Sujet réel : <strong>de la patience</strong> (logique) - c'est ce qui est nécessaire
+                        </div>
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject-apparent">Il</span> <span class="verb">existe</span> <span class="subject-real">plusieurs solutions</span>.
+                        <div class="explanation">
+                            → Sujet apparent : <strong>Il</strong> (grammatical)<br>
+                            → Sujet réel : <strong>plusieurs solutions</strong> (logique) - ce sont elles qui existent
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 : Les verbes impersonnels avec sujet réel -->
+            <div class="section">
+                <h2><span class="icon">3</span>Les Verbes Impersonnels avec Sujet Réel</h2>
+                
+                <div class="verbs-grid">
+                    <div class="verb-card">
+                        <div class="verb-card-title">Il faut</div>
+                        <p style="margin-bottom: 15px; color: #636e72;">Exprime la nécessité</p>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">faut</span> <span class="subject-real">du temps</span>.
+                            <div class="explanation">→ Le temps est nécessaire</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">faut</span> <span class="subject-real">partir</span>.
+                            <div class="explanation">→ Partir est nécessaire</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">faut</span> <span class="subject-real">que tu viennes</span>.
+                            <div class="explanation">→ Ta venue est nécessaire</div>
+                        </div>
+                    </div>
+
+                    <div class="verb-card">
+                        <div class="verb-card-title">Il arrive</div>
+                        <p style="margin-bottom: 15px; color: #636e72;">Exprime un événement qui se produit</p>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">arrive</span> <span class="subject-real">des problèmes</span>.
+                            <div class="explanation">→ Les problèmes surviennent</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">arrive</span> <span class="subject-real">qu'on se trompe</span>.
+                            <div class="explanation">→ Les erreurs se produisent</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">arrive</span> <span class="subject-real">un train</span>.
+                            <div class="explanation">→ Le train arrive</div>
+                        </div>
+                    </div>
+
+                    <div class="verb-card">
+                        <div class="verb-card-title">Il existe</div>
+                        <p style="margin-bottom: 15px; color: #636e72;">Exprime l'existence</p>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">existe</span> <span class="subject-real">plusieurs méthodes</span>.
+                            <div class="explanation">→ Les méthodes existent</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">existe</span> <span class="subject-real">une solution</span>.
+                            <div class="explanation">→ La solution existe</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">n'existe</span> pas <span class="subject-real">de réponse simple</span>.
+                            <div class="explanation">→ Aucune réponse simple n'existe</div>
+                        </div>
+                    </div>
+
+                    <div class="verb-card">
+                        <div class="verb-card-title">Il reste</div>
+                        <p style="margin-bottom: 15px; color: #636e72;">Exprime ce qui subsiste</p>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">reste</span> <span class="subject-real">trois places</span>.
+                            <div class="explanation">→ Trois places subsistent</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">reste</span> <span class="subject-real">du pain</span>.
+                            <div class="explanation">→ Du pain subsiste</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">reste</span> <span class="subject-real">beaucoup à faire</span>.
+                            <div class="explanation">→ Beaucoup de travail subsiste</div>
+                        </div>
+                    </div>
+
+                    <div class="verb-card">
+                        <div class="verb-card-title">Il manque</div>
+                        <p style="margin-bottom: 15px; color: #636e72;">Exprime une absence</p>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">manque</span> <span class="subject-real">cinq euros</span>.
+                            <div class="explanation">→ Cinq euros font défaut</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">manque</span> <span class="subject-real">des informations</span>.
+                            <div class="explanation">→ Les informations font défaut</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">manque</span> <span class="subject-real">quelqu'un</span>.
+                            <div class="explanation">→ Quelqu'un fait défaut</div>
+                        </div>
+                    </div>
+
+                    <div class="verb-card">
+                        <div class="verb-card-title">Il se passe</div>
+                        <p style="margin-bottom: 15px; color: #636e72;">Exprime un événement</p>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">se passe</span> <span class="subject-real">quelque chose</span>.
+                            <div class="explanation">→ Quelque chose se produit</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            <span class="subject-apparent">Il</span> <span class="verb">se passe</span> <span class="subject-real">des événements étranges</span>.
+                            <div class="explanation">→ Des événements se produisent</div>
+                        </div>
+                        
+                        <div class="sentence">
+                            Que <span class="verb">se passe</span>-<span class="subject-apparent">t-il</span> ?
+                            <div class="explanation">→ Quel événement se produit ?</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4 : Accord du verbe -->
+            <div class="section">
+                <h2><span class="icon">4</span>L'Accord du Verbe</h2>
+                
+                <div class="warning-box">
+                    <div class="warning-title">Règle fondamentale</div>
+                    <p style="font-size: 1.2em;">Le verbe impersonnel s'accorde TOUJOURS avec le <strong>sujet apparent "il"</strong>, donc il reste toujours au <strong>singulier</strong>, même si le sujet réel est au pluriel !</p>
+                </div>
+
+                <div class="table-container">
+                    <table class="analysis-table">
+                        <thead>
+                            <tr>
+                                <th>Phrase</th>
+                                <th>Sujet Réel</th>
+                                <th>Accord</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Il arrive</strong> des touristes.</td>
+                                <td>des touristes (pluriel)</td>
+                                <td>✅ SINGULIER (arrive)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Il existe</strong> plusieurs solutions.</td>
+                                <td>plusieurs solutions (pluriel)</td>
+                                <td>✅ SINGULIER (existe)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Il reste</strong> trois places.</td>
+                                <td>trois places (pluriel)</td>
+                                <td>✅ SINGULIER (reste)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Il manque</strong> des informations.</td>
+                                <td>des informations (pluriel)</td>
+                                <td>✅ SINGULIER (manque)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">Erreurs à éviter</div>
+                    
+                    <div class="sentence" style="background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%); border-left-color: #f44336;">
+                        ❌ <strong>Incorrect :</strong> Il <span style="text-decoration: line-through;">arrivent</span> des problèmes.
+                        <div class="explanation" style="color: #c62828;">→ Le verbe ne s'accorde PAS avec le sujet réel !</div>
+                    </div>
+                    
+                    <div class="sentence" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-left-color: #4caf50;">
+                        ✅ <strong>Correct :</strong> Il <span style="font-weight: bold; color: #4caf50;">arrive</span> des problèmes.
+                        <div class="explanation" style="color: #2e7d32;">→ Le verbe s'accorde avec le sujet apparent "il" (singulier)</div>
+                    </div>
+                    
+                    <div class="sentence" style="background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%); border-left-color: #f44336;">
+                        ❌ <strong>Incorrect :</strong> Il <span style="text-decoration: line-through;">restent</span> trois places.
+                        <div class="explanation" style="color: #c62828;">→ Erreur d'accord !</div>
+                    </div>
+                    
+                    <div class="sentence" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-left-color: #4caf50;">
+                        ✅ <strong>Correct :</strong> Il <span style="font-weight: bold; color: #4caf50;">reste</span> trois places.
+                        <div class="explanation" style="color: #2e7d32;">→ Toujours au singulier !</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5 : Nature du sujet réel -->
+            <div class="section">
+                <h2><span class="icon">5</span>Nature du Sujet Réel</h2>
+                
+                <div class="highlight-box">
+                    <div class="highlight-title">Le sujet réel peut être :</div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">1. Un nom ou groupe nominal</div>
+                    
+                    <div class="sentence">
+                        <span class="subject-apparent">Il</span> <span class="verb">arrive</span> <span class="subject-real">un accident</span>.
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject-apparent">Il</span> <span class="verb">existe</span> <span class="subject-real">de nombreuses possibilités</span>.
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject-apparent">Il</span> <span class="verb">reste</span> <span class="subject-real">deux heures</span>.
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">2. Un verbe à l'infinitif</div>
+                    
+                    <div class="sentence">
+                        <span class="subject-apparent">Il</span> <span class="verb">faut</span> <span class="subject-real">partir</span>.
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject-apparent">Il</span> <span class="verb">suffit</span> <span class="subject-real">de demander</span>.
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject-apparent">Il</span> <span class="verb">vaut mieux</span> <span class="subject-real">attendre</span>.
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">3. Une proposition subordonnée</div>
+                    
+                    <div class="sentence">
+                        <span class="subject-apparent">Il</span> <span class="verb">faut</span> <span class="subject-real">que tu viennes</span>.
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject-apparent">Il</span> <span class="verb">arrive</span> <span class="subject-real">qu'on se trompe</span>.
+                    </div>
+                    
+                    <div class="sentence">
+                        <span class="subject-apparent">Il</span> <span class="verb">se peut</span> <span class="subject-real">qu'il pleuve</span>.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6 : Comment identifier -->
+            <div class="section">
+                <h2><span class="icon">6</span>Comment Identifier les Deux Sujets ?</h2>
+                
+                <div class="steps-box">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Repérez le "il" impersonnel</strong> : c'est le sujet apparent (grammatical).
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Posez la question</strong> : "Qu'est-ce qui..." ou "Qui est-ce qui..." après le verbe.
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>La réponse</strong> à cette question est le sujet réel (logique).
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Transformez la phrase</strong> en mettant le sujet réel en début de phrase.
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Vérifiez</strong> : le sujet réel porte le sens véritable de l'action.
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-title">Application pratique</div>
+                    
+                    <div class="sentence">
+                        <strong>Phrase :</strong> Il existe plusieurs solutions.<br><br>
+                        <div class="explanation">
+                            <strong>Étape 1 :</strong> Sujet apparent = <span class="subject-apparent">Il</span><br>
+                            <strong>Étape 2 :</strong> Qu'est-ce qui existe ? → plusieurs solutions<br>
+                            <strong>Étape 3 :</strong> Sujet réel = <span class="subject-real">plusieurs solutions</span><br>
+                            <strong>Étape 4 :</strong> Transformation : "Plusieurs solutions existent."<br>
+                            <strong>Étape 5 :</strong> ✓ Ce sont bien les solutions qui existent !
+                        </div>
+                    </div>
+                    
+                    <div class="sentence">
+                        <strong>Phrase :</strong> Il faut du courage.<br><br>
+                        <div class="explanation">
+                            <strong>Étape 1 :</strong> Sujet apparent = <span class="subject-apparent">Il</span><br>
+                            <strong>Étape 2 :</strong> Qu'est-ce qui est nécessaire ? → du courage<br>
+                            <strong>Étape 3 :</strong> Sujet réel = <span class="subject-real">du courage</span><br>
+                            <strong>Étape 4 :</strong> Transformation : "Du courage est nécessaire."<br>
+                            <strong>Étape 5 :</strong> ✓ C'est bien le courage qui est nécessaire !
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 7 : Résumé -->
+            <div class="summary-box">
+                <div class="summary-title">Points clés à retenir</div>
+                <ul class="summary-list">
+                    <li>Le sujet apparent est toujours "il" - il n'a pas de sens propre</li>
+                    <li>Le sujet réel porte le véritable sens de la phrase</li>
+                    <li>Le sujet apparent est grammatical, le sujet réel est logique</li>
+                    <li>Le verbe s'accorde avec le sujet apparent (toujours singulier)</li>
+                    <li>Le sujet réel se trouve généralement après le verbe</li>
+                    <li>Le sujet réel peut être un nom, un infinitif ou une proposition</li>
+                    <li>Verbes courants : il faut, il arrive, il existe, il reste, il manque, il se passe</li>
+                    <li>Pour trouver le sujet réel : posez la question "Qu'est-ce qui..." après le verbe</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="footer-logo">Língua Academy</div>
+            <p>Maîtrisez les doubles niveaux de la grammaire française avec excellence ✨</p>
+            <p>© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

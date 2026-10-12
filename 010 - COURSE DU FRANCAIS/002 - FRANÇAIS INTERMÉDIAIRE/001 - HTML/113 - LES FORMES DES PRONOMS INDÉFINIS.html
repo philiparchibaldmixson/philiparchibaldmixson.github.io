@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronoms Indéfinis - Formes | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bordeaux-profond: #5D1725;
+            --or-antique: #C9A961;
+            --brun-cuir: #654321;
+            --creme-parchemin: #F4ECD8;
+            --ivoire-ancien: #FFFFF0;
+            --terre-sienne: #A0522D;
+            --vert-olive: #556B2F;
+            --noir-encre: #1A1A1A;
+            --gris-plume: #696969;
+            --rouge-vermillon: #8B2500;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--creme-parchemin) 0%, var(--ivoire-ancien) 50%, #EAE0C8 100%);
+            color: var(--noir-encre);
+            line-height: 2;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Texture parchemin */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(157, 133, 97, 0.03) 2px, rgba(157, 133, 97, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(157, 133, 97, 0.03) 2px, rgba(157, 133, 97, 0.03) 4px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        /* Bordure décorative */
+        .decorative-border {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .border-top {
+            top: 25px;
+            left: 25px;
+            right: 25px;
+            height: 8px;
+            background: linear-gradient(90deg, transparent, var(--or-antique), transparent);
+            box-shadow: 0 0 15px rgba(201, 169, 97, 0.5);
+        }
+
+        .border-bottom {
+            bottom: 25px;
+            left: 25px;
+            right: 25px;
+            height: 8px;
+            background: linear-gradient(90deg, transparent, var(--or-antique), transparent);
+            box-shadow: 0 0 15px rgba(201, 169, 97, 0.5);
+        }
+
+        .border-left {
+            top: 25px;
+            left: 25px;
+            bottom: 25px;
+            width: 8px;
+            background: linear-gradient(180deg, transparent, var(--or-antique), transparent);
+            box-shadow: 0 0 15px rgba(201, 169, 97, 0.5);
+        }
+
+        .border-right {
+            top: 25px;
+            right: 25px;
+            bottom: 25px;
+            width: 8px;
+            background: linear-gradient(180deg, transparent, var(--or-antique), transparent);
+            box-shadow: 0 0 15px rgba(201, 169, 97, 0.5);
+        }
+
+        /* Coins ornementaux */
+        .corner {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .corner::before,
+        .corner::after {
+            content: '';
+            position: absolute;
+            background: var(--or-antique);
+        }
+
+        .corner-tl {
+            top: 25px;
+            left: 25px;
+        }
+
+        .corner-tl::before {
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+        }
+
+        .corner-tl::after {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+        }
+
+        .corner-tr {
+            top: 25px;
+            right: 25px;
+        }
+
+        .corner-tr::before {
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 100%;
+        }
+
+        .corner-tr::after {
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 8px;
+        }
+
+        .corner-bl {
+            bottom: 25px;
+            left: 25px;
+        }
+
+        .corner-bl::before {
+            bottom: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+        }
+
+        .corner-bl::after {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+        }
+
+        .corner-br {
+            bottom: 25px;
+            right: 25px;
+        }
+
+        .corner-br::before {
+            bottom: 0;
+            right: 0;
+            width: 8px;
+            height: 100%;
+        }
+
+        .corner-br::after {
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 8px;
+        }
+
+        .container {
+            max-width: 1650px;
+            margin: 0 auto;
+            padding: 0 120px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* En-tête classique */
+        header {
+            background: linear-gradient(160deg, var(--bordeaux-profond) 0%, var(--brun-cuir) 60%, var(--terre-sienne) 100%);
+            padding: 115px 0 135px;
+            position: relative;
+            overflow: hidden;
+            margin: 50px 50px 0 50px;
+            border-radius: 25px 25px 0 0;
+            box-shadow: 
+                0 60px 140px rgba(93, 23, 37, 0.5),
+                inset 0 0 120px rgba(201, 169, 97, 0.15);
+        }
+
+        /* Motif filigrane */
+        .filigree-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(201, 169, 97, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(201, 169, 97, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Marque académique */
+        .academic-brand {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 75px;
+            animation: fadeInDown 2.5s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .classical-emblem {
+            width: 170px;
+            height: 170px;
+            margin: 0 auto 45px;
+            background: radial-gradient(circle, var(--or-antique) 0%, var(--bordeaux-profond) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 
+                0 35px 85px rgba(0, 0, 0, 0.6),
+                inset 0 0 60px rgba(255, 255, 255, 0.3);
+            border: 6px solid var(--creme-parchemin);
+        }
+
+        .classical-emblem::before {
+            content: '';
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            border: 3px solid var(--or-antique);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .emblem-inner {
+            font-size: 6rem;
+            color: var(--creme-parchemin);
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .brand-classical {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.8rem;
+            color: var(--or-antique);
+            font-weight: 700;
+            letter-spacing: 20px;
+            margin-bottom: 28px;
+            text-shadow: 
+                6px 6px 15px rgba(0, 0, 0, 0.8),
+                0 0 60px rgba(201, 169, 97, 0.6);
+            text-transform: uppercase;
+        }
+
+        .brand-subtitle {
+            color: var(--creme-parchemin);
+            font-size: 1.35rem;
+            letter-spacing: 8px;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        /* Titre orné */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 7.5rem;
+            color: var(--or-antique);
+            text-align: center;
+            font-weight: 900;
+            line-height: 1.5;
+            margin-top: 75px;
+            position: relative;
+            z-index: 2;
+            animation: fadeInDown 2.5s ease-out 0.3s backwards;
+            text-shadow: 
+                8px 8px 20px rgba(0, 0, 0, 0.9),
+                0 0 80px rgba(201, 169, 97, 0.5);
+            letter-spacing: 8px;
+        }
+
+        .classical-subtitle {
+            text-align: center;
+            color: var(--creme-parchemin);
+            font-size: 2.5rem;
+            margin-top: 48px;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+            animation: fadeInDown 2.5s ease-out 0.6s backwards;
+            font-style: italic;
+            letter-spacing: 4px;
+            font-family: 'Libre Caslon Text', serif;
+        }
+
+        /* Ornement diviseur */
+        .ornament-divider {
+            text-align: center;
+            margin: 65px 0;
+            font-size: 2.5rem;
+            color: var(--or-antique);
+            position: relative;
+        }
+
+        .ornament-divider::before,
+        .ornament-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--or-antique), transparent);
+        }
+
+        .ornament-divider::before {
+            right: calc(50% + 80px);
+        }
+
+        .ornament-divider::after {
+            left: calc(50% + 80px);
+        }
+
+        /* Contenu principal */
+        main {
+            padding: 120px 0;
+            margin: 0 50px;
+            background: var(--ivoire-ancien);
+            box-shadow: 
+                0 50px 120px rgba(0, 0, 0, 0.3),
+                inset 0 0 100px rgba(201, 169, 97, 0.1);
+        }
+
+        /* Introduction académique */
+        .intro-academic {
+            background: linear-gradient(135deg, rgba(244, 236, 216, 0.9) 0%, rgba(234, 224, 200, 0.9) 100%);
+            padding: 100px;
+            border-radius: 30px;
+            box-shadow: 
+                0 40px 100px rgba(0, 0, 0, 0.2),
+                inset 0 0 80px rgba(201, 169, 97, 0.1);
+            margin-bottom: 140px;
+            position: relative;
+            border: 5px solid var(--or-antique);
+            animation: fadeInUp 2.2s ease-out 2.5s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(120px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-academic::before {
+            content: '❧';
+            position: absolute;
+            top: -55px;
+            left: 95px;
+            font-size: 8rem;
+            color: var(--bordeaux-profond);
+            background: var(--ivoire-ancien);
+            padding: 15px 35px;
+            border-radius: 50%;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+            border: 5px solid var(--or-antique);
+        }
+
+        .academic-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            color: var(--bordeaux-profond);
+            margin-bottom: 70px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 40px;
+        }
+
+        .academic-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 280px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--bordeaux-profond), var(--or-antique));
+            border-radius: 3px;
+        }
+
+        .academic-text {
+            font-size: 1.75rem;
+            line-height: 2.8;
+            color: var(--noir-encre);
+            margin-bottom: 45px;
+            text-align: justify;
+            text-indent: 3em;
+        }
+
+        .academic-text:first-of-type::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem;
+            font-weight: 700;
+            float: left;
+            line-height: 0.9;
+            margin: 10px 15px 0 0;
+            color: var(--bordeaux-profond);
+        }
+
+        /* Cartes classification */
+        .classification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+            gap: 80px;
+            margin: 140px 0;
+        }
+
+        .classification-card {
+            background: linear-gradient(135deg, rgba(244, 236, 216, 0.95) 0%, rgba(255, 255, 240, 0.95) 100%);
+            padding: 90px;
+            border-radius: 28px;
+            box-shadow: 
+                0 35px 90px rgba(0, 0, 0, 0.25),
+                inset 0 0 80px rgba(201, 169, 97, 0.15);
+            position: relative;
+            transition: all 1s ease;
+            border: 4px solid var(--or-antique);
+            animation: fadeInUp 2.2s ease-out backwards;
+        }
+
+        .classification-card:nth-child(1) { animation-delay: 2.7s; }
+        .classification-card:nth-child(2) { animation-delay: 2.9s; }
+        .classification-card:nth-child(3) { animation-delay: 3.1s; }
+        .classification-card:nth-child(4) { animation-delay: 3.3s; }
+
+        .classification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: linear-gradient(90deg, var(--bordeaux-profond), var(--or-antique), var(--bordeaux-profond));
+            border-radius: 28px 28px 0 0;
+        }
+
+        .classification-card:hover {
+            transform: translateY(-35px);
+            box-shadow: 
+                0 50px 120px rgba(0, 0, 0, 0.35),
+                inset 0 0 100px rgba(201, 169, 97, 0.2);
+        }
+
+        .classification-icon {
+            font-size: 7rem;
+            margin-bottom: 55px;
+            display: inline-block;
+            filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.4));
+        }
+
+        .classification-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            color: var(--bordeaux-profond);
+            margin-bottom: 45px;
+            font-weight: 700;
+        }
+
+        .classification-description {
+            font-size: 1.65rem;
+            line-height: 2.7;
+            color: var(--noir-encre);
+        }
+
+        /* Section exemples */
+        .examples-section {
+            background: linear-gradient(135deg, rgba(234, 224, 200, 0.95) 0%, rgba(244, 236, 216, 0.95) 100%);
+            padding: 95px;
+            border-radius: 28px;
+            box-shadow: 
+                0 35px 90px rgba(0, 0, 0, 0.25),
+                inset 0 0 80px rgba(201, 169, 97, 0.1);
+            margin: 95px 0;
+            animation: fadeInUp 2.2s ease-out 3.5s backwards;
+            border: 4px solid var(--terre-sienne);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.8rem;
+            color: var(--bordeaux-profond);
+            margin-bottom: 75px;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            padding-bottom: 55px;
+        }
+
+        .section-title::after {
+            content: '❦';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            color: var(--or-antique);
+        }
+
+        /* Boîte exemple */
+        .example-box {
+            background: linear-gradient(135deg, rgba(255, 255, 240, 0.9) 0%, rgba(250, 250, 235, 0.9) 100%);
+            padding: 70px 75px;
+            border-radius: 22px;
+            margin: 65px 0;
+            border-left: 16px solid var(--bordeaux-profond);
+            position: relative;
+            transition: all 0.9s ease;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .example-box:hover {
+            transform: translateX(35px);
+            border-left-width: 22px;
+            box-shadow: -18px 22px 60px rgba(93, 23, 37, 0.4);
+        }
+
+        .example-label {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--bordeaux-profond);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 32px;
+            font-style: italic;
+        }
+
+        .sentence-classic {
+            font-size: 2.1rem;
+            font-weight: 600;
+            color: var(--noir-encre);
+            margin: 45px 0;
+            padding: 45px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 18px;
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.15),
+                inset 0 0 40px rgba(201, 169, 97, 0.1);
+            line-height: 2.6;
+            font-style: italic;
+            border: 3px solid rgba(93, 23, 37, 0.2);
+        }
+
+        .analysis-classic {
+            font-size: 1.6rem;
+            line-height: 2.7;
+            color: var(--noir-encre);
+            margin-top: 40px;
+            padding-left: 55px;
+            border-left: 12px solid rgba(93, 23, 37, 0.3);
+        }
+
+        .pronoun-highlight {
+            color: var(--bordeaux-profond);
+            font-weight: 700;
+            background: rgba(93, 23, 37, 0.15);
+            padding: 8px 18px;
+            border-radius: 12px;
+            border-bottom: 6px solid var(--bordeaux-profond);
+            text-decoration: none;
+        }
+
+        .form-detail {
+            color: var(--terre-sienne);
+            font-weight: 600;
+            font-style: italic;
+            background: rgba(160, 82, 45, 0.15);
+            padding: 7px 16px;
+            border-radius: 10px;
+        }
+
+        /* Boîte règle */
+        .rule-box {
+            background: linear-gradient(135deg, rgba(93, 23, 37, 0.2) 0%, rgba(93, 23, 37, 0.1) 100%);
+            border: 8px solid var(--bordeaux-profond);
+            padding: 80px 85px;
+            border-radius: 25px;
+            margin: 85px 0;
+            position: relative;
+            animation: fadeInUp 2.2s ease-out 3.7s backwards;
+            box-shadow: 0 30px 80px rgba(93, 23, 37, 0.4);
+        }
+
+        .rule-box::before {
+            content: '§';
+            position: absolute;
+            top: -58px;
+            left: 80px;
+            background: var(--ivoire-ancien);
+            padding: 25px 42px;
+            border-radius: 50%;
+            font-size: 4.5rem;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+            border: 8px solid var(--bordeaux-profond);
+            color: var(--bordeaux-profond);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .rule-heading {
+            font-family: 'Playfair Display', serif;
+            color: var(--bordeaux-profond);
+            font-size: 4rem;
+            margin-bottom: 48px;
+            font-weight: 700;
+        }
+
+        .rule-text {
+            font-size: 1.7rem;
+            line-height: 2.9;
+            color: var(--noir-encre);
+        }
+
+        .rule-list {
+            list-style: none;
+            margin: 60px 0;
+        }
+
+        .rule-list li {
+            padding: 42px 0 42px 95px;
+            position: relative;
+            font-size: 1.7rem;
+            line-height: 2.7;
+            border-bottom: 4px dashed rgba(93, 23, 37, 0.2);
+        }
+
+        .rule-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rule-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 28px;
+            color: var(--or-antique);
+            font-size: 3.5rem;
+        }
+
+        /* Tableau classique */
+        .table-classic {
+            background: linear-gradient(135deg, rgba(244, 236, 216, 0.95) 0%, rgba(255, 255, 240, 0.95) 100%);
+            padding: 90px;
+            border-radius: 25px;
+            box-shadow: 0 35px 90px rgba(0, 0, 0, 0.25);
+            margin: 95px 0;
+            overflow-x: auto;
+            animation: fadeInUp 2.2s ease-out 3.9s backwards;
+            border: 4px solid var(--or-antique);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 60px 0;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--bordeaux-profond) 0%, var(--brun-cuir) 100%);
+        }
+
+        th {
+            color: var(--creme-parchemin);
+            padding: 45px 38px;
+            text-align: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        th:first-child {
+            border-radius: 30px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 30px 0 0;
+        }
+
+        td {
+            padding: 42px 38px;
+            border-bottom: 4px solid rgba(93, 23, 37, 0.15);
+            font-size: 1.65rem;
+            line-height: 2.6;
+            color: var(--noir-encre);
+        }
+
+        tbody tr {
+            transition: all 0.8s ease;
+            background: rgba(255, 255, 240, 0.5);
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.2) 0%, rgba(244, 236, 216, 0.3) 100%);
+            transform: translateX(25px);
+            box-shadow: 0 0 40px rgba(201, 169, 97, 0.4);
+        }
+
+        tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 30px;
+        }
+
+        tbody tr:last-child td:last-child {
+            border-radius: 0 0 30px 0;
+        }
+
+        .table-pronoun {
+            font-weight: 700;
+            color: var(--bordeaux-profond);
+            font-size: 1.8rem;
+        }
+
+        /* Avertissement */
+        .warning-box {
+            background: linear-gradient(135deg, rgba(139, 37, 0, 0.2) 0%, rgba(139, 37, 0, 0.1) 100%);
+            border: 8px solid var(--rouge-vermillon);
+            padding: 80px 85px;
+            border-radius: 25px;
+            margin: 85px 0;
+            position: relative;
+            animation: fadeInUp 2.2s ease-out 4.1s backwards;
+            box-shadow: 0 30px 80px rgba(139, 37, 0, 0.3);
+        }
+
+        .warning-box::before {
+            content: '⚠';
+            position: absolute;
+            top: -58px;
+            left: 80px;
+            background: var(--ivoire-ancien);
+            padding: 25px 42px;
+            border-radius: 50%;
+            font-size: 4.5rem;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+            border: 8px solid var(--rouge-vermillon);
+            color: var(--rouge-vermillon);
+        }
+
+        .warning-heading {
+            font-family: 'Playfair Display', serif;
+            color: var(--rouge-vermillon);
+            font-size: 4rem;
+            margin-bottom: 48px;
+            font-weight: 700;
+        }
+
+        .warning-text {
+            font-size: 1.7rem;
+            line-height: 2.9;
+            color: var(--noir-encre);
+        }
+
+        /* Conseil */
+        .tip-box {
+            background: linear-gradient(135deg, rgba(85, 107, 47, 0.2) 0%, rgba(85, 107, 47, 0.1) 100%);
+            border-left: 18px solid var(--vert-olive);
+            padding: 75px 80px;
+            border-radius: 20px;
+            margin: 80px 0;
+            position: relative;
+            animation: fadeInUp 2.2s ease-out 4.3s backwards;
+            box-shadow: 0 25px 65px rgba(85, 107, 47, 0.3);
+        }
+
+        .tip-box::before {
+            content: '✎';
+            position: absolute;
+            top: -48px;
+            left: 75px;
+            background: var(--ivoire-ancien);
+            padding: 22px 38px;
+            border-radius: 55px;
+            font-size: 4rem;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            border: 7px solid var(--vert-olive);
+            color: var(--vert-olive);
+        }
+
+        .tip-heading {
+            font-family: 'Playfair Display', serif;
+            color: var(--vert-olive);
+            font-size: 3.8rem;
+            margin-bottom: 45px;
+            font-weight: 700;
+        }
+
+        .tip-text {
+            font-size: 1.65rem;
+            line-height: 2.8;
+            color: var(--noir-encre);
+        }
+
+        /* Panneau synthèse */
+        .synthesis-panel {
+            background: linear-gradient(135deg, var(--bordeaux-profond) 0%, var(--brun-cuir) 100%);
+            padding: 105px;
+            border-radius: 30px;
+            margin: 100px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 50px 120px rgba(93, 23, 37, 0.5);
+            animation: fadeInUp 2.2s ease-out 4.5s backwards;
+            border: 5px solid var(--or-antique);
+        }
+
+        .synthesis-panel::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .synthesis-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -180px;
+            left: -180px;
+            width: 650px;
+            height: 650px;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .synthesis-panel h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--or-antique);
+            font-size: 5rem;
+            margin-bottom: 70px;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
+            text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        .synthesis-panel p {
+            color: var(--creme-parchemin);
+            font-size: 1.8rem;
+            line-height: 3;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 42px;
+        }
+
+        .synthesis-list {
+            list-style: none;
+            margin: 65px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .synthesis-list li {
+            color: var(--creme-parchemin);
+            font-size: 1.75rem;
+            padding: 48px 0 48px 95px;
+            position: relative;
+            line-height: 2.9;
+        }
+
+        .synthesis-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 28px;
+            color: var(--or-antique);
+            font-size: 4rem;
+        }
+
+        /* Pied de page */
+        footer {
+            background: linear-gradient(135deg, var(--bordeaux-profond) 0%, var(--brun-cuir) 100%);
+            color: var(--creme-parchemin);
+            padding: 95px 0;
+            text-align: center;
+            margin: 0 50px 50px 50px;
+            border-radius: 0 0 25px 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 40% 50%, rgba(201, 169, 97, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 60% 50%, rgba(201, 169, 97, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        footer p {
+            font-size: 1.65rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 2.5px;
+            margin: 28px 0;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            color: var(--or-antique);
+            font-weight: 700;
+            font-size: 3rem;
+            margin-top: 38px;
+            letter-spacing: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 60px;
+            }
+
+            h1 {
+                font-size: 5.5rem;
+            }
+
+            .classical-subtitle {
+                font-size: 2rem;
+            }
+
+            .classification-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-academic,
+            .examples-section,
+            .table-classic,
+            .synthesis-panel {
+                padding: 70px;
+            }
+
+            table {
+                font-size: 1.35rem;
+            }
+
+            th, td {
+                padding: 35px 28px;
+            }
+        }
+
+        /* Scrollbar classique */
+        ::-webkit-scrollbar {
+            width: 28px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--creme-parchemin);
+            border-left: 6px solid rgba(93, 23, 37, 0.15);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--bordeaux-profond), var(--or-antique), var(--bordeaux-profond));
+            border-radius: 14px;
+            border: 9px solid var(--creme-parchemin);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--or-antique), var(--bordeaux-profond), var(--or-antique));
+            box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <!-- Bordures décoratives -->
+    <div class="decorative-border border-top"></div>
+    <div class="decorative-border border-bottom"></div>
+    <div class="decorative-border border-left"></div>
+    <div class="decorative-border border-right"></div>
+
+    <!-- Coins ornementaux -->
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+
+    <header>
+        <div class="filigree-pattern"></div>
+        
+        <div class="container">
+            <div class="academic-brand">
+                <div class="classical-emblem">
+                    <div class="emblem-inner">📚</div>
+                </div>
+                <div class="brand-classical">Língua Academy</div>
+                <div class="brand-subtitle">Académie des Belles-Lettres Grammaticales</div>
+            </div>
+            <h1>PRONOMS INDÉFINIS</h1>
+            <p class="classical-subtitle">Formes et Morphologie Complète</p>
+            <div class="ornament-divider">❧</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Introduction académique -->
+            <section class="intro-academic">
+                <h2 class="academic-heading">Nature et Classification</h2>
+                <p class="academic-text">
+                    Les <strong>pronoms indéfinis</strong> constituent une classe grammaticale particulière qui désigne 
+                    des êtres, des objets ou des concepts de manière imprécise, générale ou indéterminée. Contrairement 
+                    aux pronoms personnels qui renvoient à des référents précis et identifiables, les pronoms indéfinis 
+                    évoquent des entités non spécifiées, dont l'identité exacte reste vague ou volontairement floue. 
+                    Cette indétermination peut porter sur la quantité ("plusieurs", "quelques-uns"), sur l'identité 
+                    ("quelqu'un", "n'importe qui"), sur la totalité ("tous", "chacun"), ou sur l'absence ("personne", 
+                    "rien"). Les pronoms indéfinis jouent ainsi un rôle essentiel dans l'expression de la généralité, 
+                    de l'approximation et de l'universalité en français.
+                </p>
+                <p class="academic-text">
+                    La morphologie des pronoms indéfinis présente une grande diversité de formes. Certains possèdent 
+                    des marques de genre et de nombre visibles ("tout/toute/tous/toutes", "certain/certaine/certains/certaines"), 
+                    permettant l'accord avec le référent. D'autres demeurent invariables ("personne", "rien", "on", 
+                    "plusieurs"), quelle que soit la situation d'énonciation. Cette variation morphologique reflète 
+                    les différentes nuances sémantiques que ces pronoms véhiculent : la quantification ("beaucoup", 
+                    "peu"), la distribution ("chacun"), l'altérité ("autre"), la négation ("aucun", "nul"), etc. 
+                    Certains pronoms indéfinis sont simples ("tout", "rien"), d'autres composés ("quelqu'un", "n'importe 
+                    quoi"), et quelques-uns fonctionnent en corrélation ("l'un... l'autre", "les uns... les autres").
+                </p>
+                <p class="academic-text">
+                    La maîtrise des formes des pronoms indéfinis exige une compréhension approfondie de leurs variations 
+                    morphologiques et de leurs emplois syntaxiques. Il convient de distinguer soigneusement les formes 
+                    qui s'accordent de celles qui restent invariables, les pronoms qui acceptent une détermination de 
+                    ceux qui l'excluent, les formes simples des formes composées. Cette étude systématique des formes 
+                    permet non seulement d'éviter les erreurs d'accord fréquentes, mais aussi de saisir les nuances 
+                    sémantiques subtiles que chaque pronom indéfini apporte au discours. L'objectif de cette présentation 
+                    est de fournir une cartographie complète et rigoureuse de toutes les formes que peuvent prendre 
+                    les pronoms indéfinis en français contemporain.
+                </p>
+            </section>
+
+            <!-- Grille classification -->
+            <div class="classification-grid">
+                <div class="classification-card">
+                    <span class="classification-icon">∞</span>
+                    <h3 class="classification-title">Pronoms Variables</h3>
+                    <p class="classification-description">
+                        Les <strong>pronoms indéfinis variables</strong> s'accordent en genre et/ou en nombre selon 
+                        leur référent. Cette catégorie comprend : <strong>AUCUN/AUCUNE</strong> (accord en genre), 
+                        <strong>NUL/NULLE</strong> (accord en genre), <strong>CERTAIN/CERTAINE/CERTAINS/CERTAINES</strong> 
+                        (accord complet en genre et nombre), <strong>CHACUN/CHACUNE</strong> (accord en genre), 
+                        <strong>TOUT/TOUTE/TOUS/TOUTES</strong> (accord complet), <strong>TEL/TELLE/TELS/TELLES</strong> 
+                        (accord complet), <strong>L'UN/L'UNE/LES UNS/LES UNES</strong> (accord complet), 
+                        <strong>QUELQU'UN/QUELQU'UNE/QUELQUES-UNS/QUELQUES-UNES</strong> (accord complet). Ces pronoms 
+                        présentent des variations morphologiques visibles qui permettent d'identifier clairement le 
+                        genre et/ou le nombre du référent. L'accord est obligatoire et suit les règles générales 
+                        d'accord en français, contribuant ainsi à la cohérence grammaticale de la phrase.
+                    </p>
+                </div>
+
+                <div class="classification-card">
+                    <span class="classification-icon">◇</span>
+                    <h3 class="classification-title">Pronoms Invariables</h3>
+                    <p class="classification-description">
+                        Les <strong>pronoms indéfinis invariables</strong> conservent une forme unique quelle que soit 
+                        la situation. Cette catégorie inclut : <strong>ON</strong> (toujours au singulier masculin), 
+                        <strong>PERSONNE</strong> (invariable, genre variable selon contexte), <strong>RIEN</strong> 
+                        (invariable, neutre), <strong>PLUSIEURS</strong> (toujours pluriel, invariable en genre), 
+                        <strong>QUELQUE CHOSE</strong> (invariable, neutre), <strong>AUTRE CHOSE</strong> (invariable, 
+                        neutre), <strong>GRAND-CHOSE</strong> (invariable, neutre), <strong>QUICONQUE</strong> (invariable), 
+                        <strong>AUTRUI</strong> (invariable). Ces formes ne changent jamais, ce qui simplifie leur 
+                        utilisation mais nécessite une attention particulière pour l'accord des verbes et des participes 
+                        passés qui s'y rapportent. L'invariabilité de ces pronoms reflète souvent leur caractère 
+                        abstrait ou leur fonction de généralisation absolue.
+                    </p>
+                </div>
+
+                <div class="classification-card">
+                    <span class="classification-icon">⇄</span>
+                    <h3 class="classification-title">Pronoms Corrélatifs</h3>
+                    <p class="classification-description">
+                        Les <strong>pronoms indéfinis corrélatifs</strong> fonctionnent par paires et établissent une 
+                        relation de correspondance, d'opposition ou de complémentarité. Les principales formes sont : 
+                        <strong>L'UN... L'AUTRE</strong> (singulier, opposition binaire entre deux éléments), 
+                        <strong>L'UNE... L'AUTRE</strong> (féminin singulier), <strong>LES UNS... LES AUTRES</strong> 
+                        (masculin pluriel, distribution dans un ensemble), <strong>LES UNES... LES AUTRES</strong> 
+                        (féminin pluriel), <strong>L'UN ET L'AUTRE</strong> (conjonction, les deux ensemble), 
+                        <strong>NI L'UN NI L'AUTRE</strong> (négation double), <strong>L'UN OU L'AUTRE</strong> 
+                        (disjonction, choix entre deux). Ces pronoms s'accordent en genre et en nombre et nécessitent 
+                        la présence des deux termes de la corrélation pour former un sens complet. Ils expriment des 
+                        relations logiques complexes (réciprocité, opposition, exclusion) essentielles à la structuration 
+                        du discours.
+                    </p>
+                </div>
+
+                <div class="classification-card">
+                    <span class="classification-icon">✱</span>
+                    <h3 class="classification-title">Pronoms Composés</h3>
+                    <p class="classification-description">
+                        Les <strong>pronoms indéfinis composés</strong> résultent de la fusion de plusieurs éléments 
+                        lexicaux formant une unité grammaticale. Les formes principales incluent : <strong>QUELQU'UN/QUELQU'UNE</strong> 
+                        (quelque + un/une), <strong>QUELQUES-UNS/QUELQUES-UNES</strong> (quelques + uns/unes), 
+                        <strong>QUELQUE CHOSE</strong> (quelque + chose, invariable), <strong>N'IMPORTE QUI</strong> 
+                        (n'importe + qui, invariable), <strong>N'IMPORTE QUOI</strong> (n'importe + quoi, invariable), 
+                        <strong>N'IMPORTE LEQUEL/LAQUELLE/LESQUELS/LESQUELLES</strong> (n'importe + lequel, accord 
+                        complet), <strong>GRAND-CHOSE</strong> (grand + chose, invariable), <strong>AUTRE CHOSE</strong> 
+                        (autre + chose, invariable). Ces formes composées présentent des degrés variables d'intégration : 
+                        certaines s'écrivent avec trait d'union ou apostrophe (quelqu'un, quelques-uns), d'autres en 
+                        deux mots séparés (quelque chose, n'importe qui). Leur morphologie reflète leur formation 
+                        diachronique et leurs propriétés sémantiques particulières.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section exemples -->
+            <section class="examples-section">
+                <h2 class="section-title">Formes Détaillées et Exemples</h2>
+
+                <div class="example-box">
+                    <div class="example-label">AUCUN / AUCUNE — Variable en genre</div>
+                    <div class="sentence-classic">
+                        <span class="pronoun-highlight">Aucun</span> n'est venu. / <span class="pronoun-highlight">Aucune</span> n'a répondu.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Genre :</strong> <span class="form-detail">AUCUN (masculin) / AUCUNE (féminin)</span><br>
+                        → <strong>Nombre :</strong> Toujours singulier (sauf rares exceptions avec noms sans singulier)<br>
+                        → <strong>Accord :</strong> S'accorde en genre avec le nom auquel il renvoie<br>
+                        → <strong>Usage :</strong> Négation totale, sens "pas un seul"<br>
+                        → <strong>Construction :</strong> Utilisé avec "ne" : "Il n'en reste aucun"<br>
+                        → <strong>Remarque :</strong> Forme littéraire et soutenue, moins courant que "personne"
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">NUL / NULLE — Variable en genre</div>
+                    <div class="sentence-classic">
+                        <span class="pronoun-highlight">Nul</span> n'est censé ignorer la loi. / <span class="pronoun-highlight">Nulle</span> n'y a pensé.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Genre :</strong> <span class="form-detail">NUL (masculin) / NULLE (féminin)</span><br>
+                        → <strong>Nombre :</strong> Toujours singulier<br>
+                        → <strong>Accord :</strong> S'accorde en genre<br>
+                        → <strong>Usage :</strong> Négation totale, synonyme littéraire de "personne"<br>
+                        → <strong>Registre :</strong> Très soutenu, archaïsant, juridique<br>
+                        → <strong>Expression figée :</strong> "Nul n'est censé ignorer la loi"
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">CERTAIN / CERTAINE / CERTAINS / CERTAINES — Variable complet</div>
+                    <div class="sentence-classic">
+                        <span class="pronoun-highlight">Certains</span> pensent que... / <span class="pronoun-highlight">Certaines</span> préfèrent...
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Formes :</strong> <span class="form-detail">CERTAIN (m.sg.) / CERTAINE (f.sg.) / CERTAINS (m.pl.) / CERTAINES (f.pl.)</span><br>
+                        → <strong>Accord complet :</strong> Genre ET nombre<br>
+                        → <strong>Usage :</strong> Désigne une partie indéterminée d'un ensemble<br>
+                        → <strong>Sens :</strong> "Quelques personnes" (pluriel le plus courant)<br>
+                        → <strong>Construction :</strong> Peut être suivi de "de + groupe nominal" : "Certains d'entre nous"<br>
+                        → <strong>Remarque :</strong> Toujours pluriel comme pronom (singulier = adjectif)
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">CHACUN / CHACUNE — Variable en genre</div>
+                    <div class="sentence-classic">
+                        <span class="pronoun-highlight">Chacun</span> pour soi. / <span class="pronoun-highlight">Chacune</span> d'entre elles a parlé.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Genre :</strong> <span class="form-detail">CHACUN (masculin) / CHACUNE (féminin)</span><br>
+                        → <strong>Nombre :</strong> Toujours singulier (sens distributif)<br>
+                        → <strong>Accord :</strong> S'accorde en genre<br>
+                        → <strong>Sens :</strong> "Chaque personne prise individuellement"<br>
+                        → <strong>Construction :</strong> Peut être suivi de "de + groupe nominal pluriel"<br>
+                        → <strong>Accord verbal :</strong> Toujours 3ème personne du singulier
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">TOUT / TOUTE / TOUS / TOUTES — Variable complet</div>
+                    <div class="sentence-classic">
+                        <span class="pronoun-highlight">Tous</span> sont venus. / <span class="pronoun-highlight">Toutes</span> ont répondu.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Formes :</strong> <span class="form-detail">TOUT (m.sg.) / TOUTE (f.sg.) / TOUS (m.pl.) / TOUTES (f.pl.)</span><br>
+                        → <strong>Accord complet :</strong> Genre ET nombre<br>
+                        → <strong>Sens :</strong> La totalité sans exception<br>
+                        → <strong>Prononciation :</strong> "Tous" [tus] (s final prononcé comme pronom)<br>
+                        → <strong>Construction :</strong> Peut être suivi de "de + déterminant" : "Tous les invités"<br>
+                        → <strong>Remarque :</strong> "Tout" neutre invariable existe : "Tout est possible"
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">TEL / TELLE / TELS / TELLES — Variable complet</div>
+                    <div class="sentence-classic">
+                        <span class="pronoun-highlight">Tel</span> est pris qui croyait prendre.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Formes :</strong> <span class="form-detail">TEL (m.sg.) / TELLE (f.sg.) / TELS (m.pl.) / TELLES (f.pl.)</span><br>
+                        → <strong>Accord complet :</strong> Genre ET nombre<br>
+                        → <strong>Usage :</strong> Assez rare comme pronom pur (plus courant comme adjectif)<br>
+                        → <strong>Sens :</strong> "Une personne de ce type", "quelqu'un comme cela"<br>
+                        → <strong>Registre :</strong> Littéraire, soutenu<br>
+                        → <strong>Expression figée :</strong> "Tel est pris qui croyait prendre"
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">L'UN / L'UNE / LES UNS / LES UNES — Variable complet</div>
+                    <div class="sentence-classic">
+                        <span class="pronoun-highlight">L'un</span> dit blanc, <span class="pronoun-highlight">l'autre</span> dit noir.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Formes :</strong> <span class="form-detail">L'UN (m.sg.) / L'UNE (f.sg.) / LES UNS (m.pl.) / LES UNES (f.pl.)</span><br>
+                        → <strong>Accord complet :</strong> Genre ET nombre<br>
+                        → <strong>Usage principal :</strong> En corrélation avec "l'autre", "les autres"<br>
+                        → <strong>Sens :</strong> Opposition, distribution, réciprocité<br>
+                        → <strong>Constructions :</strong> "L'un... l'autre", "Les uns... les autres", "L'un et l'autre"<br>
+                        → <strong>Remarque :</strong> Peut s'employer seul : "L'un d'eux est parti"
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">AUTRE / AUTRES — Variable en nombre</div>
+                    <div class="sentence-classic">
+                        Un dit cela, un <span class="pronoun-highlight">autre</span> dit le contraire. / D'<span class="pronoun-highlight">autres</span> pensent différemment.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Formes :</strong> <span class="form-detail">AUTRE (singulier) / AUTRES (pluriel)</span><br>
+                        → <strong>Genre :</strong> Invariable en genre (même forme masculin/féminin)<br>
+                        → <strong>Nombre :</strong> S'accorde en nombre (autre/autres)<br>
+                        → <strong>Usage :</strong> Désigne une personne différente, distincte<br>
+                        → <strong>Constructions :</strong> "Un autre", "d'autres", "les autres"<br>
+                        → <strong>Sens :</strong> Altérité, différence
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">ON — Invariable</div>
+                    <div class="sentence-classic">
+                        <span class="pronoun-highlight">On</span> n'est jamais si bien servi que par soi-même.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Forme unique :</strong> <span class="form-detail">ON (invariable)</span><br>
+                        → <strong>Accord verbal :</strong> Toujours 3ème personne du singulier<br>
+                        → <strong>Sens :</strong> Très variable : "nous" (familier), "les gens" (général), "quelqu'un" (indéfini)<br>
+                        → <strong>Accord adjectif/participe :</strong> Selon le sens réel (masculin singulier par défaut)<br>
+                        → <strong>Usage :</strong> Très fréquent à l'oral, remplace souvent "nous"<br>
+                        → <strong>Élision :</strong> "L'on" après "et", "ou", "où", "qui", "quoi", "si"
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">PLUSIEURS — Invariable</div>
+                    <div class="sentence-classic">
+                        <span class="pronoun-highlight">Plusieurs</span> ont témoigné en sa faveur.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Forme unique :</strong> <span class="form-detail">PLUSIEURS (invariable en genre, toujours pluriel)</span><br>
+                        → <strong>Accord verbal :</strong> Toujours 3ème personne du pluriel<br>
+                        → <strong>Sens :</strong> "Un nombre indéterminé supérieur à deux"<br>
+                        → <strong>Construction :</strong> Peut être suivi de "de + groupe nominal" : "Plusieurs d'entre eux"<br>
+                        → <strong>Usage :</strong> Très courant, registre neutre<br>
+                        → <strong>Remarque :</strong> Jamais au singulier
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">QUELQU'UN / QUELQU'UNE / QUELQUES-UNS / QUELQUES-UNES — Variable complet</div>
+                    <div class="sentence-classic">
+                        <span class="pronoun-highlight">Quelqu'un</span> a frappé. / <span class="pronoun-highlight">Quelques-uns</span> sont partis.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Formes :</strong> <span class="form-detail">QUELQU'UN (m.sg.) / QUELQU'UNE (f.sg.) / QUELQUES-UNS (m.pl.) / QUELQUES-UNES (f.pl.)</span><br>
+                        → <strong>Orthographe :</strong> Apostrophe au singulier, trait d'union au pluriel<br>
+                        → <strong>Accord complet :</strong> Genre ET nombre<br>
+                        → <strong>Sens :</strong> "Une personne indéterminée" (sg.), "un petit nombre" (pl.)<br>
+                        → <strong>Usage :</strong> Très fréquent, registre courant<br>
+                        → <strong>Remarque :</strong> Féminin "quelqu'une" rare et littéraire
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">QUELQUE CHOSE — Invariable</div>
+                    <div class="sentence-classic">
+                        <span class="pronoun-highlight">Quelque chose</span> s'est passé.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Forme unique :</strong> <span class="form-detail">QUELQUE CHOSE (invariable, neutre)</span><br>
+                        → <strong>Orthographe :</strong> Deux mots séparés<br>
+                        → <strong>Accord verbal :</strong> 3ème personne du singulier<br>
+                        → <strong>Sens :</strong> "Une chose indéterminée"<br>
+                        → <strong>Construction :</strong> Suivi de "de + adjectif masculin" : "quelque chose de bon"<br>
+                        → <strong>Usage :</strong> Très fréquent, tous registres
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">PERSONNE — Invariable</div>
+                    <div class="sentence-classic">
+                        <span class="pronoun-highlight">Personne</span> n'est venu.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Forme unique :</strong> <span class="form-detail">PERSONNE (invariable)</span><br>
+                        → <strong>Accord verbal :</strong> 3ème personne du singulier<br>
+                        → <strong>Genre :</strong> Morphologiquement féminin mais accord masculin comme pronom<br>
+                        → <strong>Sens :</strong> Négation totale, "aucune personne"<br>
+                        → <strong>Construction :</strong> Avec "ne" : "Il ne connaît personne"<br>
+                        → <strong>Sens positif archaïque :</strong> "quelqu'un" (littéraire)
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">RIEN — Invariable</div>
+                    <div class="sentence-classic">
+                        <span class="pronoun-highlight">Rien</span> n'est impossible.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Forme unique :</strong> <span class="form-detail">RIEN (invariable, neutre)</span><br>
+                        → <strong>Accord verbal :</strong> 3ème personne du singulier<br>
+                        → <strong>Sens :</strong> Négation totale, "aucune chose"<br>
+                        → <strong>Construction :</strong> Avec "ne" : "Il ne sait rien"<br>
+                        → <strong>Construction :</strong> Suivi de "de + adjectif masculin" : "rien de grave"<br>
+                        → <strong>Remarque :</strong> Peut avoir un sens positif archaïque "quelque chose"
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">N'IMPORTE QUI / N'IMPORTE QUOI — Invariables</div>
+                    <div class="sentence-classic">
+                        <span class="pronoun-highlight">N'importe qui</span> peut le faire. / <span class="pronoun-highlight">N'importe quoi</span> ferait l'affaire.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Formes :</strong> <span class="form-detail">N'IMPORTE QUI (personne) / N'IMPORTE QUOI (chose)</span><br>
+                        → <strong>Orthographe :</strong> Trois mots séparés<br>
+                        → <strong>Forme :</strong> Totalement invariable<br>
+                        → <strong>Sens :</strong> "Une personne/chose quelconque, indifféremment"<br>
+                        → <strong>Usage :</strong> Registre courant à familier<br>
+                        → <strong>Variante :</strong> "N'importe lequel/laquelle" (avec accord)
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">QUICONQUE — Invariable</div>
+                    <div class="sentence-classic">
+                        <span class="pronoun-highlight">Quiconque</span> enfreint cette règle sera sanctionné.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Forme unique :</strong> <span class="form-detail">QUICONQUE (invariable)</span><br>
+                        → <strong>Accord verbal :</strong> 3ème personne du singulier<br>
+                        → <strong>Sens :</strong> "Toute personne qui", "n'importe qui"<br>
+                        → <strong>Registre :</strong> Soutenu, littéraire, juridique<br>
+                        → <strong>Construction :</strong> Souvent en tête de phrase relative<br>
+                        → <strong>Remarque :</strong> Équivalent savant de "n'importe qui"
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">AUTRUI — Invariable</div>
+                    <div class="sentence-classic">
+                        Il ne faut pas convoiter le bien d'<span class="pronoun-highlight">autrui</span>.
+                    </div>
+                    <p class="analysis-classic">
+                        → <strong>Forme unique :</strong> <span class="form-detail">AUTRUI (invariable)</span><br>
+                        → <strong>Accord verbal :</strong> 3ème personne du singulier<br>
+                        → <strong>Sens :</strong> "Les autres personnes", "le prochain"<br>
+                        → <strong>Registre :</strong> Soutenu, philosophique, moral<br>
+                        → <strong>Usage :</strong> Surtout après préposition : "d'autrui", "à autrui"<br>
+                        → <strong>Remarque :</strong> Forme ancienne, peu usitée dans la langue courante
+                    </p>
+                </div>
+            </section>
+
+            <!-- Règle -->
+            <div class="rule-box">
+                <h3 class="rule-heading">Règles Morphologiques Générales</h3>
+                <div class="rule-text">
+                    <ul class="rule-list">
+                        <li>
+                            <strong>Accord en genre et nombre :</strong> Les pronoms indéfinis variables (aucun, certain, 
+                            chacun, tout, tel, l'un, quelqu'un) s'accordent en genre et/ou en nombre avec le nom auquel 
+                            ils renvoient. L'accord est obligatoire et visible morphologiquement : ajout de -e pour le 
+                            féminin, ajout de -s pour le pluriel. Exemples : aucun/aucune, tout/toute/tous/toutes.
+                        </li>
+                        <li>
+                            <strong>Pronoms invariables :</strong> Certains pronoms indéfinis ne varient jamais (on, 
+                            personne, rien, plusieurs, quelque chose, n'importe qui, quiconque, autrui). Ils conservent 
+                            toujours la même forme quelle que soit la situation. Attention particulière à l'accord des 
+                            verbes et participes avec ces formes invariables.
+                        </li>
+                        <li>
+                            <strong>Formes composées :</strong> Les pronoms composés résultent de la fusion de plusieurs 
+                            éléments. Orthographe variable : apostrophe (quelqu'un), trait d'union (quelques-uns), ou 
+                            mots séparés (quelque chose, n'importe qui). Certains composés varient (quelqu'un/quelques-uns), 
+                            d'autres restent invariables (quelque chose, n'importe quoi).
+                        </li>
+                        <li>
+                            <strong>Pronoms corrélatifs :</strong> Les formes corrélatives (l'un... l'autre, les uns... 
+                            les autres) fonctionnent par paires et doivent toujours apparaître ensemble. Elles s'accordent 
+                            toutes deux en genre et en nombre selon le référent. La corrélation peut exprimer l'opposition, 
+                            la réciprocité, la distribution ou l'exclusion.
+                        </li>
+                        <li>
+                            <strong>Accord du verbe :</strong> Le verbe s'accorde avec le pronom indéfini sujet. Singulier 
+                            pour : aucun, nul, chacun, on, personne, rien, quelqu'un, quelque chose. Pluriel pour : certains, 
+                            tous, plusieurs, quelques-uns, les uns/les autres. "Tout" neutre singulier = singulier ("Tout 
+                            est prêt").
+                        </li>
+                        <li>
+                            <strong>Accord de l'adjectif et du participe :</strong> L'adjectif ou le participe passé 
+                            s'accorde avec le pronom indéfini selon son genre et son nombre. Attention aux cas particuliers : 
+                            "personne" (morphologiquement féminin mais accord masculin comme pronom), "on" (accord selon 
+                            le sens réel : "On est arrivés" si "on" = "nous").
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tableau -->
+            <section class="table-classic">
+                <h2 class="academic-heading">Tableau Récapitulatif des Formes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pronom</th>
+                            <th>Masculin Singulier</th>
+                            <th>Féminin Singulier</th>
+                            <th>Masculin Pluriel</th>
+                            <th>Féminin Pluriel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-pronoun">AUCUN</td>
+                            <td><em>aucun</em></td>
+                            <td><em>aucune</em></td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">NUL</td>
+                            <td><em>nul</em></td>
+                            <td><em>nulle</em></td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">CERTAIN</td>
+                            <td><em>certain</em></td>
+                            <td><em>certaine</em></td>
+                            <td><em>certains</em></td>
+                            <td><em>certaines</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">CHACUN</td>
+                            <td><em>chacun</em></td>
+                            <td><em>chacune</em></td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">TOUT</td>
+                            <td><em>tout</em></td>
+                            <td><em>toute</em></td>
+                            <td><em>tous</em></td>
+                            <td><em>toutes</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">TEL</td>
+                            <td><em>tel</em></td>
+                            <td><em>telle</em></td>
+                            <td><em>tels</em></td>
+                            <td><em>telles</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">L'UN</td>
+                            <td><em>l'un</em></td>
+                            <td><em>l'une</em></td>
+                            <td><em>les uns</em></td>
+                            <td><em>les unes</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">AUTRE</td>
+                            <td><em>autre</em></td>
+                            <td><em>autre</em></td>
+                            <td><em>autres</em></td>
+                            <td><em>autres</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">QUELQU'UN</td>
+                            <td><em>quelqu'un</em></td>
+                            <td><em>quelqu'une</em></td>
+                            <td><em>quelques-uns</em></td>
+                            <td><em>quelques-unes</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">ON</td>
+                            <td colspan="4" style="text-align: center;"><em>on (invariable)</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">PERSONNE</td>
+                            <td colspan="4" style="text-align: center;"><em>personne (invariable)</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">RIEN</td>
+                            <td colspan="4" style="text-align: center;"><em>rien (invariable)</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">PLUSIEURS</td>
+                            <td colspan="4" style="text-align: center;"><em>plusieurs (invariable, toujours pluriel)</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">QUELQUE CHOSE</td>
+                            <td colspan="4" style="text-align: center;"><em>quelque chose (invariable)</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">N'IMPORTE QUI</td>
+                            <td colspan="4" style="text-align: center;"><em>n'importe qui (invariable)</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">QUICONQUE</td>
+                            <td colspan="4" style="text-align: center;"><em>quiconque (invariable)</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-pronoun">AUTRUI</td>
+                            <td colspan="4" style="text-align: center;"><em>autrui (invariable)</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Avertissement -->
+            <div class="warning-box">
+                <h3 class="warning-heading">Erreurs Fréquentes d'Accord</h3>
+                <div class="warning-text">
+                    <p style="margin-bottom: 42px;">
+                        <strong>Erreur n°1 : Mauvais accord en genre</strong><br>
+                        ❌ <em>"Aucun n'est venue"</em> (masculin + participe féminin)<br>
+                        ✅ <em>"Aucun n'est venu" / "Aucune n'est venue"</em> (accord correct)<br>
+                        → Le pronom et le participe doivent s'accorder en genre
+                    </p>
+                    
+                    <p style="margin-bottom: 42px;">
+                        <strong>Erreur n°2 : Pluriel avec pronom singulier</strong><br>
+                        ❌ <em>"Chacun sont venus"</em> (singulier + pluriel)<br>
+                        ✅ <em>"Chacun est venu"</em> (accord correct)<br>
+                        → "Chacun" est toujours singulier, sens distributif
+                    </p>
+                    
+                    <p style="margin-bottom: 42px;">
+                        <strong>Erreur n°3 : Prononciation de "tous"</strong><br>
+                        ❌ Prononcer "tous" [tu] comme adjectif quand c'est un pronom<br>
+                        ✅ Prononcer "tous" [tus] avec le -s final comme pronom<br>
+                        → Comme pronom, le -s de "tous" se prononce
+                    </p>
+                    
+                    <p style="margin-bottom: 42px;">
+                        <strong>Erreur n°4 : Orthographe de "quelqu'un"</strong><br>
+                        ❌ <em>"Quelcun", "quelquun", "quelque-un"</em> (orthographes incorrectes)<br>
+                        ✅ <em>"Quelqu'un" (sg.) / "Quelques-uns" (pl.)"</em> (orthographes correctes)<br>
+                        → Apostrophe au singulier, trait d'union au pluriel
+                    </p>
+                    
+                    <p>
+                        <strong>Erreur n°5 : Accord avec "personne"</strong><br>
+                        ❌ <em>"Personne est venue"</em> (accord féminin)<br>
+                        ✅ <em>"Personne n'est venu"</em> (accord masculin comme pronom)<br>
+                        → Bien que morphologiquement féminin, "personne" pronom s'accorde au masculin
+                    </p>
+                </div>
+            </div>
+
+            <!-- Conseil -->
+            <div class="tip-box">
+                <h3 class="tip-heading">Guide de Mémorisation</h3>
+                <div class="tip-text">
+                    <p style="margin-bottom: 35px;">
+                        <strong>Stratégie pour maîtriser les formes :</strong>
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>Étape 1 :</strong> Classez les pronoms par type de variation.<br>
+                        → VARIABLES COMPLETS (4 formes) : certain, tout, tel, l'un, quelqu'un<br>
+                        → VARIABLES GENRE (2 formes) : aucun, nul, chacun<br>
+                        → VARIABLES NOMBRE (2 formes) : autre<br>
+                        → INVARIABLES : on, personne, rien, plusieurs, quelque chose, etc.
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>Étape 2 :</strong> Mémorisez les particularités orthographiques.<br>
+                        → APOSTROPHE : quelqu'un, quelqu'une<br>
+                        → TRAIT D'UNION : quelques-uns, quelques-unes<br>
+                        → MOTS SÉPARÉS : quelque chose, n'importe qui, n'importe quoi
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>Étape 3 :</strong> Pratiquez les accords verbaux.<br>
+                        → SINGULIER : aucun, nul, chacun, on, personne, rien, quelqu'un<br>
+                        → PLURIEL : certains, tous, plusieurs, quelques-uns, les uns/les autres
+                    </p>
+                    
+                    <p style="margin-bottom: 32px;">
+                        <strong>Étape 4 :</strong> Attention aux cas particuliers.<br>
+                        → "Tous" pronom : prononciation [tus] (s prononcé)<br>
+                        → "Personne" pronom : accord masculin (pas féminin)<br>
+                        → "On" : accord selon le sens réel (peut être masculin, féminin, singulier, pluriel)
+                    </p>
+                    
+                    <p>
+                        <strong>Mémo rapide :</strong> Les pronoms en -UN (aucun, chacun, quelqu'un) font leur féminin 
+                        en -UNE. Les pronoms en -TAIN (certain) suivent les règles régulières d'accord. Les pronoms 
+                        en -OUT (tout) ont 4 formes complètes. Les pronoms invariables ne changent JAMAIS.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Synthèse -->
+            <section class="synthesis-panel">
+                <h2>Synthèse des Formes Morphologiques</h2>
+                <ul class="synthesis-list">
+                    <li>
+                        <strong>Diversité morphologique remarquable :</strong> Les pronoms indéfinis français présentent 
+                        une grande variété de formes, allant des formes totalement invariables (on, rien, personne) aux 
+                        formes variables en genre et en nombre (tout/toute/tous/toutes, certain/certaine/certains/certaines). 
+                        Cette diversité morphologique reflète la richesse sémantique de cette classe grammaticale et 
+                        permet d'exprimer des nuances fines d'indétermination, de quantification et de distribution.
+                    </li>
+                    <li>
+                        <strong>Système d'accord cohérent :</strong> Malgré leur diversité, les pronoms indéfinis 
+                        suivent un système d'accord cohérent. Les formes variables s'accordent en genre et/ou en nombre 
+                        selon le référent auquel elles renvoient, conformément aux règles générales d'accord du français. 
+                        Les marques morphologiques sont régulières : -e pour le féminin, -s pour le pluriel, suivant 
+                        les patterns habituels de la langue.
+                    </li>
+                    <li>
+                        <strong>Formes simples et formes composées :</strong> Les pronoms indéfinis se divisent en 
+                        formes simples (tout, rien, chacun) et formes composées résultant de la fusion d'éléments 
+                        lexicaux (quelqu'un, quelque chose, n'importe qui). Les formes composées présentent des 
+                        orthographes variées (apostrophe, trait d'union, mots séparés) qu'il convient de maîtriser 
+                        pour éviter les erreurs d'écriture.
+                    </li>
+                    <li>
+                        <strong>Pronoms corrélatifs et structures binaires :</strong> Certains pronoms indéfinis 
+                        fonctionnent par paires corrélatives (l'un... l'autre, les uns... les autres), créant des 
+                        structures binaires qui expriment l'opposition, la réciprocité ou la distribution. Ces formes 
+                        corrélatives s'accordent toutes deux et doivent apparaître ensemble pour former un sens complet.
+                    </li>
+                    <li>
+                        <strong>Particularités morphologiques notables :</strong> Plusieurs pronoms présentent des 
+                        particularités morphologiques dignes d'attention : "personne" morphologiquement féminin mais 
+                        accordé au masculin comme pronom, "tous" avec prononciation du -s final [tus] contrairement 
+                        à l'adjectif "tous" [tu], "on" avec possibilité d'élision en "l'on" dans certains contextes, 
+                        "autre" invariable en genre mais variable en nombre.
+                    </li>
+                    <li>
+                        <strong>Accord du verbe et du participe :</strong> L'accord du verbe et du participe passé 
+                        avec les pronoms indéfinis suit les règles générales mais nécessite une attention particulière 
+                        pour les pronoms invariables (singulier pour on, personne, rien ; pluriel pour plusieurs) et 
+                        pour les cas ambigus comme "on" dont l'accord varie selon le sens réel dans le contexte.
+                    </li>
+                    <li>
+                        <strong>Évolution et variations :</strong> Certaines formes sont archaïques ou littéraires 
+                        (nul, quiconque, autrui, tel pronom), d'autres très courantes dans la langue contemporaine 
+                        (on, quelqu'un, quelque chose, n'importe qui). Le registre de langue influence le choix entre 
+                        formes synonymes : "personne" vs "aucun", "n'importe qui" vs "quiconque".
+                    </li>
+                    <li>
+                        <strong>Maîtrise pratique et compétence linguistique :</strong> La maîtrise complète des 
+                        formes des pronoms indéfinis constitue un marqueur important de compétence en français. Elle 
+                        implique la connaissance des variations morphologiques, des règles d'accord, des particularités 
+                        orthographiques et des nuances sémantiques. Cette maîtrise s'acquiert par l'étude systématique, 
+                        l'observation attentive et la pratique régulière, tant à l'écrit qu'à l'oral.
+                    </li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Língua Academy · Tous droits réservés</p>
+            <p class="footer-brand">LÍNGUA ACADEMY</p>
+            <p>L'Excellence de la Langue Française</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer pour animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -150px 0px'
+        };
+
+        const fadeObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer les boîtes d'exemples
+        document.querySelectorAll('.example-box').forEach(box => {
+            box.style.opacity = '0';
+            box.style.transform = 'translateY(60px)';
+            box.style.transition = 'opacity 1.4s ease, transform 1.4s ease';
+            fadeObserver.observe(box);
+        });
+
+        // Animer les rangées de tableau
+        document.querySelectorAll('tbody tr').forEach((row, index) => {
+            row.style.opacity = '0';
+            row.style.transform = 'translateX(-80px)';
+            row.style.transition = `opacity 1.2s ease ${index * 0.12}s, transform 1.2s ease ${index * 0.12}s`;
+            
+            fadeObserver.observe(row);
+        });
+
+        // Effet hover sur les cartes de classification
+        document.querySelectorAll('.classification-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.classification-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(1.8) rotate(25deg)';
+                    icon.style.transition = 'transform 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                }
+            });
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.classification-icon');
+                if (icon) {
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

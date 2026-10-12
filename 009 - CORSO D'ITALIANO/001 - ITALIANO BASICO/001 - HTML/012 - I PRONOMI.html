@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Pronome - Grammatica Italiana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Sfondo animato con onde */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255, 107, 107, 0.35) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(72, 219, 251, 0.35) 0%, transparent 50%),
+                radial-gradient(circle at 50% 10%, rgba(253, 203, 110, 0.35) 0%, transparent 50%),
+                radial-gradient(circle at 30% 70%, rgba(165, 94, 234, 0.35) 0%, transparent 50%),
+                radial-gradient(circle at 80% 40%, rgba(255, 159, 243, 0.35) 0%, transparent 50%);
+            animation: moveWaves 25s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes moveWaves {
+            0%, 100% { 
+                transform: translate(0, 0) scale(1) rotate(0deg); 
+            }
+            25% { 
+                transform: translate(30px, -30px) scale(1.1) rotate(5deg); 
+            }
+            50% { 
+                transform: translate(-30px, 30px) scale(0.9) rotate(-5deg); 
+            }
+            75% { 
+                transform: translate(40px, 20px) scale(1.05) rotate(3deg); 
+            }
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease;
+        }
+
+        h1 {
+            font-size: 4.5em;
+            text-shadow: 5px 5px 10px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #ffd700, #fff, #ffeb3b, #fff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmerGold 4s linear infinite;
+        }
+
+        @keyframes shimmerGold {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 35px;
+            padding: 45px;
+            margin-bottom: 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            backdrop-filter: blur(20px);
+            animation: fadeInUp 1s ease;
+            border: 5px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            right: -60%;
+            width: 250%;
+            height: 250%;
+            background: conic-gradient(from 0deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+            animation: rotateGlow 25s linear infinite;
+        }
+
+        @keyframes rotateGlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        h2 {
+            color: #e91e63;
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 25px;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #4facfe);
+            border-radius: 3px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+
+        h3 {
+            color: #9c27b0;
+            font-size: 2em;
+            margin: 35px 0 25px 0;
+            padding-left: 25px;
+            border-left: 8px solid #ffd54f;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 25px;
+            padding: 35px;
+            color: white;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+            margin: 30px 0;
+            font-size: 1.2em;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro-box strong {
+            color: #ffd54f;
+            font-size: 1.3em;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 35px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 30px;
+            padding: 35px;
+            color: white;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -60%;
+            width: 220%;
+            height: 220%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.7s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+        }
+
+        .card:hover::before {
+            top: -40%;
+            left: -40%;
+            transform: rotate(90deg);
+        }
+
+        .card-title {
+            font-size: 1.9em;
+            font-weight: bold;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-icon {
+            font-size: 2.2em;
+            animation: bounceIcon 2.5s infinite;
+        }
+
+        @keyframes bounceIcon {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-12px) scale(1.1); }
+        }
+
+        .card-content {
+            font-size: 1.12em;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Colori diversi per le carte */
+        .card-red { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); }
+        .card-orange { background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%); }
+        .card-yellow { background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%); }
+        .card-green { background: linear-gradient(135deg, #48dbfb 0%, #0abde3 100%); }
+        .card-blue { background: linear-gradient(135deg, #5f27cd 0%, #341f97 100%); }
+        .card-purple { background: linear-gradient(135deg, #a55eea 0%, #8854d0 100%); }
+        .card-pink { background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); }
+        .card-teal { background: linear-gradient(135deg, #00d2d3 0%, #54a0ff 100%); }
+        .card-indigo { background: linear-gradient(135deg, #4834df 0%, #341f97 100%); }
+        .card-lime { background: linear-gradient(135deg, #7bed9f 0%, #2ed573 100%); }
+        .card-cyan { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+        .card-magenta { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+
+        .example-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-left: 8px solid #ff9f43;
+            position: relative;
+            z-index: 1;
+        }
+
+        .example-box strong {
+            color: #d63031;
+            font-size: 1.2em;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 1;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+
+        td {
+            padding: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            font-size: 1.1em;
+        }
+
+        tr:hover td {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 50%);
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+        }
+
+        .badge {
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 6px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+            transition: transform 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        .badge:hover {
+            transform: scale(1.15) rotate(2deg);
+        }
+
+        .badge-personale { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); color: white; }
+        .badge-possessivo { background: linear-gradient(135deg, #a55eea 0%, #8854d0 100%); color: white; }
+        .badge-dimostrativo { background: linear-gradient(135deg, #00d2d3 0%, #54a0ff 100%); color: white; }
+        .badge-indefinito { background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%); color: white; }
+        .badge-relativo { background: linear-gradient(135deg, #7bed9f 0%, #2ed573 100%); color: white; }
+        .badge-interrogativo { background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%); color: white; }
+        .badge-doppio { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            border: 4px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .info-box:hover {
+            transform: scale(1.1) rotate(3deg);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+        }
+
+        .info-box h4 {
+            color: #2d3436;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .info-box p {
+            color: #636e72;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        .special-note {
+            background: linear-gradient(135deg, #a55eea 0%, #8854d0 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            font-size: 1.15em;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+        }
+
+        .pronoun-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pronoun-type {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid;
+            transition: all 0.3s ease;
+        }
+
+        .pronoun-type:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .pronoun-type h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #2d3436;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            text-align: center;
+            color: black;
+            margin-top: 60px;
+            padding: 30px;
+            font-size: 1.3em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3em; }
+            h2 { font-size: 2.2em; }
+            h3 { font-size: 1.6em; }
+            .section { padding: 30px; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎭 IL PRONOME 🎭</h1>
+            <p class="subtitle">Grammatica Italiana - Tutti i Tipi di Pronomi</p>
+        </header>
+
+        <!-- SEZIONE 1: CHE COS'È IL PRONOME -->
+        <div class="section">
+            <h2>📖 Che cos'è il Pronome?</h2>
+            <div class="intro-box">
+                <p><strong>Il PRONOME</strong> è la parte variabile del discorso che sostituisce il nome per evitare ripetizioni.</p>
+                <p style="margin-top: 15px;">La parola "pronome" deriva dal latino: <strong>PRO</strong> (al posto di) + <strong>NOME</strong></p>
+                <p style="margin-top: 15px;"><strong>Esempio:</strong> <span class="highlight">Marco</span> è intelligente. <span class="highlight">Lui</span> studia molto.</p>
+                <p style="margin-top: 10px;">("Lui" sostituisce "Marco")</p>
+            </div>
+
+            <div class="pronoun-types">
+                <div class="pronoun-type" style="border-color: #ff6b6b;">
+                    <h4>👤 Personali</h4>
+                    <p>io, tu, lui, lei</p>
+                </div>
+                <div class="pronoun-type" style="border-color: #a55eea;">
+                    <h4>👋 Possessivi</h4>
+                    <p>mio, tuo, suo</p>
+                </div>
+                <div class="pronoun-type" style="border-color: #00d2d3;">
+                    <h4>👉 Dimostrativi</h4>
+                    <p>questo, quello</p>
+                </div>
+                <div class="pronoun-type" style="border-color: #ff9966;">
+                    <h4>❓ Indefiniti</h4>
+                    <p>qualcuno, tutti</p>
+                </div>
+                <div class="pronoun-type" style="border-color: #7bed9f;">
+                    <h4>🔗 Relativi</h4>
+                    <p>che, cui, il quale</p>
+                </div>
+                <div class="pronoun-type" style="border-color: #feca57;">
+                    <h4>❔ Interrogativi</h4>
+                    <p>chi?, che?, quale?</p>
+                </div>
+                <div class="pronoun-type" style="border-color: #fa709a;">
+                    <h4>🔄 Doppi</h4>
+                    <p>chi, che, quanto</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEZIONE 2: PRONOMI PERSONALI -->
+        <div class="section">
+            <h2>👤 I Pronomi Personali</h2>
+            
+            <div class="intro-box">
+                <p><strong>I pronomi PERSONALI</strong> indicano le persone che partecipano alla comunicazione.</p>
+                <p style="margin-top: 10px;">Si dividono in: <strong>SOGGETTO</strong> e <strong>COMPLEMENTO</strong></p>
+            </div>
+
+            <h3>📊 Pronomi Personali Soggetto</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Persona</th>
+                            <th>Singolare</th>
+                            <th>Plurale</th>
+                            <th>Esempi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1ª</strong></td>
+                            <td><strong>io</strong></td>
+                            <td><strong>noi</strong></td>
+                            <td><strong>Io</strong> studio / <strong>Noi</strong> studiamo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2ª</strong></td>
+                            <td><strong>tu</strong></td>
+                            <td><strong>voi</strong></td>
+                            <td><strong>Tu</strong> lavori / <strong>Voi</strong> lavorate</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3ª maschile</strong></td>
+                            <td><strong>lui, egli, esso</strong></td>
+                            <td><strong>loro, essi</strong></td>
+                            <td><strong>Lui</strong> canta / <strong>Loro</strong> cantano</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3ª femminile</strong></td>
+                            <td><strong>lei, ella, essa</strong></td>
+                            <td><strong>loro, esse</strong></td>
+                            <td><strong>Lei</strong> legge / <strong>Loro</strong> leggono</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>🎯 Pronomi Personali Complemento</h3>
+            
+            <div class="cards-grid">
+                <div class="card card-red">
+                    <div class="card-title">
+                        <span class="card-icon">📌</span>
+                        Forme Atone (senza accento)
+                    </div>
+                    <div class="card-content">
+                        <strong>SI APPOGGIANO AL VERBO</strong>
+                        <br><br>
+                        <strong>Diretti:</strong> mi, ti, lo, la, ci, vi, li, le
+                        <br>
+                        • <strong>Mi</strong> vede / <strong>Lo</strong> compro
+                        <br><br>
+                        <strong>Indiretti:</strong> mi, ti, gli, le, ci, vi, loro
+                        <br>
+                        • <strong>Mi</strong> dice / <strong>Gli</strong> parlo
+                        <br><br>
+                        <strong>Riflessivi:</strong> mi, ti, si, ci, vi, si
+                        <br>
+                        • <strong>Mi</strong> lavo / <strong>Si</strong> veste
+                    </div>
+                </div>
+
+                <div class="card card-orange">
+                    <div class="card-title">
+                        <span class="card-icon">💪</span>
+                        Forme Toniche (con accento)
+                    </div>
+                    <div class="card-content">
+                        <strong>HANNO AUTONOMIA</strong>
+                        <br><br>
+                        me, te, lui, lei, sé, noi, voi, loro
+                        <br><br>
+                        <strong>Esempi:</strong><br>
+                        • Parla con <strong>me</strong><br>
+                        • Viene da <strong>te</strong><br>
+                        • Pensa a <strong>sé</strong><br>
+                        • Vengono con <strong>noi</strong><br>
+                        • Andiamo da <strong>loro</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <h3>📋 Tabella Completa dei Pronomi Personali</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Persona</th>
+                            <th>Soggetto</th>
+                            <th>Compl. Diretto Atono</th>
+                            <th>Compl. Indiretto Atono</th>
+                            <th>Compl. Tonico</th>
+                            <th>Riflessivo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1ª sing.</strong></td>
+                            <td>io</td>
+                            <td>mi</td>
+                            <td>mi</td>
+                            <td>me</td>
+                            <td>mi</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2ª sing.</strong></td>
+                            <td>tu</td>
+                            <td>ti</td>
+                            <td>ti</td>
+                            <td>te</td>
+                            <td>ti</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3ª sing. m.</strong></td>
+                            <td>lui, egli</td>
+                            <td>lo</td>
+                            <td>gli</td>
+                            <td>lui</td>
+                            <td>si</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3ª sing. f.</strong></td>
+                            <td>lei, ella</td>
+                            <td>la</td>
+                            <td>le</td>
+                            <td>lei</td>
+                            <td>si</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1ª plur.</strong></td>
+                            <td>noi</td>
+                            <td>ci</td>
+                            <td>ci</td>
+                            <td>noi</td>
+                            <td>ci</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2ª plur.</strong></td>
+                            <td>voi</td>
+                            <td>vi</td>
+                            <td>vi</td>
+                            <td>voi</td>
+                            <td>vi</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3ª plur. m.</strong></td>
+                            <td>loro, essi</td>
+                            <td>li</td>
+                            <td>gli / loro</td>
+                            <td>loro</td>
+                            <td>si</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3ª plur. f.</strong></td>
+                            <td>loro, esse</td>
+                            <td>le</td>
+                            <td>gli / loro</td>
+                            <td>loro</td>
+                            <td>si</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="example-box">
+                <strong>Esempi Pratici:</strong>
+                <p style="margin-top: 15px;">
+                    • <strong>Io</strong> vedo Marco → <strong>Io lo</strong> vedo<br>
+                    • <strong>Tu</strong> parli a Maria → <strong>Tu le</strong> parli<br>
+                    • Marco vede <strong>me</strong> → Marco <strong>mi</strong> vede<br>
+                    • Parlo con <strong>te</strong> → <strong>Ti</strong> parlo
+                </p>
+            </div>
+        </div>
+
+        <!-- SEZIONE 3: PRONOMI POSSESSIVI -->
+        <div class="section">
+            <h2>👋 I Pronomi Possessivi</h2>
+            
+            <div class="intro-box">
+                <p><strong>I pronomi POSSESSIVI</strong> sostituiscono il nome e indicano a chi appartiene qualcosa.</p>
+                <p style="margin-top: 10px;"><strong>Esempio:</strong> La mia casa è grande. → <span class="highlight">La mia</span> è grande.</p>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Persona</th>
+                            <th>Maschile Singolare</th>
+                            <th>Femminile Singolare</th>
+                            <th>Maschile Plurale</th>
+                            <th>Femminile Plurale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1ª sing.</strong></td>
+                            <td>il mio</td>
+                            <td>la mia</td>
+                            <td>i miei</td>
+                            <td>le mie</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2ª sing.</strong></td>
+                            <td>il tuo</td>
+                            <td>la tua</td>
+                            <td>i tuoi</td>
+                            <td>le tue</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3ª sing.</strong></td>
+                            <td>il suo</td>
+                            <td>la sua</td>
+                            <td>i suoi</td>
+                            <td>le sue</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1ª plur.</strong></td>
+                            <td>il nostro</td>
+                            <td>la nostra</td>
+                            <td>i nostri</td>
+                            <td>le nostre</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2ª plur.</strong></td>
+                            <td>il vostro</td>
+                            <td>la vostra</td>
+                            <td>i vostri</td>
+                            <td>le vostre</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3ª plur.</strong></td>
+                            <td>il loro</td>
+                            <td>la loro</td>
+                            <td>i loro</td>
+                            <td>le loro</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="example-box">
+                <strong>Esempi:</strong>
+                <p style="margin-top: 15px;">
+                    • Il tuo libro è rosso, <strong>il mio</strong> è blu<br>
+                    • La tua casa è grande, <strong>la nostra</strong> è piccola<br>
+                    • I tuoi amici sono simpatici, <strong>i miei</strong> anche<br>
+                    • Le vostre idee sono buone, <strong>le loro</strong> no
+                </p>
+            </div>
+        </div>
+
+        <!-- SEZIONE 4: PRONOMI DIMOSTRATIVI -->
+        <div class="section">
+            <h2>👉 I Pronomi Dimostrativi</h2>
+            
+            <div class="intro-box">
+                <p><strong>I pronomi DIMOSTRATIVI</strong> sostituiscono il nome e indicano la posizione nello spazio o nel tempo.</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card card-green">
+                    <div class="card-title">
+                        <span class="card-icon">📍</span>
+                        QUESTO (vicino)
+                    </div>
+                    <div class="card-content">
+                        <strong>Indica vicinanza a chi parla</strong>
+                        <br><br>
+                        • questo, questa, questi, queste
+                        <br><br>
+                        <strong>Esempi:</strong><br>
+                        • <strong>Questo</strong> è il mio libro<br>
+                        • <strong>Questa</strong> è la mia casa<br>
+                        • <strong>Questi</strong> sono i miei amici<br>
+                        • <strong>Queste</strong> sono belle
+                    </div>
+                </div>
+
+                <div class="card card-yellow">
+                    <div class="card-title">
+                        <span class="card-icon">📌</span>
+                        CODESTO (medio)
+                    </div>
+                    <div class="card-content">
+                        <strong>Indica vicinanza a chi ascolta</strong>
+                        <br><br>
+                        • codesto, codesta, codesti, codeste
+                        <br><br>
+                        <strong>Poco usato</strong>
+                        <br><br>
+                        <strong>Esempi:</strong><br>
+                        • <strong>Codesto</strong> che hai tu<br>
+                        • <strong>Codesta</strong> che vedi
+                    </div>
+                </div>
+
+                <div class="card card-blue">
+                    <div class="card-title">
+                        <span class="card-icon">📍</span>
+                        QUELLO (lontano)
+                    </div>
+                    <div class="card-content">
+                        <strong>Indica lontananza</strong>
+                        <br><br>
+                        • quello, quella, quelli, quelle
+                        <br><br>
+                        <strong>Esempi:</strong><br>
+                        • <strong>Quello</strong> è il suo libro<br>
+                        • <strong>Quella</strong> è la sua casa<br>
+                        • <strong>Quelli</strong> sono bravi<br>
+                        • <strong>Quelle</strong> sono lontane
+                    </div>
+                </div>
+            </div>
+
+            <div class="special-note">
+                <strong>⚡ Altri pronomi dimostrativi:</strong>
+                <br><br>
+                • <strong>COSTUI, COSTEI, COSTORO</strong> = questa persona/queste persone (tono spregiativo)<br>
+                • <strong>COLUI, COLEI, COLORO</strong> = quella persona/quelle persone<br>
+                • <strong>CIÒS</strong> = questa cosa<br>
+                • <strong>STESSO, MEDESIMO</strong> = la stessa cosa
+            </div>
+        </div>
+
+        <!-- SEZIONE 5: PRONOMI INDEFINITI -->
+        <div class="section">
+            <h2>❓ I Pronomi Indefiniti</h2>
+            
+            <div class="intro-box">
+                <p><strong>I pronomi INDEFINITI</strong> sostituiscono il nome indicando persone o cose in modo generico e impreciso.</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card card-orange">
+                    <div class="card-title">
+                        <span class="card-icon">👥</span>
+                        Pronomi di Quantità
+                    </div>
+                    <div class="card-content">
+                        <strong>ALCUNI/E</strong> = alcune persone<br>
+                        • <strong>Alcuni</strong> dicono che...<br>
+                        • <strong>Alcune</strong> sono partite
+                        <br><br>
+                        <strong>MOLTI/E</strong> = molte persone<br>
+                        • <strong>Molti</strong> pensano che...<br>
+                        <strong>POCHI/E</strong> = poche persone<br>
+                        • <strong>Pochi</strong> sanno che...
+                    </div>
+                </div>
+
+                <div class="card card-pink">
+                    <div class="card-title">
+                        <span class="card-icon">1️⃣</span>
+                        Pronomi Singolari
+                    </div>
+                    <div class="card-content">
+                        <strong>QUALCUNO</strong> = una persona<br>
+                        • <strong>Qualcuno</strong> ha bussato
+                        <br><br>
+                        <strong>NESSUNO</strong> = nessuna persona<br>
+                        • <strong>Nessuno</strong> è venuto
+                        <br><br>
+                        <strong>CIASCUNO</strong> = ogni persona<br>
+                        • <strong>Ciascuno</strong> ha il suo
+                    </div>
+                </div>
+
+                <div class="card card-teal">
+                    <div class="card-title">
+                        <span class="card-icon">🔄</span>
+                        Altri Pronomi Indefiniti
+                    </div>
+                    <div class="card-content">
+                        <strong>TUTTO</strong> = ogni cosa<br>
+                        • Ho visto <strong>tutto</strong>
+                        <br><br>
+                        <strong>NIENTE / NULLA</strong> = nessuna cosa<br>
+                        • Non ho visto <strong>niente</strong>
+                        <br><br>
+                        <strong>ALTRO</strong> = altra cosa<br>
+                        • Vuoi <strong>altro</strong>?
+                    </div>
+                </div>
+
+                <div class="card card-purple">
+                    <div class="card-title">
+                        <span class="card-icon">♾️</span>
+                        Pronomi di Totalità
+                    </div>
+                    <div class="card-content">
+                        <strong>TUTTI/E</strong> = tutte le persone<br>
+                        • <strong>Tutti</strong> sono arrivati<br>
+                        • <strong>Tutte</strong> hanno studiato
+                        <br><br>
+                        <strong>OGNUNO</strong> = ogni persona<br>
+                        • <strong>Ognuno</strong> fa ciò che vuole
+                        <br><br>
+                        <strong>CHIUNQUE</strong> = qualsiasi persona<br>
+                        • Può farlo <strong>chiunque</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <h3>📊 Lista Completa dei Pronomi Indefiniti</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pronome</th>
+                            <th>Significato</th>
+                            <th>Esempio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>qualcuno</strong></td>
+                            <td>una persona indeterminata</td>
+                            <td>Qualcuno ha chiamato</td>
+                        </tr>
+                        <tr>
+                            <td><strong>qualcosa</strong></td>
+                            <td>una cosa indeterminata</td>
+                            <td>Ho visto qualcosa</td>
+                        </tr>
+                        <tr>
+                            <td><strong>nessuno</strong></td>
+                            <td>nessuna persona</td>
+                            <td>Nessuno è venuto</td>
+                        </tr>
+                        <tr>
+                            <td><strong>niente/nulla</strong></td>
+                            <td>nessuna cosa</td>
+                            <td>Non ho fatto niente</td>
+                        </tr>
+                        <tr>
+                            <td><strong>tutti/e</strong></td>
+                            <td>tutte le persone</td>
+                            <td>Tutti sono contenti</td>
+                        </tr>
+                        <tr>
+                            <td><strong>tutto</strong></td>
+                            <td>ogni cosa</td>
+                            <td>Ho capito tutto</td>
+                        </tr>
+                        <tr>
+                            <td><strong>altri/e</strong></td>
+                            <td>altre persone</td>
+                            <td>Altri hanno risposto</td>
+                        </tr>
+                        <tr>
+                            <td><strong>altro</strong></td>
+                            <td>altra cosa</td>
+                            <td>Desideri altro?</td>
+                        </tr>
+                        <tr>
+                            <td><strong>chiunque</strong></td>
+                            <td>qualsiasi persona</td>
+                            <td>Chiunque può venire</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ognuno</strong></td>
+                            <td>ogni persona</td>
+                            <td>Ognuno ha i suoi problemi</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SEZIONE 6: PRONOMI RELATIVI -->
+        <div class="section">
+            <h2>🔗 I Pronomi Relativi</h2>
+            
+            <div class="intro-box">
+                <p><strong>I pronomi RELATIVI</strong> sostituiscono il nome e collegano due frasi (mettono in relazione).</p>
+                <p style="margin-top: 10px;"><strong>Esempio:</strong> Ho visto il ragazzo. Il ragazzo studia. → Ho visto il ragazzo <span class="highlight">che</span> studia.</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card card-lime">
+                    <div class="card-title">
+                        <span class="card-icon">🔗</span>
+                        CHE
+                    </div>
+                    <div class="card-content">
+                        <strong>Il pronome relativo più usato</strong>
+                        <br><br>
+                        <strong>Invariabile</strong> (non cambia mai)
+                        <br><br>
+                        Può essere soggetto o complemento oggetto
+                        <br><br>
+                        <strong>Esempi:</strong><br>
+                        • Il libro <strong>che</strong> leggo (complemento oggetto)<br>
+                        • Il ragazzo <strong>che</strong> studia (soggetto)<br>
+                        • La casa <strong>che</strong> vedi (complemento oggetto)
+                    </div>
+                </div>
+
+                <div class="card card-cyan">
+                    <div class="card-title">
+                        <span class="card-icon">📌</span>
+                        CUI
+                    </div>
+                    <div class="card-content">
+                        <strong>Si usa CON preposizioni</strong>
+                        <br><br>
+                        <strong>Invariabile</strong>
+                        <br><br>
+                        <strong>Esempi:</strong><br>
+                        • Il libro <strong>di cui</strong> parlo<br>
+                        • La persona <strong>a cui</strong> scrivo<br>
+                        • La casa <strong>in cui</strong> vivo<br>
+                        • L'amico <strong>con cui</strong> studio<br>
+                        • La ragione <strong>per cui</strong> vengo
+                    </div>
+                </div>
+
+                <div class="card card-magenta">
+                    <div class="card-title">
+                        <span class="card-icon">👑</span>
+                        IL QUALE
+                    </div>
+                    <div class="card-content">
+                        <strong>Forma più precisa</strong>
+                        <br><br>
+                        <strong>Variabile:</strong> il quale, la quale, i quali, le quali
+                        <br><br>
+                        <strong>Esempi:</strong><br>
+                        • Il ragazzo <strong>il quale</strong> studia<br>
+                        • La casa <strong>nella quale</strong> vivo<br>
+                        • I libri <strong>dei quali</strong> parlo<br>
+                        • Le persone <strong>alle quali</strong> scrivo
+                    </div>
+                </div>
+
+                <div class="card card-indigo">
+                    <div class="card-title">
+                        <span class="card-icon">🎯</span>
+                        CHI
+                    </div>
+                    <div class="card-content">
+                        <strong>Significa "colui che" / "colei che"</strong>
+                        <br><br>
+                        <strong>Solo per persone</strong>
+                        <br><br>
+                        <strong>Esempi:</strong><br>
+                        • <strong>Chi</strong> studia, impara<br>
+                        (= Colui che studia, impara)<br>
+                        • <strong>Chi</strong> troppo vuole, nulla stringe<br>
+                        • Dimmi con <strong>chi</strong> vai e ti dirò chi sei
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <strong>Confronto tra CHE e CUI:</strong>
+                <p style="margin-top: 15px;">
+                    ✅ Il libro <strong>che</strong> leggo (senza preposizione)<br>
+                    ✅ Il libro <strong>di cui</strong> parlo (con preposizione "di")<br>
+                    ✅ La persona <strong>che</strong> vedo (senza preposizione)<br>
+                    ✅ La persona <strong>a cui</strong> scrivo (con preposizione "a")
+                </p>
+            </div>
+        </div>
+
+        <!-- SEZIONE 7: PRONOMI INTERROGATIVI -->
+        <div class="section">
+            <h2>❔ I Pronomi Interrogativi ed Esclamativi</h2>
+            
+            <div class="intro-box">
+                <p><strong>I pronomi INTERROGATIVI</strong> sostituiscono il nome e introducono una domanda.</p>
+                <p style="margin-top: 10px;"><strong>I pronomi ESCLAMATIVI</strong> sostituiscono il nome e introducono un'esclamazione.</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card card-yellow">
+                    <div class="card-title">
+                        <span class="card-icon">❓</span>
+                        CHI?
+                    </div>
+                    <div class="card-content">
+                        <strong>Per le PERSONE</strong>
+                        <br><br>
+                        <strong>Invariabile</strong>
+                        <br><br>
+                        <strong>Interrogativo:</strong><br>
+                        • <strong>Chi</strong> è?<br>
+                        • <strong>Chi</strong> viene?<br>
+                        • Di <strong>chi</strong> parli?<br>
+                        • A <strong>chi</strong> scrivi?
+                        <br><br>
+                        <strong>Esclamativo:</strong><br>
+                        • <strong>Chi</strong> si rivede!
+                    </div>
+                </div>
+
+                <div class="card card-green">
+                    <div class="card-title">
+                        <span class="card-icon">❓</span>
+                        CHE? / CHE COSA? / COSA?
+                    </div>
+                    <div class="card-content">
+                        <strong>Per le COSE</strong>
+                        <br><br>
+                        <strong>Invariabile</strong>
+                        <br><br>
+                        <strong>Interrogativo:</strong><br>
+                        • <strong>Che</strong> vuoi?<br>
+                        • <strong>Che cosa</strong> fai?<br>
+                        • <strong>Cosa</strong> dici?<br>
+                        • Di <strong>che</strong> parli?
+                        <br><br>
+                        <strong>Esclamativo:</strong><br>
+                        • <strong>Che</strong> bella sorpresa!
+                    </div>
+                </div>
+
+                <div class="card card-blue">
+                    <div class="card-title">
+                        <span class="card-icon">❓</span>
+                        QUALE? / QUALI?
+                    </div>
+                    <div class="card-content">
+                        <strong>Per PERSONE e COSE</strong>
+                        <br><br>
+                        <strong>Variabile</strong> (quale/quali)
+                        <br><br>
+                        <strong>Interrogativo:</strong><br>
+                        • <strong>Quale</strong> preferisci?<br>
+                        • <strong>Quali</strong> sono i tuoi?<br>
+                        • <strong>Qual</strong> è il problema?
+                        <br><br>
+                        <strong>Esclamativo:</strong><br>
+                        • <strong>Quale</strong> onore!
+                    </div>
+                </div>
+
+                <div class="card card-purple">
+                    <div class="card-title">
+                        <span class="card-icon">❓</span>
+                        QUANTO? / QUANTA? / QUANTI? / QUANTE?
+                    </div>
+                    <div class="card-content">
+                        <strong>Per QUANTITÀ</strong>
+                        <br><br>
+                        <strong>Variabile</strong>
+                        <br><br>
+                        <strong>Interrogativo:</strong><br>
+                        • <strong>Quanto</strong> costa?<br>
+                        • <strong>Quanti</strong> sono?<br>
+                        • <strong>Quante</strong> ne vuoi?
+                        <br><br>
+                        <strong>Esclamativo:</strong><br>
+                        • <strong>Quanto</strong> sei bravo!<br>
+                        • <strong>Quanta</strong> gente!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEZIONE 8: PRONOMI DOPPI (MISTI) -->
+        <div class="section">
+            <h2>🔄 I Pronomi Doppi (o Misti)</h2>
+            
+            <div class="intro-box">
+                <p><strong>I pronomi DOPPI</strong> possono funzionare sia come interrogativi/esclamativi che come relativi.</p>
+                <p style="margin-top: 10px;">Hanno una <strong>doppia funzione</strong> nella frase.</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card card-magenta">
+                    <div class="card-title">
+                        <span class="card-icon">🔄</span>
+                        CHI
+                    </div>
+                    <div class="card-content">
+                        <strong>Funzione 1: Interrogativo</strong><br>
+                        • <strong>Chi</strong> è? (= Quale persona è?)
+                        <br><br>
+                        <strong>Funzione 2: Relativo</strong><br>
+                        • <strong>Chi</strong> studia, impara<br>
+                        (= Colui che studia, impara)
+                        <br><br>
+                        <strong>È DOPPIO perché ha 2 usi diversi!</strong>
+                    </div>
+                </div>
+
+                <div class="card card-cyan">
+                    <div class="card-title">
+                        <span class="card-icon">🔄</span>
+                        CHE
+                    </div>
+                    <div class="card-content">
+                        <strong>Funzione 1: Interrogativo</strong><br>
+                        • <strong>Che</strong> vuoi? (= Quale cosa vuoi?)
+                        <br><br>
+                        <strong>Funzione 2: Relativo</strong><br>
+                        • Il libro <strong>che</strong> leggo<br>
+                        (= il quale leggo)
+                        <br><br>
+                        <strong>È DOPPIO perché ha 2 usi diversi!</strong>
+                    </div>
+                </div>
+
+                <div class="card card-pink">
+                    <div class="card-title">
+                        <span class="card-icon">🔄</span>
+                        QUANTO
+                    </div>
+                    <div class="card-content">
+                        <strong>Funzione 1: Interrogativo</strong><br>
+                        • <strong>Quanto</strong> costa? (domanda)
+                        <br><br>
+                        <strong>Funzione 2: Relativo</strong><br>
+                        • Ecco <strong>quanto</strong> ho guadagnato<br>
+                        (= ciò che ho guadagnato)
+                        <br><br>
+                        <strong>È DOPPIO perché ha 2 usi diversi!</strong>
+                    </div>
+                </card>
+            </div>
+
+            <div class="special-note">
+                <strong>💡 PERCHÉ SI CHIAMANO "DOPPI"?</strong>
+                <br><br>
+                Perché questi pronomi possono svolgere <strong>DUE FUNZIONI DIVERSE</strong> nella frase:
+                <br><br>
+                1️⃣ <strong>Interrogativa/Esclamativa</strong> (fanno domande o esclamazioni)<br>
+                2️⃣ <strong>Relativa</strong> (collegano due frasi)
+                <br><br>
+                Sono come "attori" che possono recitare in due ruoli diversi!
+            </div>
+        </div>
+
+        <!-- SEZIONE 9: RIEPILOGO COMPLETO -->
+        <div class="section">
+            <h2>🎯 Riepilogo Completo dei Pronomi</h2>
+            
+            <div class="intro-box">
+                <h3 style="color: white; border: none; padding: 0; margin-bottom: 25px;">📋 Tutti i Tipi di Pronomi</h3>
+                
+                <div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 20px; margin: 20px 0;">
+                    <p><span class="badge-personale">PERSONALI</span> → io, tu, lui, lei, noi, voi, loro | mi, ti, lo, la, ci, vi, li, le</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 20px; margin: 20px 0;">
+                    <p><span class="badge-possessivo">POSSESSIVI</span> → il mio, il tuo, il suo, il nostro, il vostro, il loro</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 20px; margin: 20px 0;">
+                    <p><span class="badge-dimostrativo">DIMOSTRATIVI</span> → questo, codesto, quello, costui, colui, ciò</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 20px; margin: 20px 0;">
+                    <p><span class="badge-indefinito">INDEFINITI</span> → qualcuno, nessuno, tutti, molti, pochi, altro, niente</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 20px; margin: 20px 0;">
+                    <p><span class="badge-relativo">RELATIVI</span> → che, cui, il quale, chi</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 20px; margin: 20px 0;">
+                    <p><span class="badge-interrogativo">INTERROGATIVI/ESCLAMATIVI</span> → chi?, che?, quale?, quanto?</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 20px; margin: 20px 0;">
+                    <p><span class="badge-doppio">DOPPI (MISTI)</span> → chi, che, quanto (con doppia funzione)</p>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3 style="color: #d63031; margin-bottom: 20px;">✨ Frase con Tutti i Pronomi</h3>
+                <p style="font-size: 1.2em; line-height: 2;">
+                    <span class="badge-personale">Io</span> ho visto 
+                    <span class="badge-indefinito">qualcuno</span> 
+                    <span class="badge-relativo">che</span> parlava con 
+                    <span class="badge-dimostrativo">quello</span>. 
+                    <span class="badge-possessivo">Il mio</span> era meglio. 
+                    <span class="badge-interrogativo">Chi</span> era? 
+                    <span class="badge-personale">Mi</span> chiedo 
+                    <span class="badge-interrogativo">quanto</span> sia importante.
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p>🎓 Língua Academy - Grammatica Italiana 🇮🇹</p>
+            <p>🎭 Impara i pronomi con colori e passione! 💜</p>
+            <p style="margin-top: 15px; font-size: 0.95em;">📚 I pronomi sostituiscono i nomi e rendono il discorso più fluido! 🌈</p>
+        </footer>
+    </div>
+</body>
+</html>

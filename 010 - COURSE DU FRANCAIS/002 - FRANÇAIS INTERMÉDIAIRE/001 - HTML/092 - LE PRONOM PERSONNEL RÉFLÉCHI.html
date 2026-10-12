@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Pronom Personnel Réfléchi - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #00695c 0%, #00897b 50%, #26a69a 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0055A4 0%, #EF4135 50%, #FFFFFF 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: rotate 25s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3.2em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .brand {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            z-index: 2;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h2 {
+            color: #0055A4;
+            font-size: 2.3em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #EF4135;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3 {
+            color: #EF4135;
+            font-size: 1.7em;
+            margin: 30px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 1.2em;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 6px solid #0055A4;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-box p {
+            font-size: 1.2em;
+            color: #1a237e;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #f57c00;
+        }
+
+        .definition-box h4 {
+            color: #e65100;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .definition-box p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .pronoun-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            padding: 35px;
+            border-radius: 18px;
+            margin: 30px 0;
+            border: 3px solid #0055A4;
+            box-shadow: 0 8px 25px rgba(0, 85, 164, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .pronoun-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 85, 164, 0.25);
+            border-color: #EF4135;
+        }
+
+        .pronoun-title {
+            color: #0055A4;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #EF4135;
+        }
+
+        .reflechi-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .reflechi-item {
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 3px solid #0277bd;
+            transition: all 0.3s ease;
+        }
+
+        .reflechi-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(2, 119, 189, 0.3);
+        }
+
+        .reflechi-pronoun {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #01579b;
+            margin-bottom: 10px;
+        }
+
+        .reflechi-person {
+            font-size: 1.1em;
+            color: #0277bd;
+        }
+
+        .exemple {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #4caf50;
+            transition: all 0.3s ease;
+        }
+
+        .exemple:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .exemple strong {
+            color: #2e7d32;
+            font-size: 1.15em;
+        }
+
+        .exemple em {
+            color: #1b5e20;
+            font-style: normal;
+            font-weight: 600;
+            background: rgba(76, 175, 80, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+
+        .verb-type-card {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #8e24aa;
+        }
+
+        .verb-type-card h4 {
+            color: #4a148c;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .conjugation-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px solid #8e24aa;
+        }
+
+        .conjugation-box h5 {
+            color: #6a1b9a;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .conjugation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .conjugation-item {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #8e24aa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #d35400;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #00897b;
+        }
+
+        .note-box strong {
+            color: #004d40;
+            font-size: 1.15em;
+        }
+
+        .grammar-point {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #c2185b;
+        }
+
+        .grammar-point h4 {
+            color: #880e4f;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #e53935;
+        }
+
+        .warning-box strong {
+            color: #c62828;
+            font-size: 1.15em;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #0055A4 0%, #003d7a 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.15em;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 2px solid #e0e0e0;
+            transition: background 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        tr:hover td {
+            background: #f5f5f5;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        li {
+            margin: 12px 0;
+            line-height: 1.9;
+            font-size: 1.05em;
+        }
+
+        .special-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .special-list li::before {
+            content: "🔹";
+            margin-right: 10px;
+        }
+
+        .comparison-box {
+            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 3px solid #fbc02d;
+        }
+
+        .comparison-box h4 {
+            color: #f57f17;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .comparison-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #fbc02d;
+        }
+
+        .position-card {
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #0277bd;
+        }
+
+        .position-card h5 {
+            color: #01579b;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .visual-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: center;
+            border: 3px solid #8e24aa;
+        }
+
+        .visual-element {
+            display: inline-block;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #6a1b9a;
+        }
+
+        .arrow {
+            display: inline-block;
+            font-size: 2em;
+            color: #8e24aa;
+            margin: 0 10px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.7em;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reflechi-showcase {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .brand {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">Língua Academy</div>
+            <h1>Le Pronom Personnel Réfléchi</h1>
+            <p class="subtitle">Comprendre et maîtriser les verbes pronominaux</p>
+        </header>
+
+        <div class="content">
+            <!-- Introduction -->
+            <div class="section">
+                <div class="intro-box">
+                    <p>
+                        Les <strong>pronoms personnels réfléchis</strong> sont des pronoms spéciaux utilisés avec les 
+                        <strong>verbes pronominaux</strong>. Ils indiquent que l'action du verbe "revient" sur le sujet : 
+                        la personne fait l'action <span class="highlight">sur elle-même</span>.
+                    </p>
+                    <p>
+                        Ces pronoms sont essentiels en français car de nombreux verbes sont pronominaux. Leur maîtrise 
+                        est indispensable pour s'exprimer correctement au quotidien.
+                    </p>
+                </div>
+
+                <div class="definition-box">
+                    <h4>📚 Définition : Le pronom réfléchi</h4>
+                    <p>
+                        Un <strong>pronom réfléchi</strong> est un pronom personnel qui renvoie au sujet du verbe. 
+                        Il accompagne les <strong>verbes pronominaux</strong> et se place toujours <strong>avant le verbe</strong> 
+                        (sauf à l'impératif affirmatif).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Les formes -->
+            <div class="section">
+                <h2><span class="icon">📋</span>Les formes des pronoms réfléchis</h2>
+
+                <div class="pronoun-card">
+                    <div class="pronoun-title">
+                        <span>🎯</span> Tableau complet des pronoms réfléchis
+                    </div>
+
+                    <div class="reflechi-showcase">
+                        <div class="reflechi-item">
+                            <div class="reflechi-pronoun">ME</div>
+                            <div class="reflechi-person">1ère personne<br>singulier</div>
+                            <div class="exemple" style="margin-top: 15px; background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%); border-color: #0277bd;">
+                                <em>Je me lave.</em>
+                            </div>
+                        </div>
+
+                        <div class="reflechi-item">
+                            <div class="reflechi-pronoun">TE</div>
+                            <div class="reflechi-person">2ème personne<br>singulier</div>
+                            <div class="exemple" style="margin-top: 15px; background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%); border-color: #0277bd;">
+                                <em>Tu te laves.</em>
+                            </div>
+                        </div>
+
+                        <div class="reflechi-item">
+                            <div class="reflechi-pronoun">SE</div>
+                            <div class="reflechi-person">3ème personne<br>singulier</div>
+                            <div class="exemple" style="margin-top: 15px; background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%); border-color: #0277bd;">
+                                <em>Il/Elle se lave.</em>
+                            </div>
+                        </div>
+
+                        <div class="reflechi-item">
+                            <div class="reflechi-pronoun">NOUS</div>
+                            <div class="reflechi-person">1ère personne<br>pluriel</div>
+                            <div class="exemple" style="margin-top: 15px; background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%); border-color: #0277bd;">
+                                <em>Nous nous lavons.</em>
+                            </div>
+                        </div>
+
+                        <div class="reflechi-item">
+                            <div class="reflechi-pronoun">VOUS</div>
+                            <div class="reflechi-person">2ème personne<br>pluriel</div>
+                            <div class="exemple" style="margin-top: 15px; background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%); border-color: #0277bd;">
+                                <em>Vous vous lavez.</em>
+                            </div>
+                        </div>
+
+                        <div class="reflechi-item">
+                            <div class="reflechi-pronoun">SE</div>
+                            <div class="reflechi-person">3ème personne<br>pluriel</div>
+                            <div class="exemple" style="margin-top: 15px; background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%); border-color: #0277bd;">
+                                <em>Ils/Elles se lavent.</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Observation importante :</strong> Les pronoms réfléchis sont identiques aux pronoms COD/COI 
+                        pour les 1ère et 2ème personnes (<strong>me, te, nous, vous</strong>). Seule la 3ème personne a une forme 
+                        spécifique : <strong>SE</strong> (au lieu de le/la/les ou lui/leur).
+                    </div>
+
+                    <div class="grammar-point">
+                        <h4>📐 Élision</h4>
+                        <p style="margin-bottom: 10px;">
+                            Les pronoms <strong>ME, TE, SE</strong> deviennent <strong>M', T', S'</strong> devant une voyelle ou un h muet.
+                        </p>
+                        <ul class="special-list">
+                            <li><em>Je m'appelle Marie.</em> (s'appeler)</li>
+                            <li><em>Tu t'habilles vite.</em> (s'habiller)</li>
+                            <li><em>Il s'amuse bien.</em> (s'amuser)</li>
+                            <li><em>Elle s'endort tard.</em> (s'endormir)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Qu'est-ce qu'un verbe pronominal -->
+            <div class="section">
+                <h2><span class="icon">🔄</span>Les verbes pronominaux</h2>
+
+                <div class="pronoun-card">
+                    <div class="pronoun-title">
+                        <span>📖</span> Définition et caractéristiques
+                    </div>
+
+                    <div class="definition-box">
+                        <h4>Qu'est-ce qu'un verbe pronominal ?</h4>
+                        <p>
+                            Un <strong>verbe pronominal</strong> est un verbe qui se conjugue avec un 
+                            <span class="highlight">pronom réfléchi</span>. Ce pronom renvoie au sujet et indique 
+                            que l'action "revient" sur le sujet lui-même.
+                        </p>
+                    </div>
+
+                    <div class="visual-box">
+                        <h4 style="color: #6a1b9a; margin-bottom: 20px;">Structure d'un verbe pronominal</h4>
+                        <div class="visual-element">SUJET</div>
+                        <span class="arrow">+</span>
+                        <div class="visual-element">PRONOM RÉFLÉCHI</div>
+                        <span class="arrow">+</span>
+                        <div class="visual-element">VERBE</div>
+                        <div style="margin-top: 20px; font-size: 1.1em; color: #6a1b9a;">
+                            Exemple : <strong>Je me lave</strong> / <strong>Tu te promènes</strong> / <strong>Il se réveille</strong>
+                        </div>
+                    </div>
+
+                    <h3>📋 Conjugaison complète : SE LAVER (présent)</h3>
+
+                    <div class="conjugation-box">
+                        <div class="conjugation-grid">
+                            <div class="conjugation-item">
+                                <strong>Je</strong> <em>me</em> lave
+                            </div>
+                            <div class="conjugation-item">
+                                <strong>Tu</strong> <em>te</em> laves
+                            </div>
+                            <div class="conjugation-item">
+                                <strong>Il/Elle</strong> <em>se</em> lave
+                            </div>
+                            <div class="conjugation-item">
+                                <strong>Nous</strong> <em>nous</em> lavons
+                            </div>
+                            <div class="conjugation-item">
+                                <strong>Vous</strong> <em>vous</em> lavez
+                            </div>
+                            <div class="conjugation-item">
+                                <strong>Ils/Elles</strong> <em>se</em> lavent
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Types de verbes pronominaux -->
+            <div class="section">
+                <h2><span class="icon">🎭</span>Les types de verbes pronominaux</h2>
+
+                <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                    Il existe plusieurs types de verbes pronominaux selon la relation entre le sujet et l'action. 
+                    Chaque type a ses propres caractéristiques et usages.
+                </p>
+
+                <!-- Type 1: Réfléchis -->
+                <div class="verb-type-card">
+                    <h4>1️⃣ Verbes pronominaux RÉFLÉCHIS</h4>
+                    <p style="margin-bottom: 15px; line-height: 1.8;">
+                        Le sujet fait l'action <span class="highlight">sur lui-même</span>. On peut ajouter 
+                        "moi-même", "toi-même", etc.
+                    </p>
+
+                    <div class="exemple">
+                        <strong>Se laver :</strong> <em>Je me lave.</em> (= Je lave moi-même)<br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ Je fais l'action de laver sur moi</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Se coiffer :</strong> <em>Elle se coiffe devant le miroir.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ Elle coiffe ses propres cheveux</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Se raser :</strong> <em>Il se rase tous les matins.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ Il rase sa propre barbe</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Se regarder :</strong> <em>Tu te regardes dans la glace.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ Tu regardes toi-même</span>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Liste de verbes réfléchis courants :</strong>
+                        <ul style="columns: 2; margin-top: 10px;">
+                            <li>se laver (laver soi-même)</li>
+                            <li>se coiffer (coiffer soi-même)</li>
+                            <li>s'habiller (habiller soi-même)</li>
+                            <li>se maquiller</li>
+                            <li>se raser</li>
+                            <li>se brosser (les dents)</li>
+                            <li>se parfumer</li>
+                            <li>se peigner</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Type 2: Réciproques -->
+                <div class="verb-type-card">
+                    <h4>2️⃣ Verbes pronominaux RÉCIPROQUES</h4>
+                    <p style="margin-bottom: 15px; line-height: 1.8;">
+                        Les sujets font l'action <span class="highlight">l'un sur l'autre</span> ou 
+                        <span class="highlight">les uns sur les autres</span>. Toujours au pluriel !
+                    </p>
+
+                    <div class="exemple">
+                        <strong>Se parler :</strong> <em>Paul et Marie se parlent souvent.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ Paul parle à Marie ET Marie parle à Paul</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Se téléphoner :</strong> <em>Nous nous téléphonons tous les jours.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ Je téléphone à toi ET tu téléphones à moi</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>S'embrasser :</strong> <em>Ils s'embrassent tendrement.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ Il embrasse elle ET elle embrasse lui</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Se rencontrer :</strong> <em>Nous nous sommes rencontrés en 2020.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ Action mutuelle de rencontre</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Se disputer :</strong> <em>Les enfants se disputent pour le jouet.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ Ils disputent l'un avec l'autre</span>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Liste de verbes réciproques courants :</strong>
+                        <ul style="columns: 2; margin-top: 10px;">
+                            <li>se parler</li>
+                            <li>se téléphoner</li>
+                            <li>s'écrire</li>
+                            <li>se voir</li>
+                            <li>se rencontrer</li>
+                            <li>s'embrasser</li>
+                            <li>se saluer</li>
+                            <li>se disputer</li>
+                            <li>s'aimer</li>
+                            <li>se détester</li>
+                            <li>s'entraider</li>
+                            <li>se comprendre</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Type 3: Essentiellement pronominaux -->
+                <div class="verb-type-card">
+                    <h4>3️⃣ Verbes ESSENTIELLEMENT pronominaux</h4>
+                    <p style="margin-bottom: 15px; line-height: 1.8;">
+                        Ces verbes existent <span class="highlight">uniquement</span> à la forme pronominale. 
+                        On ne peut pas les utiliser sans le pronom réfléchi.
+                    </p>
+
+                    <div class="exemple">
+                        <strong>S'absenter :</strong> <em>Je m'absente quelques minutes.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ ❌ "absenter" n'existe pas seul</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>S'évanouir :</strong> <em>Elle s'est évanouie à cause de la chaleur.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ ❌ "évanouir" n'existe pas seul</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Se souvenir (de) :</strong> <em>Tu te souviens de moi ?</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ ❌ "souvenir" seul n'est qu'un nom</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>S'enfuir :</strong> <em>Le voleur s'est enfui rapidement.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ ❌ "enfuir" n'existe pas seul</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Se méfier (de) :</strong> <em>Il faut se méfier des arnaques.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ ❌ "méfier" n'existe pas seul</span>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Liste de verbes essentiellement pronominaux :</strong>
+                        <ul style="columns: 2; margin-top: 10px;">
+                            <li>s'absenter</li>
+                            <li>s'évanouir</li>
+                            <li>se souvenir (de)</li>
+                            <li>s'enfuir</li>
+                            <li>se méfier (de)</li>
+                            <li>s'en aller</li>
+                            <li>se repentir (de)</li>
+                            <li>s'écrier</li>
+                            <li>s'emparer (de)</li>
+                            <li>se désister</li>
+                            <li>s'évader</li>
+                            <li>s'acharner (à)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Type 4: Sens passif -->
+                <div class="verb-type-card">
+                    <h4>4️⃣ Verbes pronominaux à SENS PASSIF</h4>
+                    <p style="margin-bottom: 15px; line-height: 1.8;">
+                        Le pronom <strong>SE</strong> a un sens passif. Le sujet <span class="highlight">subit l'action</span> 
+                        plutôt que de la faire.
+                    </p>
+
+                    <div class="exemple">
+                        <strong>Se vendre :</strong> <em>Ce livre se vend bien.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ = Ce livre est vendu (par quelqu'un)</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Se manger :</strong> <em>La pizza se mange chaude.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ = La pizza est mangée chaude</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Se dire :</strong> <em>Cela ne se dit pas !</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ = Cela n'est pas dit / On ne dit pas cela</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Se voir :</strong> <em>L'église se voit de loin.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ = L'église est vue / peut être vue de loin</span>
+                    </div>
+
+                    <div class="exemple">
+                        <strong>Se comprendre :</strong> <em>Son comportement se comprend facilement.</em><br>
+                        <span style="margin-left: 20px; color: #2e7d32;">→ = Son comportement est compris / peut être compris</span>
+                    </div>
+                </div>
+
+                <!-- Type 5: Changement de sens -->
+                <div class="verb-type-card">
+                    <h4>5️⃣ Verbes à CHANGEMENT DE SENS</h4>
+                    <p style="margin-bottom: 15px; line-height: 1.8;">
+                        Certains verbes changent complètement de sens selon qu'ils sont pronominaux ou non.
+                    </p>
+
+                    <div class="comparison-box">
+                        <h4>🔍 Exemples de changements de sens</h4>
+
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <h5 style="color: #01579b; margin-bottom: 10px;">❌ Sans pronom</h5>
+                                <div class="exemple">
+                                    <strong>Apercevoir :</strong><br>
+                                    <em>J'aperçois la tour Eiffel.</em><br>
+                                    <span style="font-size: 0.95em;">= voir, distinguer</span>
+                                </div>
+                            </div>
+                            <div class="comparison-item">
+                                <h5 style="color: #01579b; margin-bottom: 10px;">✅ Avec pronom (s'apercevoir)</h5>
+                                <div class="exemple">
+                                    <strong>S'apercevoir :</strong><br>
+                                    <em>Je m'aperçois de mon erreur.</em><br>
+                                    <span style="font-size: 0.95em;">= se rendre compte, réaliser</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <h5 style="color: #01579b; margin-bottom: 10px;">❌ Attendre</h5>
+                                <div class="exemple">
+                                    <em>J'attends le bus.</em><br>
+                                    <span style="font-size: 0.95em;">= patienter pour quelque chose</span>
+                                </div>
+                            </div>
+                            <div class="comparison-item">
+                                <h5 style="color: #01579b; margin-bottom: 10px;">✅ S'attendre à</h5>
+                                <div class="exemple">
+                                    <em>Je m'attends à réussir.</em><br>
+                                    <span style="font-size: 0.95em;">= prévoir, anticiper</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <h5 style="color: #01579b; margin-bottom: 10px;">❌ Ennuyer</h5>
+                                <div class="exemple">
+                                    <em>Ce film m'ennuie.</em><br>
+                                    <span style="font-size: 0.95em;">= rendre quelqu'un qui s'ennuie</span>
+                                </div>
+                            </div>
+                            <div class="comparison-item">
+                                <h5 style="color: #01579b; margin-bottom: 10px;">✅ S'ennuyer</h5>
+                                <div class="exemple">
+                                    <em>Je m'ennuie en cours.</em><br>
+                                    <span style="font-size: 0.95em;">= ressentir de l'ennui</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <h5 style="color: #01579b; margin-bottom: 10px;">❌ Demander</h5>
+                                <div class="exemple">
+                                    <em>Je demande l'addition.</em><br>
+                                    <span style="font-size: 0.95em;">= solliciter quelque chose</span>
+                                </div>
+                            </div>
+                            <div class="comparison-item">
+                                <h5 style="color: #01579b; margin-bottom: 10px;">✅ Se demander</h5>
+                                <div class="exemple">
+                                    <em>Je me demande pourquoi.</em><br>
+                                    <span style="font-size: 0.95em;">= se poser une question</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Position du pronom -->
+            <div class="section">
+                <h2><span class="icon">📍</span>Position du pronom réfléchi</h2>
+
+                <div class="pronoun-card">
+                    <div class="pronoun-title">
+                        <span>🎯</span> Règles de placement
+                    </div>
+
+                    <p style="font-size: 1.15em; margin-bottom: 25px; line-height: 1.8;">
+                        La position du pronom réfléchi dépend du temps et du mode du verbe. Voici toutes les situations possibles.
+                    </p>
+
+                    <div class="position-card">
+                        <h5>1️⃣ Temps simples (présent, imparfait, futur...)</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> Pronom <span class="highlight">AVANT</span> le verbe</p>
+                        <div class="exemple">
+                            <strong>Présent :</strong> <em>Je <strong>me</strong> lève tôt.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Imparfait :</strong> <em>Tu <strong>te</strong> promenais dans le parc.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Futur :</strong> <em>Elle <strong>se</strong> reposera demain.</em>
+                        </div>
+                    </div>
+
+                    <div class="position-card">
+                        <h5>2️⃣ Temps composés (passé composé, plus-que-parfait...)</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> Pronom <span class="highlight">AVANT l'auxiliaire</span></p>
+                        <div class="exemple">
+                            <strong>Passé composé :</strong> <em>Je <strong>me</strong> suis levé(e) tôt.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Plus-que-parfait :</strong> <em>Tu <strong>t'</strong>étais promené(e) dans le parc.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Futur antérieur :</strong> <em>Elle <strong>se</strong> sera reposée avant ce soir.</em>
+                        </div>
+                    </div>
+
+                    <div class="position-card">
+                        <h5>3️⃣ Avec un infinitif</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> Pronom <span class="highlight">AVANT l'infinitif</span></p>
+                        <div class="exemple">
+                            <strong>Exemple 1 :</strong> <em>Je vais <strong>me</strong> promener.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Exemple 2 :</strong> <em>Tu dois <strong>te</strong> reposer.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Exemple 3 :</strong> <em>Il veut <strong>se</strong> lever tôt.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Exemple 4 :</strong> <em>Nous aimons <strong>nous</strong> promener le dimanche.</em>
+                        </div>
+                    </div>
+
+                    <div class="position-card">
+                        <h5>4️⃣ À la forme négative</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> NE + pronom + verbe + PAS</p>
+                        <div class="exemple">
+                            <strong>Présent :</strong> <em>Je ne <strong>me</strong> lève pas tôt.</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Passé composé :</strong> <em>Tu ne <strong>t'</strong>es pas promené(e).</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Avec infinitif :</strong> <em>Il ne veut pas <strong>se</strong> lever.</em>
+                        </div>
+                    </div>
+
+                    <div class="position-card">
+                        <h5>5️⃣ À l'impératif AFFIRMATIF</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> Pronom <span class="highlight">APRÈS</span> le verbe (avec trait d'union)</p>
+                        <div class="warning-box">
+                            <strong>⚠️ Attention :</strong> ME et TE deviennent <strong>MOI</strong> et <strong>TOI</strong> après le verbe !
+                        </div>
+                        <div class="exemple">
+                            <strong>2ème pers. sing. :</strong> <em>Lève-<strong>toi</strong> !</em> (pas "lève-te")
+                        </div>
+                        <div class="exemple">
+                            <strong>1ère pers. plur. :</strong> <em>Levons-<strong>nous</strong> !</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>2ème pers. plur. :</strong> <em>Levez-<strong>vous</strong> !</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Autres exemples :</strong><br>
+                            <em>Dépêche-<strong>toi</strong> !</em><br>
+                            <em>Repose-<strong>toi</strong> bien !</em><br>
+                            <em>Amusez-<strong>vous</strong> bien !</em>
+                        </div>
+                    </div>
+
+                    <div class="position-card">
+                        <h5>6️⃣ À l'impératif NÉGATIF</h5>
+                        <p style="margin-bottom: 15px;"><strong>Règle :</strong> Pronom <span class="highlight">AVANT</span> le verbe (comme d'habitude)</p>
+                        <div class="exemple">
+                            <strong>2ème pers. sing. :</strong> <em>Ne <strong>te</strong> lève pas !</em> (pas "ne lève-toi pas")
+                        </div>
+                        <div class="exemple">
+                            <strong>1ère pers. plur. :</strong> <em>Ne <strong>nous</strong> levons pas !</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>2ème pers. plur. :</strong> <em>Ne <strong>vous</strong> levez pas !</em>
+                        </div>
+                        <div class="exemple">
+                            <strong>Autres exemples :</strong><br>
+                            <em>Ne <strong>te</strong> dépêche pas !</em><br>
+                            <em>Ne <strong>vous</strong> inquiétez pas !</em>
+                        </div>
+                    </div>
+
+                    <div class="comparison-box">
+                        <h4>🔍 Comparaison impératif affirmatif vs négatif</h4>
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <h5 style="color: #e65100; margin-bottom: 10px;">✅ AFFIRMATIF</h5>
+                                <div class="exemple">
+                                    <em>Lève-<strong>toi</strong> !</em><br>
+                                    <em>Repose-<strong>toi</strong> !</em><br>
+                                    <em>Dépêche-<strong>toi</strong> !</em><br>
+                                    <em>Amusez-<strong>vous</strong> !</em>
+                                </div>
+                            </div>
+                            <div class="comparison-item">
+                                <h5 style="color: #e65100; margin-bottom: 10px;">❌ NÉGATIF</h5>
+                                <div class="exemple">
+                                    <em>Ne <strong>te</strong> lève pas !</em><br>
+                                    <em>Ne <strong>te</strong> repose pas !</em><br>
+                                    <em>Ne <strong>te</strong> dépêche pas !</em><br>
+                                    <em>Ne <strong>vous</strong> amusez pas !</em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accord du participe passé -->
+            <div class="section">
+                <h2><span class="icon">📝</span>Accord du participe passé avec les verbes pronominaux</h2>
+
+                <div class="pronoun-card">
+                    <div class="pronoun-title">
+                        <span>⚖️</span> Règles d'accord
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Règle générale :</strong> Les verbes pronominaux se conjuguent TOUJOURS avec l'auxiliaire 
+                        <span class="highlight">ÊTRE</span> aux temps composés, mais l'accord du participe passé suit des règles spéciales.
+                    </div>
+
+                    <div class="grammar-point">
+                        <h4>📐 Règle 1 : Verbes essentiellement pronominaux</h4>
+                        <p style="margin-bottom: 15px;">
+                            Le participe passé s'accorde <strong>TOUJOURS</strong> avec le sujet.
+                        </p>
+                        <div class="exemple">
+                            <em>Elle s'est <strong>évanouie</strong>.</em> (s'évanouir - essentiellement pronominal)
+                        </div>
+                        <div class="exemple">
+                            <em>Ils se sont <strong>absentés</strong>.</em> (s'absenter)
+                        </div>
+                        <div class="exemple">
+                            <em>Elles se sont <strong>enfuies</strong>.</em> (s'enfuir)
+                        </div>
+                    </div>
+
+                    <div class="grammar-point">
+                        <h4>📐 Règle 2 : Verbes pronominaux réfléchis et réciproques</h4>
+                        <p style="margin-bottom: 15px;">
+                            Le participe passé s'accorde avec le <strong>COD</strong> s'il est <strong>placé avant</strong> le verbe.
+                        </p>
+                        
+                        <h5 style="color: #880e4f; margin: 15px 0;">✅ Accord (COD = pronom réfléchi avant le verbe)</h5>
+                        <div class="exemple">
+                            <em>Elle s'est <strong>lavée</strong>.</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Elle a lavé qui ? <strong>se (= elle)</strong> → accord</span>
+                        </div>
+                        <div class="exemple">
+                            <em>Ils se sont <strong>regardés</strong> dans le miroir.</em><br>
+                            <span style="margin-left: 20px; color: #2e7d32;">→ Ils ont regardé qui ? <strong>se (= eux)</strong> → accord</span>
+                        </div>
+
+                        <h5 style="color: #880e4f; margin: 15px 0;">❌ Pas d'accord (COD après le verbe ou COI)</h5>
+                        <div class="exemple">
+                            <em>Elle s'est lavé <strong>les mains</strong>.</em><br>
+                            <span style="margin-left: 20px; color: #c62828;">→ Elle a lavé quoi ? <strong>les mains</strong> (après) → pas d'accord</span>
+                        </div>
+                        <div class="exemple">
+                            <em>Ils se sont <strong>parlé</strong>.</em><br>
+                            <span style="margin-left: 20px; color: #c62828;">→ Ils ont parlé à qui ? <strong>à eux</strong> (COI) → pas d'accord</span>
+                        </div>
+                        <div class="exemple">
+                            <em>Elles se sont <strong>téléphoné</strong>.</em><br>
+                            <span style="margin-left: 20px; color: #c62828;">→ Elles ont téléphoné à qui ? <strong>à elles</strong> (COI) → pas d'accord</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-box">
+                        <h4>🔍 Exemples détaillés d'accord</h4>
+                        
+                        <div class="table-responsive">
+                            <table>
+                                <tr>
+                                    <th>Phrase</th>
+                                    <th>Analyse</th>
+                                    <th>Accord ?</th>
+                                </tr>
+                                <tr>
+                                    <td><em>Elle s'est <strong>levée</strong> tôt.</em></td>
+                                    <td>Elle a levé <strong>se</strong> (= elle) → COD avant</td>
+                                    <td style="color: #4caf50; font-weight: bold;">✅ OUI</td>
+                                </tr>
+                                <tr>
+                                    <td><em>Ils se sont <strong>rencontrés</strong>.</em></td>
+                                    <td>Ils ont rencontré <strong>se</strong> (= eux) → COD avant</td>
+                                    <td style="color: #4caf50; font-weight: bold;">✅ OUI</td>
+                                </tr>
+                                <tr>
+                                    <td><em>Elle s'est lavé <strong>les cheveux</strong>.</em></td>
+                                    <td>Elle a lavé <strong>les cheveux</strong> → COD après</td>
+                                    <td style="color: #f44336; font-weight: bold;">❌ NON</td>
+                                </tr>
+                                <tr>
+                                    <td><em>Ils se sont <strong>écrit</strong> des lettres.</em></td>
+                                    <td>Ils ont écrit <strong>à eux</strong> → COI (pas COD)</td>
+                                    <td style="color: #f44336; font-weight: bold;">❌ NON</td>
+                                </tr>
+                                <tr>
+                                    <td><em>Elles se sont <strong>parlé</strong>.</em></td>
+                                    <td>Elles ont parlé <strong>à elles</strong> → COI</td>
+                                    <td style="color: #f44336; font-weight: bold;">❌ NON</td>
+                                </tr>
+                                <tr>
+                                    <td><em>Elle s'est <strong>coupée</strong> avec un couteau.</em></td>
+                                    <td>Elle a coupé <strong>se</strong> (= elle) → COD avant</td>
+                                    <td style="color: #4caf50; font-weight: bold;">✅ OUI</td>
+                                </tr>
+                                <tr>
+                                    <td><em>Elle s'est coupé <strong>le doigt</strong>.</em></td>
+                                    <td>Elle a coupé <strong>le doigt</strong> → COD après</td>
+                                    <td style="color: #f44336; font-weight: bold;">❌ NON</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>💡 Astuce pour savoir :</strong>
+                        <ol style="margin-top: 10px; margin-left: 20px;">
+                            <li>Remplacez l'auxiliaire ÊTRE par AVOIR</li>
+                            <li>Posez la question : verbe + qui/quoi ?</li>
+                            <li>Si la réponse est le pronom réfléchi (= le sujet) → accord</li>
+                            <li>Si la réponse est un autre mot qui vient après → pas d'accord</li>
+                            <li>Si c'est un COI (à + pronom) → jamais d'accord</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Verbes courants -->
+            <div class="section">
+                <h2><span class="icon">📚</span>Verbes pronominaux courants du quotidien</h2>
+
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Verbe</th>
+                            <th>Signification</th>
+                            <th>Exemple</th>
+                        </tr>
+                        <tr>
+                            <td><strong>se réveiller</strong></td>
+                            <td>sortir du sommeil</td>
+                            <td><em>Je me réveille à 7 heures.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>se lever</strong></td>
+                            <td>sortir du lit</td>
+                            <td><em>Tu te lèves tôt ?</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>se laver</strong></td>
+                            <td>faire sa toilette</td>
+                            <td><em>Il se lave tous les matins.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>se brosser (les dents)</strong></td>
+                            <td>nettoyer avec une brosse</td>
+                            <td><em>Elle se brosse les dents trois fois par jour.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>s'habiller</strong></td>
+                            <td>mettre ses vêtements</td>
+                            <td><em>Nous nous habillons chaudement en hiver.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>se préparer</strong></td>
+                            <td>se mettre prêt</td>
+                            <td><em>Vous vous préparez pour la fête ?</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>se dépêcher</strong></td>
+                            <td>faire vite</td>
+                            <td><em>Ils se dépêchent pour ne pas être en retard.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>se promener</strong></td>
+                            <td>faire une promenade</td>
+                            <td><em>Je me promène dans le parc.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>s'amuser</strong></td>
+                            <td>prendre du plaisir</td>
+                            <td><em>Les enfants s'amusent bien.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>se reposer</strong></td>
+                            <td>prendre du repos</td>
+                            <td><em>Tu te reposes un peu ?</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>se coucher</strong></td>
+                            <td>aller au lit</td>
+                            <td><em>Elle se couche tard.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>s'endormir</strong></td>
+                            <td>commencer à dormir</td>
+                            <td><em>Il s'endort rapidement.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>s'appeler</strong></td>
+                            <td>avoir pour nom</td>
+                            <td><em>Comment tu t'appelles ?</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>se trouver</strong></td>
+                            <td>être situé</td>
+                            <td><em>La Tour Eiffel se trouve à Paris.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>se souvenir (de)</strong></td>
+                            <td>garder en mémoire</td>
+                            <td><em>Je me souviens de toi.</em></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Récapitulatif -->
+            <div class="section">
+                <h2><span class="icon">📝</span>Récapitulatif</h2>
+
+                <div class="grammar-point">
+                    <h4>✅ Points essentiels à retenir</h4>
+                    <ul class="special-list">
+                        <li>Les pronoms réfléchis sont : <strong>me, te, se, nous, vous, se</strong></li>
+                        <li>Ils s'utilisent avec les <strong>verbes pronominaux</strong></li>
+                        <li>Position normale : <strong>avant le verbe</strong></li>
+                        <li>Exception : <strong>après le verbe</strong> à l'impératif affirmatif (+ trait d'union)</li>
+                        <li>ME et TE deviennent <strong>MOI et TOI</strong> à l'impératif affirmatif</li>
+                        <li>Temps composés : auxiliaire <strong>ÊTRE</strong> obligatoire</li>
+                        <li>Accord du participe : suit des règles spécifiques selon le type</li>
+                    </ul>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 Pour progresser :</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Apprenez les verbes pronominaux courants par cœur</li>
+                        <li>Pratiquez la conjugaison avec les pronoms réfléchis</li>
+                        <li>Faites attention à la position à l'impératif</li>
+                        <li>Révisez les règles d'accord du participe passé</li>
+                        <li>Utilisez ces verbes dans vos conversations quotidiennes</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p><strong>Língua Academy</strong> - Excellence en enseignement des langues</p>
+            <p style="margin-top: 10px;">📚 Maîtrisez les pronoms réfléchis et les verbes pronominaux</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">© 2024 Língua Academy - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

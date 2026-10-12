@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emplois Particuliers - Certain, Chaque, Divers, L'un/L'autre | Língua Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bordeaux-profond: #6B1C23;
+            --emeraude: #2C5F4F;
+            --or-ancien: #D4A373;
+            --ivoire-chaud: #FFF5E6;
+            --sepia-riche: #5C4033;
+            --vert-mousse: #7A8B5C;
+            --rubis: #9B2335;
+            --bronze-patiné: #8B6F47;
+            --crème: #F9F1E4;
+            --noir-encre: #2A1F1D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'EB Garamond', serif;
+            background: linear-gradient(135deg, var(--crème) 0%, var(--ivoire-chaud) 50%, #FEF8ED 100%);
+            color: var(--sepia-riche);
+            line-height: 2;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Texture papier ancien */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 35%, rgba(212, 163, 115, 0.06) 0%, transparent 45%),
+                radial-gradient(circle at 75% 65%, rgba(44, 95, 79, 0.06) 0%, transparent 45%),
+                repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(92, 64, 51, 0.015) 3px, rgba(92, 64, 51, 0.015) 6px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.8;
+        }
+
+        /* Cadre ornementé */
+        .ornate-frame {
+            position: fixed;
+            pointer-events: none;
+            z-index: 5;
+            background: linear-gradient(135deg, var(--bordeaux-profond) 0%, var(--rubis) 50%, var(--bordeaux-profond) 100%);
+            box-shadow: 
+                inset 0 0 30px rgba(0, 0, 0, 0.6),
+                0 0 40px rgba(107, 28, 35, 0.5);
+        }
+
+        .frame-top, .frame-bottom {
+            left: 12px;
+            right: 12px;
+            height: 48px;
+        }
+
+        .frame-top {
+            top: 12px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .frame-bottom {
+            bottom: 12px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .frame-left, .frame-right {
+            top: 60px;
+            bottom: 60px;
+            width: 48px;
+        }
+
+        .frame-left {
+            left: 12px;
+        }
+
+        .frame-right {
+            right: 12px;
+        }
+
+        /* Coins Renaissance */
+        .renaissance-corner {
+            position: fixed;
+            width: 130px;
+            height: 130px;
+            pointer-events: none;
+            z-index: 6;
+            background: radial-gradient(circle, var(--or-ancien) 0%, var(--bronze-patiné) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 0 55px rgba(212, 163, 115, 0.7),
+                inset 0 0 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .corner-tl {
+            top: 12px;
+            left: 12px;
+            clip-path: polygon(0 0, 100% 0, 100% 30%, 30% 100%, 0 100%);
+        }
+
+        .corner-tr {
+            top: 12px;
+            right: 12px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 100%, 0 30%);
+        }
+
+        .corner-bl {
+            bottom: 12px;
+            left: 12px;
+            clip-path: polygon(0 0, 30% 0, 100% 70%, 100% 100%, 0 100%);
+        }
+
+        .corner-br {
+            bottom: 12px;
+            right: 12px;
+            clip-path: polygon(70% 0, 100% 30%, 100% 100%, 0 100%, 0 70%);
+        }
+
+        .corner-flourish {
+            font-size: 4.5rem;
+            color: var(--ivoire-chaud);
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
+            animation: flourishPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes flourishPulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.08);
+                opacity: 0.9;
+            }
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 0 160px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* En-tête Cabinet */
+        header {
+            background: linear-gradient(160deg, var(--emeraude) 0%, #3D7861 60%, #4A9678 100%);
+            padding: 125px 0 150px;
+            position: relative;
+            overflow: hidden;
+            margin: 75px 75px 0 75px;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 
+                0 70px 165px rgba(44, 95, 79, 0.65),
+                inset 0 0 140px rgba(212, 163, 115, 0.15);
+            border: 11px solid var(--or-ancien);
+            animation: cabinetReveal 2.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes cabinetReveal {
+            from {
+                opacity: 0;
+                transform: translateY(-105px) scale(0.97);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Motif botanical */
+        .botanical-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: 
+                radial-gradient(circle at 18% 22%, rgba(212, 163, 115, 0.14) 0%, transparent 42%),
+                radial-gradient(circle at 82% 78%, rgba(212, 163, 115, 0.14) 0%, transparent 42%),
+                radial-gradient(circle at 50% 50%, rgba(155, 35, 53, 0.1) 0%, transparent 55%);
+            pointer-events: none;
+            animation: botanicalFloat 35s ease-in-out infinite;
+        }
+
+        @keyframes botanicalFloat {
+            0%, 100% {
+                opacity: 0.7;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.03);
+            }
+        }
+
+        /* Marque Cabinet */
+        .cabinet-brand {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 85px;
+            animation: brandFadeIn 2.7s ease-out;
+        }
+
+        @keyframes brandFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-105px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .curiosity-emblem {
+            width: 210px;
+            height: 210px;
+            margin: 0 auto 55px;
+            background: 
+                radial-gradient(circle, var(--or-ancien) 0%, var(--bronze-patiné) 100%);
+            clip-path: circle(45% at 50% 50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 
+                0 42px 105px rgba(0, 0, 0, 0.75),
+                inset 0 0 75px rgba(255, 255, 255, 0.28);
+            border: 9px solid var(--ivoire-chaud);
+            animation: emblemRotate 25s linear infinite;
+        }
+
+        @keyframes emblemRotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .curiosity-emblem::before {
+            content: '';
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            border: 5px solid var(--or-ancien);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            opacity: 0.65;
+            animation: emblemRotate 25s linear infinite reverse;
+        }
+
+        .emblem-icon {
+            font-size: 7.8rem;
+            color: var(--ivoire-chaud);
+            text-shadow: 6px 6px 16px rgba(0, 0, 0, 0.85);
+            animation: emblemRotate 25s linear infinite reverse;
+        }
+
+        .brand-cabinet {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            color: var(--or-ancien);
+            font-weight: 900;
+            letter-spacing: 24px;
+            margin-bottom: 38px;
+            text-shadow: 
+                8px 8px 20px rgba(0, 0, 0, 0.95),
+                0 0 80px rgba(212, 163, 115, 0.55);
+            text-transform: uppercase;
+            animation: goldGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes goldGlow {
+            0%, 100% {
+                text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.95), 0 0 80px rgba(212, 163, 115, 0.55);
+            }
+            50% {
+                text-shadow: 8px 8px 24px rgba(0, 0, 0, 0.95), 0 0 100px rgba(212, 163, 115, 0.7);
+            }
+        }
+
+        .brand-subtitle {
+            color: var(--ivoire-chaud);
+            font-size: 1.6rem;
+            letter-spacing: 10px;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            opacity: 0.97;
+        }
+
+        /* Titre principal */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 9rem;
+            color: var(--or-ancien);
+            text-align: center;
+            font-weight: 900;
+            line-height: 1.65;
+            margin-top: 85px;
+            position: relative;
+            z-index: 2;
+            animation: brandFadeIn 2.7s ease-out 0.3s backwards;
+            text-shadow: 
+                10px 10px 24px rgba(0, 0, 0, 0.95),
+                0 0 100px rgba(212, 163, 115, 0.5);
+            letter-spacing: 11px;
+        }
+
+        .cabinet-subtitle {
+            text-align: center;
+            color: var(--ivoire-chaud);
+            font-size: 3rem;
+            margin-top: 60px;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+            animation: brandFadeIn 2.7s ease-out 0.6s backwards;
+            font-style: italic;
+            letter-spacing: 5px;
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        /* Diviseur ornemental */
+        .cabinet-divider {
+            text-align: center;
+            margin: 80px 0;
+            font-size: 3.5rem;
+            color: var(--or-ancien);
+            position: relative;
+        }
+
+        .cabinet-divider::before,
+        .cabinet-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 260px;
+            height: 4px;
+            background: linear-gradient(to right, transparent, var(--or-ancien), transparent);
+        }
+
+        .cabinet-divider::before {
+            right: calc(50% + 110px);
+        }
+
+        .cabinet-divider::after {
+            left: calc(50% + 110px);
+        }
+
+        /* Contenu principal */
+        main {
+            padding: 130px 0;
+            margin: 0 75px;
+            background: var(--ivoire-chaud);
+            box-shadow: 
+                0 60px 145px rgba(0, 0, 0, 0.32),
+                inset 0 0 120px rgba(212, 163, 115, 0.12);
+            border-left: 11px solid var(--or-ancien);
+            border-right: 11px solid var(--or-ancien);
+        }
+
+        /* Introduction */
+        .intro-cabinet {
+            background: linear-gradient(135deg, rgba(249, 241, 228, 0.95) 0%, rgba(255, 245, 230, 0.95) 100%);
+            padding: 110px;
+            border-radius: 32px;
+            box-shadow: 
+                0 48px 115px rgba(0, 0, 0, 0.28),
+                inset 0 0 90px rgba(44, 95, 79, 0.12);
+            margin-bottom: 155px;
+            position: relative;
+            border: 7px solid var(--emeraude);
+            animation: drawerSlide 2.3s ease-out 2.7s backwards;
+        }
+
+        @keyframes drawerSlide {
+            from {
+                opacity: 0;
+                transform: translateY(125px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-cabinet::before {
+            content: '🔬';
+            position: absolute;
+            top: -65px;
+            left: 105px;
+            font-size: 9rem;
+            color: var(--emeraude);
+            background: var(--ivoire-chaud);
+            padding: 20px 45px;
+            border-radius: 50%;
+            box-shadow: 0 20px 58px rgba(0, 0, 0, 0.4);
+            border: 7px solid var(--emeraude);
+        }
+
+        .cabinet-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem;
+            color: var(--emeraude);
+            margin-bottom: 80px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 48px;
+        }
+
+        .cabinet-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 340px;
+            height: 8px;
+            background: linear-gradient(90deg, var(--emeraude), var(--or-ancien));
+            border-radius: 4px;
+        }
+
+        .cabinet-text {
+            font-size: 1.9rem;
+            line-height: 3.1;
+            color: var(--sepia-riche);
+            margin-bottom: 50px;
+            text-align: justify;
+            text-indent: 3.5em;
+        }
+
+        .cabinet-text:first-of-type::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 7rem;
+            font-weight: 900;
+            float: left;
+            line-height: 1;
+            margin: 16px 22px 0 0;
+            color: var(--bordeaux-profond);
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Sections thématiques */
+        .theme-drawer {
+            background: linear-gradient(135deg, rgba(249, 241, 228, 0.98) 0%, rgba(255, 245, 230, 0.98) 100%);
+            padding: 105px;
+            border-radius: 30px;
+            box-shadow: 
+                0 45px 110px rgba(0, 0, 0, 0.28),
+                inset 0 0 85px rgba(44, 95, 79, 0.12);
+            margin: 105px 0;
+            animation: drawerSlide 2.3s ease-out backwards;
+            border: 6px solid var(--emeraude);
+        }
+
+        .drawer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            color: var(--emeraude);
+            margin-bottom: 85px;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            padding-bottom: 65px;
+        }
+
+        .drawer-title::after {
+            content: '❦';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3.8rem;
+            color: var(--or-ancien);
+        }
+
+        /* Cadre spécimen */
+        .specimen-box {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 245, 230, 0.97) 100%);
+            padding: 75px 85px;
+            border-radius: 26px;
+            margin: 72px 0;
+            border-left: 20px solid var(--bordeaux-profond);
+            position: relative;
+            transition: all 1s ease;
+            box-shadow: 0 22px 62px rgba(0, 0, 0, 0.24);
+        }
+
+        .specimen-box:hover {
+            transform: translateX(40px);
+            border-left-width: 28px;
+            box-shadow: -22px 28px 72px rgba(107, 28, 35, 0.42);
+        }
+
+        .specimen-label {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.6rem;
+            color: var(--bordeaux-profond);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 7px;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .sentence-specimen {
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: var(--sepia-riche);
+            margin: 50px 0;
+            padding: 55px;
+            background: rgba(255, 255, 255, 0.88);
+            border-radius: 22px;
+            box-shadow: 
+                0 16px 52px rgba(0, 0, 0, 0.18),
+                inset 0 0 52px rgba(44, 95, 79, 0.12);
+            line-height: 2.9;
+            font-style: italic;
+            border: 4px solid rgba(44, 95, 79, 0.22);
+        }
+
+        .analysis-specimen {
+            font-size: 1.7rem;
+            line-height: 3;
+            color: var(--sepia-riche);
+            margin-top: 48px;
+            padding-left: 65px;
+            border-left: 15px solid rgba(44, 95, 79, 0.32);
+        }
+
+        .term-highlight {
+            color: var(--bordeaux-profond);
+            font-weight: 700;
+            background: rgba(107, 28, 35, 0.16);
+            padding: 10px 22px;
+            border-radius: 13px;
+            border-bottom: 8px solid var(--bordeaux-profond);
+            text-decoration: none;
+        }
+
+        .nature-detail {
+            color: var(--emeraude);
+            font-weight: 600;
+            font-style: italic;
+            background: rgba(44, 95, 79, 0.16);
+            padding: 9px 20px;
+            border-radius: 12px;
+        }
+
+        /* Boîte règle */
+        .rule-cabinet {
+            background: linear-gradient(135deg, rgba(44, 95, 79, 0.24) 0%, rgba(44, 95, 79, 0.14) 100%);
+            border: 10px solid var(--emeraude);
+            padding: 90px 98px;
+            border-radius: 28px;
+            margin: 98px 0;
+            position: relative;
+            animation: drawerSlide 2.3s ease-out backwards;
+            box-shadow: 0 38px 98px rgba(44, 95, 79, 0.45);
+        }
+
+        .rule-cabinet::before {
+            content: '§';
+            position: absolute;
+            top: -65px;
+            left: 90px;
+            background: var(--ivoire-chaud);
+            padding: 30px 48px;
+            border-radius: 50%;
+            font-size: 5rem;
+            box-shadow: 0 20px 58px rgba(0, 0, 0, 0.45);
+            border: 10px solid var(--emeraude);
+            color: var(--emeraude);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .rule-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--emeraude);
+            font-size: 4.8rem;
+            margin-bottom: 58px;
+            font-weight: 700;
+        }
+
+        .rule-text {
+            font-size: 1.8rem;
+            line-height: 3.2;
+            color: var(--sepia-riche);
+        }
+
+        .rule-enumeration {
+            list-style: none;
+            margin: 68px 0;
+        }
+
+        .rule-enumeration li {
+            padding: 50px 0 50px 105px;
+            position: relative;
+            font-size: 1.8rem;
+            line-height: 3;
+            border-bottom: 6px dashed rgba(44, 95, 79, 0.24);
+        }
+
+        .rule-enumeration li:last-child {
+            border-bottom: none;
+        }
+
+        .rule-enumeration li::before {
+            content: '✦';
+            position: absolute;
+            left: 35px;
+            color: var(--or-ancien);
+            font-size: 4.5rem;
+        }
+
+        /* Tableau */
+        .table-cabinet {
+            background: linear-gradient(135deg, rgba(249, 241, 228, 0.98) 0%, rgba(255, 245, 230, 0.98) 100%);
+            padding: 105px;
+            border-radius: 28px;
+            box-shadow: 0 45px 110px rgba(0, 0, 0, 0.28);
+            margin: 105px 0;
+            overflow-x: auto;
+            animation: drawerSlide 2.3s ease-out backwards;
+            border: 6px solid var(--emeraude);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 68px 0;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--emeraude) 0%, #3D7861 100%);
+        }
+
+        th {
+            color: var(--ivoire-chaud);
+            padding: 50px 42px;
+            text-align: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+        }
+
+        th:first-child {
+            border-radius: 34px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 34px 0 0;
+        }
+
+        td {
+            padding: 45px 42px;
+            border-bottom: 6px solid rgba(44, 95, 79, 0.18);
+            font-size: 1.75rem;
+            line-height: 2.9;
+            color: var(--sepia-riche);
+        }
+
+        tbody tr {
+            transition: all 0.9s ease;
+            background: rgba(255, 245, 230, 0.7);
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(135deg, rgba(212, 163, 115, 0.22) 0%, rgba(249, 241, 228, 0.4) 100%);
+            transform: translateX(30px);
+            box-shadow: 0 0 48px rgba(212, 163, 115, 0.4);
+        }
+
+        tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 34px;
+        }
+
+        tbody tr:last-child td:last-child {
+            border-radius: 0 0 34px 0;
+        }
+
+        .table-term {
+            font-weight: 700;
+            color: var(--bordeaux-profond);
+            font-size: 1.9rem;
+        }
+
+        /* Avertissement */
+        .warning-cabinet {
+            background: linear-gradient(135deg, rgba(155, 35, 53, 0.24) 0%, rgba(155, 35, 53, 0.14) 100%);
+            border: 10px solid var(--rubis);
+            padding: 90px 98px;
+            border-radius: 28px;
+            margin: 98px 0;
+            position: relative;
+            animation: drawerSlide 2.3s ease-out backwards;
+            box-shadow: 0 38px 98px rgba(155, 35, 53, 0.4);
+        }
+
+        .warning-cabinet::before {
+            content: '⚠';
+            position: absolute;
+            top: -65px;
+            left: 90px;
+            background: var(--ivoire-chaud);
+            padding: 30px 48px;
+            border-radius: 50%;
+            font-size: 5rem;
+            box-shadow: 0 20px 58px rgba(0, 0, 0, 0.45);
+            border: 10px solid var(--rubis);
+            color: var(--rubis);
+        }
+
+        .warning-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--rubis);
+            font-size: 4.8rem;
+            margin-bottom: 58px;
+            font-weight: 700;
+        }
+
+        .warning-text {
+            font-size: 1.8rem;
+            line-height: 3.2;
+            color: var(--sepia-riche);
+        }
+
+        /* Conseil */
+        .tip-cabinet {
+            background: linear-gradient(135deg, rgba(212, 163, 115, 0.24) 0%, rgba(212, 163, 115, 0.14) 100%);
+            border-left: 22px solid var(--or-ancien);
+            padding: 85px 93px;
+            border-radius: 24px;
+            margin: 93px 0;
+            position: relative;
+            animation: drawerSlide 2.3s ease-out backwards;
+            box-shadow: 0 32px 82px rgba(212, 163, 115, 0.38);
+        }
+
+        .tip-cabinet::before {
+            content: '✎';
+            position: absolute;
+            top: -58px;
+            left: 85px;
+            background: var(--ivoire-chaud);
+            padding: 28px 45px;
+            border-radius: 60px;
+            font-size: 4.8rem;
+            box-shadow: 0 16px 52px rgba(0, 0, 0, 0.45);
+            border: 9px solid var(--or-ancien);
+            color: var(--or-ancien);
+        }
+
+        .tip-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--or-ancien);
+            font-size: 4.6rem;
+            margin-bottom: 55px;
+            font-weight: 700;
+        }
+
+        .tip-text {
+            font-size: 1.75rem;
+            line-height: 3.1;
+            color: var(--sepia-riche);
+        }
+
+        /* Panneau synthèse */
+        .synthesis-panel {
+            background: linear-gradient(135deg, var(--emeraude) 0%, #3D7861 100%);
+            padding: 115px;
+            border-radius: 32px;
+            margin: 110px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 62px 145px rgba(44, 95, 79, 0.6);
+            animation: drawerSlide 2.3s ease-out backwards;
+            border: 7px solid var(--or-ancien);
+        }
+
+        .synthesis-panel::before {
+            content: '';
+            position: absolute;
+            top: -220px;
+            right: -220px;
+            width: 780px;
+            height: 780px;
+            background: radial-gradient(circle, rgba(212, 163, 115, 0.32) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .synthesis-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -205px;
+            left: -205px;
+            width: 750px;
+            height: 750px;
+            background: radial-gradient(circle, rgba(212, 163, 115, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .synthesis-panel h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--or-ancien);
+            font-size: 6.2rem;
+            margin-bottom: 80px;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
+            text-shadow: 7px 7px 18px rgba(0, 0, 0, 0.88);
+        }
+
+        .synthesis-panel p {
+            color: var(--ivoire-chaud);
+            font-size: 1.9rem;
+            line-height: 3.3;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 50px;
+        }
+
+        .synthesis-enumeration {
+            list-style: none;
+            margin: 75px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .synthesis-enumeration li {
+            color: var(--ivoire-chaud);
+            font-size: 1.85rem;
+            padding: 55px 0 55px 105px;
+            position: relative;
+            line-height: 3.2;
+        }
+
+        .synthesis-enumeration li::before {
+            content: '❖';
+            position: absolute;
+            left: 32px;
+            color: var(--or-ancien);
+            font-size: 4.8rem;
+        }
+
+        /* Pied de page */
+        footer {
+            background: linear-gradient(135deg, var(--emeraude) 0%, #3D7861 100%);
+            color: var(--ivoire-chaud);
+            padding: 105px 0;
+            text-align: center;
+            margin: 0 75px 75px 75px;
+            border-radius: 0 0 12px 12px;
+            position: relative;
+            overflow: hidden;
+            border: 11px solid var(--or-ancien);
+            border-top: none;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 40% 50%, rgba(212, 163, 115, 0.22) 0%, transparent 50%),
+                radial-gradient(circle at 60% 50%, rgba(212, 163, 115, 0.22) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        footer p {
+            font-size: 1.75rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 3px;
+            margin: 32px 0;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            color: var(--or-ancien);
+            font-weight: 700;
+            font-size: 3.8rem;
+            margin-top: 45px;
+            letter-spacing: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 70px;
+            }
+
+            h1 {
+                font-size: 7rem;
+            }
+
+            .cabinet-subtitle {
+                font-size: 2.4rem;
+            }
+
+            .intro-cabinet,
+            .theme-drawer,
+            .table-cabinet,
+            .synthesis-panel {
+                padding: 80px;
+            }
+
+            table {
+                font-size: 1.5rem;
+            }
+
+            th, td {
+                padding: 40px 32px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 32px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--crème);
+            border-left: 7px solid rgba(44, 95, 79, 0.18);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--emeraude), var(--or-ancien), var(--emeraude));
+            border-radius: 16px;
+            border: 11px solid var(--crème);
+            box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--or-ancien), var(--emeraude), var(--or-ancien));
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cadre ornementé -->
+    <div class="ornate-frame frame-top"></div>
+    <div class="ornate-frame frame-bottom"></div>
+    <div class="ornate-frame frame-left"></div>
+    <div class="ornate-frame frame-right"></div>
+
+    <!-- Coins Renaissance -->
+    <div class="renaissance-corner corner-tl">
+        <div class="corner-flourish">⚜</div>
+    </div>
+    <div class="renaissance-corner corner-tr">
+        <div class="corner-flourish">⚜</div>
+    </div>
+    <div class="renaissance-corner corner-bl">
+        <div class="corner-flourish">⚜</div>
+    </div>
+    <div class="renaissance-corner corner-br">
+        <div class="corner-flourish">⚜</div>
+    </div>
+
+    <header>
+        <div class="botanical-pattern"></div>
+        
+        <div class="container">
+            <div class="cabinet-brand">
+                <div class="curiosity-emblem">
+                    <div class="emblem-icon">🌿</div>
+                </div>
+                <div class="brand-cabinet">Língua Academy</div>
+                <div class="brand-subtitle">Cabinet de Curiosités Grammaticales</div>
+            </div>
+            <h1>EMPLOIS PARTICULIERS</h1>
+            <p class="cabinet-subtitle">Certain · Chaque · Divers · L'un & L'autre</p>
+            <div class="cabinet-divider">❦</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Introduction -->
+            <section class="intro-cabinet">
+                <h2 class="cabinet-heading">Préambule Grammatical</h2>
+                <p class="cabinet-text">
+                    L'étude approfondie des indéfinis <strong>CERTAIN</strong>, <strong>CHAQUE</strong>, <strong>DIVERS</strong>, 
+                    <strong>PLUSIEURS</strong> et des constructions corrélatives <strong>L'UN... L'AUTRE</strong> révèle la 
+                    richesse et la subtilité du système grammatical français. Ces termes, bien que tous classés parmi les 
+                    indéfinis, manifestent des comportements morphologiques, syntaxiques et sémantiques fort différents les 
+                    uns des autres, constituant autant de cas particuliers qu'il convient d'examiner systématiquement. 
+                    <strong>CERTAIN/CERTAINE</strong> présente une double nature grammaticale (adjectif et pronom) et une 
+                    dualité sémantique remarquable selon qu'il s'emploie au singulier (avec l'article indéfini "un/une certain(e)" 
+                    exprimant l'imprécision) ou au pluriel (sans article "certains/certaines" signifiant "quelques"). 
+                    <strong>CHAQUE</strong> et <strong>CHACUN</strong>, bien que partageant la même racine étymologique, se 
+                    distinguent rigoureusement par leur nature grammaticale : "chaque" fonctionne exclusivement comme adjectif 
+                    indéfini invariable précédant obligatoirement un nom au singulier, tandis que "chacun/chacune" opère 
+                    uniquement comme pronom indéfini variable en genre mais toujours singulier.
+                </p>
+                <p class="cabinet-text">
+                    La complexité s'accroît encore avec <strong>DIVERS</strong> et <strong>PLUSIEURS</strong>, deux indéfinis 
+                    exprimant la pluralité indéterminée mais se comportant différemment sur le plan morphologique. "Divers/diverses" 
+                    varie en genre et s'accorde comme un adjectif régulier, tandis que "plusieurs" demeure totalement invariable 
+                    en genre tout en étant exclusivement pluriel. Leur position dans la phrase détermine parfois leur nature : 
+                    "divers" placé AVANT le nom fonctionne comme adjectif indéfini (sens : "plusieurs", "différents"), alors 
+                    que placé APRÈS le nom, il devient adjectif qualificatif (sens : "variés", "de nature différente"). Quant 
+                    aux constructions corrélatives <strong>L'UN... L'AUTRE</strong>, elles constituent un système sophistiqué 
+                    permettant d'exprimer des relations logiques complexes : opposition binaire ("l'un dit oui, l'autre dit 
+                    non"), réciprocité mutuelle ("ils s'aident les uns les autres"), distribution ("les uns partent, les autres 
+                    restent"), alternative exclusive ("l'un ou l'autre"), conjonction inclusive ("l'un et l'autre"), ou double 
+                    négation ("ni l'un ni l'autre"). Ces constructions s'accordent en genre et en nombre selon les référents, 
+                    offrant ainsi une palette expressive d'une grande finesse pour nuancer le discours et préciser les 
+                    relations entre les entités désignées.
+                </p>
+            </section>
+
+            <!-- Section CERTAIN -->
+            <section class="theme-drawer" style="animation-delay: 2.9s;">
+                <h2 class="drawer-title">CERTAIN / CERTAINE</h2>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">CERTAIN Singulier — Imprécision avec Article</div>
+                    <div class="sentence-specimen">
+                        Un <span class="term-highlight">certain</span> temps s'est écoulé depuis notre dernière rencontre.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">ADJECTIF indéfini (accompagne "temps")</span><br>
+                        → <strong>Construction :</strong> AVEC article indéfini "un" obligatoire<br>
+                        → <strong>Sens :</strong> IMPRÉCISION, indétermination ("un temps indéterminé")<br>
+                        → <strong>Accord :</strong> Masculin singulier (avec "temps")<br>
+                        → <strong>Valeur :</strong> Durée imprécise mais significative, non négligeable<br>
+                        → <strong>Nuance :</strong> Suggère une certaine importance, une quantité notable<br>
+                        → <strong>Usage :</strong> Fréquent pour exprimer l'imprécision respectueuse<br>
+                        → <strong>Remarque :</strong> L'article "un/une" est OBLIGATOIRE au singulier
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">CERTAINE Féminin Singulier — Accord Genre</div>
+                    <div class="sentence-specimen">
+                        Une <span class="term-highlight">certaine</span> idée de la perfection anime son travail quotidien.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">ADJECTIF indéfini (accompagne "idée")</span><br>
+                        → <strong>Accord :</strong> Féminin singulier (avec "idée" féminin)<br>
+                        → <strong>Forme :</strong> CERTAINE = CERTAIN + e (marque du féminin)<br>
+                        → <strong>Construction :</strong> "Une certaine" (article + adjectif + nom)<br>
+                        → <strong>Sens :</strong> Idée particulière mais non précisée exactement<br>
+                        → <strong>Valeur :</strong> Imprécision voulue, notion abstraite indéterminée<br>
+                        → <strong>Registre :</strong> Tous niveaux, expression courante<br>
+                        → <strong>Remarque :</strong> "Une certaine idée" ≠ "une idée certaine" (adjectif qualificatif)
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">CERTAINS Pluriel — Quantité Indéterminée SANS Article</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Certains</span> jours, il se sent plein d'énergie et d'enthousiasme.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">ADJECTIF indéfini (accompagne "jours")</span><br>
+                        → <strong>Construction :</strong> SANS article (différence majeure avec singulier)<br>
+                        → <strong>Sens :</strong> QUELQUES, partie indéterminée d'un ensemble<br>
+                        → <strong>Accord :</strong> Masculin pluriel (avec "jours")<br>
+                        → <strong>Forme :</strong> CERTAINS = CERTAIN + s (marque du pluriel)<br>
+                        → <strong>Valeur :</strong> Quantité indéterminée mais limitée (pas tous)<br>
+                        → <strong>Synonymes :</strong> "Quelques", "plusieurs" (mais moins nombreux)<br>
+                        → <strong>Remarque :</strong> PAS d'article au pluriel (*des certains jours = incorrect)
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">CERTAINES Féminin Pluriel</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Certaines</span> personnes préfèrent travailler la nuit plutôt que le jour.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">ADJECTIF indéfini (accompagne "personnes")</span><br>
+                        → <strong>Accord :</strong> Féminin pluriel (avec "personnes" féminin pluriel)<br>
+                        → <strong>Forme :</strong> CERTAINES = CERTAIN + e (fém.) + s (plur.)<br>
+                        → <strong>Construction :</strong> Sans article (certaines, pas *des certaines)<br>
+                        → <strong>Sens :</strong> "Quelques personnes", partie d'un groupe<br>
+                        → <strong>Valeur :</strong> Distribution partielle, pas la totalité<br>
+                        → <strong>Opposition :</strong> "Certaines" ≠ "toutes" (exclusion d'une partie)<br>
+                        → <strong>Usage :</strong> Très fréquent pour nuancer, éviter la généralisation
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">CERTAINS Pronom — Fonction Sujet</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Certains</span> pensent que cette solution est la meilleure option possible.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">PRONOM indéfini (remplace un nom masculin pluriel)</span><br>
+                        → <strong>Fonction :</strong> SUJET du verbe "penser" (3ème personne pluriel)<br>
+                        → <strong>Valeur :</strong> "Quelques personnes" (sous-entendu masculin)<br>
+                        → <strong>Test :</strong> "Qui pense ?" → Certains (quelques personnes)<br>
+                        → <strong>Accord verbal :</strong> Pluriel obligatoire ("pensent")<br>
+                        → <strong>Sens :</strong> Partie indéterminée d'un groupe de personnes<br>
+                        → <strong>Usage :</strong> Fréquent pour introduire une opinion partielle<br>
+                        → <strong>Remarque :</strong> Fonctionne seul, sans nom (c'est un pronom)
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">CERTAINS DE + Groupe Nominal</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Certains de mes collègues</span> travaillent également le week-end.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">PRONOM indéfini + complément partitif</span><br>
+                        → <strong>Construction :</strong> "Certains de + groupe nominal" (partitif)<br>
+                        → <strong>Sens :</strong> "Quelques-uns parmi mes collègues" (partie d'un ensemble défini)<br>
+                        → <strong>Fonction :</strong> "Certains" = sujet ; "de mes collègues" = complément partitif<br>
+                        → <strong>Accord :</strong> Masculin pluriel (référent : "collègues" masculin)<br>
+                        → <strong>Valeur :</strong> Sélection partielle dans un ensemble spécifié<br>
+                        → <strong>Variante :</strong> "Certaines de mes amies" (féminin pluriel)<br>
+                        → <strong>Remarque :</strong> Construction très fréquente pour préciser l'ensemble de référence
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">Distinction CERTAIN (adj. indéfini) vs CERTAIN (adj. qualificatif)</div>
+                    <div class="sentence-specimen">
+                        Un <span class="term-highlight">certain</span> succès (indéfini) ≠ Un succès <span class="term-highlight">certain</span> (qualificatif)
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>AVANT le nom (adjectif indéfini) :</strong> <span class="nature-detail">Imprécision, indétermination</span><br>
+                        → <strong>Exemple :</strong> "Un certain succès" = un succès modéré, relatif, pas total<br>
+                        → <strong>Sens indéfini :</strong> Quantité/qualité imprécise, ni grande ni négligeable<br>
+                        → <strong>APRÈS le nom (adjectif qualificatif) :</strong> <span class="nature-detail">Certitude, assurance</span><br>
+                        → <strong>Exemple :</strong> "Un succès certain" = un succès assuré, garanti, sûr<br>
+                        → <strong>Sens qualificatif :</strong> Qualité de ce qui est sûr, indubitable<br>
+                        → <strong>Règle :</strong> POSITION change le sens et la nature grammaticale<br>
+                        → <strong>Remarque :</strong> Même mot, deux natures et sens totalement différents !
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section CHAQUE/CHACUN -->
+            <section class="theme-drawer" style="animation-delay: 3.1s;">
+                <h2 class="drawer-title">CHAQUE / CHACUN · CHACUNE</h2>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">CHAQUE Adjectif — Invariable Singulier</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Chaque</span> étudiant doit présenter son travail devant la classe entière.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">ADJECTIF indéfini invariable (accompagne "étudiant")</span><br>
+                        → <strong>Invariabilité :</strong> Forme unique CHAQUE (pas de féminin, pas de pluriel)<br>
+                        → <strong>Nombre :</strong> TOUJOURS singulier, jamais pluriel (*chaque étudiants = incorrect)<br>
+                        → <strong>Sens :</strong> DISTRIBUTION individuelle, chaque élément pris séparément<br>
+                        → <strong>Valeur :</strong> Totalité distributive (tous, mais un par un)<br>
+                        → <strong>Accord verbal :</strong> Singulier obligatoire (3ème personne singulier)<br>
+                        → <strong>Usage :</strong> Très fréquent, tous registres<br>
+                        → <strong>Remarque :</strong> "Chaque" ne peut JAMAIS être pronom (*Chaque est venu = incorrect)
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">CHAQUE Genre Invariable</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Chaque</span> personne a le droit d'exprimer librement son opinion personnelle.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">ADJECTIF indéfini (accompagne "personne" féminin)</span><br>
+                        → <strong>Forme :</strong> Identique au masculin et au féminin (INVARIABLE en genre)<br>
+                        → <strong>Test :</strong> "Chaque homme", "chaque femme" (même forme)<br>
+                        → <strong>Accord :</strong> Seulement avec le verbe (singulier) et les possessifs<br>
+                        → <strong>Possessif :</strong> "Son opinion" (accord avec "personne" féminin)<br>
+                        → <strong>Valeur :</strong> Individualisation, considération une par une<br>
+                        → <strong>Synonyme :</strong> "Tout(e)" au singulier (mais nuance différente)<br>
+                        → <strong>Remarque :</strong> Genre du nom visible via accords (possessifs, participes)
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">CHACUN Pronom Masculin — Fonction Sujet</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Chacun</span> fait ce qu'il veut dans le respect des autres bien sûr.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">PRONOM indéfini masculin (ne peut être adjectif)</span><br>
+                        → <strong>Fonction :</strong> SUJET du verbe "faire" (3ème personne singulier)<br>
+                        → <strong>Forme :</strong> CHACUN (masculin, jamais adjectif devant un nom)<br>
+                        → <strong>Test :</strong> "Qui fait ?" → Chacun (chaque personne individuellement)<br>
+                        → <strong>Accord verbal :</strong> Singulier obligatoire ("fait")<br>
+                        → <strong>Pronom de rappel :</strong> "il" (masculin singulier)<br>
+                        → <strong>Sens :</strong> Chaque personne prise individuellement<br>
+                        → <strong>Remarque :</strong> "Chacun" fonctionne SEUL, sans nom (c'est un pronom)
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">CHACUNE Pronom Féminin</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Chacune</span> des participantes a présenté ses idées avec beaucoup de clarté.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">PRONOM indéfini féminin</span><br>
+                        → <strong>Forme :</strong> CHACUNE (féminin de "chacun")<br>
+                        → <strong>Fonction :</strong> SUJET du verbe "présenter"<br>
+                        → <strong>Construction :</strong> "Chacune de + groupe nominal" (partitif)<br>
+                        → <strong>Accord :</strong> Féminin singulier (référent : "participantes")<br>
+                        → <strong>Pronom de rappel :</strong> "elle" sous-entendu<br>
+                        → <strong>Possessif :</strong> "Ses idées" (accord féminin)<br>
+                        → <strong>Sens :</strong> Chaque femme/chose féminine prise individuellement<br>
+                        → <strong>Remarque :</strong> Moins fréquent que "chacun" mais grammaticalement correct
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">Distinction CHAQUE (adjectif) vs CHACUN (pronom)</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Chaque</span> livre coûte 20 euros. <span class="term-highlight">Chacun</span> coûte 20 euros.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>CHAQUE :</strong> <span class="nature-detail">ADJECTIF (accompagne obligatoirement un nom)</span><br>
+                        → <strong>Exemple :</strong> "Chaque livre" (adjectif + nom)<br>
+                        → <strong>Impossible seul :</strong> *"Chaque coûte 20 euros" = INCORRECT<br>
+                        → <strong>CHACUN :</strong> <span class="nature-detail">PRONOM (remplace un nom, fonctionne seul)</span><br>
+                        → <strong>Exemple :</strong> "Chacun coûte 20 euros" (pronom sujet seul)<br>
+                        → <strong>Impossible avec nom :</strong> *"Chacun livre" = INCORRECT<br>
+                        → <strong>Règle :</strong> CHAQUE + nom / CHACUN seul (jamais l'inverse)<br>
+                        → <strong>Astuce :</strong> CHAQUE toujours suivi d'un nom, CHACUN jamais
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">CHACUN DE + Possessif/Démonstratif</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Chacun d'eux</span> apporte une contribution unique et précieuse au projet.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">PRONOM + complément partitif</span><br>
+                        → <strong>Construction :</strong> "Chacun de + pronom personnel/possessif/démonstratif"<br>
+                        → <strong>Exemples :</strong> "Chacun d'eux", "chacun de nous", "chacun d'entre vous"<br>
+                        → <strong>Fonction :</strong> "Chacun" = sujet ; "d'eux" = complément partitif<br>
+                        → <strong>Sens :</strong> Chaque élément pris individuellement dans un groupe spécifié<br>
+                        → <strong>Accord :</strong> Toujours singulier ("apporte", pas "apportent")<br>
+                        → <strong>Variantes :</strong> "Chacune d'elles", "chacun de mes amis"<br>
+                        → <strong>Remarque :</strong> Très courant pour préciser l'ensemble de référence
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">Expression Figée "À chacun son..."</div>
+                    <div class="sentence-specimen">
+                        À <span class="term-highlight">chacun</span> son métier, les vaches seront bien gardées.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Expression :</strong> <span class="nature-detail">"À chacun son..." (locution proverbiale)</span><br>
+                        → <strong>Sens :</strong> Chacun doit se limiter à son domaine de compétence<br>
+                        → <strong>Structure :</strong> "À chacun son + nom" (distribution individuelle)<br>
+                        → <strong>Autres expressions :</strong> "À chacun sa croix", "à chacun son goût"<br>
+                        → <strong>Valeur :</strong> Principe de spécialisation, respect des compétences<br>
+                        → <strong>Registre :</strong> Courant, proverbial<br>
+                        → <strong>Usage :</strong> Expression figée très fréquente<br>
+                        → <strong>Remarque :</strong> "Chacun" pronom dans une locution traditionnelle
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section DIVERS/PLUSIEURS -->
+            <section class="theme-drawer" style="animation-delay: 3.3s;">
+                <h2 class="drawer-title">DIVERS · PLUSIEURS</h2>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">DIVERS Adjectif Indéfini — AVANT le Nom</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Divers</span> problèmes ont été soulevés lors de la dernière réunion.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">ADJECTIF INDÉFINI (position AVANT le nom)</span><br>
+                        → <strong>Position :</strong> AVANT "problèmes" (critère essentiel)<br>
+                        → <strong>Sens indéfini :</strong> "PLUSIEURS", "différents" (quantité plurielle indéterminée)<br>
+                        → <strong>Accord :</strong> Masculin pluriel (avec "problèmes")<br>
+                        → <strong>Forme :</strong> DIVERS invariable en genre au masculin<br>
+                        → <strong>Valeur :</strong> Pluralité, variété d'éléments distincts<br>
+                        → <strong>Synonyme :</strong> "Plusieurs", "différents" (adjectif indéfini)<br>
+                        → <strong>Remarque :</strong> Toujours pluriel comme adjectif indéfini
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">DIVERSES Féminin Pluriel — Accord</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Diverses</span> solutions ont été envisagées pour résoudre cette difficulté.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">ADJECTIF INDÉFINI (accompagne "solutions")</span><br>
+                        → <strong>Accord :</strong> Féminin pluriel (avec "solutions" féminin pluriel)<br>
+                        → <strong>Forme :</strong> DIVERSES = DIVERS + e (marque du féminin)<br>
+                        → <strong>Position :</strong> AVANT le nom (adjectif indéfini)<br>
+                        → <strong>Sens :</strong> "Plusieurs solutions", "différentes solutions"<br>
+                        → <strong>Valeur :</strong> Variété, multiplicité d'options<br>
+                        → <strong>Usage :</strong> Registre plutôt soutenu<br>
+                        → <strong>Remarque :</strong> "Diverses" est le féminin de "divers" adjectif indéfini
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">DIVERS Adjectif Qualificatif — APRÈS le Nom</div>
+                    <div class="sentence-specimen">
+                        Des avis <span class="term-highlight">divers</span> ont été exprimés au cours du débat animé.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">ADJECTIF QUALIFICATIF (position APRÈS le nom)</span><br>
+                        → <strong>Position :</strong> APRÈS "avis" (critère distinctif majeur)<br>
+                        → <strong>Sens qualificatif :</strong> "VARIÉS", "de nature différente", "hétérogènes"<br>
+                        → <strong>Accord :</strong> Masculin pluriel (avec "avis")<br>
+                        → <strong>Valeur :</strong> Caractère varié, diversifié, non uniforme<br>
+                        → <strong>Synonymes :</strong> "Variés", "différents", "hétérogènes" (qualificatif)<br>
+                        → <strong>Distinction :</strong> AVANT = indéfini (plusieurs) / APRÈS = qualificatif (variés)<br>
+                        → <strong>Remarque :</strong> POSITION détermine la nature et le sens !
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">PLUSIEURS Invariable — Toujours Pluriel</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Plusieurs</span> personnes ont témoigné en faveur de l'accusé lors du procès.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">ADJECTIF indéfini invariable (accompagne "personnes")</span><br>
+                        → <strong>Invariabilité :</strong> Forme unique PLUSIEURS (pas de genre, toujours pluriel)<br>
+                        → <strong>Nombre :</strong> TOUJOURS pluriel, jamais singulier (*plusieurs personne = incorrect)<br>
+                        → <strong>Accord :</strong> Invariable en genre (masculin = féminin)<br>
+                        → <strong>Test :</strong> "Plusieurs hommes", "plusieurs femmes" (forme identique)<br>
+                        → <strong>Sens :</strong> Quantité indéterminée SUPÉRIEURE À DEUX<br>
+                        → <strong>Accord verbal :</strong> Pluriel obligatoire (3ème personne pluriel)<br>
+                        → <strong>Usage :</strong> Très fréquent, tous registres
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">PLUSIEURS Pronom — Fonction Sujet</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Plusieurs</span> pensent que cette réforme est absolument nécessaire.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">PRONOM indéfini (remplace un nom pluriel)</span><br>
+                        → <strong>Fonction :</strong> SUJET du verbe "penser" (3ème personne pluriel)<br>
+                        → <strong>Valeur :</strong> "Plusieurs personnes" (sous-entendu)<br>
+                        → <strong>Test :</strong> "Qui pense ?" → Plusieurs (un nombre indéterminé > 2)<br>
+                        → <strong>Accord verbal :</strong> Pluriel obligatoire ("pensent")<br>
+                        → <strong>Forme :</strong> Identique comme adjectif ou pronom (invariable)<br>
+                        → <strong>Sens :</strong> Nombre indéterminé mais supérieur à deux<br>
+                        → <strong>Remarque :</strong> Fonctionne seul, sans nom (c'est un pronom)
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">PLUSIEURS DE + Groupe Nominal</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Plusieurs de mes amis</span> habitent maintenant à l'étranger depuis longtemps.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">PRONOM indéfini + complément partitif</span><br>
+                        → <strong>Construction :</strong> "Plusieurs de + groupe nominal" (partitif)<br>
+                        → <strong>Sens :</strong> "Un certain nombre parmi mes amis" (partie d'un ensemble)<br>
+                        → <strong>Fonction :</strong> "Plusieurs" = sujet ; "de mes amis" = complément partitif<br>
+                        → <strong>Accord :</strong> Pluriel (référent : "amis" pluriel)<br>
+                        → <strong>Valeur :</strong> Sélection partielle dans un groupe défini<br>
+                        → <strong>Quantité :</strong> Plus de deux, mais pas tous<br>
+                        → <strong>Remarque :</strong> Construction fréquente pour préciser l'ensemble
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">Distinction DIVERS (indéfini) vs DIVERS (qualificatif)</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Divers</span> avis (indéfini) ≠ Des avis <span class="term-highlight">divers</span> (qualificatif)
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>AVANT le nom (adjectif indéfini) :</strong> <span class="nature-detail">Quantité plurielle ("plusieurs")</span><br>
+                        → <strong>Exemple :</strong> "Divers avis" = plusieurs avis, différents avis (quantité)<br>
+                        → <strong>Sens indéfini :</strong> Pluralité indéterminée, nombre non précisé<br>
+                        → <strong>APRÈS le nom (adjectif qualificatif) :</strong> <span class="nature-detail">Qualité de variété</span><br>
+                        → <strong>Exemple :</strong> "Des avis divers" = des avis variés, hétérogènes (qualité)<br>
+                        → <strong>Sens qualificatif :</strong> Caractère varié, non uniforme, diversifié<br>
+                        → <strong>Règle :</strong> POSITION change la nature et le sens<br>
+                        → <strong>Remarque :</strong> Cas similaire à "différent" / "différents"
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section L'UN/L'AUTRE -->
+            <section class="theme-drawer" style="animation-delay: 3.5s;">
+                <h2 class="drawer-title">L'UN · L'AUTRE · Constructions Corrélatives</h2>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">L'UN... L'AUTRE — Opposition Binaire</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">L'un</span> préfère le théâtre, <span class="term-highlight">l'autre</span> préfère le cinéma.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">PRONOMS indéfinis corrélatifs (paire liée)</span><br>
+                        → <strong>Construction :</strong> "L'un... l'autre" (corrélation binaire obligatoire)<br>
+                        → <strong>Sens :</strong> OPPOSITION entre deux éléments distincts<br>
+                        → <strong>Fonction :</strong> Chacun SUJET de son verbe respectif<br>
+                        → <strong>Accord :</strong> Masculin singulier (référent masculin sous-entendu)<br>
+                        → <strong>Valeur :</strong> Contraste, différence, opposition binaire<br>
+                        → <strong>Usage :</strong> Très courant pour marquer l'opposition de deux éléments<br>
+                        → <strong>Remarque :</strong> Les deux pronoms forment une paire corrélative indissociable
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">L'UNE... L'AUTRE — Féminin</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">L'une</span> est blonde, <span class="term-highlight">l'autre</span> est brune et rousse.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">PRONOMS indéfinis corrélatifs féminins</span><br>
+                        → <strong>Accord :</strong> Féminin singulier (référent féminin : deux femmes)<br>
+                        → <strong>Forme :</strong> L'UNE / L'AUTRE (accord en genre avec référent)<br>
+                        → <strong>Fonction :</strong> Chacun sujet du verbe "être"<br>
+                        → <strong>Sens :</strong> Opposition de caractéristiques entre deux personnes féminines<br>
+                        → <strong>Valeur :</strong> Contraste descriptif, différence physique<br>
+                        → <strong>Variante :</strong> Peut être "l'une... l'autre" (les deux féminins)<br>
+                        → <strong>Remarque :</strong> Accord féminin visible dans "l'une" et "brune"
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">LES UNS... LES AUTRES — Pluriel Distribution</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Les uns</span> partent en vacances, <span class="term-highlight">les autres</span> restent travailler ici.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">PRONOMS indéfinis corrélatifs pluriels</span><br>
+                        → <strong>Construction :</strong> "Les uns... les autres" (distribution en groupes)<br>
+                        → <strong>Sens :</strong> DISTRIBUTION d'un ensemble en deux sous-groupes<br>
+                        → <strong>Fonction :</strong> Chacun SUJET de son verbe ("partent" / "restent")<br>
+                        → <strong>Accord :</strong> Masculin pluriel (référent masculin pluriel)<br>
+                        → <strong>Accord verbal :</strong> Pluriel obligatoire pour chaque verbe<br>
+                        → <strong>Valeur :</strong> Partition d'un groupe en deux parties distinctes<br>
+                        → <strong>Remarque :</strong> Exprime la division, la séparation en sous-ensembles
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">LES UNES... LES AUTRES — Féminin Pluriel</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Les unes</span> chantent, <span class="term-highlight">les autres</span> dansent avec grâce.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">PRONOMS indéfinis corrélatifs féminins pluriels</span><br>
+                        → <strong>Accord :</strong> Féminin pluriel (référent féminin pluriel : femmes/choses féminines)<br>
+                        → <strong>Forme :</strong> LES UNES / LES AUTRES (accord complet genre et nombre)<br>
+                        → <strong>Fonction :</strong> Sujets de leurs verbes respectifs<br>
+                        → <strong>Sens :</strong> Distribution en deux groupes de personnes/choses féminines<br>
+                        → <strong>Valeur :</strong> Partition avec activités différentes<br>
+                        → <strong>Usage :</strong> Moins fréquent que masculin mais correct<br>
+                        → <strong>Remarque :</strong> "Les autres" reste invariable même au féminin dans cette construction
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">LES UNS LES AUTRES — Réciprocité</div>
+                    <div class="sentence-specimen">
+                        Ils s'aident <span class="term-highlight">les uns les autres</span> dans les moments difficiles.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">PRONOMS indéfinis exprimant la RÉCIPROCITÉ</span><br>
+                        → <strong>Construction :</strong> "Les uns les autres" (sans virgule, action réciproque)<br>
+                        → <strong>Sens :</strong> RÉCIPROCITÉ, action mutuelle entre membres d'un groupe<br>
+                        → <strong>Fonction :</strong> COD de "aider" (s'aider les uns les autres)<br>
+                        → <strong>Valeur :</strong> Mutualité, interaction réciproque (chacun vers les autres)<br>
+                        → <strong>Variante :</strong> "Les unes les autres" (féminin pluriel)<br>
+                        → <strong>Autres constructions :</strong> "Les uns aux autres", "les uns des autres"<br>
+                        → <strong>Remarque :</strong> Exprime une action qui va dans les deux sens
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">L'UN ET L'AUTRE — Conjonction</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">L'un et l'autre</span> ont raison dans cette affaire complexe finalement.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">PRONOMS indéfinis avec conjonction "ET"</span><br>
+                        → <strong>Construction :</strong> "L'un ET l'autre" (addition, les deux ensemble)<br>
+                        → <strong>Sens :</strong> LES DEUX à la fois, inclusion des deux éléments<br>
+                        → <strong>Accord verbal :</strong> PLURIEL ("ont" pas "a") car désigne deux personnes<br>
+                        → <strong>Fonction :</strong> SUJET du verbe (les deux ensemble)<br>
+                        → <strong>Valeur :</strong> Accord, concordance, les deux ont la même qualité<br>
+                        → <strong>Nuance :</strong> Différent de "ni l'un ni l'autre" (négation)<br>
+                        → <strong>Remarque :</strong> Verbe au pluriel car référence à deux éléments conjoints
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">NI L'UN NI L'AUTRE — Double Négation</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">Ni l'un ni l'autre</span> ne convient parfaitement à la situation actuelle.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">PRONOMS indéfinis avec double négation "NI...NI"</span><br>
+                        → <strong>Construction :</strong> "Ni l'un ni l'autre" (exclusion des deux éléments)<br>
+                        → <strong>Sens :</strong> DOUBLE NÉGATION, aucun des deux n'est satisfaisant<br>
+                        → <strong>Accord verbal :</strong> SINGULIER préférable ("convient") ou pluriel acceptable<br>
+                        → <strong>Négation :</strong> "Ne" obligatoire ("ne convient")<br>
+                        → <strong>Valeur :</strong> Rejet, exclusion totale des deux options<br>
+                        → <strong>Fonction :</strong> SUJET du verbe (avec négation)<br>
+                        → <strong>Remarque :</strong> Accord verbal singulier plus fréquent (proximité)
+                    </p>
+                </div>
+
+                <div class="specimen-box">
+                    <div class="specimen-label">L'UN OU L'AUTRE — Alternative Exclusive</div>
+                    <div class="sentence-specimen">
+                        <span class="term-highlight">L'un ou l'autre</span> fera parfaitement l'affaire pour ce travail précis.
+                    </div>
+                    <p class="analysis-specimen">
+                        → <strong>Nature :</strong> <span class="nature-detail">PRONOMS indéfinis avec disjonction "OU"</span><br>
+                        → <strong>Construction :</strong> "L'un OU l'autre" (alternative, choix exclusif)<br>
+                        → <strong>Sens :</strong> ALTERNATIVE, un seul des deux (pas les deux ensemble)<br>
+                        → <strong>Accord verbal :</strong> SINGULIER ("fera" pas "feront") car un seul<br>
+                        → <strong>Fonction :</strong> SUJET du verbe (choix entre deux options)<br>
+                        → <strong>Valeur :</strong> Indifférence, équivalence (n'importe lequel convient)<br>
+                        → <strong>Nuance :</strong> Différent de "l'un et l'autre" (les deux ensemble)<br>
+                        → <strong>Remarque :</strong> Verbe au singulier car un seul élément sera choisi
+                    </p>
+                </div>
+            </section>
+
+            <!-- Règle -->
+            <div class="rule-cabinet" style="animation-delay: 3.7s;">
+                <h3 class="rule-title">Règles Fondamentales d'Emploi</h3>
+                <div class="rule-text">
+                    <ul class="rule-enumeration">
+                        <li>
+                            <strong>CERTAIN — Dualité singulier/pluriel :</strong> "Certain" au SINGULIER avec article 
+                            indéfini ("un/une certain(e)") exprime l'IMPRÉCISION et l'indétermination : "un certain temps" 
+                            = un temps indéterminé mais significatif. "Certain" au PLURIEL sans article ("certains/certaines") 
+                            signifie "QUELQUES", partie indéterminée d'un ensemble : "certains jours" = quelques jours. Cette 
+                            différence de construction (avec/sans article) et de nombre entraîne un changement radical de sens. 
+                            Attention : "un certain succès" (adjectif indéfini avant le nom = succès modéré) ≠ "un succès certain" 
+                            (adjectif qualificatif après le nom = succès assuré).
+                        </li>
+                        <li>
+                            <strong>CHAQUE vs CHACUN — Distinction adjectif/pronom :</strong> "CHAQUE" est EXCLUSIVEMENT 
+                            adjectif indéfini invariable et accompagne TOUJOURS un nom au singulier : "chaque livre", "chaque 
+                            personne". Il ne peut JAMAIS fonctionner seul comme pronom (*"Chaque est venu" = incorrect). 
+                            "CHACUN/CHACUNE" est EXCLUSIVEMENT pronom indéfini, varie en genre mais reste toujours SINGULIER, 
+                            et ne peut JAMAIS précéder un nom (*"chacun livre" = incorrect). Règle simple : CHAQUE + nom obligatoire ; 
+                            CHACUN seul obligatoirement. Accord verbal toujours singulier pour les deux.
+                        </li>
+                        <li>
+                            <strong>DIVERS — Position détermine nature et sens :</strong> "Divers/diverses" placé AVANT le nom 
+                            est ADJECTIF INDÉFINI signifiant "plusieurs", "différents" (quantité plurielle) : "divers problèmes" 
+                            = plusieurs problèmes. Placé APRÈS le nom, "divers/diverses" devient ADJECTIF QUALIFICATIF signifiant 
+                            "variés", "hétérogènes" (qualité de variété) : "des problèmes divers" = des problèmes de nature 
+                            différente. La POSITION change donc la nature grammaticale ET le sens. Cas identique à "différent" 
+                            et à "certain" (indéfini avant / qualificatif après).
+                        </li>
+                        <li>
+                            <strong>PLUSIEURS — Invariable et toujours pluriel :</strong> "Plusieurs" est totalement INVARIABLE 
+                            en genre (même forme au masculin et au féminin : "plusieurs hommes", "plusieurs femmes") mais 
+                            exclusivement PLURIEL (jamais singulier : *"plusieurs personne" = incorrect). Fonctionne comme 
+                            ADJECTIF (accompagne un nom : "plusieurs solutions") ou PRONOM (remplace un nom : "plusieurs sont 
+                            venus"). Sens : quantité indéterminée SUPÉRIEURE À DEUX. Accord verbal toujours PLURIEL. Construction 
+                            partitive fréquente : "plusieurs de mes amis", "plusieurs d'entre eux".
+                        </li>
+                        <li>
+                            <strong>L'UN... L'AUTRE — Constructions corrélatives variées :</strong> Les pronoms corrélatifs 
+                            "l'un/l'autre" s'accordent en genre et nombre selon le référent (l'un/l'une/les uns/les unes ; 
+                            l'autre/les autres) et expriment diverses relations logiques selon la construction : OPPOSITION 
+                            ("l'un... l'autre" : contraste entre deux), DISTRIBUTION ("les uns... les autres" : partition en 
+                            groupes), RÉCIPROCITÉ ("les uns les autres" : action mutuelle), CONJONCTION ("l'un et l'autre" : 
+                            les deux ensemble, verbe PLURIEL), ALTERNATIVE ("l'un ou l'autre" : choix exclusif, verbe SINGULIER), 
+                            DOUBLE NÉGATION ("ni l'un ni l'autre" : exclusion des deux, verbe SINGULIER de préférence).
+                        </li>
+                        <li>
+                            <strong>Accords verbaux spécifiques :</strong> "Chaque" et "chacun/chacune" imposent le SINGULIER 
+                            ("chaque élève travaille", "chacun travaille"). "Certains", "plusieurs", "divers" imposent le PLURIEL 
+                            ("certains pensent", "plusieurs travaillent"). "L'un et l'autre" : verbe au PLURIEL ("l'un et l'autre 
+                            ont raison"). "L'un ou l'autre" : verbe au SINGULIER ("l'un ou l'autre convient"). "Ni l'un ni 
+                            l'autre" : verbe au SINGULIER de préférence ("ni l'un ni l'autre ne convient") ou PLURIEL acceptable 
+                            ("ni l'un ni l'autre ne conviennent").
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tableau -->
+            <section class="table-cabinet" style="animation-delay: 3.9s;">
+                <h2 class="cabinet-heading">Tableau Récapitulatif Complet</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Indéfini</th>
+                            <th>Nature</th>
+                            <th>Variation</th>
+                            <th>Nombre</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-term">UN CERTAIN</td>
+                            <td>Adj. indéfini</td>
+                            <td>Genre (m./f.)</td>
+                            <td>Singulier</td>
+                            <td><em>Un certain temps</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-term">CERTAINS</td>
+                            <td>Adj. / Pron.</td>
+                            <td>Genre et nombre</td>
+                            <td>Pluriel</td>
+                            <td><em>Certains jours / Certains pensent</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-term">CHAQUE</td>
+                            <td>Adj. indéfini</td>
+                            <td>Invariable</td>
+                            <td>Singulier</td>
+                            <td><em>Chaque personne</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-term">CHACUN</td>
+                            <td>Pronom</td>
+                            <td>Genre (m./f.)</td>
+                            <td>Singulier</td>
+                            <td><em>Chacun fait ce qu'il veut</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-term">DIVERS (avant)</td>
+                            <td>Adj. indéfini</td>
+                            <td>Genre (m./f.)</td>
+                            <td>Pluriel</td>
+                            <td><em>Divers problèmes</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-term">DIVERS (après)</td>
+                            <td>Adj. qualificatif</td>
+                            <td>Genre et nombre</td>
+                            <td>Variable</td>
+                            <td><em>Des avis divers</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-term">PLUSIEURS</td>
+                            <td>Adj. / Pron.</td>
+                            <td>Invariable genre</td>
+                            <td>Pluriel</td>
+                            <td><em>Plusieurs solutions</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-term">L'UN... L'AUTRE</td>
+                            <td>Pronoms corrélatifs</td>
+                            <td>Genre et nombre</td>
+                            <td>Singulier</td>
+                            <td><em>L'un dit oui, l'autre dit non</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-term">LES UNS... LES AUTRES</td>
+                            <td>Pronoms corrélatifs</td>
+                            <td>Genre et nombre</td>
+                            <td>Pluriel</td>
+                            <td><em>Les uns partent, les autres restent</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-term">L'UN ET L'AUTRE</td>
+                            <td>Pronoms + conjonction</td>
+                            <td>Genre et nombre</td>
+                            <td>Verbe pluriel</td>
+                            <td><em>L'un et l'autre ont raison</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-term">L'UN OU L'AUTRE</td>
+                            <td>Pronoms + disjonction</td>
+                            <td>Genre et nombre</td>
+                            <td>Verbe singulier</td>
+                            <td><em>L'un ou l'autre convient</em></td>
+                        </tr>
+                        <tr>
+                            <td class="table-term">NI L'UN NI L'AUTRE</td>
+                            <td>Pronoms + double nég.</td>
+                            <td>Genre et nombre</td>
+                            <td>Verbe singulier</td>
+                            <td><em>Ni l'un ni l'autre ne convient</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 class="cabinet-heading" style="margin-top: 115px;">Distinctions Critiques</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Paire à Distinguer</th>
+                            <th>Premier Terme</th>
+                            <th>Second Terme</th>
+                            <th>Critère Distinctif</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-term">CHAQUE vs CHACUN</td>
+                            <td>CHAQUE = Adjectif (+ nom)</td>
+                            <td>CHACUN = Pronom (seul)</td>
+                            <td>Nature grammaticale</td>
+                        </tr>
+                        <tr>
+                            <td class="table-term">CERTAIN sg. vs pl.</td>
+                            <td>UN CERTAIN = Imprécision</td>
+                            <td>CERTAINS = Quelques</td>
+                            <td>Nombre et article</td>
+                        </tr>
+                        <tr>
+                            <td class="table-term">DIVERS position</td>
+                            <td>DIVERS + nom = Indéfini (plusieurs)</td>
+                            <td>Nom + DIVERS = Qualificatif (variés)</td>
+                            <td>Position dans la phrase</td>
+                        </tr>
+                        <tr>
+                            <td class="table-term">L'UN ET vs L'UN OU</td>
+                            <td>L'UN ET L'AUTRE = Les deux (pl.)</td>
+                            <td>L'UN OU L'AUTRE = Un seul (sg.)</td>
+                            <td>Accord du verbe</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Avertissement -->
+            <div class="warning-cabinet" style="animation-delay: 4.1s;">
+                <h3 class="warning-title">Erreurs Fréquentes à Éviter</h3>
+                <div class="warning-text">
+                    <p style="margin-bottom: 48px;">
+                        <strong>Erreur n°1 : Pluriel avec "chaque"</strong><br>
+                        ❌ <em>"Chaque étudiants doivent présenter..."</em> (pluriel impossible)<br>
+                        ✅ <em>"Chaque étudiant doit présenter..."</em> (singulier obligatoire)<br>
+                        → "Chaque" est TOUJOURS singulier, jamais pluriel, jamais
+                    </p>
+                    
+                    <p style="margin-bottom: 48px;">
+                        <strong>Erreur n°2 : "Chaque" employé comme pronom</strong><br>
+                        ❌ <em>"Chaque a présenté son travail"</em> (pronom impossible)<br>
+                        ✅ <em>"Chacun a présenté son travail"</em> (pronom correct)<br>
+                        → "Chaque" ne peut JAMAIS être pronom, toujours adjectif + nom
+                    </p>
+                    
+                    <p style="margin-bottom: 48px;">
+                        <strong>Erreur n°3 : Article avec "certains" pluriel</strong><br>
+                        ❌ <em>"Des certains jours, il pleut"</em> (article incorrect)<br>
+                        ✅ <em>"Certains jours, il pleut"</em> (sans article)<br>
+                        → "Certains" pluriel s'emploie SANS article (≠ "un certain" singulier)
+                    </p>
+                    
+                    <p style="margin-bottom: 48px;">
+                        <strong>Erreur n°4 : Confusion position de "divers"</strong><br>
+                        ❌ Confusion entre "divers avis" (plusieurs) et "avis divers" (variés)<br>
+                        ✅ <em>"Divers avis"</em> = plusieurs avis / <em>"Avis divers"</em> = avis variés<br>
+                        → Position AVANT = indéfini (quantité) / APRÈS = qualificatif (qualité)
+                    </p>
+                    
+                    <p style="margin-bottom: 48px;">
+                        <strong>Erreur n°5 : Singulier avec "plusieurs"</strong><br>
+                        ❌ <em>"Plusieurs personne est venue"</em> (singulier impossible)<br>
+                        ✅ <em>"Plusieurs personnes sont venues"</em> (pluriel obligatoire)<br>
+                        → "Plusieurs" est TOUJOURS pluriel, jamais singulier
+                    </p>
+                    
+                    <p>
+                        <strong>Erreur n°6 : Mauvais accord avec "l'un et l'autre"</strong><br>
+                        ❌ <em>"L'un et l'autre a raison"</em> (singulier incorrect)<br>
+                        ✅ <em>"L'un et l'autre ont raison"</em> (pluriel obligatoire)<br>
+                        → "L'un ET l'autre" = les deux → verbe PLURIEL obligatoire
+                    </p>
+                </div>
+            </div>
+
+            <!-- Conseil -->
+            <div class="tip-cabinet" style="animation-delay: 4.3s;">
+                <h3 class="tip-title">Guide Pratique de Maîtrise</h3>
+                <div class="tip-text">
+                    <p style="margin-bottom: 40px;">
+                        <strong>Stratégies pour éviter les erreurs courantes :</strong>
+                    </p>
+                    
+                    <p style="margin-bottom: 38px;">
+                        <strong>Pour CERTAIN/CERTAINE :</strong><br>
+                        → SINGULIER avec article : "un/une certain(e)" = IMPRÉCISION<br>
+                        → PLURIEL sans article : "certains/certaines" = QUELQUES<br>
+                        → Test de position : AVANT le nom = indéfini / APRÈS = qualificatif<br>
+                        → "Un certain succès" (modéré) ≠ "un succès certain" (assuré)<br>
+                        → Construction partitive : "certains de mes amis" (fréquente)
+                    </p>
+                    
+                    <p style="margin-bottom: 38px;">
+                        <strong>Pour CHAQUE/CHACUN :</strong><br>
+                        → CHAQUE = adjectif TOUJOURS suivi d'un nom singulier<br>
+                        → CHACUN/CHACUNE = pronom JAMAIS suivi d'un nom<br>
+                        → Test simple : si suivi d'un nom → CHAQUE ; si seul → CHACUN<br>
+                        → Les deux imposent accord verbal SINGULIER<br>
+                        → "Chacun de nous/vous/eux" = construction partitive fréquente
+                    </p>
+                    
+                    <p style="margin-bottom: 38px;">
+                        <strong>Pour DIVERS/PLUSIEURS :</strong><br>
+                        → DIVERS avant le nom = adjectif indéfini (plusieurs, différents)<br>
+                        → DIVERS après le nom = adjectif qualificatif (variés, hétérogènes)<br>
+                        → PLUSIEURS = invariable en genre, toujours pluriel<br>
+                        → "Plusieurs" peut être adjectif OU pronom (forme identique)<br>
+                        → Les deux imposent accord verbal PLURIEL
+                    </p>
+                    
+                    <p style="margin-bottom: 38px;">
+                        <strong>Pour L'UN/L'AUTRE :</strong><br>
+                        → Accord en genre et nombre avec le référent<br>
+                        → "L'un... l'autre" = OPPOSITION (deux éléments distincts)<br>
+                        → "Les uns... les autres" = DISTRIBUTION (partition en groupes)<br>
+                        → "Les uns les autres" = RÉCIPROCITÉ (action mutuelle)<br>
+                        → "L'un ET l'autre" → verbe PLURIEL (les deux ensemble)<br>
+                        → "L'un OU l'autre" → verbe SINGULIER (un seul choisi)<br>
+                        → "Ni l'un ni l'autre" → verbe SINGULIER de préférence
+                    </p>
+                    
+                    <p>
+                        <strong>Mémo rapide :</strong> CERTAIN sg. = imprécis / pl. = quelques. CHAQUE = adj. + nom / 
+                        CHACUN = pron. seul. DIVERS avant = indéfini (qté) / après = qualificatif (qualité). PLUSIEURS = 
+                        toujours pluriel invariable. L'UN ET L'AUTRE = verbe pl. / L'UN OU L'AUTRE = verbe sg. Position, 
+                        nombre et article sont les critères clés de distinction !
+                    </p>
+                </div>
+            </div>
+
+            <!-- Synthèse -->
+            <section class="synthesis-panel" style="animation-delay: 4.5s;">
+                <h2>Synthèse des Emplois Particuliers</h2>
+                <ul class="synthesis-enumeration">
+                    <li>
+                        <strong>CERTAIN — Dualité sémantique selon le nombre et l'article :</strong> "Certain" manifeste une 
+                        remarquable dualité de sens selon sa construction. Au SINGULIER avec l'article indéfini "un/une", il 
+                        exprime l'IMPRÉCISION et l'indétermination : "un certain temps", "une certaine idée" désignent une 
+                        durée ou une notion non précisée mais significative. Au PLURIEL sans article, "certains/certaines" 
+                        signifie "QUELQUES", désignant une partie indéterminée d'un ensemble : "certains jours", "certaines 
+                        personnes" = quelques jours, quelques personnes. Cette différence de construction (présence/absence 
+                        d'article) et de nombre (singulier/pluriel) entraîne un changement radical de signification, faisant 
+                        de "certain" un indéfini particulièrement subtil et polyvalent dans le système grammatical français.
+                    </li>
+                    <li>
+                        <strong>CERTAIN — Distinction adjectif indéfini vs adjectif qualificatif :</strong> La POSITION de 
+                        "certain" par rapport au nom détermine non seulement son sens mais aussi sa nature grammaticale. Placé 
+                        AVANT le nom, "certain" fonctionne comme ADJECTIF INDÉFINI exprimant l'imprécision ou la quantité 
+                        indéterminée : "un certain succès" (= un succès modéré, relatif), "certains problèmes" (= quelques 
+                        problèmes). Placé APRÈS le nom, "certain" devient ADJECTIF QUALIFICATIF exprimant la certitude et 
+                        l'assurance : "un succès certain" (= un succès assuré, garanti), "des faits certains" (= des faits 
+                        avérés, indiscutables). Cette double nature positionnelle fait de "certain" un cas grammatical 
+                        particulièrement intéressant, similaire à "différent" et "divers".
+                    </li>
+                    <li>
+                        <strong>CHAQUE vs CHACUN — Distinction stricte adjectif/pronom :</strong> Bien que partageant la même 
+                        racine étymologique et le même sens distributif, "chaque" et "chacun" se distinguent rigoureusement par 
+                        leur nature grammaticale et leurs emplois syntaxiques. "CHAQUE" fonctionne EXCLUSIVEMENT comme adjectif 
+                        indéfini invariable et doit OBLIGATOIREMENT accompagner un nom au singulier : "chaque livre", "chaque 
+                        personne", "chaque jour". Il ne peut JAMAIS fonctionner seul comme pronom. "CHACUN/CHACUNE" opère 
+                        UNIQUEMENT comme pronom indéfini, varie en genre mais demeure toujours SINGULIER, et ne peut JAMAIS 
+                        précéder un nom. Cette complémentarité fonctionnelle stricte permet de choisir la forme appropriée selon 
+                        le contexte syntaxique : présence d'un nom → "chaque" ; absence de nom → "chacun".
+                    </li>
+                    <li>
+                        <strong>DIVERS — Position détermine nature et signification :</strong> "Divers/diverses" présente un 
+                        cas remarquable de double nature grammaticale déterminée par la POSITION dans la phrase. Placé AVANT le 
+                        nom, "divers" fonctionne comme ADJECTIF INDÉFINI signifiant "plusieurs", "différents", exprimant une 
+                        quantité plurielle indéterminée : "divers problèmes" = plusieurs problèmes de types différents. Placé 
+                        APRÈS le nom, "divers" devient ADJECTIF QUALIFICATIF signifiant "variés", "hétérogènes", "de nature 
+                        différente", exprimant une qualité de diversité : "des problèmes divers" = des problèmes de natures 
+                        variées, hétérogènes. La POSITION avant/après le nom change donc simultanément la nature grammaticale 
+                        (indéfini/qualificatif) ET le sens (quantité/qualité), phénomène également observé avec "différent" et 
+                        "certain".
+                    </li>
+                    <li>
+                        <strong>PLUSIEURS — Invariabilité totale en genre et pluriel obligatoire :</strong> "Plusieurs" se 
+                        caractérise par une double contrainte morphologique : INVARIABILITÉ totale en GENRE (même forme au 
+                        masculin et au féminin : "plusieurs hommes", "plusieurs femmes") et caractère exclusivement PLURIEL 
+                        (jamais singulier, toujours pluriel). Cette invariabilité en genre simplifie son emploi tout en imposant 
+                        une contrainte stricte de nombre. "Plusieurs" fonctionne aussi bien comme adjectif indéfini (accompagnant 
+                        un nom : "plusieurs solutions") que comme pronom indéfini (remplaçant un nom : "plusieurs sont venus"), 
+                        conservant sa forme identique dans les deux emplois. Il signifie toujours une quantité indéterminée 
+                        SUPÉRIEURE À DEUX, se distinguant ainsi de "quelques" qui peut désigner seulement deux éléments.
+                    </li>
+                    <li>
+                        <strong>L'UN... L'AUTRE — Système corrélatif complexe et nuancé :</strong> Les constructions corrélatives 
+                        avec "l'un" et "l'autre" constituent un système sophistiqué permettant d'exprimer des relations logiques 
+                        et des interactions variées. Ces pronoms s'accordent en genre et en nombre avec leurs référents 
+                        (l'un/l'une/les uns/les unes ; l'autre/les autres) et changent de signification selon la construction : 
+                        OPPOSITION binaire ("l'un... l'autre" : contraste entre deux éléments), DISTRIBUTION en groupes ("les 
+                        uns... les autres" : partition d'un ensemble), RÉCIPROCITÉ mutuelle ("les uns les autres" : action 
+                        réciproque), CONJONCTION inclusive ("l'un et l'autre" : les deux ensemble, verbe pluriel), ALTERNATIVE 
+                        exclusive ("l'un ou l'autre" : choix d'un seul, verbe singulier), DOUBLE NÉGATION ("ni l'un ni l'autre" : 
+                        exclusion des deux, verbe singulier préférable). Cette richesse de constructions offre une palette 
+                        expressive fine pour nuancer les relations entre entités.
+                    </li>
+                    <li>
+                        <strong>Accords verbaux — Règles spécifiques selon l'indéfini :</strong> Chaque indéfini impose des 
+                        contraintes d'accord verbal spécifiques qu'il convient de maîtriser. SINGULIER obligatoire avec : "chaque" 
+                        (toujours singulier par nature), "chacun/chacune" (singulier distributif), "l'un ou l'autre" (choix d'un 
+                        seul élément), "ni l'un ni l'autre" (singulier préférable, pluriel acceptable). PLURIEL obligatoire avec : 
+                        "certains/certaines" (pluriel par nature), "plusieurs" (toujours pluriel), "divers/diverses" (adjectif 
+                        indéfini pluriel), "les uns... les autres" (distribution plurielle), "l'un et l'autre" (conjonction de deux 
+                        éléments). La maîtrise de ces accords verbaux spécifiques constitue un élément essentiel de la compétence 
+                        grammaticale avancée en français.
+                    </li>
+                    <li>
+                        <strong>Maîtrise et conscience linguistique développée :</strong> La connaissance approfondie des emplois 
+                        particuliers de CERTAIN, CHAQUE/CHACUN, DIVERS, PLUSIEURS et L'UN/L'AUTRE révèle la sophistication du 
+                        système des indéfinis français. Cette maîtrise permet de comprendre les nuances sémantiques subtiles 
+                        (imprécision vs quantité pour "certain", opposition vs réciprocité pour "l'un/l'autre"), de respecter les 
+                        contraintes morphologiques (invariabilité, genre, nombre), d'appliquer correctement les règles d'accord 
+                        verbal, de distinguer les natures grammaticales (adjectif vs pronom, indéfini vs qualificatif), et d'employer 
+                        les constructions syntaxiques appropriées (avec/sans article, avant/après le nom, corrélations). Cette 
+                        expertise constitue un élément fondamental de la compétence grammaticale avancée et témoigne d'une conscience 
+                        linguistique développée, permettant une expression française précise, nuancée et idiomatique.
+                    </li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Língua Academy · Tous droits réservés</p>
+            <p class="footer-brand">LÍNGUA ACADEMY</p>
+            <p>Cabinet de Curiosités Grammaticales · Collection Permanente</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer pour animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -155px 0px'
+        };
+
+        const fadeObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer les spécimens
+        document.querySelectorAll('.specimen-box').forEach(specimen => {
+            specimen.style.opacity = '0';
+            specimen.style.transform = 'translateY(65px)';
+            specimen.style.transition = 'opacity 1.45s ease, transform 1.45s ease';
+            fadeObserver.observe(specimen);
+        });
+
+        // Animer les rangées de tableau
+        document.querySelectorAll('tbody tr').forEach((row, index) => {
+            row.style.opacity = '0';
+            row.style.transform = 'translateX(-85px)';
+            row.style.transition = `opacity 1.25s ease ${index * 0.14}s, transform 1.25s ease ${index * 0.14}s`;
+            
+            fadeObserver.observe(row);
+        });
+
+        // Animation emblème
+        const emblem = document.querySelector('.curiosity-emblem');
+        if (emblem) {
+            emblem.addEventListener('mouseenter', function() {
+                this.style.animationPlayState = 'paused';
+            });
+            emblem.addEventListener('mouseleave', function() {
+                this.style.animationPlayState = 'running';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pluriel des Noms Communs - Língua Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .flag-colors {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .flag-bar {
+            width: 80px;
+            height: 8px;
+            border-radius: 4px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .blue { background: #002395; }
+        .white { background: #ffffff; }
+        .red { background: #ED2939; }
+
+        h1 {
+            color: #fff;
+            font-size: 4.5em;
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(67, 233, 123, 1),
+                             0 0 40px rgba(56, 249, 215, 0.8),
+                             0 0 50px rgba(67, 233, 123, 0.6);
+            }
+        }
+
+        .subtitle {
+            color: #43e97b;
+            font-size: 1.7em;
+            font-weight: 300;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+        }
+
+        h2 {
+            color: #2c5364;
+            font-size: 2.7em;
+            margin-bottom: 25px;
+            border-bottom: 5px solid #43e97b;
+            padding-bottom: 12px;
+            display: inline-block;
+        }
+
+        h3 {
+            color: #203a43;
+            font-size: 2em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #333;
+            line-height: 1.9;
+            font-size: 1.15em;
+            margin-bottom: 15px;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            border-radius: 20px;
+            padding: 35px;
+            color: white;
+            margin: 30px 0;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+            animation: scaleIn 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .intro-box p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.25em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rule-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: slideInLeft 0.8s ease-out;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rule-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(255,255,255,0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .rule-section:hover {
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .rule-section h3 {
+            color: #fff;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rule-section p {
+            color: rgba(255, 255, 255, 0.95);
+            position: relative;
+            z-index: 1;
+        }
+
+        .rule-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.3);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.8em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .transformation-box {
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .transformation-box:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-5px);
+        }
+
+        .transformation-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 20px;
+            align-items: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .singular-word, .plural-word {
+            padding: 25px 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.6em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .singular-word {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .plural-word {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+
+        .singular-word:hover, .plural-word:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .arrow {
+            font-size: 3.5em;
+            color: #fff;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+        }
+
+        .example-list {
+            list-style: none;
+            padding-left: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .example-list li {
+            padding: 18px;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 12px;
+            border-left: 6px solid #fff;
+            transition: all 0.3s ease;
+            font-size: 1.2em;
+            color: #fff;
+        }
+
+        .example-list li:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #fee140 0%, #fdcb6e 100%);
+            color: #333;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .exception-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 25px 0;
+            color: #333;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 4px solid #ee5a6f;
+            position: relative;
+            z-index: 1;
+        }
+
+        .exception-box h4 {
+            color: #c23616;
+            margin-bottom: 15px;
+            font-size: 1.7em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            color: #333;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: wiggle 3s ease-in-out infinite;
+            border: 4px solid #fdcb6e;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(1deg); }
+            75% { transform: rotate(-1deg); }
+        }
+
+        .tip-box strong {
+            display: block;
+            font-size: 1.7em;
+            margin-bottom: 15px;
+            color: #d63031;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        th {
+            color: white;
+            padding: 22px;
+            text-align: left;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        td {
+            padding: 20px 22px;
+            border-bottom: 2px solid #e8e8e8;
+            color: #333;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        tr:nth-child(even) {
+            background: #f0fdf4;
+        }
+
+        tr:hover {
+            background: #d1fae5;
+            transform: scale(1.01);
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 20px;
+            padding: 35px;
+            margin: 25px 0;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .summary-card h3 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .summary-list li {
+            padding: 15px;
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            border-left: 6px solid #fff;
+            transition: all 0.3s ease;
+        }
+
+        .summary-list li:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(10px);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 1.1em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8em;
+            }
+
+            .content-card {
+                padding: 25px;
+            }
+
+            .transformation-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="flag-colors">
+                <div class="flag-bar blue"></div>
+                <div class="flag-bar white"></div>
+                <div class="flag-bar red"></div>
+            </div>
+            <h1>📚 Pluriel des Noms Communs</h1>
+            <p class="subtitle">Maîtriser toutes les Règles de Formation du Pluriel</p>
+        </header>
+
+        <div class="content-card">
+            <h2>Introduction au Pluriel</h2>
+            <div class="intro-box">
+                <p>Le <strong>pluriel des noms communs</strong> en français suit des règles précises selon la terminaison du nom au singulier. Bien que la règle générale soit simple (ajouter un -S), il existe de nombreuses exceptions et cas particuliers à connaître pour bien maîtriser l'orthographe française !</p>
+            </div>
+            
+            <div class="tip-box">
+                <strong>💡 Principe de Base</strong>
+                <p>Le pluriel indique qu'il y a <strong>plusieurs</strong> personnes, animaux ou choses. En français, contrairement à l'anglais, on n'utilise pas de nombre pour former le pluriel, mais des terminaisons spécifiques !</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Les Règles de Formation du Pluriel</h2>
+            
+            <div class="rule-section">
+                <h3><span class="rule-number">1</span> Règle Générale : Ajout du -S</h3>
+                <p><strong>La règle la plus fréquente et la plus simple !</strong></p>
+                <p>Pour la majorité des noms, on forme le pluriel en ajoutant simplement un <strong>-S</strong> au singulier.</p>
+                
+                <div class="transformation-grid">
+                    <div class="singular-word">chat</div>
+                    <div class="arrow">→</div>
+                    <div class="plural-word">chat<span class="highlight">s</span></div>
+                </div>
+
+                <ul class="example-list">
+                    <li>table → table<span class="highlight">s</span></li>
+                    <li>livre → livre<span class="highlight">s</span></li>
+                    <li>maison → maison<span class="highlight">s</span></li>
+                    <li>ami → ami<span class="highlight">s</span></li>
+                    <li>voiture → voiture<span class="highlight">s</span></li>
+                    <li>chaise → chaise<span class="highlight">s</span></li>
+                    <li>fenêtre → fenêtre<span class="highlight">s</span></li>
+                    <li>porte → porte<span class="highlight">s</span></li>
+                    <li>jardin → jardin<span class="highlight">s</span></li>
+                    <li>cahier → cahier<span class="highlight">s</span></li>
+                </ul>
+            </div>
+
+            <div class="rule-section">
+                <h3><span class="rule-number">2</span> Noms Terminés par -S, -X ou -Z : INVARIABLES</h3>
+                <p><strong>Ces noms ne changent PAS au pluriel !</strong></p>
+                <p>Les noms qui se terminent déjà par <strong>-S</strong>, <strong>-X</strong> ou <strong>-Z</strong> restent identiques au singulier et au pluriel.</p>
+                
+                <div class="transformation-box">
+                    <h4 style="color: #fff; font-size: 1.5em; margin-bottom: 20px;">📌 Terminaison -S</h4>
+                    <div class="transformation-grid">
+                        <div class="singular-word">le fils</div>
+                        <div class="arrow">→</div>
+                        <div class="plural-word">les fils</div>
+                    </div>
+                    <ul class="example-list">
+                        <li>la souris → les souris</li>
+                        <li>le bras → les bras</li>
+                        <li>le repas → les repas</li>
+                        <li>le pays → les pays</li>
+                        <li>le cours → les cours</li>
+                        <li>le temps → les temps</li>
+                        <li>le corps → les corps</li>
+                    </ul>
+                </div>
+
+                <div class="transformation-box">
+                    <h4 style="color: #fff; font-size: 1.5em; margin-bottom: 20px;">📌 Terminaison -X</h4>
+                    <div class="transformation-grid">
+                        <div class="singular-word">le prix</div>
+                        <div class="arrow">→</div>
+                        <div class="plural-word">les prix</div>
+                    </div>
+                    <ul class="example-list">
+                        <li>la voix → les voix</li>
+                        <li>la croix → les croix</li>
+                        <li>le choix → les choix</li>
+                        <li>la paix → les paix</li>
+                    </ul>
+                </div>
+
+                <div class="transformation-box">
+                    <h4 style="color: #fff; font-size: 1.5em; margin-bottom: 20px;">📌 Terminaison -Z</h4>
+                    <div class="transformation-grid">
+                        <div class="singular-word">le nez</div>
+                        <div class="arrow">→</div>
+                        <div class="plural-word">les nez</div>
+                    </div>
+                    <ul class="example-list">
+                        <li>le gaz → les gaz</li>
+                        <li>le riz → les riz</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rule-section">
+                <h3><span class="rule-number">3</span> Noms Terminés par -AU, -EU, -EAU : Ajout du -X</h3>
+                <p><strong>Ces noms prennent un -X au lieu du -S !</strong></p>
+                
+                <div class="transformation-grid">
+                    <div class="singular-word">château</div>
+                    <div class="arrow">→</div>
+                    <div class="plural-word">château<span class="highlight">x</span></div>
+                </div>
+
+                <ul class="example-list">
+                    <li>bateau → bateau<span class="highlight">x</span></li>
+                    <li>cadeau → cadeau<span class="highlight">x</span></li>
+                    <li>gâteau → gâteau<span class="highlight">x</span></li>
+                    <li>drapeau → drapeau<span class="highlight">x</span></li>
+                    <li>tableau → tableau<span class="highlight">x</span></li>
+                    <li>tuyau → tuyau<span class="highlight">x</span></li>
+                    <li>jeu → jeu<span class="highlight">x</span></li>
+                    <li>feu → feu<span class="highlight">x</span></li>
+                    <li>cheveu → cheveu<span class="highlight">x</span></li>
+                    <li>lieu → lieu<span class="highlight">x</span></li>
+                    <li>vœu → vœu<span class="highlight">x</span></li>
+                    <li>adieu → adieu<span class="highlight">x</span></li>
+                </ul>
+
+                <div class="exception-box">
+                    <h4>⚠️ Exceptions qui prennent -S</h4>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>pneu</strong> → pneu<span class="highlight">s</span>
+                        </li>
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>bleu</strong> → bleu<span class="highlight">s</span>
+                        </li>
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>landau</strong> → landau<span class="highlight">s</span>
+                        </li>
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>sarrau</strong> → sarrau<span class="highlight">s</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rule-section">
+                <h3><span class="rule-number">4</span> Noms Terminés par -OU : Ajout du -S</h3>
+                <p><strong>Règle générale : on ajoute simplement -S</strong></p>
+                
+                <div class="transformation-grid">
+                    <div class="singular-word">clou</div>
+                    <div class="arrow">→</div>
+                    <div class="plural-word">clou<span class="highlight">s</span></div>
+                </div>
+
+                <ul class="example-list">
+                    <li>trou → trou<span class="highlight">s</span></li>
+                    <li>fou → fou<span class="highlight">s</span></li>
+                    <li>sou → sou<span class="highlight">s</span></li>
+                    <li>verrou → verrou<span class="highlight">s</span></li>
+                </ul>
+
+                <div class="exception-box">
+                    <h4>⚠️ 7 Exceptions qui prennent -X</h4>
+                    <p style="margin-bottom: 15px;"><strong>Ces 7 mots doivent être mémorisés !</strong></p>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.5); border-radius: 10px; font-size: 1.15em;">
+                            <strong>1.</strong> bijou → bijou<span class="highlight">x</span>
+                        </li>
+                        <li style="padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.5); border-radius: 10px; font-size: 1.15em;">
+                            <strong>2.</strong> caillou → caillou<span class="highlight">x</span>
+                        </li>
+                        <li style="padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.5); border-radius: 10px; font-size: 1.15em;">
+                            <strong>3.</strong> chou → chou<span class="highlight">x</span>
+                        </li>
+                        <li style="padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.5); border-radius: 10px; font-size: 1.15em;">
+                            <strong>4.</strong> genou → genou<span class="highlight">x</span>
+                        </li>
+                        <li style="padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.5); border-radius: 10px; font-size: 1.15em;">
+                            <strong>5.</strong> hibou → hibou<span class="highlight">x</span>
+                        </li>
+                        <li style="padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.5); border-radius: 10px; font-size: 1.15em;">
+                            <strong>6.</strong> joujou → joujou<span class="highlight">x</span>
+                        </li>
+                        <li style="padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.5); border-radius: 10px; font-size: 1.15em;">
+                            <strong>7.</strong> pou → pou<span class="highlight">x</span>
+                        </li>
+                    </ul>
+                    <div class="tip-box" style="margin-top: 20px;">
+                        <strong>🎯 Phrase Mnémotechnique</strong>
+                        <p style="font-size: 1.2em; font-style: italic; margin-top: 10px;">
+                            « Viens mon <strong>chou</strong>, mon <strong>bijou</strong>, mon <strong>joujou</strong>, sur mes <strong>genoux</strong>, et jette des <strong>cailloux</strong> à ce <strong>hibou</strong> plein de <strong>poux</strong>. »
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-section">
+                <h3><span class="rule-number">5</span> Noms Terminés par -AL : Devient -AUX</h3>
+                <p><strong>Le -AL se transforme en -AUX au pluriel</strong></p>
+                
+                <div class="transformation-grid">
+                    <div class="singular-word">cheval</div>
+                    <div class="arrow">→</div>
+                    <div class="plural-word">chev<span class="highlight">aux</span></div>
+                </div>
+
+                <ul class="example-list">
+                    <li>journal → journ<span class="highlight">aux</span></li>
+                    <li>animal → anim<span class="highlight">aux</span></li>
+                    <li>hôpital → hôpit<span class="highlight">aux</span></li>
+                    <li>général → génér<span class="highlight">aux</span></li>
+                    <li>métal → mét<span class="highlight">aux</span></li>
+                    <li>canal → can<span class="highlight">aux</span></li>
+                    <li>tribunal → tribun<span class="highlight">aux</span></li>
+                    <li>cardinal → cardin<span class="highlight">aux</span></li>
+                    <li>principal → princip<span class="highlight">aux</span></li>
+                </ul>
+
+                <div class="exception-box">
+                    <h4>⚠️ Exceptions qui prennent -S</h4>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>bal</strong> → bal<span class="highlight">s</span>
+                        </li>
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>carnaval</strong> → carnaval<span class="highlight">s</span>
+                        </li>
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>festival</strong> → festival<span class="highlight">s</span>
+                        </li>
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>récital</strong> → récital<span class="highlight">s</span>
+                        </li>
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>chacal</strong> → chacal<span class="highlight">s</span>
+                        </li>
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>régal</strong> → régal<span class="highlight">s</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rule-section">
+                <h3><span class="rule-number">6</span> Noms Terminés par -AIL : Ajout du -S</h3>
+                <p><strong>Règle générale : on ajoute -S</strong></p>
+                
+                <div class="transformation-grid">
+                    <div class="singular-word">détail</div>
+                    <div class="arrow">→</div>
+                    <div class="plural-word">détail<span class="highlight">s</span></div>
+                </div>
+
+                <ul class="example-list">
+                    <li>rail → rail<span class="highlight">s</span></li>
+                    <li>chandail → chandail<span class="highlight">s</span></li>
+                    <li>portail → portail<span class="highlight">s</span></li>
+                    <li>éventail → éventail<span class="highlight">s</span></li>
+                </ul>
+
+                <div class="exception-box">
+                    <h4>⚠️ Exceptions qui deviennent -AUX</h4>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>travail</strong> → trav<span class="highlight">aux</span>
+                        </li>
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>vitrail</strong> → vitr<span class="highlight">aux</span>
+                        </li>
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>émail</strong> → ém<span class="highlight">aux</span>
+                        </li>
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>corail</strong> → cor<span class="highlight">aux</span>
+                        </li>
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>bail</strong> → b<span class="highlight">aux</span>
+                        </li>
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>soupirail</strong> → soupir<span class="highlight">aux</span>
+                        </li>
+                        <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                            <strong>vantail</strong> → vant<span class="highlight">aux</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Tableau Récapitulatif</h2>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Terminaison Singulier</th>
+                            <th>Règle Pluriel</th>
+                            <th>Exemple Singulier</th>
+                            <th>Exemple Pluriel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Règle générale</strong></td>
+                            <td>+ S</td>
+                            <td>chat</td>
+                            <td>chats</td>
+                        </tr>
+                        <tr>
+                            <td><strong>-S, -X, -Z</strong></td>
+                            <td>INVARIABLE</td>
+                            <td>fils, prix, nez</td>
+                            <td>fils, prix, nez</td>
+                        </tr>
+                        <tr>
+                            <td><strong>-AU, -EU, -EAU</strong></td>
+                            <td>+ X</td>
+                            <td>château, jeu</td>
+                            <td>châteaux, jeux</td>
+                        </tr>
+                        <tr>
+                            <td><strong>-OU</strong></td>
+                            <td>+ S (sauf 7 exceptions)</td>
+                            <td>clou</td>
+                            <td>clous</td>
+                        </tr>
+                        <tr>
+                            <td><strong>-OU (7 exceptions)</strong></td>
+                            <td>+ X</td>
+                            <td>bijou, caillou, chou...</td>
+                            <td>bijoux, cailloux, choux...</td>
+                        </tr>
+                        <tr>
+                            <td><strong>-AL</strong></td>
+                            <td>-AL → -AUX</td>
+                            <td>cheval</td>
+                            <td>chevaux</td>
+                        </tr>
+                        <tr>
+                            <td><strong>-AL (exceptions)</strong></td>
+                            <td>+ S</td>
+                            <td>bal, festival</td>
+                            <td>bals, festivals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>-AIL</strong></td>
+                            <td>+ S</td>
+                            <td>détail</td>
+                            <td>détails</td>
+                        </tr>
+                        <tr>
+                            <td><strong>-AIL (exceptions)</strong></td>
+                            <td>-AIL → -AUX</td>
+                            <td>travail, vitrail</td>
+                            <td>travaux, vitraux</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Conseils de Mémorisation</h2>
+            
+            <div class="summary-card">
+                <h3>🎯 Stratégies pour Retenir les Règles</h3>
+                <ul class="summary-list">
+                    <li>
+                        <strong>1. Commencez par la règle générale</strong><br>
+                        80% des noms prennent simplement un -S au pluriel
+                    </li>
+                    <li>
+                        <strong>2. Mémorisez les 7 exceptions en -OU</strong><br>
+                        Utilisez la phrase mnémotechnique avec chou, bijou, joujou...
+                    </li>
+                    <li>
+                        <strong>3. Retenez le pattern -AL → -AUX</strong><br>
+                        Pensez à "cheval → chevaux" comme référence
+                    </li>
+                    <li>
+                        <strong>4. Les terminaisons -AU, -EU, -EAU prennent -X</strong><br>
+                        Sauf 4 exceptions : pneu, bleu, landau, sarrau
+                    </li>
+                    <li>
+                        <strong>5. Les mots déjà terminés par -S, -X ou -Z ne changent pas</strong><br>
+                        Ils ont déjà leur "marque" de pluriel !
+                    </li>
+                    <li>
+                        <strong>6. Pratiquez régulièrement</strong><br>
+                        Faites des exercices avec différentes terminaisons
+                    </li>
+                    <li>
+                        <strong>7. Lisez beaucoup</strong><br>
+                        L'exposition au français écrit aide à intégrer naturellement les règles
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>✅ Points Clés à Retenir Absolument</strong>
+                <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
+                    <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                        ✓ La règle générale est <strong>+ S</strong>
+                    </li>
+                    <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                        ✓ Les mots en <strong>-S, -X, -Z</strong> sont invariables
+                    </li>
+                    <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                        ✓ Les mots en <strong>-AU, -EU, -EAU</strong> prennent <strong>-X</strong>
+                    </li>
+                    <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                        ✓ <strong>7 mots en -OU</strong> prennent <strong>-X</strong> (les autres prennent -S)
+                    </li>
+                    <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                        ✓ Les mots en <strong>-AL</strong> deviennent <strong>-AUX</strong> (sauf exceptions)
+                    </li>
+                    <li style="padding: 12px; margin: 10px 0; background: rgba(255,255,255,0.4); border-radius: 8px;">
+                        ✓ Les mots en <strong>-AIL</strong> prennent <strong>-S</strong> (sauf 7 exceptions en -AUX)
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <div class="flag-colors">
+                <div class="flag-bar blue"></div>
+                <div class="flag-bar white"></div>
+                <div class="flag-bar red"></div>
+            </div>
+            <p>✨ <strong>Língua Academy</strong> - Maîtrisez le pluriel en français avec excellence ! ✨</p>
+            <p>© 2024 - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>

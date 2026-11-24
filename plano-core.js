@@ -1,12 +1,15 @@
 (() => {
   "use strict";
 
+  // Windows has no flag emojis, so flags are real images.
+  const flagImg = cc => `<img class="fimg" src="https://flagcdn.com/w80/${cc}.png" srcset="https://flagcdn.com/w160/${cc}.png 2x" alt="" width="40" height="27" loading="lazy">`;
+
   const LANGS = {
-    pt: { name: "Português", full: "Português Brasileiro", flag: "🇧🇷", voice: "pt-BR", col: 1, num: 6, kids: "para crianças", song: "música infantil", hello: "Olá!" },
-    en: { name: "English", full: "English", flag: "🇺🇸", voice: "en-US", col: 2, num: 7, kids: "for kids", song: "song", hello: "Hello!" },
-    es: { name: "Español", full: "Español", flag: "🇪🇸", voice: "es-ES", col: 3, num: 8, kids: "para niños", song: "canción", hello: "¡Hola!" },
-    it: { name: "Italiano", full: "Italiano", flag: "🇮🇹", voice: "it-IT", col: 4, num: 9, kids: "per bambini", song: "canzone", hello: "Ciao!" },
-    fr: { name: "Français", full: "Français", flag: "🇫🇷", voice: "fr-FR", col: 5, num: 10, kids: "pour enfants", song: "chanson", hello: "Bonjour !" }
+    pt: { name: "Português", full: "Português Brasileiro", flag: flagImg("br"), voice: "pt-BR", col: 1, num: 6, kids: "para crianças", song: "música infantil", hello: "Olá!" },
+    en: { name: "English", full: "English", flag: flagImg("us"), voice: "en-US", col: 2, num: 7, kids: "for kids", song: "song", hello: "Hello!" },
+    es: { name: "Español", full: "Español", flag: flagImg("es"), voice: "es-ES", col: 3, num: 8, kids: "para niños", song: "canción", hello: "¡Hola!" },
+    it: { name: "Italiano", full: "Italiano", flag: flagImg("it"), voice: "it-IT", col: 4, num: 9, kids: "per bambini", song: "canzone", hello: "Ciao!" },
+    fr: { name: "Français", full: "Français", flag: flagImg("fr"), voice: "fr-FR", col: 5, num: 10, kids: "pour enfants", song: "chanson", hello: "Bonjour !" }
   };
 
   const ORDER = ["alfabeto", "cumprimentos", "dias", "meses", "familia", "corpo", "feriados", "profissoes", "sala", "cozinha", "banheiro", "lavanderia", "externa", "churrasqueira"];

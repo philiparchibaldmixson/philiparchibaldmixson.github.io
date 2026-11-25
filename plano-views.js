@@ -92,10 +92,12 @@
           <a class="go" href="#${lang}/${s.topic.id}/${s.part}">${ok ? "Rever" : "Começar"}</a></li>`;
       }).join("");
       const rev = isDone(lang, w.review.key);
-      return `<article class="week"><h3>Semana ${w.n}</h3><ol class="days">${rows}
+      const doneN = w.sessions.filter(s => isDone(lang, s.key)).length + (rev ? 1 : 0);
+      const isCurrent = next ? w.sessions.some(s => s.key === next.key) : false;
+      return `<details class="week"${isCurrent || (!next && w.n === 1) ? " open" : ""}><summary><h3>Semana ${w.n}</h3><span class="wprog">${doneN}/${w.sessions.length + 1}${isCurrent ? " · você está aqui 👈" : ""}</span></summary><ol class="days">${rows}
         <li class="rev${rev ? " ok" : ""}"><span class="chk" aria-hidden="true">${rev ? "✅" : "🏆"}</span>
         <div><strong>Dia 5 · Revisão da semana</strong><small>Jogo misto com tudo que você viu</small></div>
-        <a class="go" href="#${lang}/rev/${w.n}">Jogar</a></li></ol></article>`;
+        <a class="go" href="#${lang}/rev/${w.n}">Jogar</a></li></ol></details>`;
     }).join("");
 
     return `

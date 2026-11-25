@@ -22,11 +22,16 @@
     { id: "tempo", icon: "🗓️", title: "Tempo e datas", ids: ["dias", "meses", "ordinais", "rotina", "feriados"] },
     { id: "cidade", icon: "🚌", title: "Cidade e viagens", ids: ["lugares", "transporte", "direcoes", "uteis"] },
     { id: "escola", icon: "🏫", title: "Escola e ações", ids: ["material", "materias", "frasesaula", "verbos", "essenciais", "opostos"] },
+    { id: "mat", icon: "🔢", title: "Matemática e medidas", ids: ["matematica", "geometria", "medidas"] },
+    { id: "cien", icon: "🔬", title: "Ciências", ids: ["biologia", "corpohumano", "fisica", "quimica", "astronomia", "metodo", "ambiente"] },
+    { id: "huma", icon: "🌍", title: "História, geografia e sociedade", ids: ["historia", "geografia", "continentes", "sociologia", "filosofia", "cidadania", "economia"] },
+    { id: "arte", icon: "🎭", title: "Artes, línguas e tecnologia", ids: ["artes", "musica", "literatura", "gramatica", "tecnologia", "esportes"] },
     { id: "rimas", icon: "🎶", title: "Cantigas, rimas e trava-línguas", ids: ["rimas"] }
   ];
+  const DEFAULT_DESC = { pt: "Vocabulário e conceitos", en: "Vocabulary and concepts", es: "Vocabulario y conceptos", it: "Vocabolario e concetti", fr: "Vocabulaire et concepts" };
   const topics = GROUPS.flatMap(g => g.ids.map(id => {
     const t = (window.PLANO_TOPICS || []).find(x => x.id === id);
-    if (t) t.group = g.id;
+    if (t) { t.group = g.id; t.desc = t.desc || DEFAULT_DESC; }
     return t;
   }).filter(Boolean));
 

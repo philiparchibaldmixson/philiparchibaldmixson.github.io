@@ -102,6 +102,13 @@ main { max-width: 1100px; margin: 0 auto; padding: 22px 16px 40px; }
 
 .weeks { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 16px; }
 .week { border: 3px solid var(--line); border-radius: 20px; padding: 14px; background: #fffdf5; }
+.week summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; list-style: none; }
+.week summary::-webkit-details-marker { display: none; }
+.week summary::before { content: "▸"; margin-right: 8px; transition: transform .2s; }
+.week[open] summary::before { transform: rotate(90deg); }
+.week summary h3 { margin: 0; flex: 1; }
+.wprog { font-size: .85rem; font-weight: 700; color: var(--muted); }
+.week[open] summary { margin-bottom: 10px; }
 .week h3 { margin: 0 0 8px; }
 .days { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .days li { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; padding: 8px 10px; border-radius: 14px; background: #fff; border: 2px solid var(--line); }

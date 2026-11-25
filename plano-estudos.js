@@ -122,11 +122,13 @@
   /* ---------- Quiz ---------- */
   function startQuiz(el) {
     const items = shuffle(cur.deck.items).slice(0, Math.min(8, cur.deck.items.length));
+    const abs = !!(cur.deck.topic && cur.deck.topic.abstract);
     q = { el, i: 0, score: 0, answered: false, qs: items.map((it, i) => {
       const hear = i % 2 === 1;
-      const seen = new Set([hear ? it.e : it.w]);
-      const others = shuffle(cur.deck.pool).filter(x => { const k = hear ? x.e : x.w; if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 3);
-      return { it, hear, opts: shuffle([it, ...others]) };
+      const byEmoji = hear && !abs;
+      const seen = new Set([byEmoji ? it.e : it.w]);
+      const others = shuffle(cur.deck.pool).filter(x => { const k = byEmoji ? x.e : x.w; if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 3);
+      return { it, hear, byEmoji, opts: shuffle([it, ...others]) };
     }) };
     renderQ();
   }
@@ -137,9 +139,9 @@
     const cq = qs[i];
     q.answered = false;
     el.innerHTML = `<div class="qbox"><p class="qcount">Pergunta ${i + 1} de ${qs.length}</p>
-      ${cq.hear ? `<button type="button" class="big-say" data-act="qsay">🔊 Ouvir a palavra</button><p class="qask">Qual figura combina com o que você ouviu?</p>`
+      ${cq.hear ? `<button type="button" class="big-say" data-act="qsay">🔊 Ouvir a palavra</button><p class="qask">${cq.byEmoji ? "Qual figura combina com o que você ouviu?" : "Qual palavra você ouviu?"}</p>`
         : `<div class="q-e">${cq.it.e}</div><p class="qask">Como se diz em ${esc(LANGS[cur.lang].name)}?</p>`}
-      <div class="opts${cq.hear ? " emo" : ""}">${cq.opts.map((o, k) => `<button type="button" class="opt" data-act="ans" data-k="${k}">${cq.hear ? o.e : esc(o.w)}</button>`).join("")}</div>
+      <div class="opts${cq.byEmoji ? " emo" : ""}">${cq.opts.map((o, k) => `<button type="button" class="opt" data-act="ans" data-k="${k}">${cq.byEmoji ? o.e : esc(o.w)}</button>`).join("")}</div>
       <div id="fb" aria-live="polite"></div></div>`;
     if (cq.hear) setTimeout(() => speak(cq.it.w, cur.lang, state.mode === "adult"), 300);
   }
@@ -220,6 +222,7 @@
       ? ["Vá devagar: repita cada palavra 3 vezes usando o botão 🐢.", "Estude 10 a 15 minutos por dia, sempre no mesmo horário.", "Errar faz parte! Volte em Aprender e tente de novo.", "Amanhã, revise as palavras de hoje antes das novas."]
       : ["Estude pouco tempo, mas todo dia, e comemore cada estrela! ⭐", "Cante a música do tema junto com o vídeo.", "Brinque de professor: ensine as palavras para alguém da família."];
     if (HOUSE.has(topic.id)) tips.push("Passeie pela casa e aponte para cada objeto dizendo o nome no novo idioma.");
+    if (cur.deck.topic && cur.deck.topic.abstract) tips.push("Veja um vídeo curto sobre o tema no novo idioma e conte, com suas palavras, o que entendeu.");
     if (cur.deck.topic && TIPS[cur.deck.topic.id]) tips.push(TIPS[cur.deck.topic.id]);
     return `<div class="res-grid">${links.map(r => `<a class="res" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer"><span class="r-i">${r.ic}</span><strong>${esc(r.label)}</strong><small>${esc(r.note)}</small></a>`).join("")}</div>
       <h3>💡 Dicas de estudo</h3><ul class="tips">${tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul>`;

@@ -1,6 +1,6 @@
 (() => {
   "use strict";
-  const { LANGS, topics, state, esc, itemsOf, buildPlan, logOf, isDone } = window.PK;
+  const { LANGS, GROUPS, topics, state, esc, itemsOf, buildPlan, logOf, isDone } = window.PK;
 
   const MODES = {
     kids: { icon: "🧒", title: "Criança", text: "Jogos, estrelas e voz animada" },
@@ -24,7 +24,7 @@
         <span class="flag">${L.flag}</span><strong>${esc(L.full)}</strong><em>${esc(L.hello)}</em>
         <span class="meter"><i style="width:${pct}%"></i></span><small>${done}/${plan.sessions.length} lições</small></a>`;
     }).join("");
-    const preview = topics.map(t => `<span class="pill" style="--c:${t.color}">${t.icon} ${esc(t.names.pt)}</span>`).join("");
+    const preview = GROUPS.map(g => `<div class="pgroup"><strong>${g.icon} ${esc(g.title)}</strong><div class="pills">${topics.filter(t => t.group === g.id).map(t => `<span class="pill" style="--c:${t.color}">${t.icon} ${esc(t.names.pt)}</span>`).join("")}</div></div>`).join("");
     return `
       <section class="hero">
         <div class="hero-emojis" aria-hidden="true"><span>🍎</span><span>🐱</span><span>🏠</span><span>🌈</span><span>🎈</span></div>
@@ -37,7 +37,28 @@
         <h2><b>3</b> Quanto tempo por dia?</h2><div class="chips">${mins}</div>
         <h2><b>4</b> O que você quer aprender?</h2><div class="lang-grid">${cards}</div>
       </section>
-      <section class="panel"><h2>🧸 O que vamos aprender</h2><div class="pills">${preview}</div></section>`;
+      <section class="panel"><h2>🧸 O que vamos aprender</h2><p class="sub">${topics.length} temas em ${GROUPS.length} grupos, do abecedário às cantigas.</p>${preview}</section>`;
+  }
+
+  function methodsHTML(lang) {
+    const m = (window.PLANO_METHODS || {})[lang];
+    if (!m) return "";
+    const L = LANGS[lang];
+    const steps = m.steps.map((s, i) => {
+      const t = topics.find(x => x.id === s.topic);
+      return `<li class="mstep"><span class="mi" aria-hidden="true">${s.ic}</span>
+        <div><strong>${i + 1}. ${esc(s.t)}</strong><p>${esc(s.d)}</p>
+        ${t ? `<a class="mlink" href="#${lang}/${t.id}">Praticar: ${t.icon} ${esc(t.names[lang])} →</a>` : ""}</div></li>`;
+    }).join("");
+    const links = m.links.map(l => {
+      const url = l.url || `https://www.youtube.com/results?search_query=${encodeURIComponent(l.q)}`;
+      return `<a class="res" href="${esc(url)}" target="_blank" rel="noopener noreferrer"><span class="r-i">${l.ic}</span><strong>${esc(l.label)}</strong><small>${l.url ? "site educativo" : "abre no YouTube"}</small></a>`;
+    }).join("");
+    return `<section class="panel method" style="--c:var(--l${L.col})">
+      <h2>🏫 Como se aprende a língua em: ${esc(m.country)}</h2>
+      <p class="sub">${esc(m.intro)}</p>
+      <ol class="msteps">${steps}</ol>
+      <h3>🔎 Veja como as crianças aprendem</h3><div class="res-grid">${links}</div></section>`;
   }
 
   function langView(lang) {
@@ -48,12 +69,16 @@
     const pct = Math.round(done / plan.sessions.length * 100);
     const mode = MODES[state.mode];
 
-    const topicCards = topics.map(t => {
+    const topicCard = t => {
       const stars = Math.max(0, ...plan.sessions.filter(s => s.topic === t).map(s => logOf(lang, s.key).quiz || 0));
       return `<a class="topic" href="#${lang}/${t.id}" style="--c:${t.color}">
         <span class="t-i">${t.icon}</span><strong>${esc(t.names[lang])}</strong>
         <small>${esc(t.names[state.native] !== t.names[lang] ? t.names[state.native] : t.desc[lang])}</small>
         <span class="stars" aria-label="${stars} de 3 estrelas">${"★".repeat(stars)}${"☆".repeat(3 - stars)}</span></a>`;
+    };
+    const topicCards = GROUPS.map(g => {
+      const list = topics.filter(t => t.group === g.id);
+      return list.length ? `<h3 class="group-title">${g.icon} ${esc(g.title)} <small>${list.length} ${list.length === 1 ? "tema" : "temas"}</small></h3><div class="topic-grid">${list.map(topicCard).join("")}</div>` : "";
     }).join("");
 
     const weeks = plan.weeks.map(w => {
@@ -85,7 +110,8 @@
           <a class="btn ghost" href="index.html#lang-${L.num}">📚 Curso de gramática</a>
         </div>
       </header>
-      <section class="panel"><h2>🎒 Temas livres</h2><p class="sub">Toque em qualquer tema para estudar na ordem que preferir.</p><div class="topic-grid">${topicCards}</div></section>
+      ${methodsHTML(lang)}
+      <section class="panel"><h2>🎒 Temas livres</h2><p class="sub">${topics.length} temas em ${GROUPS.length} grupos. Toque em qualquer um para estudar na ordem que preferir.</p>${topicCards}</section>
       <section class="panel"><h2>🗓️ Meu plano semana a semana</h2><p class="sub">Quatro dias de palavras novas e um dia de revisão por semana.</p><div class="weeks">${weeks}</div></section>`;
   }
 

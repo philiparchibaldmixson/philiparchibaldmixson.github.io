@@ -1,6 +1,6 @@
 (window.PLANO_TOPICS = window.PLANO_TOPICS || []).push(
 {
-  id: "alfabeto", icon: "🔤", color: "#ff6b6b",
+  id: "alfabeto", icon: "🔤", color: "#ff6b6b", letters: true,
   names: { pt: "Abecedário", en: "Alphabet", es: "Abecedario", it: "Alfabeto", fr: "Alphabet" },
   desc: { pt: "Uma palavra para cada letra", en: "One word for each letter", es: "Una palabra para cada letra", it: "Una parola per ogni lettera", fr: "Un mot pour chaque lettre" },
   perLang: {

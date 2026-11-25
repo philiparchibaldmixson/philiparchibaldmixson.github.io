@@ -2,7 +2,7 @@
   "use strict";
 
   // Windows has no flag emojis, so flags are real images.
-  const flagImg = cc => `<img class="fimg" src="https://flagcdn.com/w80/${cc}.png" srcset="https://flagcdn.com/w160/${cc}.png 2x" alt="" width="40" height="27" loading="lazy">`;
+  const flagImg = cc => `<img class="fimg" src="https://flagcdn.com/w80/${cc}.png" srcset="https://flagcdn.com/w160/${cc}.png 2x" alt="" width="40" height="27">`;
 
   const LANGS = {
     pt: { name: "Português", full: "Português Brasileiro", flag: flagImg("br"), voice: "pt-BR", col: 1, num: 6, kids: "para crianças", song: "música infantil", hello: "Olá!" },
@@ -12,8 +12,23 @@
     fr: { name: "Français", full: "Français", flag: flagImg("fr"), voice: "fr-FR", col: 5, num: 10, kids: "pour enfants", song: "chanson", hello: "Bonjour !" }
   };
 
-  const ORDER = ["alfabeto", "cumprimentos", "dias", "meses", "familia", "corpo", "feriados", "profissoes", "sala", "cozinha", "banheiro", "lavanderia", "externa", "churrasqueira"];
-  const topics = ORDER.map(id => (window.PLANO_TOPICS || []).find(t => t.id === id)).filter(Boolean);
+  // Learning order: each group is a block of the study plan.
+  const GROUPS = [
+    { id: "base", icon: "🌟", title: "Primeiros passos", ids: ["alfabeto", "sons", "numeros", "dezenas", "cores", "formas", "cumprimentos", "pronomes", "perguntas"] },
+    { id: "eu", icon: "🧑‍🤝‍🧑", title: "Eu e minha família", ids: ["familia", "corpo", "sentimentos", "roupas", "profissoes", "saude"] },
+    { id: "casa", icon: "🏠", title: "Minha casa", ids: ["comodos", "sala", "cozinha", "quarto", "banheiro", "lavanderia", "externa", "churrasqueira", "brinquedos"] },
+    { id: "comida", icon: "🍎", title: "Comidas e bebidas", ids: ["frutas", "legumes", "alimentos", "refeicoes"] },
+    { id: "natureza", icon: "🌳", title: "Natureza e animais", ids: ["bichos", "selvagens", "mar", "clima", "estacoes"] },
+    { id: "tempo", icon: "🗓️", title: "Tempo e datas", ids: ["dias", "meses", "ordinais", "rotina", "feriados"] },
+    { id: "cidade", icon: "🚌", title: "Cidade e viagens", ids: ["lugares", "transporte", "direcoes", "uteis"] },
+    { id: "escola", icon: "🏫", title: "Escola e ações", ids: ["material", "materias", "frasesaula", "verbos", "essenciais", "opostos"] },
+    { id: "rimas", icon: "🎶", title: "Cantigas, rimas e trava-línguas", ids: ["rimas"] }
+  ];
+  const topics = GROUPS.flatMap(g => g.ids.map(id => {
+    const t = (window.PLANO_TOPICS || []).find(x => x.id === id);
+    if (t) t.group = g.id;
+    return t;
+  }).filter(Boolean));
 
   const STORE = "plano-kids:v1";
   const state = Object.assign({ native: "pt", mode: "kids", minutes: 15, mute: false, big: false, log: {} }, (() => {
@@ -30,7 +45,7 @@
     if (topic.perLang) {
       return topic.perLang[lang].map(s => {
         const [e, w] = s.split("|");
-        return { e, w, t: "", l: w.normalize("NFD")[0].toUpperCase() };
+        return { e, w, t: "", l: topic.letters ? w.normalize("NFD")[0].toUpperCase() : "" };
       });
     }
     return topic.rows.map(r => {
@@ -162,5 +177,5 @@
     setTimeout(() => wrap.remove(), 3500);
   }
 
-  window.PK = { LANGS, topics, state, save, esc, norm, shuffle, itemsOf, perDay, buildPlan, getDeck, logOf, isDone, setLog, resources, speak, toast, confetti };
+  window.PK = { LANGS, GROUPS, topics, state, save, esc, norm, shuffle, itemsOf, perDay, buildPlan, getDeck, logOf, isDone, setLog, resources, speak, toast, confetti };
 })();

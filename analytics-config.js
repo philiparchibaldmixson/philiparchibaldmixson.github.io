@@ -8,5 +8,5 @@
   Enquanto o código estiver vazio, nenhum acesso é coletado.
 */
 window.ANALYTICS = {
-  goatcounter: "linguaacademy"
+  goatcounter: "linguaacademy.goatcounter.com"
 };

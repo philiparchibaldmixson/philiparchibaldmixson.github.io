@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel de métricas · Língua Academy</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#7b5cff">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="metricas.css">
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="index.html" aria-label="Voltar ao site">
+      <span class="brand-mark">LA</span>
+      <span class="brand-name">Língua Academy</span>
+    </a>
+    <span class="tag-page">Painel de métricas</span>
+    <div class="top-actions">
+      <a class="chip" href="index.html">← Voltar ao site</a>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="dash">
+    <section class="status-hero" id="statusHero" data-state="running">
+      <div class="status-orb" id="statusOrb" aria-hidden="true"></div>
+      <div class="status-text">
+        <p class="eyebrow">Saúde do site</p>
+        <h1 id="statusTitle">Verificando…</h1>
+        <p class="lead" id="statusSub">Testando páginas, arquivos e serviços externos.</p>
+        <div class="status-actions">
+          <button class="btn-run" id="runBtn" type="button">↻ Verificar agora</button>
+          <span class="status-meta" id="statusMeta"></span>
+        </div>
+      </div>
+      <div class="ring" id="ring" role="img" aria-label="Progresso da verificação">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" id="ringFg" cx="60" cy="60" r="52"/></svg>
+        <strong id="ringNum">0%</strong>
+      </div>
+    </section>
+
+    <section class="kpis" id="kpis" aria-label="Resumo do conteúdo"></section>
+
+    <section class="block" id="audience" aria-labelledby="audTitle">
+      <div class="block-head">
+        <h2 id="audTitle"><span aria-hidden="true">👥</span> Audiência</h2>
+        <span class="pill-note" id="audNote"></span>
+      </div>
+      <div id="audBody"></div>
+    </section>
+
+    <section class="block" aria-labelledby="chkTitle">
+      <div class="block-head">
+        <h2 id="chkTitle"><span aria-hidden="true">🩺</span> Verificações</h2>
+        <span class="pill-note" id="chkNote"></span>
+      </div>
+      <div class="groups" id="groups"></div>
+    </section>
+
+    <section class="block" aria-labelledby="perfTitle">
+      <div class="block-head">
+        <h2 id="perfTitle"><span aria-hidden="true">⚡</span> Desempenho</h2>
+        <span class="pill-note" id="perfNote"></span>
+      </div>
+      <div id="perfBody" class="perf"></div>
+    </section>
+
+    <section class="block" aria-labelledby="pubTitle">
+      <div class="block-head">
+        <h2 id="pubTitle"><span aria-hidden="true">🚀</span> Atualizações</h2>
+        <span class="pill-note" id="pubNote"></span>
+      </div>
+      <div class="upd-grid">
+        <div class="card" id="siteUpd"><p class="loading">Aguardando a verificação…</p></div>
+        <div class="card">
+          <h3>Código no GitHub <span class="h3-note" id="ghNote"></span></h3>
+          <ol class="commits" id="commits"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="block privacy" aria-labelledby="privTitle">
+      <h2 id="privTitle"><span aria-hidden="true">🔒</span> Privacidade</h2>
+      <p>A contagem de acessos usa o GoatCounter, que não usa cookies e não guarda dados pessoais, o que combina com a LGPD. Este painel é público, como qualquer página do site; ele mostra apenas totais.</p>
+      <p><button class="btn-ghost" id="skipBtn" type="button">Não contar meus acessos neste navegador</button> <span class="skip-state" id="skipState"></span></p>
+    </section>
+  </main>
+
+  <footer class="footer dash-foot">
+    <p>Língua Academy · painel de métricas</p>
+    <a href="#top">Voltar ao topo ↑</a>
+  </footer>
+
+  <script src="manifest.js"></script>
+  <script src="analytics-config.js"></script>
+  <script src="metricas.js"></script>
+  <script src="metricas-saude.js"></script>
+</body>
+</html>
